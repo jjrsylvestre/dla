@@ -1,0 +1,27 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+	\node[point] at (0,0) (p) [label=above left:$P_1$] {};
+	\node[point] at (2,-3) (q) [label=below right:$Q_1$] {};
+	\draw[vector] (p) to node[below left] {$\uvec{u}$} (q);
+	\draw[dashed] (p) to node[above] {$2$} (2,0) to node[right] {$3$} (q);
+	\begin{scope}[xshift=4cm,yshift=2cm]
+		\node[point] at (0,0) (p) [label=above left:$P_2$] {};
+		\node[point] at (2,-3) (q) [label=below right:$Q_2$] {};
+		\draw[vector] (p) to node[below left] {$\uvec{u}$} (q);
+		\draw[dashed] (p) to node[above] {$2$} (2,0) to node[right] {$3$} (q);
+	\end{scope}
+	\begin{scope}[xshift=5cm,yshift=-3cm]
+		\node[point] at (0,0) (p) [label=above left:$P_3$] {};
+		\node[point] at (2,-3) (q) [label=below right:$Q_3$] {};
+		\draw[vector] (p) to node[below left] {$\uvec{u}$} (q);
+		\draw[dashed] (p) to node[above] {$2$} (2,0) to node[right] {$3$} (q);
+	\end{scope}
+	\begin{scope}[xshift=9cm]
+		\node[point] at (0,0) (p) [label=above left:$P_4$] {};
+		\node[point] at (2,-3) (q) [label=below right:$Q_4$] {};
+		\draw[vector] (p) to node[below left] {$\uvec{u}$} (q);
+		\draw[dashed] (p) to node[above] {$2$} (2,0) to node[right] {$3$} (q);
+	\end{scope}
+\end{tikzpicture}

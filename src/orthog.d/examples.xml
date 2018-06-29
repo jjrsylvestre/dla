@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-orthog-examples">
+
+<title>Examples</title>
+
+<subsection xml:id="subsection-orthog-examples-checking">
+<title>Orthogonal vectors</title>
+
+<paragraphs><title>Testing orthogonality</title><p>
+As in <xref ref="activity-orthog-guess-orthog-in-plane" />, and as discussed in
+<xref ref="subsection-orthog-concepts-orthog" />, it's fairly easy to find orthogonal vectors in <m>\R^2</m>. And it's not that much more difficult in <m>\R^3</m>.
+<ol>
+	<li>
+	The vectors <m>\uvec{u} = (3,7)</m> and <m>\uvec{v} = (-7,3)</m> are orthogonal in <m>\R^2</m>, because
+	<me> \udotprod{u}{v} = 3\cdot (-7) + 7\cdot 3 = -21 + 21 = 0. </me>
+	</li>
+	<li>
+	The vectors <m>\uvec{u} = (3,7,1)</m> and <m>\uvec{v} = (-7,2,7)</m> are orthogonal in <m>\R^3</m>, because
+	<me> \udotprod{u}{v} = 3\cdot (-7) + 7\cdot 2 + 1\cdot 7 = -21 + 14 + 7 = 0. </me>
+	</li>
+</ol>
+</p></paragraphs>
+
+<paragraphs><title>Orthogonality of the standard basis vectors</title><p>
+	In <m>\R^n</m>, the standard basis vectors are always orthogonal to each other. When we compute <m>\dotprod{\uvec{e}_i}{\uvec{e}_j}</m> with <m>i\neq j</m>, the <m>1</m> in the <m>\nth[i]</m> component of <m>\uvec{e}_i</m> won't line up with the <m>1</m> in the <m>\nth[j]</m> component of <m>\uvec{e}_j</m>, and we'll get a computation something like
+	<me>
+		\dotprod{\uvec{e}_i}{\uvec{e}_j}
+		= 0\cdot 0 + \dotsb + 0\cdot 0 + 1\cdot 0 + 0 \cdot 0 + \dotsb + 0\cdot 0 + 0\cdot 1 + 0 \cdot 0 + \dotsb + 0\cdot 0
+		= 0.
+	</me>
+</p></paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-examples-proj">
+<title>Orthogonal projection</title>
+
+<p>Let's complete the computations from <xref ref="activity-orthog-proj" />. The line through the origin and parallel to <m>\uvec{a} = (3,1)</m> consists of all scalar multiples of <m>\uvec{a}</m>. We would like to know the following.
+<ul>
+	<li> What is the point on this line closest to the point <m>Q(4,4)</m>? </li>
+	<li> What is the distance from <m>Q</m> to the line? </li>
+</ul>
+</p>
+
+<p>
+We know that the point we are looking is at the terminal point of <m>\proj_{\uvec{a}} \uvec{u}</m>, where <m>\uvec{u} = \abray{OQ} = (4,4)</m>. So compute
+<me>
+	\proj_{\uvec{a}} \uvec{u}
+	= \frac{4\cdot 3 + 4\cdot 1}{3^2 + 1^2}\; (3,1)
+	= \frac{8}{5} (3,1)
+	= \left(\frac{24}{5}, \frac{8}{5}\right).
+</me>
+So the point on the line closest to <m>Q</m> is <m>P(24/5,8/5)</m>. Now, the vector <m>\uvec{n} = \abray{PQ} = (-4/5,12/5)</m> will be a normal vector for the line, extending from <m>P</m> to <m>Q</m>, and so the norm of this vector represents the (perpendicular) distanct between <m>Q</m> and the line:
+<me>
+	d
+	= \unorm{n}
+	= \sqrt{\left(-\frac{4}{5}\right)^2 + \left(\frac{12}{5}\right)^2}
+	= \sqrt{\frac{160}{25}}
+	= \frac{4\sqrt{10}}{5}.
+</me>
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-orthog-examples-cross-product">
+<title>Cross product</title>
+
+<p>Here is an example of using the cross product to answer a geometry question in <m>\R^3</m>. Suppose we would like to determine the equation of the plane in <m>\R^3</m> that passes through the point <m>(3,3,3)</m> and is parallel to the vectors <m>\uvec{u} = (1,2,-3)</m> and <m>\uvec{v} = (0,2,5)</m>.
+</p><p>
+The equation we are looking for is of the form <m>ax+by+cz = d</m>. We know that <m>a,b,c</m> can be taken to be the components of any normal vector for the plane. A normal vector for the plane must be orthogonal to the plane, and hence must be orthogonal to each of <m>\uvec{u}</m> and <m>\uvec{v}</m>. We can use the cross product to compute such a vector:
+<md>
+	<mrow>
+		\uvec{n}
+		= \ucrossprod{u}{v}
+		\amp
+		= \left\lvert\begin{array}{rrr}
+			\ivec{} \amp \jvec{} \amp \kvec{} \\
+			1 \amp 2 \amp -3 \\
+			0 \amp 2 \amp 5
+		\end{array}\right\rvert
+	</mrow><mrow>
+		\amp
+		= \ivec{}\bbrac{2\cdot 5 - (-3)\cdot 2}
+		- \jvec{}\bbrac{1\cdot 5 - (-3)\cdot 0}
+		+ \kvec{}(1\cdot 2 - 2\cdot 0)
+	</mrow>
+	<mrow> \amp = \injkvec{16}{5}{2}. </mrow>
+</md>
+So we can use <m>16x - 5y + 2z = d</m> as the equation of the plane, for some as-yet-to-be-determined value of <m>d</m>. But we also know that the plane passes through the point <m>(3,3,3)</m>, so we must have
+<me> 16 \cdot 3 - 5\cdot 3 + 2\cdot 3 = d \qquad\implies\qquad d = 39. </me>
+Thus, the plane can be described algebraically by the equation <m>16x - 5y + 2z = 39</m>, or in point-normal form by the equation <m>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)}</m>, where <m>\uvec{n}</m> is as computed above, <m>\uvec{x}_0</m> is the
+<q>base</q> point <m>(3,3,3)</m>, and <m>\uvec{x} = (x,y,z)</m> is a variable point.
+</p>
+
+</subsection>
+
+<!-- Future TODO activities 8 and 9 ? -->
+<!-- Future TODO point-normal form for lines/planes in activity set ? -->
+
+</section>

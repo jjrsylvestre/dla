@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-elem-matrices-theory">
+
+<title>Theory</title>
+
+<introduction>
+As mentioned, elementary matrices are precisely the connection we need between systems of equations and row operations on one hand and matrix multiplication and inverses on the other.
+</introduction>
+
+<subsection xml:id="subsection-elem-matrices-theory-elem-inverses">
+<title>Inverses of elementary matrices</title>
+
+<p>Let's first record an important property of elementary matrices we encountered in
+<xref ref="section-elem-matrices-concepts" />.</p>
+
+<lemma xml:id="lemma-elem-matrices-elem-inverse">
+
+	<statement><p>
+		Every elementary matrix is invertible, and its inverse is also an elementary matrix.
+	</p></statement>
+
+	<proof><p>
+		We have already essentially proved this statement in
+		<xref ref="subsection-elem-matrices-concepts-inverses-of-elem-matrices" />.
+	</p></proof>
+
+</lemma>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-theory-inverses">
+<title>Inverses versus row operations</title>
+
+<p>Now let's connect inverses to row reduction via elementary matrices.</p>
+
+<theorem xml:id="theorem-elem-matrices-equiv-to-invertible">\labelthm{equiv.to.invertible}
+
+	<statement><p>
+	For a square matrix <m>A</m>, the following are equivalent.
+	<ol>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-invertible">
+		Matrix <m>A</m> is invertible.
+		</li>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-every-sys">
+		Every linear system that has <m>A</m> as a coefficient matrix has one unique solution.
+		</li>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-homog-sys">
+		The homogeneous system <m>A\uvec{x} = \zerovec</m> has only the trivial solution.
+		</li>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-some-sys">
+		<!-- used to be a separate statement with xml:id="theorem-elem-matrices-more-equiv-to-invertible" -->
+		There is some linear system that has <m>A</m> as a coefficient matrix and has one unique solution.
+		</li>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-rank">
+		The rank of <m>A</m> is equal to the size of <m>A</m>.
+		</li>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-rref">
+		The RREF of <m>A</m> is the identity.
+		</li>
+		<li xml:id="theorem-elem-matrices-equiv-to-invertible-prod-elem">
+		Matrix <m>A</m> can be expressed as a product of some number of elementary matrices.
+		</li>
+	</ol>
+	</p></statement>
+
+	<proof>
+		<p>We will show that each statement of the theorem implies the next.</p>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-every-sys">Statement</xref>
+			</title>
+			<p>
+			We have already seen in
+			<xref ref="proposition-inverses-inv-coeff-implies-one-sol" />
+			that when <m>A</m> is invertible, then also every system with <m>A</m> as coefficient matrix will have one unique solution.
+			</p>
+		</case>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-every-sys">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-homog-sys">Statement</xref>
+			</title>
+			<p>
+			If
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-every-sys">Statement</xref>
+			is true about <m>A</m>, then every system <m>A\uvec{x}=\uvec{b}</m> with <m>A</m> as coefficient matrix has one unique solution. In particular, the homogeneous system <m>A\uvec{x}=\zerovec</m> (<ie /> in the case that <m>\uvec{b}=\zerovec</m>) has one unique solution. But we know that a homogeneous system always has the trivial solution <m>\uvec{x}=\zerovec</m>, so that must be the one unique solution.
+			</p>
+		</case>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-homog-sys">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-some-sys">Statement</xref>
+			</title>
+			<p>
+			We need to verify that there is <em>at least one</em> example of a system
+			<m>A\uvec{x}=\uvec{b}</m> that has one unique solution. But we are already assuming that the homogeneous system <m>A\uvec{x}=\zerovec</m> has one unique solution, so the required example is provided by taking <m>\uvec{b} = \zerovec</m>.
+			</p>
+		</case>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-some-sys">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-rank">Statement</xref>
+			</title>
+			<p>
+			Suppose that
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-some-sys">Statement</xref>
+			is true, so that there is at least one example of a system <m>A\uvec{x}=\uvec{b}</m> that has one unique solution. Imagine trying to solve this system by row reducing the associated augmented matrix:
+			<me>
+				\left[\begin{array}{c|c} A \amp \uvec{b} \end{array}\right]
+				\rowredarrow
+				\left[\begin{array}{c|c} \RREF(A) \amp \uvec{b}' \end{array}\right],
+			</me>
+			where <m>\uvec{b}'</m> is whatever appears in the <q>equals</q> column after all of our row operations. When we have arrived at the RREF of <m>A</m> in the coefficient matrix part on the left, and are ready to solve the simplified solution, there should not be be any free variables. Because free variables would lead to parameters, and hence infinite solutions, when we are assuming that this particular system has only one unique solution. So <em>every</em> column in the RREF of <m>A</m> must have a leading one. By definition, the rank of <m>A</m> is equal to the number of leading ones in its RREF, and so for this <m>A</m> the rank is equal to the number of columns. But <m>A</m> is square, so the number of columns is the same as the size of <m>A</m>.
+			</p>
+		</case>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-rank">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-rref">Statement</xref>
+			</title>
+			<p>
+			If <m>A</m> is square, so is its RREF, and both matrices have the same size. And if the rank of <m>A</m> is equal to its size, then every column in the RREF of <m>A</m> must have a leading one, and these leading ones must march down the diagonal of <m>A</m>. In a RREF matrix, a column that contains a leading one must have every other entry equal to zero. Thus, the RREF of <m>A</m> must be the identity matrix.
+			</p>
+		</case>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-rref">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>
+			</title>
+			<p>
+			Suppose that
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-rref">Statement</xref>
+			is true, so that <m>A</m> can be reduced to the identity. That is, <m>A</m> can be reduced to <m>I</m> by some sequence of elementary row operations. Each of these operations has a corresponding elementary matrix, so there is some collection of elementary matrices <m>E_1,E_2,\dotsc,E_{\ell-1},E_\ell</m> so that
+			<md><mrow tag="star" xml:id="equation-elem-matrices-theory-elem-row-reduce-to-I-eqn">
+				E_\ell E_{\ell-1} \dotsm E_2 E_1 A = I.
+			</mrow></md>
+			</p>
+			<aside><title>Recall</title><p>
+				The elementary matrices need to be multiplied in reverse order because we apply the first row operation to <m>A</m> by multiplying <m>E_1A</m>, and then the second operation is applied to <em>that result</em> by multiplying <m>E_2(E_1A)</m>. And so on.
+			</p></aside>
+			<p>
+			Now, by <xref ref="lemma-elem-matrices-elem-inverse" />, each of <m>E_1,E_2,\dotsc,E_{\ell-1},E_\ell</m> is invertible. Therefore, so is the product
+			<me> E_\ell E_{\ell-1} \dotsm E_2 E_1, </me>
+			with inverse
+			<me> \inv{E}_1\inv{E}_2\dotsm \inv{E}_{\ell-1}\inv{E}_\ell </me>
+			(<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Rule</xref>
+			of
+			<xref ref="proposition-inverses-props-of-inverses" />).
+			</p><p>
+			Using this inverse, we can isolate <m>A</m> in <xref ref="equation-elem-matrices-theory-elem-row-reduce-to-I-eqn" /> above:
+			<md>
+				<mrow>E_\ell \dotsm E_2 E_1 A \amp = I</mrow>
+				<mrow>
+					\inv{(E_\ell \dotsm E_2 E_1)} (E_\ell \dotsm E_2 E_1) A
+					\amp = \inv{(E_\ell \dotsm E_2 E_1)} I \phantom{\inv{(E_\ell \dotsm E_2 E_1)}}
+				</mrow>
+				<mrow>I A \amp = \inv{(E_\ell \dotsm E_2 E_1)}</mrow>
+				<mrow>A \amp = \inv{E}_1\inv{E}_2\dotsm \inv{E}_\ell.</mrow>
+			</md>
+			So, we have <m>A</m> expressed as a product of the <em>inverses</em> of a collection of elementary matrices, but by <xref ref="lemma-elem-matrices-elem-inverse" /> each of these inverses is actually an elementary matrix as well, and so we really have <m>A</m> expressed as a product of a collection of elementary matrices, as desired.
+			</p>
+		</case>
+
+		<case>
+			<title>
+			Whenever
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>
+			is true, then so is
+			<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+			</title>
+			<p>
+				If <m>A</m> is equal to a product of elementary matrices, then since each of those elementary matrices is invertible (<xref ref="lemma-elem-matrices-elem-inverse" />), their product (and hence <m>A</m>) is also invertible
+				(<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Rule</xref>
+				of
+				<xref ref="proposition-inverses-props-of-inverses" />).
+			</p>
+		</case>
+
+		<paragraphs><title>Conclusion</title><p>
+		We now have a circle of logical deductions. Starting with the knowledge that any one of the seven statements is true for a particular matrix <m>A</m>, we can deduce from the logic above that the next statement is true for <m>A</m>, and then from that, that the next statement is true for <m>A</m>, and so on. When we get to the last statement, the logic above then requires that the first statement will also be true for <m>A</m>, and we can continue from there on to the second statement, and so on, until we are sure that <em>all</em> statements are true for <m>A</m>. Therefore, the seven statements are equivalent.
+		</p></paragraphs>
+
+	</proof>
+
+</theorem>
+
+<remark><p><ul>
+	<li>
+	In this theorem, the claim that these seven statements are equivalent for a particular matrix <m>A</m> means that if we know that any <em>one</em> of the statements is true for <m>A</m>, then it must be that <em>all seven</em> statements are true for <m>A</m>. For example, if we had a square matrix that we were able to row reduce to the identity, then the theorem tells us that that matrix must be invertible, that every linear system with that matrix as coefficient matrix has one unique solution, and so on. On the other hand, if we know that any one of the statements is <em>false</em> for a particular matrix <m>A</m>, then it must be that <em>all seven</em> statements are <em>false</em> for <m>A</m>. As soon as one statement is known to be false for a particular square matrix, it becomes impossible for any of the other statements to be true for that matrix, since knowing that this other statement is true implies that <em>all seven</em> statements are true for it, including the original statement that we already knew was false. And a statement cannot be both true and false for a particular matrix <m>A</m>.
+	</li>
+	<li>
+	It may seem unneccessary or even redundant to have <em>all three</em> of
+	<xref
+		first="theorem-elem-matrices-equiv-to-invertible-every-sys"
+		last="theorem-elem-matrices-equiv-to-invertible-some-sys"
+	>Statements</xref>
+	included in the list in
+	<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
+	but these statements are definitely not the same.
+	The equivalence of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-every-sys">Statement</xref>
+	tells us that when a matrix is invertible, then every system corresponding to that coefficient matrix has one unique solution, and vice versa. But the reverse connection would be difficult to use in practice: would you want to check that <em>every</em> system with a particular square coefficient matrix has one unique solution in order to conclude that the matrix is invertible? There are infinity of possible systems to check! The equivalence of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-some-sys">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+	makes the reverse logic easier in practice: if you have just <em>one</em> example of a linear system with a square coefficient matrix that has one unique solution, then you can conclude that the matrix is invertible. Even better, the equivalence of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-homog-sys">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+	tells you that you can just check the corresponding <em>homogeneous</em> system as your one example of a system with that particular coefficient matrix that has only one unique solution. Furthermore, the equivalence of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-every-sys">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-some-sys">Statement</xref>
+	tells you that once you know <em>one</em> example of a system with that particular coefficient matrix that has only one unique solution, then you can conclude without checking that <em>every</em> system with that coefficient matrix has only one unique solution.
+	</li>
+	<li>
+	In the proof of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
+	the most important link is the one between
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-rref">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>,
+	as this equivalence provides the link between row reducing and elementary matrices. In practice, the link between
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>,
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+	is also important, as it helps us to compute the inverse of a matrix. But in further developing matrix theory, the most important link is the one between
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-homog-sys">Statement</xref>,
+	as it will allow us to obtain further general properties of inverses. In particular, these statements will figure into the proofs of the propositions in the next subsection.
+	</li>
+</ul></p></remark>
+
+<!-- TODO these could be included but are not really necessary.
+     Note that they are still in LaTeX, not PreTeXt
+
+%Here are some more equivalent statements; we omitted from the statement of \Nrefthm{equiv.to.invertible} so as to not interfere with the logic of the proof of that theorem.
+%<theorem>
+%	For a square matrix <m>A</m> of size <m>n \times n</m>, the following are equivalent to the statements in \Nrefthm{equiv.to.invertible}.
+%	<ol>
+%		\setcounter{enumi}{\value{savelistcount}}
+%		<li> For every <m>n\times 1</m> column vector <m>\uvec{b}</m>, the system <m>A\uvec{x}=\uvec{b}</m> has one unique solution.
+%		<li> For some column vector <m>\uvec{b}</m>, the system <m>A\uvec{x}=\uvec{b}</m> has one unique solution.
+%		<li> For every <m>n\times 1</m> column vector <m>\uvec{b}</m>, the system <m>A\uvec{x}=\uvec{b}</m> is consistent.
+%	</ol>
+%</theorem>
+-->
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-theory-more-inverses-props">
+<title>More properties of inverses</title>
+
+<p>Using our new connections between inverses and row operations, we can expand our knowledge about inverses in general.</p>
+
+<proposition xml:id="proposition-elem-matrices-check-only-left-inverse">
+
+	<statement><p>
+	Suppose <m>A</m> and <m>B</m> are square matrices of the same size such that <m>BA=I</m>. Then <m>A</m> is invertible with <m>\inv{A} = B</m>.
+	</p></statement>
+
+	<proof>
+		<p>
+		We are assuming that we have square matrices <m>A</m> and <m>B</m> so that <m>BA=I</m>. We would first like to check that <m>A</m> is invertible. By <xref ref="theorem-elem-matrices-equiv-to-invertible" />, we can instead check that the homogeneous system <m>A\uvec{x}=\zerovec</m> has only the trivial solution. So suppose that <m>\uvec{x}_0</m> is a solution to this system, so that <m>A\uvec{x}_0 = \zerovec</m>. But then we can carry out two different simplifications of <m>BA\uvec{x}_0</m>, one using the assumption <m>BA=I</m> and one using the assumption <m>A\uvec{x}_0 = \zerovec</m>:
+		<md>
+			<mrow>
+				BA\uvec{x}_0 \amp= (BA)\uvec{x}_0 \amp
+				BA\uvec{x}_0 \amp= B(A\uvec{x}_0)
+			</mrow><mrow>
+				\amp= I\uvec{x}_0 \amp
+				\amp= B\zerovec
+			</mrow><mrow>
+				\amp= \uvec{x}_0, \amp
+				\amp= \zerovec.
+			</mrow>
+		</md>
+		Since both simplifications are correct, we have <m>\uvec{x}_0 = \zerovec</m>. So what we have discovered is that because there exists a matrix <m>B</m> so that <m>BA=I</m>, then whenever we think we have a solution <m>\uvec{x}_0</m> to the system <m>A\uvec{x}=\zerovec</m> that solution turns out to be the trivial solution. Thus, <m>A\uvec{x}=\zerovec</m> must have <em>only</em> the trivial solution, and hence <m>A</m> is invertible (<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+		</p><p>
+		Now that we know that <m>A</m> is invertible, we can use its inverse to manipulate the equality <m>BA=I</m>:
+		<md>
+			<mrow>BA \amp= I</mrow>
+			<mrow>(BA)\inv{A} \amp= I\inv{A}</mrow>
+			<mrow>B(A\inv{A}) \amp= \inv{A}</mrow>
+			<mrow>BI \amp= \inv{A}</mrow>
+			<mrow>B \amp= \inv{A}.</mrow>
+		</md>
+		So, we have that <m>A</m> is invertible and <m>\inv{A} = B</m>, as desired.
+		</p>
+	</proof>
+
+</proposition>
+
+<remark><p>
+Recall that by definition, for <m>B</m> to be the inverse of <m>A</m> we would need to check that <em>both</em> <m>BA=I</m> <em>and</em> <m>AB=I</m> are true. We needed both orders of multiplication in the definition of <term>inverse matrix</term> because order of matrix multiplication matters, and we couldn't be sure that both <m>BA</m> and <m>AB</m> would produce the same result. Via the theory of elementary matrices, we now have the above proposition that allows us to check an inverse by <em>only</em> checking <m>BA=I</m>.
+</p></remark>
+
+<p>
+There is nothing special about <m>BA=I</m> versus <m>AB=I</m>. The previous and following propositions combine to tell us we only need to verify <em>only one</em> of <m>BA=I</m> or <m>AB=I</m> to check that <m>B</m> is the inverse of <m>A</m>.
+</p>
+
+<proposition xml:id="proposition-elem-matrices-check-only-right-inverse">
+
+	<statement><p>
+	Suppose <m>A</m> and <m>B</m> are square matrices of the same size such that <m>AB=I</m>. Then <m>A</m> is invertible with <m>\inv{A} = B</m>.
+	</p></statement>
+
+	<proof><p>
+	Here, we are assuming that we have square matrices <m>A</m> and <m>B</m> so that <m>AB=I</m>, and we again would like to know that <m>A</m> is invertible and that <m>B=\inv{A}</m>. However, instead of appealing back to
+	<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
+	we can use
+	<xref ref="proposition-elem-matrices-check-only-left-inverse" />
+	<em>with the roles of <m>A</m> and <m>B</m> reversed</em>: since <m>AB=I</m>,
+	<xref ref="proposition-elem-matrices-check-only-left-inverse" />
+	says that <m>B</m> must be invertible and that <m>A = \inv{B}</m>. But inverses are themselves invertible (<xref ref="proposition-inverses-props-of-inverses-inverse-inverse">Rule</xref>
+	of
+	<xref ref="proposition-inverses-props-of-inverses" />),
+	so <m>A</m> is invertible with
+	<me> \inv{A} = \inv{(\inv{B})} = B, </me>
+	as desired.
+	</p></proof>
+
+</proposition>
+
+<p>
+In
+<xref ref="proposition-inverses-props-of-inverses" />,
+we learned that products and powers of invertible matrices are always invertible. It turns out that a product of matrices can <em>only</em> be invertible if the matrices making up the product are all invertible, and a power of a matrix can <em>only</em> be invertible if the base matrix is invertible.
+</p>
+
+<proposition xml:id="proposition-elem-matrices-converse-props-of-inverses">
+
+	<statement><p><ol>
+		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-product">
+		If the product <m>MN</m> is invertible, where <m>M</m> and <m>N</m> are square matrices of the same size, then both <m>M</m> and <m>N</m> must be invertible.
+		</li>
+		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-extended-product">
+		If the product <me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me> is invertible, where <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are square matrices all of the same size, then each of <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> must be invertible.
+		</li>
+		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-power">
+		If power <m>M^\ell</m> is invertible, where <m>M</m> is a square matrix and <m>\ell</m> is positive integer, then <m>M</m> must be invertible.
+		</li>
+	</ol></p></statement>
+
+	<proof><p><ol>
+
+		<li><p>
+		Suppose that <m>MN</m> is invertible. First, let's check that <m>N</m> must also be invertible. By <xref ref="theorem-elem-matrices-equiv-to-invertible" />, we may instead check that the homogeneous system <m>N\uvec{x}=\zerovec</m> has only the trivial solution. So suppose that <m>\uvec{x}_0</m> is a solution to this system, so that <m>N\uvec{x}_0 = \zerovec</m>. But then,
+		<me> MN\uvec{x}_0 = M(N\uvec{x}_0) = M\zerovec = \zerovec, </me>
+		so that <m>\uvec{x}_0</m> is <em>also</em> a solution to the homogeneous system <m>MN\uvec{x}=\zerovec</m>. But <m>MN</m> is invertible, so that system has <em>only</em> the trivial solution (<xref ref="theorem-elem-matrices-equiv-to-invertible" />). Thus, <m>\uvec{x}_0</m> must be trivial, and thus only the trivial solution is possible for the system <m>N\uvec{x}=\zerovec</m>.
+		</p><p>
+		Now let's check that <m>M</m> is invertible. Again, we will instead check that the homogeneous system <m>M\uvec{x}=\zerovec</m> has only the trivial solution. So suppose that <m>\uvec{x}_1</m> is a solution to this system, so that <m>M\uvec{x}_1 = \zerovec</m>. But then consider the column vector <m>\inv{N}\uvec{x}_1</m>. (Remember, we have already argued that <m>N</m> is invertible.) This column vector satisfies
+		<me> MN(\inv{N}\uvec{x}_1) = M(N\inv{N})\uvec{x}_1 = MI\uvec{x}_1 = M\uvec{x}_1 = \zerovec, </me>
+		and so <m>\uvec{x}=\inv{N}\uvec{x}_1</m> is a solution to the homogeneous system <m>MN\uvec{x}=\zerovec</m>. But again, this system has only the trivial solution by invertibility of <m>MN</m>, so we must have <m>\inv{N}\uvec{x}_1=\zerovec</m>. This gives us two different ways to simplify <m>N\inv{N}\uvec{x}_1</m>:
+		<md>
+			<mrow>
+				N\inv{N}\uvec{x}_1 \amp= (N\inv{N})\uvec{x}_1 \amp
+				N\inv{N}\uvec{x}_1 \amp= N(\inv{N}\uvec{x}_1)
+			</mrow><mrow>
+				\amp= I\uvec{x}_1 \amp
+				\amp= N\zerovec
+			</mrow><mrow>
+				\amp= \uvec{x}_1, \amp
+				\amp= \zerovec.
+			</mrow>
+		</md>
+		Since both simplifications are correct, we have <m>\uvec{x}_1 = \zerovec</m>, and thus only the trivial solution is possible for the system <m>M\uvec{x}=\zerovec</m>.
+		</p></li>
+
+		<li>We leave the proof of this statement to you, the reader.</li>
+
+		<li>
+		This is the special case of
+		<xref
+			ref="proposition-elem-matrices-converse-props-of-inverses-extended-product"
+		>Statement</xref>
+		where each of <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> is equal to <m>M</m>.
+		</li>
+
+	</ol></p></proof>
+
+</proposition>
+
+<p>
+As in <xref ref="proposition-inverses-props-of-singular" />, we can turn the statements of <xref ref="proposition-elem-matrices-converse-props-of-inverses" /> around to create new facts about singular (<ie /> non-invertible) matrices. Note that the statements below are <em>new</em> statements about singular matrices, related but <em>not</em> equivalent to the statements in
+<xref ref="proposition-inverses-props-of-singular" />.
+</p>
+
+
+<proposition xml:id="proposition-elem-matrices-converse-props-of-singular">
+
+	<statement><p><ol>
+		<li	xml:id="proposition-elem-matrices-converse-props-of-singular-product">
+		If one or both of <m>M</m> or <m>N</m> are singular, where <m>M</m> and <m>N</m> are square matrices of the same size, then the product <m>MN</m> will also be singular.
+		</li>
+		<li	xml:id="proposition-elem-matrices-converse-props-of-singular-extended-product">
+		If one or more of the matrices <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are singular, where <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are square matrices all of the same size, then the product <me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me> will also be singular.
+		</li>
+		<li	xml:id="proposition-elem-matrices-converse-props-of-singular-power">
+		If <m>M</m> is a singular square matrix, then every power <m>M^\ell</m> (<m>\ell\ge 1</m>) will also be singular.
+		</li>
+	</ol></p></statement>
+
+	<proof><p><ol>
+		<li> If the product <m>MN</m> were invertible, then
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses-product">Statement</xref>
+		of
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses" /> says that each of <m>M</m> and <m>N</m> would have to be invertible. But we are assuming that at least one of them is not, so it is not possible for the product <m>MN</m> to be invertible.
+		</li>
+		<li>
+		The proof of this statement is similar to the one above for
+		<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses-extended-product">
+			Statement
+		</xref>
+		of
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses" />
+		instead. We leave the details to you, the reader.
+		</li>
+		<li>
+		This proof again is similar to that above for
+		<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses-power">
+			Statement
+		</xref>
+		of
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses" />
+		instead.
+		Alternatively, one could view this as the special case of
+		<xref ref="proposition-elem-matrices-converse-props-of-singular-extended-product">Statement</xref>
+		of the current proposition, where each factor <m>M_i</m> is taken to be equal to <m>M</m>.
+		</li>
+
+	</ol></p></proof>
+
+</proposition>
+
+
+<p>
+Finally, we can use the link between
+<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+and
+<xref ref="theorem-elem-matrices-equiv-to-invertible-rref">Statement</xref>
+of
+<xref ref="theorem-elem-matrices-equiv-to-invertible" />
+to make
+<xref ref="proposition-inverses-2x2-inverse" />
+more precise.
+</p>
+<proposition xml:id="proposition-elem-matrices-2x2-det-invertible">
+
+	<statement><p>
+	The general <m>2\times 2</m> matrix
+	<m>A = \left[\begin{smallmatrix} a \amp b \\ c \amp d \end{smallmatrix}\right]</m>
+	is invertible if <m>ad-bc\neq 0</m>, and is singular if <m>ad-bc = 0</m>.
+	</p></statement>
+
+	<aside><title>A look ahead</title><p>
+		We will encounter a version of
+		<xref ref="proposition-elem-matrices-2x2-det-invertible" />
+		that is valid for <m>every</m> size of square matrix in
+		<xref ref="chapter-more-det" />
+		(see <xref ref="theorem-more-det-equiv-to-invertible" />).
+	</p></aside>
+
+	<proof><title>Proof outline</title><p>
+	We explored this in <xref ref="activity-elem-matrices-invert-2x2"/>.
+	</p><p>
+	Start with the matrix
+	<m>A = \left[\begin{smallmatrix} a \amp b \\ c \amp d\end{smallmatrix}\right]</m>
+	and row reduce to see whether it is possible to get to the identity. But in the operations we choose, we need to be careful not to divide by zero, because the variable entries could be any values, including some zero. So it will be necessary to break into cases, like <m>a=0</m> versus <m>a\neq 0</m>, and how the row reduction procedures will differ in the different cases. Ultimately, it will be possible to get the identity as the RREF of <m>A</m> precisely when <m>ad-bc\neq 0</m>, and it will be impossible when <m>ad-bc=0</m>.
+	</p></proof>
+
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-theory-sys-solution-sets">
+<title>Solution sets of row equivalent matrices</title>
+
+<p>Elementary matrices also give us the tool we need to prove that row equivalent matrices represent systems with the same solution set. We first recorded the following as
+<xref ref="theorem-row-red-row-equiv-same-sol-set" /> in <xref ref="subsection-row-red-theory-solving" />, but did not prove it there. We repeat the theorem here, and include a proof.</p>
+
+<theorem xml:id="theorem-elem-matrices-row-equiv-same-sol-set">
+
+	<statement><p>
+	Row equivalent matrices represent systems of equations that have the same solution set.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Consider systems <m>A_1\uvec{x} = \uvec{b}_1</m> and <m>A_2\uvec{x} = \uvec{b}_2</m>, where augmented matrices
+		<md><mrow>
+			A_1' \amp= \left[\begin{array}{c|c} A_1 \amp \uvec{b}_1 \end{array}\right],
+			\amp
+			A_2' \amp= \left[\begin{array}{c|c} A_2 \amp \uvec{b}_2 \end{array}\right]
+		</mrow></md>
+		are row equivalent. Then there exists a sequence of elementary row operations that can be applied to <m>A_1'</m> to produce <m>A_2'</m>. If we set <m>E</m> to be the <em>product</em> of all the elementary matrices corresponding to the operations in this sequence, then we have <m>A_2' = EA_1'</m>. Because of the way matrix multiplication acts on columns, we then have
+		<me>
+			\left[\begin{array}{c|c} A_2 \amp \uvec{b}_2 \end{array}\right]
+			= E \left[\begin{array}{c|c} A_1 \amp \uvec{b}_1 \end{array}\right]
+			= \left[\begin{array}{c|c} EA_1 \amp E\uvec{b}_1 \end{array}\right],
+		</me>
+		and so we also have
+		<md><mrow>
+			A_2 \amp= EA_1, \amp \uvec{b}_2 \amp= E\uvec{b}_1.
+		</mrow></md>
+		Furthermore, we know that every elementary matrix is invertible (<xref ref="lemma-elem-matrices-elem-inverse" />), and that products of invertible matrices are invertible
+		(<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
+		of <xref ref="proposition-inverses-props-of-inverses" />),
+		so we conclude that <m>E</m> is invertible. Therefore, we also have
+		<md><mrow>A_1 \amp= \inv{E}A_2, \amp \uvec{b}_1 \amp= \inv{E}\uvec{b}_2.</mrow></md>
+		</p>
+
+		<p>We are now in a position to verify that a solution to one system is also a solution to the other system.</p>
+
+		<paragraphs>
+			<title>
+			A solution to system <m>A_1\uvec{x} = \uvec{b}_1</m> is also a solution to <m>A_2\uvec{x} = \uvec{b}_2</m>
+			</title>
+			<p>
+			Suppose <m>\uvec{x} = \uvec{x}_0</m> solves system <m>A_1\uvec{x} = \uvec{b}_1</m>, so that <m>A_1\uvec{x}_0 = \uvec{b}_1</m> is true. Then,
+			<me> A_2\uvec{x}_0 = (EA_1)\uvec{x}_0 = E(A_1\uvec{x}_0) = E\uvec{b}_1 = \uvec{b}_2. </me>
+			Thus, <m>\uvec{x} = \uvec{x}_0</m> is also a solution to system <m>A_2\uvec{x} = \uvec{b}_2</m>.
+			</p>
+		</paragraphs>
+
+		<paragraphs>
+			<title>
+			A solution to system <m>A_2\uvec{x} = \uvec{b}_2</m> is also a solution to <m>A_1\uvec{x} = \uvec{b}_1</m>
+			</title>
+			<p>
+			Suppose <m>\uvec{x} = \uvec{x}_0</m> solves system <m>A_2\uvec{x} = \uvec{b}_2</m>, so that <m>A_2\uvec{x}_0 = \uvec{b}_2</m> is true. Then,
+			<me> A_1\uvec{x}_0 = (\inv{E}A_2)\uvec{x}_0 = \inv{E}(A_2\uvec{x}_0) = \inv{E}\uvec{b}_2 = \uvec{b}_1. </me>
+			Thus, <m>\uvec{x} = \uvec{x}_0</m> is also a solution to system <m>A_1\uvec{x} = \uvec{b}_1</m>.
+			</p>
+		</paragraphs>
+
+		<paragraphs>
+			<title>Conclusion</title>
+			<p>Since we have now shown that every solution of one system is a solution to the other system, both systems must have exactly the same solution set.</p>
+		</paragraphs>
+
+	</proof>
+
+</theorem>
+
+</subsection>
+
+</section>

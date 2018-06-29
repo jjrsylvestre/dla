@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-row-red-activities">
+
+<title>Activities</title>
+
+<introduction>
+<paragraphs><title>Reminder</title>
+<p>
+The elementary row operations are:
+<ol>
+	<li>swap rows;</li>
+	<li>multiply a row by a non-zero constant; and</li>
+	<li>add a multiple of one row to another.</li>
+</ol></p>
+</paragraphs>
+</introduction>
+
+<activity xml:id="activity-row-red-system-unique-sol">
+  <statement>
+    <p>Consider the following system.
+		<me>
+			\left\{\begin{array}{rcrcrcr}
+				2x \amp \amp \amp - \amp 2z \amp = \amp 3, \\
+				x \amp - \amp y \amp \amp \amp = \amp 2,\\
+				4x \amp - \amp 2y \amp - \amp 3z \amp = \amp 7.
+			\end{array}\right.
+		</me></p>
+  	<p><ol label="alph">
+			<li>Convert to an augmented matrix.</li>
+			<li>Via elementary row operations, obtain a <q>leading <m>1</m></q> in the first entry of the first row (maybe swap some rows?), then use it to eliminate all other entries in the first column.</li>
+			<li>Obtain a leading <m>1</m> in the second entry of the second row (do not use/alter the first row!), then use it to eliminate all other entries in the second column (yes, you can now alter the first row).</li>
+			<li>Obtain a leading <m>1</m> in the third entry of the third row (do not use/alter first or second rows!), then use it to eliminate all other entries in the third column.</li>
+			<li>Turn the final augmented matrix back into a system and solve it.</li>
+  	</ol></p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-row-red-system-infinite-sol">
+  <statement>
+    <p>Consider the following system.
+		<me>
+			\left\{\begin{array}{rcrcrcr}
+				3x \amp + \amp 6y \amp + \amp 5z \amp = \amp -9,\\
+				2x \amp + \amp 4y \amp + \amp 3z \amp = \amp -5,\\
+				3x \amp + \amp 6y \amp + \amp 6z \amp = \amp -12.
+			\end{array}\right.
+		</me></p>
+  	<p><ol label="alph">
+			<li>Convert to an augmented matrix.</li>
+			<li>Via elementary row operations, obtain a leading <m>1</m> in the first entry of the first row (maybe combine first two rows somehow?), then use it to eliminate all other entries in the first column.</li>
+			<li>Is it possible to obtain a leading <m>1</m> in the second entry of the second row?</li>
+			<li>Obtain a leading <m>1</m> in third entry of the second row (do not use/alter the first row!), then use it to eliminate all other entries in the third column.</li>
+			<li>Assign a parameter to any variable whose column \emph{does not} contain a leading one. Turn the final augmented matrix back into a system and solve it in terms of your parameter(s).</li>
+  	</ol></p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-row-red-system-no-sol">
+  <statement>
+    <p>Consider the following system.
+		<me>
+			\left\{\begin{array}{rcrcrcr}
+				x \amp + \amp 2y \amp + \amp z \amp = \amp 2,\\
+				2x \amp + \amp 5y \amp + \amp 2z \amp = \amp -3,\\
+				2x \amp + \amp 4y \amp + \amp 2z \amp = \amp -1.
+			\end{array}\right.
+		</me></p>
+  	<p><ol label="alph">
+			<li>Convert to an augmented matrix.</li>
+			<li>Use the leading <m>1</m> in first entry of the first row to eliminate all other entries in the first column.</li>
+			<li>Convert the new third row back into an equation. What does this mean about the system?</li>
+  	</ol></p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-row-red-system-homog-sol">
+  <statement>
+    <p>Consider the following system. Notice that the <q>equals</q> column is all zeros. Such a system is called <term>homogeneous</term>.
+		<me>
+			\left\{\begin{array}{rcrcrcrcrcr}
+				3x_1 \amp + \amp 6x_2 \amp - \amp 8x_3 \amp + \amp 13x_4 \amp = \amp 0,\\
+				x_1 \amp + \amp 2x_2 \amp - \amp 2x_3 \amp + \amp 3x_4 \amp = \amp 0,\\
+				2x_1 \amp + \amp 4x_2 \amp - \amp 5x_3 \amp + \amp 8x_4 \amp = \amp 0.
+			\end{array}\right.
+		</me></p>
+		<aside><title>Careful</title><p>
+			After you've reduced the homogeneous system in this activity, remember that there is still the omitted <q>equals</q> column of all zeros.
+		</p></aside>
+  	<p><ol label="alph">
+			<li>There is one obvious particular solution to the system. What is it?</li>
+			<li>Will any row operation ever alter the <q>equals</q> column?</li>
+			<li>Convert the system to a <term>coefficient matrix</term> (<ie /> omit the <q>equals</q> column). Then solve as usual.</li>
+  	</ol></p>
+  </statement>
+</activity>
+
+<activity><statement><p>
+In a homogeneous system, what is the relationship between the number of variables, the number of <q>leading ones</q> in the most reduced form of the coefficient matrix, and the number of parameters required to solve the system? What pattern of leading ones in a completely reduced coefficient matrix tells you that the corresponding homogeneous system has a single, unique solution?
+</p></statement></activity>
+
+<activity><statement>
+	<p>
+	Consider system
+	<me>
+		\left\{\begin{array}{rcrcrcrcrcr}
+			3x_1 \amp - \amp x_2 \amp + \amp 4x_3 \amp = \amp b_1,\\
+			x_1 \amp + \amp 2x_2 \amp - \amp x_3 \amp = \amp b_2,\\
+			3x_1 \amp \amp \amp + \amp 3x_3 \amp = \amp b_3,
+		\end{array}\right.
+	</me>
+	where the constants of each equation are not specified. For what values of the unknown constants <m>b_1,b_2,b_3</m> is this system consistent?
+	</p><p>
+	To answer this question, row reduce the associated augmented matrix (below) until you are at a point where you can determine conditions on the constants <m>b_1,b_2,b_3</m> that ensures the system is consistent.
+	<me>
+		\left[\begin{array}{rrr|r}
+			3 \amp -1 \amp 4 \amp b_1\\1 \amp 2 \amp -1 \amp b_2\\3 \amp 0 \amp 3 \amp b_3
+		\end{array}\right].
+	</me>
+	</p>
+</statement></activity>
+
+</section>

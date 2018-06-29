@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<macros>
+
+% operators
+\DeclareMathOperator{\RREF}{RREF}% row reduced echelon format
+\DeclareMathOperator{\adj}{adj}% classical adjoint
+\DeclareMathOperator{\proj}{proj}% projection
+\DeclareMathOperator{\matrixring}{M}% $m\times n$ matrices
+\DeclareMathOperator{\poly}{P}% polynomials
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+
+% font aliases
+\newcommand{\basisfont}[1]{\mathscr{#1}}% font for module basis
+
+% general constructs
+\newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
+\newcommand{\Bbrac}[1]{\Bigl(#1\Bigr)}% even larger enclosing brackets
+\newcommand{\irst}[1][1]{{#1}^{\mathrm{st}}}
+\newcommand{\ond}[1][2]{{#1}^{\mathrm{nd}}}
+\newcommand{\ird}[1][3]{{#1}^{\mathrm{rd}}}
+\newcommand{\nth}[1][n]{{#1}^{\mathrm{th}}}
+\newcommand{\leftrightlinesubstitute}{\scriptstyle \overline{\phantom{xxx}}}
+\newcommand{\inv}[2][1]{{#2}^{-{#1}}}% inverse
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
+\newcommand{\degree}[1]{{#1}^\circ} % makeshift degree symbol
+
+% number systems
+\newcommand{\R}{\mathbb{R}}% real numbers
+
+% general geometry
+\newcommand{\abctriangle}[1]{\triangle #1}% triangle through points in arg
+
+% matrices and vectors
+\newcommand{\utrans}[1]{{#1}^{\mathrm{T}}}% undergrad-style transpose
+\newcommand{\rowredarrow}{\xrightarrow[\text{reduce}]{\text{row}}}% row reduce arrow
+\newcommand{\bidentmatfour}{\begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 1\end{bmatrix}}% four-by-four identity
+\newcommand{\uvec}[1]{\mathbf{#1}}% undergrad boldface vector
+\newcommand{\zerovec}{\uvec{0}}% zero vector
+\newcommand{\bvec}[2]{#1\,\uvec{#2}}% undergrad vector with components
+\newcommand{\ivec}[1]{\bvec{#1}{i}}% i vector with component
+\newcommand{\jvec}[1]{\bvec{#1}{j}}% j vector with component
+\newcommand{\kvec}[1]{\bvec{#1}{k}}% k vector with component
+\newcommand{\injkvec}[3]{\ivec{#1} - \jvec{#2} + \kvec{#3}}% i - j + k vector with components
+\newcommand{\abray}[1]{\overrightarrow{#1}}% ray through points in arg, or directed line segment
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\unorm}[1]{\norm{\uvec{#1}}}% norm with undergrad vector style
+\newcommand{\bigcdot}{\mathbin{\large\boldsymbol{\cdot}}}% a slightly larger dot for dot product than \cdot
+\newcommand{\dotprod}[2]{#1\bigcdot#2}% dot product
+\newcommand{\udotprod}[2]{\dotprod{\uvec{#1}}{\uvec{#2}}}% dot product with undergrad vector style
+\newcommand{\crossprod}[2]{#1\times#2}% cross product
+\newcommand{\ucrossprod}[2]{\crossprod{\uvec{#1}}{\uvec{#2}}}% cross product with undergrad vector style
+\newcommand{\uproj}[2]{\proj_{\uvec{#2}} \uvec{#1}}% projection with undergrad vector style
+\newcommand{\matrixOf}[2]{\left[#1\right]_{\basisfont{#2}}}% matrix of
+\newcommand{\rmatrixOf}[2]{\left(#1\right)_{\basisfont{#2}}}% matrix of, round brackets
+\newcommand{\rmatrixOfplain}[2]{\left(#1\right)_{#2}}% matrix of, round brackets, does not use basis font
+
+
+</macros>

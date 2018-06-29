@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-more-det-theory">
+
+<title>Theory</title>
+
+<introduction><p>
+We have discussed the reasoning behind many of the below facts in <xref ref="section-more-det-concepts" />, so we will omit some of the formal proofs.
+</p></introduction>
+
+<subsection xml:id="subsection-more-det-theory-adjoint-and-inverses">
+<title>Adjoints and inverses</title>
+
+<p>First, we record the adjoint inversion formula we have discovered.</p>
+
+<theorem xml:id="theorem-more-det-adjoint-inversion-formula"><statement><p>
+	If <m>\det A \neq 0</m> then <m>A</m> is invertible, with  <m>\inv{A} = \frac{1}{\det A}\, \adj A</m>.
+</p></statement></theorem>
+
+<remark><p>
+	Based on our computations for the <m>2\times 2</m> case in <xref ref="subsection-more-det-examples-2by2" />, if <m>A</m> is <m>2\times 2</m> then the statement of the theorem above is exactly the same as <xref ref="proposition-inverses-2x2-inverse" />.
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-more-det-theory-det-vs-invertibility">
+<title>Determinants determine invertibility</title>
+
+<p>
+As we saw in <xref ref="subsection-more-det-concepts-det-vs-invert" />, there is a stronger connection between the determinant and invertibility, which we now state here more formally by adding a statement to <xref ref="theorem-elem-matrices-equiv-to-invertible" />.
+</p>
+
+<theorem xml:id="theorem-more-det-equiv-to-invertible">
+	<statement><p>
+	For a square matrix <m>A</m>, the following are equivalent.
+	<ol>
+		<li xml:id="theorem-more-det-equiv-to-invertible-invertible">
+		Matrix <m>A</m> is invertible.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-every-sys">
+		Every linear system that has <m>A</m> as a coefficient matrix has one unique solution.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-homog-sys">
+		The homogeneous system <m>A\uvec{x} = \zerovec</m> has only the trivial solution.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-some-sys">
+		There is some linear system that has <m>A</m> as a coefficient matrix and has one unique solution.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-rank">
+		The rank of <m>A</m> is equal to the size of <m>A</m>.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-rref">
+		The RREF of <m>A</m> is the identity.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-prod-elem">
+		Matrix <m>A</m> can be expressed as a product of some number of elementary matrices.
+		</li>
+		<li xml:id="theorem-more-det-equiv-to-invertible-det-nonzero">
+		The determinant of <m>A</m> is nonzero.
+		</li>
+	</ol>
+	In particular, a square matrix is invertible if and only if its determinant is nonzero.
+	</p></statement>
+
+</theorem>
+
+<remark><p>
+In the last sentence of the theorem, the connecting phrase <q>if and only if</q> between the two conditions is just a different way to say that the two conditions are equivalent. And recall that conditions are <term>equivalent</term> when they have to be either all true or all false at the same time. Rephrasing in terms of the <q>all false</q> scenario, we could also say that <alert>a square matrix is singular if and only if its determinant is zero</alert>.
+</p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-more-det-theory-det-formulas">
+<title>Determinant formulas</title>
+
+<p>
+Here we collect the determinant formulas from
+<xref
+	first="subsection-more-det-concepts-det-vs-mult-elem-matrices" last="subsection-more-det-concepts-det-inverse"
+>Subsections</xref>. First we look at a special case, previously considered in
+<xref ref="activity-more-det-multiplicative-elem-version" />
+and
+<xref ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" />,
+of the multiplicative formula for determinants.
+</p>
+
+<lemma xml:id="lemma-more-det-product-elem-matrix">
+
+	<statement><p>
+	If <m>E</m> is an elementary matrix and <m>A</m> is a square matrix of the same size, then
+	<md><mrow tag="star" xml:id="equation-more-det-theory-multiplicative-elem-version">
+		\det (EA) = (\det E)(\det A).
+	</mrow></md>
+	</p></statement>
+
+	<proof xml:id="proof-lemma-more-det-product-elem-matrix">
+	<p>There are three cases to consider here, based on the type of elementary matrix we are dealing with.</p>
+
+	<case><title>Case <m>E</m> represents swapping rows</title>
+		<p>
+		The product <m>EA</m> represents the result of swapping two rows in <m>A</m>, so
+		<me>\det (EA) = -\det A</me>
+		(<xref ref="proposition-det-by-row-red-det-vs-row-ops-swap">Part</xref>
+		of
+		<xref ref="proposition-det-by-row-red-det-vs-row-ops" />).
+		</p>
+
+		<p>
+		But also <m>\det E = -1</m>
+		(<xref ref="proposition-det-by-row-red-det-elem-swap">Part</xref>
+		of
+		<xref ref="proposition-det-by-row-red-det-elem" />),
+		so <me> (\det E)(\det A) = (-1)(\det A) = -\det A</me>
+		as well.
+		</p>
+
+		<p>This establishes <xref ref="equation-more-det-theory-multiplicative-elem-version" /> in this case.</p>
+
+	</case>
+
+	<case><title>Case <m>E</m> represents multiplying a row by <m>k</m></title>
+
+		<p>
+		The product <m>EA</m> represents the result of multiplying that row of <m>a</m> by <m>k</m>, so
+		<me>\det (EA) = k\det A</me>
+		(<xref ref="proposition-det-by-row-red-det-vs-row-ops-mult-row">Part</xref>
+		of
+		<xref ref="proposition-det-by-row-red-det-vs-row-ops" />).
+		</p>
+
+		<p>
+		But also <m>\det E = k</m>
+		(<xref ref="proposition-det-by-row-red-det-elem-mult-row">Part</xref>
+		of
+		<xref ref="proposition-det-by-row-red-det-elem" />),
+		so <me> (\det E)(\det A) = k\det A</me>
+		as well.
+		</p>
+
+		<p>This establishes <xref ref="equation-more-det-theory-multiplicative-elem-version" /> in this case.</p>
+
+	</case>
+
+	<case><title>Case <m>E</m> represents adding a multiple of one row to another</title>
+
+		<p>
+		The product <m>EA</m> represents the result of adding a multiple of a row to another in <m>A</m>, so <m>\det (EA)</m> is equal to <m>\det A</m>. But also <m>\det E = 1</m>
+		(<xref ref="proposition-det-by-row-red-det-elem-add-row-mult">Part</xref>
+		of
+		<xref ref="proposition-det-by-row-red-det-elem" />),
+		so <me> \det (EA) = \det A = (1)(\det A) = (\det E)(\det A), </me>
+		establishing <xref ref="equation-more-det-theory-multiplicative-elem-version" /> in this case.
+		</p>
+
+	</case>
+
+	</proof>
+
+</lemma>
+
+<p>With the above lemma established, we can consider the general multiplicative formula for determinants.</p>
+
+<proposition xml:id="proposition-more-det-product">
+
+	<statement><p>
+	A determinant of a product of square matrices is the product of the determinants of those matrices. In particular, the following hold.
+	<ol>
+		<li xml:id="proposition-more-det-product-two-matrices">
+		If <m>M</m> and <m>N</m> are square matrices of the same size, then
+		<me>\det (MN) = (\det M)(\det N).</me>
+		</li>
+		<li xml:id="proposition-more-det-product-many-matrices">
+		If <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are square matrices of the same size, then
+		<me>
+			\det (M_1 M_2 \dotsm M_{\ell-1} M_\ell)
+			= (det M_1)(\det M_2)\dotsm(\det M_{\ell-1})(\det M_\ell).
+		</me>
+		</li>
+	</ol>
+	</p></statement>
+
+	<proof><title>Proof outlines</title><p><ol>
+
+		<li><p>There are two cases to consider.</p>
+		<case><title>Case <m>M</m> is invertible</title>
+			<p>
+			In this case, <m>M</m> can be expressed as a product of elementary matrices
+			(<xref ref="theorem-more-det-equiv-to-invertible" />), and so
+			<xref ref="lemma-more-det-product-elem-matrix" /> can be repeatedly applied to obtain the desired equality.
+			</p><p>
+			In <xref ref="activity-more-det-multiplicative-product-elem" />
+			and
+			<xref ref="subsection-more-det-concepts-det-vs-mult-invertible" />,
+			we worked under the assumption that <m>M</m> could be expressed as a product of <em>three</em> elementary matrices, but the calculations and logic used there would work no matter how many elementary matrices were required in a product expression for <m>M</m>.
+			</p>
+		</case>
+		<aside><p>A more formal proof would require using the principal of mathematical induction on the number of elementary matrices required in a product expansion for <m>M</m>, but that is beyond the scope of this course.</p></aside>
+		<case xml:id="proofcase-proposition-more-det-product">
+			<title>Case <m>M</m> is singular</title>
+			<p>
+			In this case, <m>\det M = 0</m> by our newly added statement in the list of
+			<xref ref="theorem-more-det-equiv-to-invertible" />,
+			so we have
+			<me> \text{RHS} = (\det M)(\det N) = 0 \cdot \det N = 0 </me>
+			as well. But we also know that if <m>M</m> is singular, then the product <m>MN</m> must also be singular
+			(<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>
+	    of
+	    <xref ref="proposition-elem-matrices-converse-props-of-singular" />). So again we can apply the equivalence of
+			<xref ref="theorem-more-det-equiv-to-invertible-invertible">Statement</xref>
+			and
+			<xref ref="theorem-more-det-equiv-to-invertible-det-nonzero">Statement</xref>
+			of
+			<xref ref="theorem-more-det-equiv-to-invertible" />
+			to obtain
+			<me> \text{LHS} = \det (MN) = 0. </me>
+			Since both LHS and RHS are equal to <m>0</m>, they are equal to each other.
+		</p></case>
+		</li>
+
+		<li>
+		<p>
+		This result can be obtained by repeated applications of the formula in
+		<xref ref="proposition-more-det-product-two-matrices">Statement</xref>, one <m>M_i</m> at a time.
+		</p>
+		<aside><p>Again, a more formal proof would require mathematical induction on the number of matrices in the product.</p></aside>
+		</li>
+
+	</ol></p></proof>
+
+</proposition>
+
+<proposition xml:id="proposition-more-det-inverse"><statement><p>
+	The determinant of an inverse is the inverse of the determinant. That is, if <m>N</m> is an invertible matrix then <m>\det (\inv{A}) = \inv{(\det A)}</m>.
+</p></statement></proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-more-det-theory-cramers-rule">
+<title>Cramer's rule</title>
+
+<p>
+Finally, we formally record Cramer's rule (discussed in
+<xref ref="subsection-more-det-concepts-cramers-rule" />).
+</p>
+
+<theorem xml:id="theorem-more-det-cramers-rule">
+	<title>Cramer's rule</title>
+	<statement><p>
+	If system <m>A\uvec{x} = \uvec{b}</m> has invertible square coefficient matrix <m>A</m>, then the value of variable <m>x_j</m> in the one unique solution to the system is
+	<me> x_j = \frac{\det A_j}{\det A}, </me>
+	where <m>A_j</m> is the matrix obtained by replacing the <m>\nth[j]</m> column of <m>A</m> by <m>\uvec{b}</m>.
+	</p></statement>
+</theorem>
+
+</subsection>
+
+</section>

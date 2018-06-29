@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+	\node[point] at (0,0) (o) [label=below:{$O$}] {};
+	\node[point] at (2,3) (p) [label=above right:{$P$}] {};
+	\node[point] at (3,-1) (r) [label=below right:{$R$}] {};
+	\node[point] at (5,2) (p2) [label=above right:{$P'$}] {};
+	\draw[vector] (o) to node[below right] {$\uvec{u}$} (p);
+	\draw[vector] (o) to node[below] {$\uvec{v}$} (r);
+	\draw[vector,dashed] (o) to node[below] {$-\uvec{v}$} (-3,1);
+	\draw[vector,dashed] (p) to node[above] {$-\uvec{v}$} (-1,4);
+	\draw[vector,dashed] (o) to node[above,sloped] {$\uvec{u}-\uvec{v}$} (-1,4);
+	\draw[vector] (r) to node[above,sloped] {$\uvec{u}-\uvec{v}$} (p);
+	\draw[vector,dashed] (r) to node[below right] {$\uvec{u}$} (p2);
+	\draw[vector,dashed] (p2) to node[above] {$-\uvec{v}$} (p);
+\end{tikzpicture}

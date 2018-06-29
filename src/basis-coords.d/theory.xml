@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-basis-coords-theory">
+
+<title>Theory</title>
+
+<subsection xml:id="subsection-basis-coords-theory-reducing">
+<title>Reducing to a basis</title>
+
+<p>
+First we will restate <xref ref="proposition-linear-indep-reduce-span-to-indep" /> in the language of our new concept of <term>basis</term>.
+</p>
+
+<proposition xml:id="proposition-basis-coords-reduce-span-to-basis">
+
+	<statement>
+	<p>
+	Every finite spanning set can be reduced to a basis. That is, if <m>S</m> is a spanning set for a vector space and contains a finite number of vectors, then some subcollection of vectors in <m>S</m> will be a basis for the vector space.
+	</p>
+	<aside><title>Note</title><p>
+	Again, we consider the hypothetical <q>can be reduced</q> to allow the possibility of <em>not</em> reducing the spanning set at all, in case it is already a basis.
+	</p></aside>
+	</statement>
+
+	<proof><p>
+		<xref ref="proposition-linear-indep-reduce-span-to-indep" /> states that every finite spanning set can be reduced to a linearly independent spanning set. But that's exactly what a basis is <mdash /> a linearly independent spanning set.
+	</p></proof>
+
+</proposition>
+
+<aside><title>A look ahead</title><p>
+	In the next chapter, we will also extend <xref ref="proposition-linear-indep-expand-indep" /> to obtain a counterpart to the above proposition, where we <em>build up</em> to a basis instead of <em>reducing</em> to one: every linearly independent set can be extended to a basis. (See
+	<xref ref="proposition-dimension-increase-indep-to-basis" />
+	in
+	<xref ref="subsection-dimension-theory-linear-indep-consequences" />).
+</p></aside>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-theory-optimal">
+<title>Basis as optimal spanning set</title>
+
+<p>
+The remaining facts establish that a basis is the answer to our quest for an <em>optimal</em> spanning set <mdash /> no unnecessary spanning vectors, and no multiple ways of expressing vectors in the space as linear combinations of the spanning vectors.
+</p>
+
+<theorem xml:id="theorem-basis-coords-basis-is-minimal-maximal">
+
+	<statement><p><ol>
+		<li><ol>
+			<li xml:id="theorem-basis-coords-basis-is-minimal-maximal-basis-is-minimal">
+				A basis is a <em>minimal</em> spanning set, in the sense that no proper subcollection of vectors from the basis could still be a spanning set for a vector space.
+			</li>
+			<li xml:id="theorem-basis-coords-basis-is-minimal-maximal-minimal-is-basis">
+				A finite collection of vectors in a vector space that forms a minimal spanning set (in the same sense as in <xref ref="theorem-basis-coords-basis-is-minimal-maximal-basis-is-minimal">Statement</xref>) must be a basis for that space.
+			</li>
+		</ol></li>
+		<li><ol>
+			<li xml:id="theorem-basis-coords-basis-is-minimal-maximal-basis-is-maximal">
+				A finite basis is a <em>maximal</em> linearly independent set, in the sense that it cannot be a proper subcollection of some linearly independent set of vectors.
+			</li>
+			<li xml:id="theorem-basis-coords-basis-is-minimal-maximal-maximal-is-basis">
+				A collection of vectors in a vector space that forms a maximal linearly independent set (in the same sense as in <xref ref="theorem-basis-coords-basis-is-minimal-maximal-maximal-is-basis">Statement</xref>) must be a basis for that space.
+			</li>
+		</ol></li>
+	</ol></p></statement>
+
+	<proof><p><ol>
+		<li><ol>
+			<li>
+			Suppose <m>\basisfont{B}</m> is a basis for vector space <m>V</m>. That is, suppose <m>\basisfont{B}</m> is a linearly independent spanning set. If we remove even one vector <m>\uvec{v}</m> from <m>\basisfont{B}</m>, the remaining vectors cannot still form a spanning set for <m>V</m>. Because if they could, then <m>\uvec{v}</m>, being a vector in <m>V</m>, could be expressed as a linear combination of some number of the remaining vectors in <m>\basisfont{B}</m>. In other words, some vector in <m>\basisfont{B}</m> would be expressible as a linear combination of others, which would violate the assumption that <m>\basisfont{B}</m> is linearly independent.
+			</li>
+			<li>
+			Suppose <m>S</m> is a spanning set for a vector space, and that <m>S</m> contains a finite number of vectors. Further suppose that <m>S</m> is <em>minimal</em> in the sense that no proper subcollection of <m>S</m> also forms a spanning set for the space. We would like to prove that this forces <m>S</m> to be a basis. We already assuming one-half of the definition of <term>basis</term>, so we need to consider the other half: must <m>S</m> also be linearly independent? If it were linearly dependent instead, then it could be reduced to subcollection that forms a linearly independent spanning set (<xref ref="proposition-linear-indep-reduce-span-to-indep" />). But <m>S</m> doesn't have any subcollections that form spanning sets for the vector space, let alone any linearly independent ones. So <m>S</m> cannot be linearly dependent, forcing it to be linearly independent, as required.
+			</li>
+		</ol></li>
+		<li><ol>
+			<li>
+			Suppose <m>\basisfont{B}</m> is a basis for a vector space, and that <m>\basisfont{B}</m> contains a finite number of vectors. Then by definition of <term>basis</term>, <m>\basisfont{B}</m> is a spanning set for the vector space, and so any collection of vectors that contains more vectors than <m>\basisfont{B}</m> must be linearly dependent (<xref ref="lemma-linear-indep-more-than-spanning-is-dep" />). In particular, if some collection of vectors contains <m>\basisfont{B}</m> as a proper subcollection, then that larger collection must be linearly dependent.
+			</li>
+			<li>
+			Suppose <m>S</m> is a linearly independent collection of vectors in a vector space <m>V</m>, and that <m>S</m> is maximal in the sense that no other linearly independent collection of vectors in <m>V</m> can contain <m>S</m> as a proper subcollection. We would like to prove that this forces <m>S</m> to be a basis for <m>V</m>. We already assuming one-half of the definition of <term>basis</term>, so we need to consider the other half: must <m>S</m> also be a spanning set for <m>V</m>? If it were <em>not</em> a spanning set for <m>V</m>, then <m>\Span S</m> is merely a proper subspace of <m>V</m>, and there must be other vectors in <m>V</m> that are <em>not</em> in that subspace. Let <m>\uvec{v}</m> be one such vector. Then <xref ref="proposition-linear-indep-expand-indep"/> tells us that the collection of vectors containing both <m>\uvec{v}</m> and every vector in <m>S</m> must be linearly independent. But this is not possible, since this new, <q>larger</q> linearly independent collection would contain <m>S</m> as a proper subcollection, and we have assumed that <m>S</m> is a maximal linearly independent set of vectors. So <m>S</m> must also be a spanning set for <m>V</m>, as required.
+			</li>
+		</ol></li>
+	</ol></p></proof>
+
+</theorem>
+
+<theorem xml:id="theorem-basis-coords-basis-lin-comb-is-unique">
+
+	<statement><p>
+	Given a basis for a vector space, every vector in the space has <em>one unique</em> expression as a linear combination of the basis vectors.
+	</p></statement>
+
+	<proof><p>
+	We will prove that two different linear combination expressions involving basis vectors must compute to two different vectors, which will imply that one single vector in the vector space cannot have two different expressions as linear combinations of basis vectors. So suppose we have two different linear combination expressions involving basis vectors. Let <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> be a complete list of the basis vectors involved in both expressions. By attaching a zero coefficient to missing vectors, we can assume that <em>both</em> linear combination expressions involve <em>all</em> of these basis vectors. Let <m>a_1,a_2,\dotsc,a_m</m> represent the corresponding coefficients in one of these linear combination expressions, and let <m>b_1,b_2,\dotsc,b_m</m> represent the corresponding coefficients in the other. Note that we must have at least one instance of <m>a_j\neq b_j</m> in these collections of coefficients, because we have assumed that these linear combination expressions are different. Now, these two linear combination expressions compute to two vectors in the vector space,
+		<md><mrow>
+			\uvec{v} \amp= a_1\uvec{v}_1 + a_2\uvec{v}_2 + \dotsc a_m\uvec{v}_m, \amp
+			\uvec{w} \amp= b_1\uvec{v}_1 + b_2\uvec{v}_2 + \dotsc b_m\uvec{v}_m.
+		</mrow></md>
+		We would like to prove that <m>\uvec{v}\neq\uvec{w}</m>. Equivalently, we would like to prove that <m>\uvec{v}-\uvec{w}\neq\zerovec</m>. By collecting like terms, this difference vector can also be expressed as a linear combination as
+		<me> \uvec{v} - \uvec{w} = (a_1-b_1)\uvec{v}_1 + (a_2-b_2)\uvec{v}_2 + \dotsb + (a_m-b_m)\uvec{v}_m. </me>
+		Since we have at least one instance of <m>a_j\neq b_j</m>, we have at least one nonzero coefficient in the expression above, and so the linear combination above is nontrivial. And our basis vectors are linearly independent, so a nontrivial linear combination of basis vectors cannot equal the zero vector. Therefore, <m>\uvec{v}-\uvec{w}\neq\zerovec</m> as desired.
+	</p></proof>
+
+</theorem>
+
+<remark>
+	<p>
+	In the theorem above, for the purposes of the <em>uniqueness</em> of an expression as a linear combination of basis vectors, we do not consider reordering a linear combination, or including or removing a term with a <m>0</m> coefficient, as producing different linear combinations.
+	</p>
+	<aside><title>However</title><p>
+		recall that for the purposes of forming coordinate vectors, order in a linear combination does definitely matter, as described in
+		<xref ref="warning-basis-coords-concepts-basis-order-matters-in-coord-vector" />.
+	</p></aside>
+</remark>
+
+</subsection>
+
+</section>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-inverses-concepts">
+
+<title>Concepts</title>
+
+<subsection xml:id="subsection-inverses-concepts-identity">
+<title>The identity matrix</title>
+
+<p>
+The number one plays a special role with respect to multiplication of numbers: it is the only number that has no effect when it is multiplied against another number. In multiplication of matrices, there is only one kind of matrix that has the same effect: a square matrix with all ones down the main diagonal and zeros in every other entry. We call this matrix the <term>identity matrix</term>, and write <m>I</m> to represent it.
+</p>
+
+<p>
+The identity matrix is to multiplication what the zero matrix is to addition, and it will allow us to (sometimes) do the matrix version of the algebra in the preamble to <xref ref="activity-inverses-identity-matrix" />. Except there is one wrinkle that we will explore in this chapter and next: while we can always <q>cancel</q> a matrix to the zero matrix by subtracting, unfortunately we will <em>not</em> always be able to <q>cancel</q> a matrix to the identity by <q>dividing.</q>
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-inverses-concepts-inverses">
+<title>Inverse matrices</title>
+
+<p>
+If <m>a</m> is a nonzero number, we can use the inverse <m>\inv{a} = 1/a</m> to multiply <m>a</m> to <m>1</m>. In algebra, we often use this fact to <q>cancel</q> a number from an algebraic expression. In matrix algebra, we can attempt to do the same thing for square matrices. For a square matrix <m>A</m>, we would like to find a square matrix of the same size that multiplies <m>A</m> to the identity <m>I</m> (where the identity is the matrix version of the number <m>1</m>). If we can find such an inverse for <m>A</m>, we write <m>\inv{A}</m> for it. Note that we need this inverse so multiply <m>A</m> to <m>I</m> from <em>both</em> sides, because order of multiplication matters. That is, we need to be sure that <em>both</em> <m>\inv{A}A=I</m> and <m>A\inv{A}=I</m>.
+</p>
+
+<!-- TODO overlapping asides ... -->
+
+<!--<paragraphs>-->
+<aside>
+	<title>A look ahead</title>
+	<p>
+	We will see in <xref ref="section-inverses-theory"/> that a square matrix can have only <em>one</em> inverse matrix (<xref ref="theorem-inverses-unique" />), so writing <m>\inv{A}</m> to mean <em>the</em> inverse of an invertible matrix <m>A</m> is unambiguous. We will also see in <xref ref="section-elem-matrices-theory" /> that it is enough to check only <em>one</em> of <m>BA=I</m> and <m>AB=I</m> in order to know that <m>B = \inv{A}</m> (<xref ref="proposition-elem-matrices-check-only-left-inverse"/> and <xref ref="proposition-elem-matrices-check-only-right-inverse"/>).
+	</p>
+</aside>
+<!--</paragraphs>-->
+
+<p>
+The only number that doesn't have an inverse is <m>0</m>. However, we saw in <xref ref="activity-inverses-intro-to-inverse" /> that some <em>nonzero</em> matrices do not have inverses (<ie /> are <term>singular</term>). While the singular example in
+<xref ref="activity-inverses-intro-to-inverse-singular">Part</xref>
+of
+<xref ref="activity-inverses-intro-to-inverse" />
+only had one nonzero entry, it is possible to come up with examples of singular matrices that have <em>no</em> entries that are zero <mdash /> see <xref ref="subsection-inverses-examples-2x2" /> for one example.
+</p>
+
+<!--<paragraphs>-->
+<aside>
+	<title>A look ahead</title>
+	<p>
+	In later chapters we will see that a square matrix is singular when it has some relationship to another matrix that has too many zero entries to be invertible.
+	<ul>
+		<li>In <xref ref="chapter-elem-matrices" />, we learn that a square matrix is singular precisely when its RREF has too many zeros (<xref ref="theorem-elem-matrices-equiv-to-invertible" />).</li>
+		<li> <!-- TODO rewrite when notes are extended -->
+		In a future linear algebra course, you may learn that a matrix is singular precisely when it is <term>similar</term> to one that has too many zeros (a fact closely related to
+		<xref ref="theorem-eigen-values-vectors-equiv-to-invertible" />).
+		</li>
+	</ul>
+	</p>
+</aside>
+<!--</paragraphs>-->
+
+</subsection>
+
+<subsection xml:id="subsection-inverses-concepts-division">
+<title>Matrix division</title>
+
+<p>
+In <xref ref="chapter-matrix-ops" />, we defined the operations of addition, subtraction, and multiplication of matrices (as well as scalar multiplication), <em>but we did not define <em>division</em> of matrices</em>. Matrix inverses are similar to division in that they can be used to cancel a square matrix to <m>I</m>, the matrix version of <m>1</m>. But we need to be careful with this analogy, because <em>order of matrix multiplication matters</em>. With numbers, when we write division as a fraction <m>a/b</m>, it doesn't matter if we mean <m>a\inv{b}</m> or <m>\inv{b}a</m> because both orders of multiplication yield the same result. For matrices, it is ambiguous to write a fraction <m>A/B</m> because it is not clear whether <m>A\inv{B}</m> or <m>\inv{B}A</m> should be meant, and it matters because <m>A\inv{B}</m> and <m>\inv{B}A</m> might not yield the same result.
+</p>
+
+<warning><p>
+There is no such operation as division of matrices. Never write fractions of matrices in matrix algebra <mdash /> use matrix inverses instead.
+</p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-inverses-concepts-cancellation">
+<title>Cancellation</title>
+
+<p>
+In the algebra of numbers, if we have an equation <m>ab=ac</m>, we would usually cancel the <m>a</m> from both sides to conclude that <m>b=c</m>. In <xref ref="activity-inverses-cancellation" />, we see that this doesn't always work for matrices. When we cancel <m>a</m> from both sides of <m>ab=ac</m>, what we are really doing algebraically is to <em>divide</em> both sides by <m>a</m>. However, we cannot do this if <m>a</m> is <m>0</m>, and similarly we cannot cancel the <m>A</m> from <m>AB=AC</m> if <m>A</m> is not invertible. If it <em>is</em> invertible, however, then we may cancel <m>A</m> by applying <m>\inv{A}</m> to both sides:
+<md>
+	<mrow>AB \amp= AC</mrow>
+	<mrow>\inv{A}AB \amp= \inv{A}AC</mrow>
+	<mrow>IB \amp= IC</mrow>
+	<mrow>B \amp= C.</mrow>
+</md>
+When we apply algebraic manipulations to an equation, we need to make sure we perform the <em>exact same</em> operation on both sides of the equals sign. If we are introducing a new matrix into an equation by multiplication, we need to make sure we multiply the new matrix from the same side on both sides of the equation, because <em>order of matrix multiplication matters</em>! So, when we were faced with <m>AB=CA</m> in
+<xref ref="activity-inverses-cancellation">Part</xref>
+of
+<xref ref="activity-inverses-cancellation" />, it would be incorrect to cancel <m>A</m> here <em>even if <m>A</m> is invertible</em>, because to cancel it on the left-hand side of the equation we need to multiply by <m>\inv{A}</m> on the left, and to cancel on the right-hand side we need to multiply <m>\inv{A}</m> on the right. These are <em>different</em> operations, and doing one on one side of the equation and the other on the other side would violate the equals sign. If we try to do both, we just go in circles:
+<md>
+	<mrow>AB \amp= CA</mrow>
+	<mrow>
+		\inv{A}AB \amp= \inv{A}CA \amp
+		\amp\text{(i)}
+	</mrow><mrow>
+		IB \amp= \inv{A}CA \amp
+		\amp\text{(ii)}
+	</mrow>
+	<mrow>B \amp= \inv{A}CA</mrow>
+	<mrow>
+		B\inv{A} \amp= \inv{A}CA\inv{A} \amp
+		\amp\text{(iii)}
+	</mrow>
+	<mrow>B\inv{A} \amp= \inv{A}CI</mrow>
+	<mrow>B\inv{A} \amp= \inv{A}C.</mrow>
+</md>
+In the above steps:
+<ol label="(i)">
+	<li>the same operation (<ie /> multiplication by <m>\inv{A}</m> <em>on the left</em>) must be applied to both sides;</li>
+	<li>the <m>\inv{A}</m> and <m>A</m> on the right do not cancel to <m>I</m>; and</li>
+	<li>the same operation (<ie /> multiplication by <m>\inv{A}</m> <em>on the right</em>) must be applied to both sides.</li>
+</ol>
+In more detail, when we have <m>\inv{A}CA</m> on the right above, unfortunately we cannot cancel the <m>\inv{A}</m> and <m>A</m> to <m>I</m> because we don't have <m>\inv{A}A = I</m>, we have a <m>C</m> between them and <em>order of matrix multiplication matters</em>! And notice that after all this algebra, in the last line we are no further ahead than when we began.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-inverses-concepts-solving-via-inverse">
+<title>Solving systems using inverses</title>
+
+<p>
+As we explored in <xref ref="activity-inverses-solve-by-inverse" />, when the coefficient matrix of a linear system is square and invertible, we can solve the system by matrix algebra instead of row reducing. In this case, we can use the inverse to cancel the coefficient matrix from the left-hand side of the system equation <m>A\uvec{x}=\uvec{b}</m>:
+<md>
+	<mrow>A\uvec{x} \amp= \uvec{b}</mrow>
+	<mrow>\inv{A}A\uvec{x} \amp= \inv{A}\uvec{b}</mrow>
+	<mrow>I\uvec{x} \amp= \inv{A}\uvec{b}</mrow>
+	<mrow>\uvec{x} \amp= \inv{A}\uvec{b}.</mrow>
+</md>
+We will see in the next chapter that inverting a matrix is the same amount of work as row reducing it, so solving a system this way is not a shortcut method. But it can be faster if you want to solve several systems with the same coefficient matrix <m>A</m> but different vectors of constants <m>\uvec{b}</m>, as we had in <xref ref="activity-inverses-solve-by-inverse" />, so that you only do the row reducing work (in computing <m>\inv{A}</m>) once.
+</p>
+
+</subsection>
+
+</section>

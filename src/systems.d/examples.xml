@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-systems-examples">
+
+<title>Examples</title>
+
+<subsection xml:id="subsection-systems-examples-row-ops-vs-equations">
+<title>Row operations versus equation manipulations</title>
+
+<p>
+Let's examine the operations in <xref ref="activity-systems-towards-row-red" /> in detail, by considering the operations as both <em>equation manipulations</em> and <em>row operations</em> simultaneously.
+</p><p>
+In each step, notice how the row<m>\leftrightarrow</m>equation and column<m>\leftrightarrow</m>variable correspondence is preserved.
+<md>
+	<mrow>
+		\amp\left[\begin{array}{rrr|r}
+			-2 \amp 2 \amp -5 \amp -1 \\
+			3 \amp 0 \amp 3 \amp 9 \\
+			1 \amp -1 \amp 3 \amp 2
+		\end{array}\right]
+		\amp
+		\amp\left\{\begin{array}{rcrcrcr}
+			-2x \amp + \amp 2y \amp - \amp 5z \amp = \amp -1 \\
+			3x \amp   \amp    \amp + \amp 3z \amp = \amp 9 \\
+			x  \amp - \amp  y \amp + \amp 3z \amp = \amp 2
+			\end{array}\right.
+	</mrow>
+	<intertext>Interchange the first and third rows/equations.</intertext>
+	<mrow>
+		\amp\left[\begin{array}{rrr|r}
+			1 \amp -1 \amp 3 \amp 2 \\
+			3 \amp 0 \amp 3 \amp 9 \\
+			-2 \amp 2 \amp -5 \amp -1
+		\end{array}\right]
+		\amp
+		\amp\left\{\begin{array}{rcrcrcr}
+			x  \amp - \amp  y \amp + \amp 3z \amp = \amp 2 \\
+			3x \amp   \amp    \amp + \amp 3z \amp = \amp 9 \\
+			-2x \amp + \amp 2y \amp - \amp 5z \amp = \amp -1
+		\end{array}\right.
+	</mrow>
+</md>
+Subtract <m>3</m> times the first row/equation from the second row/equation. For the equation version, we do this by performing the same combination of left- and right-hand sides, collecting terms on the left.
+<md>
+	<mrow>
+		(\text{LHS}_2) - 3(\text{LHS}_1) \amp = (\text{RHS}_2) - 3(\text{RHS}_1)
+	</mrow>
+	<mrow>
+		(3x + 3z) - 3(x-y+3z) \amp = 9 - 3(2)
+	</mrow>
+	<mrow>
+		0x + 3y - 6z \amp = 3.
+	</mrow>
+</md>
+Notice that when collecting terms, we ended up performing that <q>subtract <m>3</m> times the first from the second</q> on the coefficients of each variable. So we can achieve the same result in the matrix by performing <q>subtract <m>3</m> times the entry in the first row from the entry in the second row,</q> one column at a time.
+<md><mrow>
+		\amp\left[\begin{array}{rrr|r}
+			1 \amp -1 \amp 3 \amp 2 \\
+			0 \amp 3 \amp -6 \amp 3 \\
+			-2 \amp 2 \amp -5 \amp -1
+		\end{array}\right]
+		\amp
+		\amp\left\{\begin{array}{rcrcrcr}
+			x  \amp - \amp  y \amp + \amp 3z \amp = \amp 2 \\
+		      \amp   \amp 3y \amp - \amp 6z \amp = \amp 3 \\
+			-2x \amp + \amp 2y \amp - \amp 5z \amp = \amp -1
+		\end{array}\right.
+</mrow></md>
+Next, add <m>2</m> times the first row/equation to the third row/equation:
+<md>
+	<mrow>
+		(\text{LHS}_3) + 2(\text{LHS}_1) \amp = (\text{RHS}_3) + 2(\text{RHS}_1)
+	</mrow>
+	<mrow>
+		(-2x+2y-5z)+2(x-y+3z) \amp = -1+2(2)
+	</mrow>
+	<mrow>
+		z \amp = 3.
+	</mrow>
+</md>
+<md><mrow>
+	\amp\left[\begin{array}{rrr|r}
+		1 \amp -1 \amp 3 \amp 2 \\
+		0 \amp 3 \amp -6 \amp 3 \\
+		0 \amp 0 \amp  1 \amp 3
+	\end{array}\right]
+	\amp
+	\amp\left\{\begin{array}{rcrcrcr}
+		 x  \amp - \amp  y \amp + \amp 3z \amp = \amp 2 \\
+		    \amp   \amp 3y \amp - \amp 6z \amp = \amp 3 \\
+		    \amp   \amp    \amp   \amp  z \amp = \amp 3
+	\end{array}\right.
+</mrow></md>
+Finally, multiply the second row/equation by 1/3:
+<md>
+	<mrow>
+		(1/3)(\text{LHS}_2) \amp = (1/3)(\text{RHS}_2)
+	</mrow>
+	<mrow>
+		(1/3)(3y-6z) \amp = (1/3)(3)
+	</mrow>
+	<mrow>
+		y-2z \amp = 1.
+	</mrow>
+</md>
+<md><mrow>
+	\amp\left[\begin{array}{rrr|r}
+		1 \amp -1 \amp 3 \amp 2 \\
+		0 \amp 1 \amp -2 \amp 1 \\
+		0 \amp 0 \amp  1 \amp 3
+	\end{array}\right]
+	\amp
+	\amp\left\{\begin{array}{rcrcrcr}
+		 x  \amp - \amp  y \amp + \amp 3z \amp = \amp 2 \\
+		    \amp   \amp  y \amp - \amp 2z \amp = \amp 1 \\
+		    \amp   \amp    \amp   \amp  z \amp = \amp 3
+	\end{array}\right.
+</mrow></md>
+The final system on the right is much easier to solve: we can see immediately from the third equation that <m>z=3</m>, then can use this in the second equation to determine <m>y=7</m>, and finally can use both of these in the first equation to determine <m>x=0</m>.
+</p>
+
+<paragraphs>
+<title>A Look Ahead</title>
+<p>
+In
+<xref ref="chapter-row-red" />,
+we will develop a systematic method of simplifying a system in this manner, but working exclusively with augmented matrices. Also, we will take the process a few steps further to make the system as simple as possible. Notice how <q>back-solving</q> the system proceeds from bottom-right to top-left. We will use the same process when solving systems using matrices.
+</p>
+</paragraphs>
+
+</subsection>
+
+</section>

@@ -1,0 +1,13 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+  \draw[->] (-1,0) to (2,0) node[below right] {$x$};
+  \draw[->] (0,-1) -- (0,2) node[above right] {$y$};
+
+	\node[point] at (0,0) (o) [label=below left:{$(0,0)$}] {};
+	\node[point] at (1,0) (e1) [label=above right:{$(1,0)$}] {};
+	\node[point] at (0,1) (e2) [label=above right:{$(0,1)$}] {};
+	\draw[vector,very thick] (0,0) to node[below, near end] {$\uvec{e}_1$} (e1);
+	\draw[vector,very thick] (0,0) to node[left, near end] {$\uvec{e}_2$} (e2);
+\end{tikzpicture}

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-col-row-null-space-theory">
+
+<title>Theory</title>
+
+<subsection xml:id="subsection-col-row-null-space-theory-colspace">
+<title>Column space</title>
+
+<p>
+First we'll record two facts concerning how multiplying each in a set of column vectors in <m>\R^n</m> by a common matrix affects linear dependence and independence, leading to our conclusion about how to determine a basis for the column space of a matrix from examining its RREF.
+</p>
+
+<proposition xml:id="proposition-col-row-null-space-dep-indep-of-images">
+
+	<statement><p><ol>
+	<li xml:id="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">
+	Suppose <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are column vectors in <m>\R^n</m> and <m>E</m> is an <m>m\times n</m> matrix. If vectors <m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m> are linearly independent in <m>\R^m</m>, then so too <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are linearly independent in <m>\R^n</m>.
+	</li>
+
+	<li xml:id="proposition-col-row-null-space-dep-indep-of-images-pullback-image-dependence">
+	Suppose <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> and <m>\uvec{w}</m> are column vectors in <m>\R^n</m> and <m>E</m> is an invertible <m>n\times n</m> matrix. If vector <m>E\uvec{w}</m> is linearly dependent with the vectors <m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m> by the dependence relation
+	<me> E\uvec{w} = k_1 E\uvec{v}_1 + k_2 E\uvec{v}_2 + \dotsb + k_\ell E\uvec{v}_\ell, </me>
+	then <m>\uvec{w}</m> is linearly dependent with <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> by a dependence relation involving the same scalars,
+	<me> \uvec{w} = k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_\ell\uvec{v}_\ell. </me>
+	</li>
+
+	</ol></p></statement>
+
+	<proof><p><ol>
+		<li> Let's apply the test for independence to the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>: suppose that <m>k_1,k_2,\dotsc,k_\ell</m> are scalars so that
+		<md><mrow tag="star" xml:id="equation-col-row-null-space-dep-indep-of-images-image-indep-implies-indep-test">
+			k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsc + k_\ell\uvec{v}_\ell = \zerovec.
+		</mrow></md>
+		Multiplying both sides of this equation by the matrix <m>E</m>, and using some matrix algebra, we get
+		<me> k_1E\uvec{v}_1 + k_2E\uvec{v}_2 + \dotsc + k_\ell E\uvec{v}_\ell = E\zerovec = \zerovec. </me>
+		But we have assumed that the vectors <m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m> are linearly independent, so the only way this linear combination could equal the zero vector is if all the scalars <m>k_1,k_2,\dotsc,k_\ell</m> are zero. Thus, the linear combination in
+		<xref ref="equation-col-row-null-space-dep-indep-of-images-image-indep-implies-indep-test" />
+		must be the trivial one, and so the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are linearly independent.
+		</li>
+		<li> Simply apply the inverse <m>\inv{E}</m> to both sides of
+		<me> E\uvec{w} = k_1 E\uvec{v}_1 + k_2 E\uvec{v}_2 + \dotsb + k_\ell E\uvec{v}_\ell </me>
+		to obtain
+		<me> \uvec{w} = k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_\ell\uvec{v}_\ell. </me>
+		</li>
+	</ol></p></proof>
+
+</proposition>
+
+<corollary xml:id="corollary-col-row-null-space-colspace-basis">
+
+	<statement><p><ol>
+	<li> A basis for the column space of an <m>m\times n</m> matrix <m>A</m> can be formed from those columns of <m>A</m> (as column vectors in <m>\R^m</m>) in positions corresponding to the locations of the leading ones in the RREF of <m>A</m>. </li>
+	<li> The dimension of the column space of a matrix is equal to the rank of the matrix. </li>
+	</ol></p></statement>
+
+	<proof><p><ol>
+		<li><p>
+		By definition, the columns of <m>A</m> are a spanning set for the column space of <m>A</m>. By
+		<xref ref="proposition-basis-coords-reduce-span-to-basis" />,
+		this spanning set can be reduced to a basis; it's a matter of finding the largest possible linearly independent set of these spanning column vectors.
+		</p><p>
+		Let <m>E = E_t E_{t-1} \dotsm E_1</m> be the product of elementary matrices corresponding to some sequence of row operations that reduces <m>A</m> to its RREF. Because of the nature of RREF, each column of <m>\RREF(A)</m> that contains a leading one will be standard basis vector in <m>\R^m</m>, no two such leading-one columns will be the same standard basis vector, and each column that does not contain a leading one will be a linear combination of those leading-one columns that appear to its left. Therefore, the leading-one columns represent the largest set of linearly independent vectors that can be formed from the columns of <m>\RREF(A)</m>. Since <m>E</m> is invertible, the two statements of
+		<xref ref="proposition-col-row-null-space-dep-indep-of-images" />
+		tell us that the columns of <m>A</m> will have the same relationships: those columns in <m>A</m> that are in positions where the leading ones occur in <m>\RREF(A)</m> will be linearly independent, and that will be the largest possible collection of linearly independent columns of <m>A</m>, because each of the other columns will be linearly dependent with the leading-one-position columns of <m>A</m> to its left.
+		</p><p>
+		Thus, we can reduce the spanning set made up of all columns of <m>A</m> to a basis for its column space by discarding the linearly dependent columns and keeping only those columns in positions corresponding to the locations of the leading ones occur in <m>\RREF(A)</m>.
+		</p></li>
+		<li> Since we obtain a basis for column space by taking those columns in the matrix in positions corresponding to the leading ones in a reduced form for the matrix, the number of basis vectors is equal to the number of leading ones. </li>
+	</ol></p></proof>
+
+</corollary>
+
+</subsection>
+
+
+<subsection xml:id="subsection-col-row-null-space-theory-rowspace">
+<title>Row space</title>
+
+<p> Next we'll record our observations concerning how the row operations affect the row space of a matrix, leading to our conclusion about how to obtain a basis for the row space of a matrix from its RREF. </p>
+
+<proposition xml:id="proposition-col-row-null-space-row-op-row-space">
+
+	<statement><p>
+	If an elementary row operation is applied to a matrix, then the row space of the new matrix is the same as the row space of the old matrix.
+	</p></statement>
+
+	<proof><p>
+	Consider an <m>m \times n</m> matrix <m>A</m> as a collection of row vectors in <m>\R^n</m>:
+	<me>
+		A = \begin{bmatrix}
+			\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+			\leftrightlinesubstitute \amp \uvec{a}_2 \amp \leftrightlinesubstitute\\
+			\amp\vdots\\
+			\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+		\end{bmatrix}.
+	</me>
+	Then the row space of <m>A</m> is, by definition, the subspace <m>\Span\{\uvec{a}_1,\uvec{a}_2,\dotsc,\uvec{a}_m\}</m> of <m>\R^m</m>.
+	</p><p>
+	As we did in
+	<xref ref="activity-col-row-null-space-row-ops-same-rowspace" />,
+	we will make repeated use of
+	<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+	of
+	<xref ref="proposition-subspaces-eq-span-test" />, which tells us how to tell when two spanning sets generate the same subspace.
+	</p><p>
+	Let's consider each type of elementary row operation in turn.
+	<ol label="(i)">
+
+		<li>
+		Suppose we swap two rows in <m>A</m>:
+		<me>
+			A = \begin{bmatrix}
+				\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_i \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_j \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+			\end{bmatrix}
+			\to
+			A' = \begin{bmatrix}
+				\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_j \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_i \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+			\end{bmatrix}.
+		</me>
+		The row space of the new matrix, <m>A'</m>, is the span of its row vectors. But every row vector in <m>A'</m> is equal to one of the row vectors in <m>A</m>, and vice versa. So clearly the conditions of the above-referenced
+    <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+		are satisfied, and the rowspaces of the two matrices are the same space.
+		</li>
+
+		<li><p>
+		Suppose we multiply one of the rows in <m>A</m> by a nonzero constant <m>k</m>:
+		<me>
+			A = \begin{bmatrix}
+				\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_i \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+			\end{bmatrix}
+			\to
+			A'' = \begin{bmatrix}
+				\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp k\uvec{a}_i \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+			\end{bmatrix}.
+		</me>
+		Again, most of the row vectors in the new matrix <m>A''</m> are equal to one of the row vectors in <m>A</m>, and vice versa. So to fully satisfy the conditions of the above-referenced
+    <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>,
+		we need to verify that <m>k\uvec{a}_i</m> is somehow a linear combination of row vectors from <m>A</m> and that <m>\uvec{a}_i</m> is somehow a linear combination of row vectors from <m>A''</m>. But <m>k\uvec{a}_i</m> is already expressed as a scalar multiple of a row vector from <m>A</m>, and since <m>k</m> is nonzero we can also write
+		<me> \uvec{a}_i = \frac{1}{k} \cdot (k\uvec{a}_i), </me>
+		so that <m>\uvec{a}_i</m> is also a scalar multiple of a row vector from <m>A''</m>.
+		</p><p>
+		With the conditions of the above-referenced
+    <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+		now fully satisfied, we can conclude that the rowspaces of the two matrices are the same space.
+		</p></li>
+
+		<li>
+		<p>
+		Suppose we replace one row vector in <m>A</m> by the sum of that row and a scalar multiple of another:
+		<me>
+			A = \begin{bmatrix}
+				\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_i \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+			\end{bmatrix}
+			\to
+			A''' = \begin{bmatrix}
+				\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_i + k\uvec{a}_j \amp \leftrightlinesubstitute\\
+				\amp\vdots\\
+				\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
+			\end{bmatrix}.
+		</me>
+		Once again, most of the row vectors in the new matrix <m>A'''</m> are equal to one of the row vectors in <m>A</m>, and vice versa. So to fully satisfy the conditions of the above-referenced
+    <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>,
+		we need to verify that <m>\uvec{a}_i + k\uvec{a}_j</m> is somehow a linear combination of row vectors from <m>A</m> and that <m>\uvec{a}_i</m> is somehow a linear combination of row vectors from <m>A'''</m>. But <m>\uvec{a}_i + k\uvec{a}_j</m> is already expressed as a linear combination of row vectors from <m>A'''</m>, and for <m>\uvec{a}_i</m> we can write
+		<me> \uvec{a}_i = 1(\uvec{a}_i + k\uvec{a}_j) + (-k)\uvec{a}_j, </me>
+		a linear combination of row vectors from <m>A'''</m>.
+		</p>
+		<aside><p>
+			Row vector <m>\uvec{a}_j</m> has not been modified in the row operation, and so is a row vector for both <m>A</m> and <m>A'''</m>.</p>
+		</aside>
+		<p>
+		With the conditions of the above-referenced
+    <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+		now fully satisfied, we can conclude that the rowspaces of the two matrices are the same space.
+		</p>
+		</li>
+
+	</ol>
+	</p></proof>
+
+</proposition>
+
+<corollary xml:id="corollary-col-row-null-space-rref-row-space">
+
+	<statement><p>
+	Let <m>A</m> represent a matrix.
+	<ol>
+		<li xml:id="corollary-col-row-null-space-rref-row-space-invertible-times">
+		If <m>E</m> is an invertible square matrix of compatible size, then <m>A</m> and <m>EA</m> have the same row space.
+		</li>
+		<li xml:id="corollary-col-row-null-space-rref-row-space-same-row-space">
+		The row space of each REF for <m>A</m> (including the RREF of <m>A</m>) is always the same as that of <m>A</m>.
+		</li>
+		<li> The nonzero rows of each REF for <m>A</m> form a basis for the row space of <m>A</m>. </li>
+	</ol>
+	</p></statement>
+
+	<proof><p><ol>
+		<li>
+		Since <m>E</m> is invertible, it can be expressed as a product of elementary matrices
+		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
+		and the product <m>EA</m> has the same result as applying the sequence of row operations represented by those elementary matrices to <m>A</m>. But
+		<xref ref="proposition-col-row-null-space-row-op-row-space" />
+		tells us that applying those operations does not change the row space.
+		</li>
+		<li>
+		Let <m>F</m> be an REF for <m>A</m>, and let <m>E_1,E_2,\dotsc,E_\ell</m> be elementary matrices corresponding to some sequence of row operations that reduces <m>A</m> to <m>F</m>. Set <m>E = E_\ell \dotsm E_2 E_1</m>. Then <m>E</m> is an invertible matrix and <m>F = EA</m>. Therefore, <m>F</m> has the same row space as <m>A</m> by
+		<xref ref="corollary-col-row-null-space-rref-row-space-invertible-times">Statement</xref>
+		of this corollary.
+		</li>
+		<li>
+		Let <m>F</m> be an REF for <m>A</m>. By
+		<xref ref="corollary-col-row-null-space-rref-row-space-same-row-space">Statement</xref>
+		of this corollary, the rows of <m>F</m> are a spanning set for the row space of <m>A</m>. Clearly we can discard any zero rows from this spanning set, so it just remains to verify that the nonzero rows of <m>F</m> are linearly independent. For this, we will use
+		<xref ref="proposition-linear-indep-expand-indep" />,
+		building up our linearly independent spanning set one vector at a time. Let <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> represent the nonzero rows of <m>F</m>, from top to bottom. Start with <m>\uvec{v}_\ell</m>; all by itself, this one nonzero vector is linearly independent. Now, <m>\uvec{v}_{\ell-1}</m> cannot be in <m>\Span\{\uvec{v}_\ell\}</m>, because no scalar multiple of <m>\uvec{v}_\ell</m> will have a nonzero entry in the component where <m>\uvec{v}_{\ell-1}</m> has its leading one. From this,
+		<xref ref="proposition-linear-indep-expand-indep" />
+		tells us that <m>\{\uvec{v}_{\ell-1},\uvec{v}_\ell\}</m> is linearly independent. Moving on, <m>\uvec{v}_{\ell-2}</m> cannot be in <m>\Span\{\uvec{v}_{\ell-1},\uvec{v}_\ell\}</m>, because no linear combination of those two vectors will have a nonzero entry in the component where <m>\uvec{v}_{\ell-2}</m> has its leading one. From this,
+		<xref ref="proposition-linear-indep-expand-indep" />
+		tells us that <m>\{\uvec{v}_{\ell-2},\uvec{v}_{\ell-1},\uvec{v}_\ell\}</m> is linearly independent. Repeating this argument as we move up the rows of <m>F</m>, we see that the nonzero rows of <m>F</m> are linearly independent when taken altogether.
+		</li>
+	</ol></p></proof>
+
+</corollary>
+
+</subsection>
+
+
+<subsection xml:id="subsection-col-row-null-space-theory-spaces-vs-rank-invert">
+<title>Column and row spaces versus rank and invertibility</title>
+
+
+<p>
+As discovered in
+<xref ref="activity-col-row-null-space-summarize-col-indep" />,
+we can use our observations recorded in
+<xref ref="proposition-col-row-null-space-dep-indep-of-images" />
+to connect column space to invertibility. We can similarly use
+<xref ref="corollary-col-row-null-space-rref-row-space" />
+to also connect row space to invertibility.
+</p>
+
+<p>
+First, we will extend the list of properties that are equivalent to invertibility of a square matrix, first started in
+<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
+and then continued in
+<xref ref="theorem-more-det-equiv-to-invertible" />.
+</p>
+
+<theorem xml:id="theorem-col-row-null-space-equiv-to-invertible">
+	<statement><p>
+	For a square matrix <m>A</m>, the following are equivalent.
+	<ol>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-invertible">
+		Matrix <m>A</m> is invertible.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-every-sys">
+		Every linear system that has <m>A</m> as a coefficient matrix has one unique solution.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-homog-sys">
+		The homogeneous system <m>A\uvec{x} = \zerovec</m> has only the trivial solution.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-some-sys">
+		There is some linear system that has <m>A</m> as a coefficient matrix and has one unique solution.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-rank">
+		The rank of <m>A</m> is equal to the size of <m>A</m>.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-rref">
+		The RREF of <m>A</m> is the identity.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-prod-elem">
+		Matrix <m>A</m> can be expressed as a product of some number of elementary matrices.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-det-nonzero">
+		The determinant of <m>A</m> is nonzero.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">
+		The columns of <m>A</m> are linearly independent.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-col-basis">
+		The columns of <m>A</m> form a basis for <m>\R^n</m>, where <m>n</m> is the size of <m>A</m>.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">
+		The rows of <m>A</m> are linearly independent.
+		</li>
+		<li xml:id="theorem-col-row-null-space-equiv-to-invertible-row-basis">
+		The rows of <m>A</m> form a basis for <m>\R^n</m>, where <m>n</m> is the size of <m>A</m>.
+		</li>
+	</ol>
+	In particular, an <m>n\times n</m> matrix is invertible if and only if its columns form a basis for <m>\R^n</m>.
+	</p></statement>
+
+	<proof>
+
+	<p>
+	We have previously encountered the equivalence of many of these statements, most recently in
+	<xref ref="theorem-col-row-null-space-equiv-to-invertible" />. So currently we only need to concern ourselves with the new statements. For each of these, if we can establish equivalence of the new statement to <em>one</em> of the old, then the new statement must be equivalent to <em>all</em> of the old, by the transitivity of logical equivalence.
+	</p>
+
+	<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">Statement</xref></title>
+	<p>
+	From our reinterpretation of the Test for Linear Dependence/Independence stated in
+	<xref ref="procedure-col-row-null-space-concepts-colspace-linear-indep-test" />,
+	we know that <em>all</em> of the columns of <m>A</m> will be linearly independent if and only if every column of <m>\RREF(A)</m> has a leading one. Therefore, this statement is equivalent to
+	<xref ref="theorem-col-row-null-space-equiv-to-invertible-rank">Statement</xref>.
+	</p>
+	</paragraphs>
+
+	<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref></title>
+	<p>
+	This statement is equivalent to
+	<xref ref="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">Statement</xref>,
+	since
+	<xref ref="proposition-dimension-right-num-indep-iff-spanning" />
+	tells us that we need exactly <m>n</m> linearly independent vectors to form a basis for <m>\R^n</m>.
+	</p>
+	</paragraphs>
+
+	<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">Statement</xref></title>
+	<p>
+	From the row space version of the Test for Linear Dependence/Independence stated
+	<xref ref="procedure-col-row-null-space-concepts-rowspace-linear-indep-test" />,
+	we know that <em>all</em> of the rows of <m>A</m> will be linearly independent if and only if every row of <m>\RREF(A)</m> is nonzero. Therefore, this statement is also equivalent to
+	<xref ref="theorem-col-row-null-space-equiv-to-invertible-rank">Statement</xref>.
+	</p>
+	</paragraphs>
+
+	<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-basis">Statement</xref></title>
+	<p>
+	This statement is equivalent to
+	<xref ref="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">Statement</xref>,
+	again since
+	<xref ref="proposition-dimension-right-num-indep-iff-spanning" />
+	tells us that we need exactly <m>n</m> linearly independent vectors to form a basis for <m>\R^n</m>.
+	</p>
+	</paragraphs>
+
+	</proof>
+
+</theorem>
+
+<p>
+Finally, we'll record an observation from
+<xref ref="activity-col-row-null-space-rank-nullity" />,
+which is just a reframing of
+<xref ref="proposition-row-red-num-parameters-vs-rank" />.
+</p>
+
+<theorem xml:id="theorem-col-row-null-space-rank-nullity">
+
+	<title>The Rank-Nullity Theorem</title>
+
+	<statement><p>
+	If <m>A</m> is an <m>m \times n</m> matrix, then
+	<me> n = \rank(A) + \nullity(A). </me>
+	That is,
+	<me> \dim\R^n = \dim(\text{column space of } A) + \dim(\text{null space of } A). </me>
+	</p></statement>
+	<aside><title>Note</title><p>
+	The two spaces referenced in this theorem are connected through the matrix <m>A</m>, but may be subspaces of <em>different</em> vector spaces <mdash /> the column space of <m>A</m> is a subspace of <m>\R^m</m>, while the null space is a subspace of <m>\R^n</m>.
+	</p></aside>
+
+	<proof><p>
+	The dimension of the column space of <m>A</m> is equal to the number of leading ones in its RREF, while the dimension of the null space of <m>A</m> is equal to the number of free variables, which is equal to the number of columns in the RREF that do <em>not</em> have a leading one. These two numbers must add up to the total number of columns in <m>A</m>.
+	</p></proof>
+
+</theorem>
+
+</subsection>
+
+</section>

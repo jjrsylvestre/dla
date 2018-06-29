@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-special-forms-examples">
+
+<title>Examples</title>
+
+<subsection xml:id="subsection-special-forms-examples-computations">
+<title>Computation patterns</title>
+
+<p>
+Here we will concentrate mostly on computational patterns involving diagonal matrices. Computations involving upper triangular or lower triangular matrices are somewhat similar. Let's look at each of a sum, product, power, and inverse involving diagonal matrices, in the <m>3\times 3</m> case.
+<!-- separate <me>'s instead of a big <md> with multiple <mrow>'s to insert inter-spacing -->
+<me>
+	\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}
+	+ \left[\begin{array}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{array}\right]
+	= \begin{bmatrix} 5 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 9 \end{bmatrix}
+</me><me>
+	\left[\begin{array}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{array}\right]
+	= \left[\begin{array}{rrr}
+		4 \amp 0 \amp 0 \\
+		0 \amp -4 \amp 0 \\
+		0 \amp 0 \amp 18
+	\end{array}\right]
+</me><me>
+	\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}^2
+	= \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 4 \amp 0 \\ 0 \amp 0 \amp 9 \end{bmatrix}
+	= \begin{bmatrix} 1^2 \amp 0 \amp 0 \\ 0 \amp 2^2 \amp 0 \\ 0 \amp 0 \amp 3^2 \end{bmatrix}
+</me><me>
+	\inv{\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}}
+	= \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp \frac{1}{2} \amp 0 \\ 0 \amp 0 \amp \frac{1}{3} \end{bmatrix}
+</me>
+We can easily identify some patterns here.
+<ul>
+	<li> We add diagonal matrices by adding corresponding diagonal entries. </li>
+	<li> We multiply diagonal matrices by multiplying corresponding diagonal entries. </li>
+	<li> We exponentiate a diagonal matrix by exponentiating each of the diagonal entries by the same exponent. </li>
+	<li> We invert a diagonal matrix by inverting (<ie /> taking the reciprocal of) each of the diagonal entries. </li>
+</ul>
+</p><p>
+We have some of the same patterns for upper and lower triangular matrices, at least for the diagonal entries.
+<md>
+	<mrow>
+		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
+		\left[\begin{array}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{array}\right]
+		\amp = \begin{bmatrix}
+			4+0+0 \amp 1-2+0 \amp 1+1+0 \\
+			0+0+0 \amp 0-4+0 \amp 0+2+6 \\
+			0+0+0 \amp 0+0+0 \amp 0+0+18
+		\end{bmatrix}
+	</mrow><mrow>
+		\amp = \left[\begin{array}{rrr}
+			4 \amp -1 \amp 2 \\
+			0 \amp -4 \amp 8 \\
+			0 \amp 0 \amp 18
+		\end{array}\right]
+	</mrow>
+</md><md>
+	<mrow>
+		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}^2
+		\amp = \begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
+		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
+	</mrow><mrow>
+		\amp = \begin{bmatrix}
+			1+0+0 \amp 1+2+0 \amp 1+1+3 \\
+			0+0+0 \amp 0+4+0 \amp 0+2+3 \\
+			0+0+0 \amp 0+0+0 \amp 0+0+9
+		\end{bmatrix}
+	</mrow><mrow>
+		\amp = \begin{bmatrix} 1 \amp 3 \amp 5 \\ 0 \amp 4 \amp 5 \\ 0 \amp 0 \amp 9 \end{bmatrix}
+	</mrow><mrow>
+		\amp = \begin{bmatrix} 1^2 \amp 3 \amp 5 \\ 0 \amp 2^2 \amp 5 \\ 0 \amp 0 \amp 3^2 \end{bmatrix}
+	</mrow>
+</md>
+To compute the inverse of an upper triangular matrix, we need to to some row reducing.
+<md>
+	<mrow>
+		\left[\begin{array}{rrr|rrr}
+			1 \amp 1 \amp 1  \amp  1 \amp 0 \amp 0 \\
+			0 \amp 2 \amp 2  \amp  0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 3  \amp  0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{matrix} \phantom{x} \\ \frac{1}{2}R_2 \\ \frac{1}{3}R_3 \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{rrr|rrr}
+			1 \amp 1 \amp 1  \amp  1 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 1  \amp  0 \amp \frac{1}{2} \amp 0 \\
+			0 \amp 0 \amp 1  \amp  0 \amp 0 \amp \frac{1}{3}
+		\end{array}\right]
+		\begin{matrix} R_1-R_2 \\ \phantom{x} \\ \phantom{x} \end{matrix}
+	</mrow><mrow>
+		\longrightarrow
+		\left[\begin{array}{rrr|rrr}
+			1 \amp 0 \amp 0  \amp  1 \amp -\frac{1}{2} \amp 0 \\
+			0 \amp 1 \amp 1  \amp  0 \amp \frac{1}{2} \amp 0 \\
+			0 \amp 0 \amp 1  \amp  0 \amp 0 \amp \frac{1}{3}
+		\end{array}\right]
+		\begin{matrix} \phantom{x} \\ R_2-R_3 \\ \phantom{x} \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{rrr|rrr}
+			1 \amp 0 \amp 0  \amp  1 \amp -\frac{1}{2} \amp 0 \\
+			0 \amp 1 \amp 0  \amp  0 \amp \frac{1}{2} \amp -\frac{1}{3} \\
+			0 \amp 0 \amp 1  \amp  0 \amp 0 \amp \frac{1}{3}
+		\end{array}\right]
+	</mrow>
+</md>
+With this reduction, we have calculated that
+<me>
+	\inv{\begin{bmatrix}
+		1 \amp 1 \amp 1 \\
+		0 \amp 2 \amp 2 \\
+		0 \amp 0 \amp 3
+	\end{bmatrix}} =
+	\left[\begin{array}{rrr}
+		1 \amp -\frac{1}{2} \amp 0 \\
+		0 \amp \frac{1}{2} \amp -\frac{1}{3} \\
+		0 \amp 0 \amp \frac{1}{3}
+	 \end{array}\right].
+</me>
+Again, we see the same pattern on the main diagonal as for diagonal matrices. Products, powers, and inverses of lower triangular matrices would be similar.
+</p>
+
+<remark xml:id="remark-special-forms-examples-more-diag-patterns">
+<title>More patterns with diagonal matrices</title>
+<p>
+In the example calculations of <xref ref="activity-special-forms-diag-times" />, we also found the following patterns.
+<ul>
+	<li> Multiplying a matrix <m>A</m> on the <em>left</em> by a diagonal matrix <m>D</m> multiplies each <em>row</em> of <m>A</m> by the corresponding diagonal entry of <m>D</m>. </li>
+	<li> Multiplying a matrix <m>A</m> on the <em>right</em> by a diagonal matrix <m>D</m> multiplies each <em>column</em> of <m>A</m> by the corresponding diagonal entry of <m>D</m>. </li>
+</ul>
+</p>
+<aside><title>A look ahead</title><p>
+	The second of these patterns will be important in <xref ref="chapter-diagonalization" />.
+</p></aside>
+</remark>
+
+</subsection>
+
+</section>

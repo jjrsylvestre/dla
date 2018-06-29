@@ -1,0 +1,28 @@
+\tdplotsetmaincoords{105}{30}
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+	tdplot_main_coords
+]
+
+	% plane through the origin with normal vector (1,-1,2)
+	% orthog basis used to draw sides: (1,1,0) and (1,1,-1)
+	% the vector (-2,-2,-2) represents the origin so that this plane is an example of a plane not throught the origin.
+
+	% fill for plane
+	\filldraw[opacity=0.25,gray] (-1.5,-0.5,0.5) to (4,5,0.5) to (6.5,2.5,-2) to (1,-3,-2) to cycle;
+
+	% plane border
+	\draw[dotted] (-1.5,-0.5,0.5) to (4,5,0.5) to (6.5,2.5,-2) to (1,-3,-2) to cycle;
+
+	\node[point] at (0,0,0) (o) [label=above left:{$\zerovec$}] {};
+
+	% plane vectors
+	\draw[vector] (o) to node[above left] {$\uvec{p}_1$} (2.25,3,0.375);
+	\draw[vector] (o) to node[below left] {$\uvec{p}_2$} (3,0,-1.5);
+	\draw[vector] (o) to node[sloped,above,near end]
+		{$\uvec{u}$ {\tiny (linearly dependent with $\uvec{p}_1,\uvec{p}_2$)}}
+		(5.25,3,-1.125);
+	\draw[vector] (o) to node[right,at end] {$\uvec{v}$ {\tiny (linearly independent from $\uvec{p}_1,\uvec{p}_2$)}} (2,2,2);
+
+\end{tikzpicture}

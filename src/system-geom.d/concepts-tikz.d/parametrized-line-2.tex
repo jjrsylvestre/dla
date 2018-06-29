@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+
+	\draw[dashed] (-9,6.25) to (8,2);
+	\node[point] at (-8,6) (xn2) [label=above:{$t=-2$}] {};
+	\node[point] at (-5,5.25) (xn1) [label=above:{$t=-1$}] {};
+	\node[point] at (-2,4.5) (x0) [label=above:{$t=0$},label=below left:{$\zerovec$}] {};
+	\node[point] at (1,3.75) (x1) [label=above:{$t=1$}] {};
+	\node[point] at (4,3) (x2) [label=above:{$t=2$}] {};
+	\node[point] at (7,2.25) (x3) [label=above:{$t=3$}] {};
+	\draw[vector] (x0) to node[below] {$\uvec{p}$} (x1);
+
+\end{tikzpicture}

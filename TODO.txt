@@ -1,0 +1,75 @@
+* Look back at old LaTeX book TODO list.
+* Go through and check all asides --- having an <aside> inside a <p>
+  causes an extra line break in the main text <p>.... which is annoying.
+* Go through and see if some sections don't really need to be broken up into
+  subsections.
+  --> Especially: look for sections that have only one subsection.
+  --> Especially: check out theory sections.
+* Go through and see where <md>'s need a blank <mrow></mrow> to improve readability.
+* Go through and change xrefs to "section-*-activities"
+  to say "Activity Set" instead of "Section" ?
+* Consider changing "A Look Ahead" and "A Look Behind" paragraphs to asides.
+* Go through and consider adding titles to a lot of thms/props/lemmas/cors.
+* knowl-ize definitions? Would especially be nice to have terminology knowls in activity sets...
+  Could add an xml:id to <li>'s in terminology.xml, then
+  search for <term>...</term> to change to an <xref>...</xref>
+  ---> see how this is already done for the defintion of linear combination in the vectors chapter.
+  ---> would also need to do a bit of re-reading to find places
+	that are not currently <term>'s but would benefit from
+	having a knowl-ized definition reminder pop up.
+* In the Concepts section of det-by-row-red, convert conclusion of each
+  "Corresponding elementary matrices" paragraph to an alert, to be in accord
+  with the other named paragraphs.
+* Look for <paragraphs> and see if <cases> would make more sense.
+* Go through and make xref's to "theorem-*-equiv-to-invertible" point to the most recent
+  extended version?
+* Consider going through and changing "collection" to "set."
+
+EVENTUALLY:
+* Go through and scrutinize aside placements --- they don't have to be inter-paragraph!
+* make macros out of more things, to ease change-of-notation for people who want to adopt.
+---> for example, get rid of all \left[\begin{array}...\end{array}\right] and similarly for smallmatrix,
+     so that matrices can be easily changed from [] to () notation.
+---> maybe take this even one step further and get rid of all bmatrix and replace with \left[\begin{matrix} and \end{matrix}\right]  ?
+* More liberal use of <sidebyside> to display small figures next to text...?
+  But this will be hard to manage good presentation for different size screens...
+
+QUESTIONS FOR rbeezer:
+* Can "nearby" references please lose their knowls? (sometimes....)
+* <em> inside <em> has no effect ...
+* <xref ref="...">Rename</xref> does not have the renaming in the knowl.
+  This is most obvious in renaming list items --- then the knowl says "Item ???. ..."
+  instead of "Rename ???. ..."
+* Proof scheme says it can contain a title, but title doesn't show up anywhere in HTML.
+* How to start a list at a particular number ?
+* <aside> that are two close together interfere.
+* Sometimes asides have extra vertical space at the top?
+  (See the two asides in activity section for the inverses chapter...)
+* Why doesn't <cell> have a top= or left= attribute for borders?
+
+NEW QUESTIONS:
+* Capitalize i.e. at the beginning of a sentence
+* Pluralization: Remark vs Remarks
+* Table of contents stuff:
+  --> There is no table of contents in "Front Matter" ?
+      (But can go "Up" from Front Matter to a get a listing of parts....)
+  --> Collapse section listings and only list chapters in contents side bar?
+  --> Have mini table of contents at the top of each section, listing all the subsections?
+* <ol cols="2"> goes across first instead of down? (This is noted in the Author's Guide...)
+* Misbehaving asides...
+  --> see my message to the Support group, as well as the aside
+      in "Terminology..." for chapter 14.
+  --> Sometimes aside <p> starts inline with <title>, sometimes it starts on the next line.
+      (see ch14.activity and ch14.concepts).
+  --> Sometimes aside with no title has a blank line at top, sometimes it doesn't.
+  --> Sometimes with a long title, when window is made slightly too narrow,
+      the title moves onto a second line but the two title lines seem to overlap.
+      ---> see the aside in examples section of chapter 14.
+* Ragged right vs justify.
+* Serif vs non-serif font mismatch.
+* An aside inside the statement of a theorem has italicized text?
+  (See the first aside next to Proposition 18.5.1.)
+* BUG: manually specifying <ol label="alph"> and then having another <ol> nested in an
+  <li> of the "alph" list, *without* specifying label type for the sublist, leads to
+  sublist with alph labels...
+* Inconsistent spacing of <paragraphs>.

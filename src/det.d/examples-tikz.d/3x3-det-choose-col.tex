@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+		every left delimiter/.style={xshift=.75em,yscale=0.9,yshift=0.15em},
+		every right delimiter/.style={xshift=-.75em,yscale=0.9,yshift=0.15em},
+		every node/.style={anchor=base east},
+	]
+	\matrix (A)[
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		3 \amp 1^- \amp 0 \\
+		-2 \amp -2^+ \amp 1 \\
+		0 \amp 1^- \amp -1 \\
+	};
+	\node[left=-0.25em of A] (eq) {$\det A =$};
+	\draw[thin] ([xshift=-0.5em]A-1-2.north west) rectangle (A-3-2.south east);
+\end{tikzpicture}

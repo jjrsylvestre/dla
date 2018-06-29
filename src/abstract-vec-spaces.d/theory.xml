@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-abstract-vec-spaces-theory">
+
+<title>Theory</title>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-abstract-vec-spaces-theory-uniqueness">
+<title>Uniqueness of the zero vector and of negatives</title>
+
+<p>
+Notice that
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>
+and
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>
+only say that there is <em>a</em> zero vector, and that every vector has <em>some</em> negative <mdash /> they don't say that there is <em>only one</em> zero vector, or that every vector has <em>only one</em> negative. There is no need to make these axioms that strong <mdash /> we can instead just logically deduce these properties from the weaker axioms we already have.
+</p>
+
+<proposition xml:id="proposition-abstract-vec-spaces-unique-zero-neg">
+	<statement><p><ol>
+		<li xml:id="proposition-abstract-vec-spaces-unique-zero-neg-zero">
+		In a vector space, there is one unique zero vector.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-unique-zero-neg-neg">
+		A vector in a vector space has one unique negative vector.
+		</li>
+	</ol></p></statement>
+
+	<proof><p><ol>
+
+		<li><p>
+		Suppose there were two vectors, <m>\zerovec_1</m> and <m>\zerovec_2</m>, that could each fulfill the requirement of
+		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>.
+		But then we would have both
+		<md>
+			<mrow>
+				\zerovec_1 + \zerovec_2 \amp= \zerovec_1 \amp \amp\text{(i)},
+			</mrow>
+			<intertext>and</intertext>
+			<mrow>
+				\zerovec_1 + \zerovec_2 \amp= \zerovec_2 + \zerovec_1 \amp
+				\amp\text{(ii)}
+			</mrow><mrow>
+				\amp= \zerovec_2 \amp \amp\text{(iii)},
+			</mrow>
+		</md>
+		with justifications
+		<ol label="(i)">
+			<li>
+			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>
+			with <m>\uvec{v} = \zerovec_1</m> and <m>\zerovec = \zerovec_2</m>; and
+			</li>
+			<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm">Axiom A</xref>;</li>
+			<li>
+			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>
+			with <m>\uvec{v} = \zerovec_2</m> and <m>\zerovec = \zerovec_1</m>.
+			</li>
+		</ol>
+		Since <m>\zerovec_1+\zerovec_2</m> equals both <m>\zerovec_1</m> and <m>\zerovec_2</m>, we must have <m>\zerovec_1=\zerovec_2</m>. So there can't really be more than one zero vector, since multiple zero vectors would end up having to be equal to each other.
+		</p></li>
+
+		<li><p>
+		Suppose a vector <m>\uvec{v}</m> could have two negatives, <m>(-\uvec{v})_1</m> and <m>(-\uvec{v})_2</m>. But then,
+		<md>
+			<mrow>
+				(-\uvec{v})_2
+				\amp= (-\uvec{v})_2 + \zerovec \amp
+				\amp\text{(i)}
+			</mrow><mrow>
+				\amp= (-\uvec{v})_2 + \bbrac{\uvec{v} + (-\uvec{v})_1} \amp
+				\amp\text{(ii)}
+			</mrow><mrow>
+				\amp= \bbrac{(-\uvec{v})_2 + \uvec{v}} + (-\uvec{v})_1 \amp
+				\amp\text{(iii)}
+			</mrow><mrow>
+				\amp= \bbrac{\uvec{v} + (-\uvec{v})_2} + (-\uvec{v})_1 \amp
+				\amp\text{(iv)}
+			</mrow><mrow>
+				\amp= \zerovec + (-\uvec{v})_1 \amp
+				\amp\text{(v)}
+			</mrow><mrow>
+				\amp= (-\uvec{v})_1 + \zerovec \amp
+				\amp\text{(vi)}
+			</mrow><mrow>
+				\amp= (-\uvec{v})_1 \amp
+				\amp\text{(vii)},
+			</mrow>
+		</md>
+		with justifications
+		<ol label="(i)">
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>; </li>
+			<li>
+			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>
+			with <m>-\uvec{v} = (-\uvec{v})_1</m>;
+			</li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc">Axiom A</xref>; </li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm">Axiom A</xref>; </li>
+			<li>
+			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>
+			with <m>-\uvec{v} = (-\uvec{v})_2</m>;
+			</li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm">Axiom A</xref>; and </li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>. </li>
+		</ol>
+		So <m>\uvec{v}</m> can't really have more than one negative vector, since multiple negative vectors would end up having to be equal to each other.
+		</p></li>
+
+	</ol></p></proof>
+
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-abstract-vec-spaces-theory-algebra">
+<title>Basic vector algebra rules</title>
+
+<p>
+There was also no need to include the condition <m>\zerovec + \uvec{v} = \uvec{v}</m> in
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>
+or the condition <m>-\uvec{v} + \uvec{v} = \zerovec</m> in
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>,
+as these can be deduced from the axioms we have, as we did in
+<xref ref="activity-abstract-vec-spaces-deducing-props-zero-reverse">Part</xref>
+and
+<xref ref="activity-abstract-vec-spaces-deducing-props-neg-reverse">Part</xref>
+of
+<xref ref="activity-abstract-vec-spaces-deducing-props" />.
+Let's record these properties, and some others that can be deduced from the axioms.
+</p>
+<aside><title>Keeping it simple</title><p>
+	We want the axioms to be as simple as possible, to reduce the amount of work it takes to verify that an example collection of objects is actually a vector space. The stronger we make the axioms, the more we have to check in examples. So, whereever possible, we leave conditions that seem <q>axiom-like</q> to be left as properties to be <em>logically deduced</em> from the axioms. This way, these extra properties become <em>automatically</em> true, <em>without checking</em>, in every collection that we have successfully checked the ten axioms.
+</p></aside>
+
+<proposition xml:id="proposition-abstract-vec-spaces-basic-vec-props">
+
+	<statement><p>
+	Suppose that <m>\uvec{u},\uvec{v},\uvec{w}</m> are vectors in a vector space, and that <m>k</m> is a scalar. Then the following are always true.
+	<ol cols="2">
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-reverse">
+		<m>\zerovec + \uvec{v} = \uvec{v}</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-reverse">
+		<m>-\uvec{v} + \uvec{v} = \zerovec</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul">
+		<m>0\uvec{v} = \zerovec</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-zero">
+		<m>-\zerovec = \zerovec</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-zero">
+		<m>k\zerovec = \zerovec</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-eq-zero">
+		If <m>k\uvec{v} = \zerovec</m>, then either <m>k=0</m> or <m>\uvec{v} = \zerovec</m> (or both).
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-neg">
+		<m>-(-\uvec{v}) = \uvec{v}</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">
+		<m>(-1)\uvec{v} = -\uvec{v}</m>.
+		</li>
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-cancel">
+		<p><em>(Cancellation)</em> If <m>\uvec{u} + \uvec{w} = \uvec{v} + \uvec{w}</m>, then <m>\uvec{u} = \uvec{v}</m>.
+		</p>
+		</li>
+	</ol>
+	</p></statement>
+
+	<proof>
+	<title>
+		Proofs of
+		<xref
+			first="proposition-abstract-vec-spaces-basic-vec-props-zero-reverse"
+			last="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul"
+		>Rules</xref>,
+		<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-neg">Rule</xref>,
+		and
+		<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>
+	</title>
+	<p> We have already considered these rules in <xref ref="activity-abstract-vec-spaces-deducing-props" />. </p>
+	</proof>
+
+	<proof>
+	<title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-zero">Rule</xref></title>
+	<p>
+	The zero vector is a special vector, but it's still a vector so it must have a negative because of
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>.
+	Now,
+	<xref ref="proposition-abstract-vec-spaces-unique-zero-neg-neg">Statement</xref>
+	of
+	<xref ref="proposition-abstract-vec-spaces-unique-zero-neg" />
+	with <m>\uvec{v} = \zerovec</m> tells us that the <em>only</em> way to fill the blank in
+	<me> \zerovec \: + \:\boxed{\phantom{X}}\: = \:\zerovec </me>
+	is with the negative <m>-\zerovec</m>. But
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>
+	with <m>\uvec{v}=\zerovec</m> says that we may also fill this blank with plain <m>\zerovec</m>. Therefore, we must have <m>\zerovec = -\zerovec</m>, as desired.
+	</p>
+	</proof>
+
+	<proof>
+	<title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-zero">Rule</xref></title>
+	<p>
+	We need to verify the equality <m>k\zerovec = \zerovec</m>:
+	<md>
+		<mrow> \text{LHS} \amp= k\zerovec </mrow>
+		<mrow>
+			\amp= k\bbrac{\zerovec + (-\zerovec)} \amp
+			\amp\text{(i)}
+		</mrow><mrow>
+			\amp= k\bbrac{\zerovec + (-1)\zerovec} \amp
+			\amp\text{(ii)}
+		</mrow><mrow>
+			\amp= k\zerovec + k\bbrac{(-1)\zerovec} \amp
+			\amp\text{(iii)}
+		</mrow><mrow>
+			\amp= k\zerovec + (-k)\zerovec \amp
+			\amp\text{(iv)}
+		</mrow><mrow>
+			\amp= \bbrac{k+(-k)}\zerovec \amp
+			\amp\text{(v)}
+		</mrow><mrow>
+			\amp= 0\zerovec \amp
+			\amp\text{(vi)}
+		</mrow><mrow>
+			\amp= \zerovec \amp
+			\amp\text{(vii)}
+		</mrow><mrow>
+			\amp= \text{RHS},
+		</mrow>
+	</md>
+	as desired, with justifications
+	<ol alph="(i)">
+		<li>
+		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>
+		with <m>\uvec{v}=\zerovec</m>;
+		</li>
+		<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1">Axiom S</xref>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc">Axiom S</xref>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib2">Axiom S</xref>;</li>
+		<li>algebra of numbers; and</li>
+		<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul">Rule</xref>.</li>
+	</ol>
+	</p></proof>
+
+	<proof>
+	<title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-eq-zero">Rule</xref></title>
+	<p>
+	Suppose <m>k\uvec{v} = \zerovec</m>. Regardless of this starting assumption, either <m>k</m> is equal to <m>0</m> or it is not. If it is, then the desired conclusion <q>either <m>k=0</m> or <m>\uvec{v}=\zerovec</m></q> is true, regardless of whether <m>\uvec{v}</m> is zero of not. On the other hand, if <m>k</m> is not equal to <m>0</m>, then the reciprocal <m>\inv{k}</m> exists, and so we can use it to compute
+	<md>
+		<mrow>
+			\uvec{v}
+			\amp= 1\uvec{v} \amp
+			\amp\text{(i)}
+		</mrow><mrow>
+			\amp= (\inv{k}k)\uvec{v} \amp
+			\amp\text{(ii)}
+		</mrow><mrow>
+			\amp= \inv{k} (k\uvec{v}) \amp
+			\amp\text{(iii)}
+		</mrow><mrow>
+			\amp= \inv{k} \zerovec \amp
+			\amp\text{(iv)}
+		</mrow><mrow>
+			\amp= \zerovec, \amp
+			\amp\text{(v)}
+		</mrow>
+	</md>
+	with justifications
+	<ol label="(i)">
+		<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-one">Axiom S</xref>;</li>
+		<li>algebra of numbers;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc">Axiom S</xref>;</li>
+		<li>assumption <m>k\uvec{v}=\zerovec</m>; and</li>
+		<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-zero">Rule</xref>.</li>
+	</ol>
+	In this case, the desired conclusion <q>either <m>k=0</m> or <m>\uvec{v}=\zerovec</m></q> is true again.
+	</p></proof>
+
+	<proof>
+	<title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-cancel">Rule</xref></title>
+	<p>
+	Suppose <m>\uvec{u} + \uvec{w} = \uvec{v} + \uvec{w}</m>.
+	<!-- We would like to conclude that <m>\uvec{u} = \uvec{v}</m> from this assumption. -->
+	Starting with <m>\uvec{u}</m>, we can use the axioms to work in a <m>\uvec{w}</m>:
+	<md>
+		<mrow>
+			\uvec{u}
+			\amp= \uvec{u} + \zerovec \amp
+			\amp\text{(i)}
+		</mrow><mrow>
+			\amp= \uvec{u} + \bbrac{\uvec{w}+(-\uvec{w})} \amp
+			\amp\text{(ii)}
+		</mrow><mrow>
+			\amp= (\uvec{u} + \uvec{w}) + (-\uvec{w}) \amp
+			\amp\text{(iii)}
+		</mrow><mrow>
+			\amp= (\uvec{v} + \uvec{w}) + (-\uvec{w}) \amp
+			\amp\text{(iv)}
+		</mrow><mrow>
+			\amp= \uvec{v} + \bbrac{\uvec{w}) + (-\uvec{w})} \amp
+			\amp\text{(v)}
+		</mrow><mrow>
+			\amp= \uvec{v} + \zerovec \amp
+			\amp\text{(vi)}
+		</mrow><mrow>
+			\amp= \uvec{v}, \amp
+			\amp\text{(vii)}
+		</mrow>
+	</md>
+	as desired, with justifications
+	<ol label="(i)">
+		<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc">Axiom A</xref>;</li>
+		<li>assumption <m>\uvec{u}+\uvec{w} = \uvec{v}+\uvec{w}</m>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc">Axiom A</xref>;</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>; and</li>
+		<li><xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>.</li>
+	</ol>
+	</p></proof>
+
+</proposition>
+
+<remark><p>
+Again, keep in mind the difference between the left- and right-hand sides in
+<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>
+in the proposition above. The left-hand side is the scalar multiple of <m>\uvec{v}</m> by the scalar <m>-1</m>, while the right-hand side is the special negative vector that adds with <m>\uvec{v}</m> to the zero vector. These are two different processes of obtaining a new vector from the old vector <m>\uvec{v}</m>, and the point of the rule is to verify our intuition that these two processes should always return the same result. One of the advantages of this rule is that it eliminates any ambiguity in our definition of <term>vector subtraction</term>, since now it doesn't matter if we interpret <m>\uvec{v}-\uvec{w}</m> to mean <m>\uvec{v}+(-\uvec{w})</m> or <m>\uvec{v}+(-1)\uvec{w}</m>.
+</p></remark>
+
+</subsection>
+
+</section>

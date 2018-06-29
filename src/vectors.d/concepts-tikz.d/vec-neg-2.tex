@@ -1,0 +1,10 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+	\node[point] at (0,0) (o) [label=below right:${O}$] {};
+	\node[point] at (2,1) (r) [label=right:${R}$] {};
+	\node[point] at (-2,-1) (r2) [label=left:${R'}$] {};
+	\draw[vector] (o) to node[below] {$\uvec{v}$} (r);
+	\draw[vector] (o) to node[above] {$-\uvec{v}$} (r2);
+\end{tikzpicture}

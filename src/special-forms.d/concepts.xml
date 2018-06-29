@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-special-forms-concepts">
+
+<title>Concepts</title>
+
+<introduction>
+
+	<p>
+	After writing down examples of these special forms of square matrices in
+	<xref ref="activity-special-forms-exploring" />,
+	it should be obvious what these kinds of matrices <q>look</q> like. But we need to appreciate the difference between our conceptions and the technical definitions of these forms. For example, when we think of an example of an upper triangular matrix, we are likely to focus on the entries on and above the main diagonal, because those are what form the <q>upper triangular</q> shape, and all the other entries below the main diagonal are zero. But the technical definition of <term>upper triangular matrix</term> provided in
+	<xref ref="section-special-forms-terminology" />
+	focuses on those zero entries below the main diagonal, and <em>does not mention the entries on or above the main digaonal at all</em>.
+	</p><p>
+	Unlike a conception, a technical definition aims to capture the minimum information necessary to identify an instance of the concept. For the purposes of identifying an upper triangular matrix, the entries on or above the main diagonal are irrelevant and only the zeros below the main diagonal matter, because if any of those entries were nonzero the matrix in question would most certainly <em>not</em> be upper triangular. But this minimalism in making technical definitions can sometimes have surprising side effects, as we discovered in
+	<xref ref="activity-special-forms-exploring" />.
+	For example, a diagonal matrix is, by definition, also <em>both</em> upper and lower triangular, because its entries below <em>and</em> above the main diagonal are all zero. As an extreme example, a square zero matrix is simultaneously <em>all three</em> of diagonal, upper triangular, and lower triangular.
+	</p>
+
+	<question><statement><p>Why are these special forms important?</p></statement></question>
+
+	<p>
+	At this stage, we can state a few reasons why we might be interested in identifying these matrix forms with special names.
+	<ul>
+		<li> For the diagonal and triangular forms, the fact that many of their entries are zero makes computing with them especially easy, whether with respect to matrix operations or with respect to solving systems. </li>
+		<li> With regards to solving systems, any square matrix in REF (or RREF) must be upper triangular. And lower triangular is just the transposed version of upper triangular, so it seems reasonable to identify it along with the upper triangular form. </li>
+		<li> Symmetric matrices play a special role in the geometry of the plane, of space, and of higher-dimensional <q>hyperspaces,</q> as you may discover in a second course in linear algebra. </li>
+		<li> Finally, for each of these forms (including symmetric), you discovered in <xref ref="activity-special-forms-exploring" /> that <em>adding or scalar multiplying matrices of the form resulted in another matrix of the same form</em>. For the diagonal and triangular forms, this was also true for products, and for all four forms it was true again for powers and inverses. The fact that matrix operations on these forms produce results of the same form is an important property in more advanced abstract algebra. </li>
+	</ul>
+	</p>
+
+</introduction>
+
+<subsection xml:id="subsection-special-forms-concepts-scalar-matrix-algebra">
+<title>Algebra with scalar matrices</title>
+
+<p>
+In <xref ref="activity-special-forms-exploring" />, you might have noticed how certain rules of matrix algebra
+<!--
+(rules \brefpropsubrange[MatrixOps]{matrix.algebra.rules}{scalar.distrib}{subtract.conv.add} and \brefpropsub[MatrixOps]{matrix.algebra.rules}{power.of.scalar.mul} of \Nrefprop[MatrixOps]{matrix.algebra.rules} and rule \brefpropsub[Inverses]{props.of.inverses}{inverse.scalar.mult} of \Nrefprop[Inverses]{props.of.inverses}, along with rules \brefpropsub[Inverses]{identity.matrix}{power} and \brefpropsub[Inverses]{identity.matrix}{inverse} of \Nrefprop[Inverses]{identity.matrix})
+-->
+apply to scalar matrices:
+<dl>
+	<li>
+		<title><m>kI + mI = (k+m)I</m></title>
+		<p>
+			(<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-distrib">Rule</xref>
+			of <xref ref="proposition-matrix-ops-algebra-rules" />);
+		</p>
+	</li>
+	<li>
+		<title><m>kI - mI = (k-m)I</m></title>
+		<p>
+			(<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-distrib">Rule</xref>
+			and
+			<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-subtract-conv-add">Rule</xref>
+			of
+			<xref ref="proposition-matrix-ops-algebra-rules" />
+			combined);
+		</p>
+	</li>
+	<li>
+		<title><m>(kI)(mI) = (km)I</m></title>
+		<p>
+			(<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
+			and
+			<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-2">Rule</xref>
+			of
+			<xref ref="proposition-matrix-ops-algebra-rules" />
+			combined with
+			<xref ref="proposition-inverses-identity-matrix-is-identity">Rule</xref>
+			of
+			<xref ref="proposition-inverses-identity-matrix" />);
+		</p>
+	</li>
+	<li>
+		<title><m>(kI)^p = k^p I</m></title>
+		<p>
+			(<xref ref="proposition-matrix-ops-algebra-rules-powers-of-scalar-mul">Rule</xref>
+			of
+			<xref ref="proposition-matrix-ops-algebra-rules" />
+			combined with
+			<xref ref="proposition-inverses-identity-matrix-power">Rule</xref>
+			of
+			<xref ref="proposition-inverses-identity-matrix" />);
+		</p>
+	</li>
+	<li>
+		<title><m>\inv{(kI)} = \inv{k}I</m></title>
+		<p>
+			(<xref ref="proposition-inverses-props-of-inverses-inverse-scalar-mult">Rule</xref>
+			of
+			<xref ref="proposition-inverses-props-of-inverses" />
+			combined with
+			<xref ref="proposition-inverses-identity-matrix-inverse">Rule</xref>
+			of
+			<xref ref="proposition-inverses-identity-matrix" />).
+		</p>
+	</li>
+</dl>
+So for scalar matrices there seems to be a pattern: <em>the matrix operation can be achieved by just performing the corresponding scalar operation</em>. This essentially gives us a way to <q>inject</q> the algebra of numbers into the algebra of square matrices of any given size, an extremely important notion in more advanced abstract algebra that you may encounter a taste of in a second linear algebra course.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-special-forms-concepts-inverses">
+<title>Inverses of special forms</title>
+
+<p>
+In
+<xref ref="activity-special-forms-exploring-invertible-criterion">Part</xref>
+of
+<xref ref="activity-special-forms-exploring" />,
+we examined the invertibility of these various forms of matrices. In <xref ref="theorem-elem-matrices-equiv-to-invertible" /> we learned that a matrix is invertible only if it can be reduced to the identity. Now, scalar matrices, diagonal matrices, and upper triangular matrices are already pretty close to being reduced, but we can see that if any of the diagonal entries of these forms of matrix is zero, then there will be no hope of getting a leading one in that column, and so we won't be able to reduce to the identity. Thus, <em>a scalar, diagonal, or upper triangular matrix is only invertible if its diagonal entries are all nonzero</em>. And, since the transpose of a lower triangular is upper triangular, and since taking a transpose does not affect invertibility (<xref ref="proposition-inverses-transpose" />), then the same is true about lower triangular matrices. Analyzing the invertibility of symmetric matrices is a little more complicated, but in
+<xref ref="activity-special-forms-exploring-inverse">Part</xref>
+of
+<xref ref="activity-special-forms-exploring" />,
+we discovered that for each of these special forms (including symmetric matrices), the inverse of a matrix of that form is also of that form.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-special-forms-concepts-decompositions">
+<title>Decompositions using special forms</title>
+
+<p>
+In <xref ref="activity-special-forms-upper-tri-decomp" /> we discovered that an upper triangular matrix can be decomposed into a sum or a product of a diagonal matrix with a special kind of upper triangular matrix. Using the matrix from that activity as an example, we have
+<md>
+	<mrow tag="star" xml:id="equation-special-forms-concepts-upper-tri-add-decomp">
+		\begin{bmatrix} 2 \amp 1 \amp 1 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 5 \end{bmatrix}
+		\amp = \begin{bmatrix} 2 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0 \amp 0 \amp 5 \end{bmatrix}
+		+ \begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix},
+	</mrow>
+	<mrow tag="dstar" xml:id="equation-special-forms-concepts-upper-tri-mult-decomp">
+		\begin{bmatrix} 2 \amp 1 \amp 1 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 5 \end{bmatrix}
+		\amp = \begin{bmatrix} 2 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0 \amp 0 \amp 5 \end{bmatrix}
+		\begin{bmatrix}
+			1 \amp \frac{1}{2} \amp \frac{1}{2} \\
+			0 \amp 1 \amp \frac{1}{3}\\0 \amp 0 \amp 1
+		\end{bmatrix}.
+	</mrow>
+</md>
+The special upper triangular matrix in the product decomposition in <xref ref="equation-special-forms-concepts-upper-tri-mult-decomp" /> is called a <term>unipotent matrix</term><!--\index{matrix!unipotent}--> because its powers will always have that line of ones down the main diagonal.
+<!-- TODO what is this doing here, and do I want to insert it back in somewhere ?
+\begin{inlinenote}[A Look Ahead]We will see in \nrefch[Eigen] that the diagonal entries in a diagonal or upper triangular matrix have special geometric significance.\end{inlinenote}-->
+The special upper triangular matrix in the sum decomposition in <xref ref="equation-special-forms-concepts-upper-tri-add-decomp" /> is called a <term>nilpotent matrix</term><!--\index{matrix!nilpotent}--> because its powers will always have that line of zeros down the main diagonal, and in fact, just like the nilpotent matrices you analyzed in <xref ref="activity-special-forms-nilp-powers" />, if you raise this matrix to an exponent equal to its size you will get the zero matrix!
+</p>
+
+<aside><title>A look ahead</title><p>
+	Nilpotent matrices play an important role in more advanced theory of matrix forms, which you might encounter in a second linear algebra course.
+</p></aside>
+
+</subsection>
+
+</section>

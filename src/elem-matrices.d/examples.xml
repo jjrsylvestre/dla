@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-elem-matrices-examples">
+
+<title>Examples</title>
+
+<subsection xml:id="subsection-elem-matrices-examples-elem-matrices-and-inverses">
+<title>Elementary matrices and their inverses</title>
+
+<p>
+Let's see some examples of forming the elementary matrix that corresponds to an elementary row operation, and then determining its inverse, for each of the three kinds of elementary operations. As we saw in <xref ref="section-elem-matrices-concepts" />, we form an elementary matrix by performing the desired operation <em>on the identity matrix</em>. Let's do some <m>4\times 4</m> examples.
+</p>
+
+<paragraphs>
+	<title>Swapping rows</title>
+	<p>
+	Consider the operation of swapping the second and fourth rows of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
+	<me>
+		I = \bidentmatfour \qquad\xrightarrow[\text{rows}]{\text{swap}}\qquad
+		E = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0
+		\end{bmatrix}
+	</me>
+	To obtain the inverse <m>\inv{E}</m>, we perform the reverse operation. But that's just swapping the same two rows back again:
+	<me>
+		I = \bidentmatfour \quad\xrightarrow[\text{rows}]{\text{swap}}\quad
+		\inv{E} = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0
+		\end{bmatrix}.
+	</me>
+	So, in this case, the inverse elemenatary matrix is the same as the original.
+	</p>
+</paragraphs>
+
+<paragraphs>
+	<title>Multiplying a row by a constant</title>
+	<p>
+	Now consider the operation of swapping the second row of a <m>4 \times n</m> matrix <m>A</m> by <m>5</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
+	<me>
+		I = \bidentmatfour \quad\xrightarrow[\text{second row}]{\text{multiply}}\quad
+		E = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+	</me>
+	To obtain the inverse <m>\inv{E}</m>, we perform the reverse operation, which in this case is dividing the second row by <m>5</m> (which is the same as multiplying the second row by <m>1/5</m>):
+	<me>
+		I = \bidentmatfour \quad\xrightarrow[\text{second row}]{\text{divide}}\quad
+		\inv{E} = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1/5 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+	</me>
+	</p>
+</paragraphs>
+
+<paragraphs>
+	<title>Combining rows</title>
+	<p>
+	Finally, consider the operation of adding double the first row to the third row of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
+	<me>
+		I = \bidentmatfour \quad\xrightarrow[\text{rows}]{\text{combine}}\quad
+		E = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			2 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+	</me>
+	Once again, to obtain the inverse <m>\inv{E}</m>, we perform the reverse operation, which in this case is <em>subtracting</em> double the first row from the third:
+	<me>
+		I = \bidentmatfour \quad\xrightarrow[\text{rows}]{\text{combine}}\quad
+		\inv{E} = \left[\begin{array}{rrrr}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			-2 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+	</me>
+	Comparing <m>E</m> and <m>\inv{E}</m> in this case, notice how the <m>2</m> becomes negated, which is actually the <em>additive</em> inverse of the number two (since <m>2+(-2)=0</m> and <m>(-2)+2=0</m>). This connection between inverting matrix multiplication and inverting numerical addition is important in more advanced abstract algebra.
+	</p>
+</paragraphs>
+
+<aside>
+	<title>Notice</title>
+	<p>In all three examples, we <em>always start at the identity matrix to create an elementary matrix</em>, even when computing the inverse of an elementary matrix.</p>
+</aside>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-examples-decompositions">
+<title>Decomposing an invertible matrix and its inverse into elementary matrices</title>
+
+<p>
+Again, let's do a <m>4\times 4</m> example. As we row reduce, we'll keep track of the corresponding elementary matrices. But that also means we need to make sure we are performing <em>elementary</em> row operations, and only performing one at a time <mdash /> no shortcuts!
+<md>
+	<mrow>
+		\amp \amp
+		A \amp = \left[\begin{array}{rrrr}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 3 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			-2 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{matrix}\phantom{x}\\\phantom{x}\\\phantom{x}\\R_4+2R_1\end{matrix}
+		\amp \amp \left(E_1 = \left[\begin{smallmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			2 \amp 0 \amp 0 \amp 1
+		\end{smallmatrix}\right]\right)
+	</mrow><mrow>
+ 		\amp \longrightarrow \amp
+		E_1A \amp = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 3 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\begin{matrix}\phantom{x}\\\phantom{x}\\R_2\leftrightarrow R_3\\\phantom{x}\\\phantom{x}\end{matrix}
+		\amp \amp \left(E_2 = \left[\begin{smallmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{smallmatrix}\right]\right)
+	</mrow><mrow>
+		\amp \longrightarrow \amp
+		E_2E_1A \amp = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 3 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\begin{matrix}\phantom{x}\\\phantom{x}\\R_3-5R_2\\\phantom{x}\end{matrix}
+		\amp \amp \left(E_3 = \left[\begin{smallmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp -5 \amp 1 \amp 0\\
+			0 \amp 0 \amp 0 \amp 1
+		\end{smallmatrix}\right]\right)
+	</mrow><mrow>
+		\amp \longrightarrow \amp
+		E_3E_2E_1A \amp = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 3 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\begin{matrix}\phantom{x}\\\phantom{x}\\\frac{1}{3}R_3\\\phantom{x}\end{matrix}
+		\amp \amp \left(E_4 = \left[\begin{smallmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp \frac{1}{3} \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{smallmatrix}\right]\right)
+	</mrow><mrow>
+		\amp \longrightarrow \amp
+		E_4E_3E_2E_1A \amp = \bidentmatfour
+	</mrow>
+</md>
+We now have <m>E_4E_3E_2E_1A = I</m>, which suggests that
+<md>
+	<mrow>\inv{A} \amp = E_4E_3E_2E_1</mrow>
+	<mrow>
+		\amp = \begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp \frac{1}{3} \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\left[\begin{array}{rrrr}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp -5 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			2 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+	</mrow><mrow>
+		\amp = \left[\begin{array}{rrrr}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp \frac{1}{3} \amp -\frac{5}{3} \amp 0 \\
+			2 \amp 0 \amp 0 \amp 1
+		\end{array}\right].
+	</mrow>
+</md>
+To check that this is really is the correct inverse for <m>A</m>, you can check that this matrix multiplied against <m>A</m> in the other order also results in the identity matrix (<ie /> that <m>A(E_4E_3E_2E_1) = I</m> as well).
+</p><p>
+Also, with some matrix algebra, from <m>E_4E_3E_2E_1A = I</m> we can isolate
+<md>
+	<mrow>A \amp = \inv{E}_1\inv{E}_2\inv{E}_3\inv{E}_4</mrow>
+	<mrow>
+		\amp =
+		\left[\begin{array}{rrrr}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			-2 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 3 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}.
+	</mrow>
+</md>
+Recall that these inverse elementary matrices can each be obtained from the identity matrix using the corresponding reverse operation. You may check that the result of multiplying these inverses together is <m>A</m>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-examples-inversion-procedure">
+<title>Inversion by row reduction</title>
+
+<p>
+Let's illustrate the inversion procedure from
+<xref ref="subsection-elem-matrices-concepts-invert-by-row-red" /> using the matrix <m>A</m> from the previous examples in <xref ref="subsection-elem-matrices-examples-decompositions" />. Since <m>A</m> is <m>4\times 4</m>, we augment <m>A</m> with the <m>4\times 4</m> identity matrix and then row reduce, being careful to apply our row operations <em>through the entire augmented rows</em>.
+<md>
+	<mrow>
+		\left[\begin{array}{rrrr|rrrr}
+			1 \amp 0 \amp 0 \amp 0  \amp  1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 3 \amp 0  \amp  0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0  \amp  0 \amp 0 \amp 1 \amp 0 \\
+			-2 \amp 0 \amp 0 \amp 1  \amp  0 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{matrix}\phantom{x}\\\phantom{x}\\\phantom{x}\\R_4+2R_1\end{matrix}
+		\longrightarrow
+		\left[\begin{array}{rrrr|rrrr}
+			1 \amp 0 \amp 0 \amp 0  \amp  1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 3 \amp 0  \amp  0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0  \amp  0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1  \amp  2 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{matrix}\phantom{x}\\\phantom{x}\\R_2\leftrightarrow R_3\\\phantom{x}\\\phantom{x}\end{matrix}
+	</mrow><mrow>
+		\longrightarrow
+		\left[\begin{array}{rrrr|rrrr}
+			1 \amp 0 \amp 0 \amp 0  \amp  1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0  \amp  0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 5 \amp 3 \amp 0  \amp  0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1  \amp  2 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{matrix}\phantom{x}\\\phantom{x}\\R_3-5R_2\\\phantom{x}\end{matrix}
+		\longrightarrow
+		\left[\begin{array}{rrrr|rrrr}
+			1 \amp 0 \amp 0 \amp 0  \amp  1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0  \amp  0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 3 \amp 0  \amp  0 \amp 1 \amp -5 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1  \amp  2 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\begin{matrix}\phantom{x}\\\phantom{x}\\\frac{1}{3}R_3\\\phantom{x}\end{matrix}
+	</mrow><mrow>
+		\longrightarrow
+		\left[\begin{array}{rrrr|rrrr}
+			1 \amp 0 \amp 0 \amp 0  \amp  1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0  \amp  0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0  \amp  0 \amp \frac{1}{3} \amp -\frac{5}{3} \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1  \amp  2 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+	</mrow>
+</md>
+The matrix on the right is now our desired inverse,
+<me>
+	\inv{A}
+	= \left[\begin{array}{rrrr}
+		1 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 1 \amp 0 \\
+		0 \amp \frac{1}{3} \amp -\frac{5}{3} \amp 0 \\
+		2 \amp 0 \amp 0 \amp 1
+	\end{array}\right],
+</me>
+which agrees with our calculation of <m>\inv{A}</m> using elementary matrices in the previous subsection. Indeed, this process keeps track of the elementary matrices involved in row reducing <m>A</m> for us, and automatically applies them to the identity (essentially multiplying them together) to produce the inverse on the right:
+<md>
+	<mrow>
+    \left[\begin{array}{c|c} A \amp I \end{array}\right]
+    \amp \xrightarrow[\text{operation}]{\text{first}}
+    \left[\begin{array}{c|c} E_1A \amp E_1 I \end{array}\right]
+	</mrow><mrow>
+		\amp \xrightarrow[\text{operation}]{\text{second}}
+		\left[\begin{array}{c|c} E_2E_1A \amp E_2E_1 I \end{array}\right]
+	</mrow><mrow>
+		\amp \xrightarrow[\text{operation}]{\text{third}}
+		\left[\begin{array}{c|c} E_3E_2E_1A \amp E_3E_2E_1 I \end{array}\right]
+	</mrow><mrow>
+		\amp \xrightarrow[\text{operation}]{\text{fourth}}
+    \left[\begin{array}{c|c} E_4E_3E_2E_1A \amp E_4E_3E_2E_1 I \end{array}\right]
+  	= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right].
+	</mrow>
+</md>
+</p>
+
+</subsection>
+
+</section>

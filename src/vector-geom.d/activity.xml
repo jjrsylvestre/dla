@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-vector-geom-activities" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Activities</title>
+
+<activity>
+	<statement>
+	<p><ol label="alph">
+		<li>
+		<p>Draw the vector <m>\uvec{u} = (3,2)</m> in the <m>xy</m>-plane, then draw a representation of the decomposition <m>\uvec{u} = 3\uvec{e}_1 + 2\uvec{e}_2</m>, where <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> are the standard basis vectors in <m>\R^2</m>.</p>
+		<p>Then call on the help of some dead Greek dude to help you compute the length of <m>\uvec{u}</m>.</p>
+		</li>
+		<li> Does the same method work to determine the length of <m>\uvec{w} = (3,-2)</m>?
+		(And what is the point of checking this case?) </li>
+		<li> In general, the formula for the length of a two-dimensional vector  <m>\uvec{v} = (v_1,v_2)</m> is
+		<fillin characters="12" />. </li>
+		<li><p> The same sort of formula works for in three or more dimensions. Fill in the general formulas below.
+		<ul>
+			<li> The length of <m>\uvec{v} = (v_1,v_2,v_3)</m> is <fillin characters="12" />. </li>
+			<li> The <q>length</q> of <m>\uvec{v} = (v_1,v_2,v_3,v_4)</m> is <fillin characters="12" />. </li>
+			<li> The <q>length</q> of <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m> is <fillin characters="12" />. </li>
+		</ul>
+		</p></li>
+	</ol></p>
+	</statement>
+	<postlude><p>
+		The quantity for which we developed formulas in the above activity is called the <term>norm</term> of <m>\uvec{v}</m>, and is denoted <m>\unorm{v}</m>. (We don't use the word <q>length</q> for <m>n>3</m> <mdash /> how do you measure length in four dimensions?
+	</p></postlude>
+</activity>
+
+<activity xml:id="activity-vector-geom-norm-formula">
+  <statement><p><ol label="alph">
+		<li>
+		Fill in the formulas: for <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>,
+		<md><mrow>
+			\unorm{v} \amp= \quad<fillin characters="12" />, \amp
+			\unorm{v}^2 \amp= \quad<fillin characters="12" />.
+		</mrow></md>
+		</li>
+		<li>
+		Express the formula for <m>\unorm{v}^2</m> in words without using any letter variables:
+		<em>the square of the norm of a vector is equal to</em> <fillin characters="20" />.
+		</li>
+	</ol></p></statement>
+</activity>
+
+<activity xml:id="activity-vector-geom-norm-props">
+  <statement><p>
+	In this exercise, make sure you can answer the questions for <em>all</em> dimensions, and make sure you can justify your answer using the formula for norm from <xref ref="activity-vector-geom-norm-formula" />, not just geometrically.
+	<ol label="alph">
+		<li> Can <m>\unorm{v}</m> ever be negative? </li>
+		<li> What is <m>\unorm{0}</m>? Is <m>\zerovec</m> the only vector that has this value for its norm? </li>
+		<li><p> Complete the formulas:
+		<ul>
+			<li> <m>\norm{2\uvec{v}} = <fillin characters="2" />\unorm{v}</m> </li>
+			<li> <m>\norm{-2\uvec{v}} = <fillin characters="2" />\unorm{v}</m> </li>
+			<li> <m>\norm{k\uvec{v}} = <fillin characters="2" />\unorm{v}</m> </li>
+		</ul>
+		</p></li>
+	</ol>
+	</p></statement>
+</activity>
+
+<activity xml:id="activity-vector-geom-unit-vecs">
+  <statement>
+    <p>
+		A <term>unit vector</term> is one whose norm is equal to <m>1</m>.
+		<ol label="alph">
+			<li> Verify that the standard basis vectors are all unit vectors, in all dimensions. </li>
+			<li><p> Fill in the blanks with an appropriate scalar multiple.
+			<ul>
+				<li> If <m>\unorm{u} = 1/2</m>, then <m><fillin characters="2" />\uvec{u}</m> is a unit vector. </li>
+				<li> If <m>\unorm{w} = 2</m>, then <m><fillin characters="2" />\uvec{w}</m> is a unit vector. </li>
+				<li> For every nonzero <m>\uvec{v}</m>, <m>k\uvec{v}</m> is a unit vector for <em>both</em>
+				<m>k=<fillin characters="3" /></m> and
+				<m>k=<fillin characters="3" /></m>.
+				</li>
+			</ul>
+			</p></li>
+		</ol>
+		</p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-vector-geom-vec-distance">
+  <statement>
+    <p>
+		Plot points <m>P(1,3)</m> and <m>Q(4,-1)</m> in the <m>xy</m>-plane. Now draw in the vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> that correspond to <m>\abray{OP}</m> and <m>\abray{OQ}</m>. Complete the triangle by drawing a vector between <m>P</m> and <m>Q</m>. Do you remember how to express this vector as a combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>? Now compute the distance between <m>P</m> and <m>Q</m> by computing the norm of this third vector.
+    </p>
+  </statement>
+</activity>
+
+<activity>
+
+	<prelude><p>
+	Recall that in math we measure angles in <em>radians</em>. Here are some common conversions:
+	<md>
+		<mrow>
+			\degree{30} \amp= \pi/6\;\;\mathrm{rad},
+			\amp
+			\degree{90} \amp= \pi/2\;\;\mathrm{rad},
+		</mrow><mrow>
+			\degree{45} \amp= \pi/4\;\;\mathrm{rad},
+			\amp
+			\degree{180} \amp= \pi\;\;\mathrm{rad}.
+		</mrow><mrow>
+			\degree{60} \amp= \pi/3\;\;\mathrm{rad},
+		</mrow>
+	</md>
+	</p></prelude>
+
+  <statement><p><ol label="alph">
+		<li>
+		In the <m>xy</m>-plane, what is the angle between <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>? \dots between <m>\uvec{e}_1</m> and <m>\uvec{u} = (1,1)</m>? \dots between <m>\uvec{e_1}</m> and <m>2\uvec{e}_1</m>? \dots between <m>\uvec{e_1}</m> and <m>-\uvec{e}_2</m>? \dots between <m>\uvec{e}_1</m> and <m>\uvec{v} = (1,-1)</m>? \dots between <m>\uvec{e_1}</m> and <m>-\uvec{e}_1</m>?
+		</li>
+		<li>
+		Fill in the blanks: an angle <m>\theta</m> between a pair of two-dimensional vectors should satisfy
+		<m><fillin characters="2" />\le\theta\le<fillin characters="2" /></m>.
+		</li>
+	</ol></p></statement>
+
+</activity>
+
+<activity xml:id="activity-vector-geom-dot-product">
+  <statement>
+    <p>
+		In the diagram below, consider <m>\uvec{u}</m> and <m>\uvec{v}</m> to be two-dimensional vectors. Label the third vector with the appropriate combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>. There is a version of Pythagoras that applies here even though <m>\theta\neq\degree{90}</m>, called <term>the law of cosines</term>:
+		<me> a^2 + b^2 - c^2 = 2ab\cos\theta, </me>
+		where <m>a</m> is the length of <m>\uvec{u}</m>, <m>b</m> is the length of <m>\uvec{v}</m>, and <m>c</m> is the length of the <q>hypotenuse</q> across from <m>\theta</m>. (If <m>\theta</m> were <m>\degree{90}</m>, the right-hand side would be zero and this law would be just Pythagoras.)
+		</p><p>
+		<image width="100%">
+			<!-- description gets inserted as alt text in html img tag -->
+			<description>Vector diagram of the law of cosines.</description>
+			<latex-image><xi:include href="activity-tikz.d/law-of-cosines.tex" parse="text" /></latex-image>
+		</image>
+    </p><p>
+		Use the formulas from <xref ref="activity-vector-geom-norm-formula" /> to rewrite the left-hand side of the law of cosines in terms of the components of <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>, then simplify until you get
+		<me>2\times(\text{simple formula}).</me>
+		</p>
+	</statement>
+
+	<postlude>
+		<p>
+		Combining the result of the above activity with the right-hand side of the law of cosines, we get
+		<me> \cos\theta = \frac{(\text{simple formula})}{\unorm{u}\unorm{v}}, </me>
+		(where <q>simple formula</q> is what you came up with in the activity).
+		</p><p>
+		The <q>simple formula</q> part of this angle formula turns out to be an important one <mdash /> it is called the <term>Euclidean inner product</term> (or just simply the <term>dot product</term>) of <m>\uvec{u}</m> and <m>\uvec{v}</m>, and written <m>\udotprod{u}{v}</m>.
+		</p>
+	</postlude>
+
+</activity>
+
+<activity xml:id="activity-vector-geom-dot-prod-formula">
+  <statement><p><ol label="alph">
+    <li>
+		Complete the formula for two-dimensional vectors: for <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>, <m>\udotprod{u}{v} =<fillin characters="12" /></m>.
+		</li>
+		<li>
+		Extend the definition of dot product to three-dimensional vectors: for <m>\uvec{u} = (u_1,u_2,u_3)</m> and <m>\uvec{v} = (v_1,v_2,v_3)</m>, <m>\udotprod{u}{v} = <fillin characters="12" /></m>.
+		</li>
+		<li>
+		Extend the definition of dot product to four-dimensional vectors: for <m>\uvec{u} = (u_1,u_2,u_3,u_4)</m> and <m>\uvec{v} = (v_1,v_2,v_3,v_4)</m>, <m>\udotprod{u}{v} = <fillin characters="12" /></m>.
+		</li>
+		<li>
+		Determine the general definition of dot product for <m>n</m>-dimensional vectors: for <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m> and <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>, <m>\udotprod{u}{v} = <fillin characters="12" /></m>.
+		</li>
+  </ol></p></statement>
+</activity>
+
+<activity xml:id="activity-vector-geom-dot-product-vs-norm">
+  <statement>
+    <p>What is the formula for the dot product of a vector with itself?</p>
+		<p>For <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>, <m>\udotprod{v}{v} = <fillin characters="12" /></m>.</p>
+		<p>Compare your answer with <xref ref="activity-vector-geom-norm-formula" />.</p>
+  </statement>
+</activity>
+
+<activity>
+  <statement>
+    <p>
+    Using the formula for the dot product for two-dimensional vectors, verify that it has the following properties.
+		<ol label="roman">
+			<li> <m>\udotprod{v}{u} = \udotprod{u}{v}</m>. </li>
+			<li> <m>\dotprod{\uvec{u}}{(\uvec{v}+\uvec{w})}</m>, </li>
+			<li> <m>k(\udotprod{u}{v}) = \dotprod{(k\uvec{u})}{\uvec{v}} = \dotprod{\uvec{u}}{(k\uvec{v})}</m>, </li>
+			<li> <m>\udotprod{0}{v} = 0</m>. </li>
+		</ol>
+		</p>
+		<p>Do you think all these properties will still be true for higher-dimensional vectors?</p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-vector-geom-dot-prod-vs-matrix-mult">
+  <statement><p><ol label="alph">
+		<li><p>
+		For two-dimensional column vectors
+		<m>\uvec{u} = \left[\begin{smallmatrix}u_1\\u_2\end{smallmatrix}\right]</m> and
+		<m>\uvec{v} = \left[\begin{smallmatrix}v_1\\v_2\end{smallmatrix}\right]</m>,
+		compute the matrix product <m>\utrans{\uvec{u}}\uvec{v}</m>.
+		</p><p>
+		What do you notice? Do you think the same will happen for higher-dimensional column vectors?
+		</p></li>
+		<li> Suppose <m>\uvec{u}</m> and <m>\uvec{v}</m> are <m>n</m>-dimensional column vectors and <m>A</m> is an <m>n\times n</m> matrix. Use what you discovered in this first part of this activity to fill in the blank:
+		<me>\dotprod{(A\uvec{u})}{\uvec{v}} = \dotprod{\uvec{u}}{(<fillin characters="2"/>\uvec{v})}.</me>
+		</li>
+	</ol></p></statement>
+</activity>
+
+</section>

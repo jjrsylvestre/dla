@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-dimension-activities">
+
+<title>Activities</title>
+
+<introduction><p>
+<em>Recall:</em> A <term>basis</term> for a vector space is a linearly independent spanning set.
+</p></introduction>
+
+<activity xml:id="activity-dimension-dim-subsp-R3">
+  <statement>
+    <p>
+    Answer each of the following assuming <em>nonzero</em> vectors in <m>\R^3</m>.
+    <ol label="alph">
+      <li> What geometric shape is the span of one vector? </li>
+      <li><p><ol label="(i)">
+      <li> What is the definition of <term>linearly dependent</term> for a set of two vectors? </li>
+      <li> What does this mean geometrically? </li>
+      <li> What is the shape of the span of two linearly dependent vectors? </li>
+      </ol></p></li>
+      <li><p><ol label="(i)">
+      <li> What does <term>linearly independent</term> mean geometrically for a set of two vectors? </li>
+      <li> What is the shape of the span of two linearly independent vectors? </li>
+      </ol></p></li>
+      <li> Based on your answers so far, do you think a set of <em>two</em> vectors can be a basis for <m>\R^3</m>? </li>
+      <li><p><ol label="(i)">
+      <li> What is the definition of <term>linearly dependent</term> for a set of three vectors? </li>
+      <li> What does this mean geometrically? </li>
+      <li> What is the shape of the span of three linearly dependent vectors? (There are actually two possibilities here.) </li>
+      </ol></p></li>
+      <li><p><ol label="(i)">
+      <li> What does <term>linearly independent</term> mean geometrically for a set of three vectors? </li>
+      <li> What is the <q>shape</q> of the span of three linearly independent vectors? </li>
+      </ol></p></li>
+      <li> Do you think a set of <em>four</em> vectors can be a basis for <m>\R^3</m>? </li>
+      <li><p>
+      Determine the <q>dimension</q> of each of the following subspaces of <m>\R^3</m>. In each case, how does the number you come up with correspond with the answers you've given throughout this activity?
+      <ol label="(i)">
+        <li> A line through the origin. </li>
+        <li> A plane through the origin. </li>
+        <li> All of <m>\R^3</m>. </li>
+        <li> The trivial subspace (<ie /> just the origin). </li>
+      </ol>
+      </p></li>
+    </ol>
+    </p>
+  </statement>
+
+  <postlude><p>
+    We've been using the word <q>dimension</q> informally throughout our developlment of the concepts of vectors (<eg /> calling vectors in <m>\R^2</m> <em>two-dimensional</em> vectors), but finally we can match our intuition about the <q>dimension</q> of the various types of subspaces of <m>\R^3</m> with the theoretical concepts of <term>linear independence</term> and <term>spanning</term> to make the following definition.
+    <dl><li>
+      <title>dimension of a vector space</title>
+      <p> the number of vectors required in a basis for that space </p>
+    </li></dl>
+  </p></postlude>
+</activity>
+
+<activity xml:id="activity-dimension-basis-via-parameters">
+  <prelude>
+  <p>
+  One way to obtain a basis for a space (and hence to determine its dimension) is to <em>assign parameters</em> <mdash /> then each <em>independent</em> parameter corresponds to a basis vector.
+  </p><p>
+  For example, in <m>\R^2</m> we have natural parameters associated to the <m>x</m>- and <m>y</m>-coordinates: <m>\uvec{x} = (x,y)</m>. Expanding this into a linear combination, we get <m>\uvec{x} = x(1,0) + y(0,1)</m>. Parameter <m>x</m> corresponds to basis vector <m>(1,0)</m> and parameter <m>y</m> corresponds to basis vector <m>(0,1)</m>, and together they form a basis <m>\{(1,0),(0,1)\}</m> for <m>\R^2</m>. (In fact, the <term>standard basis</term> for <m>\R^2</m>!). Since there were <em>two</em> independent parameters required to described an arbitrary vector in the space, this led to <em>two</em> basis vectors, and so the dimension of <m>\R^2</m> is (unsurprisingly) <m>2</m>.
+  </p>
+  <paragraphs><title>Step-by-step procedure</title><p><ol>
+    <li> Express an arbitrary element in the space in terms of parameters. </li>
+    <li> Use any extra conditions to reduce to the minimum number of <em>independent</em> parameters (if necessary). </li>
+    <li> Split up your parametric vector description into a linear combination based on the remaining parameters. </li>
+    <li> Extract the basis vector attached to each parameter. </li>
+    <li> Count the basis vectors to determine the dimension of the space (which should also correspond to the initial number of independent parameters required). </li>
+  </ol></p></paragraphs>
+  </prelude>
+  <statement>
+  <p>
+	In each of the following, determine a basis for the given space using the parameter method outlined above, similarly to the provided <m>\R^2</m> example. Then count the dimension of the space.
+  </p>
+  <p><ol label="alph">
+		<li xml:id="activity-dimension-basis-via-parameters-R3-full">
+    <m>\R^3</m>.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-R3-second-zero">
+		The subspace of <m>\R^3</m> consisting of vectors whose second coordinate is zero.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-R3-first-equal-third">
+    The subspace of <m>\R^3</m> consisting of vectors whose first and third coordinates are equal.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-M2-full">
+    <m>\matrixring_2(\R)</m>, <ie /> the space of <m>2\times 2</m> matrices.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-M2-upper-tri-full">
+    The subspace of <m>\matrixring_2(\R)</m> consisting of upper-triangular matrices.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-M2-upper-tri-diag-add-zero">
+    The subspace of <m>\matrixring_2(\R)</m> consisting of upper-triangular matrices whose diagonal entries add to zero.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-M2-sum-to-zero">
+    The subspace of <m>\matrixring_2(\R)</m> consisting of matrices whose entries sum to zero.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-P5-full">
+    <m>\poly_5(\R)</m>, <ie /> the space of polynomials of degree <m>5</m> or less.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-P5-constant-zero">
+    The subspace of <m>\poly_5(\R)</m> consisting of polynomials with constant term equal to zero.
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-P5-odd">
+    The subspace of <m>\poly_5(\R)</m> consisting of <em>odd</em> polynomials, <ie /> those involving only odd powers of <m>x</m> (and no constant term).
+    </li>
+    <li xml:id="activity-dimension-basis-via-parameters-P5-even">
+    The subspace of <m>\poly_5(\R)</m> consisting of <em>even</em> polynomials, <ie /> those involving only even powers of <m>x</m> (and a constant term).
+    </li>
+	</ol></p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-dimension-infinite-poly">
+  <prelude><p>
+  A vector space is called <term>finite-dimensional</term> if it can be spanned by a finite set; otherwise, it is called <term>infinite-dimensional</term>. For example, <m>\R^n</m> is finite-dimensional for each value of <m>n</m>, because it can be spanned by the finite set of standard basis vectors <m>\{\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n\}</m>.
+  </p></prelude>
+  <statement><p>
+  Is the vector space of all polynomials is finite- or infinite-dimensional?
+  </p></statement>
+  <hint><p>
+  If <m>S</m> is a finite set of polynomials, what are the possible degrees of the polynomials in <m>\Span S</m>?
+  </p></hint>
+</activity>
+
+<activity xml:id="activity-dimension-enlarge-indep">
+  <prelude><p>
+  We've already seen that a linearly dependent spanning set can be reduced to a basis
+  (<xref ref="proposition-basis-coords-reduce-span-to-basis" />).
+  Working the other way, we will use
+  <xref ref="proposition-linear-indep-expand-indep" />
+  to argue in
+  <xref ref="subsection-dimension-theory-linear-indep-consequences" />
+  that a linearly independent set that is not a spanning set can be <em>built up</em> to a basis by including additional vectors (<xref ref="proposition-dimension-increase-indep-to-basis" />).
+  <xref ref="proposition-linear-indep-expand-indep" /> tells us exactly how to do this: to ensure linear independence at each step, the new vector to be included should not be in the span of the old (<ie /> the new should not be any linear combination of the old).
+  </p></prelude>
+  <statement>
+  <p>
+  In each of the following, build the given linearly independent set into a basis for the space.
+	<ol label="alph">
+	  <li> <m>V=\R^3</m>,  <m>S = \{(1,1,0),(1,0,1)\}</m>. </li>
+		<li xml:id="activity-dimension-enlarge-indep-matrices">
+		<m>V = M_{22}</m>,
+	  <m>
+  		S = \left\{\;
+    		\left[\begin{smallmatrix} 1 \amp 1\\1 \amp 1 \end{smallmatrix}\right],\;\;
+    		\left[\begin{smallmatrix} 1 \amp 0\\1 \amp -1 \end{smallmatrix}\right]
+  		\;\right\}
+  	</m>.
+    </li>
+  </ol>
+  </p>
+  </statement>
+  <hint><p>
+  Since we now know the dimensions of these spaces, we know how many linearly independent vectors are required to form a basis. Just guess <em>simple</em> new vectors to include in the given set, one at a time, and for each make sure your new vector is not a linear combination of the vectors you already have (by trying to solve an appropriate system of linear equations.)
+  </p></hint>
+</activity>
+
+<activity xml:id="activity-dimension-dim-subspace">
+  <statement><p>
+  Suppose <m>V</m> is a finite-dimensional vector space, and <m>W</m> is a subspace of <m>V</m>.
+  <ol label="alph">
+    <li>
+    What is the relationship between <m>\dim W</m> and <m>\dim V</m>? Justify your answer in terms of the <em>definition</em> of dimension.
+    <hint><p>The pattern of the previous exercise, where a linearly independent set can be built up into a basis, might help in articulating your justification.</p></hint>
+    </li>
+    <li> Is it possible for <m>\dim W = \dim V</m> to be true? </li>
+  </ol>
+  </p></statement>
+</activity>
+
+</section>

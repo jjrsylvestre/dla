@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-inverses-activities">
+
+<title>Activities</title>
+
+<activity xml:id="activity-inverses-identity-matrix">
+  <statement>
+    <p>
+    The number one is important in algebra, it lets us do things like
+    <md>
+      <mrow>5a \amp = 15</mrow>
+      <mrow>\frac{1}{5}\cdot 5 \cdot a \amp = \frac{1}{5} \cdot 15</mrow>
+      <mrow>1a \amp = 3</mrow>
+      <mrow>a \amp = 3.</mrow>
+    </md>
+    <ol label="alph">
+      <li>What matrix do you think will act similarly in matrix algebra for <m>2\times 2</m> matrices? (The rule you are trying to mimic is the <m>1a = a</m> step from the example with numbers above.)</li>
+      <li><p>
+      Write <m>I</m> for your <m>2\times 2</m> matrix from part (a) (for the <alert>I</alert> in <term>identity matrix</term>).
+      <ol>
+        <li>Does <m>IA=A</m> work when <m>A</m> is every <m>2\times\ell</m> matrix?</li>
+        <li>Does <m>BI = B</m> also work for every <m>2\times 2</m> matrix <m>B</m>? For every <m>\ell\times 2</m> matrix <m>B</m>?</li>
+      </ol>
+      </p></li>
+      <li><em>Extend:</em> What is the <m>3\times 3</m> version of <m>I</m>? <m>4\times 4</m>? <m>n\times n</m>?</li>
+    </ol>
+    </p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-inverses-intro-to-inverse">
+  <statement>
+    <p>
+  	In the preamble to <xref ref="activity-inverses-identity-matrix" />, there were two ingredients necessary to make the algebra work:
+  	<ul>
+      <li>there is a special number <m>1</m> so that <m>1a=a</m> for all numbers <m>a</m>; and</li>
+      <li>for a nonzero number like <m>5</m>, there is a <term>multiplicative inverse</term> <m>1/5</m> so that <m>(1/5)\cdot 5 = 1</m>.</li>
+    </ul>
+    Multiplicative inverses are very useful in algebra, so we would also like to have them in matrix algebra.
+    <ol label="alph">
+      <li>
+      <p>
+      Consider <me>A = \left[\begin{array}{rr}0\amp-1\\1\amp2\end{array}\right]</me>.
+      Can you determine <me>B = \begin{bmatrix}a \amp b\\c \amp d\end{bmatrix}</me> so that <m>BA = I</m>?
+  		If so, check that <m>AB = I</m> also.
+      </p>
+      <aside><p>
+        Don't just guess at matrix <m>B</m>, use the definition of <term>matrix equality</term> applied to <m>BA</m> and <m>I</m> to set up equations and try to solve for unknown entries <m>a,b,c,d</m>.
+      </p></aside>
+      </li>
+      <li xml:id="activity-inverses-intro-to-inverse-singular">
+  	  Consider <me>A = \begin{bmatrix}0 \amp 1\\0 \amp 0\end{bmatrix}.</me>
+      Can you determine <me>B = \begin{bmatrix}a \amp b\\c \amp d\end{bmatrix}</me> so that <m>BA = I</m>?
+      </li>
+    </ol>
+    </p>
+  </statement>
+
+  <postlude>
+    <p>
+    The previous activity demonstrates that some square matrices have multiplicative inverses (<ie /> are <term>invertible</term>) and some do not (called <term>singular</term> in this case). If square matrix <m>A</m> is invertible, write <m>\inv{A}</m> for its inverse. (But <em>never</em> write <m>1/A</m>!) This inverse is <em>defined</em> by its relationship to <m>A</m> and <m>I</m>: <m>\inv{A}</m> is the square matrix of the same size as <m>A</m> so that both <m>A\inv{A} = I</m> and <m>\inv{A}A = I</m> are true.
+    </p>
+    <aside><p>
+    Do you understand why we must assert that <em>both</em> <m>A\inv{A} = I</m> and <m>\inv{A}A = I</m> are true in defining the inverse <m>\inv{A}</m>, not just one? Maybe look back at
+    <xref ref="activity-matrix-ops-matrix-mult-order-matters" />.
+    </p></aside>
+  </postlude>
+
+</activity>
+
+<activity xml:id="activity-inverses-props-of-inverses">
+  <statement>
+    <p>
+  	In the following, assume <m>A,B,C</m> are square <em>invertible</em> matrices, all of the same dimension, and assume that <m>k</m> is a nonzero scalar. Do <em>not</em> just look up the answers in the rest of this chapter, try to come up with them yourselves.
+    <ol label="alph">
+  		<li>What do you think is the inverse of <m>\inv{A}</m>? Explain. (Your justification should mention the identity matrix.)</li>
+      <li>Determine a formula for the inverse of <m>kA</m> in terms of <m>k</m> and <m>\inv{A}</m>.</li>
+      <li>Explain why the formula for the inverse of <m>AB</m> is <em>not</em> <m>\inv{A}\inv{B}</m>. Then determine the correct formula.</li>
+      <li><em>Extend:</em> What is the formula for the inverse of <m>ABC</m>?</li>
+      <li xml:id="activity-inverses-props-of-inverses-inverse-powers">
+  		What do you think <m>A^{-2}</m> means? There are two possibilities; do they both work out to the be same? Try with <m>A</m> given below. (For convenience, its inverse is also given.)
+  		<md><mrow>
+  			A \amp = \left[\begin{array}{rr} 0 \amp -1 \\ 1 \amp 2 \end{array}\right] \amp
+  			\inv{A} \amp = \left[\begin{array}{rr} 2 \amp 1 \\ -1 \amp 0 \end{array}\right]
+  		</mrow></md>
+    	</li>
+    </ol>
+    </p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-inverses-cancellation">
+  <statement>
+    <p><ol label="alph">
+      <li>
+      In algebra, when <m>AB=AC</m> we would usually conclude that <m>B=C</m>. Try this out for the matrices below.
+    	<md><mrow>
+  			A  \amp = \begin{bmatrix}0 \amp 1\\0 \amp 0\end{bmatrix}  \amp
+        B  \amp = \begin{bmatrix}1 \amp 1\\2 \amp 3\end{bmatrix}  \amp
+  			C  \amp = \left[\begin{array}{rr} -1 \amp -1 \\ 2 \amp 3 \end{array}\right]
+      </mrow></md>
+      What is it about matrix <m>A</m> that is making the usual algebra of <q>cancellation</q> fail?
+      <hint><p>
+        Think about the <q>hidden</q> algebra behind the cancellation <m>ab=ac\Longrightarrow b=c</m> for numbers.
+      </p></hint>
+      </li>
+      <li>In what circumstance is the algebra <m>AB=AC \implies B=C</m> valid? What explicit algebra steps go into this deduction?</li>
+      <li xml:id="activity-inverses-cancellation-two-sides">
+      Is the algebra <m>AB=CA \implies B=C</m> ever valid?
+      </li>
+    </ol></p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-inverses-solve-by-inverse">
+  <statement><p>
+  	If we have a linear system <m>A\uvec{x}=\uvec{b}</m> with a square and invertible coefficient matrix <m>A</m>, we can use matrix algebra to solve the system instead of row reducing, by using <m>\inv{A}</m> to isolate <m>\uvec{x}</m>.
+    </p><p>
+  	Here is an invertible <m>3 \times 3</m> matrix <m>A</m> and its inverse:
+  	<md><mrow>
+      A \amp = \left[\begin{array}{rrr}
+        0 \amp 1 \amp -2 \\
+        1 \amp 2 \amp 0 \\
+        -2 \amp -4 \amp 1
+      \end{array}\right],
+      \amp
+      \inv{A} \amp = \left[\begin{array}{rrr}
+        -2 \amp -7 \amp -4 \\
+        1 \amp 4 \amp 2 \\
+        0 \amp 2 \amp 1
+      \end{array}\right].
+    </mrow></md>
+  	<em>Use matrix algebra</em> (not row reducing!) to solve the system <m>A\uvec{x} = \uvec{b}</m> for
+    <me>\uvec{b} = \left[\begin{array}{r} -1 \\ 1 \\ 3 \end{array}\right].</me>
+    Now use the same method to solve the system <m>A\uvec{x} = \uvec{b}</m> for
+    <me>\uvec{b} = \left[\begin{array}{r} -2 \\ 0 \\ 2 \end{array}\right].</me>
+  </p></statement>
+</activity>
+
+<activity xml:id="activity-inverses-unique-sol-when-invertible-coeff-matrix">
+  <statement><p>
+	In general, for system <m>A\uvec{x} = \uvec{b}</m> with a coefficient matrix <m>A</m> that is square and invertible, how many solutions does the system have? Justify your answer.
+  <hint><p>
+    How many solutions did each of the systems in
+    <xref ref="activity-inverses-solve-by-inverse" />
+    have? Why?
+  </p></hint>
+  </p></statement>
+</activity>
+
+</section>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-elem-matrices-concepts">
+
+<title>Concepts</title>
+
+<introduction>
+
+	<p>Even though the title of this chapter is <em>Elementary matrices</em>, it is really another about <em>matrix inverses</em>.</p>
+
+	<heuristic><statement><p> <!-- heuristic is hijacked to "Goal" -->
+		Obtain criteria that can be used to determine whether a square matrix is invertible, and develop a method to compute the inverse of any invertible square matrix.
+	</p></statement></heuristic>
+
+	<p>
+	Suppose <m>A</m> and <m>B</m> are square matrices of the same size, and <m>A</m> is invertible. Start with <m>B</m>, multiply on the left by <m>A</m> to get <m>AB</m>, and then multiply that result on the left by <m>\inv{A}</m> to get <m>\inv{A}AB = IB = B</m>, which is right back where we started. The point being that an inverse matrix <m>\inv{A}</m> <em>undoes</em> or <em>reverses</em> multiplication by <m>A</m>. So if we want to understand inverses, we need to understand how to reverse matrix multiplication.
+	</p><p>
+	Now, our motivation for defining matrix multiplication in the way that we did (<ie /> rows times columns) was so that we could use matrix multiplication to represent a system of equations by a single matrix equation <m>A\uvec{x}=\uvec{b}</m>, with both the vector of unknowns <m>\uvec{x}</m> and the vector of constants <m>\uvec{b}</m> as column vectors.
+	(See
+	<xref ref="activity-matrix-ops-system-to-matrix-mult" />
+	and
+	<xref ref="chapter-matrix-ops" />.)
+	Furthermore, for a system <m>A\uvec{x} = \uvec{b}</m> with a square invertible coefficient matrix <m>A</m>, we can solve the system <em>either</em> by row reducing <em>or</em> by reversing the multiplication by <m>A</m> and algebraically isolating <m>\uvec{x}=\inv{A}\uvec{b}</m>. So there must be a connection between row operations, matrix multiplication, and matrix inverses. And elementary matrices are precisely that connection.
+	</p>
+
+</introduction>
+
+<subsection xml:id="subsection-elem-matrices-concepts-elem-matrices">
+<title>Elementary matrices</title>
+
+<p>
+In
+<xref
+	first="activity-elem-matrices-intro"
+	last="activity-elem-matrices-intro-cont-more"
+>Activities</xref>,
+we discovered that we can create special square matrices so that multiplying another matrix by that special matrix (on the left) has the same effect as performing an elementary row operation, and we called these special matrices <term>elementary matrices</term>. So if <m>E</m> is an elementary matrix and <m>A</m> is another matrix of a compatible size (but not necessarily square), then the result of computing the matrix product <m>EA</m> is the same as performing some elementary row operation on <m>A</m>. But then <m>EI = E</m> must be the same result as applying that elementary row operation on the identity. This gives us an easy way to produce an elementary matrix for a particular elementary row operation: <em>perform the desired elementary row operation on the identity</em>. See
+<xref ref="subsection-elem-matrices-examples-elem-matrices-and-inverses" />
+for some examples.
+</p><p>
+If each elementary row operation can be achieved by multiplication by an elementary matrix, then a whole row reduction process can be achieved by iterated multiplication by elementary matrices, as in <xref ref="activity-elem-matrices-invert-method" />. See
+<xref ref="subsection-elem-matrices-examples-decompositions" />
+for examples.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-concepts-inverses-by-elem-matrices">
+<!-- used to be \labelother{inv.as.prod.elem} -->
+<title>Inverses by elementary matrices</title>
+
+<p>
+In <xref ref="activity-elem-matrices-invert-method" />, we also explored how to use elementary matrices and row reducing to compute the inverse of a matrix. In that activity, it is possible to row reduce the matrix <m>B</m> to the identity in three operations, represented by elementary matrices <m>E_1,E_2,E_3</m>. Via multiplication instead of row operations, this means <m>E_3 E_2 E_1 B = I</m>. Assuming <m>B</m> is invertible, we could use <m>\inv{B}</m> to manipulate this equality:
+<md>
+	<mrow>\amp \amp I \amp= E_3 E_2 E_1 B</mrow>
+	<mrow>\amp \implies \amp I\inv{B} \amp= (E_3 E_2 E_1 B) \inv{B}</mrow>
+	<mrow>\amp \implies \amp \phantom{I}\inv{B} \amp= E_3 E_2 E_1 (B \inv{B})</mrow>
+	<mrow>\amp \amp \amp = E_3 E_2 E_1 I</mrow>
+	<mrow>\amp \amp \amp= E_3 E_2 E_1.</mrow>
+</md>
+So if a matrix is invertible, we can compute its inverse by row reducing it to the identity and then multiplying together the elementary matrices that correspond to the steps in that row reduction, in the proper order. But there is a more direct way, as we will see in
+<xref ref="subsection-elem-matrices-concepts-invert-by-row-red" />
+below.
+</p>
+
+<remark><p>
+	There are many different sequences of row operations that could reduce a matrix to its RREF, and so when a matrix is invertible there are many different ways we could compute its inverse via a product of elementary matrices. These different ways can even involve different numbers of elementary matrices.
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-concepts-inverses-of-elem-matrices">
+<title>Inverses of elementary matrices</title>
+
+<p>
+As we explored in <xref ref="activity-elem-matrices-invert-elem" />, every elementary row operation has a <em>reverse</em> operation.
+</p>
+
+<table>
+	<caption>Reversing row swaps.</caption>
+	<tabular top="medium">
+		<row>
+			<cell right="medium"><alert>Operation</alert></cell>
+			<cell>swap two rows</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \leftrightarrow R_j</m></cell>
+		</row>
+		<row>
+			<cell right="medium"><alert>Reverse operation</alert></cell>
+			<cell>swap the rows again</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \leftrightarrow R_j</m></cell>
+		</row>
+		<row>
+			<cell right="medium"><alert>Reverse of the reverse</alert></cell>
+			<cell>swap the rows again</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \leftrightarrow R_j</m></cell>
+		</row>
+	</tabular>
+</table>
+<table>
+	<caption>Reversing row scales.</caption>
+	<tabular top="medium">
+		<row>
+			<cell right="medium"><alert>Operation</alert></cell>
+			<cell>multiply a row by a nonzero constant</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \rightarrow kR_i</m></cell>
+		</row>
+		<row>
+			<cell right="medium"><alert>Reverse operation</alert></cell>
+			<cell>divide that row by the constant</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \rightarrow \frac{1}{k}R_i</m></cell>
+		</row>
+		<row>
+			<cell right="medium"><alert>Reverse of the reverse</alert></cell>
+			<cell>divide that row by the reciprocated constant</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \rightarrow \frac{1}{1/k}R_i = kR_i</m></cell>
+		</row>
+	</tabular>
+</table>
+<table>
+	<caption>Reversing row combinations.</caption>
+	<tabular top="medium">
+		<row>
+			<cell right="medium"><alert>Operation</alert></cell>
+			<cell>add a multiple of one row to another</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \rightarrow R_i+kR_j</m></cell>
+		</row>
+		<row>
+			<cell right="medium"><alert>Reverse operation</alert></cell>
+			<cell>subtract that multiple of the one row from the other</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \rightarrow R_i+(-k)R_j</m></cell>
+		</row>
+		<row>
+			<cell right="medium"><alert>Reverse of the reverse</alert></cell>
+			<cell>subtract that negative multiple of the one row from the other</cell>
+		</row>
+		<row bottom="medium">
+			<cell right="medium"></cell>
+			<cell><m>R_i \rightarrow R_i+\bbrac{-(-k)}R_j = R_i+kR_j</m></cell>
+		</row>
+	</tabular>
+</table>
+
+<p>
+In each case, performing an operation on a matrix and then performing the reverse operation on that result will return you to the original matrix. Also notice that in each case the reverse operation of a reverse operation is the original operation. So, if <m>E</m> is the elementary matrix corresponding to some operation, and <m>E'</m> is the elementary matrix corresponding to the reverse operation, then also <m>E</m> corresponds to the reverse of the operation of <m>E'</m>.
+</p><p>
+If we perform these operations on the identity matrix, we get
+<me>
+		I
+		\quad\xrightarrow{\text{operation}}\quad
+		EI
+		\quad\xrightarrow[\text{operation}]{\text{reverse}}\quad
+		E'EI,
+</me><me>
+		I
+		\quad\xrightarrow[\text{operation}]{\text{reverse}}\quad
+		E'I
+		\quad\xrightarrow{\text{operation}}\quad
+		EE'I.
+</me>
+But in both situations we should be back at the identity, because the second operation reverses the first. Thus, <m>E'E = I</m> and <m>EE' = I</m>, which by definition says that <m>E'</m> is then inverse of <m>E</m>. Hence, <em>every elementary matrix is invertible</em>, and <em>the inverse of an elementary matrix is the elementary matrix corresponding to the reverse operation</em>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-concepts-decomp-into-elem-matrices">
+<title>Decomposition of invertible matrices</title>
+
+<p>
+Let's go back to the matrix <m>B</m> from <xref ref="activity-elem-matrices-invert-method" />, for which we obtained a equality <m>E_3E_2E_1B=I</m> for some particular elementary matrices <m>E_1,E_2,E_3</m>. We have just learned in the preceding subsection
+(<xref ref="subsection-elem-matrices-concepts-inverses-of-elem-matrices" />)
+that elementary matrices are invertible, so we can use the algebra of matrix inverses to isolate <m>B</m> as
+<me> B = \inv{E}_1\inv{E}_2\inv{E}_3.</me>
+</p>
+
+<aside>
+	<title>Check your understanding</title>
+	<p>
+	Do you understand why the inverses of the elementary matrices appear in the reverse order on the right-hand side? Carry out the steps in the matrix algebra
+	<md>
+		<mrow>E_3E_2E_1B=I</mrow>
+		<mrow>\rightarrow\quad B = \inv{E}_1\inv{E}_2\inv{E}_3</mrow>
+	</md>
+	yourself if you are unsure.
+	</p>
+</aside>
+
+<p>
+Now, we also saw in the preceding subsection, each of <m>\inv{E}_1,\inv{E}_2,\inv{E}_3</m> is also an elementary matrix. So if we describe the pattern of the formula <m>B = \inv{E}_1\inv{E}_2\inv{E}_3</m> in words, we might choose to ignore the inverses and say that <em><m>B</m> can be expressed as a product of elementary matrices</em>. Since a product of elementary matrices represents performing the corresponding elementary row operations in sequence (on the identity matrix, if you like), we might say that a square matrix is invertible precisely when it represents some <em>sequence</em> of elementary row operations, and so inverting it is the same as trying to <em>reverse</em> that sequence of operations.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-matrices-concepts-invert-by-row-red">
+<title>Inverses by row reduction</title>
+
+<p>
+Still working with the matrix <m>B</m> from <xref ref="activity-elem-matrices-invert-method" />, look at the formula
+<me> \inv{B} = E_3 E_2 E_1 I, </me>
+from the computation in <xref ref="subsection-elem-matrices-concepts-inverses-by-elem-matrices" />. We could simplify away the identity matrix, as we did above, but as is often the case in mathematics, <em>simplifying hides patterns</em>. Remember where the elementary matrices <m>E_1,E_2,E_3</m> came from <mdash /> our starting point in the computation above was the formula <m>E_3 E_2 E_1 B = I</m>, which we obtained from the fact that these elementary matrices represented the steps taken to reduce <m>B</m> to the identity. So when we compare the two formulas
+<md><mrow>
+	E_3 E_2 E_1 B \amp = I,
+	\amp
+	E_3 E_2 E_1 I \amp = \inv{B},
+</mrow></md>
+we realize that <em>the same sequence operations that reduce <m>B</m> to <m>I</m> can be used to <q>unreduce</q> <m>I</m> to <m>\inv{B}</m></em>.
+</p><p>
+Now, it is inefficient to first row reduce a matrix to <m>I</m>, and then unreduce <m>I</m> to <m>\inv{B}</m> afterward, because we will be doing the same operations, in the same order, in both parts of the process. It would be faster to do both at once, one operation at a time.
+</p>
+
+<algorithm> <!-- algorithm is hijacked to "Procedure" -->
+	<title>Computing an inverse</title>
+	<statement><p>
+		To compute the inverse of a square matrix <m>A</m>, augment that matrix with the identity matrix and row reduce until the identity matrix is obtained on the left where there initially was <m>A</m>. The matrix on the right where there was initially <m>I</m> will now be <m>\inv{A}</m>.
+		<me>
+			\left[\begin{array}{c|c} A \amp I \end{array}\right]
+			\qquad\rowredarrow\qquad
+			\left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+		</me>
+		If it is not possible to obtain the identity on the left (<ie /> if the RREF of <m>A</m> is not <m>I</m>), then <m>A</m> is not invertible.
+	</p></statement>
+</algorithm>
+
+<p>
+The last statement of the procedure will be justified by
+<xref ref="theorem-elem-matrices-equiv-to-invertible" />
+in
+<xref ref="subsection-elem-matrices-theory-inverses" />.
+See
+<xref ref="subsection-elem-matrices-examples-inversion-procedure" />
+for some examples of carrying out this procedure.
+</p>
+
+</subsection>
+
+</section>

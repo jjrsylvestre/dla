@@ -1,0 +1,15 @@
+% general 2x2 det pattern
+\begin{tikzpicture}[
+	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
+	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em}
+]
+	\matrix (A)[
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{ a \amp b \\ c \amp d \\ };
+	\node[left=-0.25em of A] (eq) {$\det A =$};
+	\node[right=-0.25em of A] (eq) {$= ad-bc$.};
+	\draw[-latex] (A-1-1.north west) to (A-2-2.south east);
+	\draw[-latex] (A-1-2.north east) to (A-2-1.south west);
+\end{tikzpicture}

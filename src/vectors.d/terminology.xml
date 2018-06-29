@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-vectors-terminology">
+
+<title>Terminology and notation</title>
+
+<p><dl>
+
+	<li>
+	<title><term>directed line segment</term></title>
+	<p>a line segment between two points with an assigned direction from one of the points to the other</p>
+	</li>
+
+</dl></p>
+
+<remark><p>We usually visualize a directed line segment as an arrow.</p></remark>
+
+<p><dl>
+
+	<li>
+	<title><term>initial point (of a directed line segment)</term></title>
+	<!-- \index{initial point} -->
+	<p>the first point in a directed line segment (at the tail of the arrow)</p>
+	</li>
+
+	<li>
+	<title><term>terminal point (of a directed line segment)</term></title>
+	<!-- \index{terminal point} -->
+	<p>the second point in a directed line segment (at the head of the arrow)</p>
+	</li>
+
+	<li>
+	<title><term>components (of a directed line segment)</term></title>
+	<!-- \index{components} -->
+	<p>the list of the <em>changes</em> in coordinates between initial point and terminal point</p>
+	</li>
+
+	<li>
+	<title><term>vector</term></title>
+	<p>the components of a directed line segment</p>
+	</li>
+
+</dl></p>
+
+<remark><p>
+	We won't make too much of a fuss about the technical definition of a vector, especially since we will vastly increase the number of things we allow ourselves to call <term>vector</term> in
+	<xref ref="chapter-abstract-vec-spaces" />. Notationally, we will typeset variables representing vectors in boldface, just as we did previously for column vectors in the context of matrices and systems of equations.
+</p></remark>
+
+<p><dl>
+
+	<li>
+	<title><term>two-dimensional vector</term></title>
+	<p>
+	a vector with two components <m>\uvec{v} = (v_1,v_2)</m>, corresponding to a directed line segment in the plane
+	</p>
+	</li>
+
+	<li>
+	<title><term>three-dimensional vector</term></title>
+	<p>
+	a vector with three components <m>\uvec{v} = (v_1,v_2,v_3)</m>, corresponding to a directed line segment in space
+	</p>
+	</li>
+
+	<li>
+	<title><term><m>n</m>-dimensional vector</term></title>
+	<p>a vector with <m>n</m> components <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m></p>
+	</li>
+
+	<li>
+	<title><term>two-dimensional space (<m>\R^2</m>)</term></title>
+	<p>the collection of all two-dimensional vectors</p>
+	</li>
+
+	<li>
+	<title><term>three-dimensional space (<m>\R^3</m>)</term></title>
+	<p>the collection of all three-dimensional vectors</p>
+	</li>
+
+	<li>
+	<title><term><m>n</m>-dimensional space (<m>\R^n</m>)</term></title>
+	<p>the collection of all <m>n</m>-dimensional vectors</p>
+	</li>
+
+	<li>
+	<title><term>zero vector</term></title>
+	<!--
+		\index{zero!vector}
+		\index{vector!zero}
+	-->
+	<p>the vector <m>\zerovec = (0,0,\dotsc,0)</m></p>
+	</li>
+
+</dl></p>
+
+<remark><p>
+	We refer to <m>\R^2</m> as <term>two-dimensional space</term> because, just like a map, the plane has two sets of directions <mdash /> north/south and east/west. We refer to <m>\R^3</m> as <term>three-dimensional space</term> because we still have the north/south and east/west sets of directions in the <m>xy</m>-plane, but we add a third set of directions of up/down along the <m>z</m>-axis. In analogy with this, we refer to <m>\R^4</m> as <term>four-dimensional space</term>, <m>\R^5</m> as <term>five-dimensional space</term>, and so on. In
+	<xref ref="chapter-dimension" />,
+	we will make the concept of <term>dimension</term> of a <term>vector space</term> more precise.
+</p></remark>
+
+<p><dl>
+
+	<li>
+	<title><term>
+		vector addition (of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> of the same dimension)
+	</term></title>
+	<!--
+		\index{vector!addition}
+		\index{addition!vector}
+	-->
+	<p>
+	given a directed line segment corresponding to <m>\uvec{u}</m>, create a directed line segment corresponding to <m>\uvec{v}</m> with initial point at the terminal point for the segment for <m>\uvec{u}</m>, and then the sum vector <m>\uvec{u}+\uvec{v}</m> corresponds to the directed line segment from the initial point for <m>\uvec{u}</m> to the terminal point for <m>\uvec{v}</m>
+	</p>
+	</li>
+	<aside><p>
+		See
+		<xref ref="subsection-vectors-concepts-vec-add" />
+		for some diagrams to help you visualize vector addition, similarly to how we explored vector addition through diagrams in our activity set (<xref ref="section-vectors-activities" />).
+	</p></aside>
+
+	<li>
+	<title><term>negative (of a vector <m>\uvec{v}</m>)</term></title>
+	<!-- \index{vector!negative} -->
+	<p>	given a directed line segment for <m>\uvec{v}</m>, the negative vector <m>-\uvec{v}</m> corresponds to the same segment but in the opposite direction </p>
+	</li>
+
+	<li>
+	<title><term>vector subtraction</term></title>
+	<!-- \index{vector!subtraction} -->
+	<p>
+	the result of adding a vector <m>\uvec{u}</m> to the negative of another <m>\uvec{v}</m>: <m>\uvec{u} - \uvec{v} = \uvec{u} + (-\uvec{v}) </m>
+	</p>
+	</li>
+
+	<li>
+	<title><term>scalar multiple (of a vector <m>\uvec{v}</m> by scalar <m>k</m>)</term></title>
+	<!--
+		\index{vector!scalar multiple}
+		\index{scalar!multiple!of a vector}
+	-->
+	<p>
+	given a directed line segment for <m>\uvec{v}</m>, the scalar multiple <m>k\uvec{v}</m> corresponds to the directed line segment that has the same initial point and changes position in the same direction, but whose length has been scaled so that the terminal point is <m>\abs{k}</m> times as far from the initial point as the terminal point for <m>\uvec{u}</m>; if <m>k</m> is negative then the terminal point is also moved to the <q>other side</q> of the initial point
+	</p>
+	</li>
+	<aside><p>
+		Again, diagrams will be helpful to understand the definition of <term>scalar multiple</term>, similarly to how we explored scalar multiplication through diagrams in our activity set (<xref ref="section-vectors-activities" />) <mdash /> see
+		<xref ref="subsection-vectors-concepts-scalar-mul" />.
+	</p></aside>
+
+	<li>
+	<title><term>parallel vectors</term></title>
+	<!--
+		\index{parallel!vectors}
+		\index{vector!parallel}
+	-->
+	<p>nonzero vectors that scalar multiples of one another</p>
+	</li>
+
+	<li>
+	<title><term>linear combination of vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m></term></title>
+	<!--
+		\index{vector!linear combination}
+		\index{linear!combination!of vectors}
+ 	-->
+	<p>a sum of scalar multiples of the vectors:
+	<m>k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsc + k_m\uvec{v}_m</m>
+	</p>
+	</li>
+
+	<li>
+	<title><term>standard basis vectors (in <m>\R^n</m>)</term></title>
+	<!--
+		\index{standard basis vectors}
+		\index{basis!standard}
+ 	-->
+	<p>
+	the vectors
+	<md>
+		<mrow>\uvec{e}_1 \amp= (1,0,0,\dotsc,0),</mrow>
+		<mrow>\uvec{e}_2 \amp= (0,1,0,\dotsc,0),</mrow>
+		<mrow>\dotsc,</mrow>
+		<mrow>\uvec{e}_n \amp= (0,0,\dotsc,0,1)</mrow>
+	</md>
+	</p>
+	</li>
+
+</dl></p>
+
+<remark><p>
+	In physics, it is common to use <m>\uvec{i}</m> and <m>\uvec{j}</m> to mean <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> in the plane, and to use <m>\uvec{i}</m>, <m>\uvec{j}</m>, and <m>\uvec{k}</m> to mean <m>\uvec{e}_1</m>, <m>\uvec{e}_2</m>, and <m>\uvec{e}_3</m> in space. However, this alphabetic naming scheme would have to wrap back around to <m>\uvec{a}</m> in <m>19</m> dimensions, and in <m>27</m> dimensions there wouldn't be enough letters in the alphabet. So we will (mostly) stick with the <m>\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n</m> naming scheme.
+</p></remark>
+
+</section>

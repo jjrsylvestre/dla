@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-abstract-vec-spaces-activities">
+<title>Activities</title>
+
+<introduction>
+
+<p>
+Suppose you have a collection of mathematical objects. The objects in the collection may satisfy all/some/none of the following rules, depending on the objects. In the rule statements, bold variable letters represent arbitrary objects in the collection, and ordinary variable letters represent arbitrary scalars (<ie /> numbers).
+</p>
+
+<!-- would have done this with a <sidebyside> if <paragraphs> were allowed therein -->
+
+<p>
+<tabular top="medium">
+  <col width="50%" />
+  <col width="50%" />
+
+  <row valign="top">
+    <cell><alert>(A) Addition rules</alert></cell>
+    <cell><alert>(S) Scalar multiplication rules</alert></cell>
+  </row>
+
+  <row bottom="medium" valign="top">
+
+    <cell><p><ol xml:id="list-abstract-vec-spaces-activities-add-axioms">
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-closed">
+      The objects can be <em>added</em> (two at a time), and the resulting <q>sum</q> is always equal to another in the collection of objects.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-comm">
+      Every <m>\uvec{v},\uvec{w}</m> satisfy <m>\uvec{w}+\uvec{v} = \uvec{v}+\uvec{w}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-assoc">
+      Every <m>\uvec{u},\uvec{v},\uvec{w}</m> satisfy <m>\uvec{u}+(\uvec{v}+\uvec{w}) = (\uvec{u}+\uvec{v})+\uvec{w}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-zero">
+      There is a special <term>zero object</term> in the collection, so that every <m>\uvec{v}</m> satisfies <m>\uvec{v}+\zerovec=\uvec{v}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-neg">
+      Every <m>\uvec{v}</m> has an <term>opposite</term> <m>\widetilde{\uvec{v}}</m> so that <m>\uvec{v}+\widetilde{\uvec{v}}=\zerovec</m>.
+      </li>
+    </ol></p></cell>
+
+    <cell><p><ol xml:id="list-abstract-vec-spaces-activities-smul-axioms">
+      <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-closed">
+      The objects can be <em>scaled</em> by a numerical factor (called a <term>scalar</term>), and the resulting <q>scaled object</q> is always equal to another in the collection of objects.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-distrib1">
+      Every <m>k,\uvec{v},\uvec{w}</m> satisfy <m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-distrib2">
+      Every <m>k,m,\uvec{v}</m> satisfy <m>(k+m)\uvec{v} = k\uvec{v}+m\uvec{v}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-assoc">
+      Every <m>k,m,\uvec{v}</m> satisfy <m>k(m\uvec{v}) = (km)\uvec{v}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-one">
+      Every <m>\uvec{v}</m> satisfies <m>1\uvec{v} = \uvec{v}</m>.
+      </li>
+    </ol></p></cell>
+
+  </row>
+
+</tabular>
+</p>
+
+<!--
+<sidebyside widths="50% 50%" valign="top">
+
+  <list xml:id="list-abstract-vec-spaces-activities-add-axioms">
+  <title>(A) Addition rules</title><caption />
+  <ol>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-closed">
+      The objects can be <em>added</em> (two at a time), and the resulting <q>sum</q> is always equal to another in the collection of objects.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-comm">
+      Every <m>\uvec{v},\uvec{w}</m> satisfy <m>\uvec{w}+\uvec{v} = \uvec{v}+\uvec{w}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-assoc">
+      Every <m>\uvec{u},\uvec{v},\uvec{w}</m> satisfy <m>\uvec{u}+(\uvec{v}+\uvec{w}) = (\uvec{u}+\uvec{v})+\uvec{w}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-zero">
+      There is a special \textit{zero object} in the collection, so that every <m>\uvec{v}</m> satisfies <m>\uvec{v}+\zerovec=\uvec{v}</m>.
+      </li>
+      <li xml:id="list-abstract-vec-spaces-activities-add-axioms-neg">
+      Every <m>\uvec{v}</m> has an \textit{opposite} <m>\widetilde{\uvec{v}}</m> so that <m>\uvec{v}+\widetilde{\uvec{v}}=\zerovec</m>.
+      </li>
+  </ol>
+  </list>
+
+  <list xml:id="list-abstract-vec-spaces-activities-smul-axioms">
+  <title>(S) Scalar multiplication rules</title><caption />
+  <ol>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-closed">
+    The objects can be <em>scaled</em> by a numerical factor (called a <term>scalar</term>), and the resulting <q>scaled object</q> is always equal to another in the collection of objects.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-distrib1">
+    Every <m>k,\uvec{v},\uvec{w}</m> satisfy <m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-distrib2">
+    Every <m>k,m,\uvec{v}</m> satisfy <m>(k+m)\uvec{v} = k\uvec{v}+m\uvec{v}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-assoc">
+    Every <m>k,m,\uvec{v}</m> satisfy <m>k(m\uvec{v}) = (km)\uvec{v}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-one">
+    Every <m>\uvec{v}</m> satisfies <m>1\uvec{v} = \uvec{v}</m>.
+    </li>
+  </ol>
+</list>
+
+</sidebyside>
+-->
+
+<!-- ANOTHER AXIOM LIST DISPLAY OPTION
+<p><ul cols="2">
+  <li xml:id="list-abstract-vec-spaces-activities-add-axioms"><paragraphs>
+  <title>(A) Addition rules</title>
+  <p><ol>
+    <li xml:id="list-abstract-vec-spaces-activities-add-axioms-closed">
+    The objects can be <em>added</em> (two at a time), and the resulting <q>sum</q> is always equal to another in the collection of objects.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-add-axioms-comm">
+    Every <m>\uvec{v},\uvec{w}</m> satisfy <m>\uvec{w}+\uvec{v} = \uvec{v}+\uvec{w}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-add-axioms-assoc">
+    Every <m>\uvec{u},\uvec{v},\uvec{w}</m> satisfy <m>\uvec{u}+(\uvec{v}+\uvec{w}) = (\uvec{u}+\uvec{v})+\uvec{w}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-add-axioms-zero">
+    There is a special <term>zero object</term> in the collection, so that every <m>\uvec{v}</m> satisfies <m>\uvec{v}+\zerovec=\uvec{v}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-add-axioms-neg">
+    Every <m>\uvec{v}</m> has an <term>opposite</term> <m>\widetilde{\uvec{v}}</m> so that <m>\uvec{v}+\widetilde{\uvec{v}}=\zerovec</m>.
+    </li>
+  </ol></p>
+  </paragraphs></li>
+  <li xml:id="list-abstract-vec-spaces-activities-smul-axioms"><paragraphs>
+  <title>(S) Scalar multiplication rules</title>
+  <p><ol>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-closed">
+    The objects can be <em>scaled</em> by a numerical factor (called a <term>scalar</term>), and the resulting <q>scaled object</q> is always equal to another in the collection of objects.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-distrib1">
+    Every <m>k,\uvec{v},\uvec{w}</m> satisfy <m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-distrib2">
+    Every <m>k,m,\uvec{v}</m> satisfy <m>(k+m)\uvec{v} = k\uvec{v}+m\uvec{v}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-assoc">
+    Every <m>k,m,\uvec{v}</m> satisfy <m>k(m\uvec{v}) = (km)\uvec{v}</m>.
+    </li>
+    <li xml:id="list-abstract-vec-spaces-activities-smul-axioms-one">
+    Every <m>\uvec{v}</m> satisfies <m>1\uvec{v} = \uvec{v}</m>.
+    </li>
+  </ol></p>
+  </paragraphs></li>
+</ul></p>
+-->
+
+</introduction>
+
+<activity>
+  <statement>
+  <p>
+  Read and briefly discuss the rules in your group. In particular, make sure everyone in your group understands the differences between the LHS and RHS in each of
+  <xref ref="list-abstract-vec-spaces-activities-add-axioms-comm">Rule A</xref>,
+  <xref ref="list-abstract-vec-spaces-activities-add-axioms-assoc">Rule A</xref>,
+  <xref ref="list-abstract-vec-spaces-activities-smul-axioms-distrib1">Rule S</xref>,
+  <xref ref="list-abstract-vec-spaces-activities-smul-axioms-distrib2">Rule S</xref>,
+  and
+  <xref ref="list-abstract-vec-spaces-activities-smul-axioms-one">Rule S</xref>.
+  </p>
+  <p>
+  It may help to come up with expressions for these algebra rules in <em>plain English</em> rather than letters and variables. For example,
+  <xref ref="list-abstract-vec-spaces-activities-add-axioms-comm">Rule A</xref>
+  states that order doesn't matter in adding objects.
+  </p>
+  </statement>
+</activity>
+
+<activity>
+  <statement><p>
+  These rules are modelled on the properties of vectors in <m>\R^n</m>. Convince yourself that all the rules are true when the collection of mathematical objects considered is <q>all vectors in <m>\R^2</m>.</q> In particular, make sure you know what the <em>zero object</em> is in the collection
+  <xref ref="list-abstract-vec-spaces-activities-add-axioms-zero">Rule A</xref>),
+  and how to find an object's <em>opposite</em>
+  <xref ref="list-abstract-vec-spaces-activities-add-axioms-neg">Rule A</xref>).
+  </p></statement>
+</activity>
+
+<activity xml:id="activity-abstract-vec-spaces-basic-vspace-examples">
+  <statement><p>
+  For each of the following collections of objects, convince yourself that all the rules are true. In particular, make sure you know what the <em>zero object</em> is in the collection, and how to find an object's <em>opposite</em>.
+	<ol label="alph">
+		<li> All <m>2\times 2</m> matrices. </li>
+		<li> All <m>m\times n</m> matrices. (Here <m>m</m> and <m>n</m> are some specific but unknown numbers.) </li>
+		<li xml:id="activity-abstract-vec-spaces-basic-vspace-examples-poly">
+		All polynomials in the variable <m>x</m>.
+    </li>
+    <li xml:id="activity-abstract-vec-spaces-basic-vspace-examples-poly-degree-2">
+		All polynomials in the variable <m>x</m> of degree <m>2</m> or less (<ie /> no <m>x^3</m> or higher allowed).
+    </li>
+    <li xml:id="activity-abstract-vec-spaces-basic-vspace-examples-R1">
+    <p> All real numbers. </p>
+    <aside><title>Careful</title>
+      <p> In the last example collection, both <em>objects</em> and <em>scalars</em> are numbers. Don't get mixed up! </p>
+    </aside>
+    </li>
+	</ol>
+    </p>
+  </statement>
+</activity>
+
+<activity xml:id="activity-abstract-vec-spaces-deducing-props">
+  <statement><p>
+  Suppose you have a collection of objects that satisfies all of the rules. (Don't pick a specific example collection, just think in the abstract.)
+	<ol label="alph">
+		<li xml:id="activity-abstract-vec-spaces-deducing-props-zero-reverse">
+    <p> For an object <m>\uvec{v}</m>, is it necessarily always true that <m>\zerovec + \uvec{v} = \uvec{v}</m>? </p>
+    <hint><p>
+      Look at
+      <xref ref="list-abstract-vec-spaces-activities-add-axioms-comm">Rule A</xref>
+      and
+      <xref ref="list-abstract-vec-spaces-activities-add-axioms-zero">Rule A</xref>.
+    </p></hint>
+    </li>
+    <li xml:id="activity-abstract-vec-spaces-deducing-props-neg-reverse">
+    <p> For an object <m>\uvec{v}</m> and its opposite <m>\widetilde{\uvec{v}}</m>, is it necessarily always true that <m>\widetilde{\uvec{v}} + \uvec{v} = \zerovec</m>? </p>
+    <hint><p>
+      Look at
+      <xref ref="list-abstract-vec-spaces-activities-add-axioms-comm">Rule A</xref>
+      and
+      <xref ref="list-abstract-vec-spaces-activities-add-axioms-neg">Rule A</xref>.
+    </p></hint>
+    </li>
+		<li>
+    By <xref ref="list-abstract-vec-spaces-activities-add-axioms-neg">Rule A</xref>,
+    an object <m>\uvec{v}</m> has an opposite <m>\widetilde{\uvec{v}}</m>, which itself is an object. What is the opposite of <m>\widetilde{\uvec{v}}</m>? Make sure you can justify that your answer satisfies the definition of <term>opposite</term> contained in <xref ref="list-abstract-vec-spaces-activities-add-axioms-neg">Rule A</xref>.
+    </li>
+		<li> Suppose <m>\uvec{v}</m> is an object. What object do you think <m>0\uvec{v}</m> should be equal to? Do the rules provide <em>direct</em> evidence to support your guess? </li>
+		<li> Here is a justification of your guess from the previous part of this activity. (Assuming you guessed correctly!) Fill in the blanks with the identifier of the rule that justifies each step, working down the left-hand side first. Make sure you understand how and for what objects that rule is being applied.
+		<md>
+      <mrow>
+  			\uvec{v}+\widetilde{\uvec{v}} \amp= \zerovec \amp \amp<fillin characters="5" />
+  			\amp <!-- \amp \amp -->
+  			0\uvec{v}+(1\uvec{v}+\widetilde{\uvec{v}}) \amp= \zerovec \amp \amp<fillin characters="5" />
+      </mrow><mrow>
+  			1\uvec{v}+\widetilde{\uvec{v}} \amp= \zerovec \amp \amp<fillin characters="5" />
+  			\amp <!-- \amp \amp -->
+  			0\uvec{v}+(\uvec{v}+\widetilde{\uvec{v}}) \amp= \zerovec \amp \amp<fillin characters="5" />
+      </mrow><mrow>
+  			(0+1)\uvec{v}+\widetilde{\uvec{v}} \amp= \zerovec \amp \amp\text{(arithmetic)}
+  			\amp <!-- \amp \amp -->
+  			0\uvec{v}+\zerovec \amp= \zerovec \amp \amp<fillin characters="5" />
+      </mrow><mrow>
+  			(0\uvec{v}+1\uvec{v})+\widetilde{\uvec{v}} \amp= \zerovec \amp \amp<fillin characters="5" />
+  			\amp <!-- \amp \amp -->
+  			0\uvec{v} \amp= \zerovec \amp \amp<fillin characters="5" />
+	    </mrow>
+    </md>
+    </li>
+    <li xml:id="activity-abstract-vec-spaces-deducing-props-neg-versus-mul-n1-part1">
+    <p> Use the rules to <q>simplify</q> the expression <m>\uvec{v} + (-1)\uvec{v}</m>. Make sure each step is justified by a specific rule, similarly to the previous part of this activity. </p>
+    <aside><title>Note</title><p>
+      As well as the rules from the top of this activity set, you may also use your newly justified rule from the previous part of this activity set. This is a useful pattern: every time we use existing rules to create a new rule, that new rule can be freely used to help create even more rules.
+    </p></aside>
+    <hint><p> Start by using <xref ref="list-abstract-vec-spaces-activities-smul-axioms-one">Rule S</xref> backwards, like in the first step in the previous part of this activity. </p></hint>
+    </li>
+    <li xml:id="activity-abstract-vec-spaces-deducing-props-neg-versus-mul-n1-part2">
+		Take <m>\uvec{v} + (-1)\uvec{v} = X</m>, where <m>X</m> is your final simplified expression from the previous part of this activity. We can <q>cancel</q> the <m>\uvec{v}</m> from the LHS by adding <m>\widetilde{\uvec{v}}</m> to both sides of the equality. Based on the resulting equality after doing that, what do you think is a better name for <m>\widetilde{\uvec{v}}</m> than <em>opposite of <m>\uvec{v}</m></em>?
+    </li>
+	</ol>
+  </p></statement>
+</activity>
+
+<activity xml:id="activity-abstract-vec-spaces-trivial-space">
+  <statement><p>
+  Nominate one member of your group to become an object, and consider the collection of objects that consists of just <em>one</em> object (namely, the group member you nominated).
+  <ol label="alph">
+    <li>
+    Can you come up with some sort of addition so that
+    <xref ref="list-abstract-vec-spaces-activities-add-axioms-closed">Rule A</xref>
+    is true?
+    </li>
+    <li>
+    Can you come up with some sort of scaling operation so that axiom
+    <xref ref="list-abstract-vec-spaces-activities-smul-axioms-closed">Rule S</xref>
+    is true? If so, continue on and check whether the other axioms are true with your operations.
+    </li>
+  </ol>
+  </p></statement>
+</activity>
+
+</section>

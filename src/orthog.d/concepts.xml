@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-orthog-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<subsection xml:id="subsection-orthog-concepts-dot-prod-values">
+<title>Values of <m>\udotprod{u}{v}</m></title>
+
+<p>
+In <xref ref="activity-orthog-dot-prod-vs-cos-graph" />, we compared the graph of the cosine function on the domain <m>0\le\theta\le\pi</m> with the formula
+<md><mrow tag="star" xml:id="equation-orthog-concepts-cos-vs-dot-prod-eqn">
+	\cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}},
+</mrow></md>
+where <m>\theta</m> is the angle between nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>. On the right of equation <xref ref="equation-orthog-concepts-cos-vs-dot-prod-eqn" />, the denominator is always positive, so whether the whole fraction is positve, negative, or zero depends entirely on the dot product in the numerator. On the left, the cosine function is positive, negative, or zero precisely when the angle <m>\theta</m> is acute, obtuse, or right. So we come to the following conclusions.
+</p>
+
+<table xml:id="table-orthog-concepts-dot-prod-values">
+	<caption>Values of the dot product for vectors at various angles.</caption>
+	<tabular top="medium">
+	  <row>
+	    <cell colspan="2" bottom="medium" halign="center"> <m>\theta</m> </cell>
+	    <cell bottom="medium"> <m>\udotprod{u}{v}</m> </cell>
+	  </row>
+	  <row>
+	    <cell> acute: </cell>
+	    <cell> <m>0\le \theta \lt \pi/2</m> </cell>
+	    <cell> positive </cell>
+	  </row>
+	  <row>
+	    <cell> right: </cell>
+	    <cell> <m>\theta = \pi/2</m> </cell>
+	    <cell> zero </cell>
+	  </row>
+	  <row>
+	    <cell> obtuse: </cell>
+	    <cell> <m>\pi/2 \lt \theta \le \pi</m> </cell>
+	    <cell> negative </cell>
+	  </row>
+	</tabular>
+</table>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-concepts-orthog">
+<title>Orthogonal vectors</title>
+
+<p>
+Right angles are extremely important in geometry, and from <xref ref="table-orthog-concepts-dot-prod-values" /> we see that the dot product gives us a very convenient way to tell when the angle <m>\theta</m> between two nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is right: <alert>we have <m>\theta = \pi/2</m> precisely when <m>\udotprod{u}{v} = 0</m></alert>. In the plane or in space, <m>\uvec{u}</m> and <m>\uvec{v}</m> will be <term>perpendicular</term> when <m>\theta = \pi/2</m> and <m>\udotprod{u}{v} = 0</m>. Since we can't <q>see</q> right angles and perpendicular lines in higher dimensions, in general we say that <m>\uvec{u}</m> and <m>\uvec{v}</m> are <term>orthogonal</term> when <m>\udotprod{u}{v} = 0</m>.
+</p><p>
+In <xref ref="activity-orthog-guess-orthog-in-plane" />, we tried to find a pattern to the task of choosing some vector that is orthogonal to a given one in the plane. Rather than struggle with the geometry, we unleash the power of algebra: given vector <m>\uvec{u} = (a,b)</m>, we are looking for a vector <m>\uvec{v}</m> so that <m>\udotprod{u}{v} = 0</m>. Expanding out the dot product, we are looking to fill in the blanks in the following equation with components for <m>\uvec{v}</m>:
+<me> a\cdot\boxed{\phantom{X}} + b\cdot\boxed{\phantom{X}} = 0. </me>
+Two numbers add to zero only if one is the negative of the other. We can make both terms in the sum the same number by entering <m>b</m> in the first blank and <m>a</m> in the second, so we can make the sum cancel to zero by also making one of those entries zero:
+<me> a\cdot\boxed{b} + b\cdot\boxed{(-a)} = 0. </me>
+We have now answered the question in
+<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Part</xref>
+of
+<xref ref="activity-orthog-guess-orthog-in-plane" />:
+given vector <m>\uvec{u} = (a,b)</m> in the plane, one example of a vector that is orthogonal to <m>\uvec{u}</m> is <m>\uvec{v} = (b,-a)</m>.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-orthog-concepts-proj">
+<title>Orthogonal projection</title>
+
+<p>Orthogonal projection is a vector solution to a problem in geometry.</p>
+
+<question><statement><p>
+	Given a line through the origin in the plane, and a point not on the line, what point on the line is closest to the given point?
+</p></statement></question>
+
+<p>
+Consider the point on the line at the foot of the perpendicular to the given line that passes through the given point. Any other point on the given line will form a right triangle with that foot and the given point, making it farther from the given point since that distance is the length of the hypotenuse in the right triangle.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating the shortest distance from a point to a line in the plane.</description>
+	<latex-image><xi:include href="concepts-tikz.d/shortest-dist-to-line.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+All we know about <m>P</m> is that it is on the line and it is at the vertex of a right angle with the line and <m>Q</m>. But if we introduce some vectors to help tackle this problem, then maybe we can use what we know about the dot product and right angles to help determine <m>P</m>.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating the shortest distance from a point to a line in the plane.</description>
+	<latex-image><xi:include href="concepts-tikz.d/proj.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m> determined by the given point <m>Q</m>, and <m>\uvec{w}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m> determined by the unknown point <m>P</m>. Since <m>\uvec{w}</m> is placed with its tail at the origin, the components of <m>\uvec{w}</m> are precisely the coordinates of <m>P</m>. So determining <m>\uvec{w}</m> will solve the problem.
+</p><p>
+We are assuming that the line through the origin is known, and it would be nice to also have a vector means of describing it. But the vectors created by the points on this line (using the origin as a universal tail point) will all be parallel to each other, so (as we discovered in
+<xref ref="activity-orthog-proj-scalar-mul-line">Part</xref>
+of
+<xref ref="activity-orthog-proj" />)
+the line could be described as all scalar multiples of a particular vector <m>\uvec{a}</m>. This vector can be randomly chosen as any vector along the line. Once we have chosen <m>\uvec{a}</m>, we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{w}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{w} = k\uvec{a}</m>.
+</p><p>
+We represent the knowledge that the closest point on the line lies at the foot of the perpendicular from the given point <m>Q</m> with the normal vector <m>\uvec{n}</m>. As in
+<xref ref="activity-orthog-proj-dot-prod-condition">Part</xref>
+of
+<xref ref="activity-orthog-proj" />,
+we know that <m>\udotprod{n}{a}</m> must be zero <mdash /> this is the perpendicular condition. However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.  But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>, and <m>\uvec{w}</m> to replace <m>\uvec{n}</m>:
+<md><mrow>
+	\uvec{w} + \uvec{n} \amp= \uvec{u} \amp \amp\implies \amp \uvec{n} \amp= \uvec{u} - \uvec{w} = \uvec{u} - k\uvec{a}
+</mrow></md>
+Replacing <m>\uvec{n}</m> by this expression in the condition <m>\udotprod{n}{a} = 0</m> gives us an equation of numbers that we can solve for the unknown scale factor <m>k</m>, as we did in
+<xref ref="activity-orthog-proj-solve">Part</xref>
+of
+<xref ref="activity-orthog-proj" />:
+<me> k = \frac{\udotprod{u}{a}}{\unorm{a}^2}. </me>
+This vector <m>\uvec{w} = k\uvec{a}</m> pointing from the origin to the desired closest point is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>, and we write <m>\proj_{\uvec{a}} \uvec{u}</m> to represent it. The normal vector <m>\uvec{n}</m> is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>. These two vectors are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
+<me> \uvec{u} = \uvec{w} + \uvec{n}, </me>
+where <m>\uvec{w}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}</m> is orthogonal to <m>\uvec{a}</m>. While this decomposition is relative to <m>\uvec{a}</m>, it is really only the <em>direction</em> of <m>\uvec{a}</m> that matters <mdash /> if <m>\uvec{a}'</m> is parallel to <m>\uvec{a}</m> (even possibly opposite to <m>\uvec{a}</m>), then both
+<md><mrow>
+	\uvec{w} \amp= \proj_{\uvec{a}} \uvec{u} = \proj_{\uvec{a}'} \uvec{u}, \amp
+	\uvec{n} \amp= \uvec{u} - \proj_{\uvec{a}} \uvec{u} = \uvec{u} - \proj_{\uvec{a}'} \uvec{u}
+</mrow></md>
+will be true.
+</p>
+<remark><p>
+All of these calculations can be performed in higher dimensions as well, the only difference being that there is no longer one unique perpendicular direction to a given vector <m>\uvec{a}</m>.
+</p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-orthog-concepts-normal-vec-lines">
+<title>Normal vectors of lines in the plane</title>
+
+<p>
+Consider the line <m>2x+3y=0</m> that we investigated in <xref ref="activity-orthog-point-normal-lines-1" />. The point <m>(3,-2)</m> is on this line, since
+<md><mrow tag="dstar" xml:id="equation-orthog-concepts-point-normal-lines-1-point-calc">
+	2\cdot 3 + 3\cdot (-2) = 0.
+</mrow></md>
+The left-hand side of this calculation looks a lot like a dot product <mdash /> we could reinterpret equation <xref ref="equation-orthog-concepts-point-normal-lines-1-point-calc" /> as
+<me> \dotprod{(2,3)}{(3,-2)} = 0. </me>
+So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checking that the corresponding vector <m>\uvec{v} = (3,-2)</m> (with its tail at the origin) is orthogonal to the vector <m>\uvec{n} = (2,3)</m> whose components are the <em>coefficients</em> from our line equation.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of a normal vector to a line in the plane (homogeneous case).</description>
+	<latex-image><xi:include href="concepts-tikz.d/normal-vec-line-homog.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Every other point <m>\uvec{x} = (x,y)</m> on the line satisfies the same relationship, as the equation for the line could be rewritten in a vector form as
+<md><mrow tag="tstar" xml:id="equation-orthog-concepts-point-normal-lines-1-normal-form">
+	\udotprod{n}{x} = 0.
+</mrow></md>
+The vector <m>\uvec{n}</m> is called a <em>normal</em> vector for the line. Note that normal vectors for a line are not unique <mdash /> every nonzero scalar multiple of <m>\uvec{n}</m> will also be normal to the line, and this is equivalent to noting that we could multiply the equation <m>2x+3y=0</m> by any nonzero factor to obtain a different equation that represents the same line in the plane.
+</p>
+
+<p>
+In <xref ref="activity-orthog-point-normal-lines-2" /> we considered a line defined by a <em>non</em>homogeneous equation <m>2x+3y=8</m>. This line has the same slope as the line defined by <m>2x+3y=0</m> that we investigate above, and so the vector <m>\uvec{n} = (2,3)</m> obtained from the coefficients on <m>x</m> and <m>y</m> in the equation must still be normal. The constant <m>8</m> just changes the <m>y</m>-intercept.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of a normal vector to a line in the plane (nonhomogeneous case).</description>
+	<latex-image><xi:include href="concepts-tikz.d/normal-vec-line-nonhomog-1.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+In the homogeneous case, vectors from the origin determined by a point on the line were also <em>parallel</em> to the line. Since things have shifted away from the origin in the nonhomogeneous case, to get a vector parallel to the line we need to consider <em>two</em> vectors from the origin to points on the line. Two convenient points on the line are <m>Q(1,2)</m> and <m>R(4,0)</m>, with corresponding vectors <m>\uvec{x}_0 = (1,2)</m> and <m>\uvec{x}_1 = (4,0)</m>. Then the difference vector
+<me> \uvec{v} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </me>
+is parallel to the line, as in the diagram above. In fact, this vector <m>\uvec{v}</m> is the same as previous vector <m>\uvec{v}</m> that appears parallel to the line through the origin in the diagram for the homogeneous case above, so we know it satisfies <m>\udotprod{n}{v} = 0</m>.
+</p><p>
+Is there a way to use the normal vector <m>\uvec{n}</m> to create a vector condition by which we can tell if a vector <m>\uvec{x}</m> represents a point on the line, as we did with equation <xref ref="equation-orthog-concepts-point-normal-lines-1-normal-form" /> in the homoegenous case? We need <em>two</em> points on the line to create a parallel difference vector, but we could compare the variable vector <m>\uvec{x}</m> with a randomly chosen <em>fixed</em> vector representing a point on the line (like <m>\uvec{x}_0</m>, say).
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of a normal vector to a line in the plane (nonhomogeneous case).</description>
+	<latex-image><xi:include href="concepts-tikz.d/normal-vec-line-nonhomog-2.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Every such difference vector <m>\uvec{x}-\uvec{x}_0</m> is parallel to the line and hence orthogonal to the normal vector <m>\uvec{n}</m> , so that we can describe the line as all points where the corresponding vector <m>\uvec{x}</m> satisfies
+<md><mrow tag="dagger" xml:id="equation-orthog-concepts-point-normal-form">
+	\dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0.
+</mrow></md>
+This is called the <term>point-normal form</term> for the line, referring to the <em>point</em> on the line at the terminal point of <m>\uvec{x}_0</m> and the <em>normal</em> vector <m>\uvec{n}</m>.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-orthog-concepts-normal-vec-planes">
+<title>Normal vectors of planes in space</title>
+
+<p>
+A similar analysis can be made for an equation <m>ax+by+cz=d</m> describing a plane in space. The coefficients form a normal vector <m>\uvec{n} = (a,b,c)</m>. For vectors <m>\uvec{x}_0</m> and <m>\uvec{x}_1</m> that both have initial point at the origin and terminal points on the plane, then the difference vector <m>\uvec{x}_1-\uvec{x}_0</m> is parallel to the plane, hence normal to <m>\uvec{n}</m>. If we keep a fixed choice of <m>\uvec{x}_0</m> but replace <m>\uvec{x}_1</m> by a variable vector <m>\uvec{x}</m>, we can describe the plane as all points whose difference is orthogonal to <m>\uvec{n}</m>, giving us a point-normal for a plane just as in equation <xref ref="equation-orthog-concepts-point-normal-form" />.
+</p>
+
+<remark><p>
+	A line in space does not have a point normal form, because it does not have one unique normal <q>direction</q> like a line in the plane or a plane in space does. To describe a line in space in a similar fashion you would need <em>two</em> normal vectors. We will see several more convenient ways to describe a line in the next chapter.
+</p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-orthog-concepts-cross-prod">
+<title>The cross product</title>
+
+<p>
+Seeing how the algebraic equation for a plane in <m>\R^3</m> is connected to a normal vector to the plane, a basic problem is how to quickly obtain a normal vector. If we know two vectors that are parallel to the plane in question, the problem reduces to the following.
+</p>
+
+<question xml:id="question-orthog-concepts-cross-prod"><statement><p>
+	Given two nonzero, nonparallel vectors in <m>\R^3</m>, determine a third vector that is orthogonal to each of the first two.
+</p></statement></question>
+
+<p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>
+		Diagram of the setup for the cross product problem (<xref ref="question-orthog-concepts-cross-prod" /> above).
+	</description>
+	<latex-image><xi:include href="concepts-tikz.d/cross-prod.tex" parse="text" /></latex-image>
+</image>
+</p>
+
+<p>
+So if <m>\uvec{u} = (u_1,u_2,u_3)</m> and <m>\uvec{v} = (v_1,v_2,v_3)</m> are our starting vectors, we would like to simultaneously solve the equations
+<md><mrow>
+	\udotprod{u}{x} \amp= 0, \amp \udotprod{v}{x} \amp= 0,
+</mrow></md>
+for the unknown vector <m>\uvec{x} = (x,y,z)</m>. Expanding out the dot products, we get (surprise!) a system of linear equations:
+<me>
+	\left\{
+		\begin{array}{lclclcr}
+			u_1 x \amp + \amp u_2 y \amp + \amp u_3 z \amp = \amp 0, \\
+			v_1 x \amp + \amp v_2 y \amp + \amp v_3 z \amp = \amp 0.
+		\end{array}
+	\right.
+</me>
+In fact, we get a homogeneous system of two equations in the three unknown coordinates <m>x,y,z</m>. Now, since this system is homogeneous, it is consistent. But its general solution will also require at least one parameter, since its rank is at most <m>2</m>, while we have three variables. In the diagram above, we can see what the <q>freedom</q> of a parameter corresponds to <mdash /> we can make <m>\uvec{x}</m> longer or shorter, or turn it around to be opposite of the way it is pictured, and it will remain orthogonal to <m>\uvec{u}</m> and <m>\uvec{v}</m>. Our end goal is a calculation formula and procedure that will compute one particular solution to this problem, so let's introduce a somewhat arbitrary additional equation to eliminate the need for a parameter in the solution.
+<me>
+	\left\{
+		\begin{array}{rcrcrcr}
+			    x \amp + \amp     y \amp + \amp     z \amp = \amp 1, \\
+			u_1 x \amp + \amp u_2 y \amp + \amp u_3 z \amp = \amp 0, \\
+			v_1 x \amp + \amp v_2 y \amp + \amp v_3 z \amp = \amp 0.
+		\end{array}
+	\right.
+</me>
+In matrix form, this system can be expressed as <m>A \uvec{x} = \uvec{b}</m>, with
+<md><mrow tag="ddagger" xml:id="equation-orthog-concepts-cross-product-system-matrices">
+	A \amp= \begin{bmatrix}
+		1 \amp 1 \amp 1 \\
+		u_1 \amp u_2 \amp u_3 \\
+		v_1 \amp v_2 \amp v_3
+	\end{bmatrix},
+	\amp
+	\uvec{b} \amp= \begin{bmatrix} 1\\ 0\\ 0\end{bmatrix}.
+</mrow></md>
+Assuming that <m>\det A \neq 0</m>, Cramer's rule tells us the solution to this system.
+<md>
+	<mrow>
+		x \amp= \frac{1}{\det A}
+		\begin{vmatrix}
+			1 \amp 1 \amp 1 \\
+			0 \amp u_2 \amp u_3 \\
+			0 \amp v_2 \amp v_3
+		\end{vmatrix}
+		\amp
+		y \amp= \frac{1}{\det A}
+		\begin{vmatrix}
+			1 \amp 1 \amp 1 \\
+			u_1 \amp 0 \amp u_3 \\
+			v_1 \amp 0 \amp v_3
+		\end{vmatrix}
+		\amp
+		z \amp= \frac{1}{\det A}
+		\begin{vmatrix}
+			1 \amp 1 \amp 1 \\
+			u_1 \amp u_2 \amp 0 \\
+			v_1 \amp v_2 \amp 0
+		\end{vmatrix}
+	</mrow><mrow>
+		\amp= \frac{1}{\det A}
+		\begin{vmatrix}
+			u_2 \amp u_3 \\
+			v_2 \amp v_3
+		\end{vmatrix}
+		\amp
+		\amp= \frac{-1}{\det A}
+		\begin{vmatrix}
+			u_1 \amp u_3 \\
+			v_1 \amp v_3
+		\end{vmatrix}
+		\amp
+		\amp= \frac{1}{\det A}
+		\begin{vmatrix}
+			u_1 \amp u_2 \\
+			v_1 \amp v_2
+		\end{vmatrix}
+	</mrow>
+</md>
+Now, each of <m>x,y,z</m> has a common factor of <m>1/\det A</m>, and all this common factor does is scale the length of our solution vector <m>\uvec{x}</m> without affecting orthogonality with <m>\uvec{u}</m> and <m>\uvec{v}</m>. Even worse, <m>\det A</m> depends on that extra equation we threw in, and we would like our solution to depend only on <m>\uvec{u}</m> and <m>\uvec{v}</m>. So let's remove it and use solution
+<me>
+	\uvec{x} =
+	\left(
+		\begin{vmatrix}
+			u_2 \amp u_3 \\
+			v_2 \amp v_3
+		\end{vmatrix},
+		\;
+		-\begin{vmatrix}
+			u_1 \amp u_3 \\
+			v_1 \amp v_3
+		\end{vmatrix},
+		\;
+		\begin{vmatrix}
+			u_1 \amp u_2 \\
+			v_1 \amp v_2
+		\end{vmatrix}
+	\right).
+</me>
+We call this the <term>cross product of <m>\uvec{u}</m> and <m>\uvec{v}</m></term>, and write <m>\ucrossprod{u}{v}</m> instead of <m>\uvec{x}</m>. There is a trick to remembering how to compute the cross product: if we replace the top row of <m>A</m> by the standard basis vectors <m>\ivec{},\jvec{},\kvec{}</m> in <m>\R^3</m>, then the cross product will be equal to its determinant expanded by cofactors along the first row. That is, setting
+<md><mrow tag="tdagger" xml:id="equation-orthog-concepts-cross-prod-det-formula">
+	\ucrossprod{u}{v} \;=\;
+	\begin{vmatrix}
+		\ivec{} \amp \jvec{} \amp \kvec{} \\
+		u_1 \amp u_2 \amp u_3 \\
+		v_1 \amp v_2 \amp v_3
+	\end{vmatrix}
+</mrow></md>
+and expanding the determinant along the first row yields
+<me>
+	\ucrossprod{u}{v} \;=\;
+	\begin{vmatrix}
+		u_2 \amp u_3 \\
+		v_2 \amp v_3
+	\end{vmatrix}
+	\ivec{}
+	\; - \;
+	\begin{vmatrix}
+		u_1 \amp u_3 \\
+		v_1 \amp v_3
+	\end{vmatrix}
+	\jvec{}
+	\; + \;
+	\begin{vmatrix}
+		u_1 \amp u_2 \\
+		v_1 \amp v_2
+	\end{vmatrix}
+	\kvec{},
+</me>
+as desired. See
+<xref ref="subsection-orthog-examples-cross-product" />
+for an example of using formula
+<xref ref="equation-orthog-concepts-cross-prod-det-formula" /> to compute cross products.
+</p><p>
+The cross product follows the <term>right-hand rule</term> <mdash /> if you orient your right hand so that your fingers both point in the direction of <m>\uvec{u}</m> and curl up towards <m>\uvec{v}</m>, then your thumb will point in the direction of <m>\ucrossprod{u}{v}</m>.
+</p>
+<aside><title>Check your understanding</title><p>
+	Compute the cross products of the standard basis vectors in the various combinations
+	<md>
+		<mrow>
+			\amp\ucrossprod{i}{j}, \amp \amp\ucrossprod{j}{i},
+		</mrow><mrow>
+			\amp\ucrossprod{j}{k}, \amp \amp\ucrossprod{k}{j},
+		</mrow><mrow>
+			\amp\ucrossprod{i}{k}, \amp \amp\ucrossprod{k}{i},
+		</mrow>
+	</md>
+	and verify that the right-hand rule holds in these cases.
+</p></aside>
+
+<p>
+Computing <m>\ucrossprod{v}{u}</m> instead of <m>\ucrossprod{u}{v}</m> should still produce a vector that is orthogonal to both <m>\uvec{u}</m> and <m>\uvec{v}</m>, but the right-hand rule tells that the two should be opposite to each other. From equation
+<xref ref="equation-orthog-concepts-cross-prod-det-formula" />
+we can be even more specific. Computing <m>\ucrossprod{v}{u}</m> would swap the second and third rows of the special matrix in equation
+<xref ref="equation-orthog-concepts-cross-prod-det-formula" />,
+and we know that the resulting determinant would be the negative of that for the matrix for computing <m>\ucrossprod{u}{v}</m>, and so
+<me> \ucrossprod{v}{u} = -\ucrossprod{u}{v}. </me>
+See
+<xref ref="proposition-orthog-cross-prod-algebra" />
+in
+<xref ref="subsection-orthog-theory-cross-prod" />
+for more properties of the cross product.
+</p>
+
+<remark><p>
+There is one more thing to say about our development of the cross product <mdash /> Cramer's rule can only be applied if <m>\det A</m> is not zero, where <m>A</m> is the matrix in <xref ref="equation-orthog-concepts-cross-product-system-matrices" />. However, the coefficients in the extra equation we introduced did not figure into our final solution. So if <m>\det A</m> ended up being zero for some particular vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, we could just change the variable coefficients in that extra equation (but keep the <m>1</m> in the equals column) so that <m>\det A</m> is not zero, and we would still come to the same formula for <m>\ucrossprod{u}{v}</m>. And it follows from concepts we will learn in
+<xref ref="chapter-col-row-null-space" />
+that it is always possible to fill in the top row of this matrix <m>A</m> so that its determinant is nonzero, as long as we start with <em>nonparallel</em> vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+</p></remark>
+
+</subsection>
+
+</section>

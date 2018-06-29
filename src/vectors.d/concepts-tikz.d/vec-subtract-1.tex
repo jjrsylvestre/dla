@@ -1,0 +1,16 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+	\node[point] at (0,0) (o) [label=below:{$O$}] {};
+	\node[point] at (2,3) (p) [label=above right:{$P$}] {};
+	\node[point] at (3,-1) (r) [label=below right:{$R$}] {};
+	\node[point] at (-3,1) (r2) [label=left:{$R'$}] {};
+	\node[point] at (-1,4) (q) [label=left:{$Q$}] {};
+	\draw[vector] (o) to node[below right] {$\uvec{u}$} (p);
+	\draw[vector] (o) to node[below] {$\uvec{v}$} (r);
+	\draw[vector] (o) to node[below] {$-\uvec{v}$} (r2);
+	\draw[vector] (p) to node[above] {$-\uvec{v}$} (q);
+	\draw[vector] (o) to node[sloped,above] {$\uvec{u}-\uvec{v}$} (q);
+	\draw[dashed] (r2) to (q);
+\end{tikzpicture}

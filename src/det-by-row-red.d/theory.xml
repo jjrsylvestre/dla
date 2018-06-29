@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-det-by-row-red-theory">
+
+<title>Theory</title>
+
+<introduction><p>
+	Here we will recap all of the facts we discussed in <xref ref="section-det-by-row-red-concepts" />, as well as add in a fact from <xref ref="activity-det-by-row-red-det-row-zeros" />. We have already adequately discussed the ideas behind most of these facts, so for most of them we will not include a proof.
+</p></introduction>
+
+<subsection xml:id="subsection-det-by-row-red-theory-row-ops">
+<title>Effect of row operations on the determinant</title>
+
+<p>We begin by recording a fact that helped us in our exploration of the effect of swapping rows on the determinant.</p>
+
+<lemma xml:id="lemma-det-by-row-red-odd-adj-row-swaps">
+
+	<statement><p>
+	Any row swap can be achieved by a sequence of an <em>odd</em> number of adjacent row swaps.
+	</p></statement>
+
+	<proof><title>Proof idea</title><p>
+	Suppose you want to swap rows <m>R</m> and <m>R'</m> in a matrix using only adjacent row swaps, where <m>R</m> appears higher in the matrix than <m>R'</m>, and they are separated by <m>m</m> other rows. First move <m>R</m> down to the position just above <m>R'</m>, then swap <m>R</m> and <m>R'</m> (which are now adjacent), then move <m>R'</m> up to the original position of <m>R</m>. Count the number of adjacent swaps that have been made as an expression in <m>m</m>, and notice that it is odd.
+	</p></proof>
+
+	<!-- Detailed proof, if desired... -->
+	<!--<proof><p>
+	Suppose we want to swap two rows <m>R</m> and <m>R'</m> in a matrix, where <m>R</m> appears somewhere above <m>R'</m>, and there are <m>m</m> other rows between them. \begin{inlinenote}We will label these rows as <m>R</m> and <m>R'</m>, even after we have moved them around.\end{inlinenote} Since there are <m>m</m> rows below <m>R</m> before <m>R'</m> appears, by swapping <m>R</m> with the row immediately below it <m>m</m> times, we will end up with <m>R</m> immediately above <m>R'</m> then one more adjacent swap gets <m>R'</m> above <m>R</m>.
+	<me>
+		\begin{bmatrix}
+			\vdots \\
+			\leftrightlinesubstitute\quad R \quad\leftrightlinesubstitute \\
+			m \text{ more rows} \\
+			\leftrightlinesubstitute\quad R' \quad\leftrightlinesubstitute \\
+			\vdots
+		\end{bmatrix}
+		\quad
+		\xrightarrow[\text{one row } m \text{ times}]{\text{swap } R \text{ down}}
+		\quad
+		\begin{bmatrix}
+			\vdots \\
+			\text{those } m \text{ rows} \\
+			\leftrightlinesubstitute\quad R \quad\leftrightlinesubstitute \\
+			\leftrightlinesubstitute\quad R' \quad\leftrightlinesubstitute \\
+			\vdots
+		\end{bmatrix}
+		\quad
+		\xrightarrow{\text{swap } R,R'}
+		\quad
+		\begin{bmatrix}
+			\vdots \\
+			\text{those } m \text{ rows} \\
+			\leftrightlinesubstitute\quad R' \quad\leftrightlinesubstitute \\
+			\leftrightlinesubstitute\quad R \quad\leftrightlinesubstitute \\
+			\vdots
+		\end{bmatrix}
+	</me>
+	We can reverse what we initially did with <m>R</m> but with <m>R'</m>.
+	<me>
+		\xrightarrow[\text{one row } m \text{ times}]{\text{swap } R' \text{ up}}
+		\quad
+		\begin{bmatrix}
+			\vdots \\
+			\leftrightlinesubstitute\quad R' \quad\leftrightlinesubstitute \\
+			\text{those } m \text{ rows} \\
+			\leftrightlinesubstitute\quad R \quad\leftrightlinesubstitute \\
+			\vdots
+		\end{bmatrix}
+	</me>
+	We have now swapped the positions of <m>R</m> and <m>R'</m>, the <m>m</m> rows between them are still in their original order, and we achieved it with <m>m+1+m = 2m+1</m> adjacent row swaps. And since <m>2m</m> is even, <m>2m+1</m> is odd.
+	</p></proof>-->
+
+</lemma>
+
+<p>Here are all the things we learned in our activities in <xref ref="section-det-by-row-red-activities" />.</p>
+
+<proposition xml:id="proposition-det-by-row-red-det-vs-row-ops">
+	<statement><p>
+	The following are true for every square matrix.
+	<ol>
+		<li> If there is a row of zeros, then the determinant is <m>0</m>. </li>
+		<li xml:id="proposition-det-by-row-red-det-vs-row-ops-swap">
+		If two rows are swapped, then <m>\det(\text{new matrix}) = -\det(\text{old matrix})</m>.
+		</li>
+		<li> If there are two identical rows, then the determinant is <m>0</m>. </li>
+		<li xml:id="proposition-det-by-row-red-det-vs-row-ops-mult-row">
+		If a row is multiplied by constant <m>k</m>, then <m>\det(\text{new matrix}) = k\det(\text{old matrix})</m>.
+		</li>
+		<li> If a whole matrix <m>A</m> is scalar multiplied by a constant <m>k</m>, then <m>\det (kA) = k^n\det A</m>, where <m>n</m> is the size of the matrix. </li>
+		<li> If there are two proportional rows, then the determinant is <m>0</m>. </li>
+		<li> If a multiple of one row is added to another row, then <m>\det(\text{new matrix}) = \det(\text{old matrix})</m>. </li>
+	</ol>
+	</p></statement>
+</proposition>
+
+<p>And here are our connections between rows and columns with respect to the determinant.</p>
+
+<lemma><statement><p>
+	For every square matrix <m>A</m>, <m>\det(\utrans{A}) = \det A</m>.
+</p></statement></lemma>
+
+<proposition><statement><p>
+	The statements of <xref ref="proposition-det-by-row-red-det-vs-row-ops" /> remain true when every instance of the word <q>row</q> is replaced by the word <q>column.</q>
+</p></statement></proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-det-by-row-red-theory-elem-matrices">
+<title>Determinants of elementary matrices</title>
+
+<p>Finally, we'll record our discoveries about the determinants of elementary matrices.</p>
+
+<proposition xml:id="proposition-det-by-row-red-det-elem"><statement><p><ol>
+	<li xml:id="proposition-det-by-row-red-det-elem-swap">
+	An elementary matrix corresponding to swapping rows has determinant <m>-1</m>.
+	</li>
+	<li xml:id="proposition-det-by-row-red-det-elem-mult-row">
+	An elementary matrix corresponding to multiplying a row by a constant <m>k</m> has determinant <m>k</m>.
+	</li>
+	<li xml:id="proposition-det-by-row-red-det-elem-add-row-mult">
+	An elementary matrix corresponding to adding a multiple of one row to another has determinant <m>1</m>.
+	</li>
+</ol></p></statement></proposition>
+
+</subsection>
+
+</section>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-applications-examples">
+
+<title>Examples</title>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-applications-simple">
+<title>A simple example</title>
+
+<p>Some of the first recorded uses of systems of equations in human history (without all the modern algebraic symbolism, of course) were applications to agriculture and commerce.</p>
+
+<problem>
+	<title>Nutrient profiles in horse feed</title>
+	<statement>
+		<p>You have determined from recommendations in reputable reference sources that your large working horse requires
+		<quantity>
+	    <mag>1150</mag>
+	    <unit base="gram" />
+		</quantity>
+		of protein,
+		<quantity>
+	    <mag>36</mag>
+	    <unit base="gram" />
+		</quantity>
+		of calcium, and
+		<quantity>
+	    <mag>25</mag>
+	    <unit base="gram" />
+		</quantity>
+		of phosphorous daily. You have had samples of your hay, grain, and pasture analyzed and have determine their nutritional components as percentages by mass.
+		</p><p>
+		<tabular>
+			<row bottom="medium">
+				<cell right="medium" />
+				<cell>Hay</cell>
+				<cell>Grain</cell>
+				<cell>Pasture</cell>
+			</row>
+			<row>
+				<cell right="medium">Protein</cell>
+				<cell>8.2</cell>
+				<cell>13.9</cell>
+				<cell>4.1</cell>
+			</row>
+			<row>
+				<cell right="medium">Calcium</cell>
+				<cell>0.46</cell>
+				<cell>0.06</cell>
+				<cell>0.15</cell>
+			</row>
+			<row>
+				<cell right="medium">Phosphorous</cell>
+				<cell>0.21</cell>
+				<cell>0.45</cell>
+				<cell>0.07</cell>
+			</row>
+		</tabular></p>
+		<p>How much of each feed type should your horse consume daily?</p>
+	</statement>
+	<solution>
+		<p>	Let <m>H,G,P</m> represent the amount in kilograms of the three types of feed that the horse will be fed. Then each nutritional requirement leads to an equation.
+		<me>
+			\begin{array}{lrcrcrcr}
+				\text{Protein:} \amp
+				0.082H \amp + \amp 0.139G \amp + \amp 0.041P \amp = \amp 1.150 \\
+				\text{Calcium:} \amp
+				0.0046H \amp + \amp 0.0006G \amp + \amp 0.0015P \amp = \amp 0.036 \\
+				\text{Phosphorous:} \amp
+				0.0021H \amp + \amp 0.0045G \amp + \amp 0.0007P \amp = \amp 0.025
+				\end{array}
+		</me>
+		Multiplying each equation by <m>10^4</m> to clear all decimals, we obtain an augmented matrix for the system,
+		<me>
+			\left[\begin{array}{ccc|c}
+				820 \amp 1390 \amp 410 \amp 11500 \\
+				46 \amp 6 \amp 15 \amp 360 \\
+				21 \amp 45 \amp 7 \amp 250
+			\end{array}\right]
+		</me>
+		If one were to solve this system, it would be revealed that the horse needs to eat close to
+		<quantity>
+		    <mag>18</mag>
+		    <unit prefix="kilo" base="gram" />
+		</quantity>
+		of pasture and be fed about
+		<quantity>
+		    <mag>1.7</mag>
+		    <unit prefix="kilo" base="gram" />
+		</quantity>
+		of hay and close to
+		<quantity>
+		    <mag>2</mag>
+		    <unit prefix="kilo" base="gram" />
+		</quantity>
+		of grain daily.
+		</p>
+	</solution>
+</problem>
+
+</subsection>
+
+<subsection xml:id="subsection-applications-network-flow">
+<title>Flow in networks</title>
+
+<p>
+In a traffic network, fluid network, communications network, <etc />, matter cannot be created or destroyed. So at each node we can always apply some sort of law of conservation: the number of units entering the node (whether cars, litres of fluid, data packets, <etc />) must be equal to the number of units exiting the node.
+</p><p>
+Let's apply this to the network in <xref ref="activity-applications-network" />, starting at the top node and working clockwise to form <em>flow-in-equals-flow-out</em> equations.
+<md>
+	<mrow>4 + w \amp= 2 + x</mrow>
+	<mrow>x + 6 \amp= 9 + y</mrow>
+	<mrow>y + 4 \amp= z + 6</mrow>
+	<mrow>8 + z \amp= w + 5</mrow>
+</md>
+In order to facilitate converting to an augmented matrix, we usually write a system of equations with all the variable terms on the left and collect all the constant values on the right.
+<md><mrow>
+	\amp\left\{\begin{array}{rcrcrcrcr}
+		w \amp - \amp x \amp \amp \amp \amp \amp = \amp -2 \\
+		\amp \amp x \amp - \amp y \amp \amp \amp = \amp 3 \\
+		\amp \amp \amp \amp y \amp - \amp z \amp= \amp 2 \\
+		-w \amp \amp \amp \amp \amp \amp z \amp= \amp -3
+		\end{array}\right.
+	\amp \amp\implies\amp
+	\amp\left[\begin{array}{rrrr|r}
+		1 \amp -1 \amp 0 \amp 0 \amp -2 \\
+		0 \amp 1 \amp -1 \amp 0 \amp 3 \\
+		0 \amp 0 \amp 1 \amp -1 \amp 2 \\
+		-1 \amp 0 \amp 0 \amp 1 \amp -3
+	\end{array}\right]
+</mrow></md>
+Looking at the network diagram in <xref ref="activity-applications-network" />, notice how all the external legs are known, and the internal legs are unknown. In trying to measure the behaviour of a system, it might be necessary to try to be as as unintrusive as possible, so you might be confined to measuring behaviour at points leading in or out of the overall system. Unfortunately, if you try to solve the system above, you will find that at least one more measurement of one of the internal legs is necessary in order to come to a definite solution.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-applications-chemistry">
+<title>Balancing chemical equations</title>
+
+<p>
+Similarly to network analysis, there is a law of conservation at play in a chemical reaction since atoms are not created, destroyed, or changed to other kinds of atoms. So all of the atoms that make up the reactant particles must also be present in the product particles.
+</p><p>
+Let's apply this to the chemical reaction in <xref ref="activity-applications-chem-eq" />, analyzing each atom in turn to balance the number of that atom in the reactant particles with the number of that atom in the product particles.
+<md>
+	<mrow>\amp\text{Nitrogen:} \amp a \amp= c</mrow>
+	<mrow>\amp\text{Hydrogen:} \amp 3a \amp= c + 2d</mrow>
+	<mrow>\amp\text{Oxygen:} \amp 2b \amp= c + d</mrow>
+</md>
+Again, we move all the variables to one side, obtaining in this case a homogeneous system, and then convert to a matrix.
+<md><mrow>
+	\amp\left\{\begin{array}{rcrcrcrcr}
+		a \amp \amp \amp - \amp c \amp \amp \amp = \amp 0 \\
+		3a \amp \amp \amp - \amp c \amp - \amp 2d \amp = \amp 0 \\
+		\amp \amp 2b \amp - \amp c \amp - \amp d \amp= \amp 0
+	\end{array}\right.
+	\amp\amp\implies\amp
+	\amp\left[\begin{array}{rrrr}
+		1 \amp 0 \amp -1 \amp 0 \\
+		3 \amp 0 \amp -1 \amp -2 \\
+		0 \amp 2 \amp -1 \amp -1
+	\end{array}\right]
+</mrow></md>
+This system must be consistent because it is homogeneous, but we have four variables and only three equations, so the solution will require a parameter. This makes sense physically, because we could always increase the number of reactant particles and just produce a larger number of product particles, but the parametric equations in the system solution will constrain the numbers of particles to be in balance <em>relative to each other</em>. But usually we prefer to describe the reaction as simply as possible by choosing the parameter value to be the smallest positive integer that clears all fractions that may have arisen in the solving process.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-applications-poly">
+<title>Polynomial interpolation</title>
+
+<p>It is a fundamental principle in plane geometry that given two distinct points there is one unique line that passes through those points. And this principle continues to higher degree polynomials.</p>
+<aside><p>A line is a degree one polynomial.</p></aside>
+<p>For three points in the plane with disinct <m>x</m>-values there exists one unique parabola that passes through those points (where we consider a line as a degenerate form of parabola in the case that the three points are collinear). For four points with distinct <m>x</m>-values, there exists a unique cubic polynomial whose graph passes through all four points. And so on.</p>
+<p>It may seem that this is not a linear problem, since polynomial functions involve powers of the variable <m>x</m>. But <em><m>x</m> is not the variable here</em> <mdash /> the unknown coefficients that define the particular polynomial function are what we are trying to solve for.</p>
+
+<paragraphs>
+<title>Polynomial interpolation activities</title>
+<p><ol>
+
+	<li>
+	In <xref ref="activity-applications-interpolate-line" />, we would like to find the line <m>y=mx+b</m> that passes through the points <m>(-3,4)</m> and <m>(2,-1)</m>. A point in the plane is on a particular line precisely when its coordinates satisfy the equation that defines the line. Requiring this gives us two equations, one for each point:
+	<md>
+		<mrow>4 \amp= m\cdot (-3) + b,</mrow>
+		<mrow>-1 \amp= m\cdot 2 + b.</mrow>
+	</md>
+	We already have the variables to one side, so we will just flip the equations around. However, we have chosen to put the variables in the order <m>b,m</m> to emphasize a pattern that will become evident as we do more examples.
+	<md><mrow>
+		\amp\left\{\begin{array}{rcrcr}
+			b \amp - \amp 3m \amp = \amp 4 \\
+			b \amp + \amp 2m \amp = \amp -1
+		\end{array}\right.
+		\amp\amp\implies\amp
+		\amp\left[\begin{array}{rr|r}
+			1 \amp -3 \amp 4 \\
+			1 \amp 2 \amp -1
+		\end{array}\right]
+	</mrow></md>
+	Solving this system would lead to one unique solution, as expected.
+	</li>
+
+	<li>
+	In <xref ref="activity-applications-interpolate-parabola" />, we would like to find the parabola <m>y=ax^2+bx+c</m> that passes through the points <m>(-1,-4)</m>, <m>(1,0)</m>, and <m>(2,5)</m>. Again, each point leads to an equation by requiring that the point's coordinates satisfy the parabola's defining equation.
+	<md>
+		<mrow>-4 \amp= a (-1)^2 + b(-1) + c</mrow>
+		<mrow>0 \amp= a(1)^2 + b(1) + c</mrow>
+		<mrow>5 \amp= a(2)^2 + b(2) + c</mrow>
+	</md>
+	Again, we will reverse the order of the variables to highlight the patterns.
+	<md><mrow>
+		\amp\left\{\begin{array}{rcrcrcr}
+			c \amp + \amp (-1)b \amp + \amp (-1)^2a \amp = \amp -4 \\
+			c \amp + \amp 1b \amp + \amp 1^2a \amp = \amp 0 \\
+			c \amp + \amp 2b \amp + \amp 2^2a \amp = \amp 5
+		\end{array}\right.
+		\amp\amp\implies\amp
+		\amp\left[\begin{array}{rrr|r}
+			1 \amp -1 \amp (-1)^2 \amp -4 \\
+			1 \amp 1 \amp 1^2 \amp 0 \\
+			1 \amp 2 \amp 2^2 \amp 5\\
+		\end{array}\right]
+	</mrow></md>
+	And again, solving this system would lead to one unique solution, as expected.
+	</li>
+
+	<li><p>
+	Now let's set up the solution to the general polynomial interpolation problem, as in <xref ref="activity-applications-interpolate-degree-n" />. We have undetermined, degree-<m>n</m> polynomial equation <m>y=a_nx^n + a_{n-1}x^{n-1} + \dotsb + a_1x + a_0</m> that we would to pass through the points <m>(x_1,y_1),(x_2,y_2),\dotsc,(x_{n+1},y_{n+1})</m>.
+	</p>
+	<aside><p>We always need one more point than the degree of the polynomial, because that is the number of coefficients in the polynomial.</p></aside>
+	<p>
+	Hopefully the pattern is obvious now, allowing us to proceed directly to the corresponding augmented matrix.
+	<me>
+		\left[\begin{array}{ccccc|c}
+			1 \amp x_1 \amp x_1^2 \amp \cdots \amp x_1^n \amp y_1 \\
+			1 \amp x_2 \amp x_2^2 \amp \cdots \amp x_2^n \amp y_2 \\
+			\amp \amp \vdots \amp \amp \amp \vdots \\
+			1 \amp x_{n+1} \amp x_{n+1}^2 \amp \cdots \amp x_{n+1}^n \amp y_{n+1} \\
+		\end{array}\right]
+	</me>
+	</p></li>
+
+</ol></p>
+
+</paragraphs>
+
+</subsection>
+
+</section>

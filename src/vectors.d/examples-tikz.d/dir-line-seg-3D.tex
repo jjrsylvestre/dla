@@ -1,0 +1,16 @@
+\tdplotsetmaincoords{50}{25}
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+	tdplot_main_coords
+]
+	% axes
+	\draw[->] (-0.5,0,0) to (3,0,0) node[right] {$x$};
+	\draw[->] (0,-3,0) to (0,0.5,0) node[left] {$z$};
+	\draw[->] (0,0,2) to (0,0,-2) node[above right] {$y$};
+
+	% vectors
+	\node[point] at (1,-3,-2) (p) [label=right:{$P(1,2,-3)$}] {};
+	\node[point] at (3,0,1) (q) [label=below right:{$Q(3,-1,0)$}] {};
+	\draw[vector,very thick] (p) to node[above left] {$\uvec{v}$} (q);
+\end{tikzpicture}

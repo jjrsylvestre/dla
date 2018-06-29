@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-basis-coords-concepts">
+
+<title>Concepts</title>
+
+<subsection xml:id="subsection-basis-coords-concepts-basis-minimal">
+<title>Basis as a minimal spanning set</title>
+
+<p>
+The purpose of a spanning set for a vector space is to be able to describe <em>every</em> vector in the space systematically in terms of linear combinations of certain specific vectors. But to be able to do this as simply as possible, we would like our spanning set to be <q>optimal</q> for this purpose. We have seen that spanning sets can contain redundant information <mdash /> when a spanning set is linearly dependent, then one of its vectors can be expressed as a linear combination of others, and so that particular vector is not needed for the purpose of describing <em>every</em> vector in the vector space in terms of linear combinations of spanning vectors. Even worse, we saw in
+<xref ref="activity-basis-coords-lin-dep-coords" />
+that a linearly dependent spanning set allows for other types of redundancy. In particular, if a spanning set is linearly dependent, then every vector in the vector space will have an <em>infinite</em> number of different descriptions as linear combinations of spanning vectors. Clearly such a situation is not <q>optimal.</q>
+</p><p>
+However,
+<xref ref="lemma-linear-indep-span-minus-one" />
+and
+<xref ref="proposition-linear-indep-reduce-span-to-indep" />
+tell us that we can remove this redundancy while still keeping a spanning set. By eliminating linearly dependent vectors from a spanning set one at a time, we can eventually reduce to a linearly independent spanning set <mdash /> a <term>basis</term> for the space. As we saw in
+<xref ref="activity-basis-coords-unique-coords" />,
+a basis will no longer exhibit the second kind of redundancy discussed above, so that in terms of a basis, every vector in the space has <em>one unique</em> description as a linear combination (where we do not consider reorderings of the linear combination expression, or insertion or removal of basis vectors with a zero coefficient, as different expressions). And since a basis is linearly independent, it seems that it cannot contain any of the first kind of redundancy discussed above, because none of its vectors can be expressed as a linear combination of others. So it would be reasonable to guess that a basis is <em>minimal</em> in the sense that it cannot be reduced any further while still remaining a spanning set. And this is exactly true, as we will see in
+<xref ref="theorem-basis-coords-basis-is-minimal-maximal-basis-is-minimal">Statement</xref>
+of
+<xref ref="theorem-basis-coords-basis-is-minimal-maximal" />
+in
+<xref ref="subsection-basis-coords-theory-optimal" />.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-concepts-basis-maximal">
+<title>Basis as a maximal linearly independent set</title>
+
+<p>
+As above, a spanning set that is not linearly independent can be reduced to one that is, making it a basis, and a basis cannot be reduced any further while still remaining a spanning set. But perhaps we can also work the other way. A linearly independent set that does not span the whole vector space can be enlarged using
+<xref ref="proposition-linear-indep-expand-indep" />;
+perhaps we could continue to enlarge the set until it <em>does</em> span the whole vector space, at which point it would become a basis.
+</p>
+<aside><title>A look ahead</title><p>
+	We will pursue this idea of enlarging a linearly independent set to a basis further in
+	<xref ref="chapter-dimension" />.
+</p></aside>
+<p>
+But we know from
+<xref ref="lemma-linear-indep-more-than-spanning-is-dep" /> that a collection of vectors that is larger than a known (finite) spanning set must be linearly dependent. Since a basis is, by definition, a special kind of spanning set, a basis is also <em>maximal</em> in the sense that it cannot be enlarged any further while still remaining linearly independent.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-concepts-not-unique">
+<title>Basis is not unique</title>
+
+<p>
+It is important to note that a vector space will not have just <em>one</em> basis. In fact, except for the trivial vector space, every vector space has an <em>infinite</em> number of different possible bases. But often spaces have an obvious, preferred basis, called the <term>standard basis</term> for the space. We will see examples of standard bases for various spaces in
+<xref ref="subsection-basis-coords-examples-standard" />.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-concepts-ordered">
+<title>Ordered versus unordered basis</title>
+
+<p>
+Usually in mathematics, a collection or set of objects is considered to be <term>unordered</term> <mdash /> all that matters is the inclusion of the members of the collection, not the order in which those members are written down. For example, if <m>V = \Span \{\uvec{u},\uvec{v},\uvec{w}\}</m> for some collection of vectors <m>\uvec{u},\uvec{v},\uvec{w}</m> in <m>V</m>, saying that <m>\{\uvec{w},\uvec{v},\uvec{u}\}</m> is a spanning set for <m>V</m> is the same as saying that <m>\{\uvec{u},\uvec{v},\uvec{w}\}</m> is a spanning set for <m>V</m>. However, we usually prefer one uniform way to describe vectors in <m>V</m> as linear combinations of spanning vectors. It would be inconsistent to write
+<me> \uvec{x} = a_1\uvec{u} + a_2\uvec{v} + a_3\uvec{w} </me>
+for some vector <m>\uvec{x}</m> in <m>V</m>, and then to write
+<me> \uvec{y} = b_1\uvec{w} + b_2\uvec{v} + b_3\uvec{u} </me>
+for some other vector <m>\uvec{y}</m> in <m>V</m>. So usually we take a spanning set to have a particular order, and to always express linear combinations in that order, especially when our spanning set is a basis. To emphasize that a basis has such a preferred ordering, we might refer to it as an <term>ordered basis</term>. But you should assume from this point forward that every basis is an <term>ordered</term> one.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-concepts-coords">
+<title>Coordinates of a vector</title>
+
+<p>
+Suppose we have a basis for a vector space. Then a vector <m>\uvec{w}</m> has <em>one unique</em> expression as a linear combination of the basis vectors, and so the coefficients that go into such an expression form a <q>signature</q> or <q>code</q> that uniquely identifies <m>\uvec{w}</m>. For example, if <m>V = \Span\basisfont{B}</m> for some basis
+<m>\basisfont{B} = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>,
+and we have a vector <m>\uvec{w}</m> in <m>V</m> for which
+<me> \uvec{w} = 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3, </me>
+then the numbers <m>3,5,-1</m> (in that order) uniquely identify the vector <m>\uvec{w}</m> relative to the (ordered) basis, and no other triple of numbers identify <m>\uvec{w}</m>. These coefficients are called the <term>coordinates</term> of <m>\uvec{w}</m> relative to the basis <m>\basisfont{B}</m>. Now, we already have a concept that collects together triples of numbers in particular orders <mdash /> vectors in <m>\R^3</m>. So, in this example, to every vector in the space <m>V</m> (which may be a space of matrices or a space of functions or etc.) we can associate one unique vector in <m>\R^3</m> whose components are the coordinates of the vector relative to the basis <m>\basisfont{B}</m>. For our example vector <m>\uvec{w}</m> above, we have
+<md>
+	<mrow> \amp\amp \uvec{w} \amp= 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3 </mrow>
+	<mrow> \amp\Longleftrightarrow \amp \rmatrixOf{\uvec{w}}{B} \amp= (3,5,-1) </mrow>
+	<mrow>
+		\amp\Longleftrightarrow \amp \matrixOf{\uvec{w}}{B}
+		\amp= \left[\begin{array}{r} 3 \\ 5 \\ -1 \end{array}\right].
+	</mrow>
+</md>
+The equivalent <m>\R^3</m>-vectors <m>\rmatrixOf{\uvec{w}}{B}</m> and <m>\matrixOf{\uvec{w}}{B}</m> are each called the <term>coordinate vector</term> of <m>\uvec{w}</m> relative to <m>\basisfont{B}</m>, the only difference between the two being the presentation, either as a triple of coordinates <m>(x,y,z)</m> or as a column vector.
+</p><p>
+To repeat, since <m>\basisfont{B}</m> is a spanning set, every vector in the space can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>, and so every vector has an associated coordinate vector. And since <m>\basisfont{B}</m> is linearly independent, it contains no redundancy as a spanning set, and so each vector can only have <em>one unique</em> coordinate vector associated to it. Which also means that every vector in <m>\R^3</m> can be interpreted as a coordinate vector relative to <m>\basisfont{B}</m>, and can be traced to one particular vector in <m>V</m>.
+</p><p>
+In general, the number of coordinates required is the same as the number of vectors in the basis being used. So if <m>V = \Span\basisfont{B}</m> for basis <m>\basisfont{B}=\{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n\}</m>, then the coordinate vector for each vector in <m>V</m> needs to be a vector in <m>\R^n</m>. See
+<xref ref="subsection-basis-coords-examples-coord-vecs" />
+for examples of computing coordinate vectors and of interpreting vectors in <m>\R^n</m> as coordinate vectors.
+</p>
+
+<warning xml:id="warning-basis-coords-concepts-basis-order-matters-in-coord-vector">
+	<title>Order matters in coordinate vectors</title>
+	<p>
+	Because of
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm">Axiom A</xref>,
+	reordering a linear combination of vectors does not produce a different vector as the end result. However, when extracting coefficients from a linear combination to form a coordinate vector, order definitely does matter, since we have decided to consider every basis as an <term>ordered basis</term>.
+	</p><p>
+	For example, if <m>\basisfont{B} = \{\uvec{u}_1,\uvec{u}_2,\uvec{u}_3\}</m> is a basis for a space <m>V</m>, then the vector <m>\uvec{v} = \uvec{u}_1 + 2\uvec{u}_2 + 3\uvec{u}_3</m> has coordinate vector
+	<me> \rmatrixOf{\uvec{v}}{B} = (1,2,3). </me>
+	If we rearrange the linear combination to <m>\uvec{v} = 2\uvec{u}_2 + \uvec{u}_1 + 3\uvec{u}_3</m>, we are obviously not forming a different vector <m>\uvec{v}</m>, but we <em>are</em> changing our <em>point of view</em> to a different <term>ordered basis</term>, <m>\basisfont{B}' = \{\uvec{u}_2,\uvec{u}_1,\uvec{u}_3\}</m>, creating a different <em>coordinate</em> vector for <m>\uvec{v}</m>:
+	<me> \rmatrixOf{\uvec{v}}{B'} = (2,1,3). </me>
+	</p>
+</warning>
+
+</subsection>
+
+</section>

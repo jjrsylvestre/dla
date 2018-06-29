@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-det-concepts">
+
+<title>Concepts</title>
+
+<introduction>
+
+<p>
+In <xref ref="activity-det-2by2-adj-motivate" />, we discovered that for every <m>2 \times 2</m> matrix <m>A</m> there is a related matrix <m>A'</m> so that the product <m>AA'</m> is a scalar multiple of the identity matrix. Call this scalar <m>\delta</m> for now. If <m>\delta\neq 0</m>, we can do some algebra to get
+<me> AA' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I, </me>
+which means that <m>A</m> must be invertible with <m>\inv{A} = \inv{\delta}A'</m> (<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
+</p>
+
+<heuristic xml:id="goal-det-concepts-matrix-times-adjoint"><statement><p> <!-- heuristic has been hijacked to "Goal" -->
+	For a square matrix <m>A</m> of <em>any</em> size, determine a scalar <m>\delta</m> and a matrix <m>A'</m> so that <m>AA' = \delta I</m>.
+</p></statement></heuristic>
+
+<p>
+Now, we could achieve this goal by <em>always</em> choosing <m>\delta=0</m> and <m>A'=0</m>, but that won't help us replicate for larger matrices the patterns we discovered in the <m>2\times 2</m> case. We will find that there is a very particular procedure to achieve this goal that works for every matrix <em>and</em> recovers the <m>2\times 2</m> case above, so we will tackle the goal in two parts:
+<ol>
+	<li>determine the scalar <m>\delta</m> for each matrix <m>A</m>, and then</li>
+	<li>determine how to construct the matrix <m>A'</m> that goes along with it.</li>
+</ol>
+The process of producing the scalar <m>\delta</m> is then a <em>function</em> on matrices. For a particular matrix <m>A</m>, we will call the output <m>\delta</m> of this function the <term>determinant of <m>A</m></term>, and usually write <m>\det A</m> instead of <m>\delta</m>.
+</p>
+
+<hypothesis><statement><p> <!-- hypothesis has been hijacked to "Idea" -->
+	If <m>AA' = (\det A) I</m>, then in the case that <m>\det A\neq 0</m>, from
+	<me> A\bbrac{\inv{(\det A)}A'} = I </me>
+	and <xref ref="proposition-elem-matrices-check-only-right-inverse" /> we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)}A'</m>, as in the <m>2\times 2</m> case discussed above. Also, we will learn in
+	<xref ref="chapter-more-det" />
+	that when <m>\det A=0</m>, then <m>A</m> <em>must</em> be singular. So the value of the determinant of a matrix will <em>determine</em> whether or not it is invertible.
+</p></statement></hypothesis>
+
+<p>
+For now, we will concentrate on the first step of how to compute determinants, as it turns out that the <q>companion</q> matrix <m>A'</m> will be constructed out of determinants of submatrices of <m>A</m>. We will discuss this special matrix and complete our goal in <xref ref="chapter-more-det" />.
+</p>
+
+</introduction>
+
+<subsection xml:id="subsection-det-concepts-det-defn">
+<title>Definition of the determinant</title>
+
+<p>
+It may seem from <xref ref="section-det-terminology" /> that the definition of determinant is <em>circular</em> <mdash /> we define the determinant in terms of entries and cofactors (via cofactor expansions), where cofactors are defined in terms of minors, which are defined in terms of <ellipsis /> determinants? But the key word in the definition of <term>minor</term> is <em>smaller</em> <mdash /> determinants are defined <em>recursively</em> in terms of smaller matrices. In the activities in <xref ref="section-det-activities" />, we started first with a precise definition of a <m>1\times 1</m> determinant (after exploring the determinant of a <m>2\times 2</m> matrix as motivation), then defined the <m>2\times 2</m> determinant in terms of <m>1\times 1</m> determinants. Then the <m>3\times 3</m> determinant is defined in terms of <m>2\times 2</m> determinants, and so on. As we will see in examples in <xref ref="section-det-examples" />, computing a determinant from this recursive definition will involve unpacking it in terms of determinants of one smaller size, then unpacking those in terms of determinants of one size smaller again, and so on. Technically, this process should continue until we are down to a bunch of <m>1\times 1</m> determinants, but since there is a simple formula for a <m>2\times 2</m> determinant, in direct computations we will stop there.
+</p>
+
+<warning xml:id="warning-det-concepts-cofactor-inefficient"><p>
+Computing determinants by cofactor expansions is <em>extremely</em> inefficient, whether by hand or by computer. For example, for a <m>10\times 10</m> matrix, the recursive process of a cofactor expansion could eventually require you to compute more than <m>1.8</m> million <m>2\times 2</m> determinants. In the next chapter we will discover that we can also compute determinants by <ellipsis /> you guessed it, row reduction! (And there are other, more efficient methods for determinants by computer <mdash /> we will leave those to a <em>numerical methods</em> course.) But again, the goal of this course is <em>not</em> to turn <em>you</em> into a super-efficient computer. We want to understand and be somewhat proficient at computing determinants by cofactor expansions so that we can think about and understand them in the abstract while we develop the <em>theory</em> of determinants.
+</p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-det-concepts-1x1">
+<title>Determinants of <m>1\times 1</m> matrices</title>
+
+<p>
+Consider the general <m>1\times 1</m> matrix <m>A=\begin{bmatrix}a\end{bmatrix}</m>. We should expect the invertibility of <m>A</m> to be completely <em>determined</em> by the value of the single entry <m>a</m>, since that is all the information that <m>A</m> contains. And that is precisely the case, as <m>A</m> is invertible when <m>a\neq 0</m>, with <m>\inv{A} = \begin{bmatrix}\inv{a}\end{bmatrix}</m>, and <m>A</m> is singular when <m>a=0</m>, because then <m>A</m> would be the zero matrix. Since entry <m>a</m> <em>determines</em> the invertibility of <m>A</m>, we set <m>\det \begin{bmatrix}a\end{bmatrix} = a</m>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-det-concepts-2x2">
+<title>Determinants of <m>2\times 2</m> matrices</title>
+
+<p>
+In <xref ref="activity-det-2by2-criss-cross-det-formula" />, we calculated the determinant of the general <m>2\times 2</m> matrix to be
+<me> \det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = ad -bc, </me>
+using a cofactor expansion along the first row. (We leave it up to you, the reader, to check that a cofactor expansion along a column or along the second row yields the same result.) And we already verified by row reducing that a <m>2\times 2</m> matrix is invertible precisely when <m>ad-bc\neq 0</m> (<xref ref="proposition-elem-matrices-2x2-det-invertible" />).
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-det-concepts-nxn">
+<title>Determinants of larger matrices</title>
+
+<p>
+Determinants by cofactor expansions of square matrices of sizes larger than <m>2\times 2</m> are best considered through examples <mdash /> you wouldn't want to try to write out a general formula for the determinant of a <m>5\times 5</m> matrix in twenty-five entry variables like the one we have above for <m>2\times 2</m> matrices. We'll move on to examples shortly, but let's first recall the cofactor sign patterns from <xref ref="activity-det-cofactor-sign-patterns" />. Remember that a cofactor is equal to either the corresponding minor or its negative, depending on whether the sum <m>i+j</m> of row and column indices is even or odd. This extra <q>sign</q> portion of the cofactor formula in terms of minors will alternate from entry to entry, since as we move along a row or along a column, only one of <m>i</m> or <m>j</m> will change, and so <m>i+j</m> will flip from even to odd or vice versa. So the cofactor signs follow the patterns,
+<mdn><mrow xml:id="equation-det-concepts-cofactor-sign-patterns">
+	3\times 3 \amp \colon \;
+	\left[\begin{smallmatrix} + \amp - \amp + \\ - \amp + \amp - \\ + \amp - \amp + \end{smallmatrix}\right],
+	\amp
+	4\times 4 \amp \colon \;
+	\left[\begin{smallmatrix}
+		+ \amp - \amp + \amp - \\
+		- \amp + \amp - \amp + \\
+		+ \amp - \amp + \amp - \\
+		- \amp + \amp - \amp +
+	\end{smallmatrix}\right],
+	\amp
+	5\times 5 \amp \colon \;
+	\left[\begin{smallmatrix}
+		+ \amp - \amp + \amp - \amp + \\
+		- \amp + \amp - \amp + \amp - \\
+		+ \amp - \amp + \amp - \amp + \\
+		- \amp + \amp - \amp + \amp - \\
+		+ \amp - \amp + \amp - \amp +
+	\end{smallmatrix}\right],
+</mrow></mdn>
+and so on.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-det-concepts-special-forms">
+<title>Determinants of special forms</title>
+
+<p>
+In <xref ref="activity-det-det-special-forms" />, we examined the determinant of diagonal and triangular matrices. Let's consider the case of a diagonal matrix:
+<me>
+	D =
+	\begin{bmatrix}
+		d_1 \amp 0 \amp \cdots \amp 0 \\
+		0 \amp d_2 \amp \ddots \amp \vdots \\
+		\vdots \amp \ddots \amp  \ddots \amp 0 \\
+		0 \amp \cdots \amp 0 \amp d_n
+	\end{bmatrix}.
+</me>
+A cofactor expansion along the first column will look like
+<me>d_1 C_{11} + 0 \cdot C_{21} + 0 \cdot C_{31} + \dotsb + 0 \cdot C_{n1}.</me>
+Because of all of those zero entries, the only cofactor we actually need to compute is <m>C_{11}</m>, and the cofactor expansion collapses to just the entry <m>d_1</m> times its cofactor. But the cofactor sign of the <m>(1,1)</m> entry is positive, so we really just get <m>d_1</m> times its minor determinant:
+<me>
+	\det D =
+	d_1\,
+	\begin{vmatrix}
+		d_2 \amp 0 \amp \cdots \amp 0 \\
+		0 \amp d_3 \amp \ddots \amp \vdots \\
+		\vdots \amp \ddots \amp  \ddots \amp 0 \\
+		0 \amp \cdots \amp 0 \amp d_n
+	\end{vmatrix}.
+</me>
+This minor determinant is again a diagonal matrix, so we can again expand along the first column to get a similar result. And the pattern will continue until we finally get down to a <m>1\times 1</m> minor
+<md>
+	<mrow>
+		\det D
+		= d_1 d_2\,
+		\begin{vmatrix}
+			d_3 \amp 0 \amp \cdots \amp 0 \\
+			0 \amp d_4 \amp \ddots \amp \vdots \\
+			\vdots \amp \ddots \amp  \ddots \amp 0 \\
+			0 \amp \cdots \amp 0 \amp d_n
+		\end{vmatrix}
+		= d_1 d_2 d_3\,
+		\begin{vmatrix}
+			d_4 \amp 0 \amp \cdots \amp 0 \\
+			0 \amp d_5 \amp \ddots \amp \vdots \\
+			\vdots \amp \ddots \amp  \ddots \amp 0 \\
+			0 \amp \cdots \amp 0 \amp d_n
+		\end{vmatrix}
+	</mrow><mrow>
+		= \cdots
+		= d_1 d_2 \dotsm d_{n-2} \begin{vmatrix}d_{n_1} \amp 0 \\ 0 \amp d_n\end{vmatrix}
+		= d_1 d_2 \dotsm d_{n-1} \begin{vmatrix}[d_n]\end{vmatrix}
+	</mrow><mrow>
+		= d_1 d_2 \dotsm d_{n-1} d_n.
+	</mrow>
+</md>
+So <em>the determinant of a diagonal matrix is equal to the product of its diagonal entries</em>. Applying this knowledge to the zero matrix and the identity matrix (which are both diagonal), we have
+<md><mrow> \det \zerovec \amp= 0, \amp \det I \amp= 1. </mrow></md>
+Furthermore, the same pattern would repeat if we computed the determinant of an upper triangular matrix, because always expanding along the first column would result in diagonal entry times an upper triangular minor determinant. And the same pattern would repeat for lower triangular matrices, but for those it is best to expand along the first row.
+</p>
+
+</subsection>
+
+</section>

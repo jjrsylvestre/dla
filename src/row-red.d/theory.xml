@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-row-red-theory">
+
+<title>Theory</title>
+
+<subsection xml:id="subsection-row-red-theory-reduced">
+<title>Reduced matrices</title>
+
+<p>
+While there are many different sequences of row operations we could use to obtain a row equivalent RREF matrix, we have the following.
+</p>
+
+<theorem><statement><p>
+	For every matrix, there is one unique RREF matrix to which it is row equivalent.
+</p></statement></theorem>
+
+<remark><p>
+	The same is not true about REF. When we are row reducing, there is usually a point where we reach REF but are not yet at RREF. From this point on, every matrix we produce will be both in REF and row equivalent to the original matrix. So a matrix can be row equivalent to many REF matrices.
+</p></remark>
+<remark><p>
+	We have defined the rank of a matrix to be the number of leading ones in the RREF of the matrix. If we did not have uniqueness of RREFs, there would be ambiguity in this definition from the possibility that different RREFs for a given starting matrix could have different numbers of leading ones. With the above theorem, we now know that there is no such possibility; the mathematical jargon for this certainty is to say that the definition of rank is <term>well-defined</term>.
+</p></remark>
+
+<p>
+Though rank is defined in terms of the RREF of a matrix, from our experience row reducing we can see that row operations cannot increase or decrease the number of leading ones that we will ultimately end up with.
+</p>
+
+<proposition><statement><p>
+	The rank of a matrix is equal to the number of leading ones in any REF matrix to which it is row equivalent.
+</p></statement></proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-row-red-theory-solving">
+<title>Solving systems using matrices</title>
+
+<p>Using row operations to simplify and solve systems of equations works precisely because of the following.</p>
+
+<theorem xml:id="theorem-row-red-row-equiv-same-sol-set">
+
+	<statement><p>
+	Row equivalent matrices represent systems of equations that have the same solution set.</p>
+	</statement>
+
+	<proof><p>
+	We will delay proving this theorem until after we have developed more matrix theory.
+	(See <xref ref="theorem-elem-matrices-row-equiv-same-sol-set" />
+	in <xref ref="subsection-elem-matrices-theory-sys-solution-sets" />.)
+	</p></proof>
+
+</theorem>
+
+<p>
+The reason for this is that elementary row operations do not change the information inherently contained in the equations represented by the rows of a matrix. They modify and combine how this information is expressed, but no new information can be introduced through the elementary row operations, and also no information is ever lost.
+</p>
+
+<p>When determining solution sets, our experience in the activity set for this chapter leads us to the following.</p>
+
+<proposition xml:id="proposition-row-red-sys-sol-type-conditions">
+	<statement><p><ol>
+		<li xml:id="proposition-row-red-sys-sol-type-conditions-inconsistent">
+		A system is inconsistent precisely when the RREF for its augmented matrix has a leading one in the <q>equals</q> column.
+		</li>
+		<li xml:id="proposition-row-red-sys-sol-type-conditions-unique">
+		A consistent system has one unique solution precisely when the RREF for its augmented matrix has a leading one in <em>every</em> variable column.
+		</li>
+		<li xml:id="proposition-row-red-sys-sol-type-conditions-infinite">
+		A consistent system has infinite solutions when it requires parameters to solve; that is, when the RREF for its augmented matrix has a variable column that does <em>not</em> contain a leading one.
+		</li>
+	</ol></p></statement>
+</proposition>
+
+<warning><p>
+	Ending up with a row of zeros in the RREF for a system's augmented matrix <alert>does not</alert> indicate that parameters will be needed. It is possible for the RREF matrix for a consistent system to <em>both</em> satisfy
+	<xref ref="proposition-row-red-sys-sol-type-conditions-unique">Statement</xref>
+	of
+	<xref ref="proposition-row-red-sys-sol-type-conditions" />
+	<em>and</em> to have a row of zeros.
+</p></warning>
+<aside><title>Check your understanding</title><p>
+	Can you write down an example of such an RREF matrix as desribed in the Warning? In order to be able to do this, what must be true about the <q>size</q> of the matrix?
+</p></aside>
+
+<p>
+We can restate
+<xref ref="proposition-row-red-sys-sol-type-conditions-unique">Statement</xref>
+and
+<xref ref="proposition-row-red-sys-sol-type-conditions-infinite">Statement</xref>
+of
+<xref ref="proposition-row-red-sys-sol-type-conditions" />
+using the notion of <term>rank</term>: <em>a consistent system has a unique solution precisely when the rank of its augmented matrix is equal to the number of variables, and has infinite solutions precisely when the rank of its augmented matrix is strictly less than the number of variables</em>. For the infinite solutions case, we can be precise about the number of parameters required.
+</p>
+
+<proposition xml:id="proposition-row-red-num-parameters-vs-rank">
+	<statement><p>
+	For a consistent system, the number of parameters required to express the general solution in parametric form satisfies
+	<me>
+		(\text{number of parameters}) = (\text{number of variables}) - (\text{rank of augmented matrix}).
+	</me>
+	</p></statement>
+</proposition>
+
+<p>We should also record what we learned about homogeneous systems in <xref ref="activity-row-red-system-homog-sol" />.</p>
+
+<theorem><statement><p>
+	A homogeneous system always has the trivial solution <m>x_1=0, x_2=0, \dotsc, x_n=0</m> in its solution set. Thus, every homogeneous system is consistent.
+</p></statement></theorem>
+
+<p>
+In light of this, for a homogeneous system, we can ignore
+<xref ref="proposition-row-red-sys-sol-type-conditions-inconsistent">Statement</xref>
+of
+<xref ref="proposition-row-red-sys-sol-type-conditions" />.
+Also, from our experience solving homogeneous systems so far, in
+<xref ref="proposition-row-red-sys-sol-type-conditions-unique">Statement</xref>
+and
+<xref ref="proposition-row-red-sys-sol-type-conditions-infinite">Statement</xref>
+of
+<xref ref="proposition-row-red-sys-sol-type-conditions" />
+we can replace the words <q>augmented matrix</q> with <q>coefficient matrix</q>.
+</p>
+
+<!--
+% TODO: for consistent infinite case:
+% nonhomogeneous solutions are homogeneous solutions plus a particular nonhomogeneous solution
+% .... with classes now an hour, should I add an activity to this effect?
+% .... isn't this already taken care of in one of the matrix chapters?
+-->
+
+</subsection>
+
+</section>

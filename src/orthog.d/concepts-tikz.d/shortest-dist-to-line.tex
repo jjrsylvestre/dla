@@ -1,0 +1,14 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+
+	\draw[dashed] (-1,-0.5) to (4.5,2.25);
+	\node[point] at (0,0) (o) [label=below:{$\zerovec$}] {};
+	\node[point] at (3,3) (p) [label=above:{$Q$}] {};
+	\node[point] at (3.6,1.8) (f) [label=below:{$P$}] {};
+	\node[point] at (2.5,1.25) (fp) [label=below:{$P'$}] {};
+	\draw (f) to (p) to (fp) to (f);
+	\draw (3.4,1.7) to (3.3,1.9) to (3.5,2);
+
+\end{tikzpicture}

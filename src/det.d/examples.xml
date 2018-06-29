@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section  xml:id="section-det-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Examples</title>
+
+<subsection xml:id="subsection-det-examples-2x2">
+<title>Determinants of <m>2\times 2</m> matrices</title>
+
+<!-- TODO image sizes....
+    opened issue
+		https://github.com/rbeezer/mathbook/issues/885
+-->
+
+<!-- NOTE all the extra <p>'s are to increase whitespace around images -->
+
+<p>
+An easy way to remember the <m>2\times 2</m> determinant formula is with a crisscross pattern, as illustrated below for general <m>2 \times 2</m> matrix
+<m>A = \left[\begin{smallmatrix} a \amp b \\ c \amp d \end{smallmatrix}\right]</m>.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Determinant calculation pattern for <m>2 \times 2</m> matrices</description>
+	<latex-image><xi:include href="examples-tikz.d/2x2-det-pattern.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+For example, for <m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ 3 \amp 4 \end{smallmatrix}\right]</m>, we have the following.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>2 \times 2</m> determinant calculation example</description>
+	<latex-image><xi:include href="examples-tikz.d/2x2-det-ex1.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Watch out for double negatives!
+For <m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ -3 \amp 4 \end{smallmatrix}\right]</m>, we have the following.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Another <m>2 \times 2</m> determinant calculation example</description>
+	<latex-image><xi:include href="examples-tikz.d/2x2-det-ex2.tex" parse="text" /></latex-image>
+</image>
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-det-examples-3x3">
+<title>Determinants of <m>3\times 3</m> matrices</title>
+
+<p>
+For a <m>3\times 3</m> matrix, we choose a <em>single</em> row or column and perform a cofactor expansion. It's usually best to choose the row or column with the most zeros, since for a zero entry the <q>entry times cofactor</q> part of the expansion for that entry will be zero no matter the value of the cofactor, and we don't actually have to calculate that cofactor. Also, we will use our cofactor sign patterns from <xref ref="subsection-det-concepts-nxn" /> (see <xref ref="equation-det-concepts-cofactor-sign-patterns">Pattern</xref>), instead of calculating <m>(-1)^{i+j}</m> explicitly.
+</p><p>
+Let's compute the determinant of the matrix from <xref ref="activity-det-3by3-det" />.
+<!-- No need to repeat the matrix here, can just open the knowl...
+<me> A = \begin{bmatrix}[rrr]3&1&0\\-2&-2&1\\0&1&-1\end{bmatrix}. </me>
+-->
+Any of the first row or column or the third row or column would be good choices as they all contain a zero entry. Let's choose the third row, since it also contains some <m>1</m>s, which will simplify things a bit. Notice how we have augmented that row with the cofactor sign pattern.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>3 \times 3</m> determinant calculation example: choose a row</description>
+	<latex-image><xi:include href="examples-tikz.d/3x3-det-choose-row.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Now expand along that third row.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>3 \times 3</m> determinant calculation example: expand</description>
+	<latex-image><xi:include href="examples-tikz.d/3x3-det-byrow-cofactor-exp.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+The minus sign between the first two terms in the expansion is the proper cofactor sign for the middle entry of the third row. Recall that a cofactor for an entry involves the minor for that entry <mdash /> the determinant of the smaller matrix obtained by removing the row and column in which that entry sits. We have indicated each removal of a row or column by a strike-through. Since <m>A</m> is <m>3\times 3</m>, all of its minors are <m>2\times 2</m> determinants that we can compute with our crisscross pattern. However, since the <m>(3,1)</m> entry is <m>0</m>, there is no need to compute the <m>(3,1)</m> minor.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>
+		<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
+	</description>
+	<latex-image><xi:include href="examples-tikz.d/3x3-det-byrow-2x2-minors.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Using our crisscross pattern for <m>2 \times 2</m> determinants, we can now compute
+<md>
+	<mrow>
+		\det A
+		\amp = 0 - 1 \cdot \bigl[3\cdot 1 - 0 \cdot (-2)\bigr] + (-1) \cdot \bigl[3\cdot(-2) - 1\cdot(-2)\bigr]
+	</mrow>
+	<mrow>\amp = -3 + (-1)(-4)</mrow>
+	<mrow>\amp = 1.</mrow>
+</md>
+</p>
+
+<p>
+Just to check, let's compute this determinant again using a cofactor expansion along the second column.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>3 \times 3</m> determinant calculation example revisited: choose a column</description>
+	<latex-image><xi:include href="examples-tikz.d/3x3-det-choose-col.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Again, expand along the chosen column.
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>3 \times 3</m> determinant calculation example revisited: expand</description>
+	<latex-image><xi:include href="examples-tikz.d/3x3-det-bycol-cofactor-exp.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+In the expansion, the negative sign in front of the first term and the minus sign between the second and third terms are from the cofactor sign pattern for the second column.
+</p><p>
+Now reduce to a combination of <m>2 \times 2</m> determinants.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>
+		<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors
+	</description>
+	<latex-image><xi:include href="examples-tikz.d/3x3-det-bycol-2x2-minors.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Apply the <m>2 \times 2</m> crisscross pattern.
+<md>
+	<mrow>
+		\det A
+		\amp = (-1)(2-0) + (-2)(-3-0) - 1 \cdot (3-0)
+	</mrow>
+	<mrow>\amp = -2 + 6 - 3</mrow>
+	<mrow>\amp = 1.</mrow>
+</md>
+In the end, we got the same result as our first calculation, which is not a coincidence.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-det-examples-4x4">
+<title>Determinants of <m>4\times 4</m> matrices</title>
+
+<p>
+Finally, here is a <m>4\times 4</m> example. We'll do one with a few zeros, so that it doesn't get too out of hand. Consider
+<me>
+	A = \left[\begin{array}{rrrr}
+		1 \amp -1 \amp 2 \amp 1 \\
+		2 \amp 0 \amp 1 \amp 1 \\
+		0 \amp 1 \amp 0 \amp -3 \\
+		1 \amp -2 \amp -1 \amp 0
+	\end{array}\right].
+</me>
+Let's choose the third row, as that has two zero entries.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>4 \times 4</m> determinant calculation example: choose a row</description>
+	<latex-image><xi:include href="examples-tikz.d/4x4-det-choose-row.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+But the cofactor expansion along the chosen row will still involve two <m>3\times 3</m> minor determinant calculations.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description><m>4 \times 4</m> determinant calculation example: expand</description>
+	<latex-image><xi:include href="examples-tikz.d/4x4-det-cofactor-exp.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+The minor determinants <m>M_{31}</m> and <m>M_{33}</m> will not be needed, since their corresponding entries are <m>0</m>. So we now have to chose a row or column in each of the remaining <m>3 \times 3</m> minor determinants.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>
+		<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors
+	</description>
+	<latex-image><xi:include href="examples-tikz.d/4x4-det-3x3-minors.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Notice how the cofactor signs in the chosen row/column follow the pattern <m>3 \times 3</m> pattern, <em>not</em> the <m>4 \times 4</m> pattern from the original matrix.
+</p><p>
+Now expand each of these <m>3 \times 3</m> minor determinants.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>
+		<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors
+	</description>
+	<latex-image><xi:include href="examples-tikz.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Now reduce to a combination of <m>2 \times 2</m> determinants.
+</p><p>
+<image width="100%">
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>
+		<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
+	</description>
+	<latex-image><xi:include href="examples-tikz.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" /></latex-image>
+</image>
+</p><p>
+Finally we can apply the <m>2 \times 2</m> crisscross pattern.
+<md>
+	<mrow>
+		\det A
+		\amp = -\bbrac{(-2-1)-(-1-2)} + 3\Bbrac{-2\bbrac{1-(-4)}-\bbrac{-2-(-1)}}
+	</mrow>
+	<mrow>\amp = -(-3+3) + 3(-10 + 1)</mrow>
+	<mrow>\amp = -27.</mrow>
+</md>
+</p>
+
+</subsection>
+
+</section>

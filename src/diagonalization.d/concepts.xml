@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-diagonalization-concepts">
+
+<title>Concepts</title>
+
+<subsection xml:id="subsection-diagonalization-concepts-diagonal-form">
+<title>The transition matrix and the diagonal form</title>
+
+<paragraphs><title>The columns of the transition matrix</title>
+<p>
+In <xref ref="activity-diagonalization-diag-analysis" />, we transformed the equation <m>\inv{P}AP = D</m> into the equivalent equation <m>AP = PD</m>. Thinking of <m>P</m> as being made up of column vectors, multiplying <m>P</m> on the left by <m>A</m> multiplies each column of <m>P</m> by <m>A</m>, and multiplying <m>P</m> on the right by <m>D</m> multiplies each column of <m>P</m> by the corresponding diagonal entry. So if we view <m>P</m> and <m>D</m> as having forms
+<md><mrow>
+	P \amp= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_n \\
+		| \amp | \amp  \amp |
+	\end{bmatrix},
+	\amp
+	D \amp= \begin{bmatrix}
+		\lambda_1 \\
+		\amp \lambda_2 \\
+		\amp\amp \ddots \\
+		\amp\amp\amp \lambda_n
+	\end{bmatrix},
+</mrow></md>
+then we can view <m>AP</m> and <m>PD</m> as having forms
+<md><mrow>
+	AP \amp= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		A\uvec{p}_1 \amp A\uvec{p}_2 \amp \cdots \amp A\uvec{p}_n \\
+		| \amp | \amp  \amp |
+	\end{bmatrix},
+	\amp
+	PD \amp= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\lambda_1\uvec{p}_1 \amp \lambda_2\uvec{p}_2 \amp \cdots \amp \lambda_n\uvec{p}_n \\
+		| \amp | \amp  \amp |
+	\end{bmatrix}.
+</mrow></md>
+</p>
+<aside><title>See</title><p>
+	multiplication pattern <xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
+	in
+	<xref ref="subsection-matrix-ops-concepts-matrix-mult" />
+	to remind yourself of the columnwise definition of matrix multiplication, and
+	<xref ref="remark-special-forms-examples-more-diag-patterns" />
+	for the pattern of multiplying by a diagonal matrix on the right.
+</p></aside>
+
+<p>
+The only way these two matrices can be equal is if they have equal columns, so that
+<md><mrow>
+	A\uvec{p}_1 \amp= \lambda\uvec{p}_1, \amp
+	A\uvec{p}_2 \amp= \lambda\uvec{p}_2, \amp
+	\amp\dotsc,
+	A\uvec{p}_n \amp= \lambda\uvec{p}_n.
+</mrow></md>
+These column vector equalities exhibit the eigenvector-eigenvalue pattern. That is, the only way to make <m>\inv{P}AP</m> diagonal is to <alert>use eigenvectors of <m>A</m> as the columns of the transition matrix <m>P</m></alert>.
+</p><p>
+Moreover, <m>P</m> needs to be invertible, so <alert>the columns of <m>P</m> need to be linearly independent</alert>
+(<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+</p>
+
+</paragraphs>
+
+<paragraphs><title>The diagonal form matrix <m>\inv{P}AP</m></title>
+<p>
+In
+<xref ref="activity-diagonalization-analyze-transition-and-form" />,
+we analyzed the pattern of the diagonal matrix <m>D = \inv{P}AP</m>. If <m>\lambda_j</m> is its <m>\nth[j]</m> diagonal entry, the condition <m>A\uvec{p}_j = \lambda_j\uvec{p}_j</m> from our analysis above says that <m>\lambda_j</m> is an eigenvalue for <m>A</m>, and the <m>\nth[j]</m> column of <m>P</m> is a corresponding eigenvector. So
+<ul>
+	<li> <m>D</m> will have the eigenvalues of <m>A</m> for its diagonal entries, </li>
+	<li> the number of times an eigenvalue of <m>A</m> is repeated as a diagonal entry in <m>D</m> will correspond to the number of linearly independent eigenvectors for that eigenvalue that were used in the columns of <m>P</m>, and </li>
+	<li> the order of the entries down the diagonal of <m>D</m> corresponds to the order of eigenvectors in the columns of <m>P</m>. </li>
+</ul>
+</p>
+</paragraphs>
+
+</subsection>
+
+
+<subsection xml:id="subsection-diagonalization-concepts-diagonalizable">
+<title>Diagonalizable matrices</title>
+
+<p>
+Is every <m>n\times n</m> matrix similar to a diagonal one? In
+<xref ref="activity-diagonalization-non-diag-ex" />,
+we discovered that the answer is <alert>no</alert>. For some matrices, it will not be possible to collect together enough <em>linearly independent</em> eigenvectors to fill all <m>n</m> columns of the transition matrix <m>P</m>. The largest number of linearly independent eigenvectors we can obtain for a particular eigenvalue is the dimension of the corresponding eigenspace. In
+<xref ref="activity-diagonalization-indep-eigenspaces" />, we discovered that eigenvectors from different eigenspaces of the same matrix are automatically linearly independent.
+<aside><title>Also see</title><p>
+<xref ref="proposition-diagonalization-indep-e-vectors" />
+in
+<xref ref="subsection-diagonalization-theory-geom-evectors" />.</p></aside>
+So the limiting factor is the dimension of each eigenspace, and whether these dimensions add up to <m>n</m>, the required number of linearly independent columns in <m>P</m>.
+</p><p>
+An eigenvalue of an <m>n \times n</m> matrix <m>A</m> has two important numbers attached to it <mdash /> its <term>algebraic multiplicity</term> and its <term>geometric multiplicity</term>.
+<aside><title>See</title><p>
+	<xref ref="section-diagonalization-terminology" /> to remind yourself of the definitions of these terms.
+</p></aside>
+If the roots of the characteristic polynomial are all real numbers, then the characteristic polynomial will factor completely as
+<me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}, </me>
+where the <m>\lambda_j</m> are the distinct eigenvalues of <m>A</m> and the <m>m_j</m> are the corresponding algebraic multiplicities. Since <m>c_A(\lambda)</m> is always a degree <m>n</m> polynomial, the algebraic multiplicities will add up to <m>n</m>. To obtain enough linearly independent eigenvectors for <m>A</m> to fill the columns of <m>P</m>, we also need the geometric multiplicities to add up to <m>n</m>. We will learn in
+<xref ref="subsection-diagonalization-theory-geom-evectors" />
+that somehow, the <term>algebraic multiplicity</term> of each eigenvalue is the <q>best-case scenario</q> <mdash /> <alert>the geometric multiplicity for an eigenvalue can be no greater than its algebraic multiplicity</alert>. Thus, if any eigenvalue for <m>A</m> is <q>defective</q> in the sense that its geometric multiplicity is <em>strictly less</em> that its algebraic multiplicity, we will not obtain enough linearly independent eigenvectors for that eigenvalue to fill up its <q>portion</q> of the required eigenvectors. To summarize, <alert>a square matrix is diagonalizable precisely when <em>each</em> of its eigenvalues has geometric multiplicity equal to its algebraic multiplicity</alert>.
+</p>
+<aside><title>See</title><p>
+<xref ref="corollary-diagonalization-geom-alg-multiplicity-diag" />
+in
+<xref ref="subsection-diagonalization-theory-diagonalizable-revisit" />.
+</p></aside>
+
+</subsection>
+
+
+<subsection xml:id="subsection-diagonalization-concepts-diag-proc">
+<title>Diagonalization procedure</title>
+
+<algorithm><title>To diagonalize an <m>n \times n</m> matrix <m>A</m>, if possible</title>
+	<statement><p><ol>
+		<li> Compute the characteristic polynomial <m>c_A(\lambda)</m> of <m>A</m> by computing <m>\det (\lambda I - A)</m>, then determine the eigenvalues of <m>A</m> by solving the characteristic equation <m>c_A(\lambda) = 0</m>. Make note of the algebraic multiplicity of each eigenvalue. </li>
+		<li> For each eigenvalue <m>\lambda_j</m> of <m>A</m>, determine a basis for the correponding eigenspace <m>E_{\lambda_j}(A)</m> by solving the homogeneous linear system <m>(\lambda_j I - A)\uvec{x} = \zerovec</m>. Make note of the geometric multiplicity of each eigenvalue. </li>
+		<li> If any eigenvalue has geometric multiplicity <em>strictly less</em> than its algebraic multiplicity, then <m>A</m> is <em>not</em> diagonalizable. On the other hand, if each eigenvalue has equal geometric and algebraic multiplicities, then you can obtain <m>n</m> linearly independent eigenvectors to make up the columns of <m>P</m> by taking together all the eigenspace basis vectors you found in the previous step. </li>
+	</ol>
+	If the matrix <m>P</m> has successfully been constructed, then <m>D = \inv{P}AP</m> will be in diagonal form, with eigenvalues of <m>A</m> in the diagonal entries of <m>D</m> corresponding to the placement of eigenvectors in the columns of <m>P</m>.
+	</p></statement>
+</algorithm>
+
+</subsection>
+
+</section>

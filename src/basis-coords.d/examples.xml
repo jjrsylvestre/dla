@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-basis-coords-examples">
+
+<title>Examples</title>
+
+<subsection xml:id="subsection-basis-coords-examples-checking">
+<title>Checking a basis</title>
+
+<p>
+Let's start by working through
+<xref ref="activity-basis-coords-basis-exmps" />,
+where we were asked to determine whether a collection of vectors forms a basis for a vector space. In each case we are looking to check two properties: that the collection is <term>linearly independent</term>, and that it forms a <term>spanning set</term> for the whole vector space.
+
+<ol xml:id="list-basis-coords-examples-checking">
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-R3-1">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of four vectors in <m>V = \R^3</m>.
+	</p><p>
+	We already know that <m>\R^3</m> can be spanned by the <em>three</em> standard basis vectors, and so
+	<xref ref="lemma-linear-indep-more-than-spanning-is-dep" />
+	tells that any set of <em>more</em> than three vectors in <m>\R^3</m> must be linearly dependent. Set <m>S</m> contains four vectors, so it can't be a basis because it is linearly dependent. However, <m>S</m> is a spanning set <mdash /> can you see how?
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-R3-2">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of three vectors in <m>V = \R^3</m>.
+	</p><p>
+	This set <m>S</m> is linearly independent, which can be verified using the Test for Linear Dependence/Independence. As we saw in many examples in <xref ref="section-linear-indep-examples" />, the vector equation
+	<me> k_1(1,0,0) + k_2(1,1,0) + k_3(0,0,2) = (0,0,0) </me>
+	that we use to begin the Test for Linear Dependence/Independence leads to a homogeneous system with coefficient matrix
+	<me> \begin{bmatrix} 1 \amp 1 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 2 \end{bmatrix}, </me>
+	where the vectors in <m>S</m> appear as columns. This matrix can be reduced to <m>I</m> in two operations, and so only the trivial solution is possible.
+	</p><p>
+	The set <m>S</m> is also a spanning set for <m>V</m>. To check this, we need to make sure that <em>every</em> vector in <m>\R^3</m> can be expressed as a linear combination of the vectors in <m>S</m>. That is, we need to check that if <m>(x,y,x)</m> is an arbitrary vector in <m>\R^3</m>, then we can always determine scalars <m>a,b,c</m> so that
+	<me> a(1,0,0) + b(1,1,0) + c(0,0,2) = (x,y,z). </me>
+	Similar to the Test for Linear Dependence/Independence, the above vector equation leads to a system of equations with augmented matrix
+	<me>
+		\left[\begin{array}{ccc|c}
+			1 \amp 1 \amp 0 \amp x \\
+			0 \amp 1 \amp 0 \amp y \\
+			0 \amp 0 \amp 2 \amp z
+		\end{array}\right].
+	</me>
+	The same two operations as before will reduce the coefficient part of this matrix to <m>I</m>, so that a solution always exists, regardless of the values of <m>x,y,z</m>. But it's also possible to determine a solution directly by inspection of the vector equation above, as clearly
+	<me> (x-y)(1,0,0) + y(1,1,0) + \frac{z}{2}(0,0,2) = (x,y,z) </me>
+	will be a solution.
+	</p><p>
+	Because this set is both linearly independent and a spanning set, it is a basis for the space.
+	</p></li>
+
+	<li>
+	<p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-M2">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of three vectors in <m>V = \matrixring_2(\R)</m>.
+	</p><p>
+	This set <m>S</m> is linearly independent (check using the test!), but it is not a spanning set. We can see a linear combination of these vectors will never have a nonzero entry in the <m>(1,2)</m> entry. In particular, the vector
+	<me> \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>
+	is not in <m>\Span S</m>. Since <m>S</m> does not span the entire space, it is not a basis for <m>V</m>.
+	</p>
+	<aside><title>Note</title><p>
+		We have determined that <m>S</m> is not a basis for the whole space <m>V</m>. However, since <m>S</m> is linearly independent, it <em>is</em> a basis for the <em>subspace</em> of <m>V</m> that it spans (<ie /> the subspace <m>\Span S</m>).
+	</p></aside>
+	</li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-M2-upper-tri">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of four vectors in the space <m>V</m> of all <m>2\times 2</m> upper triangular matrices.
+	</p><p>
+	This set of vectors is not a basis because it is <em>neither</em> a spanning set nor linearly independent.
+	</p><p>
+	It can't be a spanning set for the space <m>V</m> because a linear combination of these vectors will always have the same number in both diagonal entries. In particular, the vector
+	<me> \left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] </me>
+	is upper triangular, so it is in <m>V</m>, but it is not in <m>\Span S</m>.
+	</p><p>
+	Also, we could use the test to determine that these vectors are linearly dependent, but we can see directly that one of these vectors is a linear combination of others:
+	<me>
+		\begin{bmatrix}1 \amp 3\\0 \amp 1\end{bmatrix}
+		= \begin{bmatrix}1 \amp 1\\0 \amp 1\end{bmatrix}
+		+ \begin{bmatrix}1 \amp 2\\0 \amp 1\end{bmatrix}
+		- \begin{bmatrix}1 \amp 0\\0 \amp 1\end{bmatrix}.
+	</me>
+	</p></li>
+
+	<li xml:id="list-basis-coords-examples-checking-M3-lower-tri"><p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-M3-lower-tri">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of six vectors in the space <m>V</m> of all <m>3\times 3</m> lower triangular matrices.
+	</p><p>
+	We might call these matrices the <q>standard basis vectors</q> for the space of <m>3\times 3</m> lower triangular matrices, since when we simplify a linear combination of them, such as
+	<md>
+		<mrow>
+			  k_{11}\begin{bmatrix}1 \amp 0 \amp 0\\0 \amp 0 \amp 0\\0 \amp 0 \amp 0\end{bmatrix}
+			+ k_{21}\begin{bmatrix}0 \amp 0 \amp 0\\1 \amp 0 \amp 0\\0 \amp 0 \amp 0\end{bmatrix}
+			+ k_{22}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 1 \amp 0\\0 \amp 0 \amp 0\end{bmatrix}
+		</mrow><mrow>
+			+ k_{31}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 0 \amp 0\\1 \amp 0 \amp 0\end{bmatrix}
+			+ k_{32}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 0 \amp 0\\0 \amp 1 \amp 0\end{bmatrix}
+			+ k_{33}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 0 \amp 0\\0 \amp 0 \amp 1\end{bmatrix}\\
+		</mrow><mrow tag="star" xml:id="list-basis-coords-examples-checking-M3-lower-tri-lin-comb">
+			= \begin{bmatrix}k_{11} \amp 0 \amp 0\\k_{21} \amp k_{22} \amp 0\\k_{31} \amp k_{32} \amp k_{33}\end{bmatrix},
+		</mrow>
+	</md>
+	we see that the coefficients in the linear combination on the right correspond directly to the entries in the resulting sum matrix on the right, just as with other <q>standard</q> bases that we've encountered.
+	</p><p>
+	The set <m>S</m> is a spanning set for <m>V</m>, since we can clearly achieve every possible vector in this space using linear combinations of vectors in <m>S</m> by varying the coefficients in the general linear combination
+	<xref ref="list-basis-coords-examples-checking-M3-lower-tri-lin-comb" />
+	above.
+	</p><p>
+	The left-hand side of
+	<xref ref="list-basis-coords-examples-checking-M3-lower-tri-lin-comb" />
+	is also the left-hand side of the vector equation that we use in the Test for Linear Dependence/Independence, and from the right-hand side of
+	<xref ref="list-basis-coords-examples-checking-M3-lower-tri-lin-comb" />
+	we can see that if we set this linear combination to equal the zero vector (which is the <m>3\times 3</m> zero matrix here), the only solution is the trivial one.
+	</p><p>
+	Since <m>S</m> is both linearly independent and a spanning set, it is a basis for <m>V</m>.
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-P3-1">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of three vectors in the space <m>V = \poly_3(\R)</m>.
+	</p><p>
+	We have already seen in <xref ref="subsection-linear-indep-examples-standard" /> that powers of <m>x</m> are always linearly independent in a space of polynomials. But this set of polynomials cannot be a spanning set for <m>\poly_3(\R)</m> because no linear combination of <m>1,x,x^2</m> will ever produce a polynomial of degree <m>3</m>. So <m>S</m> is not a basis.
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-basis-exmps-P3-2">Part</xref>
+	of
+	<xref ref="activity-basis-coords-basis-exmps" />,
+	we considered a set <m>S</m> of four vectors in the space <m>V = \poly_3(\R)</m>.
+	</p><p>
+	Again, we know that powers of <m>x</m> are linearly independent in a space of polynomials. However, this time <m>S</m> <em>is</em> also a spanning set, since we naturally write polynomials of degree <m>3</m> as linear combinations of powers of <m>x</m>:
+	<me> a_0\cdot 1 + a_1 x + a_2 x^2 + a_3 x^3. </me>
+	Such linear combinations can also be used to produce polynomials of degree less than <m>3</m>, by setting the coefficients on the higher powers to <m>0</m>. Since <m>S</m> is both independent and a spanning set, it is a basis for <m>\poly_3(\R)</m>.
+	</p></li>
+
+</ol>
+
+</p>
+
+<remark><p>
+	After we study the concept of <term>dimension</term> in the next chapter, the process of determining whether a set of vectors is a basis will become simpler. It is fairly straightforward to check the linear independence condition, since this usually reduces to solving a homogeneous system of linear equations, but checking the spanning condition directly is more tedious. In
+	<xref ref="chapter-dimension" />,
+	we will see that if we know the correct <em>number</em> of vectors required in a basis, we only need to check <em>one</em> of the two conditions in the definition of <term>basis</term>
+	(<xref ref="corollary-dimension-basis-right-num-just-one-check" />). And, as mentioned, usually it is the linear independence condition that is easier to verify.
+</p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-examples-standard">
+<title>Standard bases</title>
+
+<p>
+In <xref ref="subsection-linear-indep-examples-standard" />, we checked that certain <q>standard</q> spanning sets for our main examples of vector spaces were also linearly independent. Since they both span and are linearly independent, that makes each of them a basis for the space that contains them. We'll list them again here.
+</p>
+
+<aside><title>Terminology</title><p>
+	In particular, verifying that these <q>standard</q> spanning sets are in fact bases will justify our use of the phrase <term>standard basis</term> to describe some of them in previous chapters.
+</p></aside>
+
+<p><ol>
+	<li>
+	The standard basis vectors <m>\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n</m> form a basis for <m>\R^n</m>, justifying the word <q>basis</q> in our description <q>standard basis vectors</q> for these vectors.
+	</li>
+	<li> The space <m>\matrixring_{m \times n}(\R)</m> of <m>m \times n</m> matrices also has a standard basis: the collection of matrices <m>E_{ij}</m> that have all entries equal to <m>0</m> except for a single <m>1</m> in the <m>\nth[(i,j)]</m> entry.
+	</li>
+	<li>
+	<p> A space of polynomials <m>\poly_n(\R)</m> also has a standard basis: the collection <m>1,x,x^2,x^3,\dotsc,x^n</m> of powers of <m>x</m>. </p>
+	<aside><title>Note</title><p>
+		As an <term>ordered basis</term>, we have two reasonable choices here: the order already presented, and the reverse order <m>x^n,x^{n-1},\dotsc,x^2,x,1</m>. We will stick with the order of increasing powers of <m>x</m>, so that when we index the coefficients in a linear combination, as in
+		<me> a_0 \cdot 1 + a_1 x + a_2 x^2 + \dotsc + a_n x^n, </me>
+		then their indices are increasing with the exponents on <m>x</m>.
+	</p></aside>
+	</li>
+</ol></p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-basis-coords-examples-coord-vecs">
+<title>Coordinate vectors</title>
+
+<p>
+Finally, we'll do some computations with coordinate vectors, by working
+<xref ref="activity-basis-coords-compute-coords" />
+and
+<xref ref="activity-basis-coords-compute-from-coords" />.
+</p>
+
+<p>
+First, from <xref ref="activity-basis-coords-compute-coords" />.
+<ol>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-compute-coords-M2-standard">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-coords" />,
+	we considered a vector <m>\uvec{w}</m> in <m>\matrixring_2(\R)</m> relative to the standard basis.
+	</p><p>
+	First, decompose <m>\uvec{w}</m> as a linear composition of the vectors in <m>S</m>. Since <m>S</m> is the standard basis for <m>\matrixring_2(\R)</m>, this can be done by inspection:
+	<me>
+		\left[\begin{array}{rr} -1 \amp 5 \\ 3 \amp -2 \end{array}\right]
+		= (-1)\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		+ 5\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		+ 3\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		+ (-2)\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
+	</me>
+	To get the coordinate vector, we wrap the four coefficients up (in order) in an <m>\R^4</m> vector:
+	<me> \rmatrixOfplain{\uvec{w}}{S} = (-1,5,3,-2). </me>
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-compute-coords-M2-other">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-coords" />,
+	we considered the same vector from <m>\matrixring_2(\R)</m> as in the previous example, but relative to a nonstandard basis.
+	</p><p>
+	We could probably also decompose <m>\uvec{w}</m> by inspection here, but instead we'll demonstrate the general method. Write <m>\uvec{w}</m> as an unknown linear combination of the basis vectors, and then simplify the linear combination:
+	<md>
+		<mrow>
+			\left[\begin{array}{rr} -1 \amp 5 \\ 3 \amp -2 \end{array}\right]
+			 \amp = k_1\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+			+ k_2\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+			+ k_3\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+			+ k_4\begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix}
+		</mrow><mrow>
+			 \amp = \begin{bmatrix} k_1+k_2 \amp k_2 \\ k_3+k_4 \amp k_4 \end{bmatrix}.
+		</mrow>
+	</md>
+	Comparing entries on left- and right-hand sides, we obtain a system of equations:
+	<md>
+		<mrow> k_1 + k_2 \amp= -1, </mrow>
+		<mrow> k_2 \amp= 5, </mrow>
+		<mrow> k_3 + k_4 \amp= 3, </mrow>
+		<mrow> k_4 \amp= -2. </mrow>
+	</md>
+	If we had more complicated basis vectors, we would have a more complicated system, which we could solve by forming an augmented matrix and row reducing. As it is, we can solve by inspection:
+	<md><mrow> k_1 \amp= -6, \amp k_2 \amp= 5, \amp k_3 \amp= 5, \amp k_4 \amp= -2. </mrow></md>
+	We collect these four coefficients (in order) in an <m>\R^4</m> vector:
+	<me> \rmatrixOfplain{\uvec{w}}{S} = (-6,5,5,-2). </me>
+	Even though we were working with the <em>same</em> vector as in the previous example, <em>we ended up with a different coordinate vector</em> because it is relative to a different basis.
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-compute-coords-P3">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-coords" />,
+	we considered a vector <m>\uvec{w}</m> in <m>\poly_3(\R)</m> relative to the standard basis.
+	</p><p>
+	The standard basis of <m>\poly_3(\R)</m> consists of powers of <m>x</m> (along with the constant polynomial <m>1</m>), and our polynomial <m>\uvec{w}</m> is naturally written as a linear combination of powers of <m>x</m>. However, there is no <m>x^2</m> term, so we need to insert one:
+	<me> \uvec{w} = 3\cdot 1 + 4x + 0x^2 - 5x^3. </me>
+	Once again, we wrap up these four coefficients (in order) in an <m>\R^4</m> vector:
+	<me> \rmatrixOfplain{\uvec{w}}{S} = (1,4,0,-5). </me>
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-compute-coords-R3-1">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-coords" />,
+	we considered a vector <m>\uvec{w}</m> in <m>\R^3</m> relative to a nonstandard basis.
+	</p><p>
+	Rather than try to guess, we should set up equations and solve. Start by writing <m>\uvec{w}</m> as an unknown combination of the basis vectors and combine into a single vector expression:
+	<md>
+		<mrow> (1,1,1) \amp= k_1(-1,0,1) + k_2(0,2,0) + k_3(1,1,0) </mrow>
+		<mrow> \amp= (-k_1 + k_3, 2k_2+k_3, k_1). </mrow>
+	</md>
+	This leads to a system of equations:
+	<md>
+		<mrow> -k_1 + k_3 \amp= 1, </mrow>
+		<mrow> 2k_2+k_3 \amp= 1, </mrow>
+		<mrow> k_1 \amp= 1. </mrow>
+	</md>
+	We could probably solve by inspection again, but let's form an augmented matrix and reduce:
+	<me>
+		\left[\begin{array}{rrr|r}
+			-1 \amp 0 \amp 1 \amp 1 \\
+			0 \amp 2 \amp 1 \amp 1 \\
+			1 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\qquad\rowredarrow\qquad
+		\left[\begin{array}{rrr|r}
+			1  \amp  0  \amp  0  \amp  1 \\
+			0  \amp  1  \amp  0  \amp  -1/2 \\
+			0  \amp  0  \amp  1  \amp  2
+		\end{array}\right]
+	</me>
+	Notice again how the columns in the initial augmented matrix, including the column of constants, are the vectors involved. The column of constants in the final reduced matrix is our coordinate vector:
+	<me> \rmatrixOfplain{\uvec{w}}{S} = (1,-1/2,2). </me>
+	</p></li>
+
+	<li><p>
+	In
+	<xref ref="activity-basis-coords-compute-coords-R3-2">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-coords" />,
+	we considered a vector <m>\uvec{w}</m> in <m>\R^3</m> relative to the standard basis.
+	</p><p>
+	This is similar to the first example <mdash /> we have the standard basis for <m>\R^3</m>, so it is simple to decompose <m>\uvec{w}</m> as a linear combination of the vectors in the basis:
+	<me> \uvec{w} = -2\uvec{e}_1 + 3\uvec{e}_2 + (-5)\uvec{e}_3. </me>
+	Collect these coefficients together into an <m>\R^3</m> vector:
+	<me> \rmatrixOfplain{\uvec{w}}{S} = (-2,3,-5). </me>
+	</p></li>
+
+</ol>
+</p>
+
+<remark><p>
+The last two examples above might seem kind of weird, but the point is all about <em>point of view</em>. Relative to the <em>standard basis</em>, a vector in <m>\R^n</m> is equal to its own coordinate vector. In other words, the standard basis is standard because it corresponds to the natural way that we think of vectors in <m>\R^3</m> <mdash /> in terms of its <m>x</m>-, <m>y</m>-, and <m>z</m>- coordinates. This is similar to how the standard basis for a polynomial space leads to coordinate vectors that just record the coefficients of polynomials, or how the standard basis for a matrix space leads to coordinate vectors that just record the entries of the matrices.
+</p><p>
+But if we <em>change</em> our point of view and use a nonstandard basis for <m>\R^n</m>, then coordinate vectors allow us to use vectors in <m>\R^n</m> to represent other vectors in <m>\R^n</m>, where everything is <q>tuned</q> to the perspective of the nonstandard basis. And similarly if we use nonstandard bases in other spaces.
+</p></remark>
+
+<p>
+Now we'll work through <xref ref="activity-basis-coords-compute-from-coords" />. This activity is the same as the previous, but in reverse <mdash /> we are given a coordinate vector from <m>\R^n</m>, and we can use its components as the coefficients in a linear combination of the basis vectors. We'll complete two of the examples from this activity, and leave the rest to you.
+</p>
+
+<p><ol>
+
+	<li><p>
+	This is
+	<xref ref="activity-basis-coords-compute-from-coords-M2-other">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-from-coords" />.
+	</p><p>
+	Just compute the linear combination using the coordinate vector components as coefficients, in the proper order:
+	<md>
+		<mrow>
+			\uvec{w}
+			\amp= 1\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+			+ 3\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+			+ 0\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+			+ (-2)\begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix}
+		</mrow><mrow>
+			\amp= \begin{bmatrix} 4 \amp 3 \\ -2 \amp -2 \end{bmatrix}.
+		</mrow>
+	</md>
+	</p></li>
+
+	<li><p>
+	This is
+	<xref ref="activity-basis-coords-compute-from-coords-P3">Part</xref>
+	of
+	<xref ref="activity-basis-coords-compute-from-coords" />.
+	</p><p>
+	Use the same process here as in the previous example above:  <m>\uvec{w} = -3 + x + 2x^2 + 3x^3</m>.
+	</p></li>
+
+</ol></p>
+
+</subsection>
+
+</section>

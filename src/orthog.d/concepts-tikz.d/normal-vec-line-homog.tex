@@ -1,0 +1,16 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+
+
+	\draw[->] (-3.5,0) to (4.5,0) node[below right] {$x$};
+	\draw[->] (0,-3) to (0,3) node[above right] {$y$};
+
+	\draw[dashed] (-3.5,2.333) to node[above,very near start,sloped] {$2x+3y=0$} (4.5,-3);
+	\node[point] at (3,-2) (p) [label=above right:{$P(3,-2)$}] {};
+	\draw[vector,thick] (0,0) to node[below left] {$\uvec{v}$} (p);
+	\draw[vector,thick] (0,0) to node[below right] {$\uvec{n}$} (2,3);
+	\draw (0.2,0.3) to (0.5,0.1) to (0.3,-0.2);
+
+\end{tikzpicture}

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-dimension-concepts">
+
+<title>Concepts</title>
+
+<subsection xml:id="subsection-dimension-concepts-dim-as-just-right-size">
+<title>The <q>just-right</q> number of vectors in a spanning set</title>
+
+<p>
+In <xref ref="activity-dimension-dim-subsp-R3" />, we reminded ourselves of the geometric interpretation of linear dependence and independence in <m>\R^3</m>.
+<aside><title>Also see</title><p><xref ref="subsection-linear-indep-concepts-in-Rn" /></p></aside>
+This activity ties these new, abstract concepts back to our previous descriptions of lines and planes in <xref ref="chapter-system-geom" />. In that chapter, we described a line via an <q>initial</q> vector and a parallel vector, and we described a plane via an <q>initial</q> vector and <em>two</em> parallel vectors that are not parallel to each other. Recall that for a line or plane in <m>\R^3</m> to be a <em>subspace</em>, it must contain the zero vector (<ie /> it must pass through the origin). In this case, we can (and always will) take the <q>initial</q> point to be the origin.
+</p><p>
+So a line through the origin can be described by the vector equation <m>\uvec{x} = t\uvec{p}</m>, where <m>\uvec{p}</m> is a nonzero vector parallel to the line. With our new concept of span, we can instead write <m>L = \Span\{\uvec{p}\}</m> to represent the line <m>L</m> through the origin that is parallel to the vector <m>\uvec{p}</m>. One vector is the <q>just-right</q> size for the spanning set for a line. If we had a spanning set for <m>L</m> consisting of two vectors, then because <m>L</m> goes through the origin, and because spanning vectors are always part of the space they span, both vectors would have to be parallel to the line and so would be parallel to each other. That is, the two spanning vectors would be scalar multiples of each other, and the spanning set would be linearly dependent.
+</p><p>
+Similarly, a plane through the origin described by the vector equation <m>\uvec{x} = s\uvec{p}_1 + t\uvec{p}_2</m>, where <m>\uvec{p}_1,\uvec{p}_2</m> are nonzero vectors parallel to the plane but not to each other, can also be represented as <m>P = \Span\{\uvec{p}_1,\uvec{p}_2\}</m>. Two is the <q>just-right</q> size for the spanning set for a plane <mdash /> one vector would only span a line, and three vectors that are all parallel to the plane would have to be linearly dependent.
+</p><p>
+When we consider all of <m>\R^3</m>, the <q>just-right</q> size for a spanning set is three <mdash /> two vectors would only span a plane (or just a line if the two vectors are parallel to each other), and four vectors would be linearly dependent.
+</p><p>
+So it seems that there is always a <q>just-right</q> size for a spanning set to be a basis <mdash /> if it's too small it spans only a subspace and not the whole space, and if it's too large it will be linearly dependent. We call this <q>just-right</q> size the <term>dimension</term> of the space.
+</p><p>
+Checking that a proposed spanning set actually <em>does</em> span the whole space can be difficult, as we noted in
+<xref ref="subsection-subspaces-examples-span-generates-space" />.
+In
+<xref ref="subsection-dimension-theory-linear-indep-consequences" />, we will find that the concept of dimension gives us a powerful way to sidestep this task if we already know the dimension of the space. If we have the <q>just-right</q> number of vectors, and those vectors are linearly independent, then the subspace they span will have the same <q>size</q> (<ie /> dimension) as the whole space, which will force that subspace to in fact be the whole space.
+</p>
+<aside><title>See</title><p>
+	<xref ref="proposition-dimension-right-num-indep-iff-spanning" />.
+</p></aside>
+
+</subsection>
+
+
+<subsection xml:id="subsection-dimension-concepts-geom-degrees-freedom">
+<title>Dimension as geometric <q>degrees of freedom</q></title>
+
+<p>
+Again thinking of our tasks and results in <xref ref="activity-dimension-dim-subsp-R3" />, we can make the geometric interpretation of <term>dimension</term> more explicit.
+</p>
+
+<case><title>Lines have dimension <m>1</m></title><p>
+Imagine standing on a line; how many <q>degrees of freedom</q> of movement do you have while staying on the line? You can only move forwards or backwards, and backwards is just the opposite (<ie /> negative) of forwards. So you only have one <q>degree of freedom</q> on a line, and this is reflected in the fact that a basis for a line requires only <em>one</em> vector <mdash /> that vector will represent the forward direction, and its negative will represent the backward direction. One <q>degree of freedom</q> on a line, and the dimension of a line is <m>1</m>.
+</p></case>
+<case><title>Planes have dimension <m>2</m></title><p>
+On a plane, you have two <q>degrees of freedom</q> of movement: you can move forwards/backwards (one direction and its opposite), or you can move side-to-side (a second direction and its opposite). So a basis for a plane requires exactly <em>two</em> vectors that do not represent the same direction, and the dimension of a plane is <m>2</m>.
+</p></case>
+<case><title>Space has dimension <m>3</m></title><p>
+When we consider all of space, we add a third dimension representing a third <q>degree of freedom,</q> since you can now move upwards or downwards in addition to the previous forward/backward and side-to-side directions.
+</p></case>
+
+</subsection>
+
+
+<subsection xml:id="subsection-dimension-concepts-alg-degrees-freedom">
+<title>Dimension as algebraic <q>degrees of freedom</q></title>
+
+<p>
+There is an algebraic interpretation of the <q>degrees of freedom</q> point of view discussed above that we can transplant from <m>\R^n</m> to other vector spaces. Consider again a plane in <m>\R^3</m> described via a vector equation <m>\uvec{x} = s\uvec{p}_1 + t\uvec{p}_2</m>. Each of the vectors <m>\uvec{p}_1,\uvec{p}_2</m> represents an independent direction of movement along the plane, providing us with our two geometric degrees of freedom on this plane of dimension <m>2</m>. Algebraically, these two degrees of freedom are provided by the parameters <m>s</m> and <m>t</m>. To convert the <em>general</em> formula <m>\uvec{x} = s\uvec{p}_1 + t\uvec{p}_2</m> representing <em>all</em> vectors in the plane to a <em>specific</em> formula representing <em>one</em> vector on the plane, we need to choose a specific value for <m>s</m> (related to how far to move in the direction <m>\uvec{p}_1</m>) and a specific value for <m>t</m> (related to how far to move in the direction <m>\uvec{p}_2</m>). These two values can be chosen <em>independently</em> <mdash /> that is, choosing a value for <m>t</m> does not depend on what value is chosen for <m>s</m>, and vice versa. So two independent parameters in a general description of every vector, representing two <q>degrees of freedom,</q> corresponds to the dimension value of <m>2</m> for the plane.
+</p><p>
+In <xref ref="activity-dimension-basis-via-parameters" />, we practised using this point of view to not only determine the dimension of a space, but to extract a basis for the space from a general parametric description of the vectors in the space. Below is a general procedure for the process. See
+<xref ref="subsection-dimension-examples-basis-from-params" />
+for examples of using this procedure.
+</p>
+
+<algorithm xml:id="procedure-dimension-concepts-basis-from-parameters-procedure">
+<!-- algorithm is hijacked to "Procedure" -->
+
+<title>Obtaining a basis from paramaters</title>
+
+<statement>
+<p>
+To determine a basis for a subspace <m>U</m> of a vector space <m>V</m>, when subspace <m>U</m> is not already described in terms of a spanning set:
+<ol>
+	<li xml:id="procedure-dimension-concepts-basis-from-parameters-procedure-start">
+	Determine a general, parametric expression capable of expressing <em>all</em> vectors in <m>V</m>.
+	</li>
+	<li xml:id="procedure-dimension-concepts-basis-from-parameters-procedure-reduce">
+	Use the defining conditions of the subspace <m>U</m> to reduce your general expression from the previous step to the minimum number of independent parameters possible.
+	</li>
+	<li> Expand the reduced parametric expression from the previous step to a linear combination of the form
+	<me>
+		\uvec{x}
+		= (\text{parameter})\cdot(\text{vector})
+		+ (\text{parameter})\cdot(\text{vector})
+		+ \dotsb
+		+ (\text{parameter})\cdot(\text{vector}),
+	</me>
+	where there is one term in the linear combination for each independent parameter, and the vectors involved are <em>specific</em> vectors in the space, not involving parameters.
+	</li>
+	<li> The collection of specific vectors in the general linear combination expression from the previous step, <em>without parameters</em>, should now form a basis for <m>U</m>.
+	</li>
+</ol>
+</p>
+</statement>
+
+</algorithm>
+
+<remark xml:id="remark-dimension-concepts-parameter-procedure"><p><ul>
+	<li>
+	This procedure can still be used in the case <m>U</m> is equal to the whole space <m>V</m>, but likely
+	<xref ref="procedure-dimension-concepts-basis-from-parameters-procedure-reduce">Step</xref>
+	will not be needed. In this case, the procedure is likely to produce a <term>standard basis</term> for <m>V</m>.
+	</li>
+	<li>
+	In <xref ref="remark-subspaces-examples-every-subsp-is-homogeneous" />,
+	we claimed that that every subspace is somehow defined by one or more homogeneous conditions. Typically, in
+	<xref ref="procedure-dimension-concepts-basis-from-parameters-procedure-reduce">Step</xref>
+	of the procedure,
+	you will be using such homogeneous conditions to express relationships between the parameters, in which some parameters can be solved for and then eliminated by substituting for them in the general parametric vector expression from
+	<xref ref="procedure-dimension-concepts-basis-from-parameters-procedure-start">Step</xref>.
+	</li>
+	<li>
+	This procedure was actually one of the first things we learned, back in
+	<xref ref="chapter-row-red" />!
+	Except back then we called the procedure <term>row reduction</term>. When we solve a homogeneous system of equations with <m>m\times n</m> coefficient matrix <m>A</m>, we are attempting to find all vectors <m>\uvec{x}</m> that satisfy the homogeneous condition <m>A\uvec{x} = \zerovec</m>. We could have started this process by assigning parameters <m>x_1=t_1</m>, <m>x_2=t_2</m>, and so on, at the beginning of the process, but this was not necessary because the matrix-reduction process doesn't involve any variable/parameter letters. By row reducing, we simplify the original homogeneous conditions (<ie /> the original equations in the system) so that it becomes obvious how we can isolate certain of the variables and express them in terms of the others (or determine that they are always zero and so can be eliminated completely). We then assign the minimum number of parameters necessary, leading to a general, parametric expression for all vectors in the solution space. See
+	<xref ref="subsection-dimension-examples-basis-from-params" />
+	for an example of using this procedure to determine a basis for the solution space of a homogeneous system.
+	</li>
+</ul></p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-dimension-concepts-subspace">
+<title>The dimension of a subspace</title>
+
+<p>
+In <xref ref="activity-dimension-dim-subspace" />, we considered how the dimension of a subspace compares to the dimension of the whole space. The dimension of a space is defined to be the number of vectors required in a basis (<ie /> a linearly independent spanning set) for the space. We know what <term>spanning set</term> means for a subspace <mdash /> a set of vectors is a spanning set when the collection of all possible linear combinations of the spanning set vectors is the same as the collection of all vectors in the subspace. But the definition of <term>linearly independent</term> does not seem to be relative to the space that the vectors are in, except for the use of the vector operations for that space, which are always the same in a subspace as they are in the whole space.
+</p><p>
+In more detail, the definitions of linear dependence and independence involve only the zero vector and the concept of linear combination, and every subspace contains the zero vector and is closed under taking linear combinations
+(<xref ref="proposition-subspaces-props" />).
+So if we have a set of vectors in a subspace of a larger vector space, and we would like to determine whether that set is linearly dependent or independent, it is irrelevant whether we consider those vectors as being a part of the subspace or as being a part of the large space <mdash /> the answer will be the same regardless of our point of view on where these vectors <q>live.</q>
+</p><p>
+It seems like a spanning set for a subspace should require fewer vectors than a spanning set for the larger space. This was our experience in
+<xref ref="activity-dimension-basis-via-parameters" />, where eliminating dependent parameters using the subspace conditions led to a smaller basis. And the concepts of <term>linear dependence/independence</term> are independent of the concept of <term>subspace</term>. So our intuition is that the dimension of a subspace should be less than the dimension of the whole space, and that is exactly what we will see in
+<xref ref="subsection-dimension-theory-subspace" />.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-dimension-concepts-trivial">
+<title>The dimension of the trivial vector space</title>
+
+<p>
+What should the dimension of the trivial vector space <m>\{\zerovec\}</m> be? If this were the subspace of <m>\R^n</m> consisting of just the origin, we would have zero <q>degrees of freedom</q> of movement, as we couldn't move at all without leaving the subspace. And if we want a general algebraic expression describing all vectors in this space, zero parameters are needed since we can simply write <m>\uvec{x} = \zerovec</m>. So both our geometric and our algebraic conceptions of <term>dimension</term> suggest that <m>\dim\{\zerovec\}</m> should be <m>0</m>.
+</p><p>
+Furthermore, in the previous subsection we decided that the dimension of a subspace should be smaller than the dimension of the whole space. The trivial vector space is always a subspace of every vector space, even <m>1</m>-dimensional spaces. But clearly the trivial space is not the same <q>size</q> as a <m>1</m>-dimensional space, so its dimension should be <em>strictly</em> smaller than <m>1</m>, which only leaves dimension-<m>0</m> as a possibility.
+</p><p>
+But what about the technical definition of dimension? How many vectors are required in a basis for the trivial space? A basis for <m>\{\zerovec\}</m> cannot contain a nonzero vector, because a span always contains its spanning vectors and this space does not contain anything nonzero. But while the <em>collection of vectors</em> consisting of just the zero vector <em>is</em> a spanning set for the <em>space of vectors</em> consisting of just a zero vector, we decided in
+<xref ref="chapter-linear-indep" />
+that the zero vector all by itself should be considered a linearly dependent set. However, the collection of vectors that contains <em>no vectors at all</em> (<ie /> the empty set) is linearly independent, because it does not contain an example of a vector that can be expressed as a linear combination of other vectors in the set (since it contains nothing at all). So if we just decide that <m>\Span\{\}</m> should result in the trivial vector space, then we can consider the empty set of vectors <m>\{\}</m> as a basis for the trivial space <m>\{\zerovec\}</m>, and this basis contains <m>0</m> vectors.
+</p><p>
+For all of these reasons, it seems correct to consider <m>\dim\{\zerovec\}</m> to be <m>0</m>.
+</p>
+
+</subsection>
+
+</section>

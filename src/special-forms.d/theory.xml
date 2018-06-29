@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-special-forms-theory">
+
+<title>Theory</title>
+
+<introduction><p>
+	Here we record properties of these special forms of matrices relative to the various matrix operations.
+</p></introduction>
+
+<subsection xml:id="subsection-special-forms-theory-algebra">
+<title>Algebra of special forms</title>
+
+<p>
+First, we summarize some of the algebra of working with these forms. We have already explored proving parts of the proposition below in <xref ref="activity-special-forms-prove-sum-diagonal" /> and <xref ref="activity-special-forms-prove-sum-symmetric" />, so below we provide similar proofs for a couple more parts.
+</p>
+
+<proposition xml:id="proposition-special-forms-combinations">
+	<!-- old label: \labelprop{special.combinations.of.special.forms} -->
+
+	<statement><p><ol>
+		<li xml:id="proposition-special-forms-combinations-diag">
+		<p>The result of adding two diagonal matrices, scalar multiplying a diagonal matrix, multiplying two diagonal matrices, taking an inverse of a diagonal matrix, or taking a power (positive or negative) of a diagonal matrix is always a diagonal matrix.</p>
+		</li>
+		<li xml:id="proposition-special-forms-combinations-scalar-upper-lower"><p>
+		<!-- used to be xml:id="proposition-special-forms-combinations-upper-lower" -->
+		<xref ref="proposition-special-forms-combinations-diag">Statement</xref> remains true
+		<ul>
+			<li>when all occurrences of the word <q>diagonal</q> are replaced by <q>scalar,</q> or</li>
+			<li>when all occurrences of the word <q>diagonal</q> are replaced by <q>upper triangular,</q> or</li>
+			<li>when all occurrences of <q>diagonal</q> are replaced by <q>lower triangular.</q></li>
+		</ul>
+		</p></li>
+		<li xml:id="proposition-special-forms-combinations-symm">
+		<xref ref="proposition-special-forms-combinations-diag">Statement</xref> remains true when all occurrences of the word <q>diagonal</q> are replaced by <q>symmetric,</q> <em>except</em> that the product of two symmetric matrices may not be symmetric.
+		</li>
+	</ol></p></statement>
+
+	<proof>
+		<title>
+			Partial proof of <xref ref="proposition-special-forms-combinations-scalar-upper-lower">Statement</xref>
+		</title>
+		<p>
+		We will prove that the result of scalar multiplying an upper triangular matrix is again upper triangular. As we discovered in
+		<xref ref="activity-special-forms-exploring-ij-entries">Part</xref>
+		of
+		<xref ref="activity-special-forms-exploring" />,
+		an upper triangular matrix <m>U</m> is characterized by having all entries <m>u_{ij}</m> equal to <m>0</m> for <m>i>j</m> (<ie /> entries below the main diagonal). The scalar multiple <m>kU</m> has entries <m>[kU]_{ij} = ku_{ij}</m>, so if <m>u_{ij} = 0</m> for <m>i>j</m>, then also <m>k u_{ij} = 0</m> for <m>i>j</m>, and the matrix <m>kU</m> is also upper triangular.
+		</p>
+	</proof>
+
+	<proof>
+		<title>
+			Partial proof of <xref ref="proposition-special-forms-combinations-symm">Statement</xref>
+		</title>
+		<p>
+		We will prove that the inverse of an invertible, symmetric matrix is again symmetric. So suppose that <m>A</m> is both invertible and symmetric. By definition of symmetry, this means that <m>A</m> is equal to its own transpose. We would like to verify that <m>\inv{A}</m> is also symmetric; that is, that <m>\inv{A}</m> is equal to its own transpose. Let's do that, using proper LHS vs RHS procedure for the proposed equality <m>\utrans{(\inv{A})} = \inv{A}</m>:
+		<md>
+			<mrow>\text{LHS} \amp = \utrans{(\inv{A})}</mrow>
+			<mrow>\amp = \inv{(\utrans{A})} \amp \amp\text{(i)}</mrow>
+			<mrow>\amp= \inv{(A)} \amp \amp\text{(ii)}</mrow>
+			<mrow>\amp= \text{RHS},</mrow>
+		</md>
+		with justifications
+		<ol label="(i)">
+			<li><xref ref="proposition-inverses-transpose" />; and</li>
+			<li><m>\utrans{A}=A</m> by symmetric assumption.</li>
+		</ol>
+		</p>
+	</proof>
+
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-special-forms-theory-invertibility">
+<title>Invertibility of special forms</title>
+
+<p>Finally, we record our observations about the invertibility of some of these special forms. The following fact was already discussed in <xref ref="subsection-special-forms-concepts-inverses" />, so we will not formally prove it.</p>
+
+<proposition xml:id="proposition-special-forms-invertibility">
+	<statement><p>
+	An upper or lower triangular matrix is invertible precisely when the entries on its main diagonal are all nonzero.
+	</p></statement>
+</proposition>
+
+<aside><title>Special case</title>
+	<p>Since scalar and diagonal matrices are just particular forms of triangular matrix, <xref ref="proposition-special-forms-invertibility" /> applies to scalar and diagonal matrices as well.</p>
+</aside>
+
+</subsection>
+
+</section>

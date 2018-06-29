@@ -1,0 +1,66 @@
+\begin{tikzpicture}[
+		every left delimiter/.style={xshift=.5em,yscale=0.9,yshift=0.15em},
+		every right delimiter/.style={xshift=-.5em,yscale=0.9,yshift=0.15em},
+		every node/.style={anchor=base east},
+]
+	\matrix (A1)[
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp 2 \amp 1 \\
+		2 \amp 1 \amp 1 \\
+		1 \amp -1 \amp 0 \\
+	};
+	\node[left=2.5em of A1] (eq) {$\det A = $};
+	\node[left=1.5em of A1] (neg) {$-$};
+	\node[left=0.75em of A1,yscale=5] (br) {(};
+	\node[left=-0.25em of A1] (eq) {$1 \; \cdot $};
+	\draw[thin] (A1-1-3.north) to (A1-3-3.south);
+	\draw[thin] (A1-1-1.west) to (A1-1-3.east);
+	\node[right=-0.25em of A1] (next) {$\; - \; 1 \; \cdot$};
+	\matrix (A)[
+		right=-0.25em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp 2 \amp 1 \\
+		2 \amp 1 \amp 1 \\
+		1 \amp -1 \amp 0 \\
+	};
+	\draw[thin] (A-1-3.north) to (A-3-3.south);
+	\draw[thin] (A-2-1.west) to (A-2-3.east);
+	\node[right=-0.25em of A] (next) {$\; + \; 0 \cdot M_{33}$};
+	\node[right=-0.75em of next,yscale=5] (br) {)};
+
+	\matrix (A)[
+		below=1em of A1,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp -1 \amp 2 \\
+		2 \amp 0 \amp 1 \\
+		1 \amp -2 \amp -1 \\
+	};
+	\node[left=2.25em of A] (plus) {$+ \; 3 \; \cdot$};
+	\node[left=1.5em of A,yscale=5] (br) {(};
+	\node[left=-0.25em of A] (eq) {$-2 \; \cdot $};
+	\draw[thin] (A-1-1.north) to (A-3-1.south);
+	\draw[thin] (A-2-1.west) to (A-2-3.east);
+	\node[right=-0.25em of A] (next) {$\; + \; 0 \cdot M_{22} \; - \; 1 \; \cdot$};
+	\matrix (A)[
+		right=-0.25em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp -1 \amp 2 \\
+		2 \amp 0 \amp 1 \\
+		1 \amp -2 \amp -1 \\
+	};
+	\draw[thin] (A-1-3.north) to ([xshift=0.4em]A-3-3.south);
+	\draw[thin] (A-2-1.west) to (A-2-3.east);
+	\node[right=-0.25em of A,yscale=5] (br) {)};
+\end{tikzpicture}

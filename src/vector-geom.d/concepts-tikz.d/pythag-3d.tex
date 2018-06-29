@@ -1,0 +1,22 @@
+\tdplotsetmaincoords{60}{25}
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+	tdplot_main_coords
+]
+	\draw[->] (-0.5,0,0) to (5,0,0) node[right]{$x$};
+	\draw[->] (0,-0.5,0) to (0,5,0) node[left]{$y$};
+	\draw[->] (0,0,-0.5) to (0,0,4) node[above right]{$z$};
+	\draw[vector,thick] (0,0,0) to node[above left,near end] {$\uvec{v}$} (3,3,2);
+	\draw[vector,thick] (0,0,0) to node[above left,near end] {$\uvec{v}'$} (3,3,0);
+	\draw[dashed]
+	  (0,0,0) to node[below] {$\Delta x$} (3,0,0)
+	  (3,0,0) to node[right,near start] {$\Delta y$} (3,3,0)
+	  (3,3,0) to node[right] {$\Delta z$} (3,3,2);
+	\draw
+	  (2.75,0,0) to (2.75,0.25,0)
+	  (2.75,0.25,0) to (3,0.25,0);
+	\draw
+	  (2.8,2.8,0) to (2.8,2.8,0.25)
+	  (2.8,2.8,0.25) to (3,3,0.25);
+\end{tikzpicture}

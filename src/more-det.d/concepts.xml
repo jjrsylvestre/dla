@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-more-det-concepts">
+
+<title>Concepts</title>
+
+<introduction><p>
+	Recall that in <xref ref="section-det-concepts" /> we set a goal for ourselves: given a square matrix <m>A</m>, determine a matrix <m>A'</m> so that <m>AA'</m> is a scalar multiple of the identity (<xref ref="goal-det-concepts-matrix-times-adjoint" />). The adjoint finally fulfills this goal.
+</p></introduction>
+
+<subsection xml:id="subsection-more-det-concepts-adjoint">
+<title>The classical adjoint</title>
+
+<p>
+Before we dive in, a note about the adjective <q>classical.</q> In a second course in linear algebra, you will probably learn that square matrices have a different kind of <q>adjoint</q> matrix that is completely unrelated to the adjoint we will discuss here. (The word <q>adjoint</q> gets used a lot in mathematics for many different concepts.) So we are attaching the adjective <q>classical</q> to the adjoint matrix we define here to distinguish it from that other one.
+</p>
+<aside><p>
+Actually, a better adjective might be <q>algebraic</q> for this version of <term>adjoint matrix</term>, and the other kind could reasonably be called the <q>geometric</q> adjoint matrix.
+</p></aside>
+
+<p>
+Let's remind ourselves how determinants are defined, by cofactor expansions. For matrix <m>A=\begin{bmatrix}a_{ij}\end{bmatrix}</m>, the cofactor expansion of <m>\det A</m> along row <m>i</m> is
+<me> \det A = a_{i1}C_{i1} + a_{i2}C_{i2} \dotsb + a_{in}C_{in}, </me>
+where the <m>C_{ij}</m> are the associated cofactors. This pattern of a sum of products sure looks like matrix multiplication, where we are multiplying the <m>\nth[i]</m> row of <m>A</m> against a column of some matrix. Since each position in <m>A</m> has a corresponding cofactor, we can create a <term>matrix of cofactors</term> <m>C_A = \begin{bmatrix}C_{ij}\end{bmatrix}</m>. Except the pattern of indices for the <m>C_{ij}</m> in the cofactor expansion above also progress along a <em>row</em>, whereas when we multiply matrices we multiply rows against <em>columns</em>. However, we know a way to turn columns into rows <mdash /> the transpose. We call the transpose of the matrix of cofactors the <term>(classical) adjoint of <m>A</m></term>, and write <m>\adj A</m> to mean <m>\utrans{C}_A</m>.
+</p><p>
+In <xref ref="activity-more-det-adjoint" />, we explored what happens when we multiply out <m>A</m> times <m>\adj A</m>. We only worked with the <m>3\times 3</m> case, but the same patterns would emerge for any size matrix. Remember that in a product like <m>A(\adj A)</m> we get the <m>\nth[(i,j)]</m> entry by multiplying the <m>\nth[i]</m> row of the first matrix against the <m>\nth[j]</m> column of the second matrix. Since the second matrix is a transpose, its <m>\nth[j]</m> column will be the <m>\nth[j]</m> <em>row</em> of the matrix of cofactors <m>C_A</m>. Thus, for each diagonal entry (<ie /> where <m>j=i</m>), we will be multiplying a row of <m>A</m> against the corresponding row of cofactors, and we'll get the value of <m>\det A</m> repeated down the diagonal of <m>A(\adj A)</m>. On the other hand, for an off-diagonal entry (<ie /> where <m>j\ne i</m>), we'll get a row of <m>A</m> multiplied against the cofactors associated to a <em>different</em> row. In our analysis of the operation of combining rows in <xref ref="subsection-det-by-row-red-concepts-combine-rows" />, we determined that <em>a <q>mixed</q> cofactor expansion always evaluates to <m>0</m></em>. So all off-diagonal entries of <m>A(\adj A)</m> are <m>0</m>, and this product matrix is diagonal. Moreover, since the same value <m>\det A</m> is repeated down the diagonal, this product matrix is in fact scalar: <me> A(\adj A) = (\det A)I. </me> As mentioned at the start of this section, this fulfills <xref ref="goal-det-concepts-matrix-times-adjoint" />, with <m>\delta = \det A</m> and <m>A' = \adj A</m>. In particular, this gives us a formula for the inverse of any matrix that has nonzero determinant:
+<me> \inv{A} = \frac{1}{\det A}\,\adj A. </me>
+</p>
+
+<remark><statement><p>
+	Just as cofactor expansions are an inefficient means to compute determinants, calculating an inverse using the adjoint formula above is very inefficient, since computing an adjoint for an <m>n\times n</m> matrix involves computing <m>n^2</m> determinants of <m>(n-1)\times(n-1)</m> matrices. You are much better off computing an inverse by row reducing, as in <xref ref="subsection-elem-matrices-concepts-invert-by-row-red" /> and <xref ref="subsection-elem-matrices-examples-inversion-procedure" />. However, the above formula is useful for further developing the theory of solving systems by inverses, as we will soon see.
+</p></statement></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-more-det-concepts-det-vs-invert">
+<title>Determinants determine invertibility</title>
+
+<p>
+Part of our motivation for developing determinants was to make sense of the <m>ad-bc</m> formula that determines whether a <m>2\times 2</m> matrix is invertible, and obtain a similar formula for larger square matrices. In completing <xref ref="goal-det-concepts-matrix-times-adjoint" /> by obtaining the formula <m>A(\adj A) = (\det A)I</m>, we learn that whenever <m>\det A\neq 0</m> then <m>A\bigl[\inv{(\det A)}(\adj A)\bigr] = I</m>, and so <m>A</m> is invertible
+(<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
+</p>
+
+<p>
+To repeat, we now know that <alert>if <m>\det A\neq 0</m>, then <m>A</m> must be invertible</alert>. Logically, that raises three related questions.
+</p>
+
+<question><statement><p><ul>
+  <li> If <m>A</m> is invertible, must <m>\det A</m> be nonzero? </li>
+	<li> If <m>\det A = 0</m>, must <m>A</m> be singular? </li>
+	<li> If <m>A</m> is singular, must <m>\det A</m> be zero? </li>
+</ul></p></statement></question>
+
+<p>
+In the study of logic, the statement version of these three questions are called the <term>converse</term>, <term>inverse</term>, and <term>contrapositive</term>, respectively, of the original <term>conditional statement</term> that states: <q>If <m>\det A \neq 0</m>, then <m>A</m> is invertible.</q> And the study of logic tells us that <em>the answers to these three questions are <em>not</em> necessarily all affirmative just because the original statement is true</em>. So in <xref ref="activity-more-det-row-red-det-0" /> and <xref ref="activity-more-det-row-red-det-n0" /> we considered these questions, as well as the original statement, by considering the effects of row reducing on the determinant. Here is what we discovered, in the order we considered them in those two activities, relying on our knowledge that a square matrix is invertible if and only if its RREF is the identity matrix
+(<xref ref="theorem-elem-matrices-equiv-to-invertible" />)
+</p>
+
+<case><title>If <m>\det A = 0</m></title><p>
+Since no elementary row operation can change a zero determinant to a nonzero one, the RREF of <m>A</m> must also have determinant <m>0</m>. But then the RREF of <m>A</m> cannot be <m>I</m>, since <m>\det I = 1</m>. So <m>A</m> is not invertible.
+</p></case>
+
+<case><title>If <m>A</m> is invertible</title><p>
+Then <m>\det A</m> cannot be zero, since then <m>A</m> wouldn't be invertible, as we just argued in the previous point.
+</p></case>
+
+<case><title>If <m>\det A</m> is nonzero</title><p>
+Since no elementary row operation can change a nonzero determinant to a zero one (multiplying a row by <m>0</m> is not an elementary operation), the RREF for <m>A</m> must also have nonzero determinant. But then that RREF cannot have a row of zeros, because then its determinant would be <m>0</m>. Since it is square, that RREF matrix must have all of its leading ones, making it the identity matrix, and so <m>A</m> is invertible.
+</p></case>
+
+<case><title>If <m>A</m> is singular</title><p>
+Then <m>\det A</m> must be zero, since if it were nonzero then <m>A</m> would be invertible, as we just argued in the previous point.
+</p></case>
+
+</subsection>
+
+
+<subsection xml:id="subsection-more-det-concepts-det-vs-mult-elem-matrices">
+<title>Determinants versus matrix multiplication: case of elementary matrices</title>
+
+<p>
+In <xref ref="activity-more-det-multiplicative-elem-version" />, we considered <m>\det (EA)</m> for <m>E</m> an elementary matrix and <m>A</m> a square matrix. Since there are three different kinds of elementary matrices, we had three different cases to consider. In each case, we were able to combine the appropriate part of <xref ref="proposition-det-by-row-red-det-vs-row-ops" /> on the one hand with the appropriate part of <xref ref="proposition-det-by-row-red-det-elem" /> on the other, in order to verify
+<md><mrow tag="star" xml:id="equation-more-det-concepts-multiplicative-elem-version">
+	\det (EA) = (\det E)(\det A).
+</mrow></md>
+is true in all cases of the type of elementary matrix <m>E</m>.
+(See
+<xref ref="proof-lemma-more-det-product-elem-matrix" />
+for
+<xref ref="lemma-more-det-product-elem-matrix" />,
+which appears in
+<xref ref="subsection-more-det-theory-det-formulas" />.)
+</p>
+
+<p>
+Expressed in words, the equality above represents the pattern that <alert>a determinant of a product is the product of the determinants</alert>, at least in the case where the first matrix in the product is elementary (for now).
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-more-det-concepts-det-vs-mult-invertible">
+<title>Determinants versus matrix multiplication: invertible case</title>
+
+<p>
+In <xref ref="activity-more-det-multiplicative-product-elem" />, we progressed to considering determinants of a product of matrices where the first matrix in the product is invertible. In particular, this means that the first matrix can be expressed somehow as a product of elementary matrices
+(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
+and so we could unravel the determinant of this product one elementary matrix at a time, using the result of the previous subsection at each step.
+</p>
+
+<p>
+As in <xref ref="activity-more-det-multiplicative-product-elem" />, consider matrix <m>N</m> and invertible matrix <m>M</m>, where <m>M</m> can be expressed as a product of <em>three</em> elementary matrices, <m>M = E_1E_2E_3</m>. The we can repeatedly use our rule <xref ref="equation-more-det-concepts-multiplicative-elem-version" /> from the elementary matrix case in <xref ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /> above to obtain
+<md>
+	<mrow>
+		\det (MN)
+		\amp= \det (E_1E_2E_3N)
+	</mrow><mrow>
+		\amp= (\det E_1)\bbrac{\det (E_2E_3N)} \amp \amp\text{(i)}
+	</mrow><mrow>
+		\amp= (\det E_1)(\det E_2)\bbrac{\det (E_3N)} \amp \amp\text{(ii)}
+	</mrow><mrow>
+		\amp= (\det E_1)(\det E_2)(\det E_3)(\det N) \amp \amp\text{(iii)}
+	</mrow><mrow>
+		\amp= (\det E_1)\bbrac{\det (E_2E_3)}(\det N) \amp \amp\text{(iv)}
+	</mrow><mrow>
+		\amp= \bbrac{\det (E_1E_2E_3)}(\det N) \amp \amp\text{(v)}
+	</mrow><mrow>
+		\amp= (\det M)(\det N),
+	</mrow>
+</md>
+with justifications
+<ol label="(i)">
+	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E=E_1</m> and <m>A=E_2E_3N</m>; </li>
+	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E=E_2</m> and <m>A=E_3N</m>; </li>
+	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E=E_3</m> and <m>A=N</m>; </li>
+	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E=E_2</m> and <m>A=E_3</m>; and </li>
+	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E=E_1</m> and <m>A=E_2E_3</m>. </li>
+</ol>
+Of course, this sort of calculation could be repeated no matter how many elementary matrices went into a product expression for <m>M</m>. So we can make our final statement of the last subsection a little stronger: <alert>a determinant of a product is the product of the determinants</alert>, at least in the case where the first matrix in the product is invertible (for now).
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-more-det-concepts-det-vs-mult-singular">
+<title>Determinants versus matrix multiplication: singular case</title>
+
+<p>
+Finally, in <xref ref="activity-more-det-det-multiplicative-first-factor-singular" /> we considered determinants of a product of matrices where the first matrix in the product is singular. It is fairly straightforward to verify that again, in this case, <alert>a determinant of a product is the product of the determinants</alert> whenever the first matrix in the product is singular.
+(See the proof of the
+<xref ref="proofcase-proposition-more-det-product">singular case</xref>
+for
+<xref ref="proposition-more-det-product-two-matrices">Statement</xref>
+of
+<xref ref="proposition-more-det-product" />,
+which will appear in
+<xref ref="subsection-more-det-theory-det-formulas" />.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-more-det-concepts-det-vs-mult-all">
+<title>Determinants versus matrix multiplication: all cases</title>
+
+<p>
+The considerations in
+<xref ref="subsection-more-det-concepts-det-vs-mult-invertible" />
+and
+<xref ref="subsection-more-det-concepts-det-vs-mult-singular" />
+together verify the universal pattern
+<me> \det (MN) = (\det M)(\det N) </me>
+for square matrices <m>M</m> and <m>N</m> of the same size, no matter whether <m>M</m> is invertible or singular, and so the pattern that <alert>a determinant of a product is the product of the determinants</alert> is true in all cases.  In more sophisticated mathematical language, we say that the determinant function is <term>multiplicative</term>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-more-det-concepts-det-inverse">
+<title>Determinant of an inverse</title>
+
+<p>
+In <xref ref="activity-more-det-det-inv" />, we used the fact that the determinant is multiplicative to investigate the relationship between the determinants of an invertible matrix and its inverse. By definition of inverse, we have <m>A\inv{A} = I</m>. Since the product <m>A\inv{A}</m> is the same matrix as the identity, it must have the same determinant, so <me>\det (A\inv{A}) = 1</me>
+(<xref ref="proposition-det-special-forms-identity">Statement</xref>
+of
+<xref ref="proposition-det-special-forms" />).
+</p>
+
+<p>
+As well, we know that <m>\det A \neq 0</m>, since <m>A</m> is invertible. So,
+<md>
+	<mrow>
+	\det (A\inv{A}) \amp= 1
+	</mrow><mrow>
+	(\det A)\bbrac{\det (\inv{A})} \amp= 1
+	</mrow><mrow>
+	\det (\inv{A}) \amp= \frac{1}{\det A}.
+	</mrow>
+</md>
+Thus, <alert>the determinant of an inverse is the inverse of the determinant</alert>.
+</p>
+<aside><title>Careful</title><p>
+Remember that we never write fractions or reciprocals of matrices. However, <m>\det A</m> is not a matrix <mdash /> it is a <em>number</em> that we are assuming is nonzero in this case, so we are justified in writing and using its reciprocal in these calculations.
+</p></aside>
+
+</subsection>
+
+<subsection xml:id="subsection-more-det-concepts-cramers-rule">
+<title>Cramer's rule</title><!--\index{Cramer's rule}-->
+
+<p>
+While the adjoint inversion formula is not a good choice for computing inverses, it does have applications. Here is one application to solving systems. Remember that if <m>A\uvec{x}=\uvec{b}</m> is a linear system with a square, invertible coefficient matrix <m>A</m>, then there is one unique solution <m>\uvec{x} = \inv{A}\uvec{b}</m>. Using the adjoint inversion formula, we get
+<md><mrow tag="dstar" xml:id="equation-more-det-concepts-cramer-adj-sol-eqn">
+	\uvec{x} = \inv{A}\uvec{b} = \frac{1}{\det A}(\adj A)\uvec{b}.
+</mrow></md>
+</p>
+
+<p>
+As usual, let's consider this solution formula in the case that <m>A</m> is <m>3\times 3</m>, in which case both <m>\uvec{x}</m> and <m>\uvec{b}</m> are <m>3\times 1</m>:
+<md><mrow>
+	\uvec{x} \amp= \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}, \amp
+	\uvec{b} \amp= \begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}.
+</mrow></md>
+The product <m>(\adj A)\uvec{b}</m> will be a column matrix, whose top entry is obtained by multiplying the first row of <m>\adj A</m> against the column <m>\uvec{b}</m>. But <m>\adj A</m> is the transpose of the matrix of cofactors for <m>A</m>, so the first row of <m>\adj A</m> contains the cofactors from the first <em>column</em> of <m>A</m>, and we have
+<md><mrow tag="tstar" xml:id="equation-more-det-concepts-cramer-rule-3x3">
+	\bigl[(\adj A)\uvec{b}\bigr]_{11} = C_{11}b_1 + C_{21}b_2 + C_{31}b_3.
+</mrow></md>
+This looks like a cofactor expansion of some determinant! The cofactors are from the first column of <m>A</m>, so their values only depend on the <em>second</em> and <em>third</em> columns of <m>A</m>. But the entries are from <m>\uvec{b}</m>, so if we replace the first column in <m>A</m> with <m>\uvec{b}</m> to get a new matrix
+<me>
+	A_1 = \begin{bmatrix}
+		| \amp | \amp | \\
+		\uvec{b} \amp \uvec{a}_2 \amp \uvec{a}_3 \\
+		| \amp | \amp |
+	\end{bmatrix},
+</me>
+then a cofactor expansion of <m>\det A_1</m> along the first column gives us exactly expression in <xref ref="equation-more-det-concepts-cramer-rule-3x3" /> for the first entry in the product <m>(\adj A)\uvec{b}</m>. Using this in <xref ref="equation-more-det-concepts-cramer-adj-sol-eqn" />, and considering only the top entry on both sides, we get
+<me> x_1 = \frac{1}{\det A}\bigl[(\adj A)\uvec{b}\bigr]_{11} = \frac{\det A_1}{\det A}. </me>
+Similar calculations would tell us that <m>x_2 = (\det A_2)/(\det A)</m>, where <m>A_2</m> is the matrix obtained by replacing the second column of <m>A</m> by <m>\uvec{b}</m>, and similarly for <m>x_3</m>. And the same pattern emerges for larger systems.
+</p><p>
+We will work out an example of using Cramer's rule in <xref ref="subsection-more-det-examples-cramers-rule" />.
+</p>
+
+</subsection>
+
+</section>

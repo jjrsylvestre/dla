@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-inverses-theory">
+
+<title>Theory</title>
+
+<subsection xml:id="subsection-inverses-theory-identity">
+<title>Properties of the identity matrix</title>
+
+<p>Here are some important facts about the identity matrix and inverses of matrices. You could consider this proposition as a continuation of <xref ref="proposition-matrix-ops-algebra-rules" />.</p>
+
+<proposition xml:id="proposition-inverses-identity-matrix">
+
+	<title>Algebra rules involving the identity matrix</title>
+
+	<statement><p>
+	Let <m>I</m> represent the <m>n\times n</m> identity matrix.
+	<ol>
+		<li xml:id="proposition-inverses-identity-matrix-is-identity">
+		For every <m>m\times n</m> matrix <m>A</m> and every <m>n\times k</m> matrix <m>B</m>, we have <m>AI = A</m> and <m>IB = B</m>.
+		</li>
+		<li xml:id="proposition-inverses-identity-matrix-power">
+		For every positive integer <m>p</m>, we have <m>I^p = I</m>.
+		</li>
+		<li xml:id="proposition-inverses-identity-matrix-inverse">
+		<m>\inv{I} = I</m>.
+		</li>
+		<li xml:id="proposition-inverses-identity-matrix-trans">
+		<m>\utrans{I} = I</m>.
+		</li>
+	</ol>
+	</p></statement>
+
+	<proof><p>We will leave the proof of these properties up to you, the reader.</p></proof>
+
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-inverses-theory-inverses">
+<title>Properties of the inverse</title>
+
+<p>And now some first properties of the inverse. We will explore inverses more in the next chapter.</p>
+
+<theorem xml:id="theorem-inverses-unique">
+
+	<statement><p>
+	A square matrix is either singular or has one <em>unique</em> inverse.
+	</p></statement>
+
+	<proof><p>
+	A square matrix either has an inverse (<ie /> is invertible) or it doesn't (<ie /> is singular). We would like to know that in the invertible case, there can be only <em>one</em> inverse. So suppose that <m>A</m> is a square matrix, and that <m>B</m> is an inverse for <m>A</m>. Then, by definition we have both <m>BA=I</m> and <m>AB=I</m> (see <xref ref="section-inverses-terminology" />). What if we had another inverse for <m>A</m>? Suppose <m>C</m> was also an inverse for <m>A</m>, so that both <m>CA=I</m> and <m>AC=I</m> were true. Here, all of <m>A,B,C,I</m> are square of the same size. But then,
+	<md>
+		<mrow>C \amp= CI \amp \amp\text{(i)}</mrow>
+		<mrow>\amp= C(AB) \amp \amp\text{(ii)}</mrow>
+		<mrow>\amp= (CA)B \amp \amp\text{(iii)}</mrow>
+		<mrow>\amp= IB \amp \amp\text{(iv)}</mrow>
+		<mrow>\amp= B \amp \amp\text{(v)},</mrow>
+	</md>
+	with justifications
+	<ol label="(i)">
+		<li>
+		<xref ref="proposition-inverses-identity-matrix-is-identity">Rule</xref> of
+		<xref ref="proposition-inverses-identity-matrix" />;
+		</li>
+		<li><m>B</m> is an inverse for <m>A</m>;</li>
+		<li>
+		<xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref> of
+		<xref ref="proposition-matrix-ops-algebra-rules" />;
+		</li>
+		<li><m>C</m> is an inverse for <m>A</m>; and</li>
+		<li>
+		<xref ref="proposition-inverses-identity-matrix-is-identity">Rule</xref> of
+		<xref ref="proposition-inverses-identity-matrix" />.
+		</li>
+	</ol>
+	So <m>C</m> and <m>B</m> must actually be the <em>same</em> inverse for <m>A</m>. Since we can apply the same reasoning to any inverse for <m>A</m>, there can only be one inverse for <m>A</m>.
+	</p></proof>
+
+</theorem>
+
+<proposition xml:id="theorem-inverses-zero-singular">
+
+	<statement><p>
+	A square zero matrix is always singular.
+	</p></statement>
+
+	<proof><p>
+	It should be obvious from
+	<xref ref="proposition-matrix-ops-algebra-rules-zero-mult-right">Rule</xref>
+	and
+	<xref ref="proposition-matrix-ops-algebra-rules-zero-mult-left">Rule</xref>
+	of
+	<xref ref="proposition-matrix-ops-algebra-rules" />
+	that it is impossible for <m>A=\zerovec</m> to work in the definition of <term>inverse</term> from <xref ref="section-inverses-terminology" />.
+	</p></proof>
+
+</proposition>
+
+<p>Let's record the formula for <m>2\times 2</m> inverses that we encountered in <xref ref="subsection-inverses-examples-2x2" />.</p>
+
+<proposition xml:id="proposition-inverses-2x2-inverse">
+
+	<statement><p>
+	Consider general <m>2\times 2</m> matrix
+	<m>A = \left[\begin{smallmatrix} a \amp b\\c \amp d \end{smallmatrix}\right]</m>.
+	If <m>ad-bc\neq 0</m>, then <m>A</m> is invertible with inverse
+	<me>
+		\inv{A} = \frac{1}{ad-bc}\;\left[\begin{array}{rr} d \amp -b\\-c \amp a \end{array}\right].
+	</me>
+	</p></statement>
+
+	<proof><p>
+		You can check by direct computation that these two matrices multiply to the identity matrix, in either order.
+	</p></proof>
+
+</proposition>
+
+<aside>
+	<title>A look ahead</title>
+	<p>We will further explore the formula <m>ad-bc</m> and its connection to invertibility of matrices in subsequent chapters.</p>
+</aside>
+
+<p>
+Here are the properties of inverses we explored in <xref ref="activity-inverses-props-of-inverses" />. We have changed some of the letters to avoid confusion with the <m>A</m> and <m>B</m> in the definition of <term>inverse</term> in <xref ref="section-inverses-terminology" />.
+</p>
+
+<proposition xml:id="proposition-inverses-props-of-inverses">
+
+	<title>Algebra rules involving inverses</title>
+
+	<statement><p><ol>
+		<li	xml:id="proposition-inverses-props-of-inverses-inverse-inverse">
+		If <m>M</m> is an invertible square matrix, then its inverse <m>\inv{M}</m> is also invertible with inverse <m>\inv{(\inv{M})} = M</m>.
+		</li>
+		<li	xml:id="proposition-inverses-props-of-inverses-inverse-scalar-mult">
+		If <m>M</m> is an invertible square matrix, then for every nonzero scalar <m>k</m> the scalar multiple <m>kM</m> is also invertible with inverse <m>\inv{(kM)} = \inv{k}\inv{M}</m>.
+		</li>
+		<li	xml:id="proposition-inverses-props-of-inverses-product">
+		If <m>M</m> and <m>N</m> are both invertible square matrices of the same size, then their product <m>MN</m> is also invertible with inverse <m>\inv{(MN)} = \inv{N}\inv{M}</m>.
+		</li>
+		<li	xml:id="proposition-inverses-props-of-inverses-inverse-extended-product">
+		If <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are all invertible square matrices of the same size, then their product <me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me> is also invertible with inverse <me>\inv{(M_1 M_2 \dotsm M_{\ell-1} M_\ell)} = \inv{M_\ell}\inv{M_{\ell-1}}\dotsm\inv{M_2}\inv{M_1}.</me>
+		</li>
+		<li	xml:id="proposition-inverses-props-of-inverses-power">
+		If <m>M</m> is an invertible square matrix, then for every positive integer <m>\ell</m> the power <m>M^\ell</m> is also invertible with inverse <m>\inv{(M^\ell)} = (\inv{M})^\ell</m>.
+		</li>
+	</ol></p></statement>
+
+	<proof><p><ol>
+	 	<li>
+		We have a square matrix <m>A=\inv{M}</m> and would like to find an inverse <m>B</m> for it, so that both <m>BA=I</m> and <m>AB=I</m> are true. But we already know this is true for <m>B = M</m>, since then
+		<md><mrow>
+			BA \amp= M\inv{M} = I, \amp \amp\text{and} \amp AB \amp= \inv{M}M = I.
+		</mrow></md>
+		</li>
+		<li>
+		We have a square matrix <m>A = kM</m>, with <m>k\neq 0</m>, and would like to find an inverse <m>B</m> for it. Let's try <m>B = \inv{k}\inv{M}</m>:
+		<md>
+			<mrow>
+				BA \amp= (\inv{k}\inv{M})(kM)
+				\amp
+				AB \amp= (kM)(\inv{k}\inv{M})
+			</mrow>
+			<mrow>
+				\amp = (\inv{k}k)(\inv{M}M)
+				\amp
+				\amp = (k\inv{k})(M\inv{M})
+			</mrow>
+			<mrow>
+				\amp = 1I
+				\amp
+				\amp = 1I
+			</mrow>
+			<mrow>
+				\amp = I,
+				\amp
+				\amp = I.
+			</mrow>
+		</md>
+		Since both <m>BA=I</m> and <m>AB=I</m> are true, then <m>B=\inv{k}\inv{M}</m> is the inverse of <m>A=kM</m>.
+		</li>
+		<li>
+		<p>
+		We have a square matrix <m>A = MN</m> and would like to find an inverse <m>B</m> for it. Let's try <m>B = \inv{N}\inv{M}</m>:
+		<md>
+			<mrow>
+				BA \amp= (\inv{N}\inv{M})(MN)
+				\amp
+				AB \amp= (MN)(\inv{N}\inv{M})
+			</mrow>
+			<mrow>
+				\amp = \inv{N}(\inv{M}M)N
+				\amp
+				\amp = M(N\inv{N})\inv{M}
+			</mrow>
+			<mrow>
+				\amp = \inv{N}IN
+				\amp
+				\amp = MI\inv{M}
+			</mrow>
+			<mrow>
+				\amp = I,
+				\amp
+				\amp = I.
+			</mrow>
+		</md>
+		Since both <m>BA=I</m> and <m>AB=I</m> are true, then <m>B=\inv{N}\inv{M}</m> is the inverse of <m>A=MN</m>.
+		</p>
+		<aside><p>
+			In the proof of
+			<xref ref="proposition-inverses-props-of-inverses-inverse-scalar-mult">Statement</xref>,
+			we were able to interchange the order of scalar multiplication and matrix multiplication because of the rules for scalar multiplication in
+			<xref ref="proposition-matrix-ops-algebra-rules" />.
+			However, it would have been <em>incorrect</em> to try to make similar manipulations in the proof of
+			<xref ref="proposition-inverses-props-of-inverses-product">Statement</xref>,
+			because <em>order of matrix multiplication matters</em>!
+		</p></aside>
+		</li>
+		<li>We leave this proof to you, the reader.</li>
+		<li>
+		This is the special case of
+		<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
+		where each of <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> is equal to <m>M</m>.
+		</li>
+	</ol></p></proof>
+
+</proposition>
+
+<remark><p>
+In light of
+<xref ref="proposition-inverses-props-of-inverses-power">Statement</xref>
+of the proposition, for an invertible matrix <m>M</m> and a positive integer <m>k</m> we can write <m>M^{-k}</m> to mean <em>either</em> the inverse <m>\inv{(M^k)}</m> or the power <m>(\inv{M})^k</m>, since they are the same. This answers the question in
+<xref ref="activity-inverses-props-of-inverses-inverse-powers">Part</xref>
+of
+<xref ref="activity-inverses-props-of-inverses" />.
+</p></remark>
+
+<p>We can turn some of the statements of <xref ref="proposition-inverses-props-of-inverses" /> around to create new facts about singular (<ie /> non-invertible) matrices.</p>
+
+<proposition xml:id="proposition-inverses-props-of-singular">
+	<statement><p><ol>
+		<li	xml:id="proposition-inverses-props-of-singular-product">
+		If the product <m>MN</m> is singular, where <m>M</m> and <m>N</m> are square matrices of the same size, then at least one of <m>M,N</m> must be singular.
+		</li>
+		<li	xml:id="proposition-inverses-props-of-singular-extended-product">
+		If the product <me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me> is singular, where <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are square matrices of all the same size, then at least one of these matrices must be singular.
+		</li>
+		<li	xml:id="proposition-inverses-props-of-singular-power">
+		If some power <m>M^\ell</m> is singular, where <m>M</m> is a square matrix and <m>\ell</m> is a positive integer, then <m>M</m> must be singular.
+		</li>
+	</ol></p></statement>
+
+	<proof><title>Proof outline</title><p><ol>
+		<li>
+		If both <m>M</m> and <m>N</m> were invertible, then
+		<xref ref="proposition-inverses-props-of-inverses-product">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" /> says that the product <m>MN</m> would be invertible. But we are assuming that the product <m>MN</m> is singular, so it is not possible for <em>both</em> <m>M</m> and <m>N</m> to be invertible.
+		</li>
+		<li>
+		The proof of this statement is similar to the one above for
+		<xref ref="proposition-inverses-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" />
+		instead. We leave the details to you, the reader.
+		</li>
+		<li>
+		This proof again is similar to that above for
+		<xref ref="proposition-inverses-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-inverses-props-of-inverses-power">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" />
+		instead.
+		Alternatively, one could view this as the special case of
+		<xref ref="proposition-inverses-props-of-singular-extended-product">Statement</xref>
+		of the current proposition, where each factor <m>M_i</m> is taken to be equal to <m>M</m>.
+		</li>
+	</ol></p></proof>
+
+</proposition>
+
+<p>We did not explore this in our activity set, but we can add properties of the inverse with respect to the transpose.</p>
+
+<proposition xml:id="proposition-inverses-transpose">
+
+	<title>Inverse of a transpose</title>
+	<statement><p>
+		If <m>A</m> is invertible, then so is <m>\utrans{A}</m>, with <me>\inv{(\utrans{A})} = \utrans{(\inv{A})}</me>.
+	</p></statement>
+
+	<proof><p>
+		Suppose <m>A</m> is an invertible square matrix, and write <m>B</m> for <m>\utrans{(\inv{A})}</m>. If we can show that both <m>B\utrans{A}=I</m> and <m>\utrans{A}B=I</m>, then by definition we will have shown that <m>\utrans{A}</m> is invertible, and by <xref ref="theorem-inverses-unique" /> we will have shown that <m>B = \utrans{(\inv{A})}</m> is the inverse of <m>\utrans{A}</m>. Let's check the first required equality:
+		<md>
+			<mrow>\text{LHS} \amp= B\utrans{A}</mrow>
+			<mrow>\amp= \utrans{(\inv{A})} \utrans{A} \amp \amp\text{(i)}</mrow>
+			<mrow>\amp= \utrans{(A\inv{A})} \amp \amp\text{(ii)}</mrow>
+			<mrow>\amp= \utrans{I} \amp \amp\text{(iii)}</mrow>
+			<mrow>\amp= I \amp \amp\text{(iv)}</mrow>
+			<mrow>\amp= \text{RHS},</mrow>
+		</md>
+		with justifications
+		<ol label="(i)">
+			<li>definition of <m>B</m>;</li>
+			<li>
+			<xref ref="proposition-matrix-ops-algebra-rules-transpose-product">Rule</xref>
+			from
+			<xref ref="proposition-matrix-ops-algebra-rules" />;
+			</li>
+			<li>definition of inverse;</li>
+			<li>
+			<xref ref="proposition-inverses-identity-matrix-trans">Rule</xref>
+			from
+			<xref ref="proposition-inverses-identity-matrix" />.
+			</li>
+		</ol>
+	</p><p>
+		The verification of <m>AB=I</m> is similar, and we leave it up to you, the reader.
+	</p></proof>
+
+</proposition>
+
+<p>
+Using
+<xref ref="proposition-inverses-props-of-inverses-power">Statement</xref>
+of
+<xref ref="proposition-inverses-props-of-inverses" />
+and
+<xref ref="proposition-inverses-transpose" />,
+we can expand the scope of our algebra rules for matrix powers.
+</p>
+
+<proposition><statement><p>
+	With the convention that <m>A^0</m> should be equal to <m>I</m> for any invertible square matrix <m>A</m>, the matrix algebra rules involving matrix powers in
+	<xref ref="proposition-matrix-ops-algebra-rules" />
+	(including the property of the transpose relative to powers in rule
+	<xref ref="proposition-matrix-ops-algebra-rules-transpose-power">Rule</xref>)
+	and in
+	<xref ref="proposition-inverses-identity-matrix" />
+	remain valid for <em>all</em> integers <m>p</m> and <m>q</m>, positive or negative (or zero).
+</p></statement></proposition>
+
+<p>Finally, we will record the observation of <xref ref="activity-inverses-unique-sol-when-invertible-coeff-matrix" />.</p>
+
+<proposition xml:id="proposition-inverses-inv-coeff-implies-one-sol">
+
+	<statement><p>
+	If the coefficient matrix for a linear system is square and invertible, then the system has one unique solution.
+	</p></statement>
+
+	<proof><p>
+		Consider system <m>A\uvec{x}=\uvec{b}</m> where the coefficient matrix <m>A</m> is square and invertible. Then we can apply <m>\inv{A}</m> to both sides of this matrix equation just as in
+		<xref ref="subsection-inverses-concepts-solving-via-inverse" />
+		and
+		<xref ref="subsection-inverses-examples-solving-sys"/>,
+		to isolate <m>\uvec{x}=\inv{A}\uvec{b}</m>. Thus, <m>\uvec{x} = \inv{A}\uvec{b}</m> is the only possible solution to the system.
+	</p></proof>
+
+</proposition>
+
+<aside>
+	<title>A look ahead</title>
+	<p>
+	It follows from a fact in the next chapter
+	(<xref ref="theorem-elem-matrices-equiv-to-invertible" />)
+	that the logic of <xref ref="proposition-inverses-inv-coeff-implies-one-sol" /> goes the other way as well: if a system with a square coefficient matrix has one unique solution, then that coefficient matrix must be invertible.
+	</p>
+</aside>
+
+</subsection>
+
+</section>

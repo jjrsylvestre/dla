@@ -1,0 +1,45 @@
+\begin{tikzpicture}[
+	every left delimiter/.style={xshift=.75em,yscale=0.9,yshift=0.15em},
+	every right delimiter/.style={xshift=-.5em,yscale=0.9,yshift=0.15em},
+	every node/.style={anchor=base east},
+]
+	\matrix (A)[
+		right=-0.5em of eq,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		 3 \amp 1 \amp 0 \\
+		-2 \amp -2 \amp 1 \\
+		 0 \amp 1 \amp -1 \\
+	};
+	\draw[thin] (A-1-1.north) to (A-3-1.south);
+	\draw[thin] (A-3-1.west) to (A-3-3.east);
+	\node[left=-0.25em of A] (eq) {$\det A = 0 \; \cdot$};
+	\node[right=-0.25em of A] (next) {$\; - \; 1 \; \cdot$};
+	\matrix (A)[
+		right=-0.5em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		 3 \amp 1 \amp 0 \\
+		-2 \amp -2 \amp 1 \\
+		 0 \amp 1 \amp -1 \\
+	};
+	\draw[thin] (A-1-2.north) to (A-3-2.south);
+	\draw[thin] (A-3-1.west) to (A-3-3.east);
+	\node[right=-0.25em of A] (next) {$\; + \; (-1) \; \cdot$};
+	\matrix (A)[
+		right=-0.25em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		 3 \amp 1 \amp 0 \\
+		-2 \amp -2 \amp 1 \\
+		 0 \amp 1 \amp -1 \\
+	};
+	\draw[thin] (A-1-3.north) to ([xshift=0.4em]A-3-3.south);
+	\draw[thin] (A-3-1.west) to (A-3-3.east);
+\end{tikzpicture}

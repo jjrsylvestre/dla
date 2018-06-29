@@ -1,0 +1,17 @@
+\tdplotsetmaincoords{60}{130}
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+	tdplot_main_coords
+]
+
+	% vectors
+	\draw[vector] (0,0,0) to node[above left,near end] {$\uvec{u}$} (1,0,0);
+	\draw[vector] (0,0,0) to node[above, near end] {$\uvec{v}$}  (0,1,0);
+	\draw[vector] (0,0,0) to node[right, near end] {$\uvec{x}$}  (0,0,1.33);
+
+	% perp symbols
+	\draw (0,0,0.2) to (0.2,0,0.2) to (0.2,0,0);
+	\draw (0,0,0.2) to (0,0.2,0.2) to (0,0.2,0);
+
+\end{tikzpicture}

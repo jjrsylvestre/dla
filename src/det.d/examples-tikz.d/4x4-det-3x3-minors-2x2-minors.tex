@@ -1,0 +1,58 @@
+\begin{tikzpicture}[
+		every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
+		every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
+		every node/.style={anchor=base east},
+]
+	\matrix (A)[
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		2 \amp 1 \\
+		1 \amp -1 \\
+	};
+	\node[left=0.5em of A] (neg) {$\det A = -$};
+	\node[left=-0.25em of A,yscale=3] (br) {(};
+	\draw[-latex] (A-1-1.north west) to (A-2-2.south east);
+	\draw[-latex] (A-1-2.north east) to (A-2-1.south west);
+	\node[right=-0.25em of A] (next) {$-$};
+	\matrix (A)[
+		right=-0.25em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp 2 \\
+		1 \amp -1 \\
+	};
+	\draw[-latex] (A-1-1.north west) to (A-2-2.south east);
+	\draw[-latex] (A-1-2.north east) to (A-2-1.south west);
+	\node[right=-0.25em of A,yscale=3] (br) {)};
+	\node[right=0.5em of A] (next) {$+ \; 3 \; \cdot $};
+	\node[right=-0.25em of next,yscale=3] (br) {(};
+	\node[right=0.25em of next] (next) {$-2 \; \cdot $};
+	\matrix (A)[
+		right=-0.25em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		-1 \amp 2 \\
+		-2 \amp -1 \\
+	};
+	\draw[-latex] (A-1-1.north west) to (A-2-2.south east);
+	\draw[-latex] (A-1-2.north east) to (A-2-1.south west);
+	\node[right=-0.25em of A] (next) {$-$};
+	\matrix (A)[
+		right=-0.25em of next,
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp -1 \\
+		1 \amp -2 \\
+	};
+	\draw[-latex] (A-1-1.north west) to (A-2-2.south east);
+	\draw[-latex] (A-1-2.north east) to (A-2-1.south west);
+	\node[right=-0.25em of A,yscale=3] (br) {)};
+\end{tikzpicture}

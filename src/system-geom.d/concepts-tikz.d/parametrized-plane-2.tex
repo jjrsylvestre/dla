@@ -1,0 +1,59 @@
+\tdplotsetmaincoords{95}{30}
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+	tdplot_main_coords
+]
+
+	% plane through the origin with normal vector (1,-1,2)
+	% orthog basis used to draw sides: (1,1,0) and (1,1,-1)
+	% the vector (-2,-2,-2) represents the origin so that this plane is an example of a plane not throught the origin.
+
+	% fill for plane
+	\filldraw[opacity=0.25,gray] (-1.5,-0.5,0.5) to (4,5,0.5) to (6.5,2.5,-2) to (1,-3,-2) to cycle;
+
+	% grid lines parallel to p1, spaced by p2
+	\draw[opacity=0.5] (-0.435-1,-0.58,-0.0725+0.5) to (-0.075-1,-0.1,-0.0125+0.5);
+	\draw[opacity=0.5] (-0.8625,-1.15,-0.14375) to (2.925,3.9,0.4875); % middle
+	\draw[opacity=0.5] (-1.275+1,-1.7,-0.2125-0.5) to (3.435+1,4.58,0.5725-0.5);
+	\draw[opacity=0.5] (-1.725+2,-2.3,-0.2875-1) to (3+2,4,0.5-1);
+	\draw[opacity=0.5] (-2.1375+3,-2.85,-0.35625-1.5) to (2.58+3,3.44,0.43-1.5);
+	\draw[opacity=0.5] (0+4,0,0-2) to (2.145+4,2.86,0.3575-2);
+
+	% grid lines parallel to p2, spaced by p1
+	\draw[opacity=0.5] (1.5-1.5,0-2,-0.75-0.25) to (3.5-1.5,0-2,-1.75-0.25);
+	\draw[opacity=0.5] (-0.25-0.75,0-1,0.125-0.125) to (3.75-0.75,0-1,-1.875-0.125);
+	\draw[opacity=0.5] (-1,0,0.5) to (4,0,-2); % middle
+	\draw[opacity=0.5] (-0.75+0.75,0+1,0.375+0.125) to (4.25+0.75,0+1,-2.125+0.125);
+	\draw[opacity=0.5] (-0.5+1.5,0+2,0.25+0.25) to (4.5+1.5,0+2,-2.25+0.25);
+	\draw[opacity=0.5] (-0.25+2.25,0+3,0.125+0.375) to (3.75+2.25,0+3,-1.875+0.375);
+	\draw[opacity=0.5] (0+3,0+4,0+0.5) to (2+3,0+4,-1+0.5);
+
+	% plane border
+	\draw[dotted] (-1.5,-0.5,0.5) to (4,5,0.5) to (6.5,2.5,-2) to (1,-3,-2) to cycle;
+
+	% points for x0 and x
+	\node[point] at (0,0,0) (x0) {};
+	\node[point] at (5.25,3,-1.125) (x) {};
+
+	% shifted origin
+	\node[point] at (-2,-2,-2) (o) [label=below left:{$\zerovec$}] {};
+
+	% vector for <q>initial</q> point
+	\draw[thick] (o) to node[above left,near end] {$\uvec{x}_0$} (-0.81,-0.81,-0.81);
+	\draw[vector,thick,dashed] (-0.81,-0.81,-0.81) to (x0);
+
+	% vector for <q>variable</q> point
+	\draw[thick] (o) to node[below,near end] {$\uvec{x}$} (-0.3325,-0.85,-1.79875);
+	\draw[vector,dashed,thick] (-0.3325,-0.85,-1.79875) to (x);
+
+	% extended vectors
+	\draw[vector] (x0) to node[above,near end] {$s\uvec{p}_1$} (2.25,3,0.375);
+	\draw[vector] (x0) to node[left,near end] {$t\uvec{p}_2$} (3,0,-1.5);
+
+	% plane vectors
+	\draw[vector,thick] (x0) to node[above left,near end] {$\uvec{p}_1$} (0.75,1,0.125);
+	\draw[vector,thick] (x0) to node[below left] {$\uvec{p}_2$}  (1,0,-0.5);
+	\draw[vector,thick] (x0) to node[sloped,above] {$s\uvec{p}_1+t\uvec{p}_2$} (x);
+
+\end{tikzpicture}

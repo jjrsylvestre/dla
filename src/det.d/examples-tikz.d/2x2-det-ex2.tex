@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
+	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
+	every node/.style={anchor=base east},
+]
+	\matrix (A)[
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{ 1 \amp 2 \\ - 3 \amp 4 \\ };
+	\node[left=-0.25em of A] (eq) {$\det A =$};
+	\node[right=-0.25em of A] (eq) {$= 1\cdot 4 - 2 \cdot (-3) = 4 + 6 = 10$.};
+	\draw[-latex] (A-1-1.north west) to (A-2-2.south east);
+  \draw[-latex] (A-1-2.north east) to (A-2-1.south west);
+\end{tikzpicture}

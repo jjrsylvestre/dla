@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+	every left delimiter/.style={xshift=.5em,yscale=0.9,yshift=0.33em},
+	every right delimiter/.style={xshift=-.5em,yscale=0.9,yshift=0.33em},
+	every node/.style={anchor=base west},
+]
+	\matrix (A)[
+		matrix of math nodes,
+		left delimiter={\lvert},
+		right delimiter={\rvert}
+	]{
+		1 \amp -1 \amp \phantom{-}2 \amp \phantom{-}1 \\
+		2 \amp \phantom{-}0 \amp \phantom{-}1 \amp \phantom{-}1 \\
+		0^+ \amp \phantom{-}1^- \amp \phantom{-}0^+ \amp -3^- \\
+		1 \amp -2 \amp -1 \amp \phantom{-}0 \\
+	};
+	\node[left=-0.25em of A] (eq) {$\det A =$};
+	\draw[thin] ([xshift=0.1em]A-3-1.north west) rectangle ([xshift=-0.15em]A-3-4.south east);
+\end{tikzpicture}

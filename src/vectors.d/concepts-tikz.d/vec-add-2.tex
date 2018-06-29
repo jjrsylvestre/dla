@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+	vector/.style={-latex},
+]
+	\node[point] at (0,0) (p) [label=left:{$P$}] {};
+	\node[point] at (2,3) (q) [label=left:{$Q$}] {};
+	\node[point] at (5,2) (r) [label=right:{$R$}] {};
+	\draw[vector] (p) to node[above left] {$\uvec{u}$} (q);
+	\draw[vector] (q) to node[above right] {$\uvec{v}$} (r);
+	\draw[vector] (p) to node[below right] {$\uvec{u}+\uvec{v}$} (r);
+\end{tikzpicture}
