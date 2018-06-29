@@ -21,4 +21,4 @@ fi
 # (and DELETEME.html is just blank after processing anyway)
 
 xsltproc --xinclude --output build/html/DELETEME.html style.xsl src/book.xml
-rm html/DELETEME.html
+rm build/html/DELETEME.html
