@@ -11,17 +11,3 @@
 % their respective owners.
 % 
 % *********************************************************************
-\begin{tikzpicture}[
-	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
-	vector/.style={-latex},
-]
-	\draw[dashed] (-1,-0.5) to (4.5,2.25);
-	\node[point] at (0,0) (o) [label=below:{$\zerovec$}] {};
-	\draw[vector,thick] (o) to node[above left] {$\uvec{u}$} (3,3);
-	\draw[vector,thick] (o) to node[below right] {$\uvec{a}$} (2,1);
-	\draw[vector] (o) to node[below right,near end] {$\proj_{\uvec{a}}\uvec{u}$} (3.6,1.8);
-	\draw[vector] (3.6,1.8) to node[right,near end] {$\uvec{u} - \proj_{\uvec{a}}\uvec{u}$} (3,3);
-	\draw (3.4,1.7) to (3.3,1.9) to (3.5,2);
-	\draw[dotted,->] ([shift=(43:3.25cm)]0,0) arc (43:28:3.25cm);
-
-\end{tikzpicture}
