@@ -34,11 +34,11 @@ respective owners.
 	obtuse? <ellipsis />
 	right?
   </p>
-	<p><image width="100%">
+	<sidebyside><image width="100%">
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>Graph of <m>y=\cos \theta</m>.</description>
 		<latex-image><xi:include href="../shared-tikz.d/cosine.tex" parse="text" /></latex-image>
-	</image></p>
+	</image></sidebyside>
   </statement>
 </activity>
 
@@ -48,7 +48,11 @@ respective owners.
 -->
 
 	<prelude><p>
-	Extending the concept of <term>perpendicular</term> to higher dimensions, vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> are called <term>orthogonal</term> if <m>\udotprod{u}{v} = 0</m>.
+	Extending the concept of <term>perpendicular</term> to higher dimensions, vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> are called
+	<term>orthogonal</term>
+	<idx><h>orthogonal</h><h>vectors</h></idx>
+	<idx><h>vector</h><h>orthogonal</h></idx>
+	if <m>\udotprod{u}{v} = 0</m>.
 	</p></prelude>
 
   <statement><p><ol label="alph">
@@ -100,10 +104,17 @@ respective owners.
 	</ol></p></statement>
 	<postlude>
 	<p>
-	The vector <m>k\uvec{a}</m> in the previous exercise is called the <term>orthogonal projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term>, and we write <m>\uproj{u}{a}</m> to mean this vector. It is also sometimes called the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>. The vector <m>\uvec{n} = \uvec{u}-\uproj{u}{a}</m> is called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>.
+	The vector <m>k\uvec{a}</m> in the previous exercise is called the
+	<term>orthogonal projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term>,
+	<idx><h>orthogonal</h><h>projection</h></idx>
+	<idx><h>projection</h></idx>
+	and we write <m>\uproj{u}{a}</m> to mean this vector. It is also sometimes called the
+	<term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term><idx><h>component</h><h>parallel</h></idx><idx><h>parallel</h><h>component</h></idx>.
+	The vector <m>\uvec{n} = \uvec{u}-\uproj{u}{a}</m> is called the
+	<term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term><idx><h>orthogonal</h><h>component</h></idx><idx><h>component</h><h>orthogonal</h></idx>.
 	</p>
 	<aside><title>Note</title><p>
-	The reason these vectors are called <term>components</term> of <m>\uvec{u}</m> is that <m>\uvec{u} = \uproj{u}{a} + (\uvec{u} - \uproj{u}{a})</m>.
+	The reason these vectors are called <term>components</term> of <m>\uvec{u}</m> is that the original vector <m>\uvec{u}</m> can be rebuilt out of these <q>components</q> by <m>\uvec{u} = \uproj{u}{a} + (\uvec{u} - \uproj{u}{a})</m>.
 	</p></aside>
 	<p> The same problem can be solved in higher dimensions by the same formula for <m>\uproj{u}{a}</m>. </p>
 	</postlude>
@@ -141,7 +152,11 @@ respective owners.
 		In light of the first part of this activity, what does the right-hand side of the equation for the line say about the relationship between a vector <m>\uvec{x}=(x,y)</m> that lies along the line and the other special vector you identified in the previous part?
 		</p>
 		<aside><title>Terminology</title><p>
-			This special vector for the line is called a <term>normal vector</term> for the line.
+			This special vector for the line is called a
+			<term>normal vector</term>
+			<idx><h>normal vector</h></idx>
+			<idx><h>vector</h><h>normal</h></idx>
+			for the line.
 		</p></aside>
 		</li>
 	</ol>
@@ -161,7 +176,10 @@ respective owners.
 			Draw the normal vector associated to the line equation (as in <xref ref="activity-orthog-point-normal-lines-1" />) with its tail at <m>P</m>. What do you notice about the relationship between this normal vector and the vector <m>\uvec{v}</m> parallel to the line? Express this relationship in terms of the dot product, and then expand out this dot product.
 		 	</p>
 			<aside><title>Terminology</title><p>
-				The equation involving the dot product that you obtain is called the <term>point-normal form</term> for the line.
+				The equation involving the dot product that you obtain is called the
+				<term>point-normal form</term>
+				<idx><h>point-normal form</h><h>for a line</h></idx>
+				for the line.
 			</p></aside>
 			</li>
 		</ol>
@@ -221,13 +239,13 @@ respective owners.
 	<ol label="alph">
 		<li xml:id="activity-orthog-distances-point-to-plane">
 		<p> Using the diagram below as inspiration, come up with a procedure to determine the distance <m>d</m> between a point <m>Q</m> and a plane <m>\Pi</m>. </p>
-		<p><image width="100%">
+		<sidebyside><image width="100%">
 			<!-- description gets inserted as alt text in html img tag -->
 			<description>
 				Diagram illustrating procedure to determine the distance between a point and a plane in space.
 			</description>
 			<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
-		</image></p>
+		</image></sidebyside>
 		<hint><p> Determine a vector that represents an equivalent distance, and then <m>d</m> will be the norm of this vector. </p></hint>
 		</li>
 		<li>
@@ -250,12 +268,12 @@ respective owners.
 	Consider the plane <m>\Pi\colon x - y + 2z = 0</m> and the point <m>Q(2,-3,6)</m> in <m>\R^3</m>. We want to determine the distance <m>d</m> between <m>Q</m> and <m>\Pi</m>; that is, the distance between <m>Q</m> and the point <m>P</m> that lies perpendicularly below <m>Q</m>. From the diagram below, we see that <m>d</m> is equal to the norm of a particular scalar multiple of the normal vector <m>n</m>. Do you remember how to obtain <m>\uvec{n}</m> from the equation for <m>\Pi</m>? Do you remember how to use <m>\uvec{u} = \abray{OQ}</m> to compute this particular scalar multiple of <m>\uvec{n}</m>?
 	</p>
 	<p> Once you've searched your memory, compute <m>d</m>. </p>
-	<p><image width="100%">
+	<sidebyside><image width="100%">
 		<description>
 			Diagram illustrating procedure to determine the distance between a point and a plane in space.
 		</description>
 		<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
-	</image></p>
+	</image></sidebyside>
   </statement>
 </activity>
 -->

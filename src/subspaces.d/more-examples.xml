@@ -22,157 +22,155 @@ respective owners.
 Before concluding this chapter, we'll illustrate the uses of <xref ref="proposition-subspaces-eq-span-test" /> with two examples.
 </p></introduction>
 
+<example xml:id="example-subspaces-more-examples-eq-span">
+	<title>Recognizing when two subspaces are the same</title>
+	<statement>
+	<p>
+	Consider the sets of vectors <m>S = \{(1,0,0),(0,1,0)\}</m> and <m>S' = \{(1,1,0),(1,0,0),(1,-1,0)\}</m> in <m>\R^3</m>. It should be clear that <m>\Span S</m> is the <m>xy</m>-plane in <m>\R^3</m>. Does <m>\Span S'</m> generate the same subspace?
+	</p><p>
+	To answer this question, we use
+	<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+	of
+	<xref ref="proposition-subspaces-eq-span-test" />,
+	which gives us two new questions to answer.
+	<ul>
+		<li> Can each vector in <m>S</m> be expressed as a linear combination of the vectors in <m>S'</m>? Yes, because
+		<md>
+			<mrow>
+				\begin{bmatrix}1\\0\\0\end{bmatrix}
+				\amp= 0\begin{bmatrix}1\\1\\0\end{bmatrix}
+				+ 1\begin{bmatrix}1\\0\\0\end{bmatrix}
+				+ 0\left[\begin{array}{r}1\\-1\\0\end{array}\right],
+			</mrow><mrow></mrow><mrow>
+				\begin{bmatrix}0\\1\\0\end{bmatrix}
+				\amp= \frac{1}{2}\begin{bmatrix}1\\1\\0\end{bmatrix}
+				+ 0\begin{bmatrix}1\\0\\0\end{bmatrix}
+				+ \left(-\frac{1}{2}\right)\left[\begin{array}{r}1\\-1\\0\end{array}\right].
+			</mrow>
+		</md>
+		</li>
+		<li> Can each vector in <m>S'</m> be expressed as a linear combination of the vectors in <m>S</m>? Yes, because
+		<md>
+			<mrow>
+				\begin{bmatrix}1\\1\\0\end{bmatrix}
+				\amp= 1\begin{bmatrix}1\\0\\0\end{bmatrix}
+				+ 1\begin{bmatrix}0\\1\\0\end{bmatrix},
+			</mrow><mrow></mrow><mrow>
+				\begin{bmatrix}1\\0\\0\end{bmatrix}
+				\amp= 1\begin{bmatrix}1\\0\\0\end{bmatrix}
+				+ 0\begin{bmatrix}0\\1\\0\end{bmatrix},
+			</mrow><mrow></mrow><mrow>
+				\left[\begin{array}{r}1\\-1\\0\end{array}\right]
+				\amp= 1\begin{bmatrix}1\\0\\0\end{bmatrix}
+				+ (-1)\begin{bmatrix}0\\1\\0\end{bmatrix}.
+			</mrow>
+		</md>
+		</li>
+	</ul>
+	Since both questions have been answered in the affirmative,
+	<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+	of
+	<xref ref="proposition-subspaces-eq-span-test" />,
+	tells us that <m>\Span S</m> and <m>\Span S'</m> are the same space.
+	</p>
+	</statement>
+</example>
 
-<subsection xml:id="subsection-subspaces-more-examples-eq-span">
-<title>Recognizing when two subspaces are the same</title>
-
-<p>
-Consider the sets of vectors <m>S = \{(1,0,0),(0,1,0)\}</m> and <m>S' = \{(1,1,0),(1,0,0),(1,-1,0)\}</m> in <m>\R^3</m>. It should be clear that <m>\Span S</m> is the <m>xy</m>-plane in <m>\R^3</m>. Does <m>\Span S'</m> generate the same subspace?
-</p><p>
-To answer this question, we use
-<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-of
-<xref ref="proposition-subspaces-eq-span-test" />,
-which gives us two new questions to answer.
-<ul>
-	<li> Can each vector in <m>S</m> be expressed as a linear combination of the vectors in <m>S'</m>? Yes, because
+<example xml:id="example-subspaces-more-examples-span-generates-space">
+	<title>Determining if a spanning set generates the whole vector space</title>
+	<statement>
+	<p>
+	Consider the set of vectors <m>S = \{A_1,A_2,A_3,A_4\}</m> in <m>\matrixring_2(\R)</m>, where
+	<md><mrow>
+		A_1 \amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right], \amp
+		A_2 \amp= \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right], \amp
+		A_3 \amp= \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right], \amp
+		A_4 \amp= \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right].
+	</mrow></md>
+	Is this set a spanning set for <em>all</em> of <m>\matrixring_2(\R)</m>? That is, is <m>\matrixring_2(\R) = \Span S</m>? We already know a spanning set for <m>\matrixring_2(\R)</m> <mdash /> the set of standard basis vectors <m>\basisfont{B} = \{E_{11},E_{12},E_{21},E_{22}\}</m>, where
+	<md><mrow>
+		E_{11} \amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}, \amp
+		E_{12} \amp= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}, \amp
+		E_{21} \amp= \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \amp
+		E_{22} \amp= \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
+	</mrow></md>
+	That is, we already know that <m>\matrixring_2(\R) = \Span \basisfont{B}</m>. So we can turn our question into: is <m>\Span S = \Span \basisfont{B}</m>? With this new version of our problem, we can use the same method as in the previous example. However, we don't need to explicitly verify that each vector in <m>S</m> can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>. Besides being obvious, this fact is already implied by our assertion that <m>\matrixring_2(\R) = \Span \basisfont{B}</m>, since clearly each vector in <m>S</m> is a vector in <m>\matrixring_2(\R)</m>. So it just remains to verify that each vector in <m>\basisfont{B}</m> can be expressed as a linear combination of the vectors in <m>S</m>. Let's begin with vector <m>E_{11}</m>. We use the same strategy as in the examples in <xref ref="subsection-subspaces-examples-in-span" />: express <m>E_{11}</m> as a linear combination of the vectors in <m>S</m> with unknown scalar coefficients, set up equations in those unknown scalars, and determine whether the resulting linear system is consistent.
 	<md>
 		<mrow>
-			\begin{bmatrix}1\\0\\0\end{bmatrix}
-			\amp= 0\begin{bmatrix}1\\1\\0\end{bmatrix}
-			+ 1\begin{bmatrix}1\\0\\0\end{bmatrix}
-			+ 0\left[\begin{array}{r}1\\-1\\0\end{array}\right],
-		</mrow><mrow></mrow><mrow>
-			\begin{bmatrix}0\\1\\0\end{bmatrix}
-			\amp= \frac{1}{2}\begin{bmatrix}1\\1\\0\end{bmatrix}
-			+ 0\begin{bmatrix}1\\0\\0\end{bmatrix}
-			+ \left(-\frac{1}{2}\right)\left[\begin{array}{r}1\\-1\\0\end{array}\right].
+			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+			\amp= k_1 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
+			 + k_2 \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right]
+			 + k_3 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
+			 + k_4 \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right]
+		</mrow><mrow>
+			\amp= \begin{bmatrix} k_2 \amp -k_1+2k_2+k_3  \\ 2k_1+4k_2-2k_3+k_4  \amp k_1-k_2-2k_4 \end{bmatrix}
 		</mrow>
 	</md>
-	</li>
-	<li> Can each vector in <m>S'</m> be expressed as a linear combination of the vectors in <m>S</m>? Yes, because
-	<md>
-		<mrow>
-			\begin{bmatrix}1\\1\\0\end{bmatrix}
-			\amp= 1\begin{bmatrix}1\\0\\0\end{bmatrix}
-			+ 1\begin{bmatrix}0\\1\\0\end{bmatrix},
-		</mrow><mrow></mrow><mrow>
-			\begin{bmatrix}1\\0\\0\end{bmatrix}
-			\amp= 1\begin{bmatrix}1\\0\\0\end{bmatrix}
-			+ 0\begin{bmatrix}0\\1\\0\end{bmatrix},
-		</mrow><mrow></mrow><mrow>
-			\left[\begin{array}{r}1\\-1\\0\end{array}\right]
-			\amp= 1\begin{bmatrix}1\\0\\0\end{bmatrix}
-			+ (-1)\begin{bmatrix}0\\1\\0\end{bmatrix}.
-		</mrow>
-	</md>
-	</li>
-</ul>
-Since both questions have been answered in the affirmative,
-<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-of
-<xref ref="proposition-subspaces-eq-span-test" />,
-tells us that <m>\Span S</m> and <m>\Span S'</m> are the same space.
-</p>
-
-</subsection>
-
-
-<subsection xml:id="subsection-subspaces-more-examples-span-generates-space">
-<title>Determining if a spanning set generates the whole vector space</title>
-
-<p>
-Consider the set of vectors <m>S = \{A_1,A_2,A_3,A_4\}</m> in <m>\matrixring_2(\R)</m>, where
-<md><mrow>
-	A_1 \amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right], \amp
-	A_2 \amp= \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right], \amp
-	A_3 \amp= \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right], \amp
-	A_4 \amp= \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right].
-</mrow></md>
-Is this set a spanning set for <em>all</em> of <m>\matrixring_2(\R)</m>? That is, is <m>\matrixring_2(\R) = \Span S</m>? We already know a spanning set for <m>\matrixring_2(\R)</m> <mdash /> the set of standard basis vectors <m>\basisfont{B} = \{E_{11},E_{12},E_{21},E_{22}\}</m>, where
-<md><mrow>
-	E_{11} \amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}, \amp
-	E_{12} \amp= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}, \amp
-	E_{21} \amp= \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \amp
-	E_{22} \amp= \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
-</mrow></md>
-That is, we already know that <m>\matrixring_2(\R) = \Span \basisfont{B}</m>. So we can turn our question into: is <m>\Span S = \Span \basisfont{B}</m>? With this new version of our problem, we can use the same method as in the previous example. However, we don't need to explicitly verify that each vector in <m>S</m> can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>. Besides being obvious, this fact is already implied by our assertion that <m>\matrixring_2(\R) = \Span \basisfont{B}</m>, since clearly each vector in <m>S</m> is a vector in <m>\matrixring_2(\R)</m>. So it just remains to verify that each vector in <m>\basisfont{B}</m> can be expressed as a linear combination of the vectors in <m>S</m>. Let's begin with vector <m>E_{11}</m>. We use the same strategy as in the examples in <xref ref="subsection-subspaces-examples-in-span" />: express <m>E_{11}</m> as a linear combination of the vectors in <m>S</m> with unknown scalar coefficients, set up equations in those unknown scalars, and determine whether the resulting linear system is consistent.
-<md>
-	<mrow>
+	Comparing entries on left and right sides leads to the system of equations
+	<me>\begin{array}{rcrcrcrcr}
+		\amp \amp k_2 \amp \amp \amp \amp \amp = \amp 1,\\
+		-k_1 \amp + \amp 2k_2 \amp + \amp k_3 \amp \amp \amp = \amp 0, \\
+		2k_1 \amp + \amp 4k_2 \amp - \amp 2k_3 \amp + \amp k_4 \amp = \amp 0, \\
+		k_1 \amp - \amp k_2 \amp \amp \amp - \amp 2k_4 \amp = \amp 0,
+	\end{array}</me>
+	which can be put in an augmented matrix and reduced.
+	<me>
+		\left[\begin{array}{rrrr|r}
+			0 \amp 1 \amp 0 \amp 0 \amp 1 \\
+			-1 \amp 2 \amp 1 \amp 0 \amp 0 \\
+			2 \amp 4 \amp -2 \amp 1 \amp 0 \\
+			1 \amp -1 \amp 0 \amp -2 \amp 0
+		\end{array}\right]
+		\qquad\rowredarrow\qquad
+		\left[\begin{array}{rrrr|r}
+			1 \amp 0 \amp 0 \amp 0 \amp -15\\
+			0 \amp 1 \amp 0 \amp 0 \amp 1\\
+			0 \amp 0 \amp 1 \amp 0 \amp -17\\
+			0 \amp 0 \amp 0 \amp 1 \amp -8
+		\end{array}\right]
+	</me>
+	</p>
+	<aside><title>Notice</title><p>
+	Once again, we have a pattern in the columns of the initial augmented matrix versus the vectors involved.
+	</p></aside>
+	<p>
+	The reduced augmented matrix above tells us that
+	<md><mrow> k_1 \amp= -15, \amp k_2 \amp= 1, \amp k_3 \amp= -17, \amp k_4 \amp= -8, </mrow></md>
+	and so
+	<me>
 		\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-		\amp= k_1 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-		 + k_2 \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right]
-		 + k_3 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-		 + k_4 \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right]
-	</mrow><mrow>
-		\amp= \begin{bmatrix} k_2 \amp -k_1+2k_2+k_3  \\ 2k_1+4k_2-2k_3+k_4  \amp k_1-k_2-2k_4 \end{bmatrix}
-	</mrow>
-</md>
-Comparing entries on left and right sides leads to the system of equations
-<me>\begin{array}{rcrcrcrcr}
-	\amp \amp k_2 \amp \amp \amp \amp \amp = \amp 1,\\
-	-k_1 \amp + \amp 2k_2 \amp + \amp k_3 \amp \amp \amp = \amp 0, \\
-	2k_1 \amp + \amp 4k_2 \amp - \amp 2k_3 \amp + \amp k_4 \amp = \amp 0, \\
-	k_1 \amp - \amp k_2 \amp \amp \amp - \amp 2k_4 \amp = \amp 0,
-\end{array}</me>
-which can be put in an augmented matrix and reduced.
-<me>
-	\left[\begin{array}{rrrr|r}
-		0 \amp 1 \amp 0 \amp 0 \amp 1 \\
-		-1 \amp 2 \amp 1 \amp 0 \amp 0 \\
-		2 \amp 4 \amp -2 \amp 1 \amp 0 \\
-		1 \amp -1 \amp 0 \amp -2 \amp 0
-	\end{array}\right]
-	\qquad\rowredarrow\qquad
-	\left[\begin{array}{rrrr|r}
-		1 \amp 0 \amp 0 \amp 0 \amp -15\\
-		0 \amp 1 \amp 0 \amp 0 \amp 1\\
-		0 \amp 0 \amp 1 \amp 0 \amp -17\\
-		0 \amp 0 \amp 0 \amp 1 \amp -8
-	\end{array}\right]
-</me>
-</p>
-<aside><title>Notice</title><p>
-Once again, we have a pattern in the columns of the initial augmented matrix versus the vectors involved.
-</p></aside>
-<p>
-The reduced augmented matrix above tells us that
-<md><mrow> k_1 \amp= -15, \amp k_2 \amp= 1, \amp k_3 \amp= -17, \amp k_4 \amp= -8, </mrow></md>
-and so
-<me>
-	\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-	=-15 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-	+    \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right]
-	- 17 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-	- 8  \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
-</me>
-though we only cared about the existence of a solution, not the actual solution itself.
-</p><p>
-In a similar manner, one can calculate that
-<md>
-	<mrow>
-		\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
-		\amp= 4 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-		 + 5 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-		 + 2 \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
-	</mrow><mrow></mrow><mrow>
-		\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
-		\amp= 2 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-		 + 2 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-		 +   \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
-	 </mrow><mrow></mrow><mrow>
-		\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-		\amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-		 + \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right].
-	</mrow>
-</md>
-We have now verified that each vector in <m>\basisfont{B}</m> can be expressed as a linear combination of the vectors in <m>S</m>. As discussed above, we already knew that each vector in <m>S</m> can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>. Therefore,
-<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-of
-<xref ref="proposition-subspaces-eq-span-test" />
-tells us that <m>\Span S = \Span \basisfont{B}</m>, and since we already knew that <m>\Span\basisfont{B}</m> is equal to the entire space <m>\matrixring_2(\R)</m>, we must also have <m>\Span S</m> equal to this entire space.
-</p>
-
-</subsection>
+		=-15 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
+		+    \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right]
+		- 17 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
+		- 8  \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
+	</me>
+	though we only cared about the existence of a solution, not the actual solution itself.
+	</p><p>
+	In a similar manner, one can calculate that
+	<md>
+		<mrow>
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+			\amp= 4 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
+			 + 5 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
+			 + 2 \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
+		</mrow><mrow></mrow><mrow>
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+			\amp= 2 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
+			 + 2 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
+			 +   \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
+		 </mrow><mrow></mrow><mrow>
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			\amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
+			 + \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right].
+		</mrow>
+	</md>
+	We have now verified that each vector in <m>\basisfont{B}</m> can be expressed as a linear combination of the vectors in <m>S</m>. As discussed above, we already knew that each vector in <m>S</m> can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>. Therefore,
+	<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+	of
+	<xref ref="proposition-subspaces-eq-span-test" />
+	tells us that <m>\Span S = \Span \basisfont{B}</m>, and since we already knew that <m>\Span\basisfont{B}</m> is equal to the entire space <m>\matrixring_2(\R)</m>, we must also have <m>\Span S</m> equal to this entire space.
+	</p>
+	</statement>
+</example>
 
 </section>

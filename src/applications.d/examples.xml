@@ -18,12 +18,19 @@ respective owners.
 
 <title>Examples</title>
 
-<introduction>
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-applications-examples-simple" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-applications-examples-simple" /></em></li>
+<li><xref ref="subsection-applications-examples-network-flow" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-applications-examples-network-flow" /></em></li>
+<li><xref ref="subsection-applications-examples-chemistry" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-applications-examples-chemistry" /></em></li>
+<li><xref ref="subsection-applications-examples-poly" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-applications-examples-poly" /></em></li>
+</ul></p></assemblage>
 
 
-</introduction>
-
-<subsection xml:id="subsection-applications-simple">
+<subsection xml:id="subsection-applications-examples-simple">
 <title>A simple example</title>
 
 <p>Some of the first recorded uses of systems of equations in human history (without all the modern algebraic symbolism, of course) were applications to agriculture and commerce.</p>
@@ -118,7 +125,7 @@ respective owners.
 
 </subsection>
 
-<subsection xml:id="subsection-applications-network-flow">
+<subsection xml:id="subsection-applications-examples-network-flow">
 <title>Flow in networks</title>
 
 <p>
@@ -152,7 +159,7 @@ Looking at the network diagram in <xref ref="activity-applications-network" />, 
 
 </subsection>
 
-<subsection xml:id="subsection-applications-chemistry">
+<subsection xml:id="subsection-applications-examples-chemistry">
 <title>Balancing chemical equations</title>
 
 <p>
@@ -183,19 +190,18 @@ This system must be consistent because it is homogeneous, but we have four varia
 
 </subsection>
 
-<subsection xml:id="subsection-applications-poly">
+<subsection xml:id="subsection-applications-examples-poly">
 <title>Polynomial interpolation</title>
 
 <p>It is a fundamental principle in plane geometry that given two distinct points there is one unique line that passes through those points. And this principle continues to higher degree polynomials.</p>
 <aside><p>A line is a degree one polynomial.</p></aside>
 <p>For three points in the plane with disinct <m>x</m>-values there exists one unique parabola that passes through those points (where we consider a line as a degenerate form of parabola in the case that the three points are collinear). For four points with distinct <m>x</m>-values, there exists a unique cubic polynomial whose graph passes through all four points. And so on.</p>
-<p>It may seem that this is not a linear problem, since polynomial functions involve powers of the variable <m>x</m>. But <em><m>x</m> is not the variable here</em> <mdash /> the unknown coefficients that define the particular polynomial function are what we are trying to solve for.</p>
+<p>It may seem that this is not a <em>linear</em> problem, since polynomial functions involve powers of the variable <m>x</m>. But <em><m>x</m> is not the variable here</em> <mdash /> the unknown coefficients that define the particular polynomial function are what we are trying to solve for.</p>
 
-<paragraphs>
-<title>Polynomial interpolation activities</title>
-<p><ol>
+<p> To illustrate how linear algebra can solve this problem, let's work through the associated activities from <xref ref="section-applications-activities" />. </p>
 
-	<li>
+<example><title>Linear interpolation</title>
+	<statement><p>
 	In <xref ref="activity-applications-interpolate-line" />, we would like to find the line <m>y=mx+b</m> that passes through the points <m>(-3,4)</m> and <m>(2,-1)</m>. A point in the plane is on a particular line precisely when its coordinates satisfy the equation that defines the line. Requiring this gives us two equations, one for each point:
 	<md>
 		<mrow>4 \amp= m\cdot (-3) + b,</mrow>
@@ -214,9 +220,11 @@ This system must be consistent because it is homogeneous, but we have four varia
 		\end{array}\right]
 	</mrow></md>
 	Solving this system would lead to one unique solution, as expected.
-	</li>
+	</p></statement>
+</example>
 
-	<li>
+<example><title>Quadratic interpolation</title>
+	<statement><p>
 	In <xref ref="activity-applications-interpolate-parabola" />, we would like to find the parabola <m>y=ax^2+bx+c</m> that passes through the points <m>(-1,-4)</m>, <m>(1,0)</m>, and <m>(2,5)</m>. Again, each point leads to an equation by requiring that the point's coordinates satisfy the parabola's defining equation.
 	<md>
 		<mrow>-4 \amp= a (-1)^2 + b(-1) + c</mrow>
@@ -238,9 +246,11 @@ This system must be consistent because it is homogeneous, but we have four varia
 		\end{array}\right]
 	</mrow></md>
 	And again, solving this system would lead to one unique solution, as expected.
-	</li>
+	</p></statement>
+</example>
 
-	<li><p>
+<paragraphs><title>General interpolation</title>
+	<p>
 	Now let's set up the solution to the general polynomial interpolation problem, as in <xref ref="activity-applications-interpolate-degree-n" />. We have undetermined, degree-<m>n</m> polynomial equation <m>y=a_nx^n + a_{n-1}x^{n-1} + \dotsb + a_1x + a_0</m> that we would to pass through the points <m>(x_1,y_1),(x_2,y_2),\dotsc,(x_{n+1},y_{n+1})</m>.
 	</p>
 	<aside><p>We always need one more point than the degree of the polynomial, because that is the number of coefficients in the polynomial.</p></aside>
@@ -254,10 +264,7 @@ This system must be consistent because it is homogeneous, but we have four varia
 			1 \amp x_{n+1} \amp x_{n+1}^2 \amp \cdots \amp x_{n+1}^n \amp y_{n+1} \\
 		\end{array}\right]
 	</me>
-	</p></li>
-
-</ol></p>
-
+	</p>
 </paragraphs>
 
 </subsection>

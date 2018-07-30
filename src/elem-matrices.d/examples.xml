@@ -18,6 +18,16 @@ respective owners.
 
 <title>Examples</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-elem-matrices-examples-elem-matrices-and-inverses" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-examples-elem-matrices-and-inverses" /></em></li>
+<li><xref ref="subsection-elem-matrices-examples-decompositions" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-examples-decompositions" /></em></li>
+<li><xref ref="subsection-elem-matrices-examples-inversion-procedure" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-examples-inversion-procedure" /></em></li>
+</ul></p></assemblage>
+
+
 <subsection xml:id="subsection-elem-matrices-examples-elem-matrices-and-inverses">
 <title>Elementary matrices and their inverses</title>
 
@@ -25,9 +35,8 @@ respective owners.
 Let's see some examples of forming the elementary matrix that corresponds to an elementary row operation, and then determining its inverse, for each of the three kinds of elementary operations. As we saw in <xref ref="section-elem-matrices-concepts" />, we form an elementary matrix by performing the desired operation <em>on the identity matrix</em>. Let's do some <m>4\times 4</m> examples.
 </p>
 
-<paragraphs>
-	<title>Swapping rows</title>
-	<p>
+<example><title>Swapping rows</title>
+	<statement><p>
 	Consider the operation of swapping the second and fourth rows of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
 	<me>
 		I = \bidentmatfour \qquad\xrightarrow[\text{rows}]{\text{swap}}\qquad
@@ -49,12 +58,11 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 		\end{bmatrix}.
 	</me>
 	So, in this case, the inverse elemenatary matrix is the same as the original.
-	</p>
-</paragraphs>
+	</p></statement>
+</example>
 
-<paragraphs>
-	<title>Multiplying a row by a constant</title>
-	<p>
+<example><title>Multiplying a row by a constant</title>
+	<statement><p>
 	Now consider the operation of swapping the second row of a <m>4 \times n</m> matrix <m>A</m> by <m>5</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
 	<me>
 		I = \bidentmatfour \quad\xrightarrow[\text{second row}]{\text{multiply}}\quad
@@ -75,12 +83,11 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 			0 \amp 0 \amp 0 \amp 1
 		\end{bmatrix}
 	</me>
-	</p>
-</paragraphs>
+	</p></statement>
+</example>
 
-<paragraphs>
-	<title>Combining rows</title>
-	<p>
+<example><title>Combining rows</title>
+	<statement><p>
 	Finally, consider the operation of adding double the first row to the third row of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
 	<me>
 		I = \bidentmatfour \quad\xrightarrow[\text{rows}]{\text{combine}}\quad
@@ -102,8 +109,8 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 		\end{array}\right]
 	</me>
 	Comparing <m>E</m> and <m>\inv{E}</m> in this case, notice how the <m>2</m> becomes negated, which is actually the <em>additive</em> inverse of the number two (since <m>2+(-2)=0</m> and <m>(-2)+2=0</m>). This connection between inverting matrix multiplication and inverting numerical addition is important in more advanced abstract algebra.
-	</p>
-</paragraphs>
+	</p></statement>
+</example>
 
 <aside>
 	<title>Notice</title>
@@ -117,6 +124,18 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 
 <p>
 Again, let's do a <m>4\times 4</m> example. As we row reduce, we'll keep track of the corresponding elementary matrices. But that also means we need to make sure we are performing <em>elementary</em> row operations, and only performing one at a time <mdash /> no shortcuts!
+</p>
+<example xml:id="example-elem-matrices-examples-decompositions"><statement><p>
+Consider <m>4 \times 4</m> matrix
+<me>
+	A = \left[\begin{array}{rrrr}
+		1 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 5 \amp 3 \amp 0 \\
+		0 \amp 1 \amp 0 \amp 0 \\
+		-2 \amp 0 \amp 0 \amp 1
+	\end{array}\right].
+</me>
+Row reduce.
 <md>
 	<mrow>
 		\amp \amp
@@ -254,7 +273,7 @@ Also, with some matrix algebra, from <m>E_4E_3E_2E_1A = I</m> we can isolate
 	</mrow>
 </md>
 Recall that these inverse elementary matrices can each be obtained from the identity matrix using the corresponding reverse operation. You may check that the result of multiplying these inverses together is <m>A</m>.
-</p>
+</p></statement></example>
 
 </subsection>
 
@@ -262,8 +281,20 @@ Recall that these inverse elementary matrices can each be obtained from the iden
 <title>Inversion by row reduction</title>
 
 <p>
-Let's illustrate the inversion procedure from
-<xref ref="subsection-elem-matrices-concepts-invert-by-row-red" /> using the matrix <m>A</m> from the previous examples in <xref ref="subsection-elem-matrices-examples-decompositions" />. Since <m>A</m> is <m>4\times 4</m>, we augment <m>A</m> with the <m>4\times 4</m> identity matrix and then row reduce, being careful to apply our row operations <em>through the entire augmented rows</em>.
+Let's illustrate <xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />
+using the matrix <m>A</m> from <xref ref="subsection-elem-matrices-examples-decompositions" /> above. Since <m>A</m> is <m>4\times 4</m>, we augment <m>A</m> with the <m>4\times 4</m> identity matrix and then row reduce, being careful to apply our row operations <em>through the entire augmented rows</em>.
+</p>
+<example><statement><p>
+We would like to compute the inverse of
+<me>
+	A = \left[\begin{array}{rrrr}
+		1 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 5 \amp 3 \amp 0 \\
+		0 \amp 1 \amp 0 \amp 0 \\
+		-2 \amp 0 \amp 0 \amp 1
+	\end{array}\right].
+</me>
+Augment with <m>I</m> and reduce.
 <md>
 	<mrow>
 		\left[\begin{array}{rrrr|rrrr}
@@ -324,19 +355,19 @@ which agrees with our calculation of <m>\inv{A}</m> using elementary matrices in
     \left[\begin{array}{c|c} A \amp I \end{array}\right]
     \amp \xrightarrow[\text{operation}]{\text{first}}
     \left[\begin{array}{c|c} E_1A \amp E_1 I \end{array}\right]
-	</mrow><mrow>
+	</mrow><mrow></mrow><mrow>
 		\amp \xrightarrow[\text{operation}]{\text{second}}
 		\left[\begin{array}{c|c} E_2E_1A \amp E_2E_1 I \end{array}\right]
-	</mrow><mrow>
+	</mrow><mrow></mrow><mrow>
 		\amp \xrightarrow[\text{operation}]{\text{third}}
 		\left[\begin{array}{c|c} E_3E_2E_1A \amp E_3E_2E_1 I \end{array}\right]
-	</mrow><mrow>
+	</mrow><mrow></mrow><mrow>
 		\amp \xrightarrow[\text{operation}]{\text{fourth}}
     \left[\begin{array}{c|c} E_4E_3E_2E_1A \amp E_4E_3E_2E_1 I \end{array}\right]
   	= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right].
 	</mrow>
 </md>
-</p>
+</p></statement></example>
 
 </subsection>
 

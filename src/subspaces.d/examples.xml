@@ -18,21 +18,32 @@ respective owners.
 
 <title>Examples</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-subspaces-examples-test" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-subspaces-examples-test" /></em></li>
+<li><xref ref="subsection-subspaces-examples-important" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-subspaces-examples-important" /></em></li>
+<li><xref ref="subsection-subspaces-examples-in-span" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-subspaces-examples-in-span" /></em></li>
+<li><xref ref="subsection-subspaces-examples-span-generates-space" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-subspaces-examples-span-generates-space" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-subspaces-examples-test">
 <title>The Subspace Test</title>
 
 <p>First, let's practise applying the Subspace Test.</p>
 
 <remark><p>
-Since every vector space must have a zero vector (<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>), so too must a subspace. But since the vectors operations of a subspace are the same as the operations of the larger space, it will turn out that the zero vector in a subspace must always be the same as the zero vector in the larger space (see <xref ref="proposition-subspaces-props" />). So often the best way to check the nonempty clause of the Subspace Test is to verify that it contains the zero vector.
+Since every vector space must have a zero vector (<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>), so too must a subspace. But since the vector operations of a subspace are the same as the operations of the larger space, it will turn out that the zero vector in a subspace must always be the same as the zero vector in the larger space (see <xref ref="proposition-subspaces-props" />). So often the best way to check the nonempty clause of the Subspace Test is to verify that it contains the zero vector.
 </p></remark>
 
-<p>
-Here are some examples from <xref ref="section-subspaces-activities" />.
+<p> Here are some examples from <xref ref="section-subspaces-activities" />. </p>
 
-<ol xml:id="list-subspaces-examples-subspace-test">
+<!--<ol xml:id="list-subspaces-examples-subspace-test"> -->
 
-	<li><p>
+<example><title>A plane through the origin in <m>\R^3</m></title><statement>
+	<p>
 	In
 	<xref ref="activity-subspaces-test-examples-R3-xy-plane">Part</xref>
 	of
@@ -55,9 +66,11 @@ Here are some examples from <xref ref="section-subspaces-activities" />.
 		</li>
 	</ol>
 	Since all parts of the Subspace Test pass, the <m>xy</m>-plane is a subspace of <m>\R^3</m>.
-	</p></li>
+	</p>
+</statement></example>
 
-	<li><p>
+<example><title>A subspace of matrices</title><statement>
+	<p>
 	In
 	<xref ref="activity-subspaces-test-examples-M12-7-upper-left">Part</xref>
 	of
@@ -78,9 +91,12 @@ Here are some examples from <xref ref="section-subspaces-activities" />.
 		</li>
 	</ol>
 	There is no need to check the third clause of the Subspace Test, since the second has already failed to pass. But it shouldn't be too difficult to see that scalar multiples of such a matrix will also fail to remain in the subcollection (except when the scalar is <m>1</m>).
-	</p></li>
+	</p>
+</statement></example>
 
-	<li xml:id="list-subspaces-examples-subspace-test-P-vs-P2"><p>
+<example><title>Restricting degree creates a subspace of polynomials</title><statement>
+<!--	<li xml:id="list-subspaces-examples-subspace-test-P-vs-P2"> -->
+	<p>
 	In
 	<xref ref="activity-subspaces-test-examples-P-vs-P2">Part</xref>
 	of
@@ -117,14 +133,11 @@ Here are some examples from <xref ref="section-subspaces-activities" />.
 		</li>
 	</ol>
 	Since all parts of the Subspace Test pass, the collection of all polynomials of degree <m>2</m> or less is a subspace of <m>\poly(\R)</m>.
-	</p></li>
-
-</ol>
-
-</p>
+	</p>
+</statement></example>
 
 <remark><p>
-	Similar to <xref ref="list-subspaces-examples-subspace-test-P-vs-P2">Example</xref> above, the Subspace Test can be used to verify that <m>\poly_n(\R)</m>, the subcollection of <m>\poly(\R)</m> consisting of all polynomials with degree <m>n</m> or less, is a subspace for every fixed value of positive integer <m>n</m>.
+	Similar to this last example, the Subspace Test can be used to verify that <m>\poly_n(\R)</m>, the subcollection of <m>\poly(\R)</m> consisting of all polynomials with degree <m>n</m> or less, is a subspace for every fixed value of positive integer <m>n</m>.
 </p></remark>
 
 </subsection>
@@ -135,50 +148,58 @@ Here are some examples from <xref ref="section-subspaces-activities" />.
 
 <p>Here are a few more important examples of subspaces.</p>
 
-<paragraphs><title>The trivial subspace</title><p>
-Consider the subcollection in a vector space consisting of <em>just</em> the zero vector. Since we already know that the zero vector space is, indeed, a vector space, there is no need for the Subspace Test. <alert>In every vector space, the zero space <m>\{\zerovec\}</m> is always a subspace.</alert>
-</p></paragraphs>
+<example xml:id="example-subspaces-examples-trivial-subspace">
+	<title>The trivial subspace</title>
+	<statement><p>
+		Consider the subcollection in a vector space consisting of <em>just</em> the zero vector. Since we already know that the zero vector space is, indeed, a vector space, there is no need for the Subspace Test. <alert>In every vector space, the zero space <m>\{\zerovec\}</m> is always a subspace.</alert>
+	</p></statement>
+</example>
 
-<paragraphs><title>The full subspace</title><p>
-Consider the subcollection in a vector space consisting of <em>every</em> vector. (This may not seem like a <em>sub</em>collection, but every vector in this subcollection is in the original vector space.) Since it is obviously true that the collection of all vectors in a vector space forms a vector space, we have that <alert>every vector space is a subspace of itself</alert>.
-</p></paragraphs>
+<example xml:id="example-subspaces-examples-full-subspace">
+	<title>The full subspace</title>
+	<statement><p>
+	Consider the subcollection in a vector space consisting of <em>every</em> vector. (This may not seem like a <em>sub</em>collection, but every vector in this subcollection is in the original vector space.) Since it is obviously true that the collection of all vectors in a vector space forms a vector space, we have that <alert>every vector space is a subspace of itself</alert>.
+	</p></statement>
+</example>
 
-<paragraphs><title>The solution space of a homogeneous system</title><p>
-<!-- formerly labelled: \labelsub{homog.solution.set} -->
-Suppose <m>A</m> is a fixed <m>m \times n</m> matrix. Solutions to the homogeneous system <m>A\uvec{x} = \zerovec</m> can be considered as (column) vectors in <m>\R^n</m>, so the solution set to this system is a subcollection of a vector space. Is it a subspace? Let's apply the Subspace Test, similarly to
-<xref ref="activity-subspaces-test-examples-solution-space">Part</xref>
-of
-<xref ref="activity-subspaces-test-examples" />.
-
-<ol label="(i)">
-	<li> Since a homogeneous system is always consistent, the solution set is nonempty. In particular, the solution set contains the zero vector, since this is the vector corresponding to the trivial solution. </li>
-	<li> Suppose <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are two solutions to this system. Then both
-	<md><mrow>
-		A\uvec{x}_1 \amp= \zerovec \amp
-		\amp\text{and} \amp
-		A\uvec{x}_2 \amp= \zerovec.
-	</mrow></md>
-	To check if the sum vector is also in the solutions set, we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-	<me>
-		A(\uvec{x}_1+\uvec{x}_2)
-		= A\uvec{x}_1 + A\uvec{x}_2
-		= \zerovec + \zerovec
-		= \zerovec.
-	</me>
-	So the sum vector is indeed in the solution set.
-	</li>
-	<li> Suppose <m>\uvec{x}_0</m> is a solution to this system. Then <m>A\uvec{x}_0 = \zerovec</m>. For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solutions set, we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-	<me>
-		A(k\uvec{x}_0)
-		= kA\uvec{x}_0
-		= k\zerovec
-		= \zerovec.
-	</me>
-	So the scaled vector is indeed in the solution set.
-	</li>
-</ol>
-Since all parts of the Subspace Test pass, the solution set of the homogeneous system <m>A\uvec{x}=\zerovec</m> is a subspace of <m>\R^n</m>.
-</p></paragraphs>
+<example xml:id="example-subspaces-examples-solution-space">
+	<!-- formerly labelled: \labelsub{homog.solution.set} -->
+	<title>The solution space of a homogeneous system</title>
+	<statement><p>
+	Suppose <m>A</m> is a fixed <m>m \times n</m> matrix. Solutions to the homogeneous system <m>A\uvec{x} = \zerovec</m> can be considered as (column) vectors in <m>\R^n</m>, so the solution set to this system is a subcollection of a vector space. Is it a subspace? Let's apply the Subspace Test, similarly to
+	<xref ref="activity-subspaces-test-examples-solution-space">Part</xref>
+	of
+	<xref ref="activity-subspaces-test-examples" />.
+	<ol label="(i)">
+		<li> Since a homogeneous system is always consistent, the solution set is nonempty. In particular, the solution set contains the zero vector, since this is the vector corresponding to the trivial solution. </li>
+		<li> Suppose <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are two solutions to this system. Then both
+		<md><mrow>
+			A\uvec{x}_1 \amp= \zerovec \amp
+			\amp\text{and} \amp
+			A\uvec{x}_2 \amp= \zerovec.
+		</mrow></md>
+		To check if the sum vector is also in the solutions set, we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+		<me>
+			A(\uvec{x}_1+\uvec{x}_2)
+			= A\uvec{x}_1 + A\uvec{x}_2
+			= \zerovec + \zerovec
+			= \zerovec.
+		</me>
+		So the sum vector is indeed in the solution set.
+		</li>
+		<li> Suppose <m>\uvec{x}_0</m> is a solution to this system. Then <m>A\uvec{x}_0 = \zerovec</m>. For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solutions set, we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+		<me>
+			A(k\uvec{x}_0)
+			= kA\uvec{x}_0
+			= k\zerovec
+			= \zerovec.
+		</me>
+		So the scaled vector is indeed in the solution set.
+		</li>
+	</ol>
+	Since all parts of the Subspace Test pass, the solution set of the homogeneous system <m>A\uvec{x}=\zerovec</m> is a subspace of <m>\R^n</m>.
+	</p></statement>
+</example>
 
 <remark xml:id="remark-subspaces-examples-every-subsp-is-homogeneous"><p>
 	Every subspace is somehow defined by a homogeneous condition or a set of homogeneous conditions. In the solution space example above, this was explicit <mdash /> the subcollection was directly defined as the solution set of a homogeneous matrix equation <m>A\uvec{x} = \zerovec</m>. On the other hand, it's easy to see that the solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> would not be a subspace of <m>\R^n</m>, since it would not contain the zero vector.
@@ -219,8 +240,11 @@ Since all parts of the Subspace Test pass, the solution set of the homogeneous s
 
 <p>
 In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of determining whether a given vector was in the subspace generated by a specified spanning set. For this to be true, that vector must be a linear combination of vectors in the spanning set.
-<ol>
-	<li><p>
+</p>
+
+<example xml:id="example-subspaces-examples-check-in-span-in-R3"><title>A span of <m>\R^3</m>-vectors</title>
+	<statement>
+	<p>
 	This example corresponds to
 	<xref ref="activity-subspaces-vec-in-span-R3">Part</xref>
 	of
@@ -240,9 +264,12 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 		\left[\begin{array}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{array}\right].
 	</me>
 	Notice that <alert>the columns in the coefficient matrix are precisely the vectors in the spanning set, and the column of constants is precisely the vector that we are testing as being in <m>\Span S</m> or not</alert>.
-	</p></li>
+	</p>
+	</statement>
+</example>
 
-	<li><p>
+<example><title>A span of matrices</title><statement>
+	<p>
 	This example corresponds to
 	<xref ref="activity-subspaces-vec-in-span-M23">Part</xref>
 	of
@@ -283,9 +310,10 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 	 the pattern in the columns versus the vectors in our problem again!
 	</p></aside>
 	<p> In this matrix, the inconsistency is obvious in the fourth and fifth rows. </p>
-	</li>
+</statement></example>
 
-	<li><p>
+<example><title>A span of polynomials</title><statement>
+	<p>
 	This example corresponds to
 	<xref ref="activity-subspaces-vec-in-span-poly">Part</xref>
 	of
@@ -309,11 +337,7 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 	</p>
 	<aside><title>Notice</title><p> the pattern in the columns versus the vectors in our problem again! </p></aside>
 	<p> This system is consistent, so <m>\uvec{v}</m> is indeed in <m>\Span S</m>. </p>
-	</li>
-
-</ol>
-
-</p>
+</statement></example>
 
 </subsection>
 
@@ -323,16 +347,18 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 
 <p>
 In <xref ref="activity-subspaces-span-eq-full-space" />, we attempted to determine whether a given spanning set generated the entire vector space. In other words, we attempted to answer: is <em>every</em> vector in the vector space somehow a linear combination of spanning set vectors? In the three examples of the activity, the answer was very clearly <em>yes</em>.
-<ol>
-	<li>
+</p>
+
+<example><title>A spanning set for <m>\R^5</m></title><statement><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-R5">Part</xref>
 	of
 	<xref ref="activity-subspaces-span-eq-full-space" />,
  clearly every vector in <m>\R^5</m> can be decomposed as a linear combination of the standard basis vectors:
 	<me> (a,b,c,d,e) = a\uvec{e}_1 + b\uvec{e}_2 + c\uvec{e}_3 + d\uvec{e}_4 + e\uvec{e}_5. </me>
-	</li>
-	<li>
+</p></statement></example>
+
+<example><title>A spanning set for <m>\matrixring_2(\R)</m></title><statement><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-M2">Part</xref>
 	of
@@ -345,16 +371,15 @@ In <xref ref="activity-subspaces-span-eq-full-space" />, we attempted to determi
 		+ c\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
 		+ d\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
 	</me>
-	</li>
-	<li>
+</p></statement></example>
+
+<example><title>A spanning set for <m>\poly_3(\R)</m></title><statement><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-poly">Part</xref>
 	of
 	<xref ref="activity-subspaces-span-eq-full-space" />,
 	every vector <m>a + bx + cx^2 + dx^3</m> in <m>\poly_3(\R)</m> is <em>naturally</em> expressed as a linear combination of <m>1</m> and the powers of <m>x</m> up to <m>x^3</m>, where the scalars in the linear combination are just the coefficients of the polynomial.
-	</li>
-</ol>
-</p>
+</p></statement></example>
 
 <remark xml:id="remark-subspaces-examples-standard-spanning-sets"><p>
 	In each of the spaces in the examples above, there are analogues for other <q>dimensions</q> of vectors.
@@ -366,7 +391,11 @@ In <xref ref="activity-subspaces-span-eq-full-space" />, we attempted to determi
 </p></remark>
 
 <p>
-In more complicated examples, the question <q>Is <m>\Span S</m> equal to the whole space?</q> may be more difficult to answer with the concepts we have accumulated so far. We will make this question more manageable through a deeper study of the relationships of vectors to one another with respect to linear combinations, and by attaching a notion of <q>size</q> to subspaces. In the meantime, see <xref ref="subsection-subspaces-more-examples-span-generates-space" /> for a preliminary method of answering this question.
+In more complicated examples, the question <q>Is <m>\Span S</m> equal to the whole space?</q> may be more difficult to answer with the concepts we have accumulated so far. We will make this question more manageable through a deeper study of the relationships of vectors to one another with respect to linear combinations, and by attaching a notion of <q>size</q> to subspaces. In the meantime, see
+<xref ref="example-subspaces-more-examples-span-generates-space" />
+in
+<xref ref="section-subspaces-more-examples" />
+for a preliminary method of answering this question.
 </p>
 
 </subsection>

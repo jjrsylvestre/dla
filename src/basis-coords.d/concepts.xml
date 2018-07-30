@@ -18,6 +18,19 @@ respective owners.
 
 <title>Concepts</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-basis-coords-concepts-basis-minimal" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-basis-coords-concepts-basis-minimal" /></em></li>
+<li><xref ref="subsection-basis-coords-concepts-basis-maximal" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-basis-coords-concepts-basis-maximal" /></em></li>
+<li><xref ref="subsection-basis-coords-concepts-not-unique" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-basis-coords-concepts-not-unique" /></em></li>
+<li><xref ref="subsection-basis-coords-concepts-ordered" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-basis-coords-concepts-ordered" /></em></li>
+<li><xref ref="subsection-basis-coords-concepts-coords" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-basis-coords-concepts-coords" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-basis-coords-concepts-basis-minimal">
 <title>Basis as a minimal spanning set</title>
 
@@ -96,7 +109,11 @@ Suppose we have a basis for a vector space. Then a vector <m>\uvec{w}</m> has <e
 <m>\basisfont{B} = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>,
 and we have a vector <m>\uvec{w}</m> in <m>V</m> for which
 <me> \uvec{w} = 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3, </me>
-then the numbers <m>3,5,-1</m> (in that order) uniquely identify the vector <m>\uvec{w}</m> relative to the (ordered) basis, and no other triple of numbers identify <m>\uvec{w}</m>. These coefficients are called the <term>coordinates</term> of <m>\uvec{w}</m> relative to the basis <m>\basisfont{B}</m>. Now, we already have a concept that collects together triples of numbers in particular orders <mdash /> vectors in <m>\R^3</m>. So, in this example, to every vector in the space <m>V</m> (which may be a space of matrices or a space of functions or etc.) we can associate one unique vector in <m>\R^3</m> whose components are the coordinates of the vector relative to the basis <m>\basisfont{B}</m>. For our example vector <m>\uvec{w}</m> above, we have
+then the numbers <m>3,5,-1</m> (in that order) uniquely identify the vector <m>\uvec{w}</m> relative to the (ordered) basis, and no other triple of numbers identify <m>\uvec{w}</m>. These coefficients are called the
+<term>coordinates</term>
+<idx><h>coordinates</h></idx>
+<idx><h>vector</h><h>coordinates</h></idx>
+of <m>\uvec{w}</m> relative to the basis <m>\basisfont{B}</m>. Now, we already have a concept that collects together triples of numbers in particular orders <mdash /> vectors in <m>\R^3</m>. So, in this example, to every vector in the space <m>V</m> (which may be a space of matrices or a space of functions or etc.) we can associate one unique vector in <m>\R^3</m> whose components are the coordinates of the vector relative to the basis <m>\basisfont{B}</m>. For our example vector <m>\uvec{w}</m> above, we have
 <md>
 	<mrow> \amp\amp \uvec{w} \amp= 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3 </mrow>
 	<mrow> \amp\Longleftrightarrow \amp \rmatrixOf{\uvec{w}}{B} \amp= (3,5,-1) </mrow>
@@ -105,7 +122,11 @@ then the numbers <m>3,5,-1</m> (in that order) uniquely identify the vector <m>\
 		\amp= \left[\begin{array}{r} 3 \\ 5 \\ -1 \end{array}\right].
 	</mrow>
 </md>
-The equivalent <m>\R^3</m>-vectors <m>\rmatrixOf{\uvec{w}}{B}</m> and <m>\matrixOf{\uvec{w}}{B}</m> are each called the <term>coordinate vector</term> of <m>\uvec{w}</m> relative to <m>\basisfont{B}</m>, the only difference between the two being the presentation, either as a triple of coordinates <m>(x,y,z)</m> or as a column vector.
+The equivalent <m>\R^3</m>-vectors <m>\rmatrixOf{\uvec{w}}{B}</m> and <m>\matrixOf{\uvec{w}}{B}</m> are each called the
+<term>coordinate vector</term>
+<idx><h>coordinate vector</h></idx>
+<idx><h>vector</h><h>coordinate</h></idx>
+of <m>\uvec{w}</m> relative to <m>\basisfont{B}</m>, the only difference between the two being the presentation, either as a triple of coordinates <m>(x,y,z)</m> or as a column vector.
 </p><p>
 To repeat, since <m>\basisfont{B}</m> is a spanning set, every vector in the space can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>, and so every vector has an associated coordinate vector. And since <m>\basisfont{B}</m> is linearly independent, it contains no redundancy as a spanning set, and so each vector can only have <em>one unique</em> coordinate vector associated to it. Which also means that every vector in <m>\R^3</m> can be interpreted as a coordinate vector relative to <m>\basisfont{B}</m>, and can be traced to one particular vector in <m>V</m>.
 </p><p>

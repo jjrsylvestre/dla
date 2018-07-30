@@ -18,14 +18,23 @@ respective owners.
 
 <title>Examples</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-diagonalization-examples-diag-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-diagonalization-examples-diag-proc" /></em></li>
+<li><xref ref="subsection-diagonalization-examples-determining-diag" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-diagonalization-examples-determining-diag" /></em></li>
+<li><xref ref="subsection-diagonalization-examples-different" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-diagonalization-examples-different" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-diagonalization-examples-diag-proc">
 <title>Carrying out the diagonalization procedure</title>
 
-<p> Let's start with some examples from our activity set (<xref ref="section-diagonalization-activities" />).
-<ol>
+<p> Let's start with some examples from our activity set (<xref ref="section-diagonalization-activities" />). </p>
 
-	<li><p>
-	From <xref ref="activity-diagonalization-diag-proc" />. We want to compute bases for each eigenspace, using the same method as in <xref ref="section-eigen-values-vectors-examples" />. First, we form the matrix
+<example><title>A diagonalizable matrix</title><statement>
+	<p>
+	From <xref ref="activity-diagonalization-diag-proc" />. We want to compute bases for each eigenspace, using the same method as in the examples of <xref ref="section-eigen-values-vectors-examples" />. First, we form the matrix
 	<me>
 		\lambda I - A = \begin{bmatrix}
 			\lambda+1 \amp -9 \amp 0 \\
@@ -93,9 +102,12 @@ respective owners.
 	<me> Q = \left[\begin{array}{rrr} -3 \amp 1 \amp 0 \\ -1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 1 \end{array}\right], </me>
 	obtaining diagonal form matrix
 	<me> \inv{Q}AQ = \left[\begin{array}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right]. </me>
-	</p></li>
+	</p>
+</statement></example>
 
-	<li> From <xref ref="activity-diagonalization-non-diag-ex" />. This matrix is upper triangular, so we can see directly that the eigenvalues are <m>\lambda_1 = -1</m> with algebraic multiplicity <m>2</m>, and <m>\lambda_2 = 2</m> with algebraic multiplicity <m>1</m>. Analyze the eigenspaces:
+<example><title>A non-diagonalizable matrix</title><statement>
+	<p>
+	From <xref ref="activity-diagonalization-non-diag-ex" />. This matrix is upper triangular, so we can see directly that the eigenvalues are <m>\lambda_1 = -1</m> with algebraic multiplicity <m>2</m>, and <m>\lambda_2 = 2</m> with algebraic multiplicity <m>1</m>. Analyze the eigenspaces:
 	<md><mrow>
 		(-1)I - A \amp=
 		\begin{bmatrix}
@@ -134,10 +146,8 @@ respective owners.
 		E_{\lambda_2}(A) = \Span\left\{ \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \right\}.
 	</me>
 	We could have stopped after our analysis of <m>\lambda_1</m>, since its geometric multiplicity is only <m>1</m>, whereas we needed it to be equal to the algebraic multiplicity <m>2</m>. Since we cannot obtain enough linearly independent eigenvectors from these two eigenspaces to fill out a <m>3 \times 3</m> transition matrix <m>P</m>, matrix <m>A</m> is <em>not</em> diagonalizable.
-	</li>
-
-</ol>
-</p>
+	</p>
+</statement></example>
 
 <remark><p>
 	The matrices in the two examples above had the same eigenvalues with the same algebraic multiplicities, but one matrix was diagonalizable and the other was not. The difference was in the geometric multiplicities of the eigenvalues, which plays a crucial role in determining whether a matrix is diagonalizable.

@@ -20,20 +20,36 @@ respective owners.
 
 <title>Concepts</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-vectors-concepts-vectors" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-vectors" /></em></li>
+<li><xref ref="subsection-vectors-concepts-vec-add" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-vec-add" /></em></li>
+<li><xref ref="subsection-vectors-concepts-zero-vec" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-zero-vec" /></em></li>
+<li><xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-vec-neg-vec-subtract" /></em></li>
+<li><xref ref="subsection-vectors-concepts-scalar-mul" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-scalar-mul" /></em></li>
+<li><xref ref="subsection-vectors-concepts-algebra" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-algebra" /></em></li>
+<li><xref ref="subsection-vectors-concepts-standard-basis" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vectors-concepts-standard-basis" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-vectors-concepts-vectors">
 <title>Vectors</title>
 
 <p>
 A directed line segment (or arrow) could be thought of dynamically as describing a change in position, from the initial point to the terminal point. A two-dimensional vector in the plane or a three-dimensional vector in space captures just the <em>change</em> part of <q>change in position,</q> leaving the <em>position</em> part (<ie /> the initial and terminal points) unspecified. For example, in the plane, the instructions <q>move two units right and three units down</q> describes a way to change positions, but doesn't actually specify <em>from where</em> or <em>to where</em> the change in position is occurring. So a vector corresponds to an infinite number of directed line segments, where each of these directed line segments has a different initial point but all of them require the same <q>change</q> to change positions from initial point to terminal point. Continuing our example, <em>every</em> change in position between some initial and terminal points in the plane that requires moving two units right and three units down can be represented by the same vector.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
   <!-- description gets inserted as alt text in html img tag -->
   <description>
     Example of a vector associated to several equivalent directed line segements
   </description>
   <latex-image><xi:include href="concepts-tikz.d/vec-as-equiv-directed-segments.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 We describe a two-dimensional vector in the plane with a pair of numerical <term>components</term>: the change in <m>x</m> and the change in <m>y</m>. If <m>P(x_1,y_1)</m> and <m>Q(x_2,y_2)</m> are points in the plane, then the vector associated to the directed line segment <m>\abray{PQ}</m> has components <m>\uvec{v} = (\Delta x,\Delta y) = (x_2-x_1,y_2-y_1)</m>. (A three-dimensional vector in space requires a third component as well, the change in <m>z</m>.) Notice what happens when we use the origin <m>O(0,0)</m> as the initial point and an arbitrary point <m>R(x,y)</m> as the terminal point in a directed line segment: the vector associated to <m>\abray{OR}</m> is then <m>(x-0,y-0) = (x,y)</m>. So when the initial point is the origin, the components of the vector are exactly the coordinates of the terminal point. In <xref ref="activity-vectors-directed-line-segments" /> we saw that this works in reverse as well. That is, if we have a vector <m>\uvec{v} = (v_1,v_2)</m>, then we could consider the numbers <m>v_1,v_2</m> as coordinates of a point <m>R(x,y)</m> with <m>x=v_1</m> and <m>y=v_2</m>, and then the vector associated to <m>\abray{OR}</m> is just <m>\uvec{v}</m> again. In this way, every vector corresponds to <em>one unique</em> directed line segment with initial point at the origin, and so that is sort of the <q>natural position</q> of the vector as a directed line segment. But we will find that it is often convenient to consider other directed line segments that correspond to a particular vector.
@@ -49,32 +65,30 @@ We live in a three-dimensional world (or, at least, it appears that way to us), 
 
 <p>
 A vector describes a change in position. If we chain two changes in position together, by making the initial point of the second vector the same as the terminal point of the first vector, then we could consider the overall change in position.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
   <!-- description gets inserted as alt text in html img tag -->
   <description>
     Moving directly from the initial point of one vector to the terminal point of another vector, when the two vectors are <q>chained</q> together, tail-to-head.
   </description>
   <latex-image><xi:include href="concepts-tikz.d/vec-add-1.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 If these are points and vectors in the plane, then clearly the change in position from <m>P</m> to <m>R</m> will be described by the <em>total net</em> change in <m>x</m> and the <em>total net</em> change in <m>y</m>, as we discovered in <xref ref="activity-vectors-geom-vec-add" />. So, in the diagram above, we obtain the components for the vector corresponding to <m>\abray{PR}</m> by adding corresponding components of <m>\uvec{u}</m> and <m>\uvec{v}</m>. That is, if <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>, then the components of the dashed arrow labelled with a question mark are <m>(u_1+v_1,u_2+v_2)</m>. For obvious reasons, we call this the <term>sum</term> of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
   <!-- description gets inserted as alt text in html img tag -->
   <description>Diagram of a vector sum.</description>
   <latex-image><xi:include href="concepts-tikz.d/vec-add-2.tex" parse="text" /></latex-image>
-</image>
-</p><p>
-In <xref ref="activity-vectors-geom-vec-add" /> we also considered the result of interchanging the order of a pair of vectors that have been chained together.
-</p><p>
-<image width="100%">
+</image></sidebyside>
+<p> In <xref ref="activity-vectors-geom-vec-add" /> we also considered the result of interchanging the order of a pair of vectors that have been chained together. </p>
+<sidebyside><image width="100%">
   <!-- description gets inserted as alt text in html img tag -->
   <description>Diagram of the commutivity of vector sums.</description>
   <latex-image><xi:include href="concepts-tikz.d/vec-add-3.tex" parse="text" /></latex-image>
-</image>
-</p><p>
-In the diagram above, the vector for <m>\abray{PQ'}</m> is the same as that for <m>\abray{QR}</m>, because they represent the same change in position, just with a different initial point. Accordingly, we have labelled both vectors with <m>\uvec{v}</m>. And the same applies to <m>\uvec{u}</m> with respect to <m>\abray{PQ}</m> and <m>\abray{Q'R}</m>. The diagram illustrates that if we start at <m>P</m> and chain together the change-of-position instructions contained in vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, the order that we do so does not matter <mdash /> the overall change in position will be from <m>P</m> to <m>R</m>. Thus, <em>the order of vector addition doesn't matter</em>. Algebraically, we could have predicted that this would be the case because it doesn't matter what order you add components: the identities <m>u_1+v_1=v_1+u_1</m> and <m>u_2+v_2=v_2+v_2</m> are both valid. But it's useful conceptually to have the above geometric picture of vector addition because, whether you believe this about yourself or not, <em>humans are spatial thinkers</em>. And the geometric version of the vector identity <m>\uvec{v}+\uvec{u}=\uvec{u}+\uvec{v}</m> makes a pretty picture of a parallelogram, so we call it the <term>parallelogram rule</term>.
+</image></sidebyside>
+<p>
+In the diagram above, the vector for <m>\abray{PQ'}</m> is the same as that for <m>\abray{QR}</m>, because they represent the same change in position, just with a different initial point. Accordingly, we have labelled both vectors with <m>\uvec{v}</m>. And the same applies to <m>\uvec{u}</m> with respect to <m>\abray{PQ}</m> and <m>\abray{Q'R}</m>. The diagram illustrates that if we start at <m>P</m> and chain together the change-of-position instructions contained in vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, the order that we do so does not matter <mdash /> the overall change in position will be from <m>P</m> to <m>R</m>. Thus, <em>the order of vector addition doesn't matter</em>. Algebraically, we could have predicted that this would be the case because it doesn't matter what order you add components: the identities <m>u_1+v_1=v_1+u_1</m> and <m>u_2+v_2=v_2+v_2</m> are both valid. But it's useful conceptually to have the above geometric picture of vector addition because, whether you believe this about yourself or not, <em>humans are spatial thinkers</em>. And the geometric version of the vector identity <m>\uvec{v}+\uvec{u}=\uvec{u}+\uvec{v}</m> makes a pretty picture of a parallelogram, so we call it the <term>parallelogram rule</term><idx><h>parallelogram rule</h></idx>.
 </p><p>
 For three-dimensional vectors, we can imagine diagrams like the ones we have drawn above floating in space, and the parallelogram rule would hold there as well. In higher dimensions, we cannot draw pictures, but we could imagine that they are similar. At any rate, the algebra of vector addition is the same in any dimension: for
 <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m>
@@ -103,13 +117,12 @@ As we explored in <xref ref="activity-vectors-zero-vec" />, if we chain together
 
 <p>
 If we move from <m>P</m> to <m>Q</m>, and from there move from <m>Q</m> back to <m>P</m>, the net result is no change in position, which is represented by the zero vector. This means if we add the vector corresponding to <m>\abray{PQ}</m> to the one corresponding to <m>\abray{QP}</m>, the result is <m>\zerovec</m>. So if we label the vector for <m>\abray{PQ}</m> as <m>\uvec{v}</m>, it seems reasonable to label the vector for <m>\abray{QP}</m> as <m>-\uvec{v}</m>, the <term>negative</term> of <m>\uvec{v}</m>, so that we have <m>\uvec{v} + (-\uvec{v}) = \zerovec</m>.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a vector and its negative</description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-neg-1.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 If we are to have <m>\uvec{v}+(-\uvec{v}) = \zerovec</m>, and the components of <m>\zerovec</m> are all <m>0</m>, then since we add vectors by adding corresponding components, the components of <m>-\uvec{v}</m> must be the negatives of the components of <m>\uvec{v}</m>. For example, if <m>\uvec{v} = (v_1,v_2)</m> in the plane, then <m>-\uvec{v} = (-v_1,-v_2)</m>. In any dimension, we have
@@ -129,47 +142,45 @@ This relationship between the components of <m>\uvec{v}</m> and <m>-\uvec{v}</m>
 
 <p>
 Remembering that the <q>natural</q> position for a vector is with its tail at the origin, its useful to visualize negatives in the following manner.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a vector and its negative</description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-neg-2.tex" parse="text" /></latex-image>
-</image>
-</p><p>
-That is, the negative of a vector will change positions by the same distance but in the opposite direction.
-</p>
+</image></sidebyside>
+<p> That is, the negative of a vector will change positions by the same distance but in the opposite direction. </p>
 
 <p>
 To subtract vectors, we add to a vector the negative of another.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of vector subtraction.</description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-subtract-1.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 Here, the diagonal vector labelled <m>\uvec{u} - \uvec{v}</m> is obtained by adding <m>\uvec{u}</m> and <m>-\uvec{v}</m>. As we explored in <xref ref="activity-vectors-diff-vec-between-heads" />, we get an interesting pattern if we draw in another copy of the vector labelled <m>\uvec{u}-\uvec{v}</m> with its initial point at <m>R</m>.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
     Diagram showing the connection between vector subtraction, addition, and negative.
   </description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-subtract-2.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 Triangle <m>\abctriangle{RP'P}</m> creates the vector addition pattern <m>\uvec{u} + (-\uvec{v}) = \uvec{u} - \uvec{v}</m>. But notice that <m>\abctriangle{ORP}</m> creates a vector addition pattern starting at <m>O</m> and ending up at <m>P</m>, by <m>\uvec{v} + (\uvec{u}-\uvec{v}) = \uvec{u}</m>. So we can think of a difference of two vectors as <em>a vector that runs between the heads of the two vectors in the difference when they share the same initial point</em>. Algebraically, we can think of the <m>\uvec{v}</m> and <m>-\uvec{v}</m> cancelling in the expression <m>\uvec{v} + (\uvec{u}-\uvec{v})</m>, leaving just <m>\uvec{u}</m>.
 </p><p>
 Of course, there are two vectors that run between the heads of <m>\uvec{u}</m> and <m>\uvec{v}</m>, namely <m>\uvec{u}-\uvec{v}</m> and its negative.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
     Diagram showing the connection between vector subtraction, addition, and negative.
   </description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-subtract-3.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 Now <m>\abctriangle{PP'R}</m> creates the vector addition pattern starting at <m>P</m> and ending up at <m>R</m>, so that <m>\uvec{v}+(-\uvec{u})=\uvec{v}-\uvec{u}</m>. But also <m>\abctriangle{OPR}</m> creates a vector addition pattern starting at <m>O</m> and ending up at <m>R</m>, so that <m>\uvec{u} + (\uvec{v}-\uvec{u}) = \uvec{v}</m>. And finally, the fact that <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> both run between <m>P</m> and <m>R</m>, but in opposite directions, verifies geometrically that <m>-(\uvec{u}-\uvec{v}) = \uvec{v} - \uvec{u}</m>, as we would expect algebraically.
 </p>
 
@@ -180,23 +191,27 @@ Now <m>\abctriangle{PP'R}</m> creates the vector addition pattern starting at <m
 
 <p>
 Geometrically, when we scalar multiply a vector we <q>stretch</q> or <em>scale</em> its length by the scale factor. (If this scale factor is negative, then we also flip the vector around in the opposite direction.) Here are some examples.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a scalar multiple of a vector.</description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-scalar-mul.tex" parse="text" /></latex-image>
-</image>
-</p><p>
-Notice how each of these vectors either points in the same direction or in the opposite direction to <m>\uvec{v}</m>. In particular, they are all <term>parallel</term> to one another. This happens precisely when the vectors are scalar multiples of one another.
+</image></sidebyside>
+<p>
+Notice how each of these vectors either points in the same direction or in the opposite direction to <m>\uvec{v}</m>. In particular, they are all
+<term>parallel</term>
+<idx><h>parallel vectors</h></idx>
+<idx><h>vector</h><h>parallel</h></idx>
+to one another. This happens precisely when the vectors are scalar multiples of one another.
 </p><p>
 Thinking of the vectors in the diagram above as vectors in the plane, if we scale <m>\uvec{v}</m> by a factor of <m>2</m>, then our knowledge of similar triangles tells us that the change in both <m>x</m> and <m>y</m> must be double.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of scalar multiplication as stretching the length of a vector.</description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-scalar-mul-similar-tri.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 So if <m>\uvec{v} = (v_1,v_2)</m>, then <m>2\uvec{v} = (2v_1,2v_2)</m>. This relationship between original vector <m>\uvec{v}</m> and scaled vector <m>k\uvec{v}</m> holds in general, in any dimension, and even for negative <m>k</m>:
 <md><mrow>
 	\uvec{v} \amp= (v_1,v_2,\dotsc,v_n) \amp
@@ -216,15 +231,13 @@ In the case that <m>k=-1</m>, we obtain the identity <m>(-1)\uvec{v} = -\uvec{v}
 We can connect scalar multiplication to addition, as we explored in
 <xref ref="activity-vectors-scalar-mul" />.
 If we add a vector to itself, then the sum vector will be twice as long as the original.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram relating scalar multiplication to vector addition.</description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-scalar-mul-vs-add.tex" parse="text" /></latex-image>
-</image>
-</p><p>
-So we have <m>\uvec{v}+\uvec{v} = 2\uvec{v}</m>.
-</p>
+</image></sidebyside>
+<p> So we have <m>\uvec{v}+\uvec{v} = 2\uvec{v}</m>. </p>
 
 </subsection>
 
@@ -240,15 +253,15 @@ We have already discovered a few rules of vector algebra, such as
 	(-1)\uvec{v} = -\uvec{v}.
 </mrow></md>
 In <xref ref="activity-vectors-scalar-mul-distrib" />, we explored a version of the distributive rule <m>k(\uvec{u}+\uvec{v}) = k\uvec{u} + k\uvec{v}</m> in the case <m>k=2</m>.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
     Diagram illustrating distribution of scalar multiplication over vector addition.
   </description>
 	<latex-image><xi:include href="concepts-tikz.d/vec-scalar-mul-distrib.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 We will provide more rules of vector algebra as
 <xref ref="proposition-vectors-Rn-algebra-rules" />
 in
@@ -281,25 +294,24 @@ that proposition.
 
 <p>
 In <xref ref="activity-vectors-standard-basis" />, we encountered two very special vectors in the plane, <m>\uvec{e}_1 = (1,0)</m> and <m>\uvec{e}_2 = (0,1)</m>. These two vectors could be considered the <em>fundamental</em> changes in position in the plane <mdash /> <m>\uvec{e}_1</m> represents a change by one unit right, and <m>\uvec{e}_2</m> represents a change by one unit up.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the standard basis vectors in <m>\R^2</m></description>
 	<latex-image><xi:include href="concepts-tikz.d/standard-basis-R2.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 Any change in position can be built out of these two fundamental changes in position. Using the example in <xref ref="activity-vectors-standard-basis" />, the vector <m>\uvec{v} = (5,2)</m> represents a change in position by <m>5</m> units right and <m>2</m> units up. We can achieve the <q><m>5</m> units right</q> part with <m>5\uvec{e}_1 = (5,0)</m> and the <q><m>2</m> units up part</q> with <m>2\uvec{e}_2 = (0,2)</m>. To get the total change in position represented by <m>\uvec{v}</m>, we can combine these two building blocks in the <term>linear combination</term> <m>\uvec{v} = 5\uvec{e}_1 + 2\uvec{e}_2</m>.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
     Diagram of a vector decomposition in terms of the standard basis vectors in <m>\R^2</m>
   </description>
 	<latex-image><xi:include href="concepts-tikz.d/standard-basis-R2-vec-decomp.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 As you can imagine, every vector in the plane can be decomposed into a linear combination of <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> in this manner: for <m>\uvec{v} = (v_1,v_2)</m>, we have <m>\uvec{v} = v_1\,\uvec{e}_1 + v_2\,\uvec{e}_2</m>.
 For this reason, the two vectors <m>\uvec{e}_1,\uvec{e}_2</m> together are called the <term>standard basis vectors</term> in <m>\R^2</m>, as they form a basis from which every other vector can be constructed. To use a chemical analogy, these two vectors are the basic <em>atoms</em> of <m>\R^2</m>, and every other vector in <m>\R^2</m> is a <em>molecule</em> built out of a specific combination of these atoms. Since there are only two fundamental directions in <m>\R^2</m> (right/left and up/down), it is not surprising that we need only two basis vectors to represent all possible directions. This is the reason we call vectors in <m>\R^2</m> <term>two-dimensional vectors</term>.
 </p>
@@ -315,13 +327,12 @@ In <m>\R^3</m>, there are <em>three</em> fundamental directions, two horizontal 
 	\uvec{e}_3 \amp= (0,0,1),
 </mrow></md>
 which we can visualize as below.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the standard basis vectors in <m>\R^3</m></description>
 	<latex-image><xi:include href="concepts-tikz.d/standard-basis-R3.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 <aside><title>Note</title><p>
   In this diagram, you should view the <m>z</m>-axis as coming straight up out of the <m>xy</m>-plane.
 </p></aside>

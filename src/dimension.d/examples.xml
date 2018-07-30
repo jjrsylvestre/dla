@@ -18,157 +18,166 @@ respective owners.
 
 <title>Examples</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-dimension-examples-basis-from-params" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-dimension-examples-basis-from-params" /></em></li>
+<li><xref ref="subsection-dimension-examples-infinite" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-dimension-examples-infinite" /></em></li>
+<li><xref ref="subsection-dimension-examples-enlarge-indep" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-dimension-examples-enlarge-indep" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-dimension-examples-basis-from-params">
 <title>Determining a basis from a parametric expression</title>
 
-<paragraphs><title>Examples from the activity set</title>
+<example><title>From the activity set</title><statement>
 
-<p>First, let's carry out some of the examples from <xref ref="activity-dimension-basis-via-parameters" />.
-<ol>
+	<p>First, let's carry out some of the examples from <xref ref="activity-dimension-basis-via-parameters" />.
+	<ol>
 
-	<li><p>
-	In
-	<xref ref="activity-dimension-basis-via-parameters-R3-first-equal-third">Part</xref>
-	of
-	<xref ref="activity-dimension-basis-via-parameters" />,
-	we considered a certain subspace of <m>\R^3</m>.
+		<li><p>
+		In
+		<xref ref="activity-dimension-basis-via-parameters-R3-first-equal-third">Part</xref>
+		of
+		<xref ref="activity-dimension-basis-via-parameters" />,
+		we considered a certain subspace of <m>\R^3</m>.
+		</p><p>
+		An arbitrary vector in <m>\R^3</m> requires three parameters to describe its three components: <m>\uvec{x} = (a,b,c)</m>. If we restrict to just those vectors whose first and third components are equal, we can replace <m>c</m> by <m>a</m>, to get
+		<me> \uvec{x} = (a,b,a) = (a,0,a) + (0,b,0) = a(1,0,1) + b(0,1,0). </me>
+		So a basis for this subspace of <m>\R^3</m> is <m>\basisfont{B} = \{(1,0,1),(0,1,0)\}</m>, and the dimension is <m>2</m>.
+		</p></li>
+
+		<li><p>
+		In
+		<xref ref="activity-dimension-basis-via-parameters-M2-sum-to-zero">Part</xref>
+		of
+		<xref ref="activity-dimension-basis-via-parameters" />,
+		we considered a certain subspace of <m>\matrixring_2(\R)</m>.
+		</p><p>
+		An arbitrary matrix in <m>\matrixring_2(\R)</m> requires four parameters to describe its four entries:
+		<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}. </me>
+		If we restrict to those matrices whose entries sum to zero, so that <m>a+b+c+d=0</m>, then we can isolate <m>d=-a-b-c</m> and substitute that into the matrix:
+		<md>
+			<mrow> A \amp= \begin{bmatrix} a \amp b \\ c \amp -a-b-c \end{bmatrix} </mrow>
+			<mrow>
+				\amp
+				= \left[\begin{array}{rr} a \amp 0 \\ 0 \amp -a \end{array}\right]
+				+ \left[\begin{array}{rr} 0 \amp b \\ 0 \amp -b \end{array}\right]
+				+ \left[\begin{array}{rr} 0 \amp 0 \\ c \amp -c \end{array}\right]
+			</mrow>
+			<mrow>
+				\amp
+				= a\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
+				+ b\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+				+ c\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right].
+			</mrow>
+		</md>
+		So this subspace of <m>\matrixring_2(\R)</m> has dimension <m>3</m>, with basis
+		<me>
+			\basisfont{B} = \left\{
+				\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right],
+				\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right],
+				\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right]
+			\right\}.
+		</me>
+		</p></li>
+
+		<li><p>
+		In
+		<xref ref="activity-dimension-basis-via-parameters-P5-odd">Part</xref>
+		of
+		<xref ref="activity-dimension-basis-via-parameters" />,
+		we considered a certain subspace of <m>\poly_5(\R)</m>.
+		</p><p>
+		An arbitrary polynomial in <m>\poly_5(\R)</m> requires <em>six</em> parameters, one for each power of <m>x</m>, along with a parameter for the constant term:
+		<me> p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 + a_5 x^5. </me>
+		If we restrict to only odd polynomials, we need to eliminate the constant term and the even powers of <m>x</m>:
+		<me> p(x) = a_1 x + a_3 x^3 + a_5 x^5. </me>
+		(Equivalently, we have applied the homogeneous conditions <m>a_0 = 0</m>, <m>a_2 = 0</m>, and <m>a_4 = 0</m>.)
+		So this subspace of <m>\poly_5(\R)</m> has dimension <m>3</m>, with basis <m>\basisfont{B} = \{x,x^3,x^5\}</m>.
+		</p></li>
+
+	</ol></p>
+
+</statement></example>
+
+
+<example><title>Dimensions of familiar spaces via parameters</title><statement>
+
+	<p>
+	Now let's examine how the dimensions of our favourite example spaces relate to our parametric point of view. We considered specific examples of these in parts of <xref ref="activity-dimension-basis-via-parameters" />, but here we'll work more generally.
+	<ol>
+		<li>
+		An arbitrary vector in <m>\R^n</m> requires <m>n</m> parameters, one for each component:
+		<me> \uvec{x} = (x_1,x_2,\dotsc,x_n). </me>
+		If we expanded this into a linear combination, each parameter would be attached to a standard basis vector <m>\uvec{e}_j</m>. Since we've got <m>n</m> parameters and a corresponding <m>n</m> standard basis vectors, we have <me>\dim \R^n = n. </me>
+		</li>
+		<li>
+		An arbitrary <m>m\times n</m> matrix in <m>\matrixring_{m \times n}(\R)</m> requires <m>mn</m> parameters, one for each entry:
+		<me> A = [a_{ij}], \qquad 1 \le i \le m, \;\; 1 \le j \le n. </me>
+		If we expanded this into a linear combination, each parameter would be attached to a standard basis matrix <m>E_{ij}</m>, with zeros in all entries except for a single <m>1</m> in the <m>\nth[(i,j)]</m> entry. Since we've got <m>mn</m> parameters and a corresponding <m>mn</m> standard basis matrices, we have <me> \dim \matrixring_{m \times n}(\R) = mn. </me>
+		</li>
+		<li>
+		An arbitrary polynomial in <m>\poly_n(\R)</m>, the space of polynomials of degree <m>n</m> or less, requires <m>n+1</m> parameters, one for each power of <m>x</m> plus an extra one for the constant term:
+		<me> p(x) = a_0 + a_1x + a_2 x^2 + \dotsb + a_n x^n. </me>
+		This is already naturally expressed as a linear combination, and each parameter is attached to a polynomial from the standard basis <m>\basisfont{B} = \{1,x,x^2,\dotsc,x^n\}</m>. Since we've got <m>n+1</m> parameters and a corresponding <m>n+1</m> standard basis polynomials, we have <me> \dim \poly_n(\R) = n+1. </me>
+		</li>
+	</ol>
+	</p>
+
+</statement></example>
+
+
+<example><title>The solution space of a homogeneous system</title><statement>
+
+	<p>
+	In <xref ref="remark-dimension-concepts-parameter-procedure" />, we noted how assigning parameters after row reducing a homogeneous system corresponded directly to a parameter-based procedure for determine the basis for a space. Let's illustrate this correspondence with an example.
 	</p><p>
-	An arbitrary vector in <m>\R^3</m> requires three parameters to describe its three components: <m>\uvec{x} = (a,b,c)</m>. If we restrict to just those vectors whose first and third components are equal, we can replace <m>c</m> by <m>a</m>, to get
-	<me> \uvec{x} = (a,b,a) = (a,0,a) + (0,b,0) = a(1,0,1) + b(0,1,0). </me>
-	So a basis for this subspace of <m>\R^3</m> is <m>\basisfont{B} = \{(1,0,1),(0,1,0)\}</m>, and the dimension is <m>2</m>.
-	</p></li>
-
-	<li><p>
+	Consider the homogeneous system in <xref ref="activity-row-red-system-homog-sol" />, which we solved in
+	<xref ref="example-row-red-examples-solving-homog" />.
 	In
-	<xref ref="activity-dimension-basis-via-parameters-M2-sum-to-zero">Part</xref>
-	of
-	<xref ref="activity-dimension-basis-via-parameters" />,
-	we considered a certain subspace of <m>\matrixring_2(\R)</m>.
-	</p><p>
-	An arbitrary matrix in <m>\matrixring_2(\R)</m> requires four parameters to describe its four entries:
-	<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}. </me>
-	If we restrict to those matrices whose entries sum to zero, so that <m>a+b+c+d=0</m>, then we can isolate <m>d=-a-b-c</m> and substitute that into the matrix:
-	<md>
-		<mrow> A \amp= \begin{bmatrix} a \amp b \\ c \amp -a-b-c \end{bmatrix} </mrow>
-		<mrow>
-			\amp
-			= \left[\begin{array}{rr} a \amp 0 \\ 0 \amp -a \end{array}\right]
-			+ \left[\begin{array}{rr} 0 \amp b \\ 0 \amp -b \end{array}\right]
-			+ \left[\begin{array}{rr} 0 \amp 0 \\ c \amp -c \end{array}\right]
-		</mrow>
-		<mrow>
-			\amp
-			= a\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
-			+ b\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
-			+ c\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right].
-		</mrow>
-	</md>
-	So this subspace of <m>\matrixring_2(\R)</m> has dimension <m>3</m>, with basis
+	<xref ref="example-subspaces-examples-solution-space" />,
+	we used the Subspace Test to verify that the solution set of a homogeneous system with an <m>m\times n</m> coefficient matrix is a subspace of <m>\R^n</m>. The system from <xref ref="activity-row-red-system-homog-sol" /> has a <m>4 \times 4</m> coefficient matrix that we reduced:
+	<me>
+		\left[\begin{array}{rrrr}
+			3 \amp 6 \amp -8 \amp 13 \\
+			1 \amp 2 \amp -2 \amp 3 \\
+			2 \amp 4 \amp -5 \amp 8
+		\end{array}\right]
+		\qquad\rowredarrow\qquad
+		\left[\begin{array}{rrrr}
+			1 \amp 2 \amp 0 \amp -1 \\
+			0 \amp 0 \amp 1 \amp -2 \\
+			0 \amp 0 \amp 0 \amp 0
+		\end{array}\right].
+	</me>
+	Assigning parameters to free variables <m>x_2,x_4</m>, we obtained the general solution in parametric form:
+	<md><mrow>
+		x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t.
+	</mrow></md>
+	We can use these expressions as components in a general solution vector, and expand out it a linear combination, just as in the previous examples in this subsection:
+	<me>
+		\uvec{x}
+		= \begin{bmatrix} -2s + t \\ s \\ 2t \\ t \end{bmatrix}
+		= \begin{bmatrix} -2s \\ s \\ 0 \\ 0 \end{bmatrix}
+		+ \begin{bmatrix} t \\ 0 \\ 2t \\ t \end{bmatrix}
+		= s\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right]
+		+ t\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
+	</me>
+	Since two parameters are needed to describe the solution vectors for this system, the solution space has dimension <m>2</m>, and a basis for this subspace is
 	<me>
 		\basisfont{B} = \left\{
-			\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right],
-			\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right],
-			\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right]
+			\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right],
+			\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
 		\right\}.
 	</me>
-	</p></li>
+	</p>
+	<aside><title>A look ahead</title><p>
+		We will study solution spaces of homogeneous systems further in
+		<xref ref="chapter-col-row-null-space" />.
+	</p></aside>
 
-	<li><p>
-	In
-	<xref ref="activity-dimension-basis-via-parameters-P5-odd">Part</xref>
-	of
-	<xref ref="activity-dimension-basis-via-parameters" />,
-	we considered a certain subspace of <m>\poly_5(\R)</m>.
-	</p><p>
-	An arbitrary polynomial in <m>\poly_5(\R)</m> requires <em>six</em> parameters, one for each power of <m>x</m>, along with a parameter for the constant term:
-	<me> p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 + a_5 x^5. </me>
-	If we restrict to only odd polynomials, we need to eliminate the constant term and the even powers of <m>x</m>:
-	<me> p(x) = a_1 x + a_3 x^3 + a_5 x^5. </me>
-	(Equivalently, we have applied the homogeneous conditions <m>a_0 = 0</m>, <m>a_2 = 0</m>, and <m>a_4 = 0</m>.)
-	So this subspace of <m>\poly_5(\R)</m> has dimension <m>3</m>, with basis <m>\basisfont{B} = \{x,x^3,x^5\}</m>.
-	</p></li>
-
-</ol></p>
-
-</paragraphs>
-
-<paragraphs><title>Dimensions of familiar spaces via parameters</title>
-
-<p>
-Now let's examine how the dimensions of our favourite example spaces relate to our parametric point of view. We considered specific examples of these in parts of <xref ref="activity-dimension-basis-via-parameters" />, but here we'll work more generally.
-<ol>
-	<li>
-	An arbitrary vector in <m>\R^n</m> requires <m>n</m> parameters, one for each component:
-	<me> \uvec{x} = (x_1,x_2,\dotsc,x_n). </me>
-	If we expanded this into a linear combination, each parameter would be attached to a standard basis vector <m>\uvec{e}_j</m>. Since we've got <m>n</m> parameters and a corresponding <m>n</m> standard basis vectors, we have <me>\dim \R^n = n. </me>
-	</li>
-	<li>
-	An arbitrary <m>m\times n</m> matrix in <m>\matrixring_{m \times n}(\R)</m> requires <m>mn</m> parameters, one for each entry:
-	<me> A = [a_{ij}], \qquad 1 \le i \le m, \;\; 1 \le j \le n. </me>
-	If we expanded this into a linear combination, each parameter would be attached to a standard basis matrix <m>E_{ij}</m>, with zeros in all entries except for a single <m>1</m> in the <m>\nth[(i,j)]</m> entry. Since we've got <m>mn</m> parameters and a corresponding <m>mn</m> standard basis matrices, we have <me> \dim \matrixring_{m \times n}(\R) = mn. </me>
-	</li>
-	<li>
-	An arbitrary polynomial in <m>\poly_n(\R)</m>, the space of polynomials of degree <m>n</m> or less, requires <m>n+1</m> parameters, one for each power of <m>x</m> plus an extra one for the constant term:
-	<me> p(x) = a_0 + a_1x + a_2 x^2 + \dotsb + a_n x^n. </me>
-	This is already naturally expressed as a linear combination, and each parameter is attached to a polynomial from the standard basis <m>\basisfont{B} = \{1,x,x^2,\dotsc,x^n\}</m>. Since we've got <m>n+1</m> parameters and a corresponding <m>n+1</m> standard basis polynomials, we have <me> \dim \poly_n(\R) = n+1. </me>
-	</li>
-</ol>
-</p>
-
-</paragraphs>
-
-<paragraphs><title>The solution space of a homogeneous system</title>
-
-<p>
-In <xref ref="remark-dimension-concepts-parameter-procedure" />, we noted how assigning parameters after row reducing a homogeneous system corresponded directly to a parameter-based procedure for determine the basis for a space. Let's illustrate this correspondence with an example.
-</p><p>
-Consider the homogeneous system in <xref ref="activity-row-red-system-homog-sol" />, which we solved in
-<xref ref="paragraphs-row-red-examples-solving-homog">Example</xref>
-of
-<xref ref="section-row-red-examples" />.
-In
-<xref ref="subsection-subspaces-examples-important" />,
-we used the Subspace Test to verify that the solution set of a homogeneous system with an <m>m\times n</m> coefficient matrix is a subspace of <m>\R^n</m>. The system from <xref ref="activity-row-red-system-homog-sol" /> has a <m>4 \times 4</m> coefficient matrix that we reduced:
-<me>
-	\left[\begin{array}{rrrr}
-		3 \amp 6 \amp -8 \amp 13 \\
-		1 \amp 2 \amp -2 \amp 3 \\
-		2 \amp 4 \amp -5 \amp 8
-	\end{array}\right]
-	\qquad\rowredarrow\qquad
-	\left[\begin{array}{rrrr}
-		1 \amp 2 \amp 0 \amp -1 \\
-		0 \amp 0 \amp 1 \amp -2 \\
-		0 \amp 0 \amp 0 \amp 0
-	\end{array}\right].
-</me>
-Assigning parameters to free variables <m>x_2,x_4</m>, we obtained the general solution in parametric form:
-<md><mrow>
-	x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t.
-</mrow></md>
-We can use these expressions as components in a general solution vector, and expand out it a linear combination, just as in the previous examples in this subsection:
-<me>
-	\uvec{x}
-	= \begin{bmatrix} -2s + t \\ s \\ 2t \\ t \end{bmatrix}
-	= \begin{bmatrix} -2s \\ s \\ 0 \\ 0 \end{bmatrix}
-	+ \begin{bmatrix} t \\ 0 \\ 2t \\ t \end{bmatrix}
-	= s\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right]
-	+ t\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
-</me>
-Since two parameters are needed to describe the solution vectors for this system, the solution space has dimension <m>2</m>, and a basis for this subspace is
-<me>
-	\basisfont{B} = \left\{
-		\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right],
-		\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
-	\right\}.
-</me>
-</p>
-<aside><title>A look ahead</title><p>
-	We will study solution spaces of homogeneous systems further in
-	<xref ref="chapter-col-row-null-space" />.
-</p></aside>
-
-</paragraphs>
+</statement></example>
 
 </subsection>
 

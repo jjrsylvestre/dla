@@ -18,17 +18,36 @@ respective owners.
 
 <title>Concepts</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-vector-geom-concepts-norm" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-norm" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-norm-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-norm-props" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-unit-vectors" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-unit-vectors" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-distance-between" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-distance-between" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-angle" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-angle" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-dot-product" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-dot-product" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-angle-in-Rn" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-angle-in-Rn" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-dot-prod-vs-norm" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-dot-prod-vs-norm" /></em></li>
+<li><xref ref="subsection-vector-geom-concepts-dot-prod-vs-matrix-mult" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-concepts-dot-prod-vs-matrix-mult" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-vector-geom-concepts-norm">
 <title>Geometric length of a vector: the norm</title>
 
 <p>We can easily determine the length of a vector in the plane from its components using the Pythagorean Theorem.</p>
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Using Pythagoras to determine the length of a vector.</description>
 	<latex-image><xi:include href="concepts-tikz.d/pythag.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 <p>
 If we let <m>\ell</m> represent the length of <m>\uvec{v}</m>, then Pythagoras tells us that
 <me> \ell^2 = (\Delta x)^2 + (\Delta y)^2. </me>
@@ -45,13 +64,11 @@ We write <m>\unorm{v}</m> to mean the length of the vector <m>\uvec{v}</m> in th
 <p>
 For a vector <m>\uvec{v} = (v_1,v_2,v_3)</m> in <m>\R^3</m>, consider the vector <m>\uvec{v}' = (v_1,v_2,0)</m> sitting in the <m>xy</m>-plane.
 </p>
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Using Pythagoras to determine the length of a vector.</description>
 	<latex-image><xi:include href="concepts-tikz.d/pythag-3d.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 <p>
 Applying the Pythagorean Theorem to the vertical triangle, we find
 <me> \unorm{v}^2 = \norm{\uvec{v}'}^2 + (\Delta z)^2. </me>
@@ -139,20 +156,18 @@ are always unit vectors, as long as <m>\uvec{v} \neq \zerovec</m>.
 As we saw in <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" />, if we think of <m>\uvec{u}</m> and <m>\uvec{v}</m> as sharing the same initial points, then the difference vectors <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 </p>
 
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of difference vectors.</description>
 	<latex-image><xi:include href="concepts-tikz.d/distance.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 So we can measure the distance between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m> by computing <m>\norm{\uvec{u}-\uvec{v}}</m> or <m>\norm{\uvec{v}-\uvec{u}}</m>, as we discovered in <xref ref="activity-vector-geom-vec-distance" />. This process is even more straightforward when the common initial point of <m>\uvec{u}</m> and <m>\uvec{v}</m> is chosen to be the origin, so that the components of <m>\uvec{u}</m> and <m>\uvec{v}</m> are the same as the coordinates of their respective terminal points.
 </p>
 
 <remark><p>
-	The analysis above uses a useful strategy to compute distances in the plane or in space: determine some vector that traverses the distance in question, and then compute the norm of that vector to obtain the desired distance. Combined with some of the vector geometry that we will develop in the next few chapters, this strategy is often easier than trying to determine the coordinates of the points at the endpoints of the desired distance. You should remember this strategy when we explore the geometry of lines and planes in
+	The analysis above illustrates a useful strategy to compute distances in the plane or in space: determine some vector that traverses the distance in question, and then compute the norm of that vector to obtain the desired distance. Combined with some of the vector geometry that we will develop in the next few chapters, this strategy is often easier than trying to determine the coordinates of the points at the endpoints of the desired distance. You should remember this strategy when we explore the geometry of lines and planes in
 	<xref first="chapter-orthog" last="chapter-system-geom">Chapters</xref>.
 </p></remark>
 
@@ -164,39 +179,33 @@ So we can measure the distance between the terminal points of <m>\uvec{u}</m> an
 
 <p>Two vectors in the plane, when given the same initial point, have two angles between them.</p>
 
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the angles between two vectors in the plane.</description>
 	<latex-image><xi:include href="concepts-tikz.d/angle.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 We only need to know one of these two angles, since the other can be computed from the knowledge that the sum of the two angles is <m>2\pi</m> radians. We generally prefer to avoid ambiguity in math, so it would be nice to have a systematic way to choose one of the two angles between a pair of vectors that we can refer to as <em>the</em> angle between the vectors.  We will not distinguish between clockwise and counterclockwise, because those terms will become meaningless when we move up a dimension. Instead we will always choose the smaller angle to be <em>the</em> angle between the two vectors.
 </p>
 
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
 		Diagram illustrating the preference of the interior angle between two vectors in the plane.
 	</description>
 	<latex-image><xi:include href="concepts-tikz.d/interior-vs-exterior-angles.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 Thus, the angle between two vectors in the plane will always be between <m>0</m> and <m>\pi</m> radians. Note that it is possible for the angle to be <em>exactly</em> <m>0</m> radians or <em>exactly</em> <m>\pi</m> radians, in the case the the two vectors are parallel.
 </p>
 
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the angles between parallel vectors in the plane.</description>
 	<latex-image><xi:include href="concepts-tikz.d/parallel-vec-angles.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 In space, two vectors that are positioned to share the same initial point can be completed to a triangle, and that triangle will lie in a plane. The angle between the two vectors can then be taken to be the smaller of the two angles between the two vectors in that shared plane.
@@ -224,13 +233,11 @@ In this diagram, you should imagine the shaded surface passing through the origi
 In <xref ref="activity-vector-geom-dot-product" />, we combined vector geometry with some high school geometry to determine a formula for the (cosine of the) angle between two plane vectors. Recall from <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /> that a vector that runs between the terminal points of two vectors that share an initial point is a difference vector.
 </p>
 
-<p>
-<image width="100%">
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the law of cosines applied to a triangle of vectors.</description>
 	<latex-image><xi:include href="concepts-tikz.d/law-of-cosines.tex" parse="text" /></latex-image>
-</image>
-</p>
+</image></sidebyside>
 
 <p>
 The lengths of the sides of the triangle formed by these three vectors are just the norms of the vectors:
@@ -326,13 +333,13 @@ Fortunately, for a pair of (nonzero) plane vectors or space vectors, there is <e
 First, for a pair of nonzero vectors in <m>\R^n</m>, the formula
 <me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
 can always be computed, and the result of the computation is always one, definite number.
-</p><p>
-<image width="100%">
+</p>
+<sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Graph of <m>y=\cos\theta</m>.</description>
 	<latex-image><xi:include href="../shared-tikz.d/cosine.tex" parse="text" /></latex-image>
-</image>
-</p><p>
+</image></sidebyside>
+<p>
 Second, looking at the provided graph of <m>y=\cos\theta</m>, there are no instances in the domain <m>0\le\theta\le\pi</m> where <m>\cos\theta</m> computes to the <em>same</em> value for two <em>different</em> values of <m>\theta</m>. On this domain, we call the graph <em>one-to-one</em>. So a pair of vectors in <m>\R^n</m> can never have <em>two</em> angles in the domain <m>0\le\theta\le\pi</m> between them, because there are never two solutions to the equation
 <md><mrow tag="dagger" xml:id="equation-vector-geom-concepts-def-angle-by-cos">
 	\cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}
@@ -346,10 +353,8 @@ computed to a number greater than <m>1</m> or to a number less than <m>-1</m>. I
 
 <theorem xml:id="theorem-vector-geom-concepts-cauchy-schwarz">
 	<title>The Cauchy-Schwarz inequality</title>
-	<!--
-		\index{Cauchy-Schwarz inequality}
-		\index{inequality!Cauchy-Schwarz}
-	-->
+	<idx><h>Cauchy-Schwarz inequality</h></idx>
+	<idx><h>inequality</h><h>Cauchy-Schwarz</h></idx>
 	<statement><p>
 	For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, the quantity
 	<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>

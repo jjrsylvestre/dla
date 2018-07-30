@@ -1,3 +1,8 @@
+* Look for "<xref .../> of <xref .../>" constructs and replace with text="phrase-global" or text="phrase-hybrid" in
+  the first <xref>.
+* Add title to all asides.
+* Check that all <example>'s have titles.
+  ---> grep -A 1 "<example" **/*.xml
 * Look back at old LaTeX book TODO list.
 * Go through and check all asides --- having an <aside> inside a <p>
   causes an extra line break in the main text <p>.... which is annoying.
@@ -24,6 +29,8 @@
 * Go through and make xref's to "theorem-*-equiv-to-invertible" point to the most recent
   extended version?
 * Consider going through and changing "collection" to "set."
+* sed to change xml:id's example-*-examples- to remove redundant -examples-
+  (as is already done for theorems/lemmas/propositions that appear in theory sections).
 
 EVENTUALLY:
 * Go through and scrutinize aside placements --- they don't have to be inter-paragraph!
@@ -73,3 +80,9 @@ NEW QUESTIONS:
   <li> of the "alph" list, *without* specifying label type for the sublist, leads to
   sublist with alph labels...
 * Inconsistent spacing of <paragraphs>.
+* Sometimes extra lines at the end of in-set environments like <example>.
+  For example, see the last example in chapter 2.
+* BUG: pattern
+  (some note in parentheses that ends in <m>math</m>).
+  could end up with the ")." on a new line, separated from the math.
+  Example: near end of subsection-elem-matrices-examples-elem-matrices-and-inverses.

@@ -18,174 +18,183 @@ respective owners.
 
 <title>Examples</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-linear-indep-examples-test" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-linear-indep-examples-test" /></em></li>
+<li><xref ref="subsection-linear-indep-examples-standard" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-linear-indep-examples-standard" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-linear-indep-examples-test">
 <title>Using the Test for Linear Dependence/Independence</title>
 
 <p>Here we will carry out examples of applying the Test for Linear Dependence/Independence.</p>
 
-<paragraphs><title>In <m>\R^n</m></title>
-
-<p>
-Are the vectors <m>(1,0,0,1),(1,1,0,-1),(2,1,0,0),(5,1,0,5)</m> in <m>\R^4</m> linearly dependent or independent? Set up the test:
-<md>
-	<mrow> k_1 (1,0,0,1) + k_2(1,1,0,-1) + k_3(2,1,0,0) + k_4(5,1,0,5) \amp= (0,0,0,0). </mrow>
-	<intertext> Notice how we have used the proper zero vector in this space on the right-hand side. On the left-hand side, we want to combine the expression into one vector so that we can compare with the zero vector. </intertext>
-	<mrow> (k_1,0,0,k_1) + (k_2,k_2,0,-k_2) + (2k_3,k_3,0,0) + (5k_4,k_4,0,5k_4) \amp= (0,0,0,0) </mrow>
-	<mrow> (k_1+k_2+2k_3+5k_4,k_2+k_3+k_4,0,k_1-k_2+5k_4) \amp= (0,0,0,0). </mrow>
-</md>
-Comparing components on either side, we obtain a system of four equations in the unknown scalars from the linear combination:
-<me>
-	\begin{array}{rcrcrcrcr}
-		k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp + \amp 5k_4 \amp = \amp 0, \\
-		    \amp   \amp k_2 \amp + \amp  k_3 \amp + \amp  k_4 \amp = \amp 0, \\
-		    \amp   \amp     \amp   \amp      \amp   \amp    0 \amp = \amp 0, \\
-		k_1 \amp - \amp k_2 \amp   \amp      \amp + \amp 5k_4 \amp = \amp 0. \\
-	\end{array}
-</me>
-Now we'll solve this homogeneous system by row reducing its coefficient matrix.
-<me>
-	\left[\begin{array}{rrrr}
-		1 \amp 1 \amp 2 \amp 5 \\
-		0 \amp 1 \amp 1 \amp 1 \\
-		0 \amp 0 \amp 0 \amp 0 \\
-		1 \amp -1 \amp 0 \amp 5
-	\end{array}\right]
-	\qquad\rowredarrow\qquad
-	\begin{bmatrix}
-		1  \amp  0  \amp  1  \amp  0 \\
-		0  \amp  1  \amp  1  \amp  0 \\
-		0  \amp  0  \amp  0  \amp  1 \\
-		0 \amp 0 \amp 0 \amp 0
-	\end{bmatrix}.
-</me>
-Notice how the vectors from <m>\R^4</m> that we are testing ended up as columns in this coefficient matrix <mdash /> we saw a similar pattern in examples in <xref ref="subsection-subspaces-examples-in-span" /> where we tested whether a particular vector was in the span of some collection of vectors. Also, note that here it was not necessary to reduce all the way to RREF, as we are not actually interested in the solutions to this system <mdash /> we only need to know whether there exist nontrivial solutions. From the reduced matrix, we can see that <m>k_3</m> is a free variable and would be assigned a parameter in the general solution. The necessity of a parameter means there are an infinite number of solutions, which in particular means there are nontrivial solutions. Therefore, this collection of vectors is <em>linearly dependent</em>.
-</p>
-
-</paragraphs>
-
-<paragraphs><title>In <m>\matrixring_{m \times n}(\R)</m></title>
-
-<p><ol>
-	<li>
-	Consider the matrices in
-	<xref ref="activity-linear-indep-using-indep-test-M2-1">Part</xref>
-	of
-	<xref ref="activity-linear-indep-using-indep-test" />.
-	First we set up the Test for Linear Dependence/Independence. Again, we use the proper zero vector on the right-hand side, and then we combine the expression on the left-hand side into one vector so that we may compare against the zero vector.
+<example xml:id="example-linear-indep-examples-test-R4">
+	<title>Testing dependence/independence in <m>\R^n</m></title>
+	<statement><p>
+	Are the vectors <m>(1,0,0,1),(1,1,0,-1),(2,1,0,0),(5,1,0,5)</m> in <m>\R^4</m> linearly dependent or independent? Set up the test:
 	<md>
-		<mrow>
-			k_1\begin{bmatrix}1 \amp 0\\0 \amp 1\end{bmatrix} +
-			k_2\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix} +
-			k_3\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}  \amp =
-			\begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
-		</mrow><mrow>
-			\begin{bmatrix}k_1 \amp 0\\0 \amp k_1\end{bmatrix} +
-			\begin{bmatrix}0 \amp k_2\\k_2 \amp 0\end{bmatrix} +
-			\begin{bmatrix}0 \amp 0\\0 \amp k_3\end{bmatrix}  \amp =
-			\begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
-		</mrow><mrow>
-			\begin{bmatrix}k_1 \amp k_2\\k_2 \amp k_1+k_3\end{bmatrix}  \amp =
-			\begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
-		</mrow>
+		<mrow> k_1 (1,0,0,1) + k_2(1,1,0,-1) + k_3(2,1,0,0) + k_4(5,1,0,5) \amp= (0,0,0,0). </mrow>
+		<intertext> Notice how we have used the proper zero vector in this space on the right-hand side. On the left-hand side, we want to combine the expression into one vector so that we can compare with the zero vector. </intertext>
+		<mrow> (k_1,0,0,k_1) + (k_2,k_2,0,-k_2) + (2k_3,k_3,0,0) + (5k_4,k_4,0,5k_4) \amp= (0,0,0,0) </mrow>
+		<mrow> (k_1+k_2+2k_3+5k_4,k_2+k_3+k_4,0,k_1-k_2+5k_4) \amp= (0,0,0,0). </mrow>
 	</md>
-	There is no need to set up a system of equations here <mdash /> we can see from comparing the top rows on either side that <m>k_1=0</m> and <m>k_2=0</m>. Then, from the <m>(2,2)</m> entries, we see that <m>k_1+k_3=0</m>. But since we already have <m>k_1=0</m>, we get <m>k_3=0</m> as well. So there is only the trivial solution, and these vectors are <em>linearly independent</em>.
-	</li>
-
-	<li>
-	Consider the matrices in
-	<xref ref="activity-linear-indep-using-indep-test-M2-2">Part</xref>
-	of
-	<xref ref="activity-linear-indep-using-indep-test" />.
-	Again, we start by setting up the Test for Linear Dependence/Independence using the appropriate zero vector.
+	Comparing components on either side, we obtain a system of four equations in the unknown scalars from the linear combination:
 	<me>
-		k_1 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} +
-		k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] +
-		k_3 \left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right] =
-		\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		\begin{array}{rcrcrcrcr}
+			k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp + \amp 5k_4 \amp = \amp 0, \\
+			    \amp   \amp k_2 \amp + \amp  k_3 \amp + \amp  k_4 \amp = \amp 0, \\
+			    \amp   \amp     \amp   \amp      \amp   \amp    0 \amp = \amp 0, \\
+			k_1 \amp - \amp k_2 \amp   \amp      \amp + \amp 5k_4 \amp = \amp 0. \\
+		\end{array}
 	</me>
-	As before, this will lead to a homogeneous system of equations in the unknown scalars <m>k_1,k_2,k_3</m>, and the coefficient matrix of this system will have the entries of the three vectors as columns:
-	<me>
-		\left[\begin{array}{rrr}
-			1 \amp 1 \amp 3 \\
-			0 \amp 0 \amp 0 \\
-			0 \amp 0 \amp 0 \\
-			1 \amp -1 \amp -2
+	Now we'll solve this homogeneous system by row reducing its coefficient matrix.
+	<md><mrow xml:id="equation-linear-indep-examples-testing-R4-independence-homog-system" tag="star">
+		\left[\begin{array}{rrrr}
+			1 \amp 1 \amp 2 \amp 5 \\
+			0 \amp 1 \amp 1 \amp 1 \\
+			0 \amp 0 \amp 0 \amp 0 \\
+			1 \amp -1 \amp 0 \amp 5
 		\end{array}\right]
 		\qquad\rowredarrow\qquad
 		\begin{bmatrix}
-			1  \amp  0  \amp  1/2 \\
-			0  \amp  1  \amp  5/2 \\
-			0  \amp  0  \amp  0 \\
-			0  \amp  0  \amp  0
+			1  \amp  0  \amp  1  \amp  0 \\
+			0  \amp  1  \amp  1  \amp  0 \\
+			0  \amp  0  \amp  0  \amp  1 \\
+			0 \amp 0 \amp 0 \amp 0
 		\end{bmatrix}.
-	</me>
-	From the reduced matrix, we see that <m>k_3</m> is a free variable and will be assigned a parameter in the general solution. The necessity of a parameter implies nontrivial solutions, so these vectors are <em>linearly dependent</em>. The reduced matrix can also be used to tell us exactly how these vectors are linearly dependent. Since <m>k_3</m> is free, we obtain a solution to the system for every possible value we assign to it. To get a simple nontrivial solution, let's set <m>k_3=1</m>. Then solving the equations represented by the nonzero rows of the reduced matrix gives us <m>k_1=-1/2</m> and <m>k_2=-5/2</m>. Putting these back into the vector equation from when we first set up the test for dependence/independence, we get
+	</mrow></md>
+	Note that here it was not necessary to reduce all the way to RREF, as we are not actually interested in the solutions to this system <mdash /> we only need to know whether there exist nontrivial solutions. From the reduced matrix, we can see that <m>k_3</m> is a free variable and would be assigned a parameter in the general solution. The necessity of a parameter means there are an infinite number of solutions, which in particular means there are nontrivial solutions. Therefore, this collection of vectors is <em>linearly dependent</em>.
+	</p></statement>
+</example>
+
+<remark><statement>
+Notice how the vectors from <m>\R^4</m> that we were testing in the previous example ended up as columns in the coefficient matrix in <xref ref="equation-linear-indep-examples-testing-R4-independence-homog-system" tag="star"/>
+<mdash /> we saw a similar pattern in
+<xref ref="example-subspaces-examples-check-in-span-in-R3" />
+(and in the other examples in <xref ref="subsection-subspaces-examples-in-span" />),
+where we tested whether a particular vector was in the span of some collection of vectors.
+</statement></remark>
+
+<example><title>Testing dependence/independence in <m>\matrixring_{m \times n}(\R)</m></title><statement>
+	<p><ol>
+		<li>
+		Consider the matrices in
+		<xref ref="activity-linear-indep-using-indep-test-M2-1">Part</xref>
+		of
+		<xref ref="activity-linear-indep-using-indep-test" />.
+		First we set up the Test for Linear Dependence/Independence. Again, we use the proper zero vector on the right-hand side, and then we combine the expression on the left-hand side into one vector so that we may compare against the zero vector.
+		<md>
+			<mrow>
+				k_1\begin{bmatrix}1 \amp 0\\0 \amp 1\end{bmatrix} +
+				k_2\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix} +
+				k_3\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}  \amp =
+				\begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
+			</mrow><mrow>
+				\begin{bmatrix}k_1 \amp 0\\0 \amp k_1\end{bmatrix} +
+				\begin{bmatrix}0 \amp k_2\\k_2 \amp 0\end{bmatrix} +
+				\begin{bmatrix}0 \amp 0\\0 \amp k_3\end{bmatrix}  \amp =
+				\begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
+			</mrow><mrow>
+				\begin{bmatrix}k_1 \amp k_2\\k_2 \amp k_1+k_3\end{bmatrix}  \amp =
+				\begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
+			</mrow>
+		</md>
+		There is no need to set up a system of equations here <mdash /> we can see from comparing the top rows on either side that <m>k_1=0</m> and <m>k_2=0</m>. Then, from the <m>(2,2)</m> entries, we see that <m>k_1+k_3=0</m>. But since we already have <m>k_1=0</m>, we get <m>k_3=0</m> as well. So there is only the trivial solution, and these vectors are <em>linearly independent</em>.
+		</li>
+
+		<li>
+		Consider the matrices in
+		<xref ref="activity-linear-indep-using-indep-test-M2-2">Part</xref>
+		of
+		<xref ref="activity-linear-indep-using-indep-test" />.
+		Again, we start by setting up the Test for Linear Dependence/Independence using the appropriate zero vector.
+		<me>
+			k_1 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} +
+			k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] +
+			k_3 \left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right] =
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		</me>
+		As before, this will lead to a homogeneous system of equations in the unknown scalars <m>k_1,k_2,k_3</m>, and the coefficient matrix of this system will have the entries of the three vectors as columns:
+		<me>
+			\left[\begin{array}{rrr}
+				1 \amp 1 \amp 3 \\
+				0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \\
+				1 \amp -1 \amp -2
+			\end{array}\right]
+			\qquad\rowredarrow\qquad
+			\begin{bmatrix}
+				1  \amp  0  \amp  1/2 \\
+				0  \amp  1  \amp  5/2 \\
+				0  \amp  0  \amp  0 \\
+				0  \amp  0  \amp  0
+			\end{bmatrix}.
+		</me>
+		From the reduced matrix, we see that <m>k_3</m> is a free variable and will be assigned a parameter in the general solution. The necessity of a parameter implies nontrivial solutions, so these vectors are <em>linearly dependent</em>. The reduced matrix can also be used to tell us exactly how these vectors are linearly dependent. Since <m>k_3</m> is free, we obtain a solution to the system for every possible value we assign to it. To get a simple nontrivial solution, let's set <m>k_3=1</m>. Then solving the equations represented by the nonzero rows of the reduced matrix gives us <m>k_1=-1/2</m> and <m>k_2=-5/2</m>. Putting these back into the vector equation from when we first set up the test for dependence/independence, we get
+		<md>
+			<mrow>
+				\left(-\frac{1}{2}\right)\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+				+ \left(-\frac{5}{2}\right)\left[\begin{array}{rr} 1 \amp 0\\0 \amp -1 \end{array}\right]
+				+ \left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right]
+				= \begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
+			</mrow><mrow></mrow><mrow>
+				\implies\quad
+				\left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right] =
+				\frac{1}{2}\begin{bmatrix} 1 \amp 0\\0 \amp 1 \end{bmatrix} +
+				\frac{5}{2}\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right].
+			</mrow>
+		</md>
+		From this we see exactly how one of the vectors in our collection can be expressed as a linear combination of others in the collection.
+		</li>
+
+	</ol></p>
+
+</statement></example>
+
+<example><title>Testing dependence/independence in <m>\poly_n(\R)</m></title><statement>
+	<p>
+	Consider the polynomials from
+	<xref ref="activity-linear-indep-using-indep-test-P2">Part</xref>
+	of
+	<xref ref="activity-linear-indep-using-indep-test" />.
+	Are they linearly dependent or independent? Set up the test, using the zero polynomial as the zero vector on the right-hand side:
 	<md>
-		<mrow>
-			\left(-\frac{1}{2}\right)\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-			+ \left(-\frac{5}{2}\right)\left[\begin{array}{rr} 1 \amp 0\\0 \amp -1 \end{array}\right]
-			+ \left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right]
-			= \begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
-		</mrow><mrow></mrow><mrow>
-			\implies\quad
-			\left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right] =
-			\frac{1}{2}\begin{bmatrix} 1 \amp 0\\0 \amp 1 \end{bmatrix} +
-			\frac{5}{2}\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right].
-		</mrow>
+		<mrow> k_1(1+x) + k_2(1+x^2) + k_3(2-x+3x^2)  \amp = 0. </mrow>
+		<intertext> As usual, we simplify the linear combination on the left-hand side into one vector. Here, this means collecting like terms. </intertext>
+		<mrow> (k_1+k_2+2k_3) + (k_1-k_3)x + (k_2+3k_3)x^2  \amp = 0. </mrow>
 	</md>
-	From this we see exactly how one of the vectors in our collection can be expressed as a linear combination of others in the collection.
-	</li>
+	The polynomial on the left can only be equal to the zero polynomial if all its coefficients are zero, leading to the following system of equations:
+	<me>\begin{array}{rcrcrcr}
+		k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp = \amp 0, \\
+		k_1 \amp   \amp     \amp - \amp  k_3 \amp = \amp 0, \\
+		    \amp   \amp k_2 \amp + \amp 3k_3 \amp = \amp 0.
+	\end{array}</me>
+	Once again, we reduce the coefficient matrix to determine if there are nontrivial solutions:
+	<me>
+		\left[\begin{array}{rrr} 1 \amp 1 \amp 2 \\ 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \end{array}\right]
+		\qquad\rowredarrow\qquad
+		\begin{bmatrix} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 0 \end{bmatrix}.
+	</me>
+	</p>
+	<aside><title>Compare</title><p> the columns of the initial coefficient matrix with the vectors being tested.</p></aside>
+	<p> Since variable <m>k_3</m> is free, there exist nontrivial solutions and the vectors are <em>linearly dependent</em>.</p>
+</statement></example>
 
-</ol></p>
-
-</paragraphs>
-
-<paragraphs><title>In <m>\poly_n(\R)</m></title>
-
-<p>
-Consider the polynomials from
-<xref ref="activity-linear-indep-using-indep-test-P2">Part</xref>
-of
-<xref ref="activity-linear-indep-using-indep-test" />.
-Are they linearly dependent or independent? Set up the test, using the zero polynomial as the zero vector on the right-hand side:
-<md>
-	<mrow> k_1(1+x) + k_2(1+x^2) + k_3(2-x+3x^2)  \amp = 0. </mrow>
-	<intertext> As usual, we simplify the linear combination on the left-hand side into one vector. Here, this means collecting like terms. </intertext>
-	<mrow> (k_1+k_2+2k_3) + (k_1-k_3)x + (k_2+3k_3)x^2  \amp = 0. </mrow>
-</md>
-The polynomial on the left can only be equal to the zero polynomial if all its coefficients are zero, leading to the following system of equations:
-<me>\begin{array}{rcrcrcr}
-	k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp = \amp 0, \\
-	k_1 \amp   \amp     \amp - \amp  k_3 \amp = \amp 0, \\
-	    \amp   \amp k_2 \amp + \amp 3k_3 \amp = \amp 0.
-\end{array}</me>
-Once again, we reduce the coefficient matrix to determine if there are nontrivial solutions:
-<me>
-	\left[\begin{array}{rrr} 1 \amp 1 \amp 2 \\ 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \end{array}\right]
-	\qquad\rowredarrow\qquad
-	\begin{bmatrix} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 0 \end{bmatrix}.
-</me>
-</p>
-<aside><title>Compare</title><p> the columns of the initial coefficient matrix with the vectors being tested.</p></aside>
-<p> Since variable <m>k_3</m> is free, there exist nontrivial solutions and the vectors are <em>linearly dependent</em>.</p>
-
-</paragraphs>
-
-<paragraphs><title>In <m>F(D)</m></title>
-
-<p>
-Let's do an example in a function space.	Consider vectors <m>f(x) = x</m>, <m>g(x) = \sin(\pi x/2)</m> and <m>h(x) = \cos(\pi x/2)</m> in <m>F(\R)</m>, the space of functions defined on the whole real number line. Are these functions linearly dependent or independent? Let's start the test by setting up the vector equation
-<me> k_1 x + k_2\sin(\pi x/2) + k_3\cos(\pi x/2) = 0. </me>
-Here, there is no algebraic way we can simplify the expression on the left-hand side. However, remember that the <m>0</m> on the right-hand side represents the zero <em>function</em>, and that functions are only equal when they always produce the same output given the same input (<xref ref="definition-abstract-vec-spaces-examples-eq-funcs" />). So let's try substituting some input <m>x</m>-values into the functions on either side of our vector equation above:
-<md><mrow>
-	x=0 \amp\colon \amp k_1\cdot 0 + k_2\cdot 0 + k_3 \cdot 1 \amp= 0, \\
-	x=1 \amp\colon \amp k_1\cdot 1 + k_2\cdot 1 + k_3 \cdot 0 \amp= 0, \\
-	x=2 \amp\colon \amp k_1\cdot 2 + k_2\cdot 0 + k_3 \cdot (-1) \amp= 0.
-</mrow></md>
-From the first equation we see <m>k_3=0</m>. Combining this with the third equation we also get <m>k_1=0</m>. Then combining that with the second equation we finally get <m>k_2=0</m>. Since only the trivial solution is possible, these vectors are <em>linearly independent</em>.
-</p>
-
-</paragraphs>
+<example><title>Testing dependence/independence in <m>F(D)</m></title><statement>
+	<p>
+	Let's do an example in a function space.	Consider vectors <m>f(x) = x</m>, <m>g(x) = \sin(\pi x/2)</m> and <m>h(x) = \cos(\pi x/2)</m> in <m>F(\R)</m>, the space of functions defined on the whole real number line. Are these functions linearly dependent or independent? Let's start the test by setting up the vector equation
+	<me> k_1 x + k_2\sin(\pi x/2) + k_3\cos(\pi x/2) = 0. </me>
+	Here, there is no algebraic way we can simplify the expression on the left-hand side. However, remember that the <m>0</m> on the right-hand side represents the zero <em>function</em>, and that functions are only equal when they always produce the same output given the same input (<xref ref="definition-abstract-vec-spaces-examples-eq-funcs" />). So let's try substituting some input <m>x</m>-values into the functions on either side of our vector equation above:
+	<md><mrow>
+		x=0 \amp\colon \amp k_1\cdot 0 + k_2\cdot 0 + k_3 \cdot 1 \amp= 0, \\
+		x=1 \amp\colon \amp k_1\cdot 1 + k_2\cdot 1 + k_3 \cdot 0 \amp= 0, \\
+		x=2 \amp\colon \amp k_1\cdot 2 + k_2\cdot 0 + k_3 \cdot (-1) \amp= 0.
+	</mrow></md>
+	From the first equation we see <m>k_3=0</m>. Combining this with the third equation we also get <m>k_1=0</m>. Then combining that with the second equation we finally get <m>k_2=0</m>. Since only the trivial solution is possible, these vectors are <em>linearly independent</em>.
+	</p>
+</statement></example>
 
 </subsection>
 
@@ -193,12 +202,10 @@ From the first equation we see <m>k_3=0</m>. Combining this with the third equat
 <subsection xml:id="subsection-linear-indep-examples-standard">
 <title>Linear independence of <q>standard</q> spanning sets</title>
 
-<p>
-Finally, let's check the <q>standard</q> spanning sets of our favourite example vector spaces.
+<p> Finally, let's check the <q>standard</q> spanning sets of our favourite example vector spaces. </p>
 
-<ol>
-
-	<li>
+<example><title>Independence of the standard basis vectors in <m>\R^n</m></title>
+	<statement>
 	The standard basis vectors <m>\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n</m> form a spanning set for <m>\R^n</m>, and they are also linearly independent. Apply the test:
 	<md><mrow>
 		k_1\uvec{e}_1 + k_2\uvec{e}_1 + \dotsb + k_n\uvec{e}_n \amp= \zerovec \amp
@@ -206,9 +213,11 @@ Finally, let's check the <q>standard</q> spanning sets of our favourite example 
 		(k_1,k_2,\dotsc,k_n) \amp= (0,0,\dotsc,0).
 	</mrow></md>
 	So clearly each scalar <m>k_j</m> must be zero, which means there is only the trivial solution.
-	</li>
+	</statement>
+</example>
 
-	<li>
+<example><title>Independence of the standard spanning vectors in <m>\matrixring_{m \times n}(\R)</m></title>
+	<statement>
 	In <xref ref="remark-subspaces-examples-standard-spanning-sets"/>, we noted that there is a similar set of spanning vectors in <m>\matrixring_{m \times n}(\R)</m>, consisting of those matrices that have all zero entries except for a single <m>1</m> in one specific entry. We might call these <q>standard basis vectors</q> for <m>\matrixring_{m \times n}(\R)</m>. Write <m>E_{ij}</m> for the matrix of this type with a <m>1</m> in the <m>\nth[(i,j)]</m> entry. These spanning vectors are also linearly independent. Here, when we apply the Test for Dependence/Independence, it is best if we enumerate our scalars with the same scheme as the vectors:
 	<md><mrow>
 		k_{11}E_{11} + k_{12}E_{12} + \dotsb + k_{mn}E_{mn} \amp= \zerovec \amp
@@ -216,16 +225,16 @@ Finally, let's check the <q>standard</q> spanning sets of our favourite example 
 		[k_{ij}] \amp= \zerovec.
 	</mrow></md>
 	Again, we immediately see that only the trivial solution is possible.
-	</li>
+	</statement>
+</example>
 
-	<li>
+<example><title>Independence of the standard spanning vectors in <m>\poly_n(\R)</m></title>
+	<statement>
 	Also in <xref ref="remark-subspaces-examples-standard-spanning-sets"/>, we noted that the powers of <m>x</m> (along with the constant polynomial <m>1</m>) form a spanning set for <m>\poly_n(\R)</m>. We might call these <q>standard basis vectors</q> for <m>\poly_n(\R)</m>. Are they linearly independent? Apply the Test:
 	<me> k_0 \cdot 1 + k_1x + k_2 x^2 + \dotsb + k_n x^n = 0. </me>
 	If any of these coefficients are nonzero, the polynomial on the left-hand side will be nonzero, so we have only the trivial solution. Therefore, powers of <m>x</m> are always linearly independent in <m>\poly_n(\R)</m>.
-	</li>
-
-</ol>
-</p>
+	</statement>
+</example>
 
 </subsection>
 

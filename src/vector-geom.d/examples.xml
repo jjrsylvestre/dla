@@ -18,75 +18,87 @@ respective owners.
 
 <title>Examples</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-vector-geom-examples-norm" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-examples-norm" /></em></li>
+<li><xref ref="subsection-vector-geom-examples-dot-prod-vs-angle" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-vector-geom-examples-dot-prod-vs-angle" /></em></li>
+</ul></p></assemblage>
+
 <subsection xml:id="subsection-vector-geom-examples-norm">
 <title>The norm of a vector</title>
 
-<paragraphs><title>Basic computation examples</title><p>
-Here are a few examples of computing the norm of a vector, in various dimensions.
-<ol>
-	<li>
-	Consider <m>\uvec{u} = (1,2)</m> in <m>\R^2</m>. Then,
-	<me> \unorm{u} = \sqrt{1^2 + 2^2} = \sqrt{5}. </me>
-	</li>
-	<li>
-	Consider <m>\uvec{v} = (1,2,-1)</m> in <m>\R^3</m>. Then,
-	<me> \unorm{v} = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{6}. </me>
-	</li>
-	<li>
-	Consider <m>\uvec{w} = (1,2,-1,5)</m> in <m>\R^4</m>. Then,
-	<me> \unorm{w} = \sqrt{1^2 + 2^2 + (-1)^2 + 5^2} = \sqrt{31}. </me>
-	</li>
-</ol>
+<example xml:id="example-vector-geom-examples-norm-computation"><title>Basic computation examples</title>
+	<statement>
+	<p>
+	Here are a few examples of computing the norm of a vector, in various dimensions.
+	<ol>
+		<li>
+		Consider <m>\uvec{u} = (1,2)</m> in <m>\R^2</m>. Then,
+		<me> \unorm{u} = \sqrt{1^2 + 2^2} = \sqrt{5}. </me>
+		</li>
+		<li>
+		Consider <m>\uvec{v} = (1,2,-1)</m> in <m>\R^3</m>. Then,
+		<me> \unorm{v} = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{6}. </me>
+		</li>
+		<li>
+		Consider <m>\uvec{w} = (1,2,-1,5)</m> in <m>\R^4</m>. Then,
+		<me> \unorm{w} = \sqrt{1^2 + 2^2 + (-1)^2 + 5^2} = \sqrt{31}. </me>
+		</li>
+	</ol>
+	</p>
+	</statement>
+</example>
 
-</p></paragraphs>
+<example><title>Norms of the standard basis vectors</title><statement>
+	<p>
+	The standard basis vectors in <m>\R^n</m> are always <term>unit vectors</term>:
+	<md>
+		<mrow>
+			\norm{\uvec{e}_1} \amp= \sqrt{1^2 + 0^2 + \dotsb + 0^2} = \sqrt{1} = 1,
+		</mrow><mrow>
+			\norm{\uvec{e}_2} \amp= \sqrt{0^2 + 1^2 + 0^2 + \dotsb + 0^2} = \sqrt{1} = 1,
+		</mrow><mrow>
+			\amp\vdots
+		</mrow><mrow>
+			\norm{\uvec{e}_n} \amp= \sqrt{0^2 + \dotsb + 0^2 + 1^2} = \sqrt{1} = 1.
+		</mrow>
+	</md>
+	</p>
+</statement></example>
 
-<paragraphs><title>Norms of the standard basis vectors</title><p>
-The standard basis vectors in <m>\R^n</m> are always <term>unit vectors</term>:
-<md>
-	<mrow>
-		\norm{\uvec{e}_1} \amp= \sqrt{1^2 + 0^2 + \dotsb + 0^2} = \sqrt{1} = 1,
-	</mrow><mrow>
-		\norm{\uvec{e}_2} \amp= \sqrt{0^2 + 1^2 + 0^2 + \dotsb + 0^2} = \sqrt{1} = 1,
-	</mrow><mrow>
-		\amp\vdots
-	</mrow><mrow>
-		\norm{\uvec{e}_n} \amp= \sqrt{0^2 + \dotsb + 0^2 + 1^2} = \sqrt{1} = 1.
-	</mrow>
-</md>
-</p></paragraphs>
-
-<paragraphs><title>Normalizing vectors</title>
-<p>
-We can scale any nonzero vector to a unit vector by dividing by its norm, and this <term>normalized</term> version of the vector will always be parallel to the original.
-</p><p>
-Let's carry this out for the vectors in our <alert>Basic computation examples</alert> above.
-<ol>
-	<li>
-	We computed the norm of <m>\uvec{u} = (1,2)</m> to be <m>\unorm{u} = \sqrt{5}</m>. Therefore, the scaled vector
-	<me> \uvec{u}' = \frac{1}{\sqrt{5}} \uvec{u} = \left( \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}} \right) </me>
-	is a unit vector (<ie /> <m>\norm{\uvec{u}'} = 1</m>).
-	</li>
-	<li>
-	We computed the norm of <m>\uvec{v} = (1,2,-1)</m> to be <m>\unorm{v} = \sqrt{6}</m>. Therefore, the scaled vector
-	<me> \frac{1}{\sqrt{6}} \uvec{v} = \left( \frac{1}{\sqrt{6}}, \frac{2}{\sqrt{6}}, -\frac{1}{\sqrt{6}} \right) </me>
-	is a unit vector.
-	</li>
-	<li>
-	We computed the norm of <m>\uvec{w} = (1,2,-1,5)</m> to be <m>\unorm{w} = \sqrt{31}</m>. Therefore, the scaled vector
-	<me>
-		\frac{1}{\sqrt{31}} \uvec{v}
-		= \left(
-			\frac{1}{\sqrt{31}},
-			\frac{2}{\sqrt{31}},
-			-\frac{1}{\sqrt{31}},
-			\frac{5}{\sqrt{31}},
-		\right)
-	</me>
-	is a unit vector.
-	</li>
-</ol>
-</p>
-</paragraphs>
+<example><title>Normalizing vectors</title><statement>
+	<p>
+	We can scale any nonzero vector to a unit vector by dividing by its norm, and this <term>normalized</term> version of the vector will always be parallel to the original.
+	</p><p>
+	Let's carry this out for the vectors from <xref ref="example-vector-geom-examples-norm-computation" /> above.
+	<ol>
+		<li>
+		We computed the norm of <m>\uvec{u} = (1,2)</m> to be <m>\unorm{u} = \sqrt{5}</m>. Therefore, the scaled vector
+		<me> \uvec{u}' = \frac{1}{\sqrt{5}} \uvec{u} = \left( \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}} \right) </me>
+		is a unit vector (<ie /> <m>\norm{\uvec{u}'} = 1</m>).
+		</li>
+		<li>
+		We computed the norm of <m>\uvec{v} = (1,2,-1)</m> to be <m>\unorm{v} = \sqrt{6}</m>. Therefore, the scaled vector
+		<me> \frac{1}{\sqrt{6}} \uvec{v} = \left( \frac{1}{\sqrt{6}}, \frac{2}{\sqrt{6}}, -\frac{1}{\sqrt{6}} \right) </me>
+		is a unit vector.
+		</li>
+		<li>
+		We computed the norm of <m>\uvec{w} = (1,2,-1,5)</m> to be <m>\unorm{w} = \sqrt{31}</m>. Therefore, the scaled vector
+		<me>
+			\frac{1}{\sqrt{31}} \uvec{v}
+			= \left(
+				\frac{1}{\sqrt{31}},
+				\frac{2}{\sqrt{31}},
+				-\frac{1}{\sqrt{31}},
+				\frac{5}{\sqrt{31}},
+			\right)
+		</me>
+		is a unit vector.
+		</li>
+	</ol>
+	</p>
+</statement></example>
 
 </subsection>
 
@@ -94,33 +106,33 @@ Let's carry this out for the vectors in our <alert>Basic computation examples</a
 <subsection xml:id="subsection-vector-geom-examples-dot-prod-vs-angle">
 <title>Dot product and the angle between vectors</title>
 
-<p>
-Here is an example of using the dot product to determine the angle between vectors: what is the angle between vectors <m>\uvec{u} = (1,2)</m> and <m>\uvec{v} = (-1,3)</m> in <m>\R^2</m>?
-</p>
+<p> Here is an example of using the dot product to determine the angle between vectors. </p>
 
-<p>
-From <xref ref="activity-vector-geom-dot-product" />, we know that the angle <m>\theta</m> between <m>\uvec{u}</m> and <m>\uvec{v}</m> satisfies
-<me> \cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}. </me>
-</p>
-<aside><title>Also see</title><p>
-<xref ref="subsection-vector-geom-concepts-angle-in-Rn" />
-and
-<xref ref="corollary-vector-geom-unique-angle" />
-in
-<xref ref="subsection-vector-geom-theory-inequalities" />.
-</p></aside>
-
-<p>
-So compute
-<md><mrow>
-	\udotprod{u}{v} \amp= 1 \cdot (-1) + 2 \cdot 3 = 5, \amp
-	\unorm{u} \amp= \sqrt{1^2 + 2^2} = \sqrt{5}, \amp
-	\unorm{v} \amp= \sqrt{(-1)^2 + 3^2} = \sqrt{10}.
-</mrow></md>
-Therefore,
-<me> \cos \theta = \frac{5}{\sqrt{5}\sqrt{10}} = \frac{1}{\sqrt{2}}. </me>
-The only angle in the domain <m>0 \le \theta \le \pi</m> with this cosine value is <m>\theta = \pi/4</m>.
-</p>
+<example><title>Computing angle from dot product</title><statement>
+	<p> What is the angle between vectors <m>\uvec{u} = (1,2)</m> and <m>\uvec{v} = (-1,3)</m> in <m>\R^2</m>? </p>
+	<p>
+	From <xref ref="activity-vector-geom-dot-product" />, we know that the angle <m>\theta</m> between <m>\uvec{u}</m> and <m>\uvec{v}</m> satisfies
+	<me> \cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}. </me>
+	</p>
+	<aside><title>Also see</title><p>
+	<xref ref="subsection-vector-geom-concepts-angle-in-Rn" />
+	and
+	<xref ref="corollary-vector-geom-unique-angle" />
+	in
+	<xref ref="subsection-vector-geom-theory-inequalities" />.
+	</p></aside>
+	<p>
+	So compute
+	<md><mrow>
+		\udotprod{u}{v} \amp= 1 \cdot (-1) + 2 \cdot 3 = 5, \amp
+		\unorm{u} \amp= \sqrt{1^2 + 2^2} = \sqrt{5}, \amp
+		\unorm{v} \amp= \sqrt{(-1)^2 + 3^2} = \sqrt{10}.
+	</mrow></md>
+	Therefore,
+	<me> \cos \theta = \frac{5}{\sqrt{5}\sqrt{10}} = \frac{1}{\sqrt{2}}. </me>
+	The only angle in the domain <m>0 \le \theta \le \pi</m> with this cosine value is <m>\theta = \pi/4</m>.
+	</p>
+</statement></example>
 
 </subsection>
 

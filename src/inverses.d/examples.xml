@@ -16,6 +16,16 @@ respective owners.
 
 <section xml:id="section-inverses-examples">
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-inverses-examples-2x2" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inverses-examples-2x2" /></em></li>
+<li><xref ref="subsection-inverses-examples-solving-sys" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inverses-examples-solving-sys" /></em></li>
+<li><xref ref="subsection-inverses-examples-solving-alg-eqns" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inverses-examples-solving-alg-eqns" /></em></li>
+</ul></p></assemblage>
+
+
 <title>Examples</title>
 
 <subsection xml:id="subsection-inverses-examples-2x2">
@@ -28,78 +38,82 @@ There is a general formula for the inverse of a <m>2\times 2</m> formula:
 	\amp\amp\implies\amp
 	\inv{A} \amp = \frac{1}{ad-bc}\,\left[\begin{array}{rr} d \amp -b \\ -c \amp a \end{array}\right].
 </mrow></md>
-The formula <m>ad-bc</m> in the denominator of the scalar multiple in this inverse formula is called the <term>determinant</term> of <m>A</m>. Clearly the formula does not work when the determinant of <m>A</m> is <m>0</m>, since we cannot divide by zero. In fact, in
+The formula <m>ad-bc</m> in the denominator of the scalar multiple in this inverse formula is called the <term>determinant</term><idx><h>determinant</h></idx> of <m>A</m>. Clearly the formula does not work when the determinant of <m>A</m> is <m>0</m>, since we cannot divide by zero. In fact, in
 <xref ref="chapter-elem-matrices" />
 it will be possible for us to prove that <m>A</m> is <em>not</em> invertible when <m>ad-bc=0</m>. There are similar formulas for inverses of larger matrices, but they are too complicated to write down explicitly. We will study the general theory of determinants and related inversion formulas in
 <xref first="chapter-det" last="chapter-more-det">Chapters</xref>.
 </p>
 
-<paragraphs><title>Using the <m>2 \times 2</m> inversion formula</title><p>
-Matrix <m>A</m> below is invertible, and its inverse is given. Watch for double negatives when computing <m>ad-bc</m>!
-<md>
-	<mrow>
-		A \amp = \left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-		\amp\amp\implies\amp
-		\inv{A} \amp = \frac{1}{(-5)(2) - (1)(-3)}\,
-		\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
-	</mrow><mrow>
-		\amp\amp\amp\amp
-		\amp = -\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
-	</mrow><mrow>
-		\amp\amp\amp\amp
-		\amp = \left[\begin{array}{rr} -2/7 \amp 1/7 \\ -3/7 \amp 5/7 \end{array}\right].
-	</mrow>
-</md>
-Let's check that we have the correct inverse. To keep the computations simple, we'll leave the <m>-1/7</m> as a scalar multiple when expressing <m>\inv{A}</m>.
-<md>
-	<mrow>
-		\inv{A}A
-		\amp =
-		\left(-\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]\right)
-		\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-		\amp
-		A\inv{A}
-		\amp =
-		\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-		\left(-\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]\right)
-	</mrow><mrow>
-		\amp=
-		-\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
-		\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-		\amp
-		\amp=
-		-\frac{1}{7}\,
-		\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-		\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
-	</mrow><mrow>
-		\amp=
-		-\frac{1}{7}\,\begin{bmatrix} -10+3 \amp 2-2 \\ -15+15 \amp 3-10 \end{bmatrix}
-		\amp
-		\amp=
-		-\frac{1}{7}\,\begin{bmatrix} -10+3 \amp 5-5 \\ -6+6 \amp 3-10 \end{bmatrix}
-	</mrow><mrow>
-		\amp=
-		-\frac{1}{7}\,\left[\begin{array}{rr} -7 \amp 0 \\ 0 \amp -7 \end{array}\right]
-		\amp
-		\amp=
-		-\frac{1}{7}\,\left[\begin{array}{rr} -7 \amp 0 \\ 0 \amp -7 \end{array}\right]
-	</mrow><mrow>
-		\amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-		\amp
-		\amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-	</mrow>
-</md>
-So, we have both <m>\inv{A}A=I</m> and <m>A\inv{A}=I</m>, as required.
-</p></paragraphs>
+<example>
+	<title>Using the <m>2 \times 2</m> inversion formula</title>
+	<statement><p>
+	Matrix <m>A</m> below is invertible, and its inverse is given. Watch for double negatives when computing <m>ad-bc</m>!
+	<md>
+		<mrow>
+			A \amp = \left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			\amp\amp\implies\amp
+			\inv{A} \amp = \frac{1}{(-5)(2) - (1)(-3)}\,
+			\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+		</mrow><mrow>
+			\amp\amp\amp\amp
+			\amp = -\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+		</mrow><mrow>
+			\amp\amp\amp\amp
+			\amp = \left[\begin{array}{rr} -2/7 \amp 1/7 \\ -3/7 \amp 5/7 \end{array}\right].
+		</mrow>
+	</md>
+	Let's check that we have the correct inverse. To keep the computations simple, we'll leave the <m>-1/7</m> as a scalar multiple when expressing <m>\inv{A}</m>.
+	<md>
+		<mrow>
+			\inv{A}A
+			\amp =
+			\left(-\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]\right)
+			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			\amp
+			A\inv{A}
+			\amp =
+			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			\left(-\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]\right)
+		</mrow><mrow>
+			\amp=
+			-\frac{1}{7}\,\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			\amp
+			\amp=
+			-\frac{1}{7}\,
+			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+		</mrow><mrow>
+			\amp=
+			-\frac{1}{7}\,\begin{bmatrix} -10+3 \amp 2-2 \\ -15+15 \amp 3-10 \end{bmatrix}
+			\amp
+			\amp=
+			-\frac{1}{7}\,\begin{bmatrix} -10+3 \amp 5-5 \\ -6+6 \amp 3-10 \end{bmatrix}
+		</mrow><mrow>
+			\amp=
+			-\frac{1}{7}\,\left[\begin{array}{rr} -7 \amp 0 \\ 0 \amp -7 \end{array}\right]
+			\amp
+			\amp=
+			-\frac{1}{7}\,\left[\begin{array}{rr} -7 \amp 0 \\ 0 \amp -7 \end{array}\right]
+		</mrow><mrow>
+			\amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			\amp
+			\amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+		</mrow>
+	</md>
+	So, we have both <m>\inv{A}A=I</m> and <m>A\inv{A}=I</m>, as required.
+	</p></statement>
+</example>
 
-<paragraphs><title>An example where the <m>2 \times 2</m> inversion formula does not apply</title>
-<p>
-Consider matrix <me> B = \begin{bmatrix} 3 \amp 6 \\ 1 \amp 2 \end{bmatrix}. </me>
-For this matrix, we have
-<me> ad-bc = 3\cdot 2 - 6 \cdot 1 = 6-6 = 0. </me>
-So even though none of the entries of <m>B</m> are <m>0</m>, it is not invertible.
-</p>
-</paragraphs>
+<example>
+	<title>Sometimes the <m>2 \times 2</m> inversion formula does not apply</title>
+	<statement><p>
+	Consider matrix <me> B = \begin{bmatrix} 3 \amp 6 \\ 1 \amp 2 \end{bmatrix}. </me>
+	For this matrix, we have
+	<me> ad-bc = 3\cdot 2 - 6 \cdot 1 = 6-6 = 0. </me>
+	So even though none of the entries of <m>B</m> are <m>0</m>, it is not invertible.
+	</p></statement>
+</example>
 
 </subsection>
 
@@ -107,6 +121,10 @@ So even though none of the entries of <m>B</m> are <m>0</m>, it is not invertibl
 <title>Solving systems using inverses</title>
 
 <p>
+Just as we can solve the numerical equation <m>ax=b</m> as <m>x = \inv{a}b</m>, we can solve a system of equations that is represented as a matrix equation <m>A\uvec{x} = \uvec{b}</m> using <m>\inv{A}</m>.
+</p>
+
+<example xml:id="example-inverses-examples-solving-sys"><statement><p>
 Consider the system
 <me>
 	\left\{\begin{array}{rcrcrcr}
@@ -139,15 +157,17 @@ which is conveniently the matrix for which we have already computed the inverse 
 	</mrow>
 </md>
 so that the system has one unique solution <m>x=-8/7</m>, <m>y=-19/7</m>.
-</p>
+</p></statement></example>
 
 </subsection>
 
 <subsection xml:id="subsection-inverses-examples-solving-alg-eqns">
-<title>Solving other matrix equations with inverses</title>
+<title>Solving other matrix equations using inverses</title>
 
-<p>
-We can similarly use matrix algebra and inverses to solve matrix equations in general. Consider the matrix equation
+<p> We can similarly use matrix algebra and inverses to solve matrix equations in general. </p>
+
+<example xml:id="example-inverses-examples-solving-alg-eqns"><statement><p>
+Consider the matrix equation
 <me>
 	3 \left[\begin{array}{rr} 1 \amp 1 \\ -1 \amp 2 \end{array}\right]
 	+ X \left[\begin{array}{rr} 0 \amp -3 \\ 2 \amp 1 \end{array}\right] = I.
@@ -194,7 +214,7 @@ From this we obtain
 	= \frac{1}{6} \left[\begin{array}{rr} 4 \amp -6\\ 13 \amp 9 \end{array}\right]
 	= \left[\begin{array}{rr} 2/3 \amp -1 \\ 13/6 \amp 3/2 \end{array}\right].
 </me>
-</p>
+</p></statement></example>
 
 </subsection>
 

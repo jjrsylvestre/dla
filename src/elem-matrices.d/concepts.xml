@@ -18,6 +18,20 @@ respective owners.
 
 <title>Concepts</title>
 
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-elem-matrices-concepts-elem-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-concepts-elem-matrices" /></em></li>
+<li><xref ref="subsection-elem-matrices-concepts-inverses-by-elem-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-concepts-inverses-by-elem-matrices" /></em></li>
+<li><xref ref="subsection-elem-matrices-concepts-inverses-of-elem-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-concepts-inverses-of-elem-matrices" /></em></li>
+<li><xref ref="subsection-elem-matrices-concepts-decomp-into-elem-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-concepts-decomp-into-elem-matrices" /></em></li>
+<li><xref ref="subsection-elem-matrices-concepts-invert-by-row-red" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-matrices-concepts-invert-by-row-red" /></em></li>
+</ul></p></assemblage>
+
+
 <introduction>
 
 	<p>Even though the title of this chapter is <em>Elementary matrices</em>, it is really another about <em>matrix inverses</em>.</p>
@@ -54,7 +68,7 @@ for some examples.
 </p><p>
 If each elementary row operation can be achieved by multiplication by an elementary matrix, then a whole row reduction process can be achieved by iterated multiplication by elementary matrices, as in <xref ref="activity-elem-matrices-invert-method" />. See
 <xref ref="subsection-elem-matrices-examples-decompositions" />
-for examples.
+for an example.
 </p>
 
 </subsection>
@@ -245,7 +259,7 @@ we realize that <em>the same sequence operations that reduce <m>B</m> to <m>I</m
 Now, it is inefficient to first row reduce a matrix to <m>I</m>, and then unreduce <m>I</m> to <m>\inv{B}</m> afterward, because we will be doing the same operations, in the same order, in both parts of the process. It would be faster to do both at once, one operation at a time.
 </p>
 
-<algorithm> <!-- algorithm is hijacked to "Procedure" -->
+<algorithm xml:id="procedure-elem-matrices-concepts-inversion-by-row-red"> <!-- algorithm is hijacked to "Procedure" -->
 	<title>Computing an inverse</title>
 	<statement><p>
 		To compute the inverse of a square matrix <m>A</m>, augment that matrix with the identity matrix and row reduce until the identity matrix is obtained on the left where there initially was <m>A</m>. The matrix on the right where there was initially <m>I</m> will now be <m>\inv{A}</m>.
@@ -265,7 +279,7 @@ in
 <xref ref="subsection-elem-matrices-theory-inverses" />.
 See
 <xref ref="subsection-elem-matrices-examples-inversion-procedure" />
-for some examples of carrying out this procedure.
+for an example of carrying out this procedure.
 </p>
 
 </subsection>

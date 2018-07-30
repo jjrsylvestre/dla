@@ -19,7 +19,7 @@ respective owners.
 <title>Activities</title>
 
 <introduction><p>
-In \nrefch[ColRowNull], we began to see how the interaction between a matrix and column vectors can be used to understand the matrix. Here we will find that for each square matrix there are certain column vectors that are particularly well-suited to the task.
+In <xref ref="chapter-col-row-null-space" />, we began to see how the interaction between a matrix and column vectors can be used to understand the matrix. Here we will find that for each square matrix there are certain column vectors that are particularly well-suited to the task.
 </p></introduction>
 
 <activity xml:id="activity-eigen-values-vectors-eigen-motivation">
@@ -55,7 +55,10 @@ In \nrefch[ColRowNull], we began to see how the interaction between a matrix and
   <postlude>
   <p>
   From <xref ref="activity-eigen-values-vectors-eigen-motivation" />,
-  it seems that pairs consisting of a scalar <m>\lambda</m> and (nonzero) vector <m>\uvec{x}</m> such that <m>A\uvec{x} = \lambda \uvec{x}</m> are important to understanding how matrix <m>A</m> <q>operates</q> on <em>all</em> vectors by multiplication. For such a pair, the scalar <m>\lambda</m> is called an <term>eigenvalue</term> of <m>A</m>, and the corresponding vector <m>\uvec{x}</m> is called an <term>eigenvector</term> for <m>A</m>.
+  it seems that pairs consisting of a scalar <m>\lambda</m> and (nonzero) vector <m>\uvec{x}</m> such that <m>A\uvec{x} = \lambda \uvec{x}</m> are important to understanding how matrix <m>A</m> <q>operates</q> on <em>all</em> vectors by multiplication. For such a pair, the scalar <m>\lambda</m> is called an <term>eigenvalue</term> of <m>A</m>, and the corresponding vector <m>\uvec{x}</m> is called an
+  <term>eigenvector</term>
+  <idx><h>eigenvector</h></idx>
+  for <m>A</m>.
   </p>
   <aside><title>Terminology</title><p>
     The prefix <foreign xml:lang="german">eigen</foreign> is German for specific/particular/<q>one's own.</q>
@@ -100,7 +103,10 @@ In \nrefch[ColRowNull], we began to see how the interaction between a matrix and
   <xref ref="activity-eigen-values-vectors-eigenval-char-poly-develop-char-poly">Part</xref>
   of
   <xref ref="activity-eigen-values-vectors-eigenval-char-poly" />
-  always results in a degree <m>n</m> polynomial in the variable <m>\lambda</m>, where <m>n</m> is the size of the matrix. We will call this polynomial the <term>characteristic polynomial</term> of <m>A</m><!--\index{characteristic!polynomial}-->. The eigenvalues of <m>A</m> are then precisely the roots its characteristic polynomial.
+  always results in a degree <m>n</m> polynomial in the variable <m>\lambda</m>, where <m>n</m> is the size of the matrix. We will call this polynomial the
+  <term>characteristic polynomial</term>
+  <idx><h>characteristic</h><h>polynomial</h></idx>
+  of <m>A</m>. The eigenvalues of <m>A</m> are then precisely the roots its characteristic polynomial.
   </p></prelude>
   <statement>
   <p>
@@ -111,16 +117,22 @@ In \nrefch[ColRowNull], we began to see how the interaction between a matrix and
   When we solve for the roots of a polynomial by hand, our main method is to factor. So when computing a characteristic polynomial, keep it in factored form as much as possible <mdash /> do not expand brackets unless you need to in order to be able to factor further.
   </p></hint>
   <p><ol label="alph">
-    <li>
+    <li xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-2x2">
     <p><m> \left[\begin{array}{rr} 7 \amp 8 \\ -4 \amp -5 \end{array}\right] </m></p>
     <aside><title>Compare</title><p>
     your answer for the eigenvalues of the first matrix with your observations in
     <xref ref="activity-eigen-values-vectors-eigen-motivation" />.
     </p></aside>
     </li>
-    <li><m> \left[\begin{array}{rrr} 2 \amp -4 \amp 4 \\ 0 \amp -6 \amp 8 \\ 0 \amp -6 \amp 8 \end{array}\right] </m></li>
-  	<li><m> \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix} </m></li>
-  	<li><m> \left[\begin{array}{rrr} 2 \amp 1 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right] </m></li>
+    <li xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-3x3">
+    <m> \left[\begin{array}{rrr} 2 \amp -4 \amp 4 \\ 0 \amp -6 \amp 8 \\ 0 \amp -6 \amp 8 \end{array}\right] </m>
+    </li>
+    <li xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-diag">
+  	<m> \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix} </m>
+    </li>
+    <li xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-upper-tri">
+  	<m> \left[\begin{array}{rrr} 2 \amp 1 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right] </m>
+    </li>
   </ol></p>
   </statement>
 </activity>
@@ -158,7 +170,7 @@ In \nrefch[ColRowNull], we began to see how the interaction between a matrix and
   <fillin characters="10" />.
   </p></statement>
   <postlude><p>
-  For an eigenvalue <m>\lambda</m> of a matrix <m>A</m>, the subspace of <m>\R^n</m> consisting of all eigenvectors of <m>A</m> that correspond to <m>\lambda</m> (along with the zero vector) is called the <term>eigenspace of <m>A</m> corresponding to <m>\lambda</m></term><!--\index{eigenspace}-->.
+  For an eigenvalue <m>\lambda</m> of a matrix <m>A</m>, the subspace of <m>\R^n</m> consisting of all eigenvectors of <m>A</m> that correspond to <m>\lambda</m> (along with the zero vector) is called the <term>eigenspace of <m>A</m> corresponding to <m>\lambda</m></term><idx><h>eigenspace</h></idx>.
   </p></postlude>
 </activity>
 
