@@ -14,7 +14,7 @@ respective owners.
 *********************************************************************-->
 
 
-<section xml:id="section-abstract-vec-spaces-concepts">
+<section xml:id="section-abstract-vec-spaces-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <title>Concepts</title>
 
@@ -40,6 +40,8 @@ A vector space consists of a collection of objects, which are usually all of the
 	<term>vectors</term><idx><h>vector</h><h>abstract</h></idx>,
 	if the collection satisfies all ten of the following axioms. In the axiom statements, bold variable letters represent arbitrary objects in the collection, and ordinary variable letters represent arbitrary scalars (<ie /> numbers).
 	</p>
+
+	<!-- Tabular presentation of axioms
 	<table xml:id="table-abstract-vec-spaces-concepts-10-axioms">
 		<caption>The ten vector space axioms.</caption>
 		<tabular top="medium">
@@ -52,57 +54,36 @@ A vector space consists of a collection of objects, which are usually all of the
 		  </row>
 
 		  <row bottom="medium" valign="top">
-
-		    <cell><p><ol xml:id="list-abstract-vec-spaces-concepts-add-axioms">
-		      <li xml:id="list-abstract-vec-spaces-concepts-add-axioms-closed">
-		      The objects can be <em>added</em> (two at a time), and the resulting <q>sum</q> is always equal to another in the collection of objects.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-add-axioms-comm">
-		      Every <m>\uvec{v},\uvec{w}</m> satisfy <m>\uvec{w}+\uvec{v} = \uvec{v}+\uvec{w}</m>.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-add-axioms-assoc">
-		      Every <m>\uvec{u},\uvec{v},\uvec{w}</m> satisfy <m>\uvec{u}+(\uvec{v}+\uvec{w}) = (\uvec{u}+\uvec{v})+\uvec{w}</m>.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-add-axioms-zero">
-		      There is a special <term>zero object</term> in the collection, so that every <m>\uvec{v}</m> satisfies <m>\uvec{v}+\zerovec=\uvec{v}</m>.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-add-axioms-neg">
-		      Every <m>\uvec{v}</m> has a <term>negative</term> <m>-\uvec{v}</m> so that <m>\uvec{v}+(-\uvec{v})=\zerovec</m>.
-		      </li>
-		    </ol></p></cell>
-
-		    <cell><p><ol xml:id="list-abstract-vec-spaces-concepts-smul-axioms">
-		      <li xml:id="list-abstract-vec-spaces-concepts-smul-axioms-closed">
-		      The objects can be <em>scaled</em> by a numerical factor
-					(called a <term>scalar</term><idx><h>scalar</h></idx>),
-					and the resulting <q>scaled object</q> is always equal to another in the collection of objects.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-smul-axioms-distrib1">
-		      Every <m>k,\uvec{v},\uvec{w}</m> satisfy <m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m>.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-smul-axioms-distrib2">
-		      Every <m>k,m,\uvec{v}</m> satisfy <m>(k+m)\uvec{v} = k\uvec{v}+m\uvec{v}</m>.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-smul-axioms-assoc">
-		      Every <m>k,m,\uvec{v}</m> satisfy <m>k(m\uvec{v}) = (km)\uvec{v}</m>.
-		      </li>
-		      <li xml:id="list-abstract-vec-spaces-concepts-smul-axioms-one">
-		      Every <m>\uvec{v}</m> satisfies <m>1\uvec{v} = \uvec{v}</m>.
-		      </li>
-		    </ol></p></cell>
-
+				<cell><p> <xi:include href="./concepts.d/add-axioms.xml" /> </p></cell>
+				<cell><p> <xi:include href="./concepts.d/smul-axioms.xml" /> </p></cell>
 		  </row>
 
 		</tabular>
 	</table>
 </statement></definition>
+-->
+
+<!-- sidebyside presentation of axioms -->
+<sidebyside widths="50% 50%" valign="top">
+  <list>
+    <title>(A) Addition axioms</title><caption />
+    <xi:include href="./concepts.d/add-axioms.xml" />
+  </list>
+  <list>
+    <title>(S) Scalar multiplication axioms</title><caption />
+    <xi:include href="./concepts.d/smul-axioms.xml" />
+  </list>
+</sidebyside>
+
+</statement></definition>
+
 
 <remark><p><ul>
 	<!-- future TODO ? some comment about the <q>another in the collection of objects</q> in A1 and S1 -->
 
 	<li>
 	<p>
-	In <xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>, the negative symbol <alert>does not</alert> mean that we are multiplying the vector by <m>-1</m>. It is literally just a negative <em>symbol</em>, and should be read as <q>the negative of.</q> So for a vector <m>\uvec{v}</m> in a vector space, the symbols <m>-\uvec{v}</m> mean <q>the vector that is the negative of <m>\uvec{v}</m>,</q> defined by the property that it adds with <m>\uvec{v}</m> to the special zero vector.
+	In <xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>, the negative symbol <alert>does not</alert> mean that we are multiplying the vector by <m>-1</m>. It is literally just a negative <em>symbol</em>, and should be read as <q>the negative of.</q> So for a vector <m>\uvec{v}</m> in a vector space, the symbols <m>-\uvec{v}</m> mean <q>the vector that is the negative of <m>\uvec{v}</m>,</q> defined by the property that it adds with <m>\uvec{v}</m> to the special zero vector.
 	</p>
 	<aside><title>However</title><p>
 		The algebra of vectors will lead to a connection between the negative of a vector with respect to addition, and the scalar multiple of a vector by the scalar <m>-1</m>. See
@@ -119,10 +100,10 @@ A vector space consists of a collection of objects, which are usually all of the
 	Many of these axioms describe two different ways of performing the operations, and state that the different ways always produce the same result.
 	<ul>
 		<li> For example, in
-		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc">Axiom A</xref>,
+		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc" text="local">Axiom A</xref>,
 		the brackets on the left-hand side tell us to add vectors <m>\uvec{v}</m> and <m>\uvec{w}</m> first, in whatever way addition is defined in that space, and then to add that resulting sum vector to <m>\uvec{u}</m>. On the right, the brackets tell us to add vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> first, and then to add that resulting sum vector to <m>\uvec{w}</m>. The equals sign in the middle tells us that we require the two different addition processes to always have the same result. </li>
 		<li> For another example, in
-		<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1">Axiom S</xref>,
+		<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1" text="local">Axiom S</xref>,
 		the brackets on the left tell us to add <m>\uvec{v}</m> and <m>\uvec{w}</m>, and then scale that sum vector by scalar <m>k</m>, whereas the brackets on the right tell us to scale each of <m>\uvec{v}</m> and <m>\uvec{w}</m> by <m>k</m> separately first, and then add those two scaled vectors together. </li>
 	</ul>
 	When we first encounter a new collection of objects for which we have some ideas of addition and scalar multiplication, we don't know that the two different orders of operations will always have the same result. Before we can call our new collection a <term>vector space</term>, we need to verify all of these sorts of things.
@@ -144,9 +125,9 @@ One set of prototypical examples of vector spaces are the collections of vectors
 <m>\R^2</m>, <m>\R^3</m>, and the higher-dimensional spaces <m>\R^n</m>, <m>n\ge 4</m>. In these spaces,
 <ul>
 	<li> adding vectors or scalar multiplying a vector results in a vector in the same space, satisfying
-	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 	and
-	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>;
+	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>;
 	</li>
 	<li> the zero vector is <m>\zerovec = (0,0,\dotsc,0)</m> as usual; </li>
 	<li> the negative of a vector is the parallel vector of the same length in the opposite direction; and </li>
@@ -156,9 +137,7 @@ One set of prototypical examples of vector spaces are the collections of vectors
 	</li>
 </ul>
 In
-<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-R1">Part</xref>
-of
-<xref ref="activity-abstract-vec-spaces-basic-vspace-examples" />,
+<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-R1">Activity</xref>,
 we discovered that even the collection of real numbers itself can be considered as a vector space. We might think of this space as <m>\R^1</m>, and visualize its vectors as directed line segments lying along the real number line.
 </p>
 </paragraphs>
@@ -168,9 +147,9 @@ we discovered that even the collection of real numbers itself can be considered 
 Another set of prototypical examples of vectors spaces are the collections of matrices of a given size, <m>\matrixring_{m \times n}(\R)</m>. But these matrix spaces represent our first expansion of the word <term>vector</term> to include other kinds of objects <mdash /> since all ten axioms hold true here, we can justifiably refer to <em>any</em> matrix, of any size, as a <em>vector</em>. In these spaces,
 <ul>
 	<li> adding matrices or scalar multiplying a matrix does not change its size, so these operations always result in a vector in the same space, satisfying
-	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 	and
-	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>;
+	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>;
 	</li>
 	<li> the zero vector is the zero matrix of the appropriate size; </li>
 	<li> the negative of a vector is the matrix of the same size where all the entries are the negatives of those of the original matrix; and </li>
@@ -184,34 +163,30 @@ Another set of prototypical examples of vectors spaces are the collections of ma
 <paragraphs><title>Spaces of polynomials</title>
 <p>
 In <xref ref="activity-abstract-vec-spaces-basic-vspace-examples" />, we also explored some new examples of vector spaces consisting of polynomials as vectors. First, we considered the collection <m>\poly(\R)</m> of polynomials with real coefficients of arbitrary degree in
-<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-poly">Part</xref>
-of
-<xref ref="activity-abstract-vec-spaces-basic-vspace-examples" />.
+<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-poly">Activity</xref>.
 Here are some observations on the vector space axioms for this space.
 <ul>
 	<li>
 	We add polynomials algebraically, by adding like terms. For example,
 	<me> (5x^3 + 3x^2 + 2x - 1) + (6x^{101} - 3x^3 + x + 1) = 6x^{101} + 2x^3 + 3x^2 + 3x. </me>
 	Clearly, the result of adding polynomials is another polynomial, satisfying
-	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>.
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>.
 	</li>
 	<li> We scalar multiply a polynomial by distributing the scalar across the addition of the polynomials terms. For example,
 	<me> -2(6x^{101} - 3x^3 + x + 1) = 12x^{101} + 6x^3 - 2x - 2. </me>
 	The result of multiplying a polynomial by a scalar is another polynomial, satisfying
-	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>.
+	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>.
 	</li>
 	<li> The zero vector is the constant (<ie /> degree zero) polynomial <m>p(x) = 0</m>. </li>
 	<li> The negative of a vector is the polynomial of the same degree where all the coefficients are the negatives of those of the the original matrix. </li>
 	<li> The rest of the axioms are familiar rules of algebra involving polynomial expressions. </li>
 </ul>
 Next, we considered the collection <m>\poly_2(\R)</m> of polynomials with real coefficients of maximum degree <m>2</m>
-(<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-poly-degree-2">Part</xref>
-of
-<xref ref="activity-abstract-vec-spaces-basic-vspace-examples" />).
+(<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-poly-degree-2">Activity</xref>).
 Everything here works the same as in <m>\poly(\R)</m>, except that we need to reconsider
-<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>.
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>.
 and
-<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>.
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>.
 We define vector addition and scalar multiplication for polynomials as before, but we need to make sure that the result of each of these operations is always equal to another in the collection of objects. But neither of the operations can <em>increase</em> the degree of a polynomial, so their results will always again be a polynomial of degree <m>2</m> or less.
 </p>
 </paragraphs>
@@ -229,9 +204,9 @@ Similarly, to scale a function we should scale its outputs. That is,
 	(kf)(x) = kf(x).
 </mrow></md>
 Both of these processes result in a new function with the same domain as the old, so
-<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 and
-<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>
 are satisfied.
 </p><p>
 In this space, the zero vector is the <em>zero function</em>, whose outputs are always zero: <m>\zerovec(x) = 0</m> for all <m>x</m>. And the negative of a function is obtained by negating all of its outputs: <m>(-f)(x) = -f(x)</m>. See
@@ -242,10 +217,10 @@ for examples of carrying out the verification of some of the vector axioms in th
 
 <paragraphs><title>The trivial vector space</title>
 <p>
-In <xref ref="activity-abstract-vec-spaces-trivial-space" />, we explored the possibility of a vector space having just one vector in it. But <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref> requires that every vector space have a zero vector, so that single vector inside must be it. And when we add this vector to itself or try to scale this vector, the condition that <q>the result is always equal to another in the collection</q> in both
-<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>
+In <xref ref="activity-abstract-vec-spaces-trivial-space" />, we explored the possibility of a vector space having just one vector in it. But <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref> requires that every vector space have a zero vector, so that single vector inside must be it. And when we add this vector to itself or try to scale this vector, the condition that <q>the result is always equal to another in the collection</q> in both
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 and
-<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>
 requires that the result is actually always equal to that one vector, because there are no other vectors in the collection to choose from.
 </p><p>
 This simple vector space consisting of <em>just</em> a zero vector is called <term>the zero vector space</term> or <term>the trivial vector space</term>.
@@ -263,7 +238,7 @@ To define <term>vector addition</term> in this space, we'll actually use ordinar
 	(a)\oplus(b) = (ab).
 </mrow></md>
 This definition satisfies
-<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed">Axiom A</xref>
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 because multiplying two positive numbers results in another positive number.
 </p><p>
 To define <term>scalar multiplication</term> in this space, we'll use exponentiation. That is, for number <m>a>0</m> and scalar <m>k</m> (also a number), we will scale the vector <m>(a)</m> by the scale factor <m>k</m> according to the rule
@@ -271,11 +246,11 @@ To define <term>scalar multiplication</term> in this space, we'll use exponentia
 	k\odot(a) = (a^k),
 </mrow></md>
 with the usual conventions that <m>a^0 = 1</m> and <m>\inv{a} = 1/a</m>. This definition satisfies
-<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed">Axiom S</xref>
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>
 because a power of a positive number results in another positive number.
 </p><p>
 What is the zero vector in this space? For
-<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero">Axiom A</xref>
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>
 to hold true, we need a vector <m>(z)</m> so that
 <me> (a)\oplus(z) = (a) </me>
 for all other vectors <m>(a)</m>. But we can't use <m>z=0</m>, because the vectors in our space must all be <em>positive</em> numbers. Inserting the definition of <m>\oplus</m> as ordinary multiplication, we need a positive number <m>z</m> so that
@@ -285,7 +260,7 @@ for all <m>a>0</m>. But we only get <m>az=a</m> for all <m>a>0</m> when <m>z=1</
 <aside><p>The identity of the zero vector in this space should actually not be that surprising <mdash /> the number one is to multiplication what the number zero is to addition.</p></aside>
 <p>
 What is the negative of a vector in this space? Given positive <m>a>0</m>, the negative of vector <m>(a)</m> can't be <m>(-a)</m>, because all our vectors have to be <em>positive</em> numbers. To repeat, <em>in this case, <m>-(a)</m> is <em>not</em> equal to <m>(-a)</m></em>. We know that every vector in this space is represented by a single positive number. That is, the negative of <m>(a)</m> must be equal to <m>(b)</m> for some positive number <m>b</m>. To satisfy
-<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg">Axiom A</xref>,
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>,
 this negative vector must satisfy
 <me> (a)\oplus\bbrac{-(a)} = \zerovec. </me>
 So we need <m>b>0</m> so that

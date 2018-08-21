@@ -82,9 +82,7 @@ In <xref ref="activity-orthog-guess-orthog-in-plane" />, we tried to find a patt
 Two numbers add to zero only if one is the negative of the other. We can make both terms in the sum the same number by entering <m>b</m> in the first blank and <m>a</m> in the second, so we can make the sum cancel to zero by also making one of those entries zero:
 <me> a\cdot\boxed{b} + b\cdot\boxed{(-a)} = 0. </me>
 We have now answered the question in
-<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Part</xref>
-of
-<xref ref="activity-orthog-guess-orthog-in-plane" />:
+<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Activity</xref>:
 given vector <m>\uvec{u} = (a,b)</m> in the plane, one example of a vector that is orthogonal to <m>\uvec{u}</m> is <m>\uvec{v} = (b,-a)</m>.
 </p>
 
@@ -120,23 +118,17 @@ All we know about <m>P</m> is that it is on the line and it is at the vertex of 
 In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m> determined by the given point <m>Q</m>, and <m>\uvec{w}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m> determined by the unknown point <m>P</m>. Since <m>\uvec{w}</m> is placed with its tail at the origin, the components of <m>\uvec{w}</m> are precisely the coordinates of <m>P</m>. So determining <m>\uvec{w}</m> will solve the problem.
 </p><p>
 We are assuming that the line through the origin is known, and it would be nice to also have a vector means of describing it. But the vectors created by the points on this line (using the origin as a universal tail point) will all be parallel to each other, so (as we discovered in
-<xref ref="activity-orthog-proj-scalar-mul-line">Part</xref>
-of
-<xref ref="activity-orthog-proj" />)
+<xref ref="activity-orthog-proj-scalar-mul-line">Activity</xref>)
 the line could be described as all scalar multiples of a particular vector <m>\uvec{a}</m>. This vector can be randomly chosen as any vector along the line. Once we have chosen <m>\uvec{a}</m>, we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{w}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{w} = k\uvec{a}</m>.
 </p><p>
 We represent the knowledge that the closest point on the line lies at the foot of the perpendicular from the given point <m>Q</m> with the normal vector <m>\uvec{n}</m>. As in
-<xref ref="activity-orthog-proj-dot-prod-condition">Part</xref>
-of
-<xref ref="activity-orthog-proj" />,
+<xref ref="activity-orthog-proj-dot-prod-condition">Activity</xref>,
 we know that <m>\udotprod{n}{a}</m> must be zero <mdash /> this is the perpendicular condition. However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.  But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>, and <m>\uvec{w}</m> to replace <m>\uvec{n}</m>:
 <md><mrow>
 	\uvec{w} + \uvec{n} \amp= \uvec{u} \amp \amp\implies \amp \uvec{n} \amp= \uvec{u} - \uvec{w} = \uvec{u} - k\uvec{a}
 </mrow></md>
 Replacing <m>\uvec{n}</m> by this expression in the condition <m>\udotprod{n}{a} = 0</m> gives us an equation of numbers that we can solve for the unknown scale factor <m>k</m>, as we did in
-<xref ref="activity-orthog-proj-solve">Part</xref>
-of
-<xref ref="activity-orthog-proj" />:
+<xref ref="activity-orthog-proj-solve">Activity</xref>:
 <me> k = \frac{\udotprod{u}{a}}{\unorm{a}^2}. </me>
 This vector <m>\uvec{w} = k\uvec{a}</m> pointing from the origin to the desired closest point is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>, and we write <m>\proj_{\uvec{a}} \uvec{u}</m> to represent it. The normal vector <m>\uvec{n}</m> is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>. These two vectors are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
 <me> \uvec{u} = \uvec{w} + \uvec{n}, </me>

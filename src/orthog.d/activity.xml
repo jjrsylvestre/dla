@@ -27,7 +27,6 @@ respective owners.
 </p></introduction>
 
 <activity xml:id="activity-orthog-dot-prod-vs-cos-graph">
-  <statement>
 	<p>
 	Based on the graph of <m>y = \cos\theta</m> on domain <m>0 \le \theta \le \pi</m> provided below, what can you say about <m>\udotprod{u}{v}</m> in the case that <m>\theta</m>	is
 	acute? <ellipsis />
@@ -39,7 +38,6 @@ respective owners.
 		<description>Graph of <m>y=\cos \theta</m>.</description>
 		<latex-image><xi:include href="../shared-tikz.d/cosine.tex" parse="text" /></latex-image>
 	</image></sidebyside>
-  </statement>
 </activity>
 
 <activity xml:id="activity-orthog-guess-orthog-in-plane">
@@ -55,53 +53,55 @@ respective owners.
 	if <m>\udotprod{u}{v} = 0</m>.
 	</p></prelude>
 
-  <statement><p><ol label="alph">
-		<li xml:id="activity-orthog-guess-orthog-in-plane-guess">
+  <task xml:id="activity-orthog-guess-orthog-in-plane-guess"><p>
 		Can you guess a vector <m>\uvec{v} = (v_1,v_2)</m> that is orthogonal to <m>\uvec{u} = (1,-3)</m> in the plane? Make sure your guess satisfies the definition of <term>orthogonal</term>: you need <m>\udotprod{u}{v} = 0</m>.
-		</li>
-		<li>
-		<p> What relationship to your initial guess <m>\uvec{v}</m> will other vectors in the plane orthogonal to <m>\uvec{u}</m> have? </p>
+	</p></task>
+	<task>
+		<statement><p>
+		What relationship to your initial guess <m>\uvec{v}</m> will other vectors in the plane that are orthogonal to <m>\uvec{u}</m> have?
+		</p></statement>
 		<hint><p>
-			Draw a diagram of your vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, both with initial points at the origin.
-			On your diagram, how can you modify your intial guess <m>\uvec{v}</m> geometrically while still maintaining orthogonality with <m>\uvec{u}</m>?
+		Draw a diagram of your vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, both with initial points at the origin.
+		On your diagram, how can you modify your intial guess <m>\uvec{v}</m> geometrically while still maintaining orthogonality with <m>\uvec{u}</m>?
 		</p></hint>
-		</li>
-		<li xml:id="activity-orthog-guess-orthog-in-plane-pattern">
-		Turn the pattern of your guess from the first part of this activity into a general pattern for vectors in the plane: if <m>\uvec{u} = (a,b)</m>, then an example of a vector orthogonal to <m>\uvec{u}</m> is <me>\uvec{v} = (<fillin characters="3" />,<fillin characters="3" />).</me>
-		</li>
-	</ol></p></statement>
+	</task>
+	<task xml:id="activity-orthog-guess-orthog-in-plane-pattern"><p>
+		Turn the pattern of your guess from
+		<xref ref="activity-orthog-guess-orthog-in-plane-guess" text="type-hybrid" />
+		into a general pattern for vectors in the plane: if <m>\uvec{u} = (a,b)</m>, then an example of a vector orthogonal to <m>\uvec{u}</m> is <me>\uvec{v} = (<fillin characters="3" />,<fillin characters="3" />).</me>
+	</p></task>
 </activity>
 
 <activity xml:id="activity-orthog-proj">
-  <statement><p><ol label="alph">
-		<li xml:id="activity-orthog-proj-scalar-mul-line">
-		Draw the vector <m>\uvec{a} = (3,1)</m> in the <m>xy</m>-plane with its tail at the origin. Now imagine you were to also draw in every possible scalar multiple of <m>\uvec{a}</m> (positive, negative, zero, fractional, <etc />). What geometric shape would these scalar multiples of <m>\uvec{a}</m> trace out? Draw this shape on your diagram.
-		</li>
-		<li xml:id="activity-orthog-proj-dot-prod-condition">
+
+	<task xml:id="activity-orthog-proj-scalar-mul-line"><p>
+	Draw the vector <m>\uvec{a} = (3,1)</m> in the <m>xy</m>-plane with its tail at the origin. Now imagine you were to also draw in every possible scalar multiple of <m>\uvec{a}</m> (positive, negative, zero, fractional, <etc />). What geometric shape would these scalar multiples of <m>\uvec{a}</m> trace out? Draw this shape on your diagram.
+	</p></task>
+	<task xml:id="activity-orthog-proj-dot-prod-condition">
 		<p>
 		Plot the point <m>Q(4,4)</m> on your diagram. On the line defined by <m>\uvec{a}</m> that you drew in the first part of this activity, draw in the point that you think is closest to <m>Q</m>. Label this point <m>P</m>. Now draw <m>\abray{PQ}</m>, and label this vector as <m>\uvec{n}</m>.
 		</p><p>
 		What is the relationship between <m>\uvec{n}</m> and the line? What is the value of <m>\udotprod{n}{a}</m>?
 		</p>
-		</li>
-		<li xml:id="activity-orthog-proj-normal">
+	</task>
+	<task xml:id="activity-orthog-proj-normal">
 		<p>
 		Vector <m>\abray{OP}</m> is parallel to <m>\uvec{a}</m>, so <m>\abray{OP}</m> is a scalar multiple of <m>\uvec{a}</m>. Our goal is to determine the scalar <m>k</m> so that the head of <m>k\uvec{a}</m> lies at <m>P</m>. Complete the triangle in your diagram by drawing in the vector <m>\uvec{u} = \abray{OQ}</m>.
 		</p>
 		<p> Then express <m>\uvec{n}</m> as a combination of <m>\uvec{u}</m> and <m>k\uvec{a}</m>. </p>
 		<aside><title>Remember</title><p><m>k\uvec{a} = \abray{OP}</m>.</p></aside>
-		</li>
-		<li xml:id="activity-orthog-proj-solve">
+	</task>
+	<task xml:id="activity-orthog-proj-solve">
 		<p>
 		Substitute your expression for <m>\uvec{n}</m> from
-		<xref ref="activity-orthog-proj-normal">Part</xref>
+		<xref ref="activity-orthog-proj-normal" text="type-hybrid"/>
 		into your equation for <m>\udotprod{n}{a}</m> from
-		<xref ref="activity-orthog-proj-dot-prod-condition">Part</xref>,
+		<xref ref="activity-orthog-proj-dot-prod-condition" text="type-hybrid" />,
 		and then solve for <m>k</m> as a formula in <m>\uvec{u}</m> and <m>\uvec{a}</m>.
 		</p>
 		<p> Now complete the general formula: <m>k\uvec{a}=<fillin characters="6" /></m>. </p>
-		</li>
-	</ol></p></statement>
+	</task>
+
 	<postlude>
 	<p>
 	The vector <m>k\uvec{a}</m> in the previous exercise is called the
@@ -121,33 +121,29 @@ respective owners.
 </activity>
 
 <activity>
-  <statement>
     <p>
 		Suppose <m>\uvec{u}</m> is orthogonal to <m>\uvec{a}</m>. What is <m>\uproj{u}{a}</m>? What is the component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m>?
 		</p><p>
 		Now answer these same two questions in the case that <m>\uvec{u}</m> is <em>parallel</em> to <m>\uvec{a}</m>.
     </p>
-  </statement>
 </activity>
 
 <activity>
-  <statement>
     <p>
 		If <m>\ell</m> is the line through the origin and parallel to vector <m>\uvec{a}</m>, and <m>\uvec{u}</m> is some other vector, then our construction in <xref ref="activity-orthog-proj" /> guarantees that <m>\proj_{\uvec{a}} \uvec{u}</m> represents the closest point on <m>\ell</m> to the terminal point of <m>\uvec{u}</m>.
 		</p><p>
 		The distance between a point and a line is defined as the shortest (<ie /> perpendicular) distance between the two. Use the orthogonal projection to come up with a procedure to determine the distance between the line <m>\ell\colon\,y=x/2</m> and the point <m>Q(2,4)</m>.
     </p>
-  </statement>
 </activity>
 
 <activity xml:id="activity-orthog-point-normal-lines-1">
-  <statement><p>
-	The homogeneous linear equation <m>2x+3y=0</m> defines a line through the origin in <m>\R^2</m> (<ie /> the <m>xy</m>-plane).
-	<ol label="alph">
-		<li>
+  <introduction><p>
+		The homogeneous linear equation <m>2x+3y=0</m> defines a line through the origin in <m>\R^2</m> (<ie /> the <m>xy</m>-plane).
+	</p></introduction>
+	<task><p>
 		Recall that a point <m>(x,y)</m> lies on the line if and only if its coordinates satisfy the given equation. Let's consider such a point as the terminal point of the vector <m>\uvec{x} = (x,y)</m> with its initial point at the origin. Does the left-hand side of the equation for the line look like the formula for some quantity related to <m>\uvec{x}</m> and some other vector? Perhaps some quantity that we've been exploring in detail recently?
-		</li>
-		<li>
+	</p></task>
+	<task>
 		<p>
 		In light of the first part of this activity, what does the right-hand side of the equation for the line say about the relationship between a vector <m>\uvec{x}=(x,y)</m> that lies along the line and the other special vector you identified in the previous part?
 		</p>
@@ -158,58 +154,48 @@ respective owners.
 			<idx><h>vector</h><h>normal</h></idx>
 			for the line.
 		</p></aside>
-		</li>
-	</ol>
-  </p></statement>
+	</task>
 </activity>
 
 <activity xml:id="activity-orthog-point-normal-lines-2">
-  <statement>
-    <p>
+  <introduction><p>
 		The non-homogeneous linear equation <m>2x+3y=8</m> defines a line through the point <m>P(1,2)</m> in <m>\R^2</m>.
-		<ol label="alph">
-			<li>
-			Draw the line and label the point <m>P(1,2)</m>. Choose another arbitrary point on the line and label it <m>Q(x,y)</m>. Draw the vector <m>\uvec{v} = \abray{PQ}</m> along the line. Express the components of <m>\uvec{v}</m> as formulas in <m>x</m> and <m>y</m>.
-			</li>
-			<li>
-			<p>
-			Draw the normal vector associated to the line equation (as in <xref ref="activity-orthog-point-normal-lines-1" />) with its tail at <m>P</m>. What do you notice about the relationship between this normal vector and the vector <m>\uvec{v}</m> parallel to the line? Express this relationship in terms of the dot product, and then expand out this dot product.
-		 	</p>
-			<aside><title>Terminology</title><p>
-				The equation involving the dot product that you obtain is called the
-				<term>point-normal form</term>
-				<idx><h>point-normal form</h><h>for a line</h></idx>
-				for the line.
-			</p></aside>
-			</li>
-		</ol>
-    </p>
-  </statement>
+	</p></introduction>
+	<task><p>
+		Draw the line and label the point <m>P(1,2)</m>. Choose another arbitrary point on the line and label it <m>Q(x,y)</m>. Draw the vector <m>\uvec{v} = \abray{PQ}</m> along the line. Express the components of <m>\uvec{v}</m> as formulas in <m>x</m> and <m>y</m>.
+	</p></task>
+	<task>
+		<p>
+		Draw the normal vector associated to the line equation (as in <xref ref="activity-orthog-point-normal-lines-1" />) with its tail at <m>P</m>. What do you notice about the relationship between this normal vector and the vector <m>\uvec{v}</m> parallel to the line? Express this relationship in terms of the dot product, and then expand out this dot product.
+	 	</p>
+		<aside><title>Terminology</title><p>
+			The equation involving the dot product that you obtain is called the
+			<term>point-normal form</term>
+			<idx><h>point-normal form</h><h>for a line</h></idx>
+			for the line.
+		</p></aside>
+	</task>
 </activity>
 
 <!-- OMITTING IN THE INTEREST OF TIME MANAGEMENT....
 <activity>
-  <statement>
-  <p>
-	The same sort of analysis as in
-	<xref
-		first="activity-orthog-point-normal-lines-1"
-		last="activity-orthog-point-normal-lines-2"
-	>Activities</xref>
-	can be carried out for planes in <m>\R^3</m>, with a similar result.
-	<ol label="alph">
-		<li>
+  <introduction><p>
+		The same sort of analysis as in
+		<xref
+			first="activity-orthog-point-normal-lines-1"
+			last="activity-orthog-point-normal-lines-2"
+		>Activities</xref>
+		can be carried out for planes in <m>\R^3</m>, with a similar result.
+	</p></introduction>
+	<task><p>
 		The homogeneous equation <m>2x - y + 3z = 0</m> defines a plane through the origin in three-dimensional space. View the left-hand side of this equation as the result of a dot product of a normal vector <m>\uvec{n}</m> for the plane and a vector <m>\uvec{x} = (x,y,z)</m> that lies along (parallel to) the plane. What are the components of the normal vector <m>\uvec{n}</m>?
-		</li>
-		<li>
+	</p></task>
+	<task><p>
 		Now consider the points <m>P(-1,3,1)</m> and <m>Q(-1,0,0)</m> on the plane <m>2x-y+3z = -2</m>. The vector <m>\uvec{v} = \abray{PQ}</m> lies parallel to the plane. Verify using the dot product that the normal <m>\uvec{n}</m> from the previous part of this activity is orthogonal to <m>\uvec{v}</m>.
-		</li>
-		<li>
+	</p></task>
+	<task><p>
 		Again considering point <m>P(-1,3,1)</m> on plane <m>2x-y+3z=-2</m>, take <m>Q(x,y,z)</m> to be some <em>arbitrary</em> other point on the plane. As in the previous part of this activity, vectors <m>\uvec{n}</m> and <m>\uvec{v} = \abray{PQ}</m> will be orthogonal. Compute the components of <m>\uvec{v}</m> as formulas in <m>x,y,z</m>, and then obtain the point-normal-form equation for the plane by using the dot product to express the fact that <m>\uvec{n}</m> and <m>\uvec{v}</m> are orthogonal.
-		</li>
-	</ol>
-  </p>
-	</statement>
+	</p></task>
 </activity>
 -->
 
@@ -217,63 +203,61 @@ respective owners.
 	<prelude><p> <!-- COMMENT OUT THIS PRELUDE IF USING THE COMMENTED-OUT ACTIVITY ABOVE -->
 	The same sort of analysis can be carried out for a plane in space determined by algebraic equation <m>ax + by + cz = d</m>. The coefficients form a normal vector <m>\uvec{n} = (a,b,c)</m> that is perpendicular to the plane (<ie /> orthogonal to every vector that is parallel to the plane), and given some specific point <m>\uvec{x}_0 = (x_0,y_0,z_0)</m> that lies on the plane, the plane can be described by the point-normal form <m>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</m>.
 	</p></prelude>
-  <statement>
-    <p>
-		Consider the planes <m>\Pi_1</m>, <m>\Pi_2</m>, and <m>\Pi_3</m> described algebraically below.
-		<md><mrow>
-			\Pi_1 \amp \colon x-y+2z = 2 \amp
-			\Pi_2 \amp \colon 2x-2y+4z = 7 \amp
-			\Pi_3 \amp \colon x - y + 3z = 2
-		</mrow></md>
-		Use the concept of normal vector to justify the claim that <m>\Pi_1</m> and <m>\Pi_2</m> are parallel, but that <m>\Pi_3</m> is not parallel to either of <m>\Pi_1</m> or <m>\Pi_2</m>.
-    </p>
-  </statement>
+  <statement><p>
+	Consider the planes <m>\Pi_1</m>, <m>\Pi_2</m>, and <m>\Pi_3</m> described algebraically below.
+	<md><mrow>
+		\Pi_1 \amp \colon x-y+2z = 2 \amp
+		\Pi_2 \amp \colon 2x-2y+4z = 7 \amp
+		\Pi_3 \amp \colon x - y + 3z = 2
+	</mrow></md>
+	Use the concept of normal vector to justify the claim that <m>\Pi_1</m> and <m>\Pi_2</m> are parallel, but that <m>\Pi_3</m> is not parallel to either of <m>\Pi_1</m> or <m>\Pi_2</m>.
+  </p></statement>
 </activity>
 
 <activity xml:id="activity-orthog-distances">
 	<prelude><p>
 		Orthogonal projection onto a plane in space is a little more complicated, and is likely something you would learn about in a second course in linear algebra. But it's possible to use a different strategy to determine the distance between a point and a plane by using the fact that a plane has <em>one unique</em> normal <q>direction.</q>
 	</p></prelude>
-  <statement>
-	<p>
-	<ol label="alph">
-		<li xml:id="activity-orthog-distances-point-to-plane">
-		<p> Using the diagram below as inspiration, come up with a procedure to determine the distance <m>d</m> between a point <m>Q</m> and a plane <m>\Pi</m>. </p>
-		<sidebyside><image width="100%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description>
-				Diagram illustrating procedure to determine the distance between a point and a plane in space.
-			</description>
-			<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
-		</image></sidebyside>
-		<hint><p> Determine a vector that represents an equivalent distance, and then <m>d</m> will be the norm of this vector. </p></hint>
-		</li>
-		<li>
-		<p> Come up with a procedure using vectors to determine the distance between parallel planes. Do not assume that either of the planes passes through the origin. </p>
+  <task xml:id="activity-orthog-distances-point-to-plane">
+		<statement>
+			<p> Using the diagram below as inspiration, come up with a procedure to determine the distance <m>d</m> between a point <m>Q</m> and a plane <m>\Pi</m>. </p>
+			<sidebyside><image width="100%">
+				<!-- description gets inserted as alt text in html img tag -->
+				<description>
+					Diagram illustrating procedure to determine the distance between a point and a plane in space.
+				</description>
+				<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
+			</image></sidebyside>
+		</statement>
+		<hint><p>
+			Determine a vector that represents an equivalent distance, and then <m>d</m> will be the norm of this vector.
+		</p></hint>
+	</task>
+	<task>
+		<statement><p>
+			Come up with a procedure using vectors to determine the distance between parallel planes. Do not assume that either of the planes passes through the origin.
+		</p></statement>
 		<hint><p> Find a way to reduce this problem to the problem in the first part of this activity. </p></hint>
-		</li>
-	</ol>
-  </p>
-  </statement>
+	</task>
 </activity>
 
 <!-- OLD VERSION OF "activity-orthog-distances" (MORE SPECIFIC) -->
 <!--
 <activity>
 	<prelude><p>
-	Orthogonal projection onto a plane in <m>\R^3</m> is a little more complicated, and would typically be discussed in a second course in linear algebra. So we will try a different strategy to determine the distance from a point to a plane in <m>\R^3</m>.
+		Orthogonal projection onto a plane in <m>\R^3</m> is a little more complicated, and would typically be discussed in a second course in linear algebra. So we will try a different strategy to determine the distance from a point to a plane in <m>\R^3</m>.
 	</p></prelude>
 	<statement>
-	<p>
-	Consider the plane <m>\Pi\colon x - y + 2z = 0</m> and the point <m>Q(2,-3,6)</m> in <m>\R^3</m>. We want to determine the distance <m>d</m> between <m>Q</m> and <m>\Pi</m>; that is, the distance between <m>Q</m> and the point <m>P</m> that lies perpendicularly below <m>Q</m>. From the diagram below, we see that <m>d</m> is equal to the norm of a particular scalar multiple of the normal vector <m>n</m>. Do you remember how to obtain <m>\uvec{n}</m> from the equation for <m>\Pi</m>? Do you remember how to use <m>\uvec{u} = \abray{OQ}</m> to compute this particular scalar multiple of <m>\uvec{n}</m>?
-	</p>
-	<p> Once you've searched your memory, compute <m>d</m>. </p>
-	<sidebyside><image width="100%">
-		<description>
-			Diagram illustrating procedure to determine the distance between a point and a plane in space.
-		</description>
-		<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
-	</image></sidebyside>
+		<p>
+		Consider the plane <m>\Pi\colon x - y + 2z = 0</m> and the point <m>Q(2,-3,6)</m> in <m>\R^3</m>. We want to determine the distance <m>d</m> between <m>Q</m> and <m>\Pi</m>; that is, the distance between <m>Q</m> and the point <m>P</m> that lies perpendicularly below <m>Q</m>. From the diagram below, we see that <m>d</m> is equal to the norm of a particular scalar multiple of the normal vector <m>n</m>. Do you remember how to obtain <m>\uvec{n}</m> from the equation for <m>\Pi</m>? Do you remember how to use <m>\uvec{u} = \abray{OQ}</m> to compute this particular scalar multiple of <m>\uvec{n}</m>?
+		</p>
+		<p> Once you've searched your memory, compute <m>d</m>. </p>
+		<sidebyside><image width="100%">
+			<description>
+				Diagram illustrating procedure to determine the distance between a point and a plane in space.
+			</description>
+			<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
+		</image></sidebyside>
   </statement>
 </activity>
 -->

@@ -33,23 +33,23 @@ respective owners.
 <title>Column space</title>
 
 <activity xml:id="activity-col-row-null-space-colspan-motivation">
-  <statement><p>
-  Think of an <m>m\times 3</m> matrix <m>A</m> as being made out of three column vectors from <m>\R^m</m>:
-  <me>
-  	A = \begin{bmatrix}
-      | \amp | \amp | \\
-			\uvec{c}_1 \amp \uvec{c}_2 \amp \uvec{c}_3 \\
-			| \amp | \amp |
-		\end{bmatrix}.
-  </me>
-  <ol label="alph">
-    <li>
+  <introduction><p>
+    Think of an <m>m\times 3</m> matrix <m>A</m> as being made out of three column vectors from <m>\R^m</m>:
+    <me>
+    	A = \begin{bmatrix}
+        | \amp | \amp | \\
+  			\uvec{c}_1 \amp \uvec{c}_2 \amp \uvec{c}_3 \\
+  			| \amp | \amp |
+  		\end{bmatrix}.
+    </me>
+  </p></introduction>
+  <task>
     <p> Do you remember what happens when we compute <m>A\uvec{e}_1</m>? <m>A\uvec{e}_2</m>? <m>A\uvec{e}_3</m>? </p>
     <aside><title>Recall</title><p>
       <m>\uvec{e}_i</m> represents the <m>\nth[i]</m> standard basis vector in <m>\R^n</m>. In this instance, we are considering it as a <em>column</em> vector.
     </p></aside>
-    </li>
-    <li>
+  </task>
+  <task>
     <p> Suppose we want to compute <m>A\uvec{x}</m>, where <m>\uvec{x} = (5,3,-1)</m> (but as a column vector). Use what you remembered in the previous part of this activity to fill in the following. </p>
     <p>
     <md>
@@ -68,43 +68,46 @@ respective owners.
     </md>
     </p>
     <p> From this, we see that the column vector <m>A\uvec{x}</m> is in the span of <fillin characters="30" />. </p>
-    </li>
-    <li> Convince yourself that the details/conclusion of the previous part of this activity would be the same for <em>every</em> <m>\uvec{x}</m>, not just the example <m>\uvec{x}</m> we used. </li>
-    <li>
+  </task>
+  <task><p>
+    Convince yourself that the details/conclusion of the previous part of this activity would be the same for <em>every</em> <m>\uvec{x}</m>, not just the example <m>\uvec{x}</m> we used.
+  </p></task>
+  <task>
     <p> Now consider system <m>A\uvec{x}=\uvec{b}</m>. If this system is consistent (<ie /> has at least one solution), then our final conclusion from the second part of this activity would also be true about the column vector <m>\uvec{b}</m>, since <m>\uvec{b} = A\uvec{x}</m> for at least one <m>\uvec{x}</m>. </p>
     <p> So system <m>A\uvec{x} = \uvec{b}</m> can only be consistent if <m>\uvec{b}</m> is in the span of <fillin characters="30" />. </p>
-    </li>
-  </ol>
-  </p></statement>
+  </task>
 </activity>
 
 <activity xml:id="activity-col-row-null-space-colspace-basis-proc">
 
-  <prelude><p> For <m>m\times n</m> matrix <m>A</m>, from <xref ref="activity-col-row-null-space-colspan-motivation" /> it appears that the subspace of <m>\R^m</m> obtained by taking the span of the columns of <m>A</m> is important when considering consistency of the system <m>A\uvec{x} = \uvec{b}</m>. Call this subspace the
-  <term>column space of <m>A</m></term><idx><h>column</h><h>space</h></idx><idx><h>matrix</h><h>column space</h></idx>.
-  Let's explore how to reduce our spanning set (the columns of <m>A</m>) down to a basis. For this task we'll need a fact about how multiplication by a matrix affects the linear independence of column vectors that we will state as
-  <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
-  of
-  <xref ref="proposition-col-row-null-space-dep-indep-of-images" />
-  in
-  <xref ref="subsection-col-row-null-space-theory-colspace" />.
-  You should read this statement before proceeding.
+  <prelude><p>
+    For <m>m\times n</m> matrix <m>A</m>, from <xref ref="activity-col-row-null-space-colspan-motivation" /> it appears that the subspace of <m>\R^m</m> obtained by taking the span of the columns of <m>A</m> is important when considering consistency of the system <m>A\uvec{x} = \uvec{b}</m>. Call this subspace the
+    <term>column space of <m>A</m></term><idx><h>column</h><h>space</h></idx><idx><h>matrix</h><h>column space</h></idx>.
+    Let's explore how to reduce our spanning set (the columns of <m>A</m>) down to a basis. For this task we'll need a fact about how multiplication by a matrix affects the linear independence of column vectors that we will state as
+    <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
+    of
+    <xref ref="proposition-col-row-null-space-dep-indep-of-images" />
+    in
+    <xref ref="subsection-col-row-null-space-theory-colspace" />.
+    You should read this statement before proceeding.
   </p></prelude>
 
-  <statement><p>
-  The following matrix is in RREF:
-	<me>
-		B = \begin{bmatrix}
-			1 \amp 2 \amp 0 \amp 3 \amp 0 \amp 5 \\
-			0 \amp 0 \amp 1 \amp 4 \amp 0 \amp 6 \\
-			0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 7 \\
-			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0
-		\end{bmatrix}.
-	</me>
-	<ol label="alph">
+  <introduction><p>
+    The following matrix is in RREF:
+  	<me>
+  		B = \begin{bmatrix}
+  			1 \amp 2 \amp 0 \amp 3 \amp 0 \amp 5 \\
+  			0 \amp 0 \amp 1 \amp 4 \amp 0 \amp 6 \\
+  			0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 7 \\
+  			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0
+  		\end{bmatrix}.
+  	</me>
+	</p></introduction>
 
-		<li> Build a linearly independent set of column vectors from <m>B</m> by working from left to right, and either including or discarding each column based on whether it is linearly independent from the vectors you have already accumulated. (You should, of course, begin by <q>including</q> the first column.)	What do you notice about your final set of linearly independent columns, relative to the reduced form of <m>B</m>? </li>
-		<li>
+	<task><p>
+    Build a linearly independent set of column vectors from <m>B</m> by working from left to right, and either including or discarding each column based on whether it is linearly independent from the vectors you have already accumulated. (You should, of course, begin by <q>including</q> the first column.)	What do you notice about your final set of linearly independent columns, relative to the reduced form of <m>B</m>?
+  </p></task>
+  <task><p>
     Suppose <m>A</m> is a matrix that can be reduced to <m>B</m> by a single elementary operation. Then there is an elementary matrix <m>E</m> so that
 		<me>
 			B = EA
@@ -117,8 +120,8 @@ respective owners.
 		where the <m>\uvec{c}_j</m> are the columns of <m>A</m>. Use part (a) and the above-referenced
     <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
     to determine which columns of <m>A</m> form a linearly independent set.
-    </li>
-		<li>
+  </p></task>
+	<task><p>
     Now suppose <m>A</m> is a matrix that can be reduced to <m>B</m> by <em>two</em> elementary operations. Then there are elementary matrices <m>E_1,E_2</m> so that <m>B = E_2E_1A</m>. Similarly to part (b), from <m>B = E_2(E_1A)</m>, decide which columns of <m>E_1A</m> are linearly independent. Then from the above-referenced
     <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
     and
@@ -130,26 +133,23 @@ respective owners.
 			\end{bmatrix}
 		</me>
 		(where the <m>\uvec{c}_j</m> are the columns of <m>A</m>), decide which columns of <m>A</m> are linearly independent.
-    </li>
-		<li> Now extrapolate to any number of row operations to complete the following statement: to create a linearly independent set of column vectors from a matrix <m>A</m>, row reduce <m>A</m> to RREF, and then take those columns of <m>A</m> that correspond to <fillin characters="20" /> in <m>\operatorname{RREF}(A)</m>. </li>
-	</ol>
-  </p></statement>
+  </p></task>
+	<task xml:id="activity-col-row-null-space-colspace-basis-proc-proc"><p>
+    Now extrapolate to any number of row operations to complete the following statement: to create a linearly independent set of column vectors from a matrix <m>A</m>, row reduce <m>A</m> to RREF, and then take those columns of <m>A</m> that correspond to <fillin characters="20" /> in <m>\operatorname{RREF}(A)</m>.
+  </p></task>
 </activity>
 
 <activity xml:id="activity-col-row-null-space-summarize-col-indep">
-  <statement><p><ol label="alph">
-		<li xml:id="activity-col-row-null-space-summarize-col-indep-row-reduce-test-for-indep">
-		Use the procedure you've developed in the last part of
-    <xref ref="activity-col-row-null-space-colspace-basis-proc" />
+	<task xml:id="activity-col-row-null-space-summarize-col-indep-row-reduce-test-for-indep"><p>
+		Use the procedure you've developed in <xref ref="activity-col-row-null-space-colspace-basis-proc-proc">Activity</xref>
     to develop a reinterpretation of the Test for Linear Dependence/Independence for vectors in <m>\R^m</m>: if <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n</m> are vectors in <m>\R^m</m>, write these vectors as columns in a matrix, row reduce, and then you will know the original vectors are linearly independent if <fillin characters="30" />.
-    </li>
-    <li xml:id="activity-col-row-null-space-summarize-col-indep-invertible-indep-columns">
+  </p></task>
+  <task xml:id="activity-col-row-null-space-summarize-col-indep-invertible-indep-columns"><p>
     Recall that a square matrix is invertible if and only if it can be row reduced to <m>I</m>. Use the procedure for testing linear independence that you've developed in the previous part of this activity to create another condition that is equivalent to invertibility: a square matrix is invertible if and only if its columns <fillin characters="30" />.
-    </li>
-    <li xml:id="activity-col-row-null-space-summarize-col-indep-det-ne-0-indep-columns">
+  </p></task>
+  <task xml:id="activity-col-row-null-space-summarize-col-indep-det-ne-0-indep-columns"><p>
 		Let's go full circle. Combine both previous parts of this activity above to complete the following condition: a collection of <m>n</m> vectors in <m>\R^n</m> is a basis if and only if the square matrix formed by using the vectors as columns has determinant <fillin characters="8" />.
-    </li>
-	</ol></p></statement>
+  </p></task>
 </activity>
 
 </subsection>
@@ -167,44 +167,54 @@ of the matrix.
 
 <activity xml:id="activity-col-row-null-space-row-ops-same-rowspace">
   <prelude><p>
-  In the next activity, we'll need to recall
-  <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-  of
-  <xref ref="proposition-subspaces-eq-span-test" />
-  that gives us a way to determine when two spans are the same. You should re-read that statement before proceeding.
+    In the next activity, we'll need to recall
+    <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+    of
+    <xref ref="proposition-subspaces-eq-span-test" />
+    that gives us a way to determine when two spans are the same. You should re-read that statement before proceeding.
   </p></prelude>
-  <statement><p>
-  Assume <m>\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4</m> to be vectors in some vector space <m>V</m>.
-	<ol label="alph">
-  	<li>
+  <introduction><p>
+    Assume <m>\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4</m> to be vectors in some vector space <m>V</m>.
+  </p></introduction>
+	<task><p>
     What does the above-referenced
     <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
     say about <m>\Span\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4\}</m> and <m>\Span\{\uvec{v}_1,\uvec{v}_4,\uvec{v}_3,\uvec{v}_2\}</m>?
-    </li>
-  	<li> Complete the statement: if matrix <m>A'</m> is obtained from <m>A</m> by swapping two rows, then the row spaces of <m>A'</m> and of <m>A</m> are <fillin characters="10" />. </li>
-  	<li>
+  </p></task>
+	<task><p>
+    Complete the statement: if matrix <m>A'</m> is obtained from <m>A</m> by swapping two rows, then the row spaces of <m>A'</m> and of <m>A</m> are <fillin characters="10" />.
+  </p></task>
+	<task><p>
     What does the above-referenced
     <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-    say about <m>\Span \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4\}</m> and <m>\Span \{\uvec{v}_1,\uvec{v}_2,-7\uvec{v}_3,\uvec{v}_4\}</m>?
-    </li>
-  	<li> Complete the statement: if matrix <m>A'</m> is obtained from <m>A</m> by multiplying some row by a nonzero constant, then the row spaces of <m>A'</m> and of <m>A</m> are <fillin characters="10" />. </li>
-  	<li>
+    say about
+    <m>\Span \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4\}</m>
+    and
+    <m>\Span \{\uvec{v}_1,\uvec{v}_2,-7\uvec{v}_3,\uvec{v}_4\}</m>?
+  </p></task>
+	<task><p>
+    Complete the statement: if matrix <m>A'</m> is obtained from <m>A</m> by multiplying some row by a nonzero constant, then the row spaces of <m>A'</m> and of <m>A</m> are <fillin characters="10" />.
+  </p></task>
+	<task><p>
     What does the above-referenced
     <xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-    say about <m>\Span \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4\}</m> and <m>\Span \{\uvec{v}_1,\uvec{v}_2+3\uvec{v}_1,\uvec{v}_3,\uvec{v}_4\}</m>?
-    </li>
-  	<li> Complete the statement: if matrix <m>A'</m> is obtained from <m>A</m> by adding a multiple of one row to another, then the row spaces of <m>A'</m> and of <m>A</m> are <fillin characters="10" />. </li>
-	</ol></p></statement>
+    say about
+    <m>\Span \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{v}_4\}</m>
+    and
+    <m>\Span \{\uvec{v}_1,\uvec{v}_2+3\uvec{v}_1,\uvec{v}_3,\uvec{v}_4\}</m>?
+  </p></task>
+	<task><p>
+    Complete the statement: if matrix <m>A'</m> is obtained from <m>A</m> by adding a multiple of one row to another, then the row spaces of <m>A'</m> and of <m>A</m> are <fillin characters="10" />.
+  </p></task>
 </activity>
 
 <activity xml:id="activity-col-row-null-space-summarize-row-space">
-  <statement><p><ol label="alph">
-  	<li>
+	<task><p>
     Based on
     <xref ref="activity-col-row-null-space-row-ops-same-rowspace" />,
     the row spaces of a matrix and of its RREF are <fillin characters="20" />.
-    </li>
-  	<li>
+  </p></task>
+	<task><p>
     Determine a basis for the row space of a matrix <m>A</m> for which
   	<me>
   		\RREF(A)
@@ -215,15 +225,12 @@ of the matrix.
   			0 \amp 0 \amp 0 \amp 0 \amp 0
   		\end{bmatrix}.
   	</me>
-    </li>
-  </ol></p></statement>
+  </p></task>
 </activity>
 
-<activity xml:id="activity-col-row-null-space-which-one-col-or-row-space">
-  <statement><p>
+<activity xml:id="activity-col-row-null-space-which-one-col-or-row-space"><p>
   If you have a collection of vectors in <m>\R^n</m> and you want to obtain a basis for the subspace that the collection spans, you now have two options: either use those vectors as the <em>columns</em> in a matrix and row reduce to determine a basis for its column space, or use those vectors as the <em>rows</em> in a matrix and row reduce to determine a basis for its row space. Can you think of a reason you might choose to use column space instead of row space? And a reason you might choose to use row space instead of column space?
-  </p></statement>
-</activity>
+</p></activity>
 
 </subsection>
 
@@ -244,12 +251,12 @@ We have previously used the Subspace Test to show that the solution set of a hom
 </introduction>
 
 <!-- NOTE: if you uncomment this, then you should comment out the <aside> in the <introduction> above.
-<activity><statement><p>
+<activity><p>
   Suppose <m>A</m> is an <m>m\times n</m> matrix. Use the Subspace Test to verify that the null space of <m>A</m> is indeed a subspace of <m>\R^n</m>.
-</p></statement></activity>
+</p></activity>
 -->
 
-<activity><statement><p>
+<activity><p>
   Suppose <m>A</m> is a matrix whose RREF is as given below. Use the <q>independent parameter</q> method to determine a basis for the null space of <m>A</m>.
 	<me>
 		\RREF(A)
@@ -259,7 +266,7 @@ We have previously used the Subspace Test to show that the solution set of a hom
 			0 \amp 0 \amp 0 \amp 0 \amp 0
 		\end{array}\right]
 	</me>
-</p></statement></activity>
+</p></activity>
 
 </subsection>
 
@@ -267,10 +274,8 @@ We have previously used the Subspace Test to show that the solution set of a hom
 <title>Relationship between the three spaces</title>
 
 <activity xml:id="activity-col-row-null-space-rank-nullity">
-  <statement><p><ol label="alph">
-		<li> How can you determine the dimensions of the column/row/null spaces of a matrix from its RREF? </li>
-		<li> For an <m>m \times n</m> matrix <m>A</m>, what is the relationship between the dimension of its column space, the dimension of its nullspace, and its size? </li>
-	</ol></p></statement>
+	<task><p> How can you determine the dimensions of the column/row/null spaces of a matrix from its RREF? </p></task>
+	<task><p> For an <m>m \times n</m> matrix <m>A</m>, what is the relationship between the dimension of its column space, the dimension of its nullspace, and its size? </p></task>
 </activity>
 
 </subsection>

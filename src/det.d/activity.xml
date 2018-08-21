@@ -19,24 +19,29 @@ respective owners.
 <title>Activities</title>
 
 <activity xml:id="activity-det-2by2-adj-motivate">
-
-  <statement>
-    <p>
+  <introduction><p>
     Consider the generic <m>2\times 2</m> matrix <m>A</m> and the <q>mixed up</q> version <m>A_{\mathrm{mix}}</m>:
     <md><mrow>
       A \amp = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix},
       \amp
       A_{\mathrm{mix}} \amp = \left[\begin{array}{rr} d \amp -c \\ -b \amp a \end{array}\right].
     </mrow></md>
-    <ol label="alph">
-      <li> Compute <m>A\utrans{A}_\mathrm{mix}</m>. Notice anything special about this product? </li>
-      <li>
-      Recall that if the product of two square matrices is equal to <m>I</m>, then those matrices must be inverses of each other (<xref ref="proposition-elem-matrices-check-only-left-inverse" /> and <xref ref="proposition-elem-matrices-check-only-right-inverse" />). Use this fact and some algebra, starting with your result from the first part of this activity,, to justify the <m>2\times 2</m> inverse formula we learned in <xref ref="chapter-inverses" /> (<xref ref="proposition-inverses-2x2-inverse" />).
-      </li>
-      <li>What needs to be true about <m>a,b,c,d</m> for the algebra in the previous part to be valid? Why?</li>
-    </ol>
-    </p>
-  </statement>
+  </p></introduction>
+  <task><p>
+    Compute <m>A\utrans{A}_\mathrm{mix}</m>. Notice anything special about this product?
+  </p></task>
+  <task><p>
+    Recall that if the product of two square matrices is equal to <m>I</m>, then those matrices must be inverses of each other
+    (<xref ref="proposition-elem-matrices-check-only-left-inverse" />
+    and
+    <xref ref="proposition-elem-matrices-check-only-right-inverse" />).
+    Use this fact and some algebra, starting with your result from the first part of this activity, to justify the <m>2\times 2</m> inverse formula we learned in
+    <xref ref="chapter-inverses" />
+    (<xref ref="proposition-inverses-2x2-inverse" />).
+  </p></task>
+  <task><p>
+    What needs to be true about <m>a,b,c,d</m> for the algebra in the previous part to be valid? Why?
+  </p></task>
 
   <postlude><p>
     The goal of this and the next two activity sets (along with the corresponding chapters) is to develop something similar to the results of the first activity above for larger square matrices. First, we will start by extending the <m>2\times 2</m> formula <m>ad-bc</m>. This formula <em>determines</em> whether a <m>2\times 2</m> matrix is invertible or not, so we call it the <em>determinant</em> of the matrix.
@@ -45,17 +50,13 @@ respective owners.
 </activity>
 
 <activity>
-  <prelude><p>We will actually start back at <m>1\times 1</m> matrices, and build up from there.</p></prelude>
-  <statement>
-    <p>
+  <prelude><p> We will actually start back at <m>1\times 1</m> matrices, and build up from there. </p></prelude>
+  <statement><p>
     Consider the generic <m>1\times 1</m> matrix <m>A = \begin{bmatrix}a\end{bmatrix}</m>. What formula should be called the <em>determinant</em> of <m>A</m>? (<ie /> what <em>single number</em> related to the entries of <m>A</m> determines whether <m>A</m> is invertible or not?)
-    </p>
-  </statement>
+  </p></statement>
 </activity>
 
-<activity xml:id="activity-det-matrix-minors">
-  <statement>
-    <p>
+<activity xml:id="activity-det-matrix-minors"><p>
     For a larger matrix, the
     <term><m>\nth[(i,j)]</m> minor</term>
     <idx><h>minor</h></idx>
@@ -63,89 +64,72 @@ respective owners.
     <idx><h>determinant</h><h>minor</h></idx>
     (denoted <m>M_{ij}</m>) is the determinant of the smaller submatrix obtained by removing the row and column that contain the <m>\nth[(i,j)]</m> entry. Since you know how to compute <m>1\times 1</m> determinants, you can now compute all four minors (<m>M_{11},M_{12},M_{21},M_{22}</m>) of the matrix
     <me> \left[\begin{array}{rr} -1 \amp 3 \\ -4 \amp 2 \end{array}\right]. </me>
-    </p>
-  </statement>
-</activity>
+</p></activity>
 
-<activity>
-  <statement>
-    <p>
-    The
-    <term><m>\nth[(i,j)]</m> cofactor</term>
-    <idx><h>cofactor</h></idx>
-    <idx><h>matrix</h><h>cofactor</h></idx>
-    of a matrix (denoted <m>C_{ij}</m>) is defined to be the <m>\nth[(i,j)]</m> minor, <em>except</em> that we multiply it by <m>-1</m> when <m>i+j</m> is odd. That is, <m>C_{ij} = (-1)^{i+j} M_{ij}</m>. Compute all four cofactors (<m>C_{11},C_{12},C_{21},C_{22}</m>) for the matrix from <xref ref="activity-det-matrix-minors" />. (You've already computed the minors, now you just need to make some of them negative.)
-    </p>
-  </statement>
-</activity>
+<activity><p>
+  The
+  <term><m>\nth[(i,j)]</m> cofactor</term>
+  <idx><h>cofactor</h></idx>
+  <idx><h>matrix</h><h>cofactor</h></idx>
+  of a matrix (denoted <m>C_{ij}</m>) is defined to be the <m>\nth[(i,j)]</m> minor, <em>except</em> that we multiply it by <m>-1</m> when <m>i+j</m> is odd. That is, <m>C_{ij} = (-1)^{i+j} M_{ij}</m>. Compute all four cofactors (<m>C_{11},C_{12},C_{21},C_{22}</m>) for the matrix from <xref ref="activity-det-matrix-minors" />. (You've already computed the minors, now you just need to make some of them negative.)
+</p></activity>
 
-<activity>
-  <statement>
-    <p>
-    We now initially define the
-    <idx><h>determinant</h></idx>
-  	<idx><h>matrix</h><h>determinant</h></idx>
-    of a matrix to be a combination of entries and cofactors along the first row. To compute the determinant, multiply each entry in the first row by its own cofactor, and then add all these together. For a <m>2\times 2</m> matrix, the formula is <me>\det A = a_{11}C_{11} + a_{12}C_{12}.</me> Use this formula to compute the determinant of the matrix from <xref ref="activity-det-matrix-minors" />.
-    </p>
-  </statement>
-</activity>
+<activity><p>
+  We now initially define the
+  <idx><h>determinant</h></idx>
+	<idx><h>matrix</h><h>determinant</h></idx>
+  of a matrix to be a combination of entries and cofactors along the first row. To compute the determinant, multiply each entry in the first row by its own cofactor, and then add all these together. For a <m>2\times 2</m> matrix, the formula is <me>\det A = a_{11}C_{11} + a_{12}C_{12}.</me> Use this formula to compute the determinant of the matrix from <xref ref="activity-det-matrix-minors" />.
+</p></activity>
 
-<activity xml:id="activity-det-2by2-criss-cross-det-formula">
-  <statement>
-    <p>
-    Use <m>\det A = a_{11}C_{11} + a_{12}C_{12}</m> to compute the determinant of the generic <m>2\times 2</m> matrix
-    <me> \begin{bmatrix}a \amp b \\ c \amp d\end{bmatrix}. </me>
-    Surprised?
-  </p>
-  </statement>
-</activity>
+<activity xml:id="activity-det-2by2-criss-cross-det-formula"><p>
+  Use <m>\det A = a_{11}C_{11} + a_{12}C_{12}</m> to compute the determinant of the generic <m>2\times 2</m> matrix
+  <me> \begin{bmatrix}a \amp b \\ c \amp d\end{bmatrix}. </me>
+  Surprised?
+</p></activity>
 
 <activity xml:id="activity-det-3by3-det">
-  <statement>
-    <p>
-    Compute the determinant of the <m>3\times 3</m> matrix
-    <me>
-      \left[\begin{array}{rrr}
-        3 \amp 1 \amp 0 \\
-        -2 \amp -2 \amp 1 \\
-        0 \amp 1 \amp -1
-      \end{array}\right].
-    </me>
-    Use the same sort of <q><term>cofactor expansion</term> along the first row</q> as before; that is, <q>entry times cofactor plus entry times cofactor plus entry times cofactor <ellipsis /></q> along the first row, except now your cofactor calculations will involve <m>2\times 2</m> determinants.
-    </p>
-    <aside><title>Tip</title><p>
-      In light of <xref ref="activity-det-2by2-criss-cross-det-formula" />, just use the <m>ad-bc</m> formula to calculate determinants of <m>2\times 2</m> submatrices.
-    </p></aside>
-  </statement>
+  <p>
+  Compute the determinant of the <m>3\times 3</m> matrix
+  <me>
+    \left[\begin{array}{rrr}
+      3 \amp 1 \amp 0 \\
+      -2 \amp -2 \amp 1 \\
+      0 \amp 1 \amp -1
+    \end{array}\right].
+  </me>
+  Use the same sort of <q><term>cofactor expansion</term> along the first row</q> as before; that is, <q>entry times cofactor plus entry times cofactor plus entry times cofactor <ellipsis /></q> along the first row, except now your cofactor calculations will involve <m>2\times 2</m> determinants.
+  </p>
+  <aside><title>Tip</title><p>
+    In light of <xref ref="activity-det-2by2-criss-cross-det-formula" />, just use the <m>ad-bc</m> formula to calculate determinants of <m>2\times 2</m> submatrices.
+  </p></aside>
 </activity>
 
 <activity xml:id="activity-det-3by3-det-other-rows-cols">
-  <statement><p><ol label="alph">
-    <li>For the matrix in <xref ref="activity-det-3by3-det" />, try computing a cofactor expansion along a different row.</li>
-    <li>Now try along a column.</li>
-    <li>What do you find?</li>
-  </ol></p></statement>
+  <introduction><p> For this activity, use the same matrix as <xref ref="activity-det-3by3-det" />. </p></introduction>
+  <task><p> Try computing a cofactor expansion along a different row. </p></task>
+  <task><p> Now try along a column. </p></task>
+  <task><p> What do you find? </p></task>
 </activity>
 
-<activity xml:id="activity-det-cofactor-sign-patterns">
-  <statement>
-    <p>
-    Recall the cofactor formula: <m>C_{ij} = (-1)^{i+j} M_{ij}</m>. The <m>(-1)^{i+j}</m> part will be <m>1</m> when <m>i+j</m> is even and <m>-1</m> when <m>i+j</m> is odd. In a <m>2\times 2</m> matrix this makes a pattern:
-  	<m>\left[\begin{smallmatrix}+ \amp -\\- \amp +\end{smallmatrix}\right]</m>.
-    </p><p>
-  	Make similar matrices of <m>+/-</m> for the patterns of cofactor signs in <m>3\times 3</m> and <m>4\times 4</m> matrices.
-    </p>
-  </statement>
-</activity>
+<activity xml:id="activity-det-cofactor-sign-patterns"><p>
+  Recall the cofactor formula: <m>C_{ij} = (-1)^{i+j} M_{ij}</m>. The <m>(-1)^{i+j}</m> part will be <m>1</m> when <m>i+j</m> is even and <m>-1</m> when <m>i+j</m> is odd. In a <m>2\times 2</m> matrix this makes a pattern:
+	<m>\left[\begin{smallmatrix}+ \amp -\\- \amp +\end{smallmatrix}\right]</m>.
+  </p><p>
+	Make similar matrices of <m>+/-</m> for the patterns of cofactor signs in <m>3\times 3</m> and <m>4\times 4</m> matrices.
+</p></activity>
 
 <activity xml:id="activity-det-det-special-forms">
-  <statement><p><ol label="alph">
-		<li>
-    <p>Using your finding from <xref ref="activity-det-3by3-det-other-rows-cols" /> as appropriate, come up with simple formulas for the determinant of diagonal matrices, upper triangular matrices, and lower triangular matrices.</p>
-    <hint><p>In these special matrices, there are some rows/columns that are easier to use in a cofactor expansion than others.</p></hint>
-    </li>
-		<li> What is <m>\det \zerovec</m>? <ellipsis /> <m>\det I</m>? Are the answers the same for every size of zero/identity matrix? </li>
-	</ol></p></statement>
+  <task>
+    <statement><p>
+    Using your finding from <xref ref="activity-det-3by3-det-other-rows-cols" /> as appropriate, come up with simple formulas for the determinant of diagonal matrices, upper triangular matrices, and lower triangular matrices.
+    </p></statement>
+    <hint><p>
+      In these special matrices, there are some rows/columns that are easier to use in a cofactor expansion than others.
+    </p></hint>
+  </task>
+  <task><p>
+		What is <m>\det \zerovec</m>? <ellipsis /> <m>\det I</m>? Are the answers the same for every size of zero/identity matrix?
+  </p></task>
 </activity>
 
 </section>

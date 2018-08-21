@@ -26,7 +26,7 @@ xsltproc \
 	--stringparam numbering.projects.level 2 \
 	--stringparam html.knowl.example no \
 	style.xsl src/book.xml
-rm build/html/DELETEME.html
+rm -f build/html/DELETEME.html
 
 # UNUSED STRINGPARAMS
 

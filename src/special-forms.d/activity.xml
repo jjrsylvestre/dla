@@ -55,66 +55,57 @@ respective owners.
 </p></introduction>
 
 <activity xml:id="activity-special-forms-exploring">
-  <statement>
-
-    <p>Carry out the following tasks for <em>each</em> of the special types of matrices defined above. Think in general, and consider <em>every</em> possible size of matrix, not just <m>2\times 2</m> and <m>3\times 3</m>! You don't need to <em>prove</em> each answer, but you should be able to articulate an informal justification for each answer that doesn't rely on examples (unless it's a <em>counter</em>example).</p>
-
+  <introduction>
+    <p>
+      Carry out the following tasks for <em>each</em> of the special types of matrices defined above. Think in general, and consider <em>every</em> possible size of matrix, not just <m>2\times 2</m> and <m>3\times 3</m>! You don't need to <em>prove</em> each answer, but you should be able to articulate an informal justification for each answer that doesn't rely on examples (unless it's a <em>counter</em>example).
+    </p>
     <aside><title>Tip</title><p>
       When considering the questions in this activity for <em>symmetric</em> matrices, rather than trying to figure things out with examples, it is much easier to work algebraically with a letter <m>A</m> representing an arbitrary symmetric matrix, and use the definition of symmetric: <m>\utrans{A} = A</m>.
     </p></aside>
+  </introduction>
+  <!-- TODO overlapping asides....? -->
+  <task><p>
+    Write down both a <m>2\times 2</m> and a <m>3\times 3</m> example of the type.
+		Is it clear why this type of matrix has been given its particular name?
+  </p></task>
+  <task><p>
+    Does the (square) zero matrix have this type?
+		Does an identity matrix?
+		Does every <m>1\times 1</m>?
+  </p></task>
+  <task><p>
+    If <m>A</m> is a matrix of this type, is every scalar multiple of <m>A</m> also of this type?
+		Is <m>\utrans{A}</m> of this type?
+  </p></task>
+  <task><p>
+    If <m>A</m> and <m>B</m> are matrices of this type and of the same size, is their sum of this type?
+    Their product? A power (with a positive exponent)?
+  </p></task>
+  <task xml:id="activity-special-forms-exploring-invertible-criterion">
+		<p><em>[Omit this task for symmetric matrices.]</em></p>
+    <p>
+    Recall that a matrix is invertible if and only if its RREF is the identity matrix. Based on this, can you come up with a simple condition by which you can determine whether a matrix of this type is invertible or not?
+    </p>
+  </task>
+  <task xml:id="activity-special-forms-exploring-inverse">
+    <p> If <m>A</m> is an invertible matrix of this type, is its inverse also of this type? </p>
+    <aside><title>Note</title><p>
+      For the case of symmetric matrices in <xref ref="activity-special-forms-exploring-inverse">Activity</xref>, it will be too complicated to work by examples. Instead, consider the formula <m>\utrans{(\inv{A})} = \inv{(\utrans{A})}</m> from <xref ref="proposition-inverses-transpose" /> and the definition of <term>symmetric matrix</term> above.
+    </p></aside>
+  </task>
+  <task xml:id="activity-special-forms-exploring-ij-entries">
+		<p> Come up with a condition or set of conditions on the entries <m>a_{ij}</m> of a square matrix <m>A</m> by which you can determine whether or not <m>A</m> is of this type. </p>
+    <aside><title>Example</title><p>
+      Here is an example of the type of condition we're looking for in
+      <xref ref="activity-special-forms-exploring-ij-entries">Activity</xref>,
+      in the case of the identity matrix: a square matrix <m>A</m> is equal to the identity matrix if <m>a_{ii} = 1</m> for all indices <m>i</m>, and <m>a_{ij} = 0</m> for all pairs of indices <m>i,j</m> with <m>i\neq j</m>.
+    </p></aside>
+  </task>
 
-  	<p><ol label="alph">
-
-      <!-- TODO overlapping asides.... -->
-
-  		<li>
-      Write down both a <m>2\times 2</m> and a <m>3\times 3</m> example of the type.
-  		Is it clear why this type of matrix has been given its particular name?
-      </li>
-
-  		<li>
-      Does the (square) zero matrix have this type?
-  		Does an identity matrix?
-  		Does every <m>1\times 1</m>?
-      </li>
-
-  		<li>
-      If <m>A</m> is a matrix of this type, is every scalar multiple of <m>A</m> also of this type?
-  		Is <m>\utrans{A}</m> of this type?
-      </li>
-
-  		<li>
-      If <m>A</m> and <m>B</m> are matrices of this type and of the same size, is their sum of this type?
-      Their product? A power (with a positive exponent)?
-      </li>
-
-  		<li xml:id="activity-special-forms-exploring-invertible-criterion">
-  		<p><em>[Omit this task for symmetric matrices.]</em></p>
-      <p>Recall that a matrix is invertible if and only if its RREF is the identity matrix. Based on this, can you come up with a simple condition by which you can determine whether a matrix of this type is invertible or not?</p>
-      </li>
-
-  		<li xml:id="activity-special-forms-exploring-inverse">
-      <p>If <m>A</m> is an invertible matrix of this type, is its inverse also of this type?</p>
-      <aside><title>Note</title><p>
-      For the case of symmetric matrices in <xref ref="activity-special-forms-exploring-inverse">Part</xref>, it will be too complicated to work by examples. Instead, consider the formula <m>\utrans{(\inv{A})} = \inv{(\utrans{A})}</m> from <xref ref="proposition-inverses-transpose" /> and the definition of <term>symmetric matrix</term> above.
-      </p></aside>
-      </li>
-
-      <li xml:id="activity-special-forms-exploring-ij-entries">
-  		<p>Come up with a condition or set of conditions on the entries <m>a_{ij}</m> of a square matrix <m>A</m> by which you can determine whether or not <m>A</m> is of this type.</p>
-      <aside><title>Example</title><p>
-      Here is an example of the type of condition we're looking for in <xref ref="activity-special-forms-exploring-ij-entries">Part</xref>, in the case of the identity matrix: a square matrix <m>A</m> is equal to the identity matrix if <m>a_{ii} = 1</m> for all indices <m>i</m>, and <m>a_{ij} = 0</m> for all pairs of indices <m>i,j</m> with <m>i\neq j</m>.
-      </p></aside>
-      </li>
-
-  	</ol></p>
-
-  </statement>
 </activity>
 
 <activity xml:id="activity-special-forms-diag-times">
-  <statement>
-    <p>
+  <introduction><p>
     Consider matrices
     <md><mrow>
       D \amp = \begin{bmatrix}2 \amp 0 \amp 0\\0 \amp 3 \amp 0\\0 \amp 0 \amp 5\end{bmatrix},
@@ -125,30 +116,30 @@ respective owners.
         1 \amp 1 \amp 1
       \end{array}\right].
     </mrow></md>
-  	<ol label="alph">
-  		<li>Compute <m>DA</m>. Describe the pattern: multiplying a matrix on the <em>left</em> by a diagonal matrix is the same as <fillin characters="20" />.</li>
-  		<li>Compute <m>AD</m>. Describe the pattern: multiplying a matrix on the <em>right</em> by a diagonal matrix is the same as <fillin characters="20" />.</li>
-  	</ol>
-    </p>
-  </statement>
+  </p></introduction>
+  <task><p>
+		Compute <m>DA</m>. <em>Describe the pattern:</em> multiplying a matrix on the <em>left</em> by a diagonal matrix is the same as <fillin characters="20" />.
+  </p></task>
+  <task><p>
+		Compute <m>AD</m>. <em>Describe the pattern:</em> multiplying a matrix on the <em>right</em> by a diagonal matrix is the same as <fillin characters="20" />.
+  </p></task>
 </activity>
 
 <activity xml:id="activity-special-forms-upper-tri-decomp">
-  <statement>
-    <p>
+  <introduction><p>
     Consider the upper triangular matrix
     <me> U = \begin{bmatrix} 2 \amp 1 \amp 1 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 5 \end{bmatrix}. </me>
-  	<ol label="alph">
-  		<li>Can you decompose <m>U</m> into a sum <m>U=D+P</m> of a diagonal matrix <m>D</m> and a <q>purely</q> upper triangular matrix <m>P</m>?</li>
-  		<li>Can you decompose <m>U</m> into a product <m>U=DR</m> of a diagonal matrix <m>D</m> and an upper triangular matrix <m>R</m> in REF?</li>
-  	</ol>
-    </p>
-  </statement>
+  </p></introduction>
+  <task><p>
+		Can you decompose <m>U</m> into a sum <m>U=D+P</m> of a diagonal matrix <m>D</m> and a <q>purely</q> upper triangular matrix <m>P</m>?
+  </p></task>
+  <task><p>
+		Can you decompose <m>U</m> into a product <m>U=DR</m> of a diagonal matrix <m>D</m> and an upper triangular matrix <m>R</m> in REF?
+  </p></task>
 </activity>
 
 <activity xml:id="activity-special-forms-nilp-powers">
-  <statement>
-    <p>
+  <introduction><p>
     Consider the upper triangular matrix
     <me>
       N = \begin{bmatrix}
@@ -158,68 +149,61 @@ respective owners.
         0 \amp 0 \amp 0 \amp 0
       \end{bmatrix}.
     </me>
-    <ol label="alph">
-    	<li> Compute <m>N^2</m>, <m>N^3</m>, and <m>N^4</m>. Do you notice a pattern?</li>
-    	<li> Without computing, what is <m>N^5</m>? <m>N^{99}</m>?</li>
-    	<li> Make a conjecture (<ie /> a guess based on previous examples) about what will happen if you compute powers of a <m>5\times 5</m> matrix of a similar form, with all entries equal to <m>0</m> except for a line of <m>1</m>s down the first <q>superdiagonal.</q></li>
-  	</ol>
-</p>
-  </statement>
+  </p></introduction>
+  <task><p>
+    Compute <m>N^2</m>, <m>N^3</m>, and <m>N^4</m>. Do you notice a pattern?
+  </p></task>
+  <task><p> Without computing, what is <m>N^5</m>? <m>N^{99}</m>? </p></task>
+  <task><p>
+  	Make a conjecture (<ie /> a guess based on previous examples) about what will happen if you compute powers of a <m>5\times 5</m> matrix of a similar form, with all entries equal to <m>0</m> except for a line of <m>1</m>s down the first <q>superdiagonal.</q>
+  </p></task>
 </activity>
 
 <activity xml:id="activity-special-forms-prove-sum-diagonal">
-  <statement>
+  <introduction>
     <p>
     This activity will guide you through proving that the sum of two diagonal matrices is again diagonal.
     </p><p>
   	Suppose that <m>A</m> and <m>B</m> are diagonal matrices of the same size. (But do <em>not</em> assume that they have a particular size like <m>2\times 2</m> or <m>3\times 3</m> or <etc />)
-  	<ol label="alph">
-  		<li xml:id="activity-special-forms-prove-sum-diagonal-setup">
-  		Describe what our assumption that <m>A</m> is diagonal means about the entries of <m>A</m> in terms of your answer to
-      <xref ref="activity-special-forms-exploring-ij-entries">Part</xref>
-      of
-      <xref ref="activity-special-forms-exploring" />. Then do the same for <m>B</m>.
-      </li>
-  		<li>
-      Decide exactly what you need to check in order to be sure that the sum <m>A+B</m> is diagonal, in terms of your answer to
-      <xref ref="activity-special-forms-exploring-ij-entries">Part</xref>
-      of
-      <xref ref="activity-special-forms-exploring" />.
-      Then carry out that check, using your answer to
-      <xref ref="activity-special-forms-prove-sum-diagonal-setup">Part</xref> of this activity.
-      </li>
-  	</ol>
     </p>
-  </statement>
+  </introduction>
+  <task xml:id="activity-special-forms-prove-sum-diagonal-setup"><p>
+		Describe what our assumption that <m>A</m> is diagonal means about the entries of <m>A</m> in terms of your answer to
+    <xref ref="activity-special-forms-exploring-ij-entries">Activity</xref>.
+    Then do the same for <m>B</m>.
+  </p></task>
+  <task><p>
+    Decide exactly what you need to check in order to be sure that the sum <m>A+B</m> is diagonal, in terms of your answer to
+    <xref ref="activity-special-forms-exploring-ij-entries">Activity</xref>.
+    Then carry out that check, using your answer to
+    <xref ref="activity-special-forms-prove-sum-diagonal-setup" text="type-hybrid" />.
+  </p></task>
 </activity>
 
 <activity xml:id="activity-special-forms-prove-sum-symmetric">
-  <statement>
+  <introduction>
     <p>
     This activity will guide you through proving that the sum of two symmetric matrices is again symmetric. Unlike the proof in <xref ref="activity-special-forms-prove-sum-diagonal" />, we will not need to consider individual entries, since the definition of <term>symmetric matrix</term> does not refer to individual entries like the definition of <term>diagonal matrix</term> does.
     </p><p>
   	Suppose that <m>A</m> and <m>B</m> are symmetric matrices of the same size. (But do <em>not</em> assume that they have a particular size like <m>2\times 2</m> or <m>3\times 3</m> or <etc />)
-  	<ol label="alph">
-  		<li xml:id="activity-special-forms-prove-sum-symmetric-setup">
-  		Express what it means for <m>A</m> to be symmetric in mathematical notation, using the symbols <m>A</m>, <m>\utrans{}</m>, and <m>=</m>. Then do the same for <m>B</m>.
-      </li>
-      <li xml:id="activity-special-forms-prove-sum-symmetric-what-to-check">
-  		Express what it would mean for the sum <m>A+B</m> to be symmetric in mathematical notation, similarly to
-      <xref ref="activity-special-forms-prove-sum-symmetric-setup">Part</xref>.
-      </li>
-  		<li>
-      Your expressions from
-      <xref ref="activity-special-forms-prove-sum-symmetric-setup">Part</xref>
-      are <em>things we are assuming to be true</em>. Your expression from
-      <xref ref="activity-special-forms-prove-sum-symmetric-what-to-check">Part</xref>
-      is <em>the condition that needs to be verified</em>. Carry out this verification, <em>making sure to use proper LHS vs RHS procedure</em>. In this verification, you will need to use your assumed knowledge from
-      <xref ref="activity-special-forms-prove-sum-symmetric-setup">Part</xref>
-      as well as an algebra rule from <xref ref="proposition-matrix-ops-algebra-rules" />.
-      </li>
-  	</ol>
     </p>
-  </statement>
+  </introduction>
+  <task xml:id="activity-special-forms-prove-sum-symmetric-setup"><p>
+		Express what it means for <m>A</m> to be symmetric in mathematical notation, using the symbols <m>A</m>, <m>\utrans{}</m>, and <m>=</m>. Then do the same for <m>B</m>.
+  </p></task>
+  <task xml:id="activity-special-forms-prove-sum-symmetric-what-to-check"><p>
+		Express what it would mean for the sum <m>A+B</m> to be symmetric in mathematical notation, similarly to
+    <xref ref="activity-special-forms-prove-sum-symmetric-setup" text="type-hybrid" />.
+  </p></task>
+  <task><p>
+    Your expressions from
+    <xref ref="activity-special-forms-prove-sum-symmetric-setup" text="type-hybrid" />
+    are <em>things we are assuming to be true</em>. Your expression from
+    <xref ref="activity-special-forms-prove-sum-symmetric-what-to-check" text="type-hybrid" />
+    is <em>the condition that needs to be verified</em>. Carry out this verification, <em>making sure to use proper LHS vs RHS procedure</em>. In this verification, you will need to use your assumed knowledge from
+    <xref ref="activity-special-forms-prove-sum-symmetric-setup" text="type-hybrid" />
+    as well as an algebra rule from <xref ref="proposition-matrix-ops-algebra-rules" />.
+  </p></task>
 </activity>
-
 
 </section>
