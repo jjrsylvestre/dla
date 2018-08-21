@@ -14,6 +14,13 @@
 <xsl:import href="./mathbook-xsl.d/mathbook-html.xsl" />
 
 <!-- customizations -->
+<xsl:param name="numbering.projects.level" select="2" />
 <xsl:param name="html.knowl.example" select="'no'" />
+<!-- <xsl:param name="numbering.theorems.level" select="2" /> -->
+<!-- ^^^^ Don't like this: theorems share numbering with remarks, etc., so theorem numbering won't start at 1 in each Theory section. -->
+<!-- <xsl:param name="toc.level" select="2" />                -->
+<!-- ^^^^ In principle I like this, but in current incarnation it makes it difficult to navigate web book. Wish there was a toc.level=2.5. Have discussed with David Farmer. -->
 
 </xsl:stylesheet>
+
+
