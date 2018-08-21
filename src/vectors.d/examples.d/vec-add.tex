@@ -15,19 +15,21 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-  \draw[->] (-0.5,0) to (1.5,0) node[below right] {$x$};
-  \draw[->] (0,-0.5) to (0,2.5) node[above left] {$y$};
+	\draw[->] (-0.5,0) to (6.5,0) node[below right] {$x$};
+	\draw[->] (0,-0.5) to (0,4.5) node[above right] {$y$};
 
-	\foreach \x in {1} {
+	\foreach \x in {1,2,3,4,5,6} {
 		\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
 	}
-	\foreach \y in {1,2} {
+	\foreach \y in {1,2,3,4} {
 		\draw (0.1,\y) to (-0.1,\y) node[left] {$\scriptstyle \y$};
 	}
 
-	\node[point] at (0,0) (o) {};
-	\node[point] at (1,2) (r) [label=above right:{$R(1,2)$}] {};
-	\draw[vector,very thick] (o.north) to node[above left,near end] {$\uvec{v}$} (r.west);
-	\draw[vector,very thick] (r.south) to node[below right, near start] {$-\uvec{v}$} (o.east);
+	\node[point] at (1,1) (p) [label=below:{$P(1,1)$}] {};
+	\node[point] at (3,4) (q) [label=above:{$Q(3,4)$}] {};
+	\node[point] at (6,3) (r) [label=right:{$R(6,3)$}] {};
+	\draw[vector,very thick] (p) to node[above left] {$\uvec{u}$} (q);
+	\draw[vector,very thick] (q) to node[above] {$\uvec{v}$} (r);
+	\draw[vector,dashed,very thick] (p) to node[below right] {$\uvec{u}+\uvec{v}$} (r);
 
 \end{tikzpicture}

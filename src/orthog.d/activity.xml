@@ -32,17 +32,18 @@ respective owners.
 	acute? <ellipsis />
 	obtuse? <ellipsis />
 	right?
-  </p>
+	</p>
 	<sidebyside><image width="100%">
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>Graph of <m>y=\cos \theta</m>.</description>
-		<latex-image><xi:include href="../shared-tikz.d/cosine.tex" parse="text" /></latex-image>
+		<latex-image><xi:include href="../shared.d/cosine.tex" parse="text" /></latex-image>
 	</image></sidebyside>
 </activity>
 
 <activity xml:id="activity-orthog-guess-orthog-in-plane">
-<!-- TODO could drop this to make time for other stuff... ?
-     If yes, need to move content of prelude somewhere else....
+<!--
+	TODO could drop this to make time for other stuff... ?
+	If yes, need to move content of prelude somewhere else....
 -->
 
 	<prelude><p>
@@ -53,7 +54,7 @@ respective owners.
 	if <m>\udotprod{u}{v} = 0</m>.
 	</p></prelude>
 
-  <task xml:id="activity-orthog-guess-orthog-in-plane-guess"><p>
+	<task xml:id="activity-orthog-guess-orthog-in-plane-guess"><p>
 		Can you guess a vector <m>\uvec{v} = (v_1,v_2)</m> that is orthogonal to <m>\uvec{u} = (1,-3)</m> in the plane? Make sure your guess satisfies the definition of <term>orthogonal</term>: you need <m>\udotprod{u}{v} = 0</m>.
 	</p></task>
 	<task>
@@ -121,23 +122,23 @@ respective owners.
 </activity>
 
 <activity>
-    <p>
+		<p>
 		Suppose <m>\uvec{u}</m> is orthogonal to <m>\uvec{a}</m>. What is <m>\uproj{u}{a}</m>? What is the component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m>?
 		</p><p>
 		Now answer these same two questions in the case that <m>\uvec{u}</m> is <em>parallel</em> to <m>\uvec{a}</m>.
-    </p>
+		</p>
 </activity>
 
 <activity>
-    <p>
+		<p>
 		If <m>\ell</m> is the line through the origin and parallel to vector <m>\uvec{a}</m>, and <m>\uvec{u}</m> is some other vector, then our construction in <xref ref="activity-orthog-proj" /> guarantees that <m>\proj_{\uvec{a}} \uvec{u}</m> represents the closest point on <m>\ell</m> to the terminal point of <m>\uvec{u}</m>.
 		</p><p>
 		The distance between a point and a line is defined as the shortest (<ie /> perpendicular) distance between the two. Use the orthogonal projection to come up with a procedure to determine the distance between the line <m>\ell\colon\,y=x/2</m> and the point <m>Q(2,4)</m>.
-    </p>
+		</p>
 </activity>
 
 <activity xml:id="activity-orthog-point-normal-lines-1">
-  <introduction><p>
+	<introduction><p>
 		The homogeneous linear equation <m>2x+3y=0</m> defines a line through the origin in <m>\R^2</m> (<ie /> the <m>xy</m>-plane).
 	</p></introduction>
 	<task><p>
@@ -158,7 +159,7 @@ respective owners.
 </activity>
 
 <activity xml:id="activity-orthog-point-normal-lines-2">
-  <introduction><p>
+	<introduction><p>
 		The non-homogeneous linear equation <m>2x+3y=8</m> defines a line through the point <m>P(1,2)</m> in <m>\R^2</m>.
 	</p></introduction>
 	<task><p>
@@ -179,7 +180,7 @@ respective owners.
 
 <!-- OMITTING IN THE INTEREST OF TIME MANAGEMENT....
 <activity>
-  <introduction><p>
+	<introduction><p>
 		The same sort of analysis as in
 		<xref
 			first="activity-orthog-point-normal-lines-1"
@@ -201,24 +202,24 @@ respective owners.
 
 <activity>
 	<prelude><p> <!-- COMMENT OUT THIS PRELUDE IF USING THE COMMENTED-OUT ACTIVITY ABOVE -->
-	The same sort of analysis can be carried out for a plane in space determined by algebraic equation <m>ax + by + cz = d</m>. The coefficients form a normal vector <m>\uvec{n} = (a,b,c)</m> that is perpendicular to the plane (<ie /> orthogonal to every vector that is parallel to the plane), and given some specific point <m>\uvec{x}_0 = (x_0,y_0,z_0)</m> that lies on the plane, the plane can be described by the point-normal form <m>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</m>.
+		The same sort of analysis can be carried out for a plane in space determined by algebraic equation <m>ax + by + cz = d</m>. The coefficients form a normal vector <m>\uvec{n} = (a,b,c)</m> that is perpendicular to the plane (<ie /> orthogonal to every vector that is parallel to the plane), and given some specific point <m>\uvec{x}_0 = (x_0,y_0,z_0)</m> that lies on the plane, the plane can be described by the point-normal form <m>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</m>.
 	</p></prelude>
-  <statement><p>
-	Consider the planes <m>\Pi_1</m>, <m>\Pi_2</m>, and <m>\Pi_3</m> described algebraically below.
-	<md><mrow>
-		\Pi_1 \amp \colon x-y+2z = 2 \amp
-		\Pi_2 \amp \colon 2x-2y+4z = 7 \amp
-		\Pi_3 \amp \colon x - y + 3z = 2
-	</mrow></md>
-	Use the concept of normal vector to justify the claim that <m>\Pi_1</m> and <m>\Pi_2</m> are parallel, but that <m>\Pi_3</m> is not parallel to either of <m>\Pi_1</m> or <m>\Pi_2</m>.
-  </p></statement>
+	<statement><p>
+		Consider the planes <m>\Pi_1</m>, <m>\Pi_2</m>, and <m>\Pi_3</m> described algebraically below.
+		<md><mrow>
+			\Pi_1 \amp \colon x-y+2z = 2 \amp
+			\Pi_2 \amp \colon 2x-2y+4z = 7 \amp
+			\Pi_3 \amp \colon x - y + 3z = 2
+		</mrow></md>
+		Use the concept of normal vector to justify the claim that <m>\Pi_1</m> and <m>\Pi_2</m> are parallel, but that <m>\Pi_3</m> is not parallel to either of <m>\Pi_1</m> or <m>\Pi_2</m>.
+	</p></statement>
 </activity>
 
 <activity xml:id="activity-orthog-distances">
 	<prelude><p>
 		Orthogonal projection onto a plane in space is a little more complicated, and is likely something you would learn about in a second course in linear algebra. But it's possible to use a different strategy to determine the distance between a point and a plane by using the fact that a plane has <em>one unique</em> normal <q>direction.</q>
 	</p></prelude>
-  <task xml:id="activity-orthog-distances-point-to-plane">
+	<task xml:id="activity-orthog-distances-point-to-plane">
 		<statement>
 			<p> Using the diagram below as inspiration, come up with a procedure to determine the distance <m>d</m> between a point <m>Q</m> and a plane <m>\Pi</m>. </p>
 			<sidebyside><image width="100%">
@@ -226,7 +227,7 @@ respective owners.
 				<description>
 					Diagram illustrating procedure to determine the distance between a point and a plane in space.
 				</description>
-				<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
+				<latex-image><xi:include href="activity.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
 			</image></sidebyside>
 		</statement>
 		<hint><p>
@@ -256,9 +257,9 @@ respective owners.
 			<description>
 				Diagram illustrating procedure to determine the distance between a point and a plane in space.
 			</description>
-			<latex-image><xi:include href="activity-tikz.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
+			<latex-image><xi:include href="activity.d/distance-point-plane-R3.tex" parse="text" /></latex-image>
 		</image></sidebyside>
-  </statement>
+	</statement>
 </activity>
 -->
 

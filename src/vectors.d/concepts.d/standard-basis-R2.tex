@@ -9,26 +9,18 @@
 % Documentation License” that appears in the output document of this
 % PreTeXt source code. All trademarks™ are the registered® marks of
 % their respective owners.
-% 
+%
 % *********************************************************************
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-  \draw[->] (-1.5,0) to (1.5,0) node[below right] {$x$};
-  \draw[->] (0,-2.5) to (0,2.5) node[above left] {$y$};
+	\draw[->] (-1,0) to (2,0) node[below right] {$x$};
+	\draw[->] (0,-1) -- (0,2) node[above right] {$y$};
 
-	\foreach \x in {-1,1} {
-		\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
-	}
-	\foreach \y in {-2,-1,1,2} {
-		\draw (0.1,\y) to (-0.1,\y) node[left] {$\scriptstyle \y$};
-	}
-
-	\node[point] at (0,0) (o) {};
-	\node[point] at (1,2) (r) [label=above right:{$R(1,2)$}] {};
-	\node[point] at (-1,-2) (r2) [label=below left:{$R'(-1,-2)$}] {};
-	\draw[vector,very thick] (o) to node[below right,near end] {$\uvec{v}$} (r);
-	\draw[vector,very thick] (o) to node[above left,near end] {$-\uvec{v}$} (r2);
-
+	\node[point] at (0,0) (o) [label=below left:{$(0,0)$}] {};
+	\node[point] at (1,0) (e1) [label=above right:{$(1,0)$}] {};
+	\node[point] at (0,1) (e2) [label=above right:{$(0,1)$}] {};
+	\draw[vector,very thick] (0,0) to node[below, near end] {$\uvec{e}_1$} (e1);
+	\draw[vector,very thick] (0,0) to node[left, near end] {$\uvec{e}_2$} (e2);
 \end{tikzpicture}

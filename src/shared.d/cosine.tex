@@ -9,27 +9,20 @@
 % Documentation License” that appears in the output document of this
 % PreTeXt source code. All trademarks™ are the registered® marks of
 % their respective owners.
-% 
+%
 % *********************************************************************
-\begin{tikzpicture}[
-	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
-	vector/.style={-latex},
-]
-  \draw[->] (-0.5,0) to (6.5,0) node[below right] {$x$};
-  \draw[->] (0,-0.5) to (0,4.5) node[above right] {$y$};
+\begin{tikzpicture}
+	\draw[->] (-0.25,0) to (3.5,0) node[below right] {$\theta$};
+	\draw[->] (0,-1.25) to (0,1.25) node[above right] {$y$};
 
-	\foreach \x in {1,2,3,4,5,6} {
-		\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
-	}
-	\foreach \y in {1,2,3,4} {
+	\draw[dashed] (3.14,0) to (3.14,-1);
+	\draw (0,1) cos (1.57,0) sin (3.14,-1);
+	\draw (3.14,-0.1) to (3.14,0.1) node[above] {$\scriptstyle \pi$};
+
+	\draw (1.57,0.1) to (1.57,-0.1) node[below] {$\scriptstyle \frac{\pi}{2}$};
+	\foreach \y in {-1,1} {
 		\draw (0.1,\y) to (-0.1,\y) node[left] {$\scriptstyle \y$};
 	}
 
-	\node[point] at (1,1) (p) [label=below:{$P(1,1)$}] {};
-	\node[point] at (3,4) (q) [label=above:{$Q(3,4)$}] {};
-	\node[point] at (6,3) (r) [label=right:{$R(6,3)$}] {};
-	\draw[vector,very thick] (p) to node[above left] {$\uvec{u}$} (q);
-	\draw[vector,very thick] (q) to node[above] {$\uvec{v}$} (r);
-	\draw[vector,dashed,very thick] (p) to node[below right] {$\uvec{u}+\uvec{v}$} (r);
-
+	\node at (2.5,1) {$y=\cos\theta$};
 \end{tikzpicture}

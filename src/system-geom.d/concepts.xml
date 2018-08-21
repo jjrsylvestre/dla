@@ -55,7 +55,7 @@ the vector <m>\uvec{x}_0</m> corresponds to the particular solution for <m>t=0</
 <sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a line in the plane described via a parameter.</description>
-	<latex-image><xi:include href="concepts-tikz.d/parametrized-line-1.tex" parse="text" /></latex-image>
+	<latex-image><xi:include href="concepts.d/parametrized-line-1.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
 The terminal points of all such vectors <m>\uvec{x}</m> trace out the line parallel to <m>\uvec{p}</m> that passes through the terminal point of <m>\uvec{x}_0</m>. Since <m>\uvec{p}</m> is parallel to the line, we might think of <m>\uvec{p}</m> as a <q>direction</q> vector for the line.
@@ -94,7 +94,7 @@ can be interpreted as follows. The terminal point of the vector <m>\uvec{x}_0</m
 <sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a plane in space described with parameters.</description>
-	<latex-image><xi:include href="concepts-tikz.d/parametrized-plane-1.tex" parse="text" /></latex-image>
+	<latex-image><xi:include href="concepts.d/parametrized-plane-1.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <aside><title>Note</title><p>
 	In this diagram, all of the vectors lie flat in the shaded plane (<ie /> parallel to it) except for <m>\uvec{x}_0</m> and <m>\uvec{x}</m>, which point from the origin into the plane.
@@ -118,7 +118,7 @@ Values of the parameter <m>t</m> are mapped to specific positions on the line, j
 <sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a line through the origin in the plane described via a parameter.</description>
-	<latex-image><xi:include href="concepts-tikz.d/parametrized-line-2.tex" parse="text" /></latex-image>
+	<latex-image><xi:include href="concepts.d/parametrized-line-2.tex" parse="text" /></latex-image>
 </image></sidebyside>
 
 <p>
@@ -134,7 +134,7 @@ In the plane, the standard basis vectors <m>\uvec{e}_1</m>,<m>\uvec{e}_2</m> pla
 <sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a parametric description of the plane using the standard basis vectors.</description>
-	<latex-image><xi:include href="concepts-tikz.d/standard-basis-R2-grid.tex" parse="text" /></latex-image>
+	<latex-image><xi:include href="concepts.d/standard-basis-R2-grid.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <aside><title>Notice</title><p>
 	In this diagram, vertical grid lines appear at multiples of <m>\uvec{e}_1</m>, and horizontal grid lines appear at multiples of <m>\uvec{e}_2</m>.
@@ -146,7 +146,7 @@ When we have a vector description <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uve
 <sidebyside><image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Another diagram of a plane in space described with parameters.</description>
-	<latex-image><xi:include href="concepts-tikz.d/parametrized-plane-2.tex" parse="text" /></latex-image>
+	<latex-image><xi:include href="concepts.d/parametrized-plane-2.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
 The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> set up an <m>st</m>-coordinate system on the plane, where every point on the plane corresponds to a particular pair of parameter values, and vice versa, by adding the linear combination <m>s\uvec{p}_1+t\uvec{p}_2</m> onto <m>\uvec{x}_0</m>. If the plane passes through the origin (as in \ntoprefactvty{aset}{grid.plane.R3.homog}), then we can take <m>\uvec{x}_0</m> to be the zero vector, so that the origin corresponds to <m>(s,t) = (0,0)</m>. Then every other point in the plane could be constructed as a linear combination of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
@@ -160,47 +160,47 @@ The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> set up an <m>st</m>-coordina
 <p> Combining with our knowledge of normal vectors from the previous chapter, we now have several ways to describe lines and planes in <m>\R^2</m> and <m>\R^3</m>. </p>
 <table>
 	<caption>Descriptions of lines in <m>\R^2</m> and lines and planes in <m>\R^3</m>.</caption>
-  <tabular halign="center" top="medium">
+	<tabular halign="center" top="medium">
 		<col width="25%" right="medium" />
 		<col width="25%" right="medium" />
 		<col width="25%" right="medium" />
 		<col width="25%" />
 
-    <row bottom="medium" valign="middle">
-      <cell> </cell>
-      <cell> Algebraic </cell>
-      <cell> Geometric </cell>
-      <cell> Vector </cell>
-    </row>
+		<row bottom="medium" valign="middle">
+			<cell> </cell>
+			<cell> Algebraic </cell>
+			<cell> Geometric </cell>
+			<cell> Vector </cell>
+		</row>
 
 		<row bottom="medium" valign="middle">
-      <cell> line in <m>\R^2</m> </cell>
-      <cell> <m>ax+by = c</m> </cell>
-      <cell>
+			<cell> line in <m>\R^2</m> </cell>
+			<cell> <m>ax+by = c</m> </cell>
+			<cell>
 				<p><md>
 					<mrow>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</mrow>
 					<mrow>\text{where } \uvec{n} = (a,b)</mrow>
 				</md></p>
 			</cell>
-      <cell> <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> </cell>
+			<cell> <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> </cell>
 
-    </row>
+		</row>
 
 		<row bottom="medium" valign="middle">
-      <cell> plane in <m>\R^3</m> </cell>
-      <cell> <m>ax+by+cz = d</m> </cell>
-      <cell>
+			<cell> plane in <m>\R^3</m> </cell>
+			<cell> <m>ax+by+cz = d</m> </cell>
+			<cell>
 				<p><md>
 					<mrow>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</mrow>
 					<mrow>\text{where } \uvec{n} = (a,b,c)</mrow>
 				</md></p>
 			</cell>
-      <cell> <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2</m> </cell>
-    </row>
+			<cell> <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2</m> </cell>
+		</row>
 
 		<row bottom="medium" valign="middle">
-      <cell> line in <m>\R^3</m> </cell>
-      <cell>
+			<cell> line in <m>\R^3</m> </cell>
+			<cell>
 				<p><md>
 					<mrow>\text{intersection of planes}</mrow>
 					<mrow>a_1x+b_1y+c_1z = d_1</mrow>
@@ -208,7 +208,7 @@ The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> set up an <m>st</m>-coordina
 					<mrow>a_2x+b_2y+c_2z = d_2</mrow>
 				</md></p>
 			</cell>
-      <cell>
+			<cell>
 				<p><md>
 					<mrow>\text{common } \uvec{x} \text{ that satisfy}</mrow>
 					<mrow> \dotprod{\uvec{n}_1}{(\uvec{x}-\uvec{x}_0)} = 0 </mrow>
@@ -219,10 +219,10 @@ The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> set up an <m>st</m>-coordina
 					<mrow>\uvec{n}_2 = (a_2,b_2,c_2)</mrow>
 				</md></p>
 			</cell>
-      <cell> <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> </cell>
-    </row>
+			<cell> <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> </cell>
+		</row>
 
-  </tabular>
+	</tabular>
 </table>
 
 <remark><p><ul>
