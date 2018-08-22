@@ -1,10 +1,10 @@
 #!/bin/sh
 
-mkdir -p /run/user/${UID}/pretext/DLA/knowl
+mkdir -p /run/user/${UID}/pretext/DLA/html/knowl
 mkdir -p build
 if ! test -L build/html
 then
-	ln -s /run/user/${UID}/pretext/DLA build/html
+	ln -s /run/user/${UID}/pretext/DLA/html build/html
 fi
 
 if ! test -f mathbook-xsl.d/mathbook-html.xsl

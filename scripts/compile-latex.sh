@@ -16,11 +16,13 @@ then
 fi
 
 # Even though a directory is allowed as argument for --output option,
-# xsltproc gives a "I/O error : Is a directory" error, so
-# explicitly naming output file
+# xsltproc gives a "I/O error : Is a directory" error.
+# But using a throw-away main output file avoids the error
+# (and DELETEME.tex is just blank after processing anyway).
 
 xsltproc \
   --xinclude \
-	--output build/latex/book.HELLO \
+	--output build/latex/DELETEME.tex \
 	--stringparam numbering.projects.level 2 \
 	style-latex.xsl src/book.xml
+rm -f build/html/DELETEME.tex
