@@ -30,16 +30,11 @@ respective owners.
 <subsection xml:id="subsection-det-examples-2x2">
 <title>Determinants of <m>2\times 2</m> matrices</title>
 
-<!-- TODO image sizes....
-	opened issue
-	https://github.com/rbeezer/mathbook/issues/885
--->
-
 <p>
 An easy way to remember the <m>2\times 2</m> determinant formula is with a crisscross pattern, as illustrated below for general <m>2 \times 2</m> matrix
 <m>A = \left[\begin{smallmatrix} a \amp b \\ c \amp d \end{smallmatrix}\right]</m>.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="37%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Determinant calculation pattern for <m>2 \times 2</m> matrices</description>
 	<latex-image><xi:include href="examples.d/2x2-det-pattern.tex" parse="text" /></latex-image>
@@ -47,7 +42,7 @@ An easy way to remember the <m>2\times 2</m> determinant formula is with a criss
 
 <example><title>Determinant of a <m>2 \times 2</m> matrix</title><statement>
 	<p>	For <m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ 3 \amp 4 \end{smallmatrix}\right]</m>, we have the following. </p>
-	<sidebyside><image width="100%">
+	<sidebyside width="63%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>2 \times 2</m> determinant calculation example</description>
 		<latex-image><xi:include href="examples.d/2x2-det-ex1.tex" parse="text" /></latex-image>
@@ -58,7 +53,7 @@ An easy way to remember the <m>2\times 2</m> determinant formula is with a criss
 
 <example><title>Another determinant of a <m>2 \times 2</m> matrix</title><statement>
 	<p> For <m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ -3 \amp 4 \end{smallmatrix}\right]</m>, we have the following. </p>
-	<sidebyside><image width="100%">
+	<sidebyside width="66%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>Another <m>2 \times 2</m> determinant calculation example</description>
 		<latex-image><xi:include href="examples.d/2x2-det-ex2.tex" parse="text" /></latex-image>
@@ -82,13 +77,13 @@ For a <m>3\times 3</m> matrix, we choose a <em>single</em> row or column and per
 	-->
 	Any of the first row or column or the third row or column would be good choices as they all contain a zero entry. Let's choose the third row, since it also contains some <m>1</m>s, which will simplify things a bit. Notice how we have augmented that row with the cofactor sign pattern.
 	</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="38%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>3 \times 3</m> determinant calculation example: choose a row</description>
 		<latex-image><xi:include href="examples.d/3x3-det-choose-row.tex" parse="text" /></latex-image>
 	</image></sidebyside>
 	<p>Now expand along that third row.</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="88%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>3 \times 3</m> determinant calculation example: expand</description>
 		<latex-image><xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" /></latex-image>
@@ -96,7 +91,7 @@ For a <m>3\times 3</m> matrix, we choose a <em>single</em> row or column and per
 	<p>
 	The minus sign between the first two terms in the expansion is the proper cofactor sign for the middle entry of the third row. Recall that a cofactor for an entry involves the minor for that entry <mdash /> the determinant of the smaller matrix obtained by removing the row and column in which that entry sits. We have indicated each removal of a row or column by a strike-through. Since <m>A</m> is <m>3\times 3</m>, all of its minors are <m>2\times 2</m> determinants that we can compute with our crisscross pattern. However, since the <m>(3,1)</m> entry is <m>0</m>, there is no need to compute the <m>(3,1)</m> minor.
 	</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="63%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>
 			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
@@ -119,13 +114,13 @@ For a <m>3\times 3</m> matrix, we choose a <em>single</em> row or column and per
 <p>Just to check, let's compute the determinant in the above example again using a cofactor expansion along the second column.</p>
 
 <example><title>Determinant of a <m>3 \times 3</m> matrix along a column</title><statement>
-	<sidebyside><image width="100%">
+	<sidebyside width="34%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>3 \times 3</m> determinant calculation example revisited: choose a column</description>
 		<latex-image><xi:include href="examples.d/3x3-det-choose-col.tex" parse="text" /></latex-image>
 	</image></sidebyside>
 	<p>Again, expand along the chosen column.</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="98%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>3 \times 3</m> determinant calculation example revisited: expand</description>
 		<latex-image><xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" /></latex-image>
@@ -135,7 +130,7 @@ For a <m>3\times 3</m> matrix, we choose a <em>single</em> row or column and per
 	</p><p>
 	Now reduce to a combination of <m>2 \times 2</m> determinants.
 	</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="75%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>
 			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors
@@ -182,13 +177,13 @@ In the end, we got the same result as our first calculation, which is not a coin
 	</me>
 	Let's choose the third row, as that has two zero entries.
 	</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="44%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>4 \times 4</m> determinant calculation example: choose a row</description>
 		<latex-image><xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" /></latex-image>
 	</image></sidebyside>
 	<p>But the cofactor expansion along the chosen row will still involve two <m>3\times 3</m> minor determinant calculations.</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="100%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>4 \times 4</m> determinant calculation example: expand</description>
 		<latex-image><xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" /></latex-image>
@@ -196,7 +191,7 @@ In the end, we got the same result as our first calculation, which is not a coin
 	<p>
 	The minor determinants <m>M_{31}</m> and <m>M_{33}</m> will not be needed, since their corresponding entries are <m>0</m>. So we now have to chose a row or column in each of the remaining <m>3 \times 3</m> minor determinants.
 	</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="65%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>
 			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors
@@ -208,7 +203,7 @@ In the end, we got the same result as our first calculation, which is not a coin
 	</p><p>
 	Now expand each of these <m>3 \times 3</m> minor determinants.
 	</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="79%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>
 			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors
@@ -216,7 +211,7 @@ In the end, we got the same result as our first calculation, which is not a coin
 		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" /></latex-image>
 	</image></sidebyside>
 	<p>Now reduce to a combination of <m>2 \times 2</m> determinants.</p>
-	<sidebyside><image width="100%">
+	<sidebyside width="92%"><image>
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>
 			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors

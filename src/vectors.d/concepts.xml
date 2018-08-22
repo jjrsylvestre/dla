@@ -16,8 +16,6 @@ respective owners.
 
 <section xml:id="section-vectors-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-<!-- TODO tweak image sizes -->
-
 <title>Concepts</title>
 
 <assemblage><title>In this section</title><p><ul>
@@ -43,7 +41,7 @@ respective owners.
 <p>
 A directed line segment (or arrow) could be thought of dynamically as describing a change in position, from the initial point to the terminal point. A two-dimensional vector in the plane or a three-dimensional vector in space captures just the <em>change</em> part of <q>change in position,</q> leaving the <em>position</em> part (<ie /> the initial and terminal points) unspecified. For example, in the plane, the instructions <q>move two units right and three units down</q> describes a way to change positions, but doesn't actually specify <em>from where</em> or <em>to where</em> the change in position is occurring. So a vector corresponds to an infinite number of directed line segments, where each of these directed line segments has a different initial point but all of them require the same <q>change</q> to change positions from initial point to terminal point. Continuing our example, <em>every</em> change in position between some initial and terminal points in the plane that requires moving two units right and three units down can be represented by the same vector.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="100%"><image>
   <!-- description gets inserted as alt text in html img tag -->
   <description>
 		Example of a vector associated to several equivalent directed line segements
@@ -66,7 +64,7 @@ We live in a three-dimensional world (or, at least, it appears that way to us), 
 <p>
 A vector describes a change in position. If we chain two changes in position together, by making the initial point of the second vector the same as the terminal point of the first vector, then we could consider the overall change in position.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="50%"><image>
   <!-- description gets inserted as alt text in html img tag -->
   <description>
 		Moving directly from the initial point of one vector to the terminal point of another vector, when the two vectors are <q>chained</q> together, tail-to-head.
@@ -76,13 +74,13 @@ A vector describes a change in position. If we chain two changes in position tog
 <p>
 If these are points and vectors in the plane, then clearly the change in position from <m>P</m> to <m>R</m> will be described by the <em>total net</em> change in <m>x</m> and the <em>total net</em> change in <m>y</m>, as we discovered in <xref ref="activity-vectors-geom-vec-add" />. So, in the diagram above, we obtain the components for the vector corresponding to <m>\abray{PR}</m> by adding corresponding components of <m>\uvec{u}</m> and <m>\uvec{v}</m>. That is, if <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>, then the components of the dashed arrow labelled with a question mark are <m>(u_1+v_1,u_2+v_2)</m>. For obvious reasons, we call this the <term>sum</term> of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="50%"><image>
   <!-- description gets inserted as alt text in html img tag -->
   <description>Diagram of a vector sum.</description>
   <latex-image><xi:include href="concepts.d/vec-add-2.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p> In <xref ref="activity-vectors-geom-vec-add" /> we also considered the result of interchanging the order of a pair of vectors that have been chained together. </p>
-<sidebyside><image width="100%">
+<sidebyside width="50%"><image>
   <!-- description gets inserted as alt text in html img tag -->
   <description>Diagram of the commutivity of vector sums.</description>
   <latex-image><xi:include href="concepts.d/vec-add-3.tex" parse="text" /></latex-image>
@@ -118,7 +116,7 @@ As we explored in <xref ref="activity-vectors-zero-vec" />, if we chain together
 <p>
 If we move from <m>P</m> to <m>Q</m>, and from there move from <m>Q</m> back to <m>P</m>, the net result is no change in position, which is represented by the zero vector. This means if we add the vector corresponding to <m>\abray{PQ}</m> to the one corresponding to <m>\abray{QP}</m>, the result is <m>\zerovec</m>. So if we label the vector for <m>\abray{PQ}</m> as <m>\uvec{v}</m>, it seems reasonable to label the vector for <m>\abray{QP}</m> as <m>-\uvec{v}</m>, the <term>negative</term> of <m>\uvec{v}</m>, so that we have <m>\uvec{v} + (-\uvec{v}) = \zerovec</m>.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="33%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a vector and its negative</description>
 	<latex-image><xi:include href="concepts.d/vec-neg-1.tex" parse="text" /></latex-image>
@@ -143,7 +141,7 @@ This relationship between the components of <m>\uvec{v}</m> and <m>-\uvec{v}</m>
 <p>
 Remembering that the <q>natural</q> position for a vector is with its tail at the origin, its useful to visualize negatives in the following manner.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="50%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a vector and its negative</description>
 	<latex-image><xi:include href="concepts.d/vec-neg-2.tex" parse="text" /></latex-image>
@@ -153,7 +151,7 @@ Remembering that the <q>natural</q> position for a vector is with its tail at th
 <p>
 To subtract vectors, we add to a vector the negative of another.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="67%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of vector subtraction.</description>
 	<latex-image><xi:include href="concepts.d/vec-subtract-1.tex" parse="text" /></latex-image>
@@ -161,7 +159,7 @@ To subtract vectors, we add to a vector the negative of another.
 <p>
 Here, the diagonal vector labelled <m>\uvec{u} - \uvec{v}</m> is obtained by adding <m>\uvec{u}</m> and <m>-\uvec{v}</m>. As we explored in <xref ref="activity-vectors-diff-vec-between-heads" />, we get an interesting pattern if we draw in another copy of the vector labelled <m>\uvec{u}-\uvec{v}</m> with its initial point at <m>R</m>.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="78%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
 		Diagram showing the connection between vector subtraction, addition, and negative.
@@ -173,7 +171,7 @@ Triangle <m>\abctriangle{RP'P}</m> creates the vector addition pattern <m>\uvec{
 </p><p>
 Of course, there are two vectors that run between the heads of <m>\uvec{u}</m> and <m>\uvec{v}</m>, namely <m>\uvec{u}-\uvec{v}</m> and its negative.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="70%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
 		Diagram showing the connection between vector subtraction, addition, and negative.
@@ -192,7 +190,7 @@ Now <m>\abctriangle{PP'R}</m> creates the vector addition pattern starting at <m
 <p>
 Geometrically, when we scalar multiply a vector we <q>stretch</q> or <em>scale</em> its length by the scale factor. (If this scale factor is negative, then we also flip the vector around in the opposite direction.) Here are some examples.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="50%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a scalar multiple of a vector.</description>
 	<latex-image><xi:include href="concepts.d/vec-scalar-mul.tex" parse="text" /></latex-image>
@@ -206,7 +204,7 @@ to one another. This happens precisely when the vectors are scalar multiples of 
 </p><p>
 Thinking of the vectors in the diagram above as vectors in the plane, if we scale <m>\uvec{v}</m> by a factor of <m>2</m>, then our knowledge of similar triangles tells us that the change in both <m>x</m> and <m>y</m> must be double.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="40%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of scalar multiplication as stretching the length of a vector.</description>
 	<latex-image><xi:include href="concepts.d/vec-scalar-mul-similar-tri.tex" parse="text" /></latex-image>
@@ -232,7 +230,7 @@ We can connect scalar multiplication to addition, as we explored in
 <xref ref="activity-vectors-scalar-mul" />.
 If we add a vector to itself, then the sum vector will be twice as long as the original.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="45%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram relating scalar multiplication to vector addition.</description>
 	<latex-image><xi:include href="concepts.d/vec-scalar-mul-vs-add.tex" parse="text" /></latex-image>
@@ -254,7 +252,7 @@ We have already discovered a few rules of vector algebra, such as
 </mrow></md>
 In <xref ref="activity-vectors-scalar-mul-distrib" />, we explored a version of the distributive rule <m>k(\uvec{u}+\uvec{v}) = k\uvec{u} + k\uvec{v}</m> in the case <m>k=2</m>.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="100%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
 		Diagram illustrating distribution of scalar multiplication over vector addition.
@@ -295,7 +293,7 @@ that proposition.
 <p>
 In <xref ref="activity-vectors-standard-basis" />, we encountered two very special vectors in the plane, <m>\uvec{e}_1 = (1,0)</m> and <m>\uvec{e}_2 = (0,1)</m>. These two vectors could be considered the <em>fundamental</em> changes in position in the plane <mdash /> <m>\uvec{e}_1</m> represents a change by one unit right, and <m>\uvec{e}_2</m> represents a change by one unit up.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="33%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the standard basis vectors in <m>\R^2</m></description>
 	<latex-image><xi:include href="concepts.d/standard-basis-R2.tex" parse="text" /></latex-image>
@@ -304,7 +302,7 @@ In <xref ref="activity-vectors-standard-basis" />, we encountered two very speci
 <p>
 Any change in position can be built out of these two fundamental changes in position. Using the example in <xref ref="activity-vectors-standard-basis" />, the vector <m>\uvec{v} = (5,2)</m> represents a change in position by <m>5</m> units right and <m>2</m> units up. We can achieve the <q><m>5</m> units right</q> part with <m>5\uvec{e}_1 = (5,0)</m> and the <q><m>2</m> units up part</q> with <m>2\uvec{e}_2 = (0,2)</m>. To get the total change in position represented by <m>\uvec{v}</m>, we can combine these two building blocks in the <term>linear combination</term> <m>\uvec{v} = 5\uvec{e}_1 + 2\uvec{e}_2</m>.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="55%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
 		Diagram of a vector decomposition in terms of the standard basis vectors in <m>\R^2</m>
@@ -328,7 +326,7 @@ In <m>\R^3</m>, there are <em>three</em> fundamental directions, two horizontal 
 </mrow></md>
 which we can visualize as below.
 </p>
-<sidebyside><image width="100%">
+<sidebyside width="37%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of the standard basis vectors in <m>\R^3</m></description>
 	<latex-image><xi:include href="concepts.d/standard-basis-R3.tex" parse="text" /></latex-image>
