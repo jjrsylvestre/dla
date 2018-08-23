@@ -36,6 +36,8 @@ First we'll record two facts concerning how multiplying each in a set of column 
 
 <proposition xml:id="proposition-col-row-null-space-dep-indep-of-images">
 
+	<title> Dependence/independence versus matrix transformation </title>
+
 	<statement><p><ol>
 	<li xml:id="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">
 	Suppose <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are column vectors in <m>\R^n</m> and <m>E</m> is an <m>m\times n</m> matrix. If vectors <m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m> are linearly independent in <m>\R^m</m>, then so too <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are linearly independent in <m>\R^n</m>.
@@ -72,6 +74,8 @@ First we'll record two facts concerning how multiplying each in a set of column 
 
 <corollary xml:id="corollary-col-row-null-space-colspace-basis">
 
+	<title> Column space basis and dimension </title>
+
 	<statement><p><ol>
 	<li> A basis for the column space of an <m>m\times n</m> matrix <m>A</m> can be formed from those columns of <m>A</m> (as column vectors in <m>\R^m</m>) in positions corresponding to the locations of the leading ones in the RREF of <m>A</m>. </li>
 	<li> The dimension of the column space of a matrix is equal to the rank of the matrix. </li>
@@ -103,6 +107,8 @@ First we'll record two facts concerning how multiplying each in a set of column 
 <p> Next we'll record our observations concerning how the row operations affect the row space of a matrix, leading to our conclusion about how to obtain a basis for the row space of a matrix from its RREF. </p>
 
 <proposition xml:id="proposition-col-row-null-space-row-op-row-space">
+
+	<title> Row space versus row operations </title>
 
 	<statement><p>
 	If an elementary row operation is applied to a matrix, then the row space of the new matrix is the same as the row space of the old matrix.
@@ -214,8 +220,10 @@ First we'll record two facts concerning how multiplying each in a set of column 
 		<me> \uvec{a}_i = 1(\uvec{a}_i + k\uvec{a}_j) + (-k)\uvec{a}_j, </me>
 		a linear combination of row vectors from <m>A'''</m>.
 		</p>
-		<aside><p>
-			Row vector <m>\uvec{a}_j</m> has not been modified in the row operation, and so is a row vector for both <m>A</m> and <m>A'''</m>.</p>
+		<aside><title>Note</title>
+			<p>
+			Row vector <m>\uvec{a}_j</m> has not been modified in the row operation, and so is a row vector for both <m>A</m> and <m>A'''</m>.
+			</p>
 		</aside>
 		<p>
 		With the conditions of the above-referenced
@@ -231,6 +239,8 @@ First we'll record two facts concerning how multiplying each in a set of column 
 
 <corollary xml:id="corollary-col-row-null-space-rref-row-space">
 
+	<title> Row space basis and dimension </title>
+
 	<statement><p>
 	Let <m>A</m> represent a matrix.
 	<ol>
@@ -241,6 +251,7 @@ First we'll record two facts concerning how multiplying each in a set of column 
 		The row space of each REF for <m>A</m> (including the RREF of <m>A</m>) is always the same as that of <m>A</m>.
 		</li>
 		<li> The nonzero rows of each REF for <m>A</m> form a basis for the row space of <m>A</m>. </li>
+		<li> The dimension of the row space of <m>A</m> is equal to the rank of <m>A</m>. </li>
 	</ol>
 	</p></statement>
 
@@ -268,6 +279,7 @@ First we'll record two facts concerning how multiplying each in a set of column 
 		<xref ref="proposition-linear-indep-expand-indep" />
 		tells us that <m>\{\uvec{v}_{\ell-2},\uvec{v}_{\ell-1},\uvec{v}_\ell\}</m> is linearly independent. Repeating this argument as we move up the rows of <m>F</m>, we see that the nonzero rows of <m>F</m> are linearly independent when taken altogether.
 		</li>
+		<li> Applying the previous statement of this corollary to the RREF for <m>A</m>, the nonzero rows of <m>\RREF(A)</m> form a basis for the row space of <m>A</m>. But the nonzero rows of <m>\RREF(A)</m> must all contain leading ones, so the number of vectors in a basis for the row space of <m>A</m> is equal to the number of leading ones in <m>\RREF(A)</m>, as desired. </li>
 	</ol></p></proof>
 
 </corollary>
@@ -297,6 +309,9 @@ and then continued in
 </p>
 
 <theorem xml:id="theorem-col-row-null-space-equiv-to-invertible">
+
+	<title> Characterizations of invertibility </title>
+
 	<statement><p>
 	For a square matrix <m>A</m>, the following are equivalent.
 	<ol>

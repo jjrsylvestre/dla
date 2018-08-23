@@ -40,6 +40,8 @@ First, we'll record just a few of the facts about general similar matrices from
 
 <proposition xml:id="proposition-diagonalization-similar-matrices-properties">
 
+	<title> Properties of similar matrices </title>
+
 	<statement><p><ol>
 		<li xml:id="proposition-diagonalization-similar-matrices-properties-same-det">
 		Similar matrices have the same determinant.
@@ -108,6 +110,8 @@ First, we'll record just a few of the facts about general similar matrices from
 
 <theorem xml:id="theorem-diagonalization-diag">
 
+	<title> Characterization of diagonalizability </title>
+
 	<statement><p>
 	An <m>n \times n</m> matrix <m>A</m> is diagonalizable if and only if there exists a set of <m>n</m> linearly independent vectors in <m>\R^n</m>, each of which is an eigenvector of <m>A</m>. If <m>P</m> is an <m>n \times n</m> matrix whose columns are linearly independent eigenvectors of <m>A</m>, then <m>P</m> diagonalizes <m>A</m>.
 	</p></statement>
@@ -124,6 +128,8 @@ We will refine this theorem using our more sophisticated notions of <term>algebr
 </p>
 
 <proposition xml:id="proposition-diagonalization-diag-det-eigenvalues">
+
+	<title> Determinant versus eigenvalues </title>
 
 	<statement><p>
 	If a square matrix is diagonlizable, then its determinant is equal to the product of its eigenvalues (including multiplicities).
@@ -162,6 +168,8 @@ We require that the columns of a transition matrix <m>P</m> be linearly independ
 </p>
 
 <proposition xml:id="proposition-diagonalization-indep-e-vectors">
+
+	<title> Eigenvectors from different eigenvalues are independent </title>
 
 	<statement><p>
 	Suppose <m>A</m> is an <m>n \times n</m> matrix, and <m>S</m> is a linearly independent set of vectors in <m>\R^n</m>, each of which is an eigenvector for <m>A</m>. Further suppose that <m>\uvec{v}</m> is another eigenvector for <m>A</m> that is linearly independent from those vectors in <m>S</m> that are from the same eigenspace as <m>\uvec{v}</m>. Then the enlarged collection <m>S'</m> of eigenvectors consisting of all vectors in <m>S</m> along with <m>\uvec{v}</m> is also linearly independent.
@@ -240,6 +248,8 @@ in that it lets us build up a linearly independent set of eigenvectors one-by-on
 
 <corollary xml:id="corollary-diagonalization-evector-bases">
 
+	<title> Eigenspaces are independent </title>
+
 	<statement><p>
 	Given a collection of bases for the different eigenspaces of a matrix, the collection of all these eigenspace basis vectors together will still be linearly independent.
 	</p></statement>
@@ -263,10 +273,12 @@ in that it lets us build up a linearly independent set of eigenvectors one-by-on
 </corollary>
 
 <p>
-In the next subsection, we will use this corollary to refine our initial characteriztion of diagonalizability stated in <xref ref="theorem-diagonalization-diag" />. In the meantime, we will formally state the relationship between geometric and algebraic multiplicities that we discussed in <xref ref="subsection-diagonalization-concepts-diagonalizable" />.
+In the next subsection, we will use this corollary to refine our initial characterization of diagonalizability stated in <xref ref="theorem-diagonalization-diag" />. In the meantime, we will formally state the relationship between geometric and algebraic multiplicities that we discussed in <xref ref="subsection-diagonalization-concepts-diagonalizable" />.
 </p>
 
 <theorem xml:id="theorem-diagonalization-geom-alg-multiplicity">
+
+	<title> Geometric versus algebraic multiplicity </title>
 
 	<statement><p>
 	The geometric multiplicity of an eigenvalue is always less than or equal to its algebraic multiplicity.
@@ -291,12 +303,14 @@ In the next subsection, we will use this corollary to refine our initial charact
 
 <p>
 <xref ref="corollary-diagonalization-evector-bases" />
-tells us that when collecting eigenvectors to make up the transition matrix <m>P</m>, we only have to worry about linear independence <em>inside</em> eigenspaces; linear independence <em>between</em> eigenspaces is automatic. But linear independence inside an eigenspace <m>E_{\lambda_j}(A)</m> is taken care of for us when we row reduce <m>\lambda_j I - A</m>. So our initial characteriztion of diagonalization in
+tells us that when collecting eigenvectors to make up the transition matrix <m>P</m>, we only have to worry about linear independence <em>inside</em> eigenspaces; linear independence <em>between</em> eigenspaces is automatic. But linear independence inside an eigenspace <m>E_{\lambda_j}(A)</m> is taken care of for us when we row reduce <m>\lambda_j I - A</m>. So our initial characterization of diagonalization in
 <xref ref="theorem-diagonalization-diag" />
 can be refined so that we don't actually have to worry about linear independence of eigenvectors at all <mdash /> we just have to worry about having <em>enough</em> eigenspace basis vectors. It turns out that the algebraic multiplicity of each eigenvector is exactly the necessary number of basis vectors for the corresponding eigenspace, and the next statements record this thinking.
 </p>
 
 <corollary xml:id="corollary-diagonalization-geom-alg-multiplicity-diag">
+
+	<title> More characterizations of diagonalizability </title>
 
 	<statement><p><ol>
 		<li> A matrix with real eigenvalues is diagonalizable if and only if each eigenvalue has geometric multiplicity <em>equal</em> to its algebraic multiplicity. </li>

@@ -38,9 +38,12 @@ We have discussed the reasoning behind many of the below facts in <xref ref="sec
 
 <p>First, we record the adjoint inversion formula we have discovered.</p>
 
-<theorem xml:id="theorem-more-det-adjoint-inversion-formula"><statement><p>
+<theorem xml:id="theorem-more-det-adjoint-inversion-formula">
+	<title> Inversion by adjoint </title>
+	<statement><p>
 	If <m>\det A \neq 0</m> then <m>A</m> is invertible, with  <m>\inv{A} = \frac{1}{\det A}\, \adj A</m>.
-</p></statement></theorem>
+	</p></statement>
+</theorem>
 
 <remark><p>
 	Based on our computations for the <m>2\times 2</m> case in <xref ref="subsection-more-det-examples-2by2" />, if <m>A</m> is <m>2\times 2</m> then the statement of the theorem above is exactly the same as <xref ref="proposition-inverses-2x2-inverse" />.
@@ -56,6 +59,7 @@ As we saw in <xref ref="subsection-more-det-concepts-det-vs-invert" />, there is
 </p>
 
 <theorem xml:id="theorem-more-det-equiv-to-invertible">
+	<title> Characterizations of invertibility </title>
 	<statement><p>
 	For a square matrix <m>A</m>, the following are equivalent.
 	<ol>
@@ -111,6 +115,8 @@ of the multiplicative formula for determinants.
 </p>
 
 <lemma xml:id="lemma-more-det-product-elem-matrix">
+
+	<title> Determinant is multiplicative: elementary case </title>
 
 	<statement><p>
 	If <m>E</m> is an elementary matrix and <m>A</m> is a square matrix of the same size, then
@@ -188,6 +194,8 @@ of the multiplicative formula for determinants.
 
 <proposition xml:id="proposition-more-det-product">
 
+	<title> Determinant is multiplicative: general case </title>
+
 	<statement><p>
 	A determinant of a product of square matrices is the product of the determinants of those matrices. In particular, the following hold.
 	<ol>
@@ -220,7 +228,10 @@ of the multiplicative formula for determinants.
 			we worked under the assumption that <m>M</m> could be expressed as a product of <em>three</em> elementary matrices, but the calculations and logic used there would work no matter how many elementary matrices were required in a product expression for <m>M</m>.
 			</p>
 		</case>
-		<aside><p>A more formal proof would require using the principal of mathematical induction on the number of elementary matrices required in a product expansion for <m>M</m>, but that is beyond the scope of this course.</p></aside>
+		<aside><title>Comment</title>
+			<p>A more formal proof would require using the principal of mathematical induction on the number of elementary matrices required in a product expansion for <m>M</m>, but that is beyond the scope of this course.
+			</p>
+		</aside>
 		<case xml:id="proofcase-proposition-more-det-product">
 			<title>Case <m>M</m> is singular</title>
 			<p>
@@ -248,16 +259,21 @@ of the multiplicative formula for determinants.
 		This result can be obtained by repeated applications of the formula in
 		<xref ref="proposition-more-det-product-two-matrices">Statement</xref>, one <m>M_i</m> at a time.
 		</p>
-		<aside><p>Again, a more formal proof would require mathematical induction on the number of matrices in the product.</p></aside>
+		<aside><title>Comment</title>
+			<p> Again, a more formal proof would require mathematical induction on the number of matrices in the product. </p>
+		</aside>
 		</li>
 
 	</ol></p></proof>
 
 </proposition>
 
-<proposition xml:id="proposition-more-det-inverse"><statement><p>
+<proposition xml:id="proposition-more-det-inverse">
+	<title> Determinant of inverse </title>
+	<statement><p>
 	The determinant of an inverse is the inverse of the determinant. That is, if <m>N</m> is an invertible matrix then <m>\det (\inv{A}) = \inv{(\det A)}</m>.
-</p></statement></proposition>
+	</p></statement>
+</proposition>
 
 </subsection>
 

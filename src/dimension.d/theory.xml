@@ -57,6 +57,7 @@ Since <term>dimension</term> is defined in terms of <term>basis</term>, it is im
 </lemma>
 
 <theorem xml:id="theorem-dimension-every-basis-same-number">
+	<title>Uniformity of dimension</title>
 	<statement><p> Every basis for a finite-dimensional vector space has the same number of vectors. </p></statement>
 	<proof><p>
 	Suppose <m>\basisfont{B}_1</m> and <m>\basisfont{B}_2</m> are two different bases for a finite-dimensional vector space <m>V</m>. First, both <m>\basisfont{B}_1</m> and <m>\basisfont{B}_2</m> must contain a finite number of vectors, by
@@ -82,12 +83,13 @@ to establish a <q>building-up</q> counterpart to
 </p>
 
 <proposition xml:id="proposition-dimension-increase-indep-to-basis">
+	<title>Enlarging an independent set to a basis</title>
 	<statement><p>
 	In a finite-dimensional vector space, every linearly independent set of vectors can be enlarged to a basis. That is, if <m>S</m> is a linearly independent set of vectors in a finite-dimensional vector space, then there exists a basis for the space that contains <m>S</m> as a subcollection.
 	</p></statement>
-	<aside><p>
-	In this proposition, we consider the hypothetical <q>can be enlarged</q> to allow the possibility of not enlarging the set at all, in case the linearly independent set is already a basis.
-	</p></aside>
+	<aside><title>Clarification</title>
+		<p> In this proposition, we consider the hypothetical <q>can be enlarged</q> to allow the possibility of not enlarging the set at all, in case the linearly independent set is already a basis. </p>
+	</aside>
 	<proof><p>
 	Suppose <m>S</m> is a linearly independent set of vectors in a finite-dimensional vector space. If it is also a spanning set, then it is already a basis and does not need to be enlarged. If it is not a spanning set, then there are vectors in the space that are not in <m>\Span S</m>. Choose a vector <m>\uvec{v}</m> <em>not</em> in <m>\Span S</m>, and let <m>S'</m> be the set that contains all the vectors of <m>S</m> as well as <m>\uvec{v}</m>. By
 	<xref ref="proposition-linear-indep-expand-indep" />,
@@ -99,6 +101,7 @@ to establish a <q>building-up</q> counterpart to
 <p> The concept of dimension gives us another way to know whether a set of vectors is a basis, since it is the <q>just-right</q> size for a set of vectors to be a basis. </p>
 
 <proposition xml:id="proposition-dimension-right-num-indep-iff-spanning">
+	<title>Using dimension to help test basis</title>
 	<statement><p>
 	Suppose <m>S</m> is a set of vectors in a finite-dimensional vector space, and the number of vectors in <m>S</m> is exactly equal to the dimension of the vector space.
 	<ol>

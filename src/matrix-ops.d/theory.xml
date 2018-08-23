@@ -34,7 +34,7 @@ When we want to work algebraically with letters that represent matrices, most of
 </p>
 
 <proposition xml:id="proposition-matrix-ops-algebra-rules">
-
+	<title> Matrix algebra </title>
 	<statement>
 		<p>
 		The following are valid rules of matrix algebra. In each statement, assume that <m>A,B,C</m> are arbitrary matrices and <m>\zerovec</m> is a zero matrix, all of appropriate sizes so that the matrix operations can be carried out. In particular, in any rule involving a matrix power, the matrices involved are assumed to be square.  Also assume that <m>k</m> and <m>m</m> are scalars, and that <m>p</m> and <m>q</m> are positive integers.
@@ -342,6 +342,7 @@ These two systems had the <em>same coefficient matrix</em>, but one was nonhomog
 </p>
 
 <lemma xml:id="lemma-matrix-ops-particular-sol-plus-homog-sol">
+	<title> Homogeneous/nonhomogeneous solution set patterns </title>
 
 	<statement><p>
 		If <m>\uvec{x}_1</m> is a particular solution to system <m>A\uvec{x} = \uvec{b}</m>, then every other solution to this system can be expressed as the sum of <m>\uvec{x}_1</m> and some solution to the corresponding homogeneous system <m>A\uvec{x} = \zerovec</m>.
@@ -375,6 +376,8 @@ These two systems had the <em>same coefficient matrix</em>, but one was nonhomog
 
 <theorem xml:id="theorem-matrix-ops-sys-num-solutions">
 
+	<title> None, one, or infinite solutions </title>
+
 	<statement><p>
 		There are exactly three possibilities for the number of solutions to a linear system: no solution, one unique solution, or an infinite number of solutions.
 	</p></statement>
@@ -395,9 +398,11 @@ These two systems had the <em>same coefficient matrix</em>, but one was nonhomog
 		</me>
 		If <m>\uvec{x}_0</m> were secretly the zero vector, then <m>\uvec{x}_1+t\uvec{x}_0</m> would always equal <m>\uvec{x}_1</m> no matter the value of <m>t</m>. But since <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are <em>different</em> solutions to <m>A\uvec{x}=\uvec{b}</m>, we have <m>\uvec{x}_0=\uvec{x}_2-\uvec{x}_1\neq \zerovec</m>, and so different values of <m>t</m> produce different column vectors <m>\uvec{x}_1+t\uvec{x}_0</m>. Each of these column vectors is a solution to <m>A\uvec{x}=\uvec{b}</m>, as verified above, and so since there are infinity of possible values for <m>t</m>, there are infinite different possibilities for <m>\uvec{x}_1+t\uvec{x}_0</m>, and so infinite possible solutions to <m>A\uvec{x}=\uvec{b}</m>.
 		</p>
-		<aside><p>
-		The expression <m>\uvec{x}_1 + t\uvec{x}_0</m> in the proof may not represent <em>all possible</em> solutions to the system, since the system may require more than one parameter to solve. But the need for <em>at least</em> one parameter in solving a system guarantees that there will be an infinite number of solutions.
-		</p></aside>
+		<aside><title>Note</title>
+			<p>
+			The expression <m>\uvec{x}_1 + t\uvec{x}_0</m> in the proof may not represent <em>all possible</em> solutions to the system, since the system may require more than one parameter to solve. But the need for <em>at least</em> one parameter in solving a system guarantees that there will be an infinite number of solutions.
+			</p>
+		</aside>
 	</proof>
 
 </theorem>
