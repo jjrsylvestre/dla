@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2018 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<section xml:id="section-complex-appendix-motivation">
+<title>Motivation</title>
+
+<p>We begin with a few examples.</p>
+
+<example><statement><p><ul>
+	<li>
+		The polynomial equation
+		<m>x^4 - 5x^2 + 4 = 0</m>
+		has four solutions:
+		<m>x = 1</m>, <m>x = -1</m>, <m>x = 2</m>, and <m>x = -2</m>.
+	</li>
+	<li>
+		The polynomial equation
+		<m>x^4 - 1 = 0</m>
+		has two solutions:
+		<m>x = 1</m> and <m>x = -1</m>.
+	</li>
+	<li>
+		The polynomial equation
+		<m>x^4 + 1  = 0</m>
+		has no solutions.
+	</li>
+</ul></p></statement></example>
+
+<p>
+Solutions of a polynomial equation are called the <term>roots</term> of the equation,
+and are also often referred to as <term>roots</term> of the polynomial involved.
+From the examples above,
+different polynomials of the same degree can have different numbers of roots.
+</p>
+
+<question><statement><p>
+	What can we say about the possibilities for the number of roots a polynomial can have?
+</p></statement></question>
+
+<theorem xml:id="theorem-complex-fund-thm-alg-reals">
+	<idx><h>Fundamental Theorem of Algebra</h><h>real version</h></idx>
+	<title> The Fundamental Theorem of Algebra (Real Version) </title>
+	<statement><p>
+		If <m>p(x)</m> is a polynomial of degree <m>n \ge 1</m>,
+		then the polynomial equation <m>p(x) = 0</m> has <em>at most</em> <m>n</m> roots,
+		even when repeated roots are counted multiple times,
+		according to the number of times that root is repeated.
+	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		A proper proof would use the method of proof by induction,
+		but we will be a little less formal.
+		If the polynomial equation <m>p(x) = 0</m> has no solutions at all,
+		then clearly the number of solutions is not more than the degree <m>n</m>.
+		On the other hand, if this equation has distinct solutions <m>x_1,x_2,\dotsc,x_\ell</m>,
+		then it is a fact of algebra that we can factor <m>p(x)</m> as
+		<me> p(x) = (x-x_1)^{m_1} (x-x_1)^{m_2} \dotsm (x-x_\ell)^{m_\ell} q(x), </me>
+		where each exponent <m>m_i</m> is equal to the number of times solution <m>x=x_i</m> is repeated as a root of the equation
+		(called the <term>multiplicity</term> of the root),
+		and <m>q(x)</m> is another polynomial with no roots.
+		</p><p>
+		Since the degree of the factorization of <m>p(x)</m> above must be the same as the degree of <m>p(x)</m>,
+		the sum <m>m_1 + m_2 + \dotsb + m_\ell</m> cannot be greater than <m>n</m>,
+		and this sum of multiplicities is exactly the number of roots of the equation <m>p(x)=0</m>
+		(including repetition).
+		</p>
+	</proof>
+</theorem>
+
+<p>
+In some sense, the <em>optimal</em> situation is when a polynomial has a full slate of roots (including repetition),
+so that the polynomial can be fully factored into linear terms.
+In order to <q>fix</q> the problem of some polynomials having fewer than a full slate of roots,
+we will just <q>invent</q> solutions for these root-deficient polynomials.
+</p>
+
+<p>
+The quintessential example of a polynomial equation with no solution is <m> x^2 + 1 = 0 </m>.
+Let's start by inventing a solution to this equation.
+</p>
+
+<definition>
+	<title>
+		The imaginary number <m>\ci</m>
+		<idx><h>imaginary</h><h>number</h></idx>
+	</title>
+	<statement><p> An imaginary <q>number</q> that satisfies <m>\ci^2 + 1 = 0</m>. </p></statement>
+</definition>
+
+<note><p>
+	Notice in particular that <m>\ci^2 = -1</m>,
+	which will be the main way that we use the above definition of <m>\ci</m> in algebraic computations.
+</p></note>
+
+<remark><p>
+	It is common to think of <m>\ci</m> as being equal to <m>\sqrt{-1}</m>,	because
+	<me> (\sqrt{-1})^2 + 1 = -1 + 1 = 0 </me>
+	suggests that if <m>-1</m> had a square root then it would be a solution to <m>x^2+1=0</m>,
+	which is what's desired.
+	However, the notation <m>\sqrt{-1}</m> implies that this is a <em>positive</em> square root,
+	<ie /> greater than zero.
+	Where we're going, concepts of <q>greater than</q> and <q>less than</q> will no longer be meaningful.
+</p></remark>
+
+<p>
+If we want to treat this new imaginary number just like our ordinary real numbers that we're used to,
+we would like to be able to perform operations invovling it and other numbers,
+such as addition, subtraction, multiplication, division, and taking negatives.
+To do this, we will treat <m>\ci</m> algebraically as if it were a variable.
+</p>
+
+<p>
+More on that in the next section.
+For now, let's just start with taking negatives.
+Since <m>(-x)^2 = x^2</m> for every real number <m>x</m>,
+we will require the same of our new imaginary number:
+<m>(-\ci)^2 = \ci^2</m>.
+But then if we stipulate that <m>-\ci</m> is not the same imaginary number as <m>\ci</m>
+(a reasonable requirement, since no nonzero real number is equal to its own negative),
+then with the invention of the imaginary number <m>\ci</m>,
+the polynomial equation <m>x^2 + 1 = 0</m> now has just as many solutions as the degree of the polynomial involved!
+</p>
+
+<conclusion><p>
+	In summary, in the example of the polynomial <m>x^2 + 1</m>,
+	we can go from having <em>no</em> solutions to the full amount allowed by
+	<xref ref="theorem-complex-fund-thm-alg-reals" text="title" />
+	by inventing <em>one</em> solution.
+</p></conclusion>
+
+</section>
