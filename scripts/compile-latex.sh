@@ -25,4 +25,4 @@ xsltproc \
 	--output build/latex/DELETEME.tex \
 	--stringparam numbering.projects.level 2 \
 	style-latex.xsl src/book.xml
-rm -f build/html/DELETEME.tex
+rm -f build/latex/DELETEME.tex
