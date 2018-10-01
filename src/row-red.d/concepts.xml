@@ -30,7 +30,7 @@ respective owners.
 <title>Reducing matrices</title>
 
 <p>
-In the activity set for this chapter, you were led through a strategy to simplify an augmented matrix. Below you will find a step-by-step description of the strategy. But first, it is important to stress that your goal is <em>not</em> to become an expert row reducer <mdash /> very few people ever need to know how to row reduce a matrix by hand outside of a linear algebra class. Computers are great at row reducing, and should be used to efficiently solve linear systems in the <q>real world.</q> Here, we are not interested in learning calculation tricks or shortcuts <mdash /> we can safely leave those to the experts that program computers to solve linear systems. (Any prospective computational experts in the audience of this course can learn such calculation shortcuts in a <em>numerical methods</em> course.)
+In the activity set for this chapter, you were led through a strategy to simplify an augmented matrix. Below you will find a step-by-step description of the strategy. But first, it is important to stress that your goal is <em>not</em> to become an expert row reducer <mdash /> very few people ever need to know how to row reduce a matrix by hand outside of a linear algebra class. Computers are great at row reducing, and should be used to efficiently solve linear systems in the <q>real world.</q> Here, we are not interested in learning calculation tricks or shortcuts <mdash /> we can safely leave those to the experts that program computers to solve linear systems. (Prospective computational experts in the audience of this course can learn such calculation shortcuts in a <em>numerical methods</em> course.)
 </p>
 
 <heuristic><statement><p> <!-- heuristic is hijacked to "Goal" -->
@@ -59,7 +59,7 @@ The choice and order of row operations you use to implement this strategy depend
 <title>Solving systems</title>
 
 <p>
-In the end, we will want to turn our simplified RREF matrix back into a system of equations. When we do this, every <term>leading one</term> corresponds to a <term>leading variable</term> that has a coefficient of <m>1</m>, and so is easy to isolate and solve for in terms of the other variables. Another way to think of this is that <em>a leading variable is <em>constrained</em> by the equation in which it appears</em>, and its value depends on the values of the other variables in that equation. On the other hand, every variable that does not have a leading one in its column of the RREF matrix <em>cannot</em> be solved for without going in circles: you cannot solve for variable <m>x</m> in terms of variables <m>y</m> and <m>z</m>, and then turn around and solve for variable <m>y</m> in terms of variables <m>x</m> and <m>z</m>. A variable without a leading one becomes a <term>free variable</term>: there are no constraints on its value, and <em>any</em> choice of value for that variable would lead to a solution for the system similarly to <xref ref="activity-systems-planes-intersect-line" />.
+In the end, we will want to turn our simplified RREF matrix back into a system of equations. When we do this, every <term>leading one</term> corresponds to a <term>leading variable</term> that has a coefficient of <m>1</m>, and so is easy to isolate and solve for in terms of the other variables. Another way to think of this is that <em>a leading variable is <em>constrained</em> by the equation in which it appears</em>, and its value depends on the values of the other variables in that equation. On the other hand, every variable that does not have a leading one in its column of the RREF matrix <em>cannot</em> be solved for without going in circles: you cannot solve for variable <m>x</m> in terms of variables <m>y</m> and <m>z</m>, and then turn around and solve for variable <m>y</m> in terms of variables <m>x</m> and <m>z</m>. A variable without a leading one becomes a <term>free variable</term>: there are no constraints on its value, and <em>every</em> choice of value for that variable leads to one or more solutions (depending on choices of values for other free variables) for the system similarly to <xref ref="activity-systems-planes-intersect-line" />.
 </p>
 
 <principle> <!-- principle is hijacked to "Procedure" -->
@@ -70,7 +70,7 @@ In the end, we will want to turn our simplified RREF matrix back into a system o
 		<p>To determine the solution set of a system of equations from the corresponding RREF matrix, expressed in terms of parametric equations if necessary (if there are free variables), carrying out the following steps.
 		<ol>
 			<li>For each variable column that does not have a leading one, assign a parameter to that variable. Use different letters for different free variables.</li>
-			<li>For each nonzero row, turn the row back into an equation and isolate the leading variable. Substitute in the associated parameters for any of the free variables that appear in the equation.</li>
+			<li>For each nonzero row, turn the row back into an equation and isolate the leading variable. Substitute in the associated parameter for each free variable that appears in the equation.</li>
 		</ol>
 		</p>
 	</statement>
