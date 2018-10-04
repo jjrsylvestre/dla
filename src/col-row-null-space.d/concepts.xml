@@ -30,7 +30,12 @@ respective owners.
 </ul></p></assemblage>
 
 <introduction><p>
-We have already seen in <xref ref="example-subspaces-examples-solution-space" /> that the solution set of a homogeneous system <m>A\uvec{x} = \zerovec</m> with <m>m\times n</m> coefficient matrix <m>A</m> is a subspace of <m>\R^n</m>. We will return to this special subspace at the end of this section, but first we will discuss a special subspace of <m>\R^m</m> related to nonhomogeneous systems with coefficient matrix <m>A</m>.
+	We have already seen in
+	<xref ref="example-subspaces-examples-solution-space" />
+	that the solution set of a homogeneous system
+	<m>A\uvec{x} = \zerovec</m> with <m>m\times n</m> coefficient matrix <m>A</m> is a subspace of <m>\R^n</m>.
+	We will return to this special subspace at the end of this section,
+	but first we will discuss a special subspace of <m>\R^m</m> related to nonhomogeneous systems with coefficient matrix <m>A</m>.
 </p></introduction>
 
 
@@ -38,7 +43,11 @@ We have already seen in <xref ref="example-subspaces-examples-solution-space" />
 <title>Column space</title>
 
 <p>
-The solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> with <m>m\times n</m> coefficient matrix <m>A</m> cannot be a subspace of <m>\R^n</m> because it can never contain the zero vector. Even worse, if the system is inconsistent, then the solution set does not contain any vectors at all.
+The solution set of a nonhomogeneous system
+<m>A\uvec{x} = \uvec{b}</m>
+with <m>m\times n</m> coefficient matrix <m>A</m> cannot be a subspace of <m>\R^n</m> because it can never contain the zero vector.
+Even worse, if the system is inconsistent,
+then the solution set does not contain any vectors at all.
 </p>
 
 <question><statement><p>
@@ -46,32 +55,93 @@ The solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> with <m>
 </p></statement></question>
 
 <p>
-We know that the homogeneous system <m>A\uvec{x} = \zerovec</m> is consistent because it has at least the trivial solution. But for what other vectors of <m>\uvec{b}</m> besides <m>\uvec{b} = \zerovec</m> is the system <m>A\uvec{x}=\uvec{b}</m> consistent?
+We know that the homogeneous system
+<m>A\uvec{x} = \zerovec</m>
+is consistent because it has at least the trivial solution.
+But for what other vectors of <m>\uvec{b}</m> besides <m>\uvec{b} = \zerovec</m> is the system
+<m>A\uvec{x}=\uvec{b}</m>
+consistent?
 <!--
 We can show that the collection of all such <m>\uvec{b}</m> vectors is a subspace of <m>\R^m</m> by applying the Subspace Test.
 <ol label="(i)">
-<li> We know this collection is nonempty, as we have already noted that <m>A\uvec{x}=\uvec{b}</m> is consistent for <m>\uvec{b}=\zerovec</m>. </li>
-<li>
-Suppose system <m>A\uvec{x}=\uvec{b}</m> is consistent for both <m>\uvec{b}=\uvec{b}_1</m> and <m>\uvec{b}=\uvec{b}_2</m>. Then there exists at least one solution to each system. Let <m>\uvec{x}=\uvec{x}_1</m> be a solution to <m>A\uvec{x}=\uvec{b}_1</m> and <m>\uvec{x}=\uvec{x}_2</m> be a solution to <m>A\uvec{x}=\uvec{b}_2</m>. Then <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> is a solution to system <m>A\uvec{x}=\uvec{b}</m> for <m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m>, since
-<me> A(\uvec{x}_1+\uvec{x}_2) = A\uvec{x}_1+A\uvec{x}_2 = \uvec{b}_1 + \uvec{b}_2. </me>
-Therefore, the system <m>A\uvec{x}=\uvec{b}</m> is consistent for <m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m> because it has at least one solution as above. This verifies that whenever vectors <m>\uvec{b}_1</m> and <m>\uvec{b}_2</m> are in the collection, so is the sum vector <m>\uvec{b}_1+\uvec{b}_2</m>.
-</li>
-<li> Suppose system <m>A\uvec{x}=\uvec{b}</m> is consistent for <m>\uvec{b}=\uvec{b}_0</m>, so that there exists at least one solution <m>\uvec{x}=\uvec{x}_0</m>. Then given a scalar <m>k</m>, vector <m>\uvec{x} = k\uvec{x}_0</m> is a solution to system <m>A\uvec{x}=\uvec{b}</m> for <m>\uvec{b}=k\uvec{b}_0</m>, since
-<me> A(k\uvec{x}_0) = k(A\uvec{x}_0) = k\uvec{b}_0. </me>
-Therefore, the system <m>A\uvec{x}=\uvec{b}</m> is consistent for <m>\uvec{b}=k\uvec{b}_0</m> because it has at least one solution as above. This verifies that whenever vector <m>\uvec{b}_0</m> is in the collection, so is the scaled vector <m>k\uvec{b}_0</m>.
-</li>
+	<li>
+		We know this collection is nonempty,
+		as we have already noted that
+		<m>A\uvec{x}=\uvec{b}</m>
+		is consistent for
+		<m>\uvec{b}=\zerovec</m>.
+	</li>
+	<li>
+		Suppose system
+		<m>A\uvec{x}=\uvec{b}</m>
+		is consistent for both
+		<m>\uvec{b}=\uvec{b}_1</m>
+		and
+		<m>\uvec{b}=\uvec{b}_2</m>.
+		Then there exists at least one solution to each system.
+		Let <m>\uvec{x}=\uvec{x}_1</m> be a solution to
+		<m>A\uvec{x}=\uvec{b}_1</m>
+		and
+		<m>\uvec{x}=\uvec{x}_2</m>
+		be a solution to
+		<m>A\uvec{x}=\uvec{b}_2</m>.
+		Then <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m>
+		is a solution to system
+		<m>A\uvec{x}=\uvec{b}</m>
+		for
+		<m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m>,
+		since
+		<me> A(\uvec{x}_1+\uvec{x}_2) = A\uvec{x}_1+A\uvec{x}_2 = \uvec{b}_1 + \uvec{b}_2. </me>
+		Therefore, the system
+		<m>A\uvec{x}=\uvec{b}</m>
+		is consistent for
+		<m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m>
+		because it has at least one solution as above.
+		This verifies that whenever vectors
+		<m>\uvec{b}_1</m> and <m>\uvec{b}_2</m>
+		are in the collection,
+		so is the sum vector
+		<m>\uvec{b}_1+\uvec{b}_2</m>.
+	</li>
+	<li>
+		Suppose system
+		<m>A\uvec{x}=\uvec{b}</m>
+		is consistent for
+		<m>\uvec{b}=\uvec{b}_0</m>,
+		so that there exists at least one solution
+		<m>\uvec{x}=\uvec{x}_0</m>.
+		Then given a scalar <m>k</m>,
+		vector <m>\uvec{x} = k\uvec{x}_0</m>
+		is a solution to system
+		<m>A\uvec{x}=\uvec{b}</m>
+		for
+		<m>\uvec{b}=k\uvec{b}_0</m>,
+		since
+		<me> A(k\uvec{x}_0) = k(A\uvec{x}_0) = k\uvec{b}_0. </me>
+		Therefore, the system
+		<m>A\uvec{x}=\uvec{b}</m>
+		is consistent for
+		<m>\uvec{b}=k\uvec{b}_0</m>
+		because it has at least one solution as above.
+		This verifies that whenever vector <m>\uvec{b}_0</m> is in the collection,
+		so is the scaled vector <m>k\uvec{b}_0</m>.
+	</li>
 </ol>
 -->
 It is possible to verify directly that the collection of all such <m>\uvec{b}</m> vectors is a subspace of <m>\R^m</m>.
 </p>
 <aside><title>Check your understanding</title><p>
-	Apply the Subspace Test to verify that for a given <m>m\times n</m> matrix <m>A</m>, the collection of all vectors <m>\uvec{b}</m> in <m>\R^m</m> for which the system <m>A\uvec{x}=\uvec{b}</m> is consistent forms a subspace of <m>\R^m</m>.
+	Apply the Subspace Test to verify that for a given <m>m\times n</m> matrix <m>A</m>,
+	the collection of all vectors <m>\uvec{b}</m> in <m>\R^m</m> for which the system <m>A\uvec{x}=\uvec{b}</m> is consistent forms a subspace of <m>\R^m</m>.
 </p></aside>
 
 <p>
-Until we know more about it, for now let's refer to this subspace of <m>\R^m</m> as the <term>consistent space</term> of <m>A</m>. To better understand this space, we should relate it back to the matrix <m>A</m> as we did in
+Until we know more about it,
+for now let's refer to this subspace of <m>\R^m</m> as the <term>consistent space</term> of <m>A</m>.
+To better understand this space, we should relate it back to the matrix <m>A</m> as we did in
 <xref ref="activity-col-row-null-space-colspan-motivation" />,
-because <m>A</m> is the only thing common to all the <m>\uvec{b}</m> vectors in this space. Let's again think of <m>A</m> as being made up of column vectors in <m>\R^m</m>:
+because <m>A</m> is the only thing common to all the <m>\uvec{b}</m> vectors in this space.
+Let's again think of <m>A</m> as being made up of column vectors in <m>\R^m</m>:
 <me>
 	A = \begin{bmatrix}
 		| \amp | \amp \amp | \\
@@ -79,9 +149,21 @@ because <m>A</m> is the only thing common to all the <m>\uvec{b}</m> vectors in 
 		| \amp | \amp  \amp |
 	\end{bmatrix}.
 </me>
-Now recall that if <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector in <m>\R^n</m>, then the result of computing <m>A\uvec{e}_j</m> is the <m>\nth[j]</m> column of <m>A</m>. But this says that each system <m>A\uvec{x}=\uvec{c}_j</m> is consistent, since there is at least one solution <m>\uvec{x}=\uvec{e}_j</m>. Therefore, each of the columns of <m>A</m> is in the consistent space of <m>A</m>. And because the span of these columns is the <em>smallest</em> subspace that contains each of them, we can conclude that every vector in the column space <m>\Span\{\uvec{c}_1,\uvec{c}_2,\dotsc,\uvec{c}_n\}</m> of <m>A</m> is also in the consistent space of <m>A</m>.
+Now recall that if <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector in <m>\R^n</m>,
+then the result of computing <m>A\uvec{e}_j</m> is the <m>\nth[j]</m> column of <m>A</m>.
+But this says that each system
+<m>A\uvec{x}=\uvec{c}_j</m>
+is consistent,
+since there is at least one solution <m>\uvec{x}=\uvec{e}_j</m>.
+Therefore, each of the columns of <m>A</m> is in the consistent space of <m>A</m>.
+And because the span of these columns is the <em>smallest</em> subspace that contains each of them,
+we can conclude that every vector in the column space
+<m>\Span\{\uvec{c}_1,\uvec{c}_2,\dotsc,\uvec{c}_n\}</m>
+of <m>A</m> is also in the consistent space of <m>A</m>.
 </p><p>
-What other vectors could be in this space? If <m>A\uvec{x}=\uvec{b}</m> is consistent, there it has at least one solution
+What other vectors could be in this space?
+If <m>A\uvec{x}=\uvec{b}</m> is consistent,
+there it has at least one solution
 <me>
 	\uvec{x}
 	= \uvec{x}_0
@@ -95,9 +177,22 @@ But then
 	<mrow> \amp = x_1A\uvec{e}_1+x_2A\uvec{e}_2+\dotsb+x_nA\uvec{e}_n </mrow>
 	<mrow> \amp = x_1\uvec{c}_1+x_2\uvec{c}_2+\dotsb+x_n\uvec{c}_n. </mrow>
 </md>
-So whenever <m>A\uvec{x}=\uvec{b}</m> is consistent, we find that <m>\uvec{b}</m> is equal to some linear combination of the columns of <m>A</m> (with coefficients taken from the components of a solution vector). In other words, every vector in the consistent space of <m>A</m> is also in the column space of <m>A</m>. So the two spaces are equal: <alert>the system <m>A\uvec{x}=\uvec{b}</m> is consistent when, and only when, the vectors of constants <m>\uvec{b}</m> is in the column space of <m>A</m></alert>.
+So whenever <m>A\uvec{x}=\uvec{b}</m> is consistent,
+we find that <m>\uvec{b}</m> is equal to some linear combination of the columns of <m>A</m>
+(with coefficients taken from the components of a solution vector).
+In other words, every vector in the consistent space of <m>A</m> is also in the column space of <m>A</m>.
+So the two spaces are equal:
+<alert>
+	the system <m>A\uvec{x}=\uvec{b}</m> is consistent when,
+	and only when,
+	the vectors of constants <m>\uvec{b}</m> is in the column space of <m>A</m>
+</alert>.
 </p><p>
-Since the columns of <m>A</m> are a spanning set for this space, we can reduce it to a basis. Once again, we can apply row reduction to this task. Row reducing is equivalent to multiplying on the left by elementary matrices, and when we defined matrix multiplication in
+Since the columns of <m>A</m> are a spanning set for this space,
+we can reduce it to a basis.
+Once again, we can apply row reduction to this task.
+Row reducing is equivalent to multiplying on the left by elementary matrices,
+and when we defined matrix multiplication in
 <xref ref="subsection-matrix-ops-concepts-matrix-mult" />
 we did so column-by-column:
 <me>
@@ -107,13 +202,21 @@ we did so column-by-column:
 		| \amp | \amp  \amp |
 	\end{bmatrix}.
 </me>
-Because matrix multiplication distributes over linear combinations, <alert>multiplying a collection of column vectors by a common matrix cannot create independence out of dependence</alert>. Even better, the process of row reducing can be reversed (<ie /> we are multiplying by <em>invertible</em> matrices), so it follows that <alert>multiplying a collection of column vectors by an <em>invertible</em> common matrix cannot create dependence out of independence</alert>.
+Because matrix multiplication distributes over linear combinations,
+<alert>multiplying a collection of column vectors by a common matrix cannot create independence out of dependence</alert>.
+Even better, the process of row reducing can be reversed
+(<ie /> we are multiplying by <em>invertible</em> matrices),
+so it follows that
+<alert>multiplying a collection of column vectors by an <em>invertible</em> common matrix cannot create dependence out of independence</alert>.
 <aside><title>See</title><p>
 	<xref ref="proposition-col-row-null-space-dep-indep-of-images" />
 	in
 	<xref ref="subsection-col-row-null-space-theory-colspace" />.
 </p></aside>
-As we partially reasoned in <xref ref="activity-col-row-null-space-colspace-basis-proc" />, this means that we can recognize independence/dependence relationships amongst the columns of <m>A</m> from the independence/dependence relationships amongst the columns of reduced forms of <m>A</m>, leading to the following procedure.
+As we partially reasoned in
+<xref ref="activity-col-row-null-space-colspace-basis-proc" />,
+this means that we can recognize independence/dependence relationships amongst the columns of <m>A</m> from the independence/dependence relationships amongst the columns of reduced forms of <m>A</m>,
+leading to the following procedure.
 </p>
 
 <algorithm>
@@ -128,7 +231,10 @@ As we partially reasoned in <xref ref="activity-col-row-null-space-colspace-basi
 </algorithm>
 
 <remark><p>
-It is important that you <alert>take the basis vectors from the columns of <m>A</m></alert>, not from the columns of the reduced matrix <mdash /> row operations do not change independence/dependence relationships amongst the columns, but they <em>do</em> change the column space.
+	It is important that you <alert>take the basis vectors from the columns of <m>A</m></alert>,
+	not from the columns of the reduced matrix <mdash />
+	row operations do not change independence/dependence relationships amongst the columns,
+	but they <em>do</em> change the column space.
 </p></remark>
 
 <p>
@@ -140,12 +246,27 @@ we used this new procedure to create a reinterpretation of the Test for Linear D
 <algorithm xml:id="procedure-col-row-null-space-concepts-colspace-linear-indep-test">
 	<title>To use row reduction to test linear dependence/independence in <m>\R^m</m></title>
 	<statement><p>
-	To determine whether a collection of <m>n</m> vectors in <m>\R^m</m> is linearly dependent or independent, form an <m>m\times n</m> matrix by using the vectors as <em>columns</em>, and then row reduce to determine the rank of the matrix. If the rank is equal to <m>n</m> (<ie /> there is a leading one in every column of the reduced matrix), then the vectors are linearly independent. If the rank is less that <m>n</m> (<ie /> at least one column of the reduced matrix does not contain a leading one), then the vectors are linearly dependent.
+		To determine whether a collection of <m>n</m> vectors in <m>\R^m</m> is linearly dependent or independent,
+		form an <m>m\times n</m> matrix by using the vectors as <em>columns</em>,
+		and then row reduce to determine the rank of the matrix.
+		If the rank is equal to <m>n</m>
+		(<ie /> there is a leading one in every column of the reduced matrix),
+		then the vectors are linearly independent.
+		If the rank is less that <m>n</m>
+		(<ie /> at least one column of the reduced matrix does not contain a leading one),
+		then the vectors are linearly dependent.
 	</p></statement>
 </algorithm>
 
 <p>
-Note that this isn't really a new version of the Test for Linear Dependence/Independence, it's just a shortcut <mdash /> if we were to use the full test, the column vectors we are testing would appear as the columns of the coefficient matrix for the homogeneous system created by the test. (See <xref ref="example-linear-indep-examples-test-R4" />, and the other examples in <xref ref="subsection-linear-indep-examples-test" />.)
+Note that this isn't really a new version of the Test for Linear Dependence/Independence,
+it's just a shortcut <mdash />
+if we were to use the full test,
+the column vectors we are testing would appear as the columns of the coefficient matrix for the homogeneous system created by the test.
+(See
+<xref ref="example-linear-indep-examples-test-R4" />,
+and the other examples in
+<xref ref="subsection-linear-indep-examples-test" />.)
 </p>
 
 <p>
@@ -153,7 +274,8 @@ In
 <xref ref="activity-col-row-null-space-summarize-col-indep-invertible-indep-columns">Activity</xref>
 and
 <xref ref="activity-col-row-null-space-summarize-col-indep-det-ne-0-indep-columns">Activity</xref>,
-we also used this new procedure to connect column space to invertibility for a square matrix. We will summarize these new facts in
+we also used this new procedure to connect column space to invertibility for a square matrix.
+We will summarize these new facts in
 <xref ref="subsection-col-row-null-space-theory-spaces-vs-rank-invert" />.
 </p>
 
@@ -164,11 +286,15 @@ we also used this new procedure to connect column space to invertibility for a s
 <title>Row space</title>
 
 <p>
-Analyzing the row space of a matrix is considerably easier. As we discovered in
+Analyzing the row space of a matrix is considerably easier.
+As we discovered in
 <xref ref="activity-col-row-null-space-row-ops-same-rowspace" />
 and
 <xref ref="activity-col-row-null-space-summarize-row-space" />,
-elementary row operations do not change the row space of a matrix, so the row spaces of a matrix and each of its REFs are the same space. Clearly we do not need the zero rows from an REF to span this space. But the pattern of leading ones guarantees that the nonzero rows in an REF are linearly independent.
+elementary row operations do not change the row space of a matrix,
+so the row spaces of a matrix and each of its REFs are the same space.
+Clearly we do not need the zero rows from an REF to span this space.
+But the pattern of leading ones guarantees that the nonzero rows in an REF are linearly independent.
 </p>
 <aside><title>See</title><p>
 	<xref ref="corollary-col-row-null-space-rref-row-space" />
@@ -188,7 +314,9 @@ elementary row operations do not change the row space of a matrix, so the row sp
 </algorithm>
 
 <remark><p>
-Note the difference from the column space procedure <mdash /> in this procedure we get the basis vectors from the <em>reduced</em> matrix, not from the original matrix.
+	Note the difference from the column space procedure <mdash />
+	in this procedure we get the basis vectors from the <em>reduced</em> matrix,
+	not from the original matrix.
 </p></remark>
 
 <p> We can also use the row space procedure to test vectors for linear independence. </p>
@@ -196,7 +324,15 @@ Note the difference from the column space procedure <mdash /> in this procedure 
 <algorithm xml:id="procedure-col-row-null-space-concepts-rowspace-linear-indep-test">
 	<title>A second way to use row reduction to test linear dependence/independence in <m>\R^m</m></title>
 	<statement><p>
-	To determine whether a collection of <m>m</m> vectors in <m>\R^n</m> is linearly dependent or independent, form an <m>m\times n</m> matrix by using the vectors as <em>rows</em>, and then row reduce to determine the rank of the matrix. If the rank is equal to <m>m</m> (<ie /> no zero rows can be produced by reducing), then the vectors are linearly independent. If the rank is less that <m>n</m> (<ie /> reducing produces at least one zero row), then the vectors are linearly dependent.
+		To determine whether a collection of <m>m</m> vectors in <m>\R^n</m> is linearly dependent or independent,
+		form an <m>m\times n</m> matrix by using the vectors as <em>rows</em>,
+		and then row reduce to determine the rank of the matrix.
+		If the rank is equal to <m>m</m>
+		(<ie /> no zero rows can be produced by reducing),
+		then the vectors are linearly independent.
+		If the rank is less that <m>n</m>
+		(<ie /> reducing produces at least one zero row),
+		then the vectors are linearly dependent.
 	</p></statement>
 </algorithm>
 
@@ -211,16 +347,31 @@ Note the difference from the column space procedure <mdash /> in this procedure 
 </p></statement></question>
 
 <p>
-When testing vectors from <m>\R^n</m> for linear independence, we clearly have a choice of whether to form a matrix using those vectors as columns or as rows. But we also have a choice when computing a basis for either type of space, because the column space of a matrix is the same as the row space of the transpose, and the row space of a matrix is the same as the column space of the transpose.
+When testing vectors from <m>\R^n</m> for linear independence,
+we clearly have a choice of whether to form a matrix using those vectors as columns or as rows.
+But we also have a choice when computing a basis for either type of space,
+because the column space of a matrix is the same as the row space of the transpose,
+and the row space of a matrix is the same as the column space of the transpose.
 </p><p>
-In <xref ref="activity-col-row-null-space-which-one-col-or-row-space" />, you were asked to think about this question. You might have considered the end results of the two procedures to determine the pros and cons of one procedure over the other.
+In <xref ref="activity-col-row-null-space-which-one-col-or-row-space" />,
+you were asked to think about this question.
+You might have considered the end results of the two procedures to determine the pros and cons of one procedure over the other.
 <dl>
 	<li><title>Column space</title><p>Produces a basis involving vectors from the original collection.</p></li>
 	<li><title>Row space</title><p>Produces a <q>simplified</q> basis.</p></li>
 </dl>
-In the column space procedure, we always go back to the original matrix to pick out certain columns. So, this procedure effectively performs the task of reducing a spanning set down to a basis, a task that we knew <em>could</em> be done
+In the column space procedure,
+we always go back to the original matrix to pick out certain columns.
+So, this procedure effectively performs the task of reducing a spanning set down to a basis,
+a task that we knew <em>could</em> be done
 (<xref ref="proposition-basis-coords-reduce-span-to-basis" />)
-but didn't have a systematic means of carrying out. In the row space procedure, we take our basis vectors from the simplified nonzero rows of an REF for the matrix. Because the leading one in each row is in a different position, expressing other vectors in the space as linear combinations of these basis vectors is much more straightforward than it is in general. In fact, if you have taken a basis for the row space from the RREF, expressing other vectors in the space as linear combinations of these basis vectors can be done by inspection.
+but didn't have a systematic means of carrying out.
+In the row space procedure,
+we take our basis vectors from the simplified nonzero rows of an REF for the matrix.
+Because the leading one in each row is in a different position,
+expressing other vectors in the space as linear combinations of these basis vectors is much more straightforward than it is in general.
+In fact, if you have taken a basis for the row space from the RREF,
+expressing other vectors in the space as linear combinations of these basis vectors can be done by inspection.
 </p>
 
 </subsection>
@@ -232,13 +383,38 @@ but didn't have a systematic means of carrying out. In the row space procedure, 
 <p>
 We have already seen through examples in
 <xref ref="subsection-dimension-examples-basis-from-params" />
-how to extract a basis for the solution space for a homogeneous system <m>A\uvec{x}=\zerovec</m> (now called the <term>null space</term> of <m>A</m>) from the parameters assigned after row reducing.
+how to extract a basis for the solution space for a homogeneous system
+<m>A\uvec{x}=\zerovec</m>
+(now called the <term>null space</term> of <m>A</m>)
+from the parameters assigned after row reducing.
 </p><p>
 The null space of <m>A</m> doesn't just represent the set of solutions to the homogeneous system <mdash />
 <xref ref="lemma-matrix-ops-particular-sol-plus-homog-sol" />
-tells us that it represents most of the data we need in order to know the solution set of every system that has <m>A</m> as a coefficient matrix. If we know one specific solution <m>\uvec{x} = \uvec{x}_1</m> to nonhomogeneous system <m>A\uvec{x}=\uvec{b}</m>, then every other solution can be obtained by adding to <m>\uvec{x}_1</m> a vector from the null space. Geometrically, this represents a translation of the null space away from the origin, like a plane that is translated away from the origin by an <q>initial</q> point <m>\uvec{x}_1</m>.
+tells us that it represents most of the data we need in order to know the solution set of every system that has <m>A</m> as a coefficient matrix.
+If we know one specific solution
+<m>\uvec{x} = \uvec{x}_1</m>
+to nonhomogeneous system
+<m>A\uvec{x}=\uvec{b}</m>,
+then every other solution can be obtained by adding to <m>\uvec{x}_1</m> a vector from the null space.
+Geometrically, this represents a translation of the null space away from the origin,
+like a plane that is translated away from the origin by an <q>initial</q> point <m>\uvec{x}_1</m>.
 </p><p>
-All three spaces <mdash /> column, row, and null <mdash /> are connected through the RREF of the matrix. For column space, we get a basis vector for each leading one in the RREF. For row space, we get a basis vector for each nonzero row in the RREF, and a row in the RREF is nonzero precisely when it contains a leading one. So even though column space is a subspace of <m>\R^m</m> and row space is a subspace of <m>\R^n</m> (where <m>A</m> is an <m>m\times n</m> matrix), <alerta>the column space and the row space of <m>A</m> have the same dimension</alerta>, and this dimension is equal to the rank of <m>A</m>. On the other hand, for the null space we get one basis vector for each parameter required to solve the homogeneous system. Parameters are assigned to free variables, and free variables are those whose columns <em>do not</em> contain a leading one. So the dimension of the null space is equal to the difference between the number of columns of <m>A</m> and the rank of <m>A</m>, which is just a more sophisticated way to state <xref ref="proposition-row-red-num-parameters-vs-rank" />.
+All three spaces
+<mdash /> column, row, and null <mdash />
+are connected through the RREF of the matrix.
+For column space, we get a basis vector for each leading one in the RREF.
+For row space, we get a basis vector for each nonzero row in the RREF,
+and a row in the RREF is nonzero precisely when it contains a leading one.
+So even though column space is a subspace of <m>\R^m</m> and row space is a subspace of <m>\R^n</m>
+(where <m>A</m> is an <m>m\times n</m> matrix),
+<alert>the column space and the row space of <m>A</m> have the same dimension</alert>,
+and this dimension is equal to the rank of <m>A</m>.
+On the other hand, for the null space we get one basis vector for each parameter required to solve the homogeneous system.
+Parameters are assigned to free variables,
+and free variables are those whose columns <em>do not</em> contain a leading one.
+So the dimension of the null space is equal to the difference between the number of columns of <m>A</m> and the rank of <m>A</m>,
+which is just a more sophisticated way to state
+<xref ref="proposition-row-red-num-parameters-vs-rank" />.
 </p>
 
 </subsection>
