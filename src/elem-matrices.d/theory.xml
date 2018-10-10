@@ -154,7 +154,7 @@ As mentioned, elementary matrices are precisely the connection we need between s
 				\rowredarrow
 				\left[\begin{array}{c|c} \RREF(A) \amp \uvec{b}' \end{array}\right],
 			</me>
-			where <m>\uvec{b}'</m> is whatever appears in the <q>equals</q> column after all of our row operations. When we have arrived at the RREF of <m>A</m> in the coefficient matrix part on the left, and are ready to solve the simplified solution, there should not be be any free variables. Because free variables would lead to parameters, and hence infinite solutions, when we are assuming that this particular system has only one unique solution. So <em>every</em> column in the RREF of <m>A</m> must have a leading one. By definition, the rank of <m>A</m> is equal to the number of leading ones in its RREF, and so for this <m>A</m> the rank is equal to the number of columns. But <m>A</m> is square, so the number of columns is the same as the size of <m>A</m>.
+			where <m>\uvec{b}'</m> is whatever appears in the <q>equals</q> column after all of our row operations. When we have arrived at the RREF of <m>A</m> in the coefficient matrix part on the left, and are ready to solve the simplified solution, there should not be be any free variables. Because free variables would lead to parameters, and hence infinite solutions, whereas we are assuming that this particular system has only one unique solution. So <em>every</em> column in the RREF of <m>A</m> must have a leading one. By definition, the rank of <m>A</m> is equal to the number of leading ones in its RREF, and so for this <m>A</m> the rank is equal to the number of columns. But <m>A</m> is square, so the number of columns is the same as the size of <m>A</m>.
 			</p>
 		</case>
 
@@ -207,7 +207,8 @@ As mentioned, elementary matrices are precisely the connection we need between s
 				<mrow>I A \amp = \inv{(E_\ell \dotsm E_2 E_1)}</mrow>
 				<mrow>A \amp = \inv{E}_1\inv{E}_2\dotsm \inv{E}_\ell.</mrow>
 			</md>
-			So, we have <m>A</m> expressed as a product of the <em>inverses</em> of a collection of elementary matrices, but by <xref ref="lemma-elem-matrices-elem-inverse" /> each of these inverses is actually an elementary matrix as well, and so we really have <m>A</m> expressed as a product of a collection of elementary matrices, as desired.
+			So, we have <m>A</m> expressed as a product of the <em>inverses</em> of a collection of elementary matrices.
+			But by <xref ref="lemma-elem-matrices-elem-inverse" />, each of these inverses is actually an elementary matrix as well, and so we really have <m>A</m> expressed as a product of a collection of elementary matrices, as desired.
 			</p>
 		</case>
 
@@ -273,7 +274,7 @@ As mentioned, elementary matrices are precisely the connection we need between s
 	and
 	<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>,
 	as this equivalence provides the link between row reducing and elementary matrices. In practice, the link between
-	<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>,
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-prod-elem">Statement</xref>
 	and
 	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
 	is also important, as it helps us to compute the inverse of a matrix. But in further developing matrix theory, the most important link is the one between
@@ -329,7 +330,7 @@ As mentioned, elementary matrices are precisely the connection we need between s
 				\amp= \zerovec.
 			</mrow>
 		</md>
-		Since both simplifications are correct, we have <m>\uvec{x}_0 = \zerovec</m>. So what we have discovered is that because there exists a matrix <m>B</m> so that <m>BA=I</m>, then whenever we think we have a solution <m>\uvec{x}_0</m> to the system <m>A\uvec{x}=\zerovec</m> that solution turns out to be the trivial solution. Thus, <m>A\uvec{x}=\zerovec</m> must have <em>only</em> the trivial solution, and hence <m>A</m> is invertible (<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+		Since both simplifications are correct, we have <m>\uvec{x}_0 = \zerovec</m>. So what we have discovered is that because there exists a matrix <m>B</m> so that <m>BA=I</m>, then whenever we think we have a solution <m>\uvec{x}_0</m> to the system <m>A\uvec{x}=\zerovec</m>, that solution turns out to be the trivial solution. Thus, <m>A\uvec{x}=\zerovec</m> must have <em>only</em> the trivial solution, and hence <m>A</m> is invertible (<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
 		</p><p>
 		Now that we know that <m>A</m> is invertible, we can use its inverse to manipulate the equality <m>BA=I</m>:
 		<md>
@@ -346,7 +347,7 @@ As mentioned, elementary matrices are precisely the connection we need between s
 </proposition>
 
 <remark><p>
-Recall that by definition, for <m>B</m> to be the inverse of <m>A</m> we would need to check that <em>both</em> <m>BA=I</m> <em>and</em> <m>AB=I</m> are true. We needed both orders of multiplication in the definition of <term>inverse matrix</term> because order of matrix multiplication matters, and we couldn't be sure that both <m>BA</m> and <m>AB</m> would produce the same result. Via the theory of elementary matrices, we now have the above proposition that allows us to check an inverse by <em>only</em> checking <m>BA=I</m>.
+Recall that by definition, to verify that a matrix <m>B</m> is the inverse of a matrix <m>A</m>, we would need to check that <em>both</em> <m>BA=I</m> <em>and</em> <m>AB=I</m> are true. We needed both orders of multiplication in the definition of <term>inverse matrix</term> because order of matrix multiplication matters, and we couldn't be sure that both <m>BA</m> and <m>AB</m> would produce the same result. Via the theory of elementary matrices, we now have the above proposition that allows us to check an inverse by <em>only</em> checking one order of multiplication: <m>BA=I</m>.
 </p></remark>
 
 <p>
@@ -533,7 +534,12 @@ more precise.
 	</p><p>
 	Start with the matrix
 	<m>A = \left[\begin{smallmatrix} a \amp b \\ c \amp d\end{smallmatrix}\right]</m>
-	and row reduce to see whether it is possible to get to the identity. But in the operations we choose, we need to be careful not to divide by zero, because the variable entries could be any values, including some zero. So it will be necessary to break into cases, like <m>a=0</m> versus <m>a\neq 0</m>, and how the row reduction procedures will differ in the different cases. Ultimately, it will be possible to get the identity as the RREF of <m>A</m> precisely when <m>ad-bc\neq 0</m>, and it will be impossible when <m>ad-bc=0</m>.
+	and row reduce to see whether it is possible to get to the identity. But in the operations we choose, we need to be careful not to divide by zero, because the variable entries could be any values, including some zero. So it will be necessary to break into cases, such as <m>a=0</m> versus <m>a\neq 0</m>, and the row reduction steps chosen will differ in the different cases. Ultimately, it will be possible to get the identity as the RREF of <m>A</m> precisely when <m>ad-bc\neq 0</m>, and it will be impossible when <m>ad-bc=0</m>. From here, we may appeal to the equivalence of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-invertible">Statement</xref>
+	and
+	<xref ref="theorem-elem-matrices-equiv-to-invertible-rref">Statement</xref>
+	of
+	<xref ref="theorem-elem-matrices-equiv-to-invertible" />.
 	</p></proof>
 
 </proposition>
@@ -585,9 +591,9 @@ more precise.
 			A solution to system <m>A_1\uvec{x} = \uvec{b}_1</m> is also a solution to <m>A_2\uvec{x} = \uvec{b}_2</m>
 			</title>
 			<p>
-			Suppose <m>\uvec{x} = \uvec{x}_0</m> solves system <m>A_1\uvec{x} = \uvec{b}_1</m>, so that <m>A_1\uvec{x}_0 = \uvec{b}_1</m> is true. Then,
-			<me> A_2\uvec{x}_0 = (EA_1)\uvec{x}_0 = E(A_1\uvec{x}_0) = E\uvec{b}_1 = \uvec{b}_2. </me>
-			Thus, <m>\uvec{x} = \uvec{x}_0</m> is also a solution to system <m>A_2\uvec{x} = \uvec{b}_2</m>.
+			Suppose <m>\uvec{x} = \uvec{x}_1</m> solves system <m>A_1\uvec{x} = \uvec{b}_1</m>, so that <m>A_1\uvec{x}_1 = \uvec{b}_1</m> is true. Then,
+			<me> A_2\uvec{x}_1 = (EA_1)\uvec{x}_1 = E(A_1\uvec{x}_1) = E\uvec{b}_1 = \uvec{b}_2. </me>
+			Thus, <m>\uvec{x} = \uvec{x}_1</m> is also a solution to system <m>A_2\uvec{x} = \uvec{b}_2</m>.
 			</p>
 		</paragraphs>
 
@@ -596,9 +602,9 @@ more precise.
 			A solution to system <m>A_2\uvec{x} = \uvec{b}_2</m> is also a solution to <m>A_1\uvec{x} = \uvec{b}_1</m>
 			</title>
 			<p>
-			Suppose <m>\uvec{x} = \uvec{x}_0</m> solves system <m>A_2\uvec{x} = \uvec{b}_2</m>, so that <m>A_2\uvec{x}_0 = \uvec{b}_2</m> is true. Then,
-			<me> A_1\uvec{x}_0 = (\inv{E}A_2)\uvec{x}_0 = \inv{E}(A_2\uvec{x}_0) = \inv{E}\uvec{b}_2 = \uvec{b}_1. </me>
-			Thus, <m>\uvec{x} = \uvec{x}_0</m> is also a solution to system <m>A_1\uvec{x} = \uvec{b}_1</m>.
+			Suppose <m>\uvec{x} = \uvec{x}_2</m> solves system <m>A_2\uvec{x} = \uvec{b}_2</m>, so that <m>A_2\uvec{x}_2 = \uvec{b}_2</m> is true. Then,
+			<me> A_1\uvec{x}_2 = (\inv{E}A_2)\uvec{x}_2 = \inv{E}(A_2\uvec{x}_2) = \inv{E}\uvec{b}_2 = \uvec{b}_1. </me>
+			Thus, <m>\uvec{x} = \uvec{x}_2</m> is also a solution to system <m>A_1\uvec{x} = \uvec{b}_1</m>.
 			</p>
 		</paragraphs>
 
