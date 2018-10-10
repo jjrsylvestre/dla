@@ -38,70 +38,133 @@ respective owners.
 <subsection xml:id="subsection-det-by-row-red-concepts-swap-rows">
 <title>Swapping rows: effect on determinant</title>
 
-<paragraphs><title>Swapping adjacent rows</title>
-<p>
-In <xref ref="activity-det-by-row-red-det-swap-rows" />, we first explored what happens to a determinant if we swap <em>adjacent</em> rows in a matrix, and we discovered the following. Suppose we take square matrix <m>A</m> and swap row <m>i</m> with row <m>i+1</m>, which are adjacent, obtaining new matrix <m>A'</m>. Compared to a cofactor expansion of <m>\det A</m> along row <m>i</m>, a cofactor expansion of <m>\det A'</m> along row <m>i+1</m> has all the same entries and minor determinants, because the <m>\nth[(i+1)]</m> in <m>A'</m> now contains the entries from the <m>\nth[i]</m> row in <m>A</m>, and vice versa. However, the cofactor signs along the <m>\nth[(i+1)]</m> row are all the opposite of those along the <m>\nth[i]</m> row. Therefore, all the terms in the cofactor expansions of <m>\det A</m> and <m>\det A'</m> are negatives of each other, and so <m>\det A' = -\det A</m>. We concluded that <alert>swapping adjacent rows changes the sign of the determinant.</alert>
-</p>
-</paragraphs>
+<paragraphs><title>Swapping adjacent rows</title><p>
+	In <xref ref="activity-det-by-row-red-det-swap-rows" />,
+	we first explored what happens to a determinant if we swap <em>adjacent</em> rows in a matrix,
+	and we discovered the following.
+	Suppose we take square matrix <m>A</m> and swap row <m>i</m> with row <m>i+1</m>,
+	which are adjacent,
+	obtaining new matrix <m>A'</m>.
+	Compared to a cofactor expansion of <m>\det A</m> along row <m>i</m>,
+	a cofactor expansion of <m>\det A'</m> along row <m>i+1</m> has all the same entries and minor determinants,
+	because the <m>\nth[(i+1)]</m> row in <m>A'</m> now contains the entries from the <m>\nth[i]</m> row in <m>A</m>,
+	and vice versa.
+	However,
+	the cofactor signs along the <m>\nth[(i+1)]</m> row are all the opposite of those along the <m>\nth[i]</m> row.
+	Therefore,
+	all the terms in the cofactor expansions of <m>\det A</m> and <m>\det A'</m> are negatives of each other,
+	and so <m>\det A' = -\det A</m>.
+	We concluded that
+	<alert>swapping adjacent rows changes the sign of the determinant.</alert>
+</p></paragraphs>
 
 
-<paragraphs><title>Swapping (possibly) non-adjacent rows</title>
-<p>
-Now, it might seem that we might sometimes get <m>\det A'</m> to be <em>equal</em> to <m>\det A</m> if we swapped non-adjacent rows. In particular, if we swapped two rows that were separated by a single other row
-(as in <xref ref="activity-det-by-row-red-det-swap-rows-non-adj">Activity</xref>),
-the two rows would have the same pattern of cofactor signs, and our thinking above might would lead to <m>\det A' = \det A</m> in this case. However, it turns out that <em>any swap of rows can be achieved by an <em>odd</em> number of consecutive adjacent row swaps</em>, and an odd number of sign changes will have a net result of changing the sign. So <alert><em>any</em> swap of a pair of rows changes the sign of the determinant</alert>.
-</p>
-</paragraphs>
+<paragraphs><title>Swapping (possibly) non-adjacent rows</title><p>
+	Now, it might seem that we might sometimes get <m>\det A'</m> to be <em>equal</em> to <m>\det A</m> if we swapped non-adjacent rows.
+	In particular,
+	if we swapped two rows that were separated by a single other row
+	(as in
+	<xref ref="activity-det-by-row-red-det-swap-rows-non-adj">Activity</xref>),
+	the two rows would have the same pattern of cofactor signs,
+	and our thinking above might would lead to
+	<m>\det A' = \det A</m>
+	in this case. However, it turns out that
+	<em>any swap of rows can be achieved by an <em>odd</em> number of consecutive adjacent row swaps</em>,
+	and an odd number of sign changes will have a net result of changing the sign.
+	So <alert><em>any</em> swap of a pair of rows changes the sign of the determinant</alert>.
+</p></paragraphs>
 
-<paragraphs><title>Matrices with two identical rows</title>
-<p>
-In <xref ref="activity-det-by-row-red-det-identical-rows" />, we paused to consider a consequence of this effect of swapping rows on the determinant. Suppose a square matrix has two identical rows. If we swap those two particular rows, then from our discussion above we expect the determinant of the new matrix obtained from this operation to be the negative of the determinant of the original matrix. But if those rows are identical, then swapping them has no effect and the determinants of the new and old matrices should be equal. Since the only number that remains unchanged when its sign is changed is zero, we conclude that <alert>a square matrix with two (or more) identical rows has determinant <m>0</m>.</alert>
-</p>
-</paragraphs>
+<paragraphs><title>Matrices with two identical rows</title><p>
+	In <xref ref="activity-det-by-row-red-det-identical-rows" />,
+	we paused to consider a consequence of this effect of swapping rows on the determinant.
+	Suppose a square matrix has two identical rows.
+	If we swap those two particular rows,
+	then from our discussion above we expect the determinant of the new matrix obtained from this operation to be the negative of the determinant of the original matrix.
+	But if those rows are identical,
+	then swapping them has no effect and the determinants of the new and old matrices should be equal.
+	Since the only number that remains unchanged when its sign is changed is zero,
+	we conclude that
+	<alert>a square matrix with two (or more) identical rows has determinant <m>0</m>.</alert>
+</p></paragraphs>
 
-<paragraphs><title>Corresponding elementary matrices</title>
-	<p>
-	Recall that elementary matrices are obtained from the identity by a single row operation. So if we take the identity matrix (which has determinant <m>1</m>) and swap two rows to obtain the elementary matrix that corresponds to that operation, then that elementary matrix must have determinant <m>-1</m>.
-	</p>
-</paragraphs>
+<paragraphs><title>Corresponding elementary matrices</title><p>
+	Recall that elementary matrices are obtained from the identity by a single row operation.
+	So if we take the identity matrix
+	(which has determinant <m>1</m>)
+	and swap two rows to obtain the elementary matrix that corresponds to that operation,
+	then that elementary matrix must have determinant <m>-1</m>.
+</p></paragraphs>
 
 </subsection>
 
 <subsection xml:id="subsection-det-by-row-red-concepts-mul-row">
 <title>Multiplying rows: effect on determinant</title>
 
-<paragraphs><title>Multiplying a single row by a scalar</title>
-<p>
-In <xref ref="activity-det-by-row-red-det-mul-row" />, we first explored what happens to a determinant if we multiply a <em>single</em> row in a matrix, and we discovered the following. Suppose we take square matrix <m>A</m> and multiply row <m>i</m> by the constant <m>k</m>, obtaining new matrix <m>A'</m>. Compared to a cofactor expansion of <m>\det A</m> along row <m>i</m>, a cofactor expansion of <m>\det A'</m> along row <m>i</m> has all the same minor determinants, because the entries in all the other rows are still the same as in <m>A</m>. However, when we add up all the <q>entry times cofactor</q> terms in a cofactor expansion of <m>\det A'</m> along row <m>i</m>, there is the new common factor of <m>k</m> from the scaled entries of that row. If we factor that common <m>k</m> out, we are left with exactly the cofactor expansion of <m>\det A</m> along row <m>i</m>. Hence, <alert>multiplying a <em>single</em> row in a matrix scales the determinant by the same factor</alert>.
-</p>
-</paragraphs>
+<paragraphs><title>Multiplying a single row by a scalar</title><p>
+	In <xref ref="activity-det-by-row-red-det-mul-row" />,
+	we first explored what happens to a determinant if we multiply a <em>single</em> row in a matrix,
+	and we discovered the following.
+	Suppose we take square matrix <m>A</m> and multiply row <m>i</m> by the constant <m>k</m>,
+	obtaining new matrix <m>A'</m>.
+	Compared to a cofactor expansion of <m>\det A</m> along row <m>i</m>,
+	a cofactor expansion of <m>\det A'</m> along row <m>i</m> has all the same minor determinants,
+	because the entries in all the other rows are still the same as in <m>A</m>.
+	However, when we add up all the <q>entry times cofactor</q> terms in a cofactor expansion of <m>\det A'</m> along row <m>i</m>,
+	there is the new common factor of <m>k</m> from the scaled entries of that row.
+	If we factor that common <m>k</m> out,
+	we are left with exactly the cofactor expansion of <m>\det A</m> along row <m>i</m>.
+	Hence,
+	<alert>multiplying a <em>single</em> row in a matrix scales the determinant by the same factor</alert>.
+</p></paragraphs>
 
 <paragraphs><title>Multiplying a <em>whole</em> matrix by a scalar</title>
-<p>
-In
-<xref ref="activity-det-by-row-red-det-mul-row-mul-whole-1">Activity</xref>
-and
-<xref ref="activity-det-by-row-red-det-mul-row-mul-whole-2">Activity</xref>,
-we also considered what happens if we multiply a <em>whole</em> matrix by a constant. But scalar multiplying a matrix is the same as multiplying <em>every</em> row by that scalar. If multiplying a <em>single</em> row by <m>k</m> changes the determinant by a factor of <m>k</m>, then multiplying <em>every</em> row by <m>k</m> must change the determinant by <m>n</m> factors of <m>k</m>, where <m>n</m> is the size of the matrix (and hence the number of rows). That is, for a square <m>n\times n</m> matrix <m>A</m> and a scalar <m>k</m>, we have <m>\det (kA) = k^n \det A</m>.
-</p>
+	<p>
+	In
+	<xref ref="activity-det-by-row-red-det-mul-row-mul-whole-1">Activity</xref>
+	and
+	<xref ref="activity-det-by-row-red-det-mul-row-mul-whole-2">Activity</xref>,
+	we also considered what happens if we multiply a <em>whole</em> matrix by a constant.
+	But scalar multiplying a matrix is the same as multiplying <em>every</em> row by that scalar.
+	If multiplying a <em>single</em> row by <m>k</m> changes the determinant by a factor of <m>k</m>,
+	then multiplying <em>every</em> row by <m>k</m> must change the determinant by <m>n</m> factors of <m>k</m>,
+	where <m>n</m> is the size of the matrix
+	(and hence the number of rows).
+	That is,
+	for a square <m>n\times n</m> matrix <m>A</m> and a scalar <m>k</m>,
+	we have
+	<m>\det (kA) = k^n \det A</m>.
+	</p>
 
-<warning><p>
-	It is very common for students to forget this lesson and <em>incorrectly</em> remember the formula as <m>\det (kA)</m> being equal to <m>k \det A</m>, just because that <q>looks</q> correct. Don't be one of those students!
-</p></warning>
+	<warning><p>
+		It is very common for students to forget this lesson and <em>incorrectly</em> remember the formula as <m>\det (kA)</m> being equal to <m>k \det A</m>,
+		just because that <q>looks</q> correct.
+		Don't be one of those students!
+	</p></warning>
 
 </paragraphs>
 
-<paragraphs><title>Matrices with proportional rows</title>
-<p>
-Let's pause again to consider a consequence of this effect of multiplying a row by a constant on the determinant. Suppose <m>A</m> is a matrix where one row is equal to a multiple (by <m>k</m>, say) of another row, as in <xref ref="activity-det-by-row-red-det-proportional-rows" />. We can multiply that row by <m>1/k</m> to obtain matrix <m>A'</m> with determinant <m>\det A' = (1/k)\det A</m>. But now <m>A'</m> has two identical rows, so <m>\det A'=0</m>, which forces <m>\det A = 0</m>. So we can extend our fact about matrices with some identical rows to matrices with some <em>proportional</em> rows: <alert>a matrix with two (or more) proportional rows  has determinant <m>0</m></alert>.
-</p>
-</paragraphs>
+<paragraphs><title>Matrices with proportional rows</title><p>
+	Let's pause again to consider a consequence of this effect of multiplying a row by a constant on the determinant.
+	Suppose <m>A</m> is a matrix where one row is equal to a multiple
+	(by <m>k</m>, say)
+	of another row,
+	as in
+	<xref ref="activity-det-by-row-red-det-proportional-rows" />.
+	We can multiply that row by <m>1/k</m> to obtain matrix <m>A'</m> with determinant <m>\det A' = (1/k)\det A</m>.
+	But now <m>A'</m> has two identical rows,
+	so <m>\det A'=0</m>,
+	which forces <m>\det A = 0</m>.
+	So we can extend our fact about matrices with some identical rows to matrices with some <em>proportional</em> rows:
+	<alert>a matrix with two (or more) proportional rows  has determinant <m>0</m></alert>.
+</p></paragraphs>
 
-<paragraphs><title>Corresponding elementary matrices</title>
-<p>
-Again, let's consider elementary matrices corresponding to this type of operation. If we take the identity matrix (which has determinant <m>1</m>) and multiply a row by a nonzero constant <m>k</m> to obtain the elementary matrix that corresponds to that operation, then that elementary matrix must have determinant <m>k\cdot 1 = k</m>.
-</p>
-</paragraphs>
+<paragraphs><title>Corresponding elementary matrices</title><p>
+	Again, let's consider elementary matrices corresponding to this type of operation.
+	If we take the identity matrix
+	(which has determinant <m>1</m>)
+	and multiply a row by a nonzero constant <m>k</m> to obtain the elementary matrix that corresponds to that operation,
+	then that elementary matrix must have determinant <m>k\cdot 1 = k</m>.
+</p></paragraphs>
 
 </subsection>
 
@@ -109,7 +172,12 @@ Again, let's consider elementary matrices corresponding to this type of operatio
 <title>Combining rows: effect on determinant</title>
 
 <p>
-Now we move to the operation of adding a multiple of one row to another, explored in <xref ref="activity-det-by-row-red-det-combine-rows" />. This is the most complicated of the three operations, so we will just consider the <m>3\times 3</m> case, as in the activity. Consider the general <m>3\times 3</m> matrix
+Now we move to the operation of adding a multiple of one row to another,
+explored in <xref ref="activity-det-by-row-red-det-combine-rows" />.
+This is the most complicated of the three operations,
+so we will just consider the <m>3\times 3</m> case,
+as in the activity.
+Consider the general <m>3\times 3</m> matrix
 <me>
 	A = \begin{bmatrix}
 		a_{11} \amp a_{12} \amp a_{13} \\
@@ -117,7 +185,9 @@ Now we move to the operation of adding a multiple of one row to another, explore
 		a_{31} \amp a_{32} \amp a_{33}
 	\end{bmatrix}.
 </me>
-As in the activity, suppose we add <m>k</m> times the second row to the first, to get
+As in the activity,
+suppose we add <m>k</m> times the second row to the first,
+to get
 <me>
 	A' =
 	\begin{bmatrix}
@@ -126,14 +196,29 @@ As in the activity, suppose we add <m>k</m> times the second row to the first, t
 		a_{31} \amp a_{32} \amp a_{33}
 	\end{bmatrix}.
 </me>
-The cofactors, <m>C_{11},C_{12},C_{13}</m>, along the first row of <m>A'</m> are exactly the same as the cofactors along the first row in <m>A</m>, since calculating those cofactors only involve entries in the second and third rows, which have not changed. If we do a cofactor expansion of <m>\det A'</m> along the first row, we get
+The cofactors,
+<m>C_{11},C_{12},C_{13}</m>,
+along the first row of <m>A'</m> are exactly the same as the cofactors along the first row in <m>A</m>,
+since calculating those cofactors only involve entries in the second and third rows,
+which have not changed.
+If we do a cofactor expansion of <m>\det A'</m> along the first row,
+we get
 <md><mrow>
 	\det A'  \amp = (a_{11}+k a_{21}) C_{11} + (a_{12}+k a_{22}) C_{12} + (a_{13}+k a_{23}) C_{13} \\
 	 \amp = a_{11}C_{11} + k a_{21} C_{11} + a_{12}C_{12} + k a_{22}C_{12} + a_{13}C_{13} + k a_{23} C_{13} \\
 	 \amp = (a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}) + k (a_{21} C_{11} + a_{22}C_{12} + a_{23} C_{13}) \\
 	 \amp = (\det A) + k (a_{21} C_{11} + a_{22}C_{12} + a_{23} C_{13}),
 </mrow></md>
-In the second term of the last line, we have sort of a <q>mixed</q> cofactor expansion for <m>A</m>, where the entries are from the second row but the cofactors are from the first row. This mixed expansion is definitely not equal to <m>\det A</m> or <m>\det A'</m>, but could it be the determinant of some new matrix <m>A''</m>? To have the same first-row cofactors as <m>A</m>, this new <m>A''</m> matrix would have to have the same second and third rows as <m>A</m>, since those entries are what are used to calculate the first-row cofactors. If we also repeat the second row entries from <m>A</m> in the first row of <m>A''</m>, so that
+In the second term of the last line,
+we have sort of a <q>mixed</q> cofactor expansion for <m>A</m>,
+where the entries are from the second row but the cofactors are from the first row.
+This mixed expansion is definitely not equal to <m>\det A</m> or <m>\det A'</m>,
+but could it be the determinant of some new matrix <m>A''</m>?
+To have the same first-row cofactors as <m>A</m>,
+this new <m>A''</m> matrix would have to have the same second and third rows as <m>A</m>,
+since those entries are what are used to calculate the first-row cofactors.
+If we also repeat the second row entries from <m>A</m> in the first row of <m>A''</m>,
+so that
 <me>
 	A'' =
 	\begin{bmatrix}
@@ -142,7 +227,11 @@ In the second term of the last line, we have sort of a <q>mixed</q> cofactor exp
 		a_{31} \amp a_{32} \amp a_{33}
 	\end{bmatrix},
 </me>
-then a cofactor expansion of <m>\det A''</m> along the first row gives us exactly the <q>mixed</q> cofactor expansion in the second term of our last expression for <m>\det A'</m> above. However, <m>A''</m> has two identical rows, so its determinant is <m>0</m>. We can now continue our calculation from above:
+then a cofactor expansion of <m>\det A''</m> along the first row gives us exactly the <q>mixed</q> cofactor expansion in the second term of our last expression for <m>\det A'</m> above.
+However,
+<m>A''</m> has two identical rows,
+so its determinant is <m>0</m>.
+We can now continue our calculation from above:
 <md><mrow>
 	\det A'
 	 \amp = \det A + k (a_{21} C_{11} + a_{22}C_{12} + a_{23} C_{13}) \\
@@ -150,16 +239,28 @@ then a cofactor expansion of <m>\det A''</m> along the first row gives us exactl
 	 \amp = \det A + k \cdot 0 \\
 	 \amp = \det A.
 </mrow></md>
-This result is fairly surprising: while the two simpler row operations affected the determinant, <alert>the elementary row operation combining rows has no effect at all on the determinant</alert>.
+This result is fairly surprising:
+while the two simpler row operations affected the determinant,
+<alert>the elementary row operation combining rows has no effect at all on the determinant</alert>.
 </p>
 
 <aside><title>A look ahead</title><p>
-	Recall <xref ref="goal-det-concepts-matrix-times-adjoint" /> from last chapter: for a given matrix <m>B</m> we are trying to determine a scalar <m>\delta</m> and a special matrix <m>B'</m> so that <m>BB' = \delta I</m>. (The scalar <m>\delta</m> will end up being <m>\det B</m>). We will build the special matrix <m>B'</m> in the next chapter, but we will need to remember the discovery we have made here that <alert>a <q>mixed</q> cofactor expansion always evaluates to <m>0</m></alert>.
+	Recall
+	<xref ref="goal-det-concepts-matrix-times-adjoint" />
+	from last chapter:
+	for a given matrix <m>B</m> we are trying to determine a scalar <m>\delta</m> and a special matrix <m>B'</m> so that <m>BB' = \delta I</m>.
+	(The scalar <m>\delta</m> will end up being <m>\det B</m>).
+	We will build the special matrix <m>B'</m> in the next chapter,
+	but we will need to remember the discovery we have made here that
+	<alert>a <q>mixed</q> cofactor expansion always evaluates to <m>0</m></alert>.
 </p></aside>
 
-<paragraphs><title>Corresponding elementary matrices</title>
-<p>
-Just as with the other two row operations, we can apply what we've learned to elementary matrices. If we take the identity matrix and add a multiple of one row to another to obtain the elementary matrix that corresponds to that operation, then that elementary matrix must have the same determinant as the identity, which is <m>1</m>.
+<paragraphs><title>Corresponding elementary matrices</title><p>
+	Just as with the other two row operations,
+	we can apply what we've learned to elementary matrices.
+	If we take the identity matrix and add a multiple of one row to another to obtain the elementary matrix that corresponds to that operation,
+	then that elementary matrix must have the same determinant as the identity,
+	which is <m>1</m>.
 </p></paragraphs>
 
 </subsection>
@@ -168,9 +269,30 @@ Just as with the other two row operations, we can apply what we've learned to el
 <title>Column operations and the transpose</title>
 
 <p>
-You could imagine that an alien civilization might also develop the theory of linear algebra, but perhaps with some cosmetic differences. Perhaps they prefer to write their equations vertically, and so when they convert equations to augmented matrices, a <em>column</em> represents an equation and a <em>row</em> contains the coefficients in each equation for a particular variable. In essence, their matrix theory is the <em>transpose</em> of ours. They would then proceed to <q>column reduce</q> matrices in order to solve the underlying system, instead of row reducing. Since determinants can be computed by cofactor expansions along either rows or columns and yield the same result, and since the cofactor sign patterns we determined in <xref ref="equation-det-concepts-cofactor-sign-patterns">Pattern</xref> are symmetric in the main diagonal (<ie /> the pattern is unchanged by a transpose), this alien development of linear algebra would discover all the same things about the relationships between <em>column</em> operations and the determinant as we have about <em>row</em> operations and the determinant. We have recorded all these facts about column operations in
+You could imagine that an alien civilization might also develop the theory of linear algebra,
+but perhaps with some cosmetic differences.
+Perhaps they prefer to write their equations vertically,
+and so when they convert equations to augmented matrices,
+a <em>column</em> represents an equation and a <em>row</em> contains the coefficients in each equation for a particular variable.
+In essence,
+their matrix theory is the <em>transpose</em> of ours.
+They would then proceed to <q>column reduce</q> matrices in order to solve the underlying system,
+instead of row reducing.
+Since determinants can be computed by cofactor expansions along either rows or columns and yield the same result,
+and since the cofactor sign patterns we determined in
+<xref ref="equation-det-concepts-cofactor-sign-patterns">Pattern</xref>
+are symmetric in the main diagonal
+(<ie /> the pattern is unchanged by a transpose),
+this alien development of linear algebra would discover all the same things about the relationships between <em>column</em> operations and the determinant as we have about <em>row</em> operations and the determinant.
+We have recorded all these facts about column operations in
 <xref ref="subsection-det-by-row-red-theory-row-ops" />,
-alongside the corresponding facts about row operations. And there is one more fact about the transpose, which is the bridge between our matrix theory and the alien matrix theory: <alert>a transpose has no effect on the determinant</alert>. You can easily see why this would be true, since a cofactor expansion along a <em>column</em> in <m>\utrans{A}</m> would work out the same as a cofactor expansion along a <em>row</em> in <m>A</m>.
+alongside the corresponding facts about row operations.
+And there is one more fact about the transpose,
+which is the bridge between our matrix theory and the alien matrix theory:
+<alert>a transpose has no effect on the determinant</alert>.
+You can easily see why this would be true,
+since a cofactor expansion along a <em>column</em> in <m>\utrans{A}</m>
+would work out the same as a cofactor expansion along a <em>row</em> in <m>A</m>.
 </p>
 
 </subsection>
@@ -179,16 +301,35 @@ alongside the corresponding facts about row operations. And there is one more fa
 <title>Determinants by row reduction</title>
 
 <p>
-The relationships between row operations and the determinant that we have discovered in the activity set and described above provide us with another method of computing determinants. An REF for a square matrix must always be upper triangular, since the leading ones must be either on or to the right of the main diagonal. So when row reducing there is always a point where we reach an upper triangular matrix. And from
+The relationships between row operations and the determinant that we have discovered in the activity set and described above provide us with another method of computing determinants.
+An REF for a square matrix must always be upper triangular,
+since the leading ones must be either on or to the right of the main diagonal.
+So when row reducing there is always a point where we reach an upper triangular matrix.
+And from
 <xref ref="proposition-det-special-forms-triangular">Statement</xref>
 of
 <xref ref="proposition-det-special-forms" />
-we know that determinants of upper triangular matrices are particularly easy to compute. So starting with any square matrix, we can row reduce to upper triangular, keeping track of how the determinant has changed at each step, and then work backwards from the determinant of the upper triangular matrix to determine the determinant of the original matrix. We'll save doing an example for
+we know that determinants of upper triangular matrices are particularly easy to compute.
+So starting with any square matrix,
+we can row reduce to upper triangular,
+keeping track of how the determinant has changed at each step,
+and then work backwards from the determinant of the upper triangular matrix to determine the determinant of the original matrix.
+We'll save doing an example for
 <xref ref="subsection-det-by-row-red-examples-method" />.
 </p>
 
 <warning><p>
-	When using this method, it is really important to stick to <em>elementary</em> row operations. In learning to row reduce, you may have discovered that you can perform operations of the kind <m>R_i \to kR_i + mR_j</m> and still get the correct set of solutions to the corresponding system. However, this kind of operation is <em>not</em> elementary <mdash /> it is actually a combination of <em>two</em> elementary operations performed at once, and <em>will</em> change the determinant. It's best just to avoid operations of this kind for determinant calculations.
+	When using this method,
+	it is really important to stick to <em>elementary</em> row operations.
+	In learning to row reduce,
+	you may have discovered that you can perform operations of the kind
+	<m>R_i \to kR_i + mR_j</m>
+	and still get the correct set of solutions to the corresponding system.
+	However,
+	this kind of operation is <em>not</em> elementary <mdash />
+	it is actually a combination of <em>two</em> elementary operations performed at once,
+	and <em>will</em> change the determinant.
+	It's best just to avoid operations of this kind for determinant calculations.
 </p></warning>
 
 </subsection>
