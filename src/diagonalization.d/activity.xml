@@ -20,19 +20,27 @@ respective owners.
 
 <introduction>
 
-<p> A diagonal matrix is one of the simplest kinds of matrix. In this activity set, we will attempt to make any matrix <term>similar</term> to a diagonal one. </p>
+<p>
+A diagonal matrix is one of the simplest kinds of matrix.
+In this activity set,
+we will attempt to make any matrix <term>similar</term> to a diagonal one.
+</p>
 
 <paragraphs><title>Recall</title><p>
-	When <m>A\uvec{x} = \lambda \uvec{x}</m>, column vector <m>\uvec{x}</m> is called an <term>eigenvector</term> of <m>A</m> and scalar <m>\lambda</m> is called the corresponding <term>eigenvalue</term> of <m>A</m>.
+	When <m>A\uvec{x} = \lambda \uvec{x}</m>,
+	column vector <m>\uvec{x}</m> is called an <term>eigenvector</term> of <m>A</m> and scalar <m>\lambda</m> is called the corresponding <term>eigenvalue</term> of <m>A</m>.
 </p></paragraphs>
 
 </introduction>
 
 <activity xml:id="activity-diagonalization-diag-analysis">
 	<introduction><p>
-		Suppose <m>3\times 3</m> matrices <m>A,P,D</m> are related by with <m>\inv{P}AP = D</m>. As an example, consider
+		Suppose <m>3\times 3</m> matrices <m>A,P,D</m> are related by with <m>\inv{P}AP = D</m>.
+		As an example,
+		consider
 		<me> D = \left[\begin{array}{rrr} 3 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right]. </me>
-		We will leave <m>A</m> and <m>P</m> unspecified for now, but think of <m>P</m> as a collection of column vectors:
+		We will leave <m>A</m> and <m>P</m> unspecified for now,
+		but think of <m>P</m> as a collection of column vectors:
 		<me>
 			P = \begin{bmatrix}
 				| \amp | \amp | \\
@@ -40,51 +48,59 @@ respective owners.
 				| \amp | \amp |
 			\end{bmatrix}.
 		</me>
-		Multiplying both sides of <m>\inv{P}AP = D</m> on the left by <m>P</m>, we could instead write <m>AP = PD</m>.
+		Multiplying both sides of <m>\inv{P}AP = D</m> on the left by <m>P</m>,
+		we could instead write <m>AP = PD</m>.
 	</p></introduction>
 	<task xml:id="activity-diagonalization-diag-analysis-matrix-mult">
 		<statement><p>
-		Do you remember how we defined matrix multiplication, one column at a time?
-		<me>
-			AP = \begin{bmatrix}
-				| \amp | \amp | \\
-				\boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \\
-				| \amp | \amp |
-			\end{bmatrix}
-		</me>
+			Do you remember how we defined matrix multiplication,
+			one column at a time?
+			<me>
+				AP = \begin{bmatrix}
+					| \amp | \amp | \\
+					\boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \\
+					| \amp | \amp |
+				\end{bmatrix}
+			</me>
 		</p></statement>
 		<hint><p>
-		See
-		<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
-		in
-		<xref ref="subsection-matrix-ops-concepts-matrix-mult" />.
+			See
+			<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
+			in
+			<xref ref="subsection-matrix-ops-concepts-matrix-mult" />.
 		</p></hint>
 	</task>
 	<task xml:id="activity-diagonalization-diag-analysis-times-diag">
 		<statement><p>
-		Do you remember how multiplication on the right by a diagonal matrix affects a matrix of columns?
-		<me>
-			PD = \begin{bmatrix}
-				| \amp | \amp | \\
-				\boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \\
-				| \amp | \amp |
-			\end{bmatrix}
-		</me>
+			Do you remember how multiplication on the right by a diagonal matrix affects a matrix of columns?
+			<me>
+				PD = \begin{bmatrix}
+					| \amp | \amp | \\
+					\boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \\
+					| \amp | \amp |
+				\end{bmatrix}
+			</me>
 		</p></statement>
 		<hint><p> See <xref ref="remark-special-forms-examples-more-diag-patterns" />. </p></hint>
 	</task>
 	<task xml:id="activity-diagonalization-diag-analysis-eigenvectors">
 		<statement><p>
-		Comparing your patterns for products <m>AP</m> and <m>PD</m> from the previous two parts of this activity, for <m>AP = PD</m> to true, each column of <m>P</m> must be an
-		<fillin characters="20" />.
+			Comparing your patterns for products <m>AP</m> and <m>PD</m> from the previous two parts of this activity,
+			for <m>AP = PD</m> to true,
+			each column of <m>P</m> must be an
+			<fillin characters="20" />.
 		</p></statement>
-		<hint><p>Reread the introduction to this activity set above.</p></hint>
+		<hint><p> Reread the introduction to this activity set above. </p></hint>
 	</task>
 	<task xml:id="activity-diagonalization-diag-analysis-indep-columns">
 		<statement><p>
-		We now have a condition for <m>AP = PD</m> to be true in the previous part of this activity. But to get from <m>AP = PD</m> back to the original equation <m>\inv{P}AP = D</m>, we also need <m>P</m> to be invertible, so we need the columns of <m>P</m> to be <fillin characters="20" />.
+			We now have a condition for <m>AP = PD</m> to be true in the previous part of this activity.
+			But to get from <m>AP = PD</m> back to the original equation <m>\inv{P}AP = D</m>,
+			we also need <m>P</m> to be invertible,
+			so we need the columns of <m>P</m> to be
+			<fillin characters="20" />.
 		</p></statement>
-		<hint><p><xref ref="theorem-col-row-null-space-equiv-to-invertible" />.</p></hint>
+		<hint><p> <xref ref="theorem-col-row-null-space-equiv-to-invertible" />. </p></hint>
 	</task>
 </activity>
 
@@ -99,53 +115,66 @@ respective owners.
 			\end{array}\right].
 		</me>
 	</p></introduction>
-		<task><p>
-			Compute the eigenvalues of <m>A</m> by solving the characteristic equation <m>\det (\lambda I - A) = 0</m>.
-		</p></task>
-		<task>
-			<p>
-			For each eigenvalue of <m>A</m>, determine a basis for the corresponding eigenspace. That is, determine a basis for the null space of <m>\lambda I - A</m> by row reducing.
-			</p>
-			<aside><title>Remember</title><p>
-				Don't row reduce with variable <m>\lambda</m> in there, substitute an actual eigenvalue for <m>\lambda</m> before row reducing. Repeat for each eigenvalue, starting back at <m>\lambda I - A</m> and row reducing anew.
-			</p></aside>
-		</task>
-		<task><p>
-			Try to create a matrix <m>P</m> that satisfies both of the conditions from
-			<xref ref="activity-diagonalization-diag-analysis-eigenvectors" text="type-hybrid" />
-			and
-			<xref ref="activity-diagonalization-diag-analysis-indep-columns" text="type-hybrid" />
-			of
-			<xref ref="activity-diagonalization-diag-analysis" />.
-		</p></task>
-		<task>
-			<statement><p>
-			If you succeeded in meeting both conditions in the previous step, then <m>\inv{P}AP</m> will be a diagonal matrix. Is it possible to know what diagonal matrix <m>\inv{P}AP</m> will be without actually computing <m>\inv{P}</m> and multiplying out <m>\inv{P}AP</m>?
-			</p></statement>
-			<hint><p>
+	<task><p>
+		Compute the eigenvalues of <m>A</m> by solving the characteristic equation
+		<m>\det (\lambda I - A) = 0</m>.
+	</p></task>
+	<task>
+		<p>
+		For each eigenvalue of <m>A</m>,
+		determine a basis for the corresponding eigenspace.
+		That is, determine a basis for the null space of <m>\lambda I - A</m> by row reducing.
+		</p>
+		<aside><title>Remember</title><p>
+			Don't row reduce with variable <m>\lambda</m> in there,
+			substitute an actual eigenvalue for <m>\lambda</m> before row reducing.
+			Repeat for each eigenvalue,
+			starting back at <m>\lambda I - A</m> and row reducing anew.
+		</p></aside>
+	</task>
+	<task><p>
+		Try to create a matrix <m>P</m> that satisfies both of the conditions from
+		<xref ref="activity-diagonalization-diag-analysis-eigenvectors" text="type-hybrid" />
+		and
+		<xref ref="activity-diagonalization-diag-analysis-indep-columns" text="type-hybrid" />
+		of
+		<xref ref="activity-diagonalization-diag-analysis" />.
+	</p></task>
+	<task>
+		<statement><p>
+			If you succeeded in meeting both conditions in the previous step,
+			then <m>\inv{P}AP</m> will be a diagonal matrix.
+			Is it possible to know what diagonal matrix <m>\inv{P}AP</m> will be without actually computing <m>\inv{P}</m> and multiplying out <m>\inv{P}AP</m>?
+		</p></statement>
+		<hint><p>
 			Look back at how the diagonal entries of matrix <m>D</m> fit in the pattern between <m>AP</m> and <m>PD</m> that you identified in
 			<xref ref="activity-diagonalization-diag-analysis-eigenvectors">Activity</xref>.
-			</p></hint>
-		</task>
+		</p></hint>
+	</task>
 </activity>
 
 <activity xml:id="activity-diagonalization-analyze-transition-and-form">
 	<introduction><p>
-		Summarize the patterns you've determined in the first two activities of this activity set by completing the following statements in the case that <m>D = \inv{P}AP</m> is diagonal.
+		Summarize the patterns you've determined in the first two activities of this activity set by completing the following statements in the case that
+		<m>D = \inv{P}AP</m>
+		is diagonal.
 	</p></introduction>
 	<task><p> The diagonal entries of <m>D</m> are precisely the <fillin characters="10" /> of <m>A</m>. </p></task>
 	<task><p>
 		The number of times a number is repeated down the diagonal of <m>D</m> corresponds to
 		<fillin characters="40" />.
 	</p></task>
-	<task><p> The order of the entries down the diagonal of <m>D</m> corresponds to the
+	<task><p>
+		The order of the entries down the diagonal of <m>D</m> corresponds to the
 		<fillin characters="20" /> of <m>P</m>.
 	</p></task>
 </activity>
 
 <activity xml:id="activity-diagonalization-non-diag-ex">
 	<p>
-	Repeat the procedure of <xref ref="activity-diagonalization-diag-proc" /> for
+	Repeat the procedure of
+	<xref ref="activity-diagonalization-diag-proc" />
+	for
 	<me>A = \left[\begin{array}{rrr} -1 \amp 1 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp 2 \end{array}\right].</me>
 	</p>
 	<aside><title>Careful</title><p>
@@ -164,12 +193,22 @@ respective owners.
 	<xref ref="activity-diagonalization-diag-proc" />
 	and
 	<xref ref="activity-diagonalization-non-diag-ex" />
-	by filling in the table below. We will call the number of times an eigenvalue is <q>repeated</q> as a root of the characteristic polynomial its
-	<term>algebraic multiplicity</term><idx><h>algebraic multiplicity</h></idx><idx><h>multiplicity</h><h>algebraic</h></idx><idx><h>eigenvalue</h><h>multiplicity</h><h>algebraic</h></idx>,
+	by filling in the table below.
+	We will call the number of times an eigenvalue is <q>repeated</q> as a root of the characteristic polynomial its
+	<term>algebraic multiplicity</term>
+	<idx><h>algebraic multiplicity</h></idx>
+	<idx><h>multiplicity</h><h>algebraic</h></idx>
+	<idx><h>eigenvalue</h><h>multiplicity</h><h>algebraic</h></idx>,
 	and we will call the dimension of the eigenspace corresponding to an eigenvalue its
-	<term>geometric multiplicity</term><idx><h>geometric multiplicity</h></idx><idx><h>multiplicity</h><h>geometric</h></idx><idx><h>eigenvalue</h><h>multiplicity</h><h>geometric</h></idx>.
+	<term>geometric multiplicity</term>
+	<idx><h>geometric multiplicity</h></idx>
+	<idx><h>multiplicity</h><h>geometric</h></idx>
+	<idx><h>eigenvalue</h><h>multiplicity</h><h>geometric</h></idx>.
 	</p>
-	<p> After completing the table, discuss: What can you conclude about algebraic and geometric multiplicities of eigenvalues with respect to attempting to find a suitable <m>P</m> to make <m>\inv{P}AP</m> diagonal? </p>
+	<p>
+	After completing the table, discuss:
+	What can you conclude about algebraic and geometric multiplicities of eigenvalues with respect to attempting to find a suitable <m>P</m> to make <m>\inv{P}AP</m> diagonal?
+	</p>
 	<table>
 		<caption>Comparison of examples in this activity set.</caption>
 		<tabular top="medium" left="medium">
@@ -206,37 +245,62 @@ respective owners.
 </activity>
 
 <activity xml:id="activity-diagonalization-indep-eigenspaces">
-	<prelude><p>
+	<prelude>
+		<p>
 		When we attempt to form a
 		<term>transition matrix</term>
 		<idx><h>transition matrix</h></idx>
 		<idx><h>matrix</h><h>transition</h></idx>
-		<m>P</m> to make <m>\inv{P}AP</m> diagonal, we need its columns to satisfy both conditions identified in
+		<m>P</m> to make <m>\inv{P}AP</m> diagonal,
+		we need its columns to satisfy both conditions identified in
 		<xref ref="activity-diagonalization-diag-analysis-eigenvectors" text="type-hybrid" />
 		and
 		<xref ref="activity-diagonalization-diag-analysis-indep-columns" text="type-hybrid" />
 		of
 		<xref ref="activity-diagonalization-diag-analysis" />.
 		</p><p>
-		In particular, consider the second of these two conditions. When you determine a basis for a particular eigenspace, these vectors are automatically linearly independent from each other (since they form a basis for a subspace of <m>\R^n</m>). However, unless <m>A</m> has only a single eigenvalue, <em>you will need to include eigenvalues from <em>different</em> eigenvalues together in filling out the columns of <m>P</m></em>. How can we be sure that the collection of <em>all</em> columns of <m>P</m> will satisfy the condition identified in
+		In particular, consider the second of these two conditions.
+		When you determine a basis for a particular eigenspace,
+		these vectors are automatically linearly independent from each other
+		(since they form a basis for a subspace of <m>\R^n</m>).
+		However, unless <m>A</m> has only a single eigenvalue,
+		<em>you will need to include eigenvalues from <em>different</em> eigenvalues together in filling out the columns of <m>P</m></em>.
+		How can we be sure that the collection of <em>all</em> columns of <m>P</m> will satisfy the condition identified in
 		<xref ref="activity-diagonalization-diag-analysis-indep-columns">Activity</xref>?
 		</p><p>
 		The next activity will help you with this potential problem.
-	</p></prelude>
+		</p>
+	</prelude>
 	<introduction>><p>
-		Suppose <m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m> is a linearly independent set of eigenvectors of <m>A</m>, corresponding to eigenvalue <m>\lambda_1</m>, and suppose <m>\uvec{w}</m> is an eigenvector of <m>A</m> corresponding to a different eigenvalue <m>\lambda_2</m>. (So <m>\lambda_2\neq\lambda_1</m>.)
+		Suppose
+		<m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>
+		is a linearly independent set of eigenvectors of <m>A</m>,
+		corresponding to eigenvalue <m>\lambda_1</m>,
+		and suppose <m>\uvec{w}</m> is an eigenvector of <m>A</m> corresponding to a different eigenvalue <m>\lambda_2</m>.
+		(So <m>\lambda_2\neq\lambda_1</m>.)
 	</p></introduction>
-		<task><p>
-			Set up the vector equation to begin the test for independence for the set <m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{w}\}</m>. Call this equation (1).
-		</p></task>
-		<task><p>
-			Multiply both sides of equation (1) by <m>A</m>, then use the definition of eigenvalue/eigenvector to <q>simplify.</q> Call the result equation (2).
-		</p></task>
-		<task><p> Multiply equation (1) by <m>\lambda_1</m> <mdash /> call this equation (3). </p></task>
-		<task><p> Subtract equation (3) from equation (2). What can you conclude? </p></task>
-		<task><p>
-			Use your conclusion from the previous part of this activity to simplify equation (1). Then finish the test for independence.
-		</p></task>
+	<task><p>
+		Set up the vector equation to begin the test for independence for the set
+		<m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{w}\}</m>.
+		Call this equation (1).
+	</p></task>
+	<task><p>
+		Multiply both sides of equation (1) by <m>A</m>,
+		then use the definition of eigenvalue/eigenvector to <q>simplify.</q>
+		Call the result equation (2).
+	</p></task>
+	<task><p>
+		Multiply equation (1) by <m>\lambda_1</m> <mdash />
+		call this equation (3).
+	</p></task>
+	<task><p>
+		Subtract equation (3) from equation (2).
+		What can you conclude?
+	</p></task>
+	<task><p>
+		Use your conclusion from the previous part of this activity to simplify equation (1).
+		Then finish the test for independence.
+	</p></task>
 </activity>
 
 </worksheet>
