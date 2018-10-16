@@ -44,59 +44,81 @@ First, we'll record just a few of the facts about general similar matrices from
 
 	<statement><p><ol>
 		<li xml:id="proposition-diagonalization-similar-matrices-properties-same-det">
-		Similar matrices have the same determinant.
+			Similar matrices have the same determinant.
 		</li>
 		<li> Similar matrices have the same characteristic polynomial. </li>
-		<li> Similar matrices have the same eigenvalues, with the same algebraic multiplicities. </li>
+		<li>
+			Similar matrices have the same eigenvalues,
+			with the same algebraic multiplicities.
+		</li>
 	</ol></p></statement>
 
 	<proof><p>
-	Suppose square matrices <m>A</m> and <m>B</m> are similar, and <m>P</m> is a transition matrix that realizes the similarity, so that <m>B = \inv{P}AP</m>.
-	<ol>
+		Suppose square matrices <m>A</m> and <m>B</m> are similar,
+		and <m>P</m> is a transition matrix that realizes the similarity,
+		so that <m>B = \inv{P}AP</m>.
+		<ol>
 
-		<li>
-		<p>
-		We know from
-		<xref ref="proposition-more-det-product" />
-		that the determinant of a product is the product of the determinants. And we also know from
-		<xref ref="proposition-more-det-inverse" />
-		that the determinant of an inverse is the inverse of the determinant. So we can compute <m>\det B</m> as
-		<md>
-			<mrow> \det B \amp= \det (\inv{P}AP) </mrow>
-			<mrow> \amp= \left(\det \left(\inv{P}\right)\right) (\det A) (\det P) </mrow>
-			<mrow> \amp= \inv{(\det P)} (\det A) (\det P) </mrow>
-			<mrow> \amp= \require{cancel} \frac{(\det A) \bcancel{(\det P)}}{\bcancel{\det P}} </mrow>
-			<mrow> \amp= \det A. </mrow>
-		</md>
-		Thus, the similar matrices <m>A</m> and <m>B</m> have the same determinant.
-		</p>
-		<aside><title>Warning</title><p>
-			In this proof of the first statement, it would have been <em>incorrect</em> to cancel the <m>\inv{P}</m> with the <m>P</m> immediately, because <em>order of matrix multiplication matters</em>! It was only after we split the determinant into a <em>product</em> of determinants that we could cancel <m>\det\left(\inv{P}\right)</m> with <m>\det P</m> because all three of the determinants are <em>numbers</em>, and order of <em>number</em> multiplication does not matter.
-		</p></aside>
-		</li>
+			<li>
+				<p>
+				We know from
+				<xref ref="proposition-more-det-product" />
+				that the determinant of a product is the product of the determinants.
+				And we also know from
+				<xref ref="proposition-more-det-inverse" />
+				that the determinant of an inverse is the inverse of the determinant.
+				So we can compute <m>\det B</m> as
+				<md>
+					<mrow> \det B \amp= \det (\inv{P}AP) </mrow>
+					<mrow> \amp= \left(\det \left(\inv{P}\right)\right) (\det A) (\det P) </mrow>
+					<mrow> \amp= \inv{(\det P)} (\det A) (\det P) </mrow>
+					<mrow> \amp= \require{cancel} \frac{(\det A) \bcancel{(\det P)}}{\bcancel{\det P}} </mrow>
+					<mrow> \amp= \det A. </mrow>
+				</md>
+				Thus, the similar matrices <m>A</m> and <m>B</m> have the same determinant.
+				</p>
+				<aside><title>Warning</title><p>
+					In this proof of the first statement,
+					it would have been <em>incorrect</em> to cancel the <m>\inv{P}</m> with the <m>P</m> immediately,
+					because <em>order of matrix multiplication matters</em>!
+					It was only after we split the determinant into a <em>product</em> of determinants that we could cancel
+					<m>\det\left(\inv{P}\right)</m>
+					with <m>\det P</m> because all three of the determinants are <em>numbers</em>,
+					and order of <em>number</em> multiplication does not matter.
+				</p></aside>
+			</li>
 
-		<li>
-		The characteristic polynomials of these two matrices are computed as
-		<md><mrow>
-			c_A(\lambda) \amp= \det(\lambda I - A), \amp
-			c_B(\lambda) \amp= \det(\lambda I - B).
-		</mrow></md>
-		Using <m>B = \inv{P}AP</m> and <m>I = \inv{P}IP</m>, we can express the matrix involved in the characteristic polynomial for <m>B</m> as
-		<me> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </me>
-		where in the last step we have factored the common <m>\inv{P}</m> and <m>P</m> factors out of the difference (making sure to factor each to the correct side, because <em>order of matrix multiplication matters</em>). We have now shown that matrices <m>\lambda I - A</m> and <m>\lambda I - B</m> are also similar, via the same transition matrix <m>P</m>, and so by
-		<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
-		of
-		<xref ref="proposition-diagonalization-similar-matrices-properties" />
-		they have the same determinant. That is,
-		<me> c_B(\lambda) = \det(\lambda I - B) = \det(\lambda I - A) = c_A(\lambda), </me>
-		and thus the similar matrices <m>A</m> and <m>B</m> have the same characteristic polynomial.
-		</li>
+			<li>
+				The characteristic polynomials of these two matrices are computed as
+				<md><mrow>
+					c_A(\lambda) \amp= \det(\lambda I - A), \amp
+					c_B(\lambda) \amp= \det(\lambda I - B).
+				</mrow></md>
+				Using <m>B = \inv{P}AP</m> and <m>I = \inv{P}IP</m>,
+				we can express the matrix involved in the characteristic polynomial for <m>B</m> as
+				<me> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </me>
+				where in the last step we have factored the common <m>\inv{P}</m> and <m>P</m> factors out of the difference
+				(making sure to factor each to the correct side,
+				because <em>order of matrix multiplication matters</em>).
+				We have now shown that matrices <m>\lambda I - A</m> and <m>\lambda I - B</m> are also similar,
+				via the same transition matrix <m>P</m>,
+				and so by
+				<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
+				of
+				<xref ref="proposition-diagonalization-similar-matrices-properties" />
+				they have the same determinant.
+				That is,
+				<me> c_B(\lambda) = \det(\lambda I - B) = \det(\lambda I - A) = c_A(\lambda), </me>
+				and thus the similar matrices <m>A</m> and <m>B</m> have the same characteristic polynomial.
+			</li>
 
-		<li>
-		The eigenvalues of a matrix are precisely the roots of the characteristic polynomial of the matrix, so if two matrices have the same characteristic polynomial they must have the same eigenvalues, each with the same corresponding algebraic multiplicity.
-		</li>
+			<li>
+				The eigenvalues of a matrix are precisely the roots of the characteristic polynomial of the matrix,
+				so if two matrices have the same characteristic polynomial they must have the same eigenvalues,
+				each with the same corresponding algebraic multiplicity.
+			</li>
 
-	</ol>
+		</ol>
 	</p></proof>
 
 </proposition>
@@ -113,18 +135,22 @@ First, we'll record just a few of the facts about general similar matrices from
 	<title> Characterization of diagonalizability </title>
 
 	<statement><p>
-	An <m>n \times n</m> matrix <m>A</m> is diagonalizable if and only if there exists a set of <m>n</m> linearly independent vectors in <m>\R^n</m>, each of which is an eigenvector of <m>A</m>. If <m>P</m> is an <m>n \times n</m> matrix whose columns are linearly independent eigenvectors of <m>A</m>, then <m>P</m> diagonalizes <m>A</m>.
+		An <m>n \times n</m> matrix <m>A</m> is diagonalizable if and only if there exists a set of <m>n</m> linearly independent vectors in <m>\R^n</m>,
+		each of which is an eigenvector of <m>A</m>.
+		If <m>P</m> is an <m>n \times n</m> matrix whose columns are linearly independent eigenvectors of <m>A</m>,
+		then <m>P</m> diagonalizes <m>A</m>.
 	</p></statement>
 
 	<proof><p>
-	This fact follows from our analysis of the transition matrix <m>P</m> and the diagonal form matrix <m>\inv{P}AP</m> in
-	<xref ref="subsection-diagonalization-concepts-diagonal-form" />.
+		This fact follows from our analysis of the transition matrix <m>P</m> and the diagonal form matrix <m>\inv{P}AP</m> in
+		<xref ref="subsection-diagonalization-concepts-diagonal-form" />.
 	</p></proof>
 
 </theorem>
 
 <p>
-We will refine this theorem using our more sophisticated notions of <term>algebraic</term> and <term>geometric multiplicity</term> in the next subsection. But first, here is a surprising result that demonstrates how central eigenvalues are to matrix theory.
+We will refine this theorem using our more sophisticated notions of <term>algebraic</term> and <term>geometric multiplicity</term> in the next subsection.
+But first, here is a surprising result that demonstrates how central eigenvalues are to matrix theory.
 </p>
 
 <proposition xml:id="proposition-diagonalization-diag-det-eigenvalues">
@@ -132,29 +158,51 @@ We will refine this theorem using our more sophisticated notions of <term>algebr
 	<title> Determinant versus eigenvalues </title>
 
 	<statement><p>
-	If a square matrix is diagonlizable, then its determinant is equal to the product of its eigenvalues (including multiplicities).
+		If a square matrix is diagonlizable, then its determinant is equal to the product of its eigenvalues (including multiplicities).
 	</p></statement>
 
 	<proof><p>
-	Suppose <m>A</m> is a diagonalizable matrix. Then it is similar to some diagonal matrix <m>D</m>. The eigenvalues of a diagonal matrix are precisely the diagonal entries, and the algebraic multiplicity of each of these eigenvalues is the number of times that eigenvalue is repeated down the diagonal. So if <m>\lambda_1,\lambda_2,\dotsc,\lambda_\ell</m> are all of the <em>distinct</em> eigenvalues of <m>D</m> (<ie /> there are no repeats in this list of eigenvalues), and <m>m_1,m_2,\dotsc,m_\ell</m> are the corresponding algebraic multiplicities of these eigenvalues (<ie /> each <m>m_j</m> is equal to the number of times <m>\lambda_j</m> appears on the main diagonal of <m>D</m>), then
-	<me> \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell}, </me>
-	because the determinant of a diagonal matrix is just the product of its diagonal entries
-	(<xref ref="proposition-det-special-forms-triangular">Statement</xref>
-	of
-	<xref ref="proposition-det-special-forms" />).
-	But from
-	<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
-	of
-	<xref ref="proposition-diagonalization-similar-matrices-properties" />
-	we know that the similar matrices <m>A</m> and <m>D</m> have the same determinant, and have all the same eigenvalues with the same corresponding algebraic multiplicities. Thus, the expression
-	<me> \det A = \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </me>
-	can be viewed as an expression for <m>\det A</m> as a product of the eigenvalues of <m>A</m>, including multiplicities.
+		Suppose <m>A</m> is a diagonalizable matrix.
+		Then it is similar to some diagonal matrix <m>D</m>.
+		The eigenvalues of a diagonal matrix are precisely the diagonal entries,
+		and the algebraic multiplicity of each of these eigenvalues is the number of times that eigenvalue is repeated down the diagonal.
+		So if <m>\lambda_1,\lambda_2,\dotsc,\lambda_\ell</m> are all of the <em>distinct</em> eigenvalues of <m>D</m>
+		(<ie /> there are no repeats in this list of eigenvalues),
+		and <m>m_1,m_2,\dotsc,m_\ell</m> are the corresponding algebraic multiplicities of these eigenvalues
+		(<ie /> each <m>m_j</m> is equal to the number of times <m>\lambda_j</m> appears on the main diagonal of <m>D</m>),
+		then
+		<me> \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell}, </me>
+		because the determinant of a diagonal matrix is just the product of its diagonal entries
+		(<xref ref="proposition-det-special-forms-triangular">Statement</xref>
+		of
+		<xref ref="proposition-det-special-forms" />).
+		But from
+		<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
+		of
+		<xref ref="proposition-diagonalization-similar-matrices-properties" />
+		we know that the similar matrices <m>A</m> and <m>D</m> have the same determinant,
+		and have all the same eigenvalues with the same corresponding algebraic multiplicities.
+		Thus, the expression
+		<me> \det A = \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </me>
+		can be viewed as an expression for <m>\det A</m> as a product of the eigenvalues of <m>A</m>,
+		including multiplicities.
 	</p></proof>
 
 </proposition>
 
 <remark><p> <!-- TODO rewrite this when notes are extended to more general matrix forms -->
-	The above fact is actually true about <em>all</em> square matrices, if you allow complex eigenvalues. In a second linear algebra course, you may learn that diagonalizable matrices are a special case of a more general theory, in which <em>every</em> matrix can be <term>triangularized</term>. That is, every square matrix is similar to a special form of triangular matrix (either upper or lower), though for many matrices both the transition matrix and the triangular form matrix might need to contain complex numbers in its entries. In this more general theory, it is again the case that the diagonal entries of the triangular form matrix will be precisely the eigenvalues of the original matrix, with each eigenvalue repeated down the diagonal according to its algebraic multiplicity, so the proof provided for the fact above can be adapted to work in this slightly more general setting. <!-- TODO insert an xref to same fact in triangular form chapter -->
+	The above fact is actually true about <em>all</em> square matrices,
+	if you allow complex eigenvalues.
+	In a second linear algebra course,
+	you may learn that diagonalizable matrices are a special case of a more general theory,
+	in which <em>every</em> matrix can be <term>triangularized</term>.
+	That is, every square matrix is similar to a special form of triangular matrix (either upper or lower),
+	though for many matrices both the transition matrix and the triangular form matrix might need to contain complex numbers in its entries.
+	In this more general theory,
+	it is again the case that the diagonal entries of the triangular form matrix will be precisely the eigenvalues of the original matrix,
+	with each eigenvalue repeated down the diagonal according to its algebraic multiplicity,
+	so the proof provided for the fact above can be adapted to work in this slightly more general setting.
+	<!-- TODO insert an xref to same fact in triangular form chapter -->
 </p></remark>
 
 </subsection>
@@ -164,7 +212,13 @@ We will refine this theorem using our more sophisticated notions of <term>algebr
 <title>The geometry of eigenvectors</title>
 
 <p>
-We require that the columns of a transition matrix <m>P</m> be linearly independent, so that <m>P</m> is invertible. Basis vectors for a particular eigenspace are linearly independent by definition of <term>basis</term>. But when we lump basis vectors from <em>different</em> eigenspaces together, will they all remain linearly independent together? The next fact answers this question with a more general version of what we explored in <xref ref="activity-diagonalization-indep-eigenspaces" />.
+We require that the columns of a transition matrix <m>P</m> be linearly independent,
+so that <m>P</m> is invertible.
+Basis vectors for a particular eigenspace are linearly independent by definition of <term>basis</term>.
+But when we lump basis vectors from <em>different</em> eigenspaces together,
+will they all remain linearly independent together?
+The next fact answers this question with a more general version of what we explored in
+<xref ref="activity-diagonalization-indep-eigenspaces" />.
 </p>
 
 <proposition xml:id="proposition-diagonalization-indep-e-vectors">
@@ -172,70 +226,110 @@ We require that the columns of a transition matrix <m>P</m> be linearly independ
 	<title> Eigenvectors from different eigenvalues are independent </title>
 
 	<statement><p>
-	Suppose <m>A</m> is an <m>n \times n</m> matrix, and <m>S</m> is a linearly independent set of vectors in <m>\R^n</m>, each of which is an eigenvector for <m>A</m>. Further suppose that <m>\uvec{v}</m> is another eigenvector for <m>A</m> that is linearly independent from those vectors in <m>S</m> that are from the same eigenspace as <m>\uvec{v}</m>. Then the enlarged collection <m>S'</m> of eigenvectors consisting of all vectors in <m>S</m> along with <m>\uvec{v}</m> is also linearly independent.
+		Suppose <m>A</m> is an <m>n \times n</m> matrix,
+		and <m>S</m> is a linearly independent set of vectors in <m>\R^n</m>,
+		each of which is an eigenvector for <m>A</m>.
+		Further suppose that <m>\uvec{v}</m> is another eigenvector for <m>A</m> that is linearly independent from those vectors in <m>S</m> that are from the same eigenspace as <m>\uvec{v}</m>.
+		Then the enlarged collection <m>S'</m> of eigenvectors consisting of all vectors in <m>S</m> along with <m>\uvec{v}</m> is also linearly independent.
 	</p></statement>
 
 	<proof><p>
-	Let's write <m>S = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell,\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m\}</m>, where the <m>\uvec{v}_j</m> are those eigenvectors in <m>S</m> that are in the same eigenspace as <m>\uvec{v}</m>, and the <m>\uvec{w}_j</m> are those that are not. Write <m>\lambda</m> for the eigenvalue of <m>A</m> corresponding to <m>\uvec{v}</m> (hence also to each <m>\uvec{v}_j</m>), and write <m>\lambda_j</m> for the eigenvalue corresponding to <m>\uvec{w}_j</m>. We have assumed that the full set <m>S</m> is linearly independent, and therefore so are the subsets <m>\{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m> and <m>\{\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m\}</m>
-	(<xref ref="proposition-linear-indep-sub-super-sets-subset-indep">Statement</xref>
-	of
-	<xref ref="proposition-linear-indep-sub-super-sets">Statement</xref>).
-	In addition, we have assumed that the set <m>\{\uvec{v},\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m> remains linearly independent.
-	</p><p>
-	The strategy in this proof is essentially the same as explored in
-	<xref ref="activity-diagonalization-indep-eigenspaces" />.
-	To prove independence, we must prove that the assumption
-	<md><mrow tag="star" xml:id="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup">
-		k \uvec{v}
-		+ a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_\ell \uvec{v}_\ell
-		+ b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_m \uvec{w}_m
-		= \zerovec
-	</mrow></md>
-	leads to the conclusion that each of the scalars <m>k,a_1,a_2,\dotsc,a_\ell,b_1,b_2,\dotsc,b_m</m> is <m>0</m>.
-	</p><p>
-	Since each of the vectors in the combination above is an eigenvector for <m>A</m>, if we multiply both sides of equation
-	<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
-	by the matrix <m>A</m>, we may substitute <m>A\uvec{v} = \lambda \uvec{v}</m>, <m>A\uvec{v}_j = \lambda \uvec{v}_j</m>, and <m>A\uvec{w}_j = \lambda_j \uvec{w}_j</m>. Making these substitutions, we obtain
-	<me>
-		k \lambda \uvec{v}
-		+ a_1 \lambda \uvec{v}_1 + a_2 \lambda \uvec{v}_2 + \dotsb + a_\ell \lambda \uvec{v}_\ell
-		+ b_1 \lambda_1 \uvec{w}_1 + b_2 \lambda_2 \uvec{w}_2 + \dotsb + b_m \lambda_m \uvec{w}_m
-		= \zerovec.
-	</me>
-	Compare this
-	<q><m>A</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
-	equation with the result of multiplying
-	<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
-	through by the scalar <m>\lambda</m>:
-	<me>
-		k \lambda \uvec{v}
-		+ a_1 \lambda \uvec{v}_1 + a_2 \lambda \uvec{v}_2 + \dotsb + a_\ell \lambda \uvec{v}_\ell
-		+ b_1 \lambda \uvec{w}_1 + b_2 \lambda \uvec{w}_2 + \dotsb + b_m \lambda \uvec{w}_m
-		= \zerovec.
-	</me>
-	Notice that the <m>\uvec{v}</m> and <m>\uvec{v}_j</m> terms of both the
-	<q><m>A</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
-	equation and the
-	<q><m>\lambda</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
-	equation are identical, so if we subtract these equations and collect like <m>\uvec{w}_j</m>-terms, we obtain
-	<me>
-		b_1 (\lambda_1-\lambda) \uvec{w}_1 + b_2 (\lambda_2-\lambda) \uvec{w}_2
-		+ \dotsb + b_m (\lambda_m-\lambda) \uvec{w}_m
-		= \zerovec.
-	</me>
-	Since the collection of <m>\uvec{w}_j</m> are linearly independent, the scalar coefficient expressions in this new linear combination must all be zero. That is, each scalar expression
-	<me> b_j (\lambda_j-\lambda) </me>
-	must be zero. However, none of the <m>\uvec{w}_j</m> is from the same eigenspace as <m>\uvec{v}</m>, so each <m>\lambda_j-\lambda</m> is <em>non</em>zero, which forces each of the <m>b_j</m> to be zero.
-	</p><p>
-	Substituting this new information into equation
-	<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />,
-	we have
-	<me> k \uvec{v} + a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_\ell \uvec{v}_\ell = \zerovec. </me>
-	But the collection <m>\{\uvec{v},\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m> is assumed independent, so each of the scalars in the remaining combination on the left above is also zero.
-	</p><p>
-	We have now successfully shown that the only way equation
-	<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
-	can be true is if each of the scalars involved is <m>0</m>, as required.
+		Let's write
+		<m>S = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell,\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m\}</m>,
+		where the <m>\uvec{v}_j</m> are those eigenvectors in <m>S</m> that are in the same eigenspace as <m>\uvec{v}</m>,
+		and the <m>\uvec{w}_j</m> are those that are not.
+		Write <m>\lambda</m> for the eigenvalue of <m>A</m> corresponding to <m>\uvec{v}</m>
+		(hence also to each <m>\uvec{v}_j</m>),
+		and write <m>\lambda_j</m> for the eigenvalue corresponding to <m>\uvec{w}_j</m>.
+		We have assumed that the full set <m>S</m> is linearly independent,
+		and therefore so are the subsets
+		<m>\{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m>
+		and
+		<m>\{\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m\}</m>
+		(<xref ref="proposition-linear-indep-sub-super-sets-subset-indep">Statement</xref>
+		of
+		<xref ref="proposition-linear-indep-sub-super-sets">Statement</xref>).
+		In addition,
+		we have assumed that the set
+		<m>\{\uvec{v},\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m>
+		remains linearly independent.
+		</p><p>
+		The strategy in this proof is essentially the same as explored in
+		<xref ref="activity-diagonalization-indep-eigenspaces" />.
+		To prove independence,
+		we must prove that the assumption
+		<md><mrow tag="star" xml:id="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup">
+			k \uvec{v}
+			+ a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_\ell \uvec{v}_\ell
+			+ b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_m \uvec{w}_m
+			= \zerovec
+		</mrow></md>
+		leads to the conclusion that each of the scalars
+		<m>k,a_1,a_2,\dotsc,a_\ell,b_1,b_2,\dotsc,b_m</m>
+		is <m>0</m>.
+		</p><p>
+		Since each of the vectors in the combination above is an eigenvector for <m>A</m>,
+		if we multiply both sides of equation
+		<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
+		by the matrix <m>A</m>, we may substitute
+		<m>A\uvec{v} = \lambda \uvec{v}</m>,
+		<m>A\uvec{v}_j = \lambda \uvec{v}_j</m>,
+		and
+		<m>A\uvec{w}_j = \lambda_j \uvec{w}_j</m>.
+		Making these substitutions,
+		we obtain
+		<me>
+			k \lambda \uvec{v}
+			+ a_1 \lambda \uvec{v}_1 + a_2 \lambda \uvec{v}_2 + \dotsb + a_\ell \lambda \uvec{v}_\ell
+			+ b_1 \lambda_1 \uvec{w}_1 + b_2 \lambda_2 \uvec{w}_2 + \dotsb + b_m \lambda_m \uvec{w}_m
+			= \zerovec.
+		</me>
+		Compare this
+		<q><m>A</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
+		equation with the result of multiplying
+		<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
+		through by the scalar <m>\lambda</m>:
+		<me>
+			k \lambda \uvec{v}
+			+ a_1 \lambda \uvec{v}_1 + a_2 \lambda \uvec{v}_2 + \dotsb + a_\ell \lambda \uvec{v}_\ell
+			+ b_1 \lambda \uvec{w}_1 + b_2 \lambda \uvec{w}_2 + \dotsb + b_m \lambda \uvec{w}_m
+			= \zerovec.
+		</me>
+		Notice that the <m>\uvec{v}</m> and <m>\uvec{v}_j</m> terms of both the
+		<q><m>A</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
+		equation and the
+		<q><m>\lambda</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
+		equation are identical,
+		so if we subtract these equations and collect like <m>\uvec{w}_j</m>-terms,
+		we obtain
+		<me>
+			b_1 (\lambda_1-\lambda) \uvec{w}_1 + b_2 (\lambda_2-\lambda) \uvec{w}_2
+			+ \dotsb + b_m (\lambda_m-\lambda) \uvec{w}_m
+			= \zerovec.
+		</me>
+		Since the collection of <m>\uvec{w}_j</m> are linearly independent,
+		the scalar coefficient expressions in this new linear combination must all be zero.
+		That is,
+		each scalar expression
+		<me> b_j (\lambda_j-\lambda) </me>
+		must be zero.
+		However, none of the <m>\uvec{w}_j</m> is from the same eigenspace as <m>\uvec{v}</m>,
+		so each <m>\lambda_j-\lambda</m> is <em>non</em>zero,
+		which forces each of the <m>b_j</m> to be zero.
+		</p><p>
+		Substituting this new information into equation
+		<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />,
+		we have
+		<me> k \uvec{v} + a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_\ell \uvec{v}_\ell = \zerovec. </me>
+		But the collection
+		<m>\{\uvec{v},\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m>
+		is assumed independent,
+		so each of the scalars in the remaining combination on the left above is also zero.
+		</p><p>
+		We have now successfully shown that the only way equation
+		<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
+		can be true is if each of the scalars involved is <m>0</m>,
+		as required.
 	</p></proof>
 
 </proposition>
@@ -243,7 +337,11 @@ We require that the columns of a transition matrix <m>P</m> be linearly independ
 <p>
 The proposition above is somewhat similar in effect to
 <xref ref="proposition-linear-indep-expand-indep" />,
-in that it lets us build up a linearly independent set of eigenvectors one-by-one. But the above fact is a little stronger, in that when look to add a new eigenvector to our collection, we only need to worry about it being linearly independent from the eigenvectors we already have from <em>that eigenspace</em>. This leads to the following corollary.
+in that it lets us build up a linearly independent set of eigenvectors one-by-one.
+But the above fact is a little stronger,
+in that when look to add a new eigenvector to our collection,
+we only need to worry about it being linearly independent from the eigenvectors we already have from <em>that eigenspace</em>.
+This leads to the following corollary.
 </p>
 
 <corollary xml:id="corollary-diagonalization-evector-bases">
@@ -251,29 +349,55 @@ in that it lets us build up a linearly independent set of eigenvectors one-by-on
 	<title> Eigenspaces are independent </title>
 
 	<statement><p>
-	Given a collection of bases for the different eigenspaces of a matrix, the collection of all these eigenspace basis vectors together will still be linearly independent.
+		Given a collection of bases for the different eigenspaces of a matrix,
+		the collection of all these eigenspace basis vectors together will still be linearly independent.
 	</p></statement>
 
 	<proof><p>
-	Let <m>A</m> be a square matrix, and write <m>\lambda_1,\lambda_2,\dotsc,\lambda_\ell</m> for its eigenvalues. Suppose we have a basis <m>\basisfont{B}_1</m> for eigenspace <m>E_{\lambda_1}(A)</m>, and a basis <m>\basisfont{B}_2</m> for eigenspace <m>E_{\lambda_2}(A)</m>, and so on. Begin with <m>\basisfont{B}_1</m>, which is linearly independent because it is a basis for a subspace. Enlarge <m>\basisfont{B}_1</m> with vectors from <m>\basisfont{B}_2</m>, one at a time. At each step we may apply
-	<xref ref="proposition-diagonalization-indep-e-vectors" />,
-	because each new vector from <m>\basisfont{B}_2</m> is both
-	<ul>
-		<li> from a different eigenspace than the vectors in <m>\basisfont{B}_1</m>, and </li>
-		<li> linearly independent from the previous vectors from <m>\basisfont{B}_2</m> already included in the new enlarged collection. </li>
-	</ul>
-	<xref ref="proposition-diagonalization-indep-e-vectors" />
-	tells us that at each step of enlarging our collection by one, the new, larger collection will remain linearly independent. Once we run out of vectors in <m>\basisfont{B}_2</m>, we begin enlarging our collection with vectors from <m>\basisfont{B}_3</m>, one at a time. Again,
-	<xref ref="proposition-diagonalization-indep-e-vectors" />
-	applies at each enlargement step, so that each collection of eigenvectors along the way remains linearly independent. Carry this process through to the end, until finally all vectors from <m>\basisfont{B}_\ell</m> are also included, and
-	<xref ref="proposition-diagonalization-indep-e-vectors" />
-	will still apply at the last step to tell us that the complete set of basis eigenvectors is linearly independent.
+		Let <m>A</m> be a square matrix,
+		and write
+		<m>\lambda_1,\lambda_2,\dotsc,\lambda_\ell</m>
+		for its eigenvalues.
+		Suppose we have a basis <m>\basisfont{B}_1</m> for eigenspace <m>E_{\lambda_1}(A)</m>,
+		and a basis <m>\basisfont{B}_2</m> for eigenspace <m>E_{\lambda_2}(A)</m>,
+		and so on.
+		Begin with <m>\basisfont{B}_1</m>,
+		which is linearly independent because it is a basis for a subspace.
+		Enlarge <m>\basisfont{B}_1</m> with vectors from <m>\basisfont{B}_2</m>,
+		one at a time.
+		At each step we may apply
+		<xref ref="proposition-diagonalization-indep-e-vectors" />,
+		because each new vector from <m>\basisfont{B}_2</m> is both
+		<ul>
+			<li> from a different eigenspace than the vectors in <m>\basisfont{B}_1</m>, and </li>
+			<li> linearly independent from the previous vectors from <m>\basisfont{B}_2</m> already included in the new enlarged collection. </li>
+		</ul>
+		<xref ref="proposition-diagonalization-indep-e-vectors" />
+		tells us that at each step of enlarging our collection by one,
+		the new, larger collection will remain linearly independent.
+		Once we run out of vectors in <m>\basisfont{B}_2</m>,
+		we begin enlarging our collection with vectors from <m>\basisfont{B}_3</m>,
+		one at a time.
+		Again,
+		<xref ref="proposition-diagonalization-indep-e-vectors" />
+		applies at each enlargement step,
+		so that each collection of eigenvectors along the way remains linearly independent.
+		Carry this process through to the end,
+		until finally all vectors from <m>\basisfont{B}_\ell</m> are also included,
+		and
+		<xref ref="proposition-diagonalization-indep-e-vectors" />
+		will still apply at the last step to tell us that the complete set of basis eigenvectors is linearly independent.
 	</p></proof>
 
 </corollary>
 
 <p>
-In the next subsection, we will use this corollary to refine our initial characterization of diagonalizability stated in <xref ref="theorem-diagonalization-diag" />. In the meantime, we will formally state the relationship between geometric and algebraic multiplicities that we discussed in <xref ref="subsection-diagonalization-concepts-diagonalizable" />.
+In the next subsection,
+we will use this corollary to refine our initial characterization of diagonalizability stated in
+<xref ref="theorem-diagonalization-diag" />.
+In the meantime,
+we will formally state the relationship between geometric and algebraic multiplicities that we discussed in
+<xref ref="subsection-diagonalization-concepts-diagonalizable" />.
 </p>
 
 <theorem xml:id="theorem-diagonalization-geom-alg-multiplicity">
@@ -281,18 +405,22 @@ In the next subsection, we will use this corollary to refine our initial charact
 	<title> Geometric versus algebraic multiplicity </title>
 
 	<statement><p>
-	The geometric multiplicity of an eigenvalue is always less than or equal to its algebraic multiplicity.
+		The geometric multiplicity of an eigenvalue is always less than or equal to its algebraic multiplicity.
 	</p></statement>
 
 	<proof><p>
-	We will not include the proof of this statement here <mdash /> you may encounter it in further study of matrix forms, perhaps in a second course in linear algebra.
-	<!-- TODO rewrite this when matrix forms part is expanded -->
+		We will not include the proof of this statement here <mdash />
+		you may encounter it in further study of matrix forms,
+		perhaps in a second course in linear algebra.
+		<!-- TODO rewrite this when matrix forms part is expanded -->
 	</p></proof>
 
 </theorem>
 
 <remark xml:id="remark-diagonalization-theory-geo-mult-nonzero"><p>
-	As we've noted already, the geometric multiplicity of an eigenvalue is always <em>at least</em> one, since otherwise it wouldn't have any corresponding nonzero eigenvectors!
+	As we've noted already,
+	the geometric multiplicity of an eigenvalue is always <em>at least</em> one,
+	since otherwise it wouldn't have any corresponding nonzero eigenvectors!
 </p></remark>
 
 </subsection>
@@ -303,9 +431,16 @@ In the next subsection, we will use this corollary to refine our initial charact
 
 <p>
 <xref ref="corollary-diagonalization-evector-bases" />
-tells us that when collecting eigenvectors to make up the transition matrix <m>P</m>, we only have to worry about linear independence <em>inside</em> eigenspaces; linear independence <em>between</em> eigenspaces is automatic. But linear independence inside an eigenspace <m>E_{\lambda_j}(A)</m> is taken care of for us when we row reduce <m>\lambda_j I - A</m>. So our initial characterization of diagonalization in
+tells us that when collecting eigenvectors to make up the transition matrix <m>P</m>,
+we only have to worry about linear independence <em>inside</em> eigenspaces;
+linear independence <em>between</em> eigenspaces is automatic.
+But linear independence inside an eigenspace <m>E_{\lambda_j}(A)</m> is taken care of for us when we row reduce <m>\lambda_j I - A</m>.
+So our initial characterization of diagonalization in
 <xref ref="theorem-diagonalization-diag" />
-can be refined so that we don't actually have to worry about linear independence of eigenvectors at all <mdash /> we just have to worry about having <em>enough</em> eigenspace basis vectors. It turns out that the algebraic multiplicity of each eigenvector is exactly the necessary number of basis vectors for the corresponding eigenspace, and the next statements record this thinking.
+can be refined so that we don't actually have to worry about linear independence of eigenvectors at all <mdash />
+we just have to worry about having <em>enough</em> eigenspace basis vectors.
+It turns out that the algebraic multiplicity of each eigenvector is exactly the necessary number of basis vectors for the corresponding eigenspace,
+and the next statements record this thinking.
 </p>
 
 <corollary xml:id="corollary-diagonalization-geom-alg-multiplicity-diag">
@@ -322,20 +457,44 @@ can be refined so that we don't actually have to worry about linear independence
 	</p></aside>
 
 	<proof><p><ol>
-		<li><p>
-		We need <m>n</m> linearly independent eigenvectors to make up the columns of the <m>n\times n</m> transition matrix <m>P</m>. The maximum number of linearly independent eigenvectors we can get from a single eigenspace is <m>\dim(E_\lambda(A))</m>, the geometric multiplicity of the eigenvalue <m>\lambda</m>. So the maximum number of linearly independent eigenvectors we can get in total is the sum of the geometric multiplicities of the eigenvalues. But the characteristic polynomial <m>c_A(\lambda)</m> has degree <m>n</m>, and <m>n</m> is the sum of the <em>algebraic</em> multiplicities of the eigenvalues, because if <m>A</m> has all real eigenvalues, then <m>c_A(\lambda)</m> factors as
-		<me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}. </me>
-		So if even <em>one</em> eigenvalue is deficient in the sense that its geometric multiplicity is strictly less than its algebraic multiplicity, we won't obtain enough linearly independent eigenvectors from that eigenspace to contribute to the <m>n</m> linearly eigenvectors we need in total.
-		</p><p>
-		On the other hand, if each eigenvalue has geometric multiplicity equal to its algebraic multiplicity, then forming eigenspace bases and collecting them all together will provide us with exactly <m>n</m> eigenvectors, and
-		<xref ref="proposition-diagonalization-indep-e-vectors" />
-		tells us that these <m>n</m> eigenvectors will be linearly independent.
-		</p></li>
-		<li><p>
-		In the case that a square matrix has <m>n</m> <em>different</em> real eigenvalues, then each of these eigenvalues must have algebraic multiplicity <m>1</m>, since otherwise these <m>n</m> algebraic multiplicities would add up to <em>more</em> than <m>n</m>, the degree of the characteristic polynomial. So each geometric multiplicity is no greater than <m>1</m>. But also, as in noted in <xref ref="remark-diagonalization-theory-geo-mult-nonzero" />, each geometric multiplicity must be <em>at least</em> <m>1</m>. Thus, each geometric multiplicity for this matrix is <em>exactly</em> <m>1</m>, and so is equal to the corresponding algebraic multiplicity.
-		</p><p>
-		The result now follows from the first statement of this corollary.
-		</p></li>
+		<li>
+			<p>
+			We need <m>n</m> linearly independent eigenvectors to make up the columns of the <m>n\times n</m> transition matrix <m>P</m>.
+			The maximum number of linearly independent eigenvectors we can get from a single eigenspace is <m>\dim(E_\lambda(A))</m>,
+			the geometric multiplicity of the eigenvalue <m>\lambda</m>.
+			So the maximum number of linearly independent eigenvectors we can get in total is the sum of the geometric multiplicities of the eigenvalues.
+			But the characteristic polynomial <m>c_A(\lambda)</m> has degree <m>n</m>,
+			and <m>n</m> is the sum of the <em>algebraic</em> multiplicities of the eigenvalues,
+			because if <m>A</m> has all real eigenvalues,
+			then <m>c_A(\lambda)</m> factors as
+			<me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}. </me>
+			So if even <em>one</em> eigenvalue is deficient in the sense that its geometric multiplicity is strictly less than its algebraic multiplicity,
+			we won't obtain enough linearly independent eigenvectors from that eigenspace to contribute to the <m>n</m> linearly eigenvectors we need in total.
+			</p><p>
+			On the other hand,
+			if each eigenvalue has geometric multiplicity equal to its algebraic multiplicity,
+			then forming eigenspace bases and collecting them all together will provide us with exactly <m>n</m> eigenvectors,
+			and
+			<xref ref="proposition-diagonalization-indep-e-vectors" />
+			tells us that these <m>n</m> eigenvectors will be linearly independent.
+			</p>
+		</li>
+		<li>
+			<p>
+			In the case that a square matrix has <m>n</m> <em>different</em> real eigenvalues,
+			then each of these eigenvalues must have algebraic multiplicity <m>1</m>,
+			since otherwise these <m>n</m> algebraic multiplicities would add up to <em>more</em> than <m>n</m>,
+			the degree of the characteristic polynomial.
+			So each geometric multiplicity is no greater than <m>1</m>.
+			But also, as in noted in
+			<xref ref="remark-diagonalization-theory-geo-mult-nonzero" />,
+			each geometric multiplicity must be <em>at least</em> <m>1</m>.
+			Thus, each geometric multiplicity for this matrix is <em>exactly</em> <m>1</m>,
+			and so is equal to the corresponding algebraic multiplicity.
+			</p><p>
+			The result now follows from the first statement of this corollary.
+			</p>
+		</li>
 
 	</ol></p></proof>
 

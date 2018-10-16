@@ -36,16 +36,24 @@ and verify some of the other axioms for vectors in that space.
 </p><p>
 Let's start with
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>.
-Here we would like to verify that the vector equality <m>\uvec{v}+\uvec{w} = \uvec{w}+\uvec{v}</m> is always true when the vectors are positive numbers and vector addition is defined to be ordinary multiplication, as defined in
+Here we would like to verify that the vector equality
+<m>\uvec{v}+\uvec{w} = \uvec{w}+\uvec{v}</m>
+is always true when the vectors are positive numbers and vector addition is defined to be ordinary multiplication,
+as defined in
 <xref ref="equation-abstract-vec-spaces-concepts-weird-example-add-def" />
 in
 <xref ref="subsection-abstract-vec-spaces-concepts-examples" />.
 </p>
 <aside><title>Verifying an equality</title><p>
-	When verifying an equality, <em>we make sure to always consider the left- and right-hand expressions separately</em>.
+	When verifying an equality,
+	<em>we make sure to always consider the left- and right-hand expressions separately</em>.
 </p></aside>
 <p>
-For this space, vectors are positive numbers, so we should take <m>\uvec{v} = (a)</m> and <m>\uvec{w} = (b)</m> for <em>arbitrary</em>, unspecified positive numbers <m>a</m> and <m>b</m> (where again we use brackets to distinguish between numbers that are vectors and numbers that are scalars). Then,
+For this space, vectors are positive numbers,
+so we should take <m>\uvec{v} = (a)</m> and <m>\uvec{w} = (b)</m> for <em>arbitrary</em>,
+unspecified positive numbers <m>a</m> and <m>b</m>
+(where again we use brackets to distinguish between numbers that are vectors and numbers that are scalars).
+Then,
 <md>
 	<mrow>
 		\text{LHS} \amp= \uvec{v} + \uvec{w} \amp
@@ -58,19 +66,36 @@ For this space, vectors are positive numbers, so we should take <m>\uvec{v} = (a
 		\amp= (ba).
 	</mrow>
 </md>
-Now, we know that ordinary multiplication of numbers can be performed in either order, so <m>ba=ab</m>, and thus <m>\text{LHS}=\text{RHS}</m> as desired.
+Now, we know that ordinary multiplication of numbers can be performed in either order,
+so <m>ba=ab</m>,
+and thus <m>\text{LHS}=\text{RHS}</m> as desired.
 </p>
 <aside><title>Verifying axioms</title><p>
-	It's important that we verify axioms using <em>arbitrary</em> vectors and scalars, so that we know our verifications will be true regardless of the specific vectors and scalars considered. A vector axiom being <em>sometimes</em> true, for specific example vectors and scalars, is not good enough <mdash /> we need the axioms to <em>always</em> be true, for <em>all possible</em> vectors in the collection, and <em>all possible</em> scalars.
+	It's important that we verify axioms using <em>arbitrary</em> vectors and scalars,
+	so that we know our verifications will be true regardless of the specific vectors and scalars considered.
+	A vector axiom being <em>sometimes</em> true,
+	for specific example vectors and scalars,
+	is not good enough <mdash /> we need the axioms to <em>always</em> be true,
+	for <em>all possible</em> vectors in the collection, and <em>all possible</em> scalars.
 </p></aside>
 <p>
-We will leave the other addition axioms up to you, but let's verify one of the scalar multiplication axioms. Consider
+We will leave the other addition axioms up to you,
+but let's verify one of the scalar multiplication axioms.
+Consider
 <xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1" text="local">Axiom S</xref>
-We need to verify that <m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m> is always true for all scalars <m>k</m> and all vectors <m>\uvec{v}</m> and <m>\uvec{w}</m>, where scalar multiplication is defined as in
+We need to verify that
+<m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m>
+is always true for all scalars <m>k</m> and all vectors <m>\uvec{v}</m> and <m>\uvec{w}</m>,
+where scalar multiplication is defined as in
 <xref ref="equation-abstract-vec-spaces-concepts-weird-example-smul-def" />
 in
 <xref ref="subsection-abstract-vec-spaces-concepts-examples" />.
-When considering the left- and right-hand sides of this vector equality, we need to be sure to <em>pay attention to the order of operations on each side</em>. Again, take <m>\uvec{v} = (a)</m> and <m>\uvec{w} = (b)</m> for <em>arbitrary</em>, unspecified positive numbers <m>a</m> and <m>b</m>. Then,
+When considering the left- and right-hand sides of this vector equality,
+we need to be sure to
+<em>pay attention to the order of operations on each side</em>.
+Again, take <m>\uvec{v} = (a)</m> and <m>\uvec{w} = (b)</m> for <em>arbitrary</em>,
+unspecified positive numbers <m>a</m> and <m>b</m>.
+Then,
 <md>
 	<mrow>
 		\text{LHS} \amp= k(\uvec{v} + \uvec{w}) \amp
@@ -96,7 +121,8 @@ We can now see that <m>\text{LHS}=\text{RHS}</m> as desired because of the expon
 		first="list-abstract-vec-spaces-concepts-smul-axioms-distrib2"
 		last="list-abstract-vec-spaces-concepts-smul-axioms-one"
 	>Axioms S</xref>
-	for our <q>weird</q> example space, using a similar procedure as in this subsection.
+	for our <q>weird</q> example space,
+	using a similar procedure as in this subsection.
 </p></aside>
 
 </subsection>
@@ -106,27 +132,37 @@ We can now see that <m>\text{LHS}=\text{RHS}</m> as desired because of the expon
 <title>The space of functions</title>
 
 <p>
-Here we will verify some of the axioms for vectors in the space <m>F(D)</m>. We will be verifying equality of functions, so we need to make sure we know what it means for two functions to be equal.
+Here we will verify some of the axioms for vectors in the space <m>F(D)</m>.
+We will be verifying equality of functions,
+so we need to make sure we know what it means for two functions to be equal.
 </p>
 
 <definition xml:id="definition-abstract-vec-spaces-examples-eq-funcs">
 	<title>Equality of functions</title>
 	<statement><p>
-	Two functions are <term>equal</term> when the input-output processes they represent always produce the same outputs. That is, functions <m>f</m> and <m>g</m> are equal if <m>f(x)=g(x)</m> for <em>all possible</em> input <m>x</m>-values.
+		Two functions are <term>equal</term> when the input-output processes they represent always produce the same outputs.
+		That is, functions <m>f</m> and <m>g</m> are equal if <m>f(x)=g(x)</m> for <em>all possible</em> input <m>x</m>-values.
 	</p></statement>
 </definition>
 
 <p>
 Let's start with
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc" text="local">Axiom A</xref>.
-Here we would like to verify that the vector equality <m>\uvec{u} + (\uvec{v}+\uvec{w}) = (\uvec{u} + \uvec{v}) + \uvec{w}</m> is always true when the vectors are functions and addition is defined in <m>F(D)</m> as in
+Here we would like to verify that the vector equality
+<m>\uvec{u} + (\uvec{v}+\uvec{w}) = (\uvec{u} + \uvec{v}) + \uvec{w}</m>
+is always true when the vectors are functions and addition is defined in <m>F(D)</m> as in
 <xref ref="equation-abstract-vec-spaces-concepts-functions-add-def" />
 in
 <xref ref="subsection-abstract-vec-spaces-concepts-examples" />.
 </p><p>
-Let's take <m>\uvec{u} = f</m>, <m>\uvec{v} = g</m>, and <m>\uvec{w} = h</m>, where <m>f,g,h</m> are <em>arbitrary</em>, unspecified functions that are all defined on the domain <m>D</m>. From
+Let's take <m>\uvec{u} = f</m>, <m>\uvec{v} = g</m>, and <m>\uvec{w} = h</m>,
+where <m>f,g,h</m> are <em>arbitrary</em>, unspecified functions that are all defined on the domain <m>D</m>.
+From
 <xref ref="definition-abstract-vec-spaces-examples-eq-funcs" />
-above, we see that we need to verify that the sum functions <m>f+(g+h)</m> and <m>(f+g)+h</m> always produce the same output when fed the same input. So suppose <m>x</m> is an input value in the domain <m>D</m>. Then,
+above,
+we see that we need to verify that the sum functions <m>f+(g+h)</m> and <m>(f+g)+h</m> always produce the same output when fed the same input.
+So suppose <m>x</m> is an input value in the domain <m>D</m>.
+Then,
 <md>
 	<mrow>
 		\text{LHS} \amp= \bbrac{f+(g+h)}(x)
@@ -149,11 +185,23 @@ with justifications
 	<li> definition of the sum of <m>f+g</m> and <m>h</m>; and </li>
 	<li> definition of the sum of <m>f</m> and <m>g</m>. </li>
 </ol>
-Now, <m>f(x),g(x),h(x)</m> are just <em>numbers</em> <mdash /> they are the output <m>y</m>-values produced by the functions from the input value <m>x</m> <mdash /> and we know that we can group numbers with brackets in any combination when adding. So <m>\text{LHS}=\text{RHS}</m> as desired.
+Now,
+<m>f(x),g(x),h(x)</m> are just <em>numbers</em>
+<mdash /> they are the output <m>y</m>-values produced by the functions from the input value <m>x</m> <mdash />
+and we know that we can group numbers with brackets in any combination when adding.
+So <m>\text{LHS}=\text{RHS}</m> as desired.
 </p><p>
 Now let's verify
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>,
-using the definition <m>(-f)(x) = -f(x)</m> from <xref ref="subsection-abstract-vec-spaces-concepts-examples" /> (where we have also defined <m>\zerovec(x) = 0</m>). We must verify that the sum function <m>f+(-f)</m> is the same as the zero function <m>\zerovec</m>, which means we must verify that these functions always have the same outputs. So suppose <m>x</m> is an input value in the domain <m>D</m>. Then,
+using the definition
+<m>(-f)(x) = -f(x)</m>
+from
+<xref ref="subsection-abstract-vec-spaces-concepts-examples" />
+(where we have also defined <m>\zerovec(x) = 0</m>).
+We must verify that the sum function <m>f+(-f)</m> is the same as the zero function <m>\zerovec</m>,
+which means we must verify that these functions always have the same outputs.
+So suppose <m>x</m> is an input value in the domain <m>D</m>.
+Then,
 <md>
 	<mrow>
 		\text{LHS} \amp= \bbrac{f+(-f)}(x)
@@ -179,15 +227,22 @@ as desired, with justifications
 </p><p>
 As a last example, let's verify
 <xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib2" text="local">Axiom S</xref>
-in this space. We need to verify that <m>(k+m)\uvec{v} = k\uvec{v}+m\uvec{v}</m> is always true for all scalars <m>k</m> and <m>m</m> and all vectors <m>\uvec{v}</m> when the vectors are functions and the vector operations are defined in <m>F(D)</m> as in
+in this space.
+We need to verify that
+<m>(k+m)\uvec{v} = k\uvec{v}+m\uvec{v}</m>
+is always true for all scalars <m>k</m> and <m>m</m> and all vectors <m>\uvec{v}</m> when the vectors are functions and the vector operations are defined in <m>F(D)</m> as in
 <xref ref="equation-abstract-vec-spaces-concepts-functions-add-def" />
 and
 <xref ref="equation-abstract-vec-spaces-concepts-functions-smul-def" />
 in
 <xref ref="subsection-abstract-vec-spaces-concepts-examples" />.
-And when considering the left- and right-hand sides of this vector equality, we need to be sure to <em>pay attention to the order of operations on each side</em>.
+And when considering the left- and right-hand sides of this vector equality,
+we need to be sure to <em>pay attention to the order of operations on each side</em>.
 </p><p>
-Again, take <m>\uvec{v} = f</m> for <em>arbitrary</em>, unspecified function <m>f</m>. Then we actually need to verify that the function <m>(k+m)f</m> always produces the same outputs as the function <m>kf+mf</m>. So suppose <m>x</m> is an input value in the domain <m>D</m>. Then,
+Again, take <m>\uvec{v} = f</m> for <em>arbitrary</em>, unspecified function <m>f</m>.
+Then we actually need to verify that the function <m>(k+m)f</m> always produces the same outputs as the function <m>kf+mf</m>.
+So suppose <m>x</m> is an input value in the domain <m>D</m>.
+Then,
 <md>
 	<mrow>
 		\text{LHS} \amp= \bbrac{(k+m)f}(x)
@@ -207,7 +262,10 @@ with justifications
 	<li> definition of the sum of <m>kf</m> and <m>mf</m>; and </li>
 	<li> definition of scalar multiplication of <m>f</m> by <m>k</m> and by <m>m</m>. </li>
 </ol>
-Again, <m>f(x)</m> is just a <em>number</em>, and <m>k,m</m> are also numbers, and we know that we can distribute the multiplication of <m>f(x)</m> across the sum of <m>k</m> and <m>m</m> in the expression <m>(k+m)f(x)</m>. Therefore, <m>\text{LHS}=\text{RHS}</m> as desired.
+Again, <m>f(x)</m> is just a <em>number</em>,
+and <m>k,m</m> are also numbers,
+and we know that we can distribute the multiplication of <m>f(x)</m> across the sum of <m>k</m> and <m>m</m> in the expression <m>(k+m)f(x)</m>.
+Therefore, <m>\text{LHS}=\text{RHS}</m> as desired.
 </p>
 <aside><title>Check your understanding</title><p>
 	Verify
@@ -216,7 +274,8 @@ Again, <m>f(x)</m> is just a <em>number</em>, and <m>k,m</m> are also numbers, a
 	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc" text="local">Axiom S</xref>,
 	and
 	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-one" text="local">Axiom S</xref>,
-	using a similar procedure as above. Also verify that in
+	using a similar procedure as above.
+	Also verify that in
 	<xref ref="subsection-abstract-vec-spaces-concepts-examples" />,
 	we have chosen the correct <term>zero vector</term> and the correct concept of <term>negative vector</term> in this space
 	(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>

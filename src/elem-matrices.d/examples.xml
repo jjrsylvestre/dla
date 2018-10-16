@@ -32,12 +32,17 @@ respective owners.
 <title>Elementary matrices and their inverses</title>
 
 <p>
-Let's see some examples of forming the elementary matrix that corresponds to an elementary row operation, and then determining its inverse, for each of the three kinds of elementary operations. As we saw in <xref ref="section-elem-matrices-concepts" />, we form an elementary matrix by performing the desired operation <em>on the identity matrix</em>. Let's do some <m>4\times 4</m> examples.
+Let's see examples of forming the elementary matrix that corresponds to an elementary row operation, and then determining its inverse, for each of the three kinds of elementary operations.
+We use
+<xref ref="procedure-elem-matrices-concepts-form-from-identity" />
+to form these elementary matrices.
+</p><p>
+Let's do some <m>4\times 4</m> examples.
 </p>
 
 <example><title>Swapping rows</title>
 	<statement><p>
-	Consider the operation of swapping the second and fourth rows of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
+	Consider the operation of swapping the second and fourth rows of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix:
 	<me>
 		I = \bidentmatfour \qquad\xrightarrow[\text{rows}]{\text{swap}}\qquad
 		E = \begin{bmatrix}
@@ -45,7 +50,7 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 			0 \amp 0 \amp 0 \amp 1 \\
 			0 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 1 \amp 0 \amp 0
-		\end{bmatrix}
+		\end{bmatrix}.
 	</me>
 	To obtain the inverse <m>\inv{E}</m>, we perform the reverse operation. But that's just swapping the same two rows back again:
 	<me>
@@ -63,7 +68,7 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 
 <example><title>Multiplying a row by a constant</title>
 	<statement><p>
-	Now consider the operation of swapping the second row of a <m>4 \times n</m> matrix <m>A</m> by <m>5</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
+	Now consider the operation of swapping the second row of a <m>4 \times n</m> matrix <m>A</m> by <m>5</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix:
 	<me>
 		I = \bidentmatfour \quad\xrightarrow[\text{second row}]{\text{multiply}}\quad
 		E = \begin{bmatrix}
@@ -71,7 +76,7 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 			0 \amp 5 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1
-		\end{bmatrix}
+		\end{bmatrix}.
 	</me>
 	To obtain the inverse <m>\inv{E}</m>, we perform the reverse operation, which in this case is dividing the second row by <m>5</m> (which is the same as multiplying the second row by <m>1/5</m>):
 	<me>
@@ -81,14 +86,14 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 			0 \amp 1/5 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1
-		\end{bmatrix}
+		\end{bmatrix}.
 	</me>
 	</p></statement>
 </example>
 
 <example><title>Combining rows</title>
 	<statement><p>
-	Finally, consider the operation of adding double the first row to the third row of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix.
+	Finally, consider the operation of adding double the first row to the third row of a <m>4 \times n</m> matrix <m>A</m>. We can achieve the same result with a matrix product <m>EA</m> where <m>E</m> is a <m>4 \times 4</m> elementary matrix. To obtain <m>E</m>, we perform the desired operation on the identity matrix:
 	<me>
 		I = \bidentmatfour \quad\xrightarrow[\text{rows}]{\text{combine}}\quad
 		E = \begin{bmatrix}
@@ -96,7 +101,7 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 			0 \amp 1 \amp 0 \amp 0 \\
 			2 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1
-		\end{bmatrix}
+		\end{bmatrix}.
 	</me>
 	Once again, to obtain the inverse <m>\inv{E}</m>, we perform the reverse operation, which in this case is <em>subtracting</em> double the first row from the third:
 	<me>
@@ -106,7 +111,7 @@ Let's see some examples of forming the elementary matrix that corresponds to an 
 			0 \amp 1 \amp 0 \amp 0 \\
 			-2 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1
-		\end{array}\right]
+		\end{array}\right].
 	</me>
 	Comparing <m>E</m> and <m>\inv{E}</m> in this case, notice how the <m>2</m> becomes negated, which is actually the <em>additive</em> inverse of the number two (since <m>2+(-2)=0</m> and <m>(-2)+2=0</m>). This connection between inverting matrix multiplication and inverting numerical addition is important in more advanced abstract algebra.
 	</p></statement>
@@ -272,7 +277,7 @@ Also, with some matrix algebra, from <m>E_4E_3E_2E_1A = I</m> we can isolate
 		\end{bmatrix}.
 	</mrow>
 </md>
-Recall that these inverse elementary matrices can each be obtained from the identity matrix using the corresponding reverse operation. You may check that the result of multiplying these inverses together is <m>A</m>.
+Recall that each of these inverse elementary matrices can each be obtained from the identity matrix using the corresponding reverse operation. You may check that the result of multiplying these inverses together is <m>A</m>.
 </p></statement></example>
 
 </subsection>
@@ -352,7 +357,9 @@ The matrix on the right is now our desired inverse,
 		2 \amp 0 \amp 0 \amp 1
 	\end{array}\right],
 </me>
-which agrees with our calculation of <m>\inv{A}</m> using elementary matrices in the previous subsection. Indeed, this process keeps track of the elementary matrices involved in row reducing <m>A</m> for us, and automatically applies them to the identity (essentially multiplying them together) to produce the inverse on the right:
+which agrees with our calculation of <m>\inv{A}</m> using elementary matrices in
+<xref ref="example-elem-matrices-examples-decompositions" />.
+Indeed, this process keeps track of the elementary matrices involved in row reducing <m>A</m> for us, and automatically applies them to the identity (essentially multiplying them together) to produce the inverse on the right:
 <md>
 	<mrow>
 		\left[\begin{array}{c|c} A \amp I \end{array}\right]

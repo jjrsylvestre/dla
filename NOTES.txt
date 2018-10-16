@@ -1,12 +1,25 @@
 General Style:
 * Use <xref ref="...">Activity</xref> to refer to a <task> inside an <activity> (but from outside that activity).
-* Use <xref ref="..." text="type-hybrid" /> to refer to a <task> inside an <activity> from another task within that same activity.
+* Use <xref ref="..." text="type-local" /> to refer to a <task> inside an <activity> from another task within that same activity.
 * Use <xref ref="..." text="local">Rule/Axiom A/S</xref> to refer to v.space axioms.
+
 
 Specific notes:
 * Different versions of "TFAE to invertibility" should be titled:
 	<title> Characterizations of invertibility </title>
-f
+
 
 Schema Reminders:
 * In <activity> and <task>,  <statement> is only needed if there will be parallel <hint> or <solution> or etc.
+
+
+MathJax settings:
+* Could globally (or is it only per page?) change MathJax interline spacing by adding something like
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Register.StartupHook("mml Jax Ready",function () {
+			MathJax.ElementJax.mml.math.prototype.defaults.lineleading = "1.5ex";
+		});
+	</script>
+
+  before the script that loads MathJax.js itself in order to change the default interline space value.  (It is "1ex" by default.)
+  --> Could maybe add something to compile-html.sh to insert this into every html file, if necessary.

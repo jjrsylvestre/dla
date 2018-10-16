@@ -56,7 +56,9 @@ Row reduce, as usual:
 		0 \amp 0 \amp 0 \amp 0 \amp 0
 	\end{array}\right].
 </me>
-From the positions of the leading ones in the reduced matrix, we see that the first, second, and fourth columns of <m>A</m> are linearly independent, so a basis for the column space of <m>A</m> is
+From the positions of the leading ones in the reduced matrix,
+we see that the first, second, and fourth columns of <m>A</m> are linearly independent,
+so a basis for the column space of <m>A</m> is
 <me>
 	\basisfont{B}_{\mathrm{col}} = \left\{
 		\left[\begin{array}{r} -8 \\ 1 \\ -2 \\ 1 \end{array}\right],
@@ -66,13 +68,20 @@ From the positions of the leading ones in the reduced matrix, we see that the fi
 </me>
 and the dimension of the column space of <m>A</m> is <m>3</m>.
 </p><p>
-We can also see from the reduced matrix the exact dependence relationships between the columns of <m>A</m>. In the reduced matrix, the leading-one columns are the first three standard basis vectors, and we can easily see how the third and fifth columns can be decomposed as linear combinations of these standard basis vectors. In <m>A</m>, the third and fifth columns can be decomposed in the exact same way as linear combinations of the vectors in <m>\basisfont{B}_{\mathrm{col}}</m>. If we label the columns of <m>A</m> as <m>\uvec{c}_1,\uvec{c}_2,\uvec{c}_3,\uvec{c}_4,\uvec{c}_5</m>, then we have
+We can also see from the reduced matrix the exact dependence relationships between the columns of <m>A</m>.
+In the reduced matrix, the leading-one columns are the first three standard basis vectors,
+and we can easily see how the third and fifth columns can be decomposed as linear combinations of these standard basis vectors.
+In <m>A</m>, the third and fifth columns can be decomposed in the exact same way as linear combinations of the vectors in <m>\basisfont{B}_{\mathrm{col}}</m>.
+If we label the columns of <m>A</m> as <m>\uvec{c}_1,\uvec{c}_2,\uvec{c}_3,\uvec{c}_4,\uvec{c}_5</m>,
+then we have
 <md><mrow>
 	\uvec{c}_3 \amp= 2\uvec{c}_1 + 3\uvec{c}_2, \amp
 	\uvec{c}_5 \amp= (-1)\uvec{c}_1 + 2\uvec{c}_2 + (-3)\uvec{c}_4.
 </mrow></md>
 </p><p>
-The leading ones guarantee that the nonzero rows in the reduced matrix are linearly independent. Since row reducing does not change the row space, we get our basis for the row space of <m>A</m> from the reduced matrix:
+The leading ones guarantee that the nonzero rows in the reduced matrix are linearly independent.
+Since row reducing does not change the row space,
+we get our basis for the row space of <m>A</m> from the reduced matrix:
 <me>
 	\basisfont{B}_{\mathrm{row}} = \{
 		\left[\begin{array}{rrrrr}
@@ -88,7 +97,10 @@ The leading ones guarantee that the nonzero rows in the reduced matrix are linea
 </me>
 The dimension of the row space of <m>A</m> is again <m>3</m>.
 </p><p>
-Finally, for the null space of <m>A</m> we solve the homogeneous system as usual. The third and fifth columns represent free variables, so we set parameters <m>x_3 = s</m> and <m>x_5 = t</m>. Solving for the remaining variables leads to a general solution in parametric form
+Finally, for the null space of <m>A</m> we solve the homogeneous system as usual.
+The third and fifth columns represent free variables,
+so we set parameters <m>x_3 = s</m> and <m>x_5 = t</m>.
+Solving for the remaining variables leads to a general solution in parametric form
 <md><mrow>
 	x_1 \amp= -2s + t, \amp
 	x_2 \amp= -3s - 2t, \amp
@@ -123,7 +135,11 @@ and the dimension of the null space is <m>2</m>.
 <title>Enlarging a linearly independent set</title>
 
 <p>
-Row space is also a convenient tool for enlarging a linearly independent set into a basis. Here are two examples of carrying out this task, one using vectors in <m>\R^n</m>, and one using vectors in another space, where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
+Row space is also a convenient tool for enlarging a linearly independent set into a basis.
+Here are two examples of carrying out this task,
+one using vectors in <m>\R^n</m>,
+and one using vectors in another space,
+where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 </p>
 
 <!-- ol xml:id="list-col-row-null-space-examples-row-space-enlarge-to-basis" -->
@@ -133,11 +149,18 @@ Row space is also a convenient tool for enlarging a linearly independent set int
 	<p>
 	Suppose we would like to take the linearly independent set
 	<me> \{ (1,3,2,0), (2,6,1,1) \} </me>
-	of vectors in <m>\R^4</m> and enlarge it into a basis for all of <m>\R^4</m>. Since <m>\dim \R^4 = 4</m>, we need two more vectors.
+	of vectors in <m>\R^4</m> and enlarge it into a basis for all of <m>\R^4</m>.
+	Since <m>\dim \R^4 = 4</m>,
+	we need two more vectors.
 	</p><p>
 	Using
 	<xref ref="proposition-linear-indep-expand-indep" />,
-	we can start by determining a vector that is not in the subspace <m>U = \Span\{\uvec{v}_1,\uvec{v}_2\}</m>, where <m>\uvec{v}_1,\uvec{v}_2</m> are the two given vectors. However, guess-and-check is not a very efficient method for doing this. Instead, let's set up a matrix with <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m> as rows, so that <m>U</m> is precisely the row space of that matrix. We can then use row reduction to determine a simpler basis for <m>U</m>:
+	we can start by determining a vector that is not in the subspace <m>U = \Span\{\uvec{v}_1,\uvec{v}_2\}</m>,
+	where <m>\uvec{v}_1,\uvec{v}_2</m> are the two given vectors.
+	However, guess-and-check is not a very efficient method for doing this.
+	Instead, let's set up a matrix with <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m> as rows,
+	so that <m>U</m> is precisely the row space of that matrix.
+	We can then use row reduction to determine a simpler basis for <m>U</m>:
 	<me>
 		\begin{bmatrix}
 			1 \amp 3 \amp 2 \amp 0 \\
@@ -149,7 +172,9 @@ Row space is also a convenient tool for enlarging a linearly independent set int
 			0 \amp 0 \amp 1 \amp -\frac{1}{3}
 		\end{array}\right].
 	</me>
-	We can see from the pattern of leading ones in the reduced matrix that to span all of <m>\R^4</m>, we need to introduce some <q>independence</q> in the second and fourth coordinates. So let's try enlarging our initial set of vectors by the second and fourth standard basis vectors:
+	We can see from the pattern of leading ones in the reduced matrix that to span all of <m>\R^4</m>,
+	we need to introduce some <q>independence</q> in the second and fourth coordinates.
+	So let's try enlarging our initial set of vectors by the second and fourth standard basis vectors:
 	<me>
 		\begin{bmatrix}
 			1 \amp 3 \amp 2 \amp 0 \\
@@ -165,7 +190,12 @@ Row space is also a convenient tool for enlarging a linearly independent set int
 			0 \amp 0 \amp 0 \amp 1
 		\end{bmatrix}.
 	</me>
-	The rows of the reduced matrix are the four standard basis vectors for <m>\R^4</m>, hence the row space of the reduced matrix is all of <m>\R^4</m>. We know that row operations do not change row space, so the rows of the initial matrix must also span all of <m>\R^4</m>. Since we have a spanning set for a dimension-<m>4</m> space consisting of four vectors, those four vectors must for a basis for the space.
+	The rows of the reduced matrix are the four standard basis vectors for <m>\R^4</m>,
+	hence the row space of the reduced matrix is all of <m>\R^4</m>.
+	We know that row operations do not change row space,
+	so the rows of the initial matrix must also span all of <m>\R^4</m>.
+	Since we have a spanning set for a dimension-<m>4</m> space consisting of four vectors,
+	those four vectors must for a basis for the space.
 	</p>
 </statement></example>
 
@@ -178,12 +208,21 @@ Row space is also a convenient tool for enlarging a linearly independent set int
 			\begin{bmatrix} 2 \amp 6 \\ 1 \amp 1 \end{bmatrix}
 		\right\}
 	</me>
-	of vectors in <m>\matrixring_2(\R)</m> and enlarge it into a basis for all of <m>\matrixring_2(\R)</m>. Since <m>\dim \matrixring_2(\R) = 4</m>, we need two more vectors. Now, <em>we cannot row reduce the given matrices</em> <mdash /> that would be meaningless, as these matrices are not made of row vectors or column vectors, they are <em>themselves</em> vectors. However, we can get back to the land of row vectors by using coordinate vectors relative to the standard basis <m>\basisfont{S}</m> for <m>\matrixring_2(\R)</m>:
+	of vectors in <m>\matrixring_2(\R)</m> and enlarge it into a basis for all of <m>\matrixring_2(\R)</m>.
+	Since <m>\dim \matrixring_2(\R) = 4</m>,
+	we need two more vectors.
+	Now, <em>we cannot row reduce the given matrices</em> <mdash />
+	that would be meaningless,
+	as these matrices are not made of row vectors or column vectors,
+	they are <em>themselves</em> vectors.
+	However, we can get back to the land of row vectors by using coordinate vectors relative to the standard basis <m>\basisfont{S}</m> for <m>\matrixring_2(\R)</m>:
 	<md><mrow>
 		\rmatrixOf{\uvec{v}_1}{S} \amp= (1,3,2,0), \amp
 		\rmatrixOf{\uvec{v}_2}{S} \amp= (2,6,1,1),
 	</mrow></md>
-	where <m>\uvec{v}_1,\uvec{v}_2</m> are the two given vectors. These coordinate vectors are precisely the vectors from the previous example above, so using those results we expect that we should be able to enlarge our basis using vectors <m>\uvec{v}_3</m> and <m>\uvec{v}_4</m> that have coordinate vectors
+	where <m>\uvec{v}_1,\uvec{v}_2</m> are the two given vectors.
+	These coordinate vectors are precisely the vectors from the previous example above,
+	so using those results we expect that we should be able to enlarge our basis using vectors <m>\uvec{v}_3</m> and <m>\uvec{v}_4</m> that have coordinate vectors
 	<md><mrow>
 		\rmatrixOf{\uvec{v}_3}{S} \amp= (0,1,0,0), \amp
 		\rmatrixOf{\uvec{v}_4}{S} \amp= (0,0,0,1).

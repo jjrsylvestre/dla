@@ -136,7 +136,7 @@ respective owners.
 	</me>
 	</p></statement>
 
-	<proof><p>
+	<proof><title>Proof idea</title><p>
 		You can check by direct computation that these two matrices multiply to the identity matrix, in either order.
 	</p></proof>
 
@@ -166,7 +166,7 @@ Here are the properties of inverses we explored in <xref ref="activity-inverses-
 		If <m>M</m> and <m>N</m> are both invertible square matrices of the same size, then their product <m>MN</m> is also invertible with inverse <m>\inv{(MN)} = \inv{N}\inv{M}</m>.
 		</li>
 		<li	xml:id="proposition-inverses-props-of-inverses-inverse-extended-product">
-		If <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are all invertible square matrices of the same size, then their product <me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me> is also invertible with inverse <me>\inv{(M_1 M_2 \dotsm M_{\ell-1} M_\ell)} = \inv{M_\ell}\inv{M_{\ell-1}}\dotsm\inv{M_2}\inv{M_1}.</me>
+		If <m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m> are all invertible square matrices of the same size, then their product <me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me> is also invertible with inverse <me>\inv{(M_1 M_2 \dotsm M_{\ell-1} M_\ell)} = \inv{M}_\ell \inv{M}_{\ell-1}\dotsm\inv{M}_2\inv{M}_1.</me>
 		</li>
 		<li	xml:id="proposition-inverses-props-of-inverses-power">
 		If <m>M</m> is an invertible square matrix, then for every positive integer <m>\ell</m> the power <m>M^\ell</m> is also invertible with inverse <m>\inv{(M^\ell)} = (\inv{M})^\ell</m>.
@@ -181,6 +181,7 @@ Here are the properties of inverses we explored in <xref ref="activity-inverses-
 		</mrow></md>
 		</li>
 		<li>
+		<p>
 		We have a square matrix <m>A = kM</m>, with <m>k\neq 0</m>, and would like to find an inverse <m>B</m> for it. Let's try <m>B = \inv{k}\inv{M}</m>:
 		<md>
 			<mrow>
@@ -201,10 +202,18 @@ Here are the properties of inverses we explored in <xref ref="activity-inverses-
 			<mrow>
 				\amp = I,
 				\amp
-				\amp = I.
+				\amp = I,
 			</mrow>
 		</md>
+		where in the first steps we have applied
+		<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
+		and
+		<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-2">Rule</xref>
+		of
+		<xref ref="proposition-matrix-ops-algebra-rules" />.
+		</p><p>
 		Since both <m>BA=I</m> and <m>AB=I</m> are true, then <m>B=\inv{k}\inv{M}</m> is the inverse of <m>A=kM</m>.
+		</p>
 		</li>
 		<li>
 		<p>
@@ -228,9 +237,14 @@ Here are the properties of inverses we explored in <xref ref="activity-inverses-
 			<mrow>
 				\amp = I,
 				\amp
-				\amp = I.
+				\amp = I,
 			</mrow>
 		</md>
+		where in the first steps we have applied
+		<xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
+		of
+		<xref ref="proposition-matrix-ops-algebra-rules" />.
+		</p><p>
 		Since both <m>BA=I</m> and <m>AB=I</m> are true, then <m>B=\inv{N}\inv{M}</m> is the inverse of <m>A=MN</m>.
 		</p>
 		<aside><title>Order matters</title>

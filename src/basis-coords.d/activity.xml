@@ -21,7 +21,12 @@ respective owners.
 <introduction>
 
 <p>
-Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (<ie /> <m>V = \Span S</m>). In the previous chapter, we saw that if <m>S</m> is linearly dependent, then (at least) one vector can be removed from <m>S</m>, and the resulting smaller set will still be a spanning set. You can imagine repeating this process until finally you are left with a spanning set that is linearly independent.
+Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (<ie /> <m>V = \Span S</m>).
+In the previous chapter,
+we saw that if <m>S</m> is linearly dependent,
+then (at least) one vector can be removed from <m>S</m>,
+and the resulting smaller set will still be a spanning set.
+You can imagine repeating this process until finally you are left with a spanning set that is linearly independent.
 </p>
 
 <aside><title>See</title><p>
@@ -43,19 +48,26 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 
 	<introduction>
 		<p>
-		In each of the following, determine whether <m>S</m> is a basis for <m>V</m>. If it is not a basis, make sure you know which property <m>S</m> violates, independence or spanning.
+		In each of the following,
+		determine whether <m>S</m> is a basis for <m>V</m>.
+		If it is not a basis,
+		make sure you know which property <m>S</m> violates,
+		independence or spanning.
 		</p>
 		<aside><title>Note</title><p>
-			A specific example could violate both, but we only need to know it violates one of the two properties to know it's not a basis.
+			A specific example could violate both,
+			but we only need to know it violates one of the two properties to know it's not a basis.
 		</p></aside>
 	</introduction>
 
 	<task xml:id="activity-basis-coords-basis-exmps-R3-1"><p>
-		<m>V = \R^3</m>,  <m>S = \{(1,0,0),(1,1,0),(1,1,1),(0,0,2)\}</m>.
+		<m>V = \R^3</m>,
+		<m>S = \{(1,0,0),(1,1,0),(1,1,1),(0,0,2)\}</m>.
 	</p></task>
 
 	<task xml:id="activity-basis-coords-basis-exmps-R3-2"><p>
-		<m>V = \R^3</m>,  <m>S = \{(1,0,0),(1,1,0),(0,0,2)\}</m>.
+		<m>V = \R^3</m>,
+		<m>S = \{(1,0,0),(1,1,0),(0,0,2)\}</m>.
 	</p></task>
 
 	<task xml:id="activity-basis-coords-basis-exmps-M2"><p>
@@ -96,12 +108,14 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 	</task>
 
 	<task xml:id="activity-basis-coords-basis-exmps-P3-1"><p>
-		<m>V = \poly_3(\R)</m>, the space of all polynomials of degree <m>3</m> or less,
+		<m>V = \poly_3(\R)</m>,
+		the space of all polynomials of degree <m>3</m> or less,
 		<m>S = \{1,x,x^2\}</m>.
 	</p></task>
 
 	<task xml:id="activity-basis-coords-basis-exmps-P3-2"><p>
-		<m>V = \poly_3(\R)</m>,  <m>S = \{1,x,x^2,x^3\}</m>.
+		<m>V = \poly_3(\R)</m>,
+		<m>S = \{1,x,x^2,x^3\}</m>.
 	</p></task>
 
 </activity>
@@ -109,16 +123,23 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 <activity xml:id="activity-basis-coords-lin-dep-coords">
 
 	<prelude><p>
-		As discussed in the introduction to this activity set above, a spanning set that is not linearly independent contains redundant information in the form of vectors that are not actually needed to form a spanning set. This redundancy manifests itself in other ways, as the next activity will demonstrate.
+		As discussed in the introduction to this activity set above,
+		a spanning set that is not linearly independent contains redundant information in the form of vectors that are not actually needed to form a spanning set.
+		This redundancy manifests itself in other ways,
+		as the next activity will demonstrate.
 	</p></prelude>
 
 	<introduction><p>
-		Consider the set <m>S = \{(1,0),(1,1),(1,-1)\}</m> of vectors in <m>\R^2</m>. This set spans <m>\R^2</m> but is not linearly independent.
+		Consider the set
+		<m>S = \{(1,0),(1,1),(1,-1)\}</m>
+		of vectors in <m>\R^2</m>.
+		This set spans <m>\R^2</m> but is not linearly independent.
 	</p></introduction>
 
 	<task>
 		<p>
-		Since <m>S</m> spans <m>\R^2</m>, it is possible to express vector <m>(3,-3)</m> as a linear combination of the vectors in <m>S</m>.
+		Since <m>S</m> spans <m>\R^2</m>,
+		it is possible to express vector <m>(3,-3)</m> as a linear combination of the vectors in <m>S</m>.
 		</p><p>
 		Demonstrate a way to do this:
 		<me>
@@ -131,7 +152,8 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 	</task>
 
 	<task><p>
-		Here is the redundant part. Demonstrate a <em>different</em> way to express <m>(3,-3)</m> as a linear combination of the vectors in <m>S</m>:
+		Here is the redundant part.
+		Demonstrate a <em>different</em> way to express <m>(3,-3)</m> as a linear combination of the vectors in <m>S</m>:
 		<me>
 			(3,-3)
 			\; = \; <fillin characters="2" />(1,0)
@@ -152,25 +174,47 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 		The next activity will demonstrate that the redundancies of the previous activity cannot happen for a <em>basis</em>.
 	</p></prelude>
 
-	<statement><p>
-		Suppose <m>V</m> is a vector space, <m>S = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m> is a basis for <m>V</m>, and <m>\uvec{w}</m> is a vector in <m>V</m>. Since <m>S</m> is a spanning set, there is a way to express <m>\uvec{w}</m> as linear combinations of the vectors in <m>S</m>: <me>\uvec{w} = a_1\uvec{v}_1+a_2\uvec{v}_2+a_3\uvec{v}_3</me>. Suppose there was a <em>different</em> such expression: <me>\uvec{w} = b_1\uvec{v}_1+b_2\uvec{v}_2+b_3\uvec{v}_3</me>. Use the vector identity <me>\uvec{w}-\uvec{w} = \zerovec</me> and the two different expressions for <m>\uvec{w}</m> above to show that having these two different expressions violates the linear independence of <m>S</m>.
-	</p></statement>
+	<statement>
+		<p>
+		Suppose <m>V</m> is a vector space,
+		<m>S = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m> is a basis for <m>V</m>,
+		and <m>\uvec{w}</m> is a vector in <m>V</m>.
+		</p><p>
+		Since <m>S</m> is a spanning set,
+		there is a way to express <m>\uvec{w}</m> as linear combinations of the vectors in <m>S</m>:
+		<me>\uvec{w} = a_1\uvec{v}_1+a_2\uvec{v}_2+a_3\uvec{v}_3</me>.
+		</p><p>
+		Suppose there were a <em>different</em> such expression:
+		<me>\uvec{w} = b_1\uvec{v}_1+b_2\uvec{v}_2+b_3\uvec{v}_3</me>.
+		Use the vector identity
+		<me>\uvec{w}-\uvec{w} = \zerovec</me>
+		and the two different expressions for <m>\uvec{w}</m> above to show that having these two different expressions violates the linear independence of <m>S</m>.
+		</p>
+	</statement>
 
 </activity>
 
 <activity xml:id="activity-basis-coords-compute-coords">
 
 	<prelude><p>
-		The previous activity shows that when we have a basis <m>S = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n\}</m> for a vector space <m>V</m>, each vector in <m>V</m> has <em>one unique</em> expression as a linear combination of the vectors in <m>S</m>. For <m>\uvec{w} = c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_n\uvec{v}_n</m>, the coefficients <m>c_1,c_2,\dotsc,c_n</m> are called the
+		The previous activity shows that when we have a basis
+		<m>S = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n\}</m>
+		for a vector space <m>V</m>,
+		each vector in <m>V</m> has <em>one unique</em> expression as a linear combination of the vectors in <m>S</m>.
+		For
+		<m>\uvec{w} = c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_n\uvec{v}_n</m>,
+		the coefficients <m>c_1,c_2,\dotsc,c_n</m> are called the
 		<term>coordinates of <m>\uvec{w}</m> relative to <m>S</m></term><idx><h>coordinates</h></idx><idx><h>vector</h><h>coordinates</h></idx>.
-		Since these coordinates consist of <m>n</m> coefficients, we sometimes relate <m>\uvec{w}</m> to a vector in <m>\R^n</m> by collecting its coordinates into an <m>n</m>-tuple:
+		Since these coordinates consist of <m>n</m> coefficients,
+		we sometimes relate <m>\uvec{w}</m> to a vector in <m>\R^n</m> by collecting its coordinates into an <m>n</m>-tuple:
 		<me>\rmatrixOfplain{\uvec{w}}{S} = (c_1,c_2,\dotsc,c_n)</me>.
 		This is called the
-		<term>coordinate vector of <m>\uvec{w}</m> relative to <m>S</m></term><idx><h>coordinate vector</h></idx>	<idx><h>vector</h><h>coordinate</h></idx>.
+		<term>coordinate vector of <m>\uvec{w}</m> relative to <m>S</m></term><idx><h>coordinate vector</h></idx><idx><h>vector</h><h>coordinate</h></idx>.
 	</p></prelude>
 
 	<introduction><p>
-		In each of the following, determine the coordinate vector of <m>\uvec{w}</m> relative to the provided basis <m>S</m> for <m>V</m>.
+		In each of the following,
+		determine the coordinate vector of <m>\uvec{w}</m> relative to the provided basis <m>S</m> for <m>V</m>.
 	</p></introduction>
 
 	<task xml:id="activity-basis-coords-compute-coords-M2-standard"><p>
@@ -200,22 +244,30 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 	</p></task>
 
 	<task xml:id="activity-basis-coords-compute-coords-P3"><p>
-		<m>V = \poly_3(\R)</m>,  <m>S = \{1,x,x^2,x^3\}</m>,  <m>\uvec{w} = 3 + 4x - 5x^3</m>.
+		<m>V = \poly_3(\R)</m>,
+		<m>S = \{1,x,x^2,x^3\}</m>,
+		<m>\uvec{w} = 3 + 4x - 5x^3</m>.
 	</p></task>
 
 	<task xml:id="activity-basis-coords-compute-coords-R3-1"><p>
-		<m>V = \R^3</m>,  <m>S = \{(-1,0,1),(0,2,0),(1,1,0)\}</m>,  <m>\uvec{w} = (1,1,1)</m>.
+		<m>V = \R^3</m>,
+		<m>S = \{(-1,0,1),(0,2,0),(1,1,0)\}</m>,
+		<m>\uvec{w} = (1,1,1)</m>.
 	</p></task>
 
 	<task xml:id="activity-basis-coords-compute-coords-R3-2"><p>
-		<m>V = \R^3</m>,  <m>S = \{(1,0,0),(0,1,0),(0,0,1)\}</m>,  <m>\uvec{w} = (-2,3,-5)</m>.
+		<m>V = \R^3</m>,
+		<m>S = \{(1,0,0),(0,1,0),(0,0,1)\}</m>,
+		<m>\uvec{w} = (-2,3,-5)</m>.
 	</p></task>
 
 </activity>
 
 <activity xml:id="activity-basis-coords-compute-from-coords">
 	<introduction><p>
-		In each of the following, determine which vector <m>\uvec{w}</m> in <m>V</m> has the given coordinate vector <m>\rmatrixOfplain{\uvec{w}}{S}</m>.
+		In each of the following,
+		determine which vector <m>\uvec{w}</m> in <m>V</m> has the given coordinate vector
+		<m>\rmatrixOfplain{\uvec{w}}{S}</m>.
 	</p></introduction>
 	<task xml:id="activity-basis-coords-compute-from-coords-M2-standard"><p>
 		<m>V = \matrixring_2(\R)</m>,
@@ -242,13 +294,19 @@ Suppose <m>V</m> is a vector space and <m>S</m> is a spanning set for <m>V</m> (
 		<m>\rmatrixOfplain{\uvec{w}}{S} = (1,3,0,-2)</m>.
 	</p></task>
 	<task xml:id="activity-basis-coords-compute-from-coords-P3"><p>
-		<m>V = P_3</m>,  <m>S = \{1,x,x^2,x^3\}</m>,  <m>\rmatrixOfplain{\uvec{w}}{S} = (-3,1,2,3)</m>.
+		<m>V = P_3</m>,
+		<m>S = \{1,x,x^2,x^3\}</m>,
+		<m>\rmatrixOfplain{\uvec{w}}{S} = (-3,1,2,3)</m>.
 	</p></task>
 	<task xml:id="activity-basis-coords-compute-from-coords-R3-1"><p>
-		<m>V = \R^3</m>,  <m>S = \{(-1,0,1),(0,2,0),(1,1,0)\}</m>,  <m>\rmatrixOfplain{\uvec{w}}{S} = (1,1,1)</m>.
+		<m>V = \R^3</m>,
+		<m>S = \{(-1,0,1),(0,2,0),(1,1,0)\}</m>,
+		<m>\rmatrixOfplain{\uvec{w}}{S} = (1,1,1)</m>.
 	</p></task>
 	<task xml:id="activity-basis-coords-compute-from-coords-R3-2"><p>
-		<m>V = \R^3</m>,  <m>S = \{(1,0,0),(0,1,0),(0,0,1)\}</m>,  <m>\rmatrixOfplain{\uvec{w}}{S} = (-2,3,-5)</m>.
+		<m>V = \R^3</m>,
+		<m>S = \{(1,0,0),(0,1,0),(0,0,1)\}</m>,
+		<m>\rmatrixOfplain{\uvec{w}}{S} = (-2,3,-5)</m>.
 	</p></task>
 </activity>
 
