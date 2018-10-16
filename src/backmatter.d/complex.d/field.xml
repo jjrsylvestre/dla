@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2018 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<section xml:id="section-complex-appendix-field">
+<title>The field of complex numbers</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-appendix-field-def" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-field-def" /></em></li>
+<li><xref ref="subsection-complex-appendix-field-ops" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-field-ops" /></em></li>
+<li><xref ref="subsection-complex-appendix-field-div" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-field-div" /></em></li>
+<li><xref ref="subsection-complex-appendix-field-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-field-props" /></em></li>
+<li><xref ref="subsection-complex-appendix-field-poly" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-field-poly" /></em></li>
+</ul></p></assemblage>
+
+<introduction><p>
+	Now that we have a new number,
+	let's let it out to play in the <term>field</term> with all the other numbers.
+</p></introduction>
+
+<subsection xml:id="subsection-complex-appendix-field-def">
+<title> Definition of the field </title>
+
+<example><statement><p>
+	Suppose we have polynomial <m>x^2 - 6x + 13</m>.
+	Is the <q>number</q> <m>3+2\ci</m> a root?
+	To check, substitute
+	<m> x = 3+2\ci </m>.
+	<md>
+		<mrow>
+			(3+2\ci)^2 - 6(3+2\ci) + 13
+			\amp = (9 + 12\ci + 4(-1)) - 18 - 12\ci + 13
+			\amp \amp (\ci^2 = -1)
+		</mrow>
+		<mrow>
+			\amp = 0.
+		</mrow>
+	</md>
+	The answer is yes!
+	By algebraically combining <m>\ci</m>,
+	which is a root of the prototypical <q>unsolvable</q> polynomial equation <m>x^2+1=0</m>,
+	with other real numbers,
+	we obtain roots of other previously <q>unsolvable</q> polynomial equations.
+</p></statement></example>
+
+<p>
+It turns out that the result of combining such expressions involving <m>\ci</m> using the four operations of
+addition, subtraction, multiplication, and division
+can always be simplified using <m>\ci^2 = -1 </m> down to something of the form <m>a + b\ci</m>,
+where <m>a,b</m> are real numbers.
+</p>
+
+<definition>
+	<idx><h>complex</h><h>numbers</h></idx>
+	<idx><h>field</h><h>of complex numbers</h></idx>
+	<title>The field of complex numbers</title>
+	<statement><p>
+		The collection <m>\C</m> of all possible algebraic expressions <m>a+b\ci</m>,
+		where <m>a,b</m> are real numbers.
+		Expressions of this form are called <term>complex numbers</term>.
+		In such an expression,
+		the number <m>a</m> is called the
+		<term>real part</term>
+		<idx><h>complex</h><h>numbers</h><h>real part</h></idx>
+		<idx><h>real</h><h>part of a complex number</h></idx>
+		and the number <m>b</m> is called the
+		<term>imaginary part</term><idx><h>complex</h><h>numbers</h><h>imaginary part</h></idx><idx><h>imaginary</h><h>part of a complex number</h></idx>.
+	</p></statement>
+</definition>
+
+<p><dl>
+	<li> <title><m>\Re(z)</m></title> The real part of the complex number <m>z</m>.      </li>
+	<li> <title><m>\Im(z)</m></title> The imaginary part of the complex number <m>z</m>. </li>
+</dl></p>
+
+<example><title>Real and imaginary parts</title><statement><p><ul>
+	<li>
+		The complex number <m>-3+\frac{1}{2}\ci</m>
+		has real part <m>\Re\left(-3+\frac{1}{2}\ci\right)=-3</m>
+		and imaginary part <m>\Im\left(-3+\frac{1}{2}\ci\right)=\frac{1}{2}</m>.
+	</li>
+	<li>
+		The complex number <m>e - \pi\ci = e + (-\pi)\ci</m>
+		has real part <m>\Re(e - \pi\ci) = e</m>
+		and imaginary part <m>\Im(e - \pi\ci) = -\pi</m>.
+	</li>
+</ul></p></statement></example>
+
+<remark><title>Real numbers are complex numbers</title>
+	<p>
+	Every real number <m>a</m> can simultaneously be considered to be a complex number, as
+	<me> a = a + 0\ci. </me>
+	So the real numbers are precisely those complex numbers that have imaginary part equal to zero.
+	(Complex numbers whose <em>real</em> part is equal to zero are called
+	<term>purely imaginary</term><idx><h>imaginary</h><h>number</h><h>purely</h></idx>.
+	For example, <m>3\ci</m> is purely imaginary.)
+	</p>
+</remark>
+
+<p>
+Roughly speaking, a
+<term>field</term><idx><h>field</h><h>of abstract numbers</h></idx>
+is a mathematical system of <q>numbers</q> that carries some versions of the four operations
+<em>addition</em>, <em>subtraction</em>, <em>multiplication</em>, and <em>division</em>,
+and in which these four operations behave arithmetically and algebraically the way we would expect them to behave.
+We explore these four operations for the complex numbers,
+along with an important new fifth operation,
+in the following subsections.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-appendix-field-ops">
+<title>Basic operations with complex numbers</title>
+
+<p>
+Here are examples of
+adding, subtracting, multiplying, and exponentiating complex numbers.
+(We will deal with division afterward.)
+Notice it mostly involves just familiar algebra: collecting like terms and FOIL.
+</p>
+
+<example><title>Algebraic operations involving complex numbers</title>
+	<statement><p><ul>
+		<li> <em>Addition:</em> <m> (3+\ci) + (5-3\ci) = 8 - 2\ci </m>. </li>
+		<li> <em>Subtraction:</em> <m> (3+\ci) - (5-3\ci) = -2 + 4\ci </m>. </li>
+		<li> <em>Multiplication:</em> <m> (3+\ci)(5-3\ci) = 15 - 4\ci - 3(-1) = 18 - 4\ci </m>. </li>
+		<li> <em>Power:</em> <m>(3+\ci)^2 = 9 + 6\ci + (-1) = 8 + 6\ci </m>. </li>
+		<li> <em>A special multiplication example:</em> <me> (5-3\ci)(5+3\ci) = 25 + 0\ci - 9(-1) = 34. </me> </li>
+	</ul></p></statement>
+</example>
+
+<p>
+The last in the list of examples above is particularly important.
+You may recognize it as related to the factorization of a difference of squares.
+Since <m>\ci^2 = -1</m>,
+multiplying a complex number against its
+<q>difference-of-squares-factorization partner</q>
+like this always results in a real number.
+Because of this,
+we'll give this partner a name.
+</p>
+
+<definition><title>Complex conjugate</title>
+	<idx><h>complex</h><h>conjugate</h></idx>
+	<statement><p>
+		For complex number <m>z = a + b\ci</m>,
+		we define the <term>complex conjugate</term> of <m>z</m> to be
+		<me> \cconj{z} = \lcconj{a+b\ci} = a - b\ci. </me>
+	</p></statement>
+</definition>
+
+<remark><p>
+	You should think of complex conjugate as <q>flipping the sign</q> on the imaginary part of the complex number.
+	In particular,
+	if <m>z = a - b\ci</m> then
+	<m>\cconj{z} = \lcconj{a - b\ci} = a + b\ci</m>.
+</p></remark>
+
+<example><title>Computing complex conjugates</title><statement><p><ul>
+	<li> <m> \lcconj{5+4\ci} = 5 - 4\ci </m>. </li>
+	<li> <m> \lcconj{e-\pi\ci} = e + \pi\ci </m>. </li>
+</ul></p></statement></example>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-appendix-field-div">
+<title>Division of complex nubers</title>
+
+<p> We can use complex conjugates to help us divide complex numbers. </p>
+
+<example><title>Division of complex numbers</title><statement><p>
+	To simplify a ratio of complex numbers,
+	we can use the conjugate to
+	<em>rationalize the denominator</em>,
+	as if <m>\ci</m> really were equal to <m>\sqrt{-1}</m>.
+	<md>
+		<mrow>
+			\frac{3+4\ci}{2-3\ci}
+			\amp =
+			\frac{3+4\ci}{2-3\ci} \cdot \frac{2+3\ci}{2+3\ci}
+		</mrow><mrow>
+			\amp =
+			\frac{(3+4\ci)(2+3\ci)}{(2-3\ci)(2+3\ci)}
+		</mrow><mrow>
+			\amp =
+			\frac{6 + 17 \ci - 12}{2^2 + 3^2}
+		</mrow><mrow>
+			\amp =
+			\frac{-6 + 17 \ci}{13}
+		</mrow><mrow>
+			\amp =
+			\frac{-6}{13} + \frac{17}{13}\, \ci.
+		</mrow>
+	</md>
+</p></statement></example>
+
+<paragraphs><title>Pattern</title><p>
+	In general, division of complex numbers follows the pattern
+	<me>
+		\frac{a+b\ci}{c+d\ci}
+		= \frac{a+b\ci}{c+d\ci} \cdot \frac{c-d\ci}{c-d\ci}
+		= \frac{ac+bd}{c^2+d^2} + \frac{bc-ad}{c^2+d^2}.
+	</me>
+</p></paragraphs>
+
+<p> Since we can divide, we can also reciprocate. </p>
+
+<example xml:id="example-complex-field-reciprocal"><title>Reciprocal of a complex number</title><statement><p>
+	Let's compute the reciprocal of <m>3+2\ci</m>.
+	<me> \inv{(3+2\ci)} = \frac{1}{3+2\ci} = \frac{1+0\ci}{3+2\ci} \cdot \frac{3-2\ci}{3-2\ci} = \frac{3}{13} - \frac{2}{13}\, \ci. </me>
+	If we multiply a number and its reciprocal,
+	we would expect to get <m>1</m> as the result.
+	<md>
+		<mrow>
+			(3+2\ci)\inv{(3+2\ci)}
+			\amp
+			= (3+2\ci)\left(\frac{3}{13} - \frac{2}{13}\, \ci\right)
+		</mrow><mrow>
+			\amp
+			= \frac{9}{13} - \frac{6}{13}\, \ci + \frac{6}{13}\, \ci - \frac{4}{13} \cdot (-1)
+		</mrow><mrow>
+			\amp
+			= 1 + 0 \ci
+		</mrow><mrow>
+			\amp
+			= 1.
+		</mrow>
+	</md>
+	It worked!
+</p></statement></example>
+
+<p>
+There is a pattern to this reciprocal example,
+but it will have to wait until after
+<xref ref="proposition-appendix-complex-field-modulus-properties" />.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-appendix-field-props">
+<title> Properties of complex numbers </title>
+
+<p>
+Since the operations of
+addition, subtraction, multiplication, and division
+of complex numbers are built on following our usual algebra rules on expressions involving the <q>variable</q> <m>\ci</m>
+(along with the extra rule <m>\ci^2 = -1</m>),
+there is no need to restate all those usual algebra rules.
+So we will focus on the new operation of complex conjugation.
+</p>
+
+<proposition xml:id="proposition-appendix-complex-field-conjugate-properties">
+	<title>Properties of complex conjugates</title>
+	<statement><p>
+		The following are valid rules of algebra involving the complex conjugation operation.
+		Let <m>w</m> and <m>z</m> represent arbitrary complex numbers,
+		and let <m>k</m> represent an arbitrary real number.
+		<ol>
+			<li>
+				Conjugating a real number has no effect.
+				That is, <m>\cconj{k} = k</m>.
+			</li>
+			<li>
+				The conjuate of a sum is the sum of the conjugates.
+				That is, <m>\lcconj{w+z} = \cconj{w} + \cconj{z}. </m>
+			</li>
+			<li>
+				The conjugate of a product is the product of the conjugates.
+				That is, <m>\lcconj{wz} = \cconj{w}\cconj{z}. </m>
+			</li>
+			<li>
+				The conjugate of a <q>scalar multiple</q> is the <q>scalar multiple</q> of the conjugate.
+				That is, <m>\lcconj{kz} = k\cconj{z}. </m>
+			</li>
+			<li>
+				The conjugate of a quotient is the quotient of the conjugates.
+				That is, <m>\lcconj{w/z} = \cconj{w} / \cconj{z}</m>.
+			</li>
+			<li>
+				The conjugate of a reciprocal is the reciprocal of the conjugate.
+				That is, <m>\lcconj{1/z} = 1 / \cconj{z}</m>.
+			</li>
+			<li>
+				For every nonzero, integer exponent,
+				the conjugate of that power is the power of the conjugate.
+				That is, <m>\lcconj{z^n} = \cconj{z}^n</m>.
+			</li>
+		</ol>
+	</p></statement>
+</proposition>
+
+<p> Considering how a complex number interacts with its own conjugate yields several important patterns. </p>
+
+<proposition xml:id="proposition-appendix-complex-field-conjugate-relative-properties">
+	<title>Relative properties of complex conjugates</title>
+	<statement>
+	<p>
+	A complex number <m>z</m> satisfies the following special relationships with its own conjugate.
+	<ol>
+		<li>
+			The conjugate of a conjugate is the original complex number.
+			That is, <m>\lcconj{\cconj{z}} = z</m>.
+		</li>
+		<li>
+			A complex number is actually real
+			(<ie /> has imaginary part <m>0</m>)
+			if and only if it is equal to its own conjugate.
+			That is, <m>z</m> is real if and only if <m>\cconj{z} = z</m>.
+		</li>
+		<li>
+			A complex number is purely imaginary
+			(<ie /> has real part <m>0</m>)
+			if and only if it is equal to the negative of its own conjugate.
+			That is, <m>z</m> is purely imaginary if and only if <m>\cconj{z} = -z</m>.
+		</li>
+		<li>
+			Combining a complex number with its conjugate using addition or subtraction returns twice the real part or twice the imaginary part times <m>\ci</m>,
+			respectively.
+			That is,
+			<md><mrow>
+				z + \cconj{z} \amp = 2\cdot\Re(z), \amp
+				z - \cconj{z} = 2\cdot\Im(z)\cdot\ci.
+			</mrow></md>
+		</li>
+		<li xml:id="proposition-appendix-complex-field-conjugate-relative-properties-times">
+			Multiplying a complex number and its complex conjugate always results in a real number,
+			equal to the sum of the squares of the real and imaginary parts.
+			That is, if <m>z = a + b\ci</m>,
+			then <m>z\cconj{z} = a^2 + b^2</m>.
+		</li>
+	</ol>
+	</p>
+</statement></proposition>
+
+<p>
+The sum-of-squares pattern in
+<xref ref="proposition-appendix-complex-field-conjugate-relative-properties-times">Statement</xref>
+of
+<xref ref="proposition-appendix-complex-field-conjugate-relative-properties" />
+has a connection to geometry via Pythagoras that we will explore in
+<xref ref="section-complex-appendix-plane" />.
+(And by the time you are reading this appendix,
+you may already have encountered the sum-of-squares formula's connection to geometry in a linear algebra context in
+<xref ref="chapter-vector-geom" />.)
+For now, we will give a version of this formula a name.
+</p>
+
+<definition>
+	<title>Complex modulus</title>
+	<idx><h>complex</h><h>modulus</h></idx>
+	<statement><p>
+		For complex number <m>z = a + b\ci</m>,
+		the real number
+		<m>\cmodulus{z} = \sqrt{a^2 + b^2}</m>
+		is called the
+		<term>modulus</term>
+		<idx><h>complex</h><h>modulus</h></idx>
+		<idx><h>modulus (of a complex number)</h></idx>
+		of <m>z</m>.
+	</p></statement>
+</definition>
+
+<proposition xml:id="proposition-appendix-complex-field-modulus-properties">
+	<title>Properties of the complex modulus</title>
+	<statement><p>
+		The following are valid rules of algebra involving the complex modulus.
+		Let <m>w</m> and <m>z</m> represent arbitrary complex numbers,
+		and let <m>k</m> represent an arbitrary real number.
+		<ol>
+			<li xml:id="proposition-appendix-complex-field-modulus-properties-modulus-squared">
+				The square of the modulus is equal to the product of the complex number with its own conjugate.
+				That is, <m>\cmodulus{z}^2 = z\cconj{z}</m>.
+			</li>
+			<li xml:id="proposition-appendix-complex-field-modulus-properties-nonneg">
+				A modulus is never negative,
+				and only zero has modulus zero.
+				That is, <m>\cmodulus{z} \ge 0</m>,
+				with <m>\cmodulus{z} = 0</m> if and only if <m>z=0</m>.
+			</li>
+			<li>
+				A complex number and its conjugate have the same modulus.
+				That is, <m>\cmodulus{\cconj{z}} = \cmodulus{z}</m>.
+			</li>
+			<li> The modulus of a real number is equal to the absolute value of that number. </li>
+			<li>
+				The modulus of a product is the product of the moduli.
+				That is, <m>\cmodulus{wz} = \cmodulus{w}\cmodulus{z}</m>.
+			</li>
+			<li>
+				The modulus of a <q>scalar multiple</q> is the absolute <q>scalar multiple</q> of the modulus.
+				That is, <m>\cmodulus{kz} = \abs{k}\cmodulus{z}</m>,
+				where <m>\abs{k}</m> is the regular absolute value of the real number <m>k</m>.
+			</li>
+			<li>
+				The modulus of a quotient is the quotient of the moduli.
+				That is, <m>\cmodulus{w/z} = \cmodulus{w}/\cmodulus{z}</m>.
+			</li>
+			<li>
+				The modulus of a reciprocal is the reciprocal of the modulus.
+				That is, <m>\cmodulus{1/z} = 1/\cmodulus{z}</m>.
+			</li>
+			<li xml:id="proposition-appendix-complex-field-modulus-properties-power">
+				For every nonzero, integer exponent,
+				the modulus of that power is the power of the modulus.
+				That is, <m>\cmodulus{z^n} = \cmodulus{z}^n</m>.
+			</li>
+			<li>
+				The modulus satisfies the <term>Triangle Inequality</term>:
+				<m>\cmodulus{w + z} \le \cmodulus{w} + \cmodulus{z}</m>.
+			</li>
+		</ol>
+	</p></statement>
+</proposition>
+
+<paragraphs><title>Pattern</title><p>
+	We can use
+	<xref ref="proposition-appendix-complex-field-modulus-properties-modulus-squared">Statement</xref>
+	of
+	<xref ref="proposition-appendix-complex-field-modulus-properties" />
+	to help us reciprocate:
+	<md><mrow>
+		\cmodulus{z}^2 \amp = z\cconj{z}
+		\amp \amp \implies \amp
+		\inv{z} \amp = \frac{\cconj{z}}{\cmodulus{z}^2}.
+	</mrow></md>
+</p></paragraphs>
+
+<example><title>Reciprocal of a complex number, revisited</title><statement>
+	<p>
+	Let's recompute the reciprocal of <m>3+2\ci</m>
+	(from <xref ref="example-complex-field-reciprocal" />).
+	</p>
+	<p>
+	We have
+	<me> \cmodulus{3+2\ci}^2 = 3^2 + 2^2 = 13, </me>
+	and so
+	<me> \inv{(3+2\ci)} = \frac{\lcconj{3+2\ci}}{\cmodulus{3+2\ci}^2} = \frac{3-2\ci}{13} = \frac{3}{13} - \frac{2}{13}\, \ci, </me>
+	which is the same reciprocal as previously calculuated.
+	</p>
+</statement></example>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-appendix-field-poly">
+<title> Complex polynomials </title>
+
+<introduction><p>
+	The most important property of the field of complex numbers is that by merely inventing a solution to <em>one</em> previously unsolvable polynomial equation
+	(<ie /> the imaginary solution <m>\ci</m> to <m>x^2 + 1 = 0</m>),
+	we have actually created solutions to <em>all</em> polynomial equations.
+</p></introduction>
+
+<p>
+Now that we know how to perform arithmetic with complex numbers,
+we can expand to doing some algebra.
+A
+<term>complex polynomial</term>
+<idx><h>complex</h><h>polynomial</h></idx>
+is just a polynomial where we allow the coefficients to be complex numbers,
+and assume the variable to represent an unknown complex number.
+</p>
+
+<example><title>Checking a solution to a complex polynomial</title><statement><p>
+	Is <m>z = 4-\ci</m> a solution to the complex polynomial equation <m>z^2 + \ci z + (-16+4\ci)=0</m>?
+	<md>
+		<mrow>
+			(4-\ci)^2 + \ci (4-\ci) + (-16+4\ci)
+			\amp = \bigl[16 - 8\ci + (-1)\bigr] + \bigl[4\ci - (-1)\bigr] + (-16+4\ci)
+		</mrow><mrow>
+			\amp = 0.
+		</mrow>
+	</md>
+	Yes, <m>z = 4-\ci</m> is a solution to <m>z^2 + \ci z + (-16+4\ci)</m>.
+</p></statement></example>
+
+<theorem xml:id="theorem-complex-fund-thm-alg-complex">
+	<idx><h>Fundamental Theorem of Algebra</h><h>complex version</h></idx>
+	<title>The Fundamental Theorem of Algebra (Complex Version)</title>
+	<statement><p>
+		If <m>p(z)</m> is a complex polynomial of degree <m>n \ge 1</m>,
+		then the polynomial equation <m>p(z) = 0</m> has <em>exactly</em> <m>n</m> roots
+		(where repeated roots are counted multiple times,
+		according to the number of times that root is repeated).
+	</p></statement>
+</theorem>
+
+<p>
+Because determining roots of a polynomial is equivalent to factoring that polynomial,
+we can reinterpret this theorem in terms of factoring.
+</p>
+
+<corollary><statement><p>
+	Every complex polynomial <m>p(z)</m> can be <em>completely factored</em> as
+	<me> p(z) = w_0 (z-w_1)(z-w_2) \dotsm (z-w_n), </me>
+	for some constant complex numbers
+	<m>w_0,w_1,w_2,\dotsc,w_n</m>,
+	where <m>n</m> is the degree of <m>p(z)</m>.
+</p></statement></corollary>
+
+<p>
+We can also use this complex version of the Fundamental Theorem to refine the real version
+(<xref ref="theorem-complex-fund-thm-alg-reals"/>),
+since a real polynomial can be considered to be a complex polynomial that just happens to have purely real numbers as coefficients.
+</p>
+
+<corollary><statement><p>
+	If <m>p(x)</m> is a real polynomial of degree <m>n \ge 1</m>,
+	then the polynomial equation <m>p(x) = 0</m> has <em>exactly</em> <m>n</m> roots when we allow complex numbers as roots
+	(and where again, repeated roots are counted multiple times).
+</p></statement></corollary>
+
+<example xml:id="example-complex-field-cubic-fully-factored">
+	<title>Roots of a cubic polynomial</title>
+	<statement><p>
+		Consider the cubic polynomial equation
+		<md>
+			<mrow xml:id="equation-complex-field-cubic-fully-factored" tag="star">
+				x^3 + 3x^2 + 2x - 6 = 0.
+			</mrow>
+		</md>
+		We can guess one root:
+		<m>x=1</m> solves this equation.
+		This means that <m>x-1</m> is a factor of this polynomial.
+		Using long division of polynomials,
+		we could calculate
+		<me> \frac{x^3 + 3x^2 + 2x - 6}{x-1} = x^2+4x+6, </me>
+		so that
+		<me> x^3 + 3x^2 + 2x - 6 = (x-1)(x^2+4x+6). </me>
+		So to find the other roots of
+		<xref ref="equation-complex-field-cubic-fully-factored" />,
+		we only need to determine the roots of
+		<m>x^2+4x+6 = 0</m>.
+		As a <em>real</em> polynomial,
+		this quadratic factor is irreducible
+		(<ie /> has no roots).
+		However, as a <em>complex</em> polynomial,
+		we can use the quadratic formula:
+		<md>
+			<mrow> x \amp = \frac{-4 \pm \sqrt{16 - 4 \cdot 1 \cdot 6}}{2} </mrow>
+			<mrow> \amp = \frac{-4 \pm \sqrt{-8}}{2} </mrow>
+			<mrow> \amp = \frac{-4 \pm \sqrt{-1}\sqrt{2}\sqrt{4}}{2} </mrow>
+			<mrow> \amp = -2 \pm \ci\sqrt{2}. </mrow>
+		</md>
+		Therefore, the degree-three polynomial equation in
+		<xref ref="equation-complex-field-cubic-fully-factored" />
+		does indeed have precisely three roots:
+		<me> x = -1, -2+\ci\sqrt{2}, -2-\ci\sqrt{2}. </me>
+		And the cubic polynomial in
+		<xref ref="equation-complex-field-cubic-fully-factored" />
+		can be fully factored as
+		<me> x^3 + 3x^2 + 2x - 6 = (x-1)\bbrac{x - (-2+\ci\sqrt{2})}\bbrac{x - (-2-\ci\sqrt{2})}. </me>
+	</p></statement>
+</example>
+
+</subsection>
+
+</section>

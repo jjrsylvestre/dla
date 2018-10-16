@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2018 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<section xml:id="section-complex-appendix-plane" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>The complex plane</title>
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-appendix-plane-plane" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-plane-plane" /></em></li>
+<li><xref ref="subsection-complex-appendix-plane-polar" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-plane-polar" /></em></li>
+<li><xref ref="subsection-complex-appendix-plane-roots-of-unity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-appendix-plane-roots-of-unity" /></em></li>
+</ul></p></assemblage>
+
+
+<subsection xml:id="subsection-complex-appendix-plane-plane">
+<title>The complex plane</title>
+<idx><h>complex</h><h>plane</h></idx>
+
+<p>
+We visualize the field of complex numbers geometrically by assigning geometric meanings to the two independent parameters that make up an arbitrary complex number
+<m>z = a + bi</m>.
+Let's interpret the real part
+<m>\Re(z) = a</m> as an <m>x</m>-coordinate and
+<m>\Im(z) = b</m> as a <m>y</m>-coordinate in the plane.
+</p>
+
+<sidebyside width="73%"><image>
+  <!-- description gets inserted as alt text in html img tag -->
+  <description> A point in the complex plane. </description>
+  <latex-image><xi:include href="plane.d/point.tex" parse="text" /></latex-image>
+</image></sidebyside>
+
+<p>
+In this version of the plane,
+the <m>x</m>-axis is referred to as the
+<term>real axis</term><idx><h>real</h><h>axis</h></idx><idx><h>axis</h><h>real</h></idx>
+and the <m>y</m>-axis is referred to as the
+<term>imaginary axis</term><idx><h>imaginary</h><h>axis</h></idx><idx><h>axis</h><h>imaginary</h></idx>.
+Pythagoras tells us that the distance from the origin to the complex point <m>z</m> is equal its modulus <m>\cmodulus{z}</m>.
+The angle <m>\theta</m> formed by the ray from the origin through <m>z</m> and the positive real axis is called the
+<term>argument</term><idx><h>complex</h><h>argument</h></idx><idx><h>argument (of a complex number)</h></idx>
+of <m>z</m>.
+</p>
+
+<p>
+Complex conjugation has a geometric interpretation <mdash />
+it is equivalent to reflection in the real axis.
+</p>
+<sidebyside width="73%"><image>
+  <!-- description gets inserted as alt text in html img tag -->
+  <description> Complex conjugation as a reflection in the complex plane. </description>
+  <latex-image><xi:include href="plane.d/conj.tex" parse="text" /></latex-image>
+</image></sidebyside>
+
+<p>
+For every angle <m>\theta</m>,
+a complex number of the form
+<m>\cos\theta + \ci\sin\theta</m>
+has unit modulus due to the circle identity:
+<me> \cmodulus{\cos\theta + \ci\sin\theta} = \sqrt{\cos^2\theta + \sin^2\theta} = \sqrt{1} = 1. </me>
+Because of this,
+complex numbers of this form sit on the unit circle.
+</p>
+<sidebyside width="65%"><image>
+  <!-- description gets inserted as alt text in html img tag -->
+  <description> The unit circle in the complex plane. </description>
+  <idx><h>complex</h><h>unit circle</h></idx>
+  <idx><h>unit</h><h>circle</h><h>complex</h></idx>
+  <latex-image><xi:include href="plane.d/circle.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+The unit circle meets the axes at the four points
+<md>
+	<mrow>
+		1 \amp = \cos 0 + \ci\sin 0, \amp \ci \amp = \cos\frac{\pi}{2} + \ci\sin\frac{\pi}{2},
+	</mrow><mrow>
+		-1 \amp = \cos \pi + \ci\sin \pi, \amp -\ci \amp = \cos\frac{3\pi}{2} + \ci\sin\frac{3\pi}{2}.
+	</mrow>
+</md>
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-appendix-plane-polar">
+<title>Polar coordinates</title>
+
+<p>
+For reasons we won't go into here,
+it is reasonable to define complex exponentiation with
+natural base <m>e</m> (Euler's number)
+as
+<me> e^{\ci\theta} = \cos\theta + \ci\sin\theta. </me>
+This is known as <term>Euler's formula</term><idx><h>Euler's formula</h></idx>.
+</p>
+<aside><title>A special case</title><statement><p>
+	From Euler's formula,
+	we get a famous identity relating some of the most important numbers in math:
+	<me> e^{\ci\pi} = -1. </me>
+</p></statement></aside>
+<p>
+As in the previous subsection,
+these points all have modulus
+<m>\cmodulus{e^{\ci\theta}} = 1</m>
+and sit on the unit circle in the complex plane.
+We can use these points to describe every point in the complex plane in terms of a
+<term>radius</term> and <term>angle</term>.
+If <m>r</m> is a nonnegative real number, then for <m>z = r e^{\ci\theta}</m> we have
+<me> \cmodulus{z} = \cmodulus{r}\cmodulus{e^{\ci\theta}} = r. </me>
+Thus, instead of describing a point in the complex plane in terms of
+a horizontal component (the real part) and
+a vertical component (the imaginary part),
+we can describe a point in terms of
+a radius (the modulus) and
+an angle to the positive real axis (the argument).
+</p>
+<sidebyside width="70%"><image>
+  <!-- description gets inserted as alt text in html img tag -->
+  <description> Polar coordinates in the complex plane. </description>
+  <latex-image><xi:include href="plane.d/polar.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+An expression <m>z = re^{\ci\theta}</m> is called the
+<term>polar form</term>
+<idx><h>polar form (of a complex number)</h></idx>
+<idx><h>complex</h><h>number</h><h>polar form</h></idx>
+of the complex number <m>z</m>.
+</p>
+
+<p>
+While we usually take the argument <m>\theta</m> to be in the domain <m>0\le\theta\lt 2\pi</m>,
+it is useful in computations to allow it to take on any real value,
+but simplify complex polar expressions using the identity
+<me xml:id="equation-complex-appendix-plane-simplify-polar-argument" tag="star">
+	e^{\ci(\theta + 2m\pi)} = e^{\ci\theta},
+</me>
+valid for arbitrary integer <m>m</m>.
+</p>
+
+<p>
+Consider what happens when we multiply complex numbers in polar coordinates:
+if <m>z_1 = r_1 e^{\ci\theta_1}</m>
+and <m>z_2 = r_2 e^{\ci\theta_2}</m>,
+then
+<me> z_1 z_2 = (r_1 r_2) (e^{\ci\theta_1} e^{\ci\theta_2}). </me>
+Notice that the radii multiply as well.
+We know an exponent law that would help us simplify the exponential part of the product expression above,
+but is it valid for complex exponentials?
+</p>
+
+<proposition xml:id="proposition-complex-appendix-plane-mult-exp">
+	<title>Complex arguments add</title>
+	<statement><p>
+		Multiplication on the complex unit circle corresponds to addition of the complex arguments.
+		That is,
+		<me> e^{\ci\theta_1} e^{\ci\theta_2} = e^{\ci(\theta_1 + \theta_2)}. </me>
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		By definition (<ie /> Euler's formula),
+		we have
+		<me>
+			e^{\ci\theta_1} e^{\ci\theta_2}
+			= (\cos\theta_1 + \ci \sin\theta_1)(\cos\theta_2 + \ci \sin\theta_2).
+		</me>
+		Expanding this out using FOIL, you will find that the real part is
+		<me> \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2, </me>
+		and the imaginary part is
+		<me> \cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2. </me>
+		So by the addition identities for <m>\sin</m> and <m>\cos</m>,
+		we have
+		<me>
+			e^{\ci\theta_1} e^{\ci\theta_2}
+			= \cos(\theta_1 + \theta_2) + \ci\sin(\theta_1 + \theta_2)
+			= e^{\ci(\theta_1 + \theta_2)},
+		</me>
+		as desired.
+	</p></proof>
+</proposition>
+
+<p> We can directly obtain several more important facts about polar expressions from this proposition. </p>
+
+<corollary xml:id="corollary-complex-appendix-plane-mult-polar">
+	<title>Multiplication of polar expressions</title>
+	<statement>
+		<p>
+		If <m>z_1 = r_1 e^{\ci\theta_1}</m>
+		and <m>z_2 = r_2 e^{\ci\theta_2}</m>,
+		then
+		<me> z_1 z_2 = (r_1 r_2) (e^{\ci\theta_1 + \theta_2}). </me>
+		</p><p>
+		Geometrically,
+		if <m>z</m> is a point in the complex plane,
+		then multiplying <m>z</m> by the polar expression
+		<m>r e^{\ci\theta} </m>
+		scales <m>z</m> toward/away from the origin by scale factor <m>r</m>,
+		and rotates by <m>\theta</m> radians about the origin.
+		<sidebyside width="35%"><image>
+		  <!-- description gets inserted as alt text in html img tag -->
+		  <description> Multiplying by a polar expression in the complex plane. </description>
+		  <latex-image><xi:include href="plane.d/polar-mult.tex" parse="text" /></latex-image>
+		</image></sidebyside>
+		</p>
+	</statement>
+</corollary>
+
+<corollary xml:id="corollary-complex-appendix-plane-inv-polar">
+	<title>Inverse of a polar expression</title>
+	<statement>
+		<p>
+		If <m>z = r e^{\ci\theta}</m>
+		then <m>\inv{z} = \inv{r} e^{-\ci\theta}</m>.
+		</p><p>
+		In particular, <m>\inv{(e^{\ci\theta})} = e^{-\ci\theta}</m>.
+		</p>
+	</statement>
+	<proof><title>Proof idea</title><p>
+		Just multiply <m>r e^{\ci\theta}</m> and <m>\inv{r} e^{-\ci\theta}</m> together and use
+		<xref ref="corollary-complex-appendix-plane-mult-polar" />
+		to simplify.
+		You will find that the simplified product is equal to <m>1</m>.
+	</p></proof>
+</corollary>
+
+<corollary xml:id="corollary-complex-appendix-plane-demoivre">
+	<title>DeMoivre's formula</title>
+	<idx><h>DeMoivre's formula</h></idx>
+	<statement><p>
+		For every <alert>integer</alert> <m>n</m>,
+		we have <m>(e^{\ci\theta})^n = e^{\ci n \theta}</m>.
+	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		A proper proof would use the method of proof by induction,
+		but we will be a little less formal.
+		</p><p>
+		If <m>n</m> is a postive integer,
+		then exponent <m>n</m> means multiplying <m>n</m> copies of the complex exponential:
+		<me> (e^{\ci\theta})^n = e^{\ci\theta} \cdot e^{\ci\theta} \cdot \dotsm \cdot e^{\ci\theta}. </me>
+		Using
+		<xref ref="proposition-complex-appendix-plane-mult-exp" />,
+		we can combine the expression on the right above into one complex exponential where <m>n</m> copies of the argument <m>\theta</m> are <em>added</em> together.
+		</p><p>
+		If <m>n</m> is a negative integer,
+		we can combine the positive case above with
+		<xref ref="corollary-complex-appendix-plane-inv-polar" />.
+		</p><p>
+		And if <m>n</m> is zero,
+		then both sides of the formula are equal to <m>1</m>
+		(adhering to the convention <m>z^0 = 1</m> for <m>z \ne 0</m> on the left).
+		</p>
+	</proof>
+</corollary>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-appendix-plane-roots-of-unity">
+<title>Roots of unity</title>
+
+<p>
+When we allow only real solutions,
+the equation <m> x^n = 1 </m>
+(equivalently, <m>x^n-1=0</m>)
+has two solutions when <m>n</m> is even and one solution when <m>n</m> is odd.
+However, when we allow complex solutions as well,
+<xref ref="theorem-complex-fund-thm-alg-complex" text="title" />
+tells us there should always be exactly <m>n</m> solutions
+(including repeated roots).
+Each solution is called an
+<term><m>\nth</m> root of unity</term><idx><h>root</h><h>of unity</h></idx>.
+</p>
+
+<p>
+Suppose complex number <m>z</m> is an <m>\nth</m> root of unity,
+so that <m>z^n = 1</m> is true.
+Then
+<xref ref="proposition-appendix-complex-field-modulus-properties-power">Statement</xref>
+of
+<xref ref="proposition-appendix-complex-field-modulus-properties"/>
+tells us that <m>\cmodulus{z}^n = 1</m>.
+But a modulus is always a real number,
+and cannot be negative
+(<xref ref="proposition-appendix-complex-field-modulus-properties-nonneg">Statement</xref>
+of
+<xref ref="proposition-appendix-complex-field-modulus-properties"/>).
+So there is only one way <m>\cmodulus{z}^n = 1</m> can be true,
+and that is if <m>\cmodulus{z} = 1</m>.
+</p>
+
+<proposition><title>Modulus of roots of unity</title><statement><p>
+	Every complex root of unity has modulus <m>1</m>,
+	and hence lies on the unit circle in the complex plane.
+</p></statement></proposition>
+
+<p>
+	In light of the proposition,
+	in polar coordinates we can represent a root of unity purely in terms of its argument:
+	<m>z = e^{\ci\theta}</m>
+</p>
+
+<example><title>Cubic roots of unity</title><statement><p>
+	Let's determine all three complex solutions to <m>x^3 = 1</m>.
+	As above, let's set <m>x = e^{\ci\theta}</m> and try to determine the values of <m>\theta</m> that lead to solutions.
+	From <xref ref="corollary-complex-appendix-plane-demoivre" text="title" />,
+	we have
+	<m> x^3 = e^{\ci(3\theta)} </m>,
+	which transforms our equation into
+	<me> e^{\ci(3\theta)} = 1. </me>
+	Clearly we obtain a solution by setting <m> \theta = 0 </m>,
+	which corresponds to our known real solution
+	<m> x = 1 </m>.
+	Reasoning geometrically in the complex plane,
+	the other solutions correspond to values of <m> \theta </m> so that <m> 3\theta </m> returns back to the positive real axis,
+	<ie /> when <m> 3\theta </m> is a multiple of <m> 2\pi </m>.
+	So our full slate of solutions could be expressed as
+	<me> e^{\ci(0\pi/3)}, \quad e^{\ci(2\pi/3)}, \quad e^{\ci(4\pi/3)}, </me>
+	and we can visualize these solutions as regularly placed around the unit circle in the complex plane.
+	<sidebyside width="60%"><image>
+	  <!-- description gets inserted as alt text in html img tag -->
+	  <description> Cubic roots of unity on the complex unit circle. </description>
+	  <latex-image><xi:include href="plane.d/cubic-roots.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+</p></statement></example>
+
+<p> The pattern of the previous example continues for higher-order roots of unity. </p>
+
+<proposition><title>Polar form of roots of unity</title><statement><p>
+	The complete set of <m>\nth</m> roots of unity are
+	<me>
+		e^{0\pi\ci/n}, \quad
+		e^{2\pi\ci/n}, \quad
+		e^{4\pi\ci/n}, \quad
+		\dotsc, \quad
+		e^{2k\pi\ci/n}, \quad
+		\dotsc,
+		e^{2(n-1)\pi\ci/n}.
+	</me>
+</p></statement></proposition>
+
+</subsection>
+
+</section>
