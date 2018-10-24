@@ -41,7 +41,7 @@ First, the minors.
 	<latex-image><xi:include href="examples.d/2x2-minors.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-In the matrix of cofactors, the off-diagonal cofactors become negative, and then the adjoint is the transpose of that.
+In the matrix of cofactors for a <m>2 \times 2</m> matrix, the off-diagonal cofactors become negative, and then the adjoint is the transpose of that.
 <md><mrow>
 	C_A  \amp = \left[\begin{array}{rr} d \amp -c\\-b \amp a \end{array}\right]  \amp
 	\adj A  \amp = \left[\begin{array}{rr} d \amp -b\\-c \amp a \end{array}\right]
@@ -75,7 +75,7 @@ As mentioned, using the adjoint to compute the inverse of a matrix is not very e
 			x  \amp  1  \amp  -1 \\ x-1  \amp  0  \amp  x \\ 0  \amp  x  \amp  1
 		\end{bmatrix}.
 	</me>
-	To row reduce <m>X</m>, our first step would be to obtain a leading one in the first column. We might choose to perform <m>R_1\to\frac{1}{x}R_1</m>, except that this operation would be invalid in the case that <m>x=0</m>. Or we might choose to perform <m>R_2\to\frac{1}{x-1}R_2</m>, except that this operation would be invalid in the case that <m>x=1</m>. So to row reduce <m>X</m> we would need to consider three different cases, <m>x=0</m>, <m>x=1</m>, and <m>x\neq 0,1</m>, performing different row reduction sequences in each of these cases. And when we get to trying to obtain a leading one in the second column, we might discover there are even more cases to consider.
+	To row reduce <m>X</m>, our first step would be to obtain a leading one in the first column. We might choose to perform <m>R_1\to\frac{1}{x}R_1</m>, except that this operation would be invalid in the case that <m>x=0</m>. Or we might choose to perform <m>R_2\to\frac{1}{x-1}R_2</m>, except that this operation would be invalid in the case that <m>x=1</m>. So to row reduce <m>X</m> we would need to consider three different cases, <m>x=0</m>, <m>x=1</m>, and <m>x\neq 0,1</m>, performing different row reduction sequences in each of these cases. And when we get to the point of trying to obtain a leading one in the second column, we might discover there are even more cases to consider.
 	</p><p>
 	So instead we will attempt to compute the inverse of <m>X</m> using the adjoint. First, the minors.
 	<md>
@@ -116,7 +116,7 @@ As mentioned, using the adjoint to compute the inverse of a matrix is not very e
 				-1-x \amp x \amp -x^2 \\
 				x \amp -x^2-x+1 \amp 1-x
 			\end{bmatrix}
-		</mrow><mrow>
+		</mrow><mrow></mrow><mrow>
 			\adj X \amp= \begin{bmatrix}
 				-x^2 \amp -1-x \amp x \\
 				1-x \amp x \amp -x^2-x+1 \\
@@ -124,7 +124,7 @@ As mentioned, using the adjoint to compute the inverse of a matrix is not very e
 			\end{bmatrix}
 		</mrow>
 	</md>
-	To compute the inverse of <m>X</m>, we still need its determinant. But we already have all the cofactors, so a cofactor expansion will be easy. Let's do a cofactor expansion of <m>\det X</m> along the third row. (Remember that the cofactors already have the appropriate signs, so we are just summing <q>entry times cofactor</q> terms.
+	To compute the inverse of <m>X</m>, we still need its determinant. But we already have all the cofactors, so a cofactor expansion will be easy. Let's do a cofactor expansion of <m>\det X</m> along the third row. (Remember that the cofactors already have the appropriate signs, so we are just summing <q>entry times cofactor</q> terms.)
 	<me> \det X = 0x + x(-x^2-x+1) + 1(1-x) = 1 - x^3 - x^2 </me>
 	</p>
 	<aside><title>Notice</title><p>
