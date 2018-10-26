@@ -50,7 +50,9 @@ A directed line segment (or arrow) could be thought of dynamically as describing
 </image></sidebyside>
 
 <p>
-We describe a two-dimensional vector in the plane with a pair of numerical <term>components</term>: the change in <m>x</m> and the change in <m>y</m>. If <m>P(x_1,y_1)</m> and <m>Q(x_2,y_2)</m> are points in the plane, then the vector associated to the directed line segment <m>\abray{PQ}</m> has components <m>\uvec{v} = (\Delta x,\Delta y) = (x_2-x_1,y_2-y_1)</m>. (A three-dimensional vector in space requires a third component as well, the change in <m>z</m>.) Notice what happens when we use the origin <m>O(0,0)</m> as the initial point and an arbitrary point <m>R(x,y)</m> as the terminal point in a directed line segment: the vector associated to <m>\abray{OR}</m> is then <m>(x-0,y-0) = (x,y)</m>. So when the initial point is the origin, the components of the vector are exactly the coordinates of the terminal point. In <xref ref="activity-vectors-directed-line-segments" /> we saw that this works in reverse as well. That is, if we have a vector <m>\uvec{v} = (v_1,v_2)</m>, then we could consider the numbers <m>v_1,v_2</m> as coordinates of a point <m>R(x,y)</m> with <m>x=v_1</m> and <m>y=v_2</m>, and then the vector associated to <m>\abray{OR}</m> is just <m>\uvec{v}</m> again. In this way, every vector corresponds to <em>one unique</em> directed line segment with initial point at the origin, and so that is sort of the <q>natural position</q> of the vector as a directed line segment. But we will find that it is often convenient to consider other directed line segments that correspond to a particular vector.
+We describe a two-dimensional vector in the plane with a pair of numerical <term>components</term>: the change in <m>x</m> and the change in <m>y</m>. If <m>P(x_1,y_1)</m> and <m>Q(x_2,y_2)</m> are points in the plane, then the vector associated to the directed line segment <m>\abray{PQ}</m> has components <m>\uvec{v} = (\Delta x,\Delta y) = (x_2-x_1,y_2-y_1)</m>. (A three-dimensional vector in space requires a third component as well: the change in <m>z</m>.)
+</p><p>
+Notice what happens when we use the origin <m>O(0,0)</m> as the initial point and an arbitrary point <m>R(x,y)</m> as the terminal point in a directed line segment: the vector associated to <m>\abray{OR}</m> is then <m>(x-0,y-0) = (x,y)</m>. So when the initial point is the origin, the components of the vector are exactly the coordinates of the terminal point. In <xref ref="activity-vectors-directed-line-segments" /> we saw that this works in reverse as well. That is, if we have a vector <m>\uvec{v} = (v_1,v_2)</m>, then we could consider the numbers <m>v_1,v_2</m> as coordinates of a point <m>R(x,y)</m> with <m>x=v_1</m> and <m>y=v_2</m>, and then the vector associated to <m>\abray{OR}</m> is just <m>\uvec{v}</m> again. In this way, every vector corresponds to <em>one unique</em> directed line segment with initial point at the origin, and so that is sort of the <q>natural position</q> of the vector as a directed line segment. But we will find that it is often convenient to consider other directed line segments that correspond to a particular vector.
 </p><p>
 We live in a three-dimensional world (or, at least, it appears that way to us), and our little human brains cannot visualize points or arrows in four- or higher-dimensional spaces. However, we can still describe such imaginary objects using our experience from two- and three-dimensional points and vectors. For example, if we had two points <m>P</m> and <m>Q</m> in an imaginary four-dimensional space, they would each require four coordinates, so we would describe them as <m>P(w_1,x_1,y_1,z_1)</m> and <m>Q(w_2,x_2,y_2,z_2)</m>. Then the vector corresponding to the directed line segment <m>\abray{PQ}</m> would have four components and we would compute it as
 <m>\uvec{v} = (\Delta w, \Delta x, \Delta y, \Delta z) = (w_2-w_1,x_2-x_1,y_2-y_1,z_2-z_1)</m>.
@@ -86,7 +88,9 @@ If these are points and vectors in the plane, then clearly the change in positio
   <latex-image><xi:include href="concepts.d/vec-add-3.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-In the diagram above, the vector for <m>\abray{PQ'}</m> is the same as that for <m>\abray{QR}</m>, because they represent the same change in position, just with a different initial point. Accordingly, we have labelled both vectors with <m>\uvec{v}</m>. And the same applies to <m>\uvec{u}</m> with respect to <m>\abray{PQ}</m> and <m>\abray{Q'R}</m>. The diagram illustrates that if we start at <m>P</m> and chain together the change-of-position instructions contained in vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, the order that we do so does not matter <mdash /> the overall change in position will be from <m>P</m> to <m>R</m>. Thus, <em>the order of vector addition doesn't matter</em>. Algebraically, we could have predicted that this would be the case because it doesn't matter what order you add components: the identities <m>u_1+v_1=v_1+u_1</m> and <m>u_2+v_2=v_2+v_2</m> are both valid. But it's useful conceptually to have the above geometric picture of vector addition because, whether you believe this about yourself or not, <em>humans are spatial thinkers</em>. And the geometric version of the vector identity <m>\uvec{v}+\uvec{u}=\uvec{u}+\uvec{v}</m> makes a pretty picture of a parallelogram, so we call it the <term>parallelogram rule</term><idx><h>parallelogram rule</h></idx>.
+In the diagram above, the vector for <m>\abray{PQ'}</m> is the same as that for <m>\abray{QR}</m>, because they represent the same change in position, just with a different initial point. Accordingly, we have labelled both vectors with <m>\uvec{v}</m>. And the same applies to <m>\uvec{u}</m> with respect to <m>\abray{PQ}</m> and <m>\abray{Q'R}</m>.
+</p><p>
+The diagram illustrates that if we start at <m>P</m> and chain together the change-of-position instructions contained in vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>, the order that we do so does not matter <mdash /> the overall change in position will be from <m>P</m> to <m>R</m>. Thus, <em>the order of vector addition doesn't matter</em>. Algebraically, we could have predicted that this would be the case because it doesn't matter what order you add components: the identities <m>u_1+v_1=v_1+u_1</m> and <m>u_2+v_2=v_2+v_2</m> are both valid. But it's useful conceptually to have the above geometric picture of vector addition because, whether you believe this about yourself or not, <em>humans are spatial thinkers</em>. And the geometric version of the vector identity <m>\uvec{v}+\uvec{u}=\uvec{u}+\uvec{v}</m> makes a pretty picture of a parallelogram, so we call it the <term>parallelogram rule</term><idx><h>parallelogram rule</h></idx>.
 </p><p>
 For three-dimensional vectors, we can imagine diagrams like the ones we have drawn above floating in space, and the parallelogram rule would hold there as well. In higher dimensions, we cannot draw pictures, but we could imagine that they are similar. At any rate, the algebra of vector addition is the same in any dimension: for
 <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m>
@@ -139,7 +143,7 @@ This relationship between the components of <m>\uvec{v}</m> and <m>-\uvec{v}</m>
 </p></aside>
 
 <p>
-Remembering that the <q>natural</q> position for a vector is with its tail at the origin, its useful to visualize negatives in the following manner.
+Remembering that the <q>natural</q> position for a vector is with its tail at the origin, it's useful to visualize negatives in the following manner.
 </p>
 <sidebyside width="50%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
@@ -179,7 +183,7 @@ Of course, there are two vectors that run between the heads of <m>\uvec{u}</m> a
 	<latex-image><xi:include href="concepts.d/vec-subtract-3.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-Now <m>\abctriangle{PP'R}</m> creates the vector addition pattern starting at <m>P</m> and ending up at <m>R</m>, so that <m>\uvec{v}+(-\uvec{u})=\uvec{v}-\uvec{u}</m>. But also <m>\abctriangle{OPR}</m> creates a vector addition pattern starting at <m>O</m> and ending up at <m>R</m>, so that <m>\uvec{u} + (\uvec{v}-\uvec{u}) = \uvec{v}</m>. And finally, the fact that <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> both run between <m>P</m> and <m>R</m>, but in opposite directions, verifies geometrically that <m>-(\uvec{u}-\uvec{v}) = \uvec{v} - \uvec{u}</m>, as we would expect algebraically.
+Now <m>\abctriangle{PP'R}</m> creates a vector addition pattern starting at <m>P</m> and ending up at <m>R</m>, so that <m>\uvec{v}+(-\uvec{u})=\uvec{v}-\uvec{u}</m>. But also <m>\abctriangle{OPR}</m> creates a vector addition pattern starting at <m>O</m> and ending up at <m>R</m>, so that <m>\uvec{u} + (\uvec{v}-\uvec{u}) = \uvec{v}</m>. And finally, the fact that <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> both run between <m>P</m> and <m>R</m>, but in opposite directions, verifies geometrically that <m>-(\uvec{u}-\uvec{v}) = \uvec{v} - \uvec{u}</m>, as we would expect algebraically.
 </p>
 
 </subsection>
@@ -196,7 +200,7 @@ Geometrically, when we scalar multiply a vector we <q>stretch</q> or <em>scale</
 	<latex-image><xi:include href="concepts.d/vec-scalar-mul.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-Notice how each of these vectors either points in the same direction or in the opposite direction to <m>\uvec{v}</m>. In particular, they are all
+Notice how each of these vectors either points in the same direction as or in the opposite direction to <m>\uvec{v}</m>. In particular, they are all
 <term>parallel</term>
 <idx><h>parallel vectors</h></idx>
 <idx><h>vector</h><h>parallel</h></idx>
@@ -311,7 +315,7 @@ Any change in position can be built out of these two fundamental changes in posi
 </image></sidebyside>
 <p>
 As you can imagine, every vector in the plane can be decomposed into a linear combination of <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> in this manner: for <m>\uvec{v} = (v_1,v_2)</m>, we have <m>\uvec{v} = v_1\,\uvec{e}_1 + v_2\,\uvec{e}_2</m>.
-For this reason, the two vectors <m>\uvec{e}_1,\uvec{e}_2</m> together are called the <term>standard basis vectors</term> in <m>\R^2</m>, as they form a basis from which every other vector can be constructed. To use a chemical analogy, these two vectors are the basic <em>atoms</em> of <m>\R^2</m>, and every other vector in <m>\R^2</m> is a <em>molecule</em> built out of a specific combination of these atoms. Since there are only two fundamental directions in <m>\R^2</m> (right/left and up/down), it is not surprising that we need only two basis vectors to represent all possible directions. This is the reason we call vectors in <m>\R^2</m> <term>two-dimensional vectors</term>.
+For this reason, the two vectors <m>\uvec{e}_1,\uvec{e}_2</m> together are called the <term>standard basis vectors</term> in <m>\R^2</m>, as they form a basis from which every other vector can be constructed. To use an analogy with chemistry, these two vectors are the basic <em>atoms</em> of <m>\R^2</m>, and every other vector in <m>\R^2</m> is a <em>molecule</em> built out of a specific combination of these atoms. Since there are only two fundamental directions in <m>\R^2</m> (right/left and up/down), it is not surprising that we need only two basis vectors to represent all possible directions. This is the reason we call vectors in <m>\R^2</m> <term>two-dimensional vectors</term>.
 </p>
 <aside><title>Note</title><p>
 	Left is not considered a different direction from right, it is just the opposite (or negative) direction. As <m>\uvec{e}_1</m> points right, <m>-\uvec{e}_1</m> points left. And similarly, up and down are not different directions, just opposite. So there are only two fundamental directions in the plane, not four.
@@ -360,8 +364,10 @@ we find that there is only <em>one unique</em> combination of scalar values that
 	\dotsb
 	+ v_n\uvec{e}_n.
 </me>
-This is an important feature of the standard basis of <m>\R^n</m> that we will see repeated when we explore the concept of <term>basis</term> in abstract vector spaces.
 </p>
+<aside><title>A look ahead</title><p>
+	The fact that every vector decomposes uniquely as a linear combination of basis vectors is an important feature of the standard basis of <m>\R^n</m> that we will see repeated when we explore the concept of <term>basis</term> in abstract vector spaces.
+</p></aside>
 
 </subsection>
 
