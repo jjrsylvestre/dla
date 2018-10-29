@@ -35,7 +35,14 @@ respective owners.
 <title>Determining eigenvalues</title>
 
 <p>
-To determine eigenvectors and their corresponding eigenvalues for a specific matrix <m>A</m>, we need to solve the matrix equation <m>A\uvec{x} = \lambda\uvec{x}</m> for <em>both</em> the unknown eigenvector <m>\uvec{x}</m> and the unknown eigenvalue <m>\lambda</m>. This is not like any matrix equation we've tried to solve before <mdash /> the right-hand side involves <em>unknown times unknown</em>, making the equation <em>nonlinear</em>. However, as in
+To determine eigenvectors and their corresponding eigenvalues for a specific matrix <m>A</m>,
+we need to solve the matrix equation
+<m>A\uvec{x} = \lambda\uvec{x}</m>
+for <em>both</em> the unknown eigenvector <m>\uvec{x}</m> and the unknown eigenvalue <m>\lambda</m>.
+This is not like any matrix equation we've tried to solve before <mdash />
+the right-hand side involves <em>unknown times unknown</em>,
+making the equation <em>nonlinear</em>.
+However, as in
 <xref ref="activity-eigen-values-vectors-eigenval-char-poly" />,
 we can use some matrix algebra to turn this equation into something more familiar:
 <md>
@@ -46,27 +53,46 @@ we can use some matrix algebra to turn this equation into something more familia
 </md>
 A particular scalar <m>\lambda</m> will be an eigenvalue of <m>A</m> if and only if the above homogeneous system has nontrivial solutions.
 <aside><title>Note</title><p>
-	The <q>solution</q> <m>A\zerovec = \lambda\zerovec</m> to the original equation <m>A\uvec{x}=\lambda\uvec{x}</m> is not interesting because it works for <em>all</em> values of <m>\lambda</m>.
+	The <q>solution</q>
+	<m>A\zerovec = \lambda\zerovec</m>
+	to the original equation
+	<m>A\uvec{x}=\lambda\uvec{x}</m>
+	is not interesting because it works for <em>all</em> values of <m>\lambda</m>.
 </p></aside>
-A homogeneous system with square coefficient matrix has nontrivial solutions precisely when that coefficient matrix is <em>not</em> invertible, which is the case precisely when the determinant of that coefficient matrix is equal to zero
+A homogeneous system with square coefficient matrix has nontrivial solutions precisely when that coefficient matrix is <em>not</em> invertible,
+which is the case precisely when the determinant of that coefficient matrix is equal to zero
 (<xref ref="theorem-more-det-equiv-to-invertible" />).
-So <alert>there will exist eigenvectors of <m>A</m> corresponding to a particular scalar <m>\lambda</m> precisely when <m>\lambda</m> is a root of the characteristice equation <m>\det(\lambda I - A) = 0</m></alert>.
+So <alert>there will exist eigenvectors of <m>A</m> corresponding to a particular scalar <m>\lambda</m> precisely when <m>\lambda</m> is a root of the characteristic equation
+<m>\det(\lambda I - A) = 0</m></alert>.
 </p>
 
 <algorithm><title>To determine all eigenvalues of a square matrix <m>A</m></title>
-	<statement><p> Determine the roots of the characteristic equation <m>\det(\lambda I - A) = 0.</m> </p></statement>
+	<statement><p>
+		Determine the roots of the characteristic equation
+		<m>\det(\lambda I - A) = 0.</m>
+	</p></statement>
 </algorithm>
 
 <remark>
-<p>
-Because calculating <m>\det(\lambda I - A)</m> only involves multiplication, addition, and subtraction, its result <em>is</em> always a polynomial in the variable <m>\lambda</m>. In fact, this polynomial will always be a <term>monic</term> polynomial of degree <m>n</m> (where <m>A</m> is <m>n \times n</m>).
-</p>
-<aside><title>Terminology</title><p>
-	A polynomial is <term>monic</term> when the coefficient on the highest power of the variable is <m>1</m>.
-</p></aside>
-<p>
-This is the reason we moved <m>A\uvec{x}</m> to the right-hand side to obtain <m>(\lambda I - A)\uvec{x} = \zerovec</m> in our algebraic manipulations above, instead of moving <m>\lambda\uvec{x}</m> to the left-hand side to obtain <m>(A - \lambda I)\uvec{x} = \zerovec</m> <mdash /> if we had chosen this second option, the characteristic polynomial would have a leading coefficient of <m>\pm 1</m> depending on whether <m>n</m> was even or odd.
-</p>
+	<p>
+	Because calculating
+	<m>\det(\lambda I - A)</m>
+	only involves multiplication, addition, and subtraction,
+	its result <em>is</em> always a polynomial in the variable <m>\lambda</m>.
+	In fact, this polynomial will always be a <term>monic</term> polynomial of degree <m>n</m>
+	(where <m>A</m> is <m>n \times n</m>).
+	</p>
+	<aside><title>Terminology</title><p>
+		A polynomial is <term>monic</term> when the coefficient on the highest power of the variable is <m>1</m>.
+	</p></aside>
+	<p>
+	This is the reason we moved <m>A\uvec{x}</m> to the right-hand side to obtain
+	<m>(\lambda I - A)\uvec{x} = \zerovec</m>
+	in our algebraic manipulations above, instead of moving <m>\lambda\uvec{x}</m> to the left-hand side to obtain
+	<m>(A - \lambda I)\uvec{x} = \zerovec</m> <mdash />
+	if we had chosen this second option,
+	the characteristic polynomial would have a leading coefficient of <m>\pm 1</m> depending on whether <m>n</m> was even or odd.
+	</p>
 </remark>
 
 </subsection>
@@ -78,7 +104,16 @@ This is the reason we moved <m>A\uvec{x}</m> to the right-hand side to obtain <m
 <p>
 In
 <xref ref="activity-eigen-values-vectors-eigenvalues-special-matrices" />,
-we considered the eigenvalue procedure for diagonal and triangular matrices. Suppose <m>A</m> is such a matrix, with values <m>d_1,d_2,\dotsc,d_n</m> down its main diagonal. Then <m>\lambda I - A</m> is of the same special form as <m>A</m> (diagonal or triangular), with entries <m>\lambda-d_1,\lambda-d_2,\dotsc,\lambda-d_n</m> down its main diagonal. Since we know that the determinant of a diagonal or triangular matrix is equal to the product of its diagonal entries
+we considered the eigenvalue procedure for diagonal and triangular matrices.
+Suppose <m>A</m> is such a matrix,
+with values
+<m>d_1,d_2,\dotsc,d_n</m>
+down its main diagonal.
+Then <m>\lambda I - A</m> is of the same special form as <m>A</m> (diagonal or triangular),
+with entries
+<m>\lambda-d_1,\lambda-d_2,\dotsc,\lambda-d_n</m>
+down its main diagonal.
+Since we know that the determinant of a diagonal or triangular matrix is equal to the product of its diagonal entries
 (<xref ref="proposition-det-special-forms-triangular">Statement</xref>
 of
 <xref ref="proposition-det-special-forms" />),
@@ -94,15 +129,25 @@ and so the eigenvalues of <m>A</m> will be precisely its diagonal entries.
 <title>Determining eigenvectors</title>
 
 <p>
-Once we know all possible eigenvalues of a square matrix <m>A</m>, we can substitute those values into the matrix equation <m>A\uvec{x}=\lambda\uvec{x}</m> one at a time. With a value for <m>\lambda</m> substituted in, this matrix equation is no longer nonlinear and can be solved for all corresponding eigenvectors <m>\uvec{x}</m>. But the homogeneous version <m>(\lambda I - A)\uvec{x} = \zerovec</m> is more convenient to work with, since to solve this system we just need to row reduce the coefficient matrix <m>\lambda I - A</m>.
+Once we know all possible eigenvalues of a square matrix <m>A</m>,
+we can substitute those values into the matrix equation
+<m>A\uvec{x}=\lambda\uvec{x}</m>
+one at a time.
+With a value for <m>\lambda</m> substituted in,
+this matrix equation is no longer nonlinear and can be solved for all corresponding eigenvectors <m>\uvec{x}</m>.
+But the homogeneous version
+<m>(\lambda I - A)\uvec{x} = \zerovec</m>
+is more convenient to work with,
+since to solve this system we just need to row reduce the coefficient matrix <m>\lambda I - A</m>.
 </p>
 
 <algorithm xml:id="procedure-eigen-values-vectors-compute-evectors">
-	<title>
-		To determine all eigenvectors of a square matrix <m>A</m> that correspond to a specific eigenvalue <m>\lambda</m>
-	</title>
+	<title> To determine all eigenvectors of a square matrix <m>A</m> that correspond to a specific eigenvalue <m>\lambda</m> </title>
 	<statement><p>
-	Compute the matrix <m>C = \lambda I - A</m>. Then the eigenvectors corresponding to <m>\lambda</m> are precisely the nontrivial solutions of the homogeneous system <m>C\uvec{x} = \zerovec</m>, which can be solved by row reducing as usual.
+		Compute the matrix
+		<m>C = \lambda I - A</m>.
+		Then the eigenvectors corresponding to <m>\lambda</m> are precisely the nontrivial solutions of the homogeneous system <m>C\uvec{x} = \zerovec</m>,
+		which can be solved by row reducing as usual.
 	</p></statement>
 </algorithm>
 
@@ -113,13 +158,23 @@ Once we know all possible eigenvalues of a square matrix <m>A</m>, we can substi
 <title>Eigenspaces</title>
 
 <p>
-Determining eigenvectors is the same as solving the homogeneous system <m>(\lambda I - A)\uvec{x} = \zerovec</m>, so the eigenvectors of <m>A</m> corresponding to a specific eigenvalue <m>\lambda</m> are precisely the nonzero vectors in the null space of <m>\lambda I - A</m>. In particular, since a null space is a subspace of <m>\R^n</m>, we see that the collection of all eigenvectors of <m>A</m> that correspond to a specific eigenvalue <m>\lambda</m> creates a subspace of <m>\R^n</m>, once we also include the zero vector in the collection. This subspace is called the <term>eigenspace</term> of <m>A</m> for eigenvalue <m>\lambda</m>, and we write <m>E_\lambda(A)</m> for it.
+Determining eigenvectors is the same as solving the homogeneous system
+<m>(\lambda I - A)\uvec{x} = \zerovec</m>,
+so the eigenvectors of <m>A</m> corresponding to a specific eigenvalue <m>\lambda</m> are precisely the nonzero vectors in the null space of
+<m>\lambda I - A</m>.
+In particular, since a null space is a subspace of <m>\R^n</m>,
+we see that the collection of all eigenvectors of <m>A</m> that correspond to a specific eigenvalue <m>\lambda</m> creates a subspace of <m>\R^n</m>,
+once we also include the zero vector in the collection.
+This subspace is called the <term>eigenspace</term> of <m>A</m> for eigenvalue <m>\lambda</m>,
+and we write <m>E_\lambda(A)</m> for it.
 </p>
 
 <remark><p>
-Since determining eigenvectors is the same as determining a null space, the typical result of carrying out
-<xref ref="procedure-eigen-values-vectors-compute-evectors" />
-for a particular eigenvalue of a matrix will be to obtain a basis for the corresponding eigenspace, by row reducing, assigning parameters, and then extracting basis vectors from the general parametric solution as usual.
+	Since determining eigenvectors is the same as determining a null space,
+	the typical result of carrying out
+	<xref ref="procedure-eigen-values-vectors-compute-evectors" />
+	for a particular eigenvalue of a matrix will be to obtain a basis for the corresponding eigenspace,
+	by row reducing, assigning parameters, and then extracting basis vectors from the general parametric solution as usual.
 </p></remark>
 
 </subsection>
@@ -129,10 +184,22 @@ for a particular eigenvalue of a matrix will be to obtain a basis for the corres
 <title>Connection to invertibility</title>
 
 <p>
-Recall that we do not call the zero vector an eigenvector of a square matrix <m>A</m>, because it would not correspond to <em>one</em> specific eigenvalue <mdash /> the equality <m>A\zerovec = \lambda\zerovec</m> is true for <em>all</em> scalars <m>\lambda</m>. However, the <em>scalar</em> <m>\lambda=0</m> <em>can</em> (possibly) be an eigenvalue for a matrix <m>A</m>, and we explored this possibility in
+Recall that we do not call the zero vector an eigenvector of a square matrix <m>A</m>,
+because it would not correspond to <em>one</em> specific eigenvalue <mdash />
+the equality
+<m>A\zerovec = \lambda\zerovec</m>
+is true for <em>all</em> scalars <m>\lambda</m>.
+However, the <em>scalar</em> <m>\lambda=0</m> <em>can</em> (possibly) be an eigenvalue for a matrix <m>A</m>,
+and we explored this possibility in
 <xref ref="activity-eigen-values-vectors-eigenvalue-zero" />.
 </p><p>
-In the case of <m>\lambda=0</m>, the matrix equation <m>A\uvec{x} = \lambda\uvec{x}</m> turns into the homogeneous system <m>A\uvec{x} = \zerovec</m>. And for <m>\lambda=0</m> to actually be an eigenvalue of <m>A</m>, there needs to be nontrivial solutions to this equation <mdash /> which we know will occur precisely when <m>A</m> is <em>not invertible</em>
+In the case of <m>\lambda=0</m>,
+the matrix equation
+<m>A\uvec{x} = \lambda\uvec{x}</m>
+turns into the homogeneous system <m>A\uvec{x} = \zerovec</m>.
+And for <m>\lambda=0</m> to actually be an eigenvalue of <m>A</m>,
+there needs to be nontrivial solutions to this equation <mdash />
+which we know will occur precisely when <m>A</m> is <em>not invertible</em>
 (<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
 </p>
 

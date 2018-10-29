@@ -30,22 +30,22 @@ respective owners.
 
 <introduction><p>
 First we collect some of our observations about eigenvalues and eigenvectors from
-<xref ref="section-eigen-values-vectors-concepts" />. We omit their proofs, as we have already discussed the ideas behind them in that section.
+<xref ref="section-eigen-values-vectors-concepts" />.
+We omit their proofs,
+as we have already discussed the ideas behind them in that section.
 </p></introduction>
 
-<proposition>
-	<title> Eigenvalues of special forms </title>
-	<statement><p>
-	If square matrix <m>A</m> is diagonal or triangular, then the eigenvalues of <m>A</m> are precisely its diagonal entries.
-	</p></statement>
-</proposition>
+<proposition><title> Eigenvalues of special forms </title><statement><p>
+	If square matrix <m>A</m> is diagonal or triangular,
+	then the eigenvalues of <m>A</m> are precisely its diagonal entries.
+</p></statement></proposition>
 
-<proposition>
-	<title> Eigenspaces </title>
-	<statement><p>
-	For an <m>n \times n</m> matrix <m>A</m>, the collection of all eigenvectors that correspond to a specific eigenvalue <m>\lambda</m>, along with the zero vector, forms a subspace of <m>\R^n</m>.
-	</p></statement>
-</proposition>
+<proposition><title> Eigenspaces </title><statement><p>
+	For an <m>n \times n</m> matrix <m>A</m>,
+	the collection of all eigenvectors that correspond to a specific eigenvalue <m>\lambda</m>,
+	along with the zero vector,
+	forms a subspace of <m>\R^n</m>.
+</p></statement></proposition>
 
 </subsection>
 
@@ -54,62 +54,64 @@ First we collect some of our observations about eigenvalues and eigenvectors fro
 <title>Eigenvalues and invertibility</title>
 
 <introduction><p>
-Our observation in
-<xref ref="subsection-eigen-values-vectors-concepts-invertibility" />
-about the possibility of eigenvalue <m>\lambda=0</m> allows us to add another to our list of properties that are equivalent to invertibility that we began in
-<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
-and then continued in
-<xref ref="theorem-more-det-equiv-to-invertible" />
-and
-<xref ref="theorem-col-row-null-space-equiv-to-invertible" />.
+	Our observation in
+	<xref ref="subsection-eigen-values-vectors-concepts-invertibility" />
+	about the possibility of eigenvalue <m>\lambda=0</m> allows us to add another to our list of properties that are equivalent to invertibility that we began in
+	<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
+	and then continued in
+	<xref ref="theorem-more-det-equiv-to-invertible" />
+	and
+	<xref ref="theorem-col-row-null-space-equiv-to-invertible" />.
 </p></introduction>
 
 <theorem xml:id="theorem-eigen-values-vectors-equiv-to-invertible">
 	<title> Characterizations of invertibility </title>
 	<statement><p>
-	For a square matrix <m>A</m>, the following are equivalent.
-	<ol>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-invertible">
-		Matrix <m>A</m> is invertible.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-every-sys">
-		Every linear system that has <m>A</m> as a coefficient matrix has one unique solution.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-homog-sys">
-		The homogeneous system <m>A\uvec{x} = \zerovec</m> has only the trivial solution.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-some-sys">
-		There is some linear system that has <m>A</m> as a coefficient matrix and has one unique solution.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-rank">
-		The rank of <m>A</m> is equal to the size of <m>A</m>.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-rref">
-		The RREF of <m>A</m> is the identity.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-prod-elem">
-		Matrix <m>A</m> can be expressed as a product of some number of elementary matrices.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-det-nonzero">
-		The determinant of <m>A</m> is nonzero.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-col-lin-indep">
-		The columns of <m>A</m> are linearly independent.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-col-basis">
-		The columns of <m>A</m> form a basis for <m>\R^n</m>, where <m>n</m> is the size of <m>A</m>.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-row-lin-indep">
-		The rows of <m>A</m> are linearly independent.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-row-basis">
-		The rows of <m>A</m> form a basis for <m>\R^n</m>, where <m>n</m> is the size of <m>A</m>.
-		</li>
-		<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-evalue-0">
-		The scalar <m>\lambda=0</m> is not an eigenvalue for <m>A</m>.
-		</li>
-	</ol>
-	In particular, a square matrix is invertible if and only if <m>\lambda=0</m> is <em>not</em> an eigenvalue for <m>A</m>.
+		For a square matrix <m>A</m>, the following are equivalent.
+		<ol>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-invertible">
+				Matrix <m>A</m> is invertible.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-every-sys">
+				Every linear system that has <m>A</m> as a coefficient matrix has one unique solution.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-homog-sys">
+				The homogeneous system <m>A\uvec{x} = \zerovec</m> has only the trivial solution.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-some-sys">
+				There is some linear system that has <m>A</m> as a coefficient matrix and has one unique solution.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-rank">
+				The rank of <m>A</m> is equal to the size of <m>A</m>.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-rref">
+				The RREF of <m>A</m> is the identity.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-prod-elem">
+				Matrix <m>A</m> can be expressed as a product of some number of elementary matrices.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-det-nonzero">
+				The determinant of <m>A</m> is nonzero.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-col-lin-indep">
+				The columns of <m>A</m> are linearly independent.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-col-basis">
+				The columns of <m>A</m> form a basis for <m>\R^n</m>,
+				where <m>n</m> is the size of <m>A</m>.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-row-lin-indep">
+				The rows of <m>A</m> are linearly independent.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-row-basis">
+				The rows of <m>A</m> form a basis for <m>\R^n</m>,
+				where <m>n</m> is the size of <m>A</m>.
+			</li>
+			<li xml:id="theorem-eigen-values-vectors-equiv-to-invertible-evalue-0">
+				The scalar <m>\lambda=0</m> is not an eigenvalue for <m>A</m>.
+			</li>
+		</ol>
+		In particular, a square matrix is invertible if and only if <m>\lambda=0</m> is <em>not</em> an eigenvalue for <m>A</m>.
 	</p></statement>
 </theorem>
 

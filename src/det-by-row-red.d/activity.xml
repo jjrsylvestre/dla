@@ -50,7 +50,7 @@ respective owners.
 		then swap the <m>\ond</m> and <m>\ird</m> rows of that matrix,
 		and then swap the <m>\irst</m> and <m>\ond</m> rows of that matrix?
 		Do you want to change your answer to
-		<xref ref="activity-det-by-row-red-det-swap-rows-non-adj" text="type-hybrid" />?
+		<xref ref="activity-det-by-row-red-det-swap-rows-non-adj" text="type-local" />?
 	</p></task>
 	<task><p>
 		<em>Complete the rule:</em>
@@ -71,9 +71,9 @@ respective owners.
 
 <activity xml:id="activity-det-by-row-red-det-identical-rows"><p>
 	Suppose <m>A</m> is a square matrix with two identical rows.
-	What happens to the matrix when you swap these identical rows?
+	What happens to the matrix when you swap those two identical rows?
 	According to <xref ref="activity-det-by-row-red-det-swap-rows" />,
-	what is supposed to happen to the determinant when you swap these identical rows?
+	what is supposed to happen to the determinant when you swap rows?
 	What can you conclude about <m>\det A</m>?
 </p></activity>
 
@@ -155,13 +155,19 @@ respective owners.
 		</p>
 	</introduction>
 	<task><p> Has this row operation changed the cofactors of entries in the first row? </p></task>
-	<task><p>
+	<task xml:id="activity-det-by-row-red-det-combine-rows-separate-dets"><p>
 		Write out the cofactor expansion along the first row for the new matrix.
 		Then use some algebra to express this cofactor expansion as:
-		<me>\det (\text{original matrix}) + k \det (\text{some other matrix}). </me>.
+		<me>(\text{some formula}) + k \det (\text{some other formula}). </me>
+		<!--<me>\det (\text{original matrix}) + k \det (\text{some other matrix}). </me>-->
+		The first <q>some formula</q> should look familiar. Can you craft a <m>3 \times 3</m> matrix so that <q>some other formula</q> can be similarly interpreted?
 	</p></task>
 	<task>
-		<statement><p> What is <m>\det (\text{some other matrix})</m>? </p></statement>
+		<statement><p>
+			<!-- What is <m>\det (\text{some other matrix})</m>? -->
+			What is the value of the <q>some other formula</q> part from
+			<xref ref="activity-det-by-row-red-det-combine-rows-separate-dets" text="type-local" />?
+		</p></statement>
 		<hint><p> <xref ref="activity-det-by-row-red-det-identical-rows" /> </p></hint>
 	</task>
 	<task><p>

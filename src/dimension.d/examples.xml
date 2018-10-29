@@ -30,108 +30,153 @@ respective owners.
 <subsection xml:id="subsection-dimension-examples-basis-from-params">
 <title>Determining a basis from a parametric expression</title>
 
-<example><title>From the activity set</title><statement>
+<example><title>From the activity set</title><statement><p>
 
-	<p>First, let's carry out some of the examples from <xref ref="activity-dimension-basis-via-parameters" />.
+	First, let's carry out some of the examples from <xref ref="activity-dimension-basis-via-parameters" />.
 	<ol>
 
-		<li><p>
-		In
-		<xref ref="activity-dimension-basis-via-parameters-R3-first-equal-third">Activity</xref>,
-		we considered a certain subspace of <m>\R^3</m>.
-		</p><p>
-		An arbitrary vector in <m>\R^3</m> requires three parameters to describe its three components: <m>\uvec{x} = (a,b,c)</m>. If we restrict to just those vectors whose first and third components are equal, we can replace <m>c</m> by <m>a</m>, to get
-		<me> \uvec{x} = (a,b,a) = (a,0,a) + (0,b,0) = a(1,0,1) + b(0,1,0). </me>
-		So a basis for this subspace of <m>\R^3</m> is <m>\basisfont{B} = \{(1,0,1),(0,1,0)\}</m>, and the dimension is <m>2</m>.
-		</p></li>
+		<li>
+			<p>
+			In
+			<xref ref="activity-dimension-basis-via-parameters-R3-first-equal-third">Activity</xref>,
+			we considered a certain subspace of <m>\R^3</m>.
+			</p><p>
+			An arbitrary vector in <m>\R^3</m> requires three parameters to describe its three components:
+			<m>\uvec{x} = (a,b,c)</m>.
+			If we restrict to just those vectors whose first and third components are equal,
+			we can replace <m>c</m> by <m>a</m>,
+			to get
+			<me> \uvec{x} = (a,b,a) = (a,0,a) + (0,b,0) = a(1,0,1) + b(0,1,0). </me>
+			So a basis for this subspace of <m>\R^3</m> is
+			<m>\basisfont{B} = \{(1,0,1),(0,1,0)\}</m>,
+			and the dimension is <m>2</m>.
+			</p>
+		</li>
 
-		<li><p>
-		In
-		<xref ref="activity-dimension-basis-via-parameters-M2-sum-to-zero">Activity</xref>,
-		we considered a certain subspace of <m>\matrixring_2(\R)</m>.
-		</p><p>
-		An arbitrary matrix in <m>\matrixring_2(\R)</m> requires four parameters to describe its four entries:
-		<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}. </me>
-		If we restrict to those matrices whose entries sum to zero, so that <m>a+b+c+d=0</m>, then we can isolate <m>d=-a-b-c</m> and substitute that into the matrix:
-		<md>
-			<mrow> A \amp= \begin{bmatrix} a \amp b \\ c \amp -a-b-c \end{bmatrix} </mrow>
-			<mrow>
-				\amp
-				= \left[\begin{array}{rr} a \amp 0 \\ 0 \amp -a \end{array}\right]
-				+ \left[\begin{array}{rr} 0 \amp b \\ 0 \amp -b \end{array}\right]
-				+ \left[\begin{array}{rr} 0 \amp 0 \\ c \amp -c \end{array}\right]
-			</mrow>
-			<mrow>
-				\amp
-				= a\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
-				+ b\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
-				+ c\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right].
-			</mrow>
-		</md>
-		So this subspace of <m>\matrixring_2(\R)</m> has dimension <m>3</m>, with basis
-		<me>
-			\basisfont{B} = \left\{
-				\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right],
-				\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right],
-				\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right]
-			\right\}.
-		</me>
-		</p></li>
+		<li>
+			<p>
+			In
+			<xref ref="activity-dimension-basis-via-parameters-M2-sum-to-zero">Activity</xref>,
+			we considered a certain subspace of <m>\matrixring_2(\R)</m>.
+			</p><p>
+			An arbitrary matrix in <m>\matrixring_2(\R)</m> requires four parameters to describe its four entries:
+			<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}. </me>
+			If we restrict to those matrices whose entries sum to zero,
+			so that <m>a+b+c+d=0</m>,
+			then we can isolate <m>d=-a-b-c</m> and substitute that into the matrix:
+			<md>
+				<mrow> A \amp= \begin{bmatrix} a \amp b \\ c \amp -a-b-c \end{bmatrix} </mrow>
+				<mrow>
+					\amp
+					= \left[\begin{array}{rr} a \amp 0 \\ 0 \amp -a \end{array}\right]
+					+ \left[\begin{array}{rr} 0 \amp b \\ 0 \amp -b \end{array}\right]
+					+ \left[\begin{array}{rr} 0 \amp 0 \\ c \amp -c \end{array}\right]
+				</mrow>
+				<mrow>
+					\amp
+					= a\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
+					+ b\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+					+ c\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right].
+				</mrow>
+			</md>
+			So this subspace of <m>\matrixring_2(\R)</m> has dimension <m>3</m>,
+			with basis
+			<me>
+				\basisfont{B} = \left\{
+					\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right],
+					\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right],
+					\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right]
+				\right\}.
+			</me>
+			</p>
+		</li>
 
-		<li><p>
-		In
-		<xref ref="activity-dimension-basis-via-parameters-P5-odd">Activity</xref>,
-		we considered a certain subspace of <m>\poly_5(\R)</m>.
-		</p><p>
-		An arbitrary polynomial in <m>\poly_5(\R)</m> requires <em>six</em> parameters, one for each power of <m>x</m>, along with a parameter for the constant term:
-		<me> p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 + a_5 x^5. </me>
-		If we restrict to only odd polynomials, we need to eliminate the constant term and the even powers of <m>x</m>:
-		<me> p(x) = a_1 x + a_3 x^3 + a_5 x^5. </me>
-		(Equivalently, we have applied the homogeneous conditions <m>a_0 = 0</m>, <m>a_2 = 0</m>, and <m>a_4 = 0</m>.)
-		So this subspace of <m>\poly_5(\R)</m> has dimension <m>3</m>, with basis <m>\basisfont{B} = \{x,x^3,x^5\}</m>.
-		</p></li>
+		<li>
+			<p>
+			In
+			<xref ref="activity-dimension-basis-via-parameters-P5-odd">Activity</xref>,
+			we considered a certain subspace of <m>\poly_5(\R)</m>.
+			</p><p>
+			An arbitrary polynomial in <m>\poly_5(\R)</m> requires <em>six</em> parameters,
+			one for each power of <m>x</m>,
+			along with a parameter for the constant term:
+			<me> p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 + a_5 x^5. </me>
+			If we restrict to only odd polynomials,
+			we need to eliminate the constant term and the even powers of <m>x</m>:
+			<me> p(x) = a_1 x + a_3 x^3 + a_5 x^5. </me>
+			(Equivalently, we have applied the homogeneous conditions <m>a_0 = 0</m>, <m>a_2 = 0</m>, and <m>a_4 = 0</m>.)
+			So this subspace of <m>\poly_5(\R)</m> has dimension <m>3</m>,
+			with basis
+			<m>\basisfont{B} = \{x,x^3,x^5\}</m>.
+			</p>
+		</li>
 
 	</ol></p>
 
 </statement></example>
 
 
-<example><title>Dimensions of familiar spaces via parameters</title><statement>
-
-	<p>
-	Now let's examine how the dimensions of our favourite example spaces relate to our parametric point of view. We considered specific examples of these in parts of <xref ref="activity-dimension-basis-via-parameters" />, but here we'll work more generally.
+<example><title>Dimensions of familiar spaces via parameters</title><statement><p>
+	Now let's examine how the dimensions of our favourite example spaces relate to our parametric point of view.
+	We considered specific examples of these in parts of
+	<xref ref="activity-dimension-basis-via-parameters" />,
+	but here we'll work more generally.
 	<ol>
 		<li>
-		An arbitrary vector in <m>\R^n</m> requires <m>n</m> parameters, one for each component:
-		<me> \uvec{x} = (x_1,x_2,\dotsc,x_n). </me>
-		If we expanded this into a linear combination, each parameter would be attached to a standard basis vector <m>\uvec{e}_j</m>. Since we've got <m>n</m> parameters and a corresponding <m>n</m> standard basis vectors, we have <me>\dim \R^n = n. </me>
+			An arbitrary vector in <m>\R^n</m> requires <m>n</m> parameters,
+			one for each component:
+			<me> \uvec{x} = (x_1,x_2,\dotsc,x_n). </me>
+			If we expanded this into a linear combination,
+			each parameter would be attached to a standard basis vector <m>\uvec{e}_j</m>.
+			Since we've got <m>n</m> parameters and a corresponding <m>n</m> standard basis vectors,
+			we have
+			<me>\dim \R^n = n. </me>
 		</li>
 		<li>
-		An arbitrary <m>m\times n</m> matrix in <m>\matrixring_{m \times n}(\R)</m> requires <m>mn</m> parameters, one for each entry:
-		<me> A = [a_{ij}], \qquad 1 \le i \le m, \;\; 1 \le j \le n. </me>
-		If we expanded this into a linear combination, each parameter would be attached to a standard basis matrix <m>E_{ij}</m>, with zeros in all entries except for a single <m>1</m> in the <m>\nth[(i,j)]</m> entry. Since we've got <m>mn</m> parameters and a corresponding <m>mn</m> standard basis matrices, we have <me> \dim \matrixring_{m \times n}(\R) = mn. </me>
+			An arbitrary <m>m\times n</m> matrix in <m>\matrixring_{m \times n}(\R)</m> requires <m>mn</m> parameters,
+			one for each entry:
+			<me> A = [a_{ij}], \qquad 1 \le i \le m, \;\; 1 \le j \le n. </me>
+			If we expanded this into a linear combination,
+			each parameter would be attached to a standard basis matrix <m>E_{ij}</m>,
+			with zeros in all entries except for a single <m>1</m> in the <m>\nth[(i,j)]</m> entry.
+			Since we've got <m>mn</m> parameters and a corresponding <m>mn</m> standard basis matrices,
+			we have
+			<me> \dim \matrixring_{m \times n}(\R) = mn. </me>
 		</li>
 		<li>
-		An arbitrary polynomial in <m>\poly_n(\R)</m>, the space of polynomials of degree <m>n</m> or less, requires <m>n+1</m> parameters, one for each power of <m>x</m> plus an extra one for the constant term:
-		<me> p(x) = a_0 + a_1x + a_2 x^2 + \dotsb + a_n x^n. </me>
-		This is already naturally expressed as a linear combination, and each parameter is attached to a polynomial from the standard basis <m>\basisfont{B} = \{1,x,x^2,\dotsc,x^n\}</m>. Since we've got <m>n+1</m> parameters and a corresponding <m>n+1</m> standard basis polynomials, we have <me> \dim \poly_n(\R) = n+1. </me>
+			An arbitrary polynomial in <m>\poly_n(\R)</m>,
+			the space of polynomials of degree <m>n</m> or less,
+			requires <m>n+1</m> parameters,
+			one for each power of <m>x</m> plus an extra one for the constant term:
+			<me> p(x) = a_0 + a_1x + a_2 x^2 + \dotsb + a_n x^n. </me>
+			This is already naturally expressed as a linear combination,
+			and each parameter is attached to a polynomial from the standard basis
+			<m>\basisfont{B} = \{1,x,x^2,\dotsc,x^n\}</m>.
+			Since we've got <m>n+1</m> parameters and a corresponding <m>n+1</m> standard basis polynomials,
+			we have
+			<me> \dim \poly_n(\R) = n+1. </me>
 		</li>
 	</ol>
-	</p>
-
-</statement></example>
+</p></statement></example>
 
 
 <example><title>The solution space of a homogeneous system</title><statement>
 
 	<p>
-	In <xref ref="remark-dimension-concepts-parameter-procedure" />, we noted how assigning parameters after row reducing a homogeneous system corresponded directly to a parameter-based procedure for determine the basis for a space. Let's illustrate this correspondence with an example.
+	In <xref ref="remark-dimension-concepts-parameter-procedure" />,
+	we noted how assigning parameters after row reducing a homogeneous system corresponded directly to a parameter-based procedure for determine the basis for a space.
+	Let's illustrate this correspondence with an example.
 	</p><p>
-	Consider the homogeneous system in <xref ref="activity-row-red-system-homog-sol" />, which we solved in
+	Consider the homogeneous system in
+	<xref ref="activity-row-red-system-homog-sol" />,
+	which we solved in
 	<xref ref="example-row-red-examples-solving-homog" />.
 	In
 	<xref ref="example-subspaces-examples-solution-space" />,
-	we used the Subspace Test to verify that the solution set of a homogeneous system with an <m>m\times n</m> coefficient matrix is a subspace of <m>\R^n</m>. The system from <xref ref="activity-row-red-system-homog-sol" /> has a <m>4 \times 4</m> coefficient matrix that we reduced:
+	we used the Subspace Test to verify that the solution set of a homogeneous system with an <m>m\times n</m> coefficient matrix is a subspace of <m>\R^n</m>.
+	The system from
+	<xref ref="activity-row-red-system-homog-sol" />
+	has a <m>4 \times 4</m> coefficient matrix that we reduced:
 	<me>
 		\left[\begin{array}{rrrr}
 			3 \amp 6 \amp -8 \amp 13 \\
@@ -145,11 +190,14 @@ respective owners.
 			0 \amp 0 \amp 0 \amp 0
 		\end{array}\right].
 	</me>
-	Assigning parameters to free variables <m>x_2,x_4</m>, we obtained the general solution in parametric form:
+	Assigning parameters to free variables <m>x_2,x_4</m>,
+	we obtained the general solution in parametric form:
 	<md><mrow>
 		x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t.
 	</mrow></md>
-	We can use these expressions as components in a general solution vector, and expand out it a linear combination, just as in the previous examples in this subsection:
+	We can use these expressions as components in a general solution vector,
+	and expand out it a linear combination,
+	just as in the previous examples in this subsection:
 	<me>
 		\uvec{x}
 		= \begin{bmatrix} -2s + t \\ s \\ 2t \\ t \end{bmatrix}
@@ -158,7 +206,9 @@ respective owners.
 		= s\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right]
 		+ t\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
 	</me>
-	Since two parameters are needed to describe the solution vectors for this system, the solution space has dimension <m>2</m>, and a basis for this subspace is
+	Since two parameters are needed to describe the solution vectors for this system,
+	the solution space has dimension <m>2</m>,
+	and a basis for this subspace is
 	<me>
 		\basisfont{B} = \left\{
 			\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right],
@@ -180,13 +230,22 @@ respective owners.
 <title>An infinite-dimensional example</title>
 
 <p>
-All of the examples in the previous subsection involved <term>finite-dimensional</term> spaces. Here's an example of an infinite-dimensional space.
+All of the examples in the previous subsection involved <term>finite-dimensional</term> spaces.
+Here's an example of an <term>infinite-dimensional</term> space.
 </p><p>
-In <xref ref="activity-dimension-infinite-poly" />, we considered the space of <em>all</em> polynomials. This space cannot be spanned by any finite collection of polynomials, because such a collection would have a polynomial of largest degree, and then every linear combination of those polynomials would have that degree or smaller. So the span of those polynomials could never include polynomials of larger degree. Thus,
+In <xref ref="activity-dimension-infinite-poly" />,
+we considered the space of <em>all</em> polynomials.
+This space cannot be spanned by any finite collection of polynomials,
+because such a collection would have a polynomial of largest degree,
+and then every linear combination of those polynomials would have that degree or smaller.
+So the span of those polynomials could never include polynomials of larger degree.
+Thus,
 <me> \dim \poly(\R) = \infty. </me>
-We can still come up with a basis for this space, but it will contain an infinite number of vectors:
+We can still come up with a basis for this space,
+but it will contain an infinite number of vectors:
 <me> \poly(\R) = \Span\{1,x,x^2,x^3,\dotsc\}. </me>
-This equality says that every polynomial is a linear combination of a finite number of powers of <m>x</m>. This spanning set is also linearly independent because no power of <m>x</m> can be expressed as a linear combination of other powers of <m>x</m>.
+This equality says that every polynomial is a linear combination of a finite number of powers of <m>x</m>.
+This spanning set is also linearly independent because no power of <m>x</m> can be expressed as a linear combination of other powers of <m>x</m>.
 </p>
 
 </subsection>
@@ -198,20 +257,37 @@ This equality says that every polynomial is a linear combination of a finite num
 <p>
 In
 <xref ref="activity-dimension-enlarge-indep-matrices">Activity</xref>,
-we are given a linearly independent set <m>S</m> of vectors in <m>V = \matrixring_2(\R)</m>, and we would like to enlarge it to a basis for the whole space. Since <m>S</m> is linearly independent, it is a basis for the subspace <m>\Span S</m>. Since we know that <m>\dim\matrixring_2(\R) = 4</m>, we need to add two more linearly independent vectors to get up to a basis for <m>V</m>. To do this, we can use
-<xref ref="proposition-linear-indep-expand-indep" />, which says that to enlarge a linearly independent set, we need to add a vector from outside the span of the vectors we already have.
+we are given a linearly independent set <m>S</m> of vectors in <m>V = \matrixring_2(\R)</m>,
+and we would like to enlarge it to a basis for the whole space.
+Since <m>S</m> is linearly independent,
+it is a basis for the subspace <m>\Span S</m>.
+Since we know that <m>\dim\matrixring_2(\R) = 4</m>,
+we need to add two more linearly independent vectors to get up to a basis for <m>V</m>.
+To do this, we can use
+<xref ref="proposition-linear-indep-expand-indep" />,
+which says that to enlarge a linearly independent set,
+we need to add a vector from outside the span of the vectors we already have.
 </p><p>
-An obvious source for candidate vectors to use to enlarge <m>S</m> is the standard basis <m>\basisfont{B} = \{E_{11},E_{12},E_{21},E_{22}\}</m>. We know that <m>\Span S</m> can't contain <em>all four</em> of these vectors, because then
+An obvious source for candidate vectors to use to enlarge <m>S</m> is the standard basis
+<m>\basisfont{B} = \{E_{11},E_{12},E_{21},E_{22}\}</m>.
+We know that <m>\Span S</m> can't contain <em>all four</em> of these vectors,
+because then
 <xref ref="proposition-subspaces-eq-span-test-first-step">Statement</xref>
 of
 <xref ref="proposition-subspaces-eq-span-test" />
-would imply that all of <m>V = \Span \basisfont{B}</m> would be contained in <m>\Span S</m>, which is not possible because <m>\dim (\Span S)</m> is just <m>2</m>. So let's start by checking whether <m>E_{11}</m> is in <m>\Span S</m>. The vector equation
+would imply that all of
+<m>V = \Span \basisfont{B}</m>
+would be contained in <m>\Span S</m>,
+which is not possible because <m>\dim (\Span S)</m> is just <m>2</m>.
+So let's start by checking whether <m>E_{11}</m> is in <m>\Span S</m>.
+The vector equation
 <me>
 	k_1 \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1\end{bmatrix}
 	+ k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 1 \amp -1\end{array}\right]
 	= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0\end{bmatrix}
 </me>
-leads to a system of equations with augmented matrix as on the left below, which we can reduce:
+leads to a system of equations with augmented matrix as on the left below,
+which we can reduce:
 <me>
 	\left[\begin{array}{rr|r}
 		1 \amp 1 \amp 1 \\
@@ -227,9 +303,15 @@ leads to a system of equations with augmented matrix as on the left below, which
 		0 \amp 0 \amp 0
 	\end{array}\right].
 </me>
-The one in the last column indicates that the system is inconsistent, which is what we want <mdash /> there is no solution, so <m>E_{11}</m> is not in <m>\Span S</m>, and so we can enlarge <m>S</m> by including <m>E_{11}</m> and it will remain linearly independent. Call the enlarged set <m>S'</m>.
+The one in the last column indicates that the system is inconsistent,
+which is what we want <mdash />
+there is no solution,
+so <m>E_{11}</m> is not in <m>\Span S</m>,
+and so we can enlarge <m>S</m> by including <m>E_{11}</m> and it will remain linearly independent.
+Call the enlarged set <m>S'</m>.
 </p><p>
-Now let's check if <m>E_{12}</m> is in the span of these <em>three</em> linearly independent vectors that we have already. Our vector equation is now,
+Now let's check if <m>E_{12}</m> is in the span of these <em>three</em> linearly independent vectors that we have already.
+Our vector equation is now,
 <me>
 	k_1 \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \end{bmatrix}
 	+ k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 1 \amp -1 \end{array}\right]
@@ -252,7 +334,10 @@ which leads to a system with augmented and reduced augmented matrices
 		0 \amp 0 \amp 0 \amp 1
 	\end{array}\right].
 </me>
-Again, there is no solution, so <m>E_{12}</m> is not in <m>\Span S'</m>. We are now up to four linearly independent vectors, which must form a basis for the <m>4</m>-dimensional space <m>\matrixring_2(\R)</m>.
+Again, there is no solution,
+so <m>E_{12}</m> is not in <m>\Span S'</m>.
+We are now up to four linearly independent vectors,
+which must form a basis for the <m>4</m>-dimensional space <m>\matrixring_2(\R)</m>.
 </p>
 <aside><title>See</title><p>
 	<xref ref="corollary-dimension-basis-right-num-just-one-check" />
@@ -271,27 +356,35 @@ Our final basis is
 </me>
 </p>
 
-<paragraphs><title>A look ahead</title><p>
-In the example above, we could have augmented our initial spanning set vectors with <em>all</em> standard basis vectors, and checked all of them all at once:
-<me>
-	\left[\begin{array}{rr|rrrr}
-		1 \amp 1 \amp 1 \amp 0 \amp 0 \amp 0 \\
-		1 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
-		1 \amp 1 \amp 0 \amp 0 \amp 1 \amp 0 \\
-		1 \amp -1 \amp 0 \amp 0 \amp 0 \amp 1
- 	\end{array}\right]
-	\qquad\rowredarrow\qquad
-	\left[\begin{array}{rr|rrrr}
-		1 \amp 0 \amp 0 \amp 0 \amp 1/2 \amp 1/2 \\
-		0 \amp 1 \amp 0 \amp 0 \amp 1/2 \amp -1/2 \\
-		0 \amp 0 \amp 1 \amp 0 \amp -1 \amp 0 \\
-		0 \amp 0 \amp 0 \amp 1 \amp -1/2 \amp -1/2
-	\end{array}\right].
-</me>
-By changing the position of the vertical line that indicates the separation of the coefficients from the column of constants one column at a time, we can change our point of view on each augmented column from representing a vector to be achieved as a linear combination of the spanning vectors to a vector <em>included</em> as a spanning vector. We will see in
-<xref ref="chapter-col-row-null-space" />
-how the leading ones in the reduced matrix tell us exactly which of the original six vectors are linearly independent.
-</p></paragraphs>
+<paragraphs><title>A look ahead</title>
+	<p>
+	In the example above,
+	we could have augmented our initial spanning set vectors with <em>all</em> standard basis vectors,
+	and checked all of them all at once:
+	<me>
+		\left[\begin{array}{rr|rrrr}
+			1 \amp 1 \amp 1 \amp 0 \amp 0 \amp 0 \\
+			1 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+			1 \amp 1 \amp 0 \amp 0 \amp 1 \amp 0 \\
+			1 \amp -1 \amp 0 \amp 0 \amp 0 \amp 1
+	 	\end{array}\right]
+		\qquad\rowredarrow\qquad
+		\left[\begin{array}{rr|rrrr}
+			1 \amp 0 \amp 0 \amp 0 \amp 1/2 \amp 1/2 \\
+			0 \amp 1 \amp 0 \amp 0 \amp 1/2 \amp -1/2 \\
+			0 \amp 0 \amp 1 \amp 0 \amp -1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1 \amp -1/2 \amp -1/2
+		\end{array}\right].
+	</me>
+	By changing the position of the vertical line that indicates the separation of the coefficients from the column of constants one column at a time,
+	we can change our point of view on each augmented column from representing a vector to be achieved as a linear combination of the spanning vectors to a vector <em>included</em> as a spanning vector.
+	</p>
+	<aside><title>A look ahead</title><p>
+		We will see in
+		<xref ref="chapter-col-row-null-space" />
+		how the leading ones in the reduced matrix tell us exactly which of the original six vectors are linearly independent.
+	</p></aside>
+</paragraphs>
 
 </subsection>
 

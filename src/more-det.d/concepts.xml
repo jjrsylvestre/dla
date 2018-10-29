@@ -59,7 +59,7 @@ In a second course in linear algebra, you will probably learn that square matric
 <p>
 Let's remind ourselves how determinants are defined, by cofactor expansions. For matrix <m>A=\begin{bmatrix}a_{ij}\end{bmatrix}</m>, the cofactor expansion of <m>\det A</m> along row <m>i</m> is
 <me> \det A = a_{i1}C_{i1} + a_{i2}C_{i2} \dotsb + a_{in}C_{in}, </me>
-where the <m>C_{ij}</m> are the associated cofactors. This pattern of a sum of products sure looks like matrix multiplication, where we are multiplying the <m>\nth[i]</m> row of <m>A</m> against a column of some matrix. Since each position in <m>A</m> has a corresponding cofactor, we can create a <term>matrix of cofactors</term> <m>C_A = \begin{bmatrix}C_{ij}\end{bmatrix}</m>. Except the pattern of indices for the <m>C_{ij}</m> in the cofactor expansion above also progress along a <em>row</em>, whereas when we multiply matrices we multiply rows against <em>columns</em>. However, we know a way to turn columns into rows <mdash /> the transpose. We call the transpose of the matrix of cofactors the <term>(classical) adjoint of <m>A</m></term>, and write <m>\adj A</m> to mean <m>\utrans{C}_A</m>.
+where the <m>C_{ij}</m> are the associated cofactors. This pattern of a sum of products sure looks like matrix multiplication, where we are multiplying the <m>\nth[i]</m> row of <m>A</m> against a column of some matrix. Since each position in <m>A</m> has a corresponding cofactor, we can create a <term>matrix of cofactors</term> <m>C_A = \begin{bmatrix}C_{ij}\end{bmatrix}</m>. Except the pattern of indices for the <m>C_{ij}</m> in the cofactor expansion above progresses along a <em>row</em> of this cofactor matrix, whereas when we multiply matrices we multiply rows against <em>columns</em>. However, we know a way to turn rows into columns <mdash /> the transpose. We call the transpose of the matrix of cofactors the <term>(classical) adjoint of <m>A</m></term>, and write <m>\adj A</m> to mean <m>\utrans{C}_A</m>.
 </p><p>
 In <xref ref="activity-more-det-adjoint" />, we explored what happens when we multiply out <m>A</m> times <m>\adj A</m>. We only worked with the <m>3\times 3</m> case, but the same patterns would emerge for any size matrix. Remember that in a product like <m>A(\adj A)</m> we get the <m>\nth[(i,j)]</m> entry by multiplying the <m>\nth[i]</m> row of the first matrix against the <m>\nth[j]</m> column of the second matrix. Since the second matrix is a transpose, its <m>\nth[j]</m> column will be the <m>\nth[j]</m> <em>row</em> of the matrix of cofactors <m>C_A</m>. Thus, for each diagonal entry (<ie /> where <m>j=i</m>), we will be multiplying a row of <m>A</m> against the corresponding row of cofactors, and we'll get the value of <m>\det A</m> repeated down the diagonal of <m>A(\adj A)</m>. On the other hand, for an off-diagonal entry (<ie /> where <m>j\ne i</m>), we'll get a row of <m>A</m> multiplied against the cofactors associated to a <em>different</em> row. In our analysis of the operation of combining rows in <xref ref="subsection-det-by-row-red-concepts-combine-rows" />, we determined that <em>a <q>mixed</q> cofactor expansion always evaluates to <m>0</m></em>. So all off-diagonal entries of <m>A(\adj A)</m> are <m>0</m>, and this product matrix is diagonal. Moreover, since the same value <m>\det A</m> is repeated down the diagonal, this product matrix is in fact scalar: <me> A(\adj A) = (\det A)I. </me> As mentioned at the start of this section, this fulfills <xref ref="goal-det-concepts-matrix-times-adjoint" />, with <m>\delta = \det A</m> and <m>A' = \adj A</m>. In particular, this gives us a formula for the inverse of any matrix that has nonzero determinant:
 <me> \inv{A} = \frac{1}{\det A}\,\adj A. </me>
@@ -122,8 +122,8 @@ In <xref ref="activity-more-det-multiplicative-elem-version" />, we considered <
 	\det (EA) = (\det E)(\det A).
 </mrow></md>
 is true in all cases of the type of elementary matrix <m>E</m>.
-(See
-<xref ref="proof-lemma-more-det-product-elem-matrix" />
+(For the details of these three cases, see the
+<xref ref="proof-lemma-more-det-product-elem-matrix" text="title">proof</xref>
 for
 <xref ref="lemma-more-det-product-elem-matrix" />,
 which appears in
@@ -143,7 +143,7 @@ Expressed in words, the equality above represents the pattern that <alert>a dete
 <p>
 In <xref ref="activity-more-det-multiplicative-product-elem" />, we progressed to considering determinants of a product of matrices where the first matrix in the product is invertible. In particular, this means that the first matrix can be expressed somehow as a product of elementary matrices
 (<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
-and so we could unravel the determinant of this product one elementary matrix at a time, using the result of the previous subsection at each step.
+and so we can unravel the determinant of this product one elementary matrix at a time, using the result of the previous subsection at each step.
 </p>
 
 <p>
@@ -185,8 +185,8 @@ Of course, this sort of calculation could be repeated no matter how many element
 
 <p>
 Finally, in <xref ref="activity-more-det-det-multiplicative-first-factor-singular" /> we considered determinants of a product of matrices where the first matrix in the product is singular. It is fairly straightforward to verify that again, in this case, <alert>a determinant of a product is the product of the determinants</alert> whenever the first matrix in the product is singular.
-(See the proof of the
-<xref ref="proofcase-proposition-more-det-product">singular case</xref>
+(See the
+<xref ref="proofcase-proposition-more-det-product" text="title">proof of the singular case</xref>
 for
 <xref ref="proposition-more-det-product-two-matrices">Statement</xref>
 of
@@ -208,7 +208,7 @@ and
 <xref ref="subsection-more-det-concepts-det-vs-mult-singular" />
 together verify the universal pattern
 <me> \det (MN) = (\det M)(\det N) </me>
-for square matrices <m>M</m> and <m>N</m> of the same size, no matter whether <m>M</m> is invertible or singular, and so the pattern that <alert>a determinant of a product is the product of the determinants</alert> is true in all cases.  In more sophisticated mathematical language, we say that the determinant function is <term>multiplicative</term>.
+for square matrices <m>M</m> and <m>N</m> of the same size, no matter whether <m>M</m> is invertible or singular, and so the pattern that <alert>a determinant of a product is the product of the determinants</alert> is true in <em>all</em> cases.  In more sophisticated mathematical language, we say that the determinant function is <term>multiplicative</term>.
 </p>
 
 </subsection>
@@ -270,7 +270,7 @@ This looks like a cofactor expansion of some determinant! The cofactors are from
 		| \amp | \amp |
 	\end{bmatrix},
 </me>
-then a cofactor expansion of <m>\det A_1</m> along the first column gives us exactly expression in <xref ref="equation-more-det-concepts-cramer-rule-3x3" /> for the first entry in the product <m>(\adj A)\uvec{b}</m>. Using this in <xref ref="equation-more-det-concepts-cramer-adj-sol-eqn" />, and considering only the top entry on both sides, we get
+then a cofactor expansion of <m>\det A_1</m> along the first column gives us exactly the expression in <xref ref="equation-more-det-concepts-cramer-rule-3x3" /> for the first entry in the product <m>(\adj A)\uvec{b}</m>. Using this in <xref ref="equation-more-det-concepts-cramer-adj-sol-eqn" />, and considering only the top entry on both sides, we get
 <me> x_1 = \frac{1}{\det A}\bigl[(\adj A)\uvec{b}\bigr]_{11} = \frac{\det A_1}{\det A}. </me>
 Similar calculations would tell us that <m>x_2 = (\det A_2)/(\det A)</m>, where <m>A_2</m> is the matrix obtained by replacing the second column of <m>A</m> by <m>\uvec{b}</m>, and similarly for <m>x_3</m>. And the same pattern emerges for larger systems.
 </p><p>

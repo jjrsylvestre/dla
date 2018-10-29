@@ -94,7 +94,7 @@ The effects of the elementary row operations on the determinant are:
 		</p></statement>
 		<hint><p>
 			Use your answer to
-			<xref ref="activity-more-det-row-red-det-0-row-red-det-0" text="local" />.
+			<xref ref="activity-more-det-row-red-det-0-row-red-det-0" text="type-local" />.
 		</p></hint>
 	</task>
 	<task>
@@ -103,7 +103,7 @@ The effects of the elementary row operations on the determinant are:
 		</p></statement>
 		<hint><p>
 			No need to think about row reducing <mdash /> combine your answer to
-			<xref ref="activity-more-det-row-red-det-0-det-0-imp-n-invertible" text="local" />
+			<xref ref="activity-more-det-row-red-det-0-det-0-imp-n-invertible" text="type-local" />
 			with some logical thinking.
 		</p></hint>
 	</task>
@@ -118,11 +118,13 @@ The effects of the elementary row operations on the determinant are:
 	</p></task>
 	<task xml:id="activity-more-det-row-red-det-n0-det-n0-imp-invertible">
 		<statement><p>
-		Recall that if a matrix is singular (<ie /> not invertible), then it is <em>not</em> possible to row reduce it to <m>I</m>, and so its RREF must have a row of zeros. If <m>\det A \neq 0</m>, could <m>A</m> be singular?
+		Recall that if a matrix is singular (<ie /> not invertible), then it is <em>not</em> possible to row reduce it to <m>I</m>
+		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
+		and so its RREF must have a row of zeros. If <m>\det A \neq 0</m>, could <m>A</m> be singular?
 		</p></statement>
 		<hint><p>
 			Use your answer to
-			<xref ref="activity-more-det-row-red-det-n0-row-red-det-n0" text="type-hybrid" />.
+			<xref ref="activity-more-det-row-red-det-n0-row-red-det-n0" text="type-local" />.
 		</p></hint>
 	</task>
 	<task xml:id="activity-more-det-row-red-det-n0-singular-imp-det-0">
@@ -131,7 +133,7 @@ The effects of the elementary row operations on the determinant are:
 		</p></statement>
 		<hint><p>
 			No need to think about row reducing <mdash /> combine your answer to
-			<xref ref="activity-more-det-row-red-det-n0-det-n0-imp-invertible" text="type-hybrid" />
+			<xref ref="activity-more-det-row-red-det-n0-det-n0-imp-invertible" text="type-local" />
 			with some logical thinking.
 		</p></hint>
 	</task>
@@ -185,7 +187,7 @@ The effects of the elementary row operations on the determinant are:
 		Make sure you understand why parts (a) and (b) together verify that <me>\det (MN) = (\det M)(\det N)</me> for this <m>M</m>.
 	</p></task>
 	<task><p>
-		Do you think the calculations of the previous parts would work no matter how many <m>E_i</m>'s are required to express <m>M</m> as a product of elementary matrices?
+		Do you think the calculations in this activity would work out similarly no matter how many <m>E_i</m>'s are required to express <m>M</m> as a product of elementary matrices?
 	</p></task>
 		<!-- NOTE should uncomment this postlude if the last activity in this set (below) is omitted
 		<postlude><p>
@@ -196,13 +198,17 @@ The effects of the elementary row operations on the determinant are:
 </activity>
 
 <activity xml:id="activity-more-det-det-inv">
-	<introduction><p> If matrix <m>A</m> is invertible, by definition this means that <m>A\inv{A} = I</m>. </p></introduction>
+	<introduction><p> If matrix <m>A</m> is invertible, by definition this means that <m>A\inv{A} = I</m> (as well as <m>\inv{A}A = I</m>). </p></introduction>
 	<task xml:id="activity-more-det-det-inv-det-orig-inv"><p>
 		Determine the value of <m>\det (A\inv{A})</m> from the equality <m>A\inv{A} = I</m>.
 	</p></task>
 	<task>
 		<p>
-		Starting with your answer to the previous part of this activity, use the formula <m>\det (MN) = (\det M)(\det N)</m> from <xref ref="activity-more-det-multiplicative-product-elem" /> to find a formula for <m>\det (\inv{A})</m> in terms of <m>\det A</m>.
+		Starting with your answer to
+		<xref ref="activity-more-det-det-inv-det-orig-inv" text="type-local" />,
+		use the formula <m>\det (MN) = (\det M)(\det N)</m> from
+		<xref ref="activity-more-det-multiplicative-product-elem" />
+		to find a formula for <m>\det (\inv{A})</m> in terms of <m>\det A</m>.
 		</p>
 		<aside><title>Recall</title><p>
 			A fraction <m>1/A</m> does not make sense for matrices. However, <m>\det A</m> is just a number, so you can do all the normal algebra you would like with it!

@@ -37,9 +37,9 @@ serve as a proof.
 <proposition xml:id="proposition-linear-indep-test">
 	<title>Test for Linear Dependence/Independence</title>
 	<statement><p>
-	Vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly dependent if the vector equation
-	<me> k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec </me>
-	has a nontrivial solution in the (scalar) variables <m>k_1,k_2,\dotsc,k_m</m>. Otherwise, if this vector equation has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>, then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly independent.
+		Vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly dependent if the vector equation
+		<me> k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec </me>
+		has a nontrivial solution in the (scalar) variables <m>k_1,k_2,\dotsc,k_m</m>. Otherwise, if this vector equation has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>, then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly independent.
 	</p></statement>
 </proposition>
 
@@ -64,7 +64,12 @@ serve as a proof.
 	So we might as well assume that <m>S</m> contains at least one nonzero vector <m>\uvec{v}</m>. But then <m>\zerovec</m> can be expressed as the linear combination <m>\zerovec = 0\uvec{v}</m>. Since we have found a vector in <m>S</m> that can be expressed as a linear combination of another vector in <m>S</m>, the set of vectors is linearly dependent.
  	</p>
 	<aside><title>Note</title><p>
-		This does not violate the Test for Linear Dependence/Independence since in the equality <m>\zerovec = 0\uvec{v}</m>, vector <m>\zerovec</m> is acting as a vector in <m>S</m>. This equality is equivalent to <m>1\cdot\zerovec + 0\cdot\uvec{v} = \zerovec</m>, which is an equality of a <em>non</em>trivial linear combination of vectors from <m>S</m> and the zero vector, as required by the Test.
+		This does not violate
+		<xref ref="proposition-linear-indep-test" />,
+		since in the equality <m>\zerovec = 0\uvec{v}</m>, vector <m>\zerovec</m> is acting as a vector in <m>S</m>.
+		This equality is equivalent to <m>1\cdot\zerovec + 0\cdot\uvec{v} = \zerovec</m>,
+		which is an equality of a <em>non</em>trivial linear combination of vectors from <m>S</m> and the zero vector, as required by
+		<xref ref="proposition-linear-indep-test" />.
 	</p></aside>
 	</proof>
 
@@ -206,7 +211,9 @@ and
 		<mrow> \amp\;\;\vdots </mrow>
 		<mrow> \uvec{w}_m \amp= a_{1m}\uvec{v}_1 + a_{2m}\uvec{v}_2 + \dotsb + a_{n'm}\uvec{v}_{n'}. </mrow>
 	</md>
-	Let's apply the Test for Linear Dependence/Independence to <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>: suppose there are scalars <m>k_1,k_2,\dotsc,k_m</m> so that
+	Let's apply
+	the <xref ref="proposition-linear-indep-test" text="title"/>
+	to <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>: suppose there are scalars <m>k_1,k_2,\dotsc,k_m</m> so that
 	<me> k_1\uvec{w}_1 + k_2\uvec{w}_2 + \dotsb + k_m\uvec{w}_m = \zerovec. </me>
 	If we substitute in the above expressions for each <m>\uvec{w}_i</m> in terms of the vectors in <m>S'</m> and collect like terms, we get
 	<md>
@@ -229,7 +236,9 @@ and
 		<mrow> \amp\;\;\vdots </mrow>
 		<mrow> a_{n'1}k_1 + a_{n'2}k_2 + \dotsb + a_{n'm}k_m \amp= 0, </mrow>
 	</md>
-	in the variables <m>k_1,k_2,\dotsc,k_m</m>. Now, we have assumed <m>m > n \ge n'</m>, so we have more variables than equations in the homogeneous system above. But then the solution will require parameters, which means there are nontrivial solutions. Thus, the Test for Linear Dependence/Independence tells us that the collection <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> is linearly dependent.
+	in the variables <m>k_1,k_2,\dotsc,k_m</m>. Now, we have assumed <m>m > n \ge n'</m>, so we have more variables than equations in the homogeneous system above. But then the solution will require parameters, which means there are nontrivial solutions. Thus,
+	the <xref ref="proposition-linear-indep-test" text="title"/>
+	tells us that the collection <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> is linearly dependent.
 	</p></proof>
 
 </lemma>
