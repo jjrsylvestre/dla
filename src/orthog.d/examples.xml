@@ -54,7 +54,11 @@ respective owners.
 		<mrow>
 		\dotprod{\uvec{e}_i}{\uvec{e}_j}
 		\amp
-		= 0\cdot 0 + \dotsb + 0\cdot 0 + 1\cdot 0 + 0 \cdot 0 + \dotsb + 0\cdot 0 + 0\cdot 1 + 0 \cdot 0 + \dotsb + 0\cdot 0
+		= 0\cdot 0 + \dotsb + 0\cdot 0
+		+ \overbrace{1\cdot 0}^{\nth[i]\text{ times }\nth[i]}
+		+ 0 \cdot 0 + \dotsb + 0\cdot 0
+		+ \overbrace{0\cdot 1}^{\nth[j]\text{ times }\nth[j]}
+		+ 0 \cdot 0 + \dotsb + 0\cdot 0
 		</mrow><mrow>
 		\amp = 0.
 		</mrow>
@@ -79,14 +83,14 @@ respective owners.
 	</ul>
 	</p>
 	<p>
-	We know that the point we are looking is at the terminal point of <m>\proj_{\uvec{a}} \uvec{u}</m>, where <m>\uvec{u} = \abray{OQ} = (4,4)</m>. So compute
+	We know that the point we are looking for is at the terminal point of <m>\proj_{\uvec{a}} \uvec{u}</m>, where <m>\uvec{u} = \abray{OQ} = (4,4)</m>. So compute
 	<me>
 		\proj_{\uvec{a}} \uvec{u}
 		= \frac{4\cdot 3 + 4\cdot 1}{3^2 + 1^2}\; (3,1)
 		= \frac{8}{5} (3,1)
-		= \left(\frac{24}{5}, \frac{8}{5}\right).
+		= \left(\frac{24}{5}, \frac{8}{5}\right),
 	</me>
-	So the point on the line closest to <m>Q</m> is <m>P(24/5,8/5)</m>. Now, the vector <m>\uvec{n} = \abray{PQ} = (-4/5,12/5)</m> will be a normal vector for the line, extending from <m>P</m> to <m>Q</m>, and so the norm of this vector represents the (perpendicular) distanct between <m>Q</m> and the line:
+	which tells us that the point on the line closest to <m>Q</m> is <m>P(24/5,8/5)</m>. Now, the vector <m>\uvec{n} = \abray{PQ} = (-4/5,12/5)</m> will be a normal vector for the line, extending from <m>P</m> to <m>Q</m>, and so the norm of this vector represents the (perpendicular) distanct between <m>Q</m> and the line:
 	<me>
 		d
 		= \unorm{n}
@@ -133,7 +137,9 @@ respective owners.
 	</md>
 	So we can use <m>16x - 5y + 2z = d</m> as the equation of the plane, for some as-yet-to-be-determined value of <m>d</m>. But we also know that the plane passes through the point <m>(3,3,3)</m>, so we must have
 	<me> 16 \cdot 3 - 5\cdot 3 + 2\cdot 3 = d \qquad\implies\qquad d = 39. </me>
-	Thus, the plane can be described algebraically by the equation <m>16x - 5y + 2z = 39</m>, or in point-normal form by the equation <m>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)}</m>, where <m>\uvec{n}</m> is as computed above, <m>\uvec{x}_0</m> is the
+	Thus, the plane can be described algebraically by the equation <m>16x - 5y + 2z = 39</m>, or in point-normal form by the equation
+	<m>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</m>,
+	where <m>\uvec{n}</m> is as computed above, <m>\uvec{x}_0</m> is the
 	<q>base</q> point <m>(3,3,3)</m>, and <m>\uvec{x} = (x,y,z)</m> is a variable point.
 	</p>
 </statement></example>

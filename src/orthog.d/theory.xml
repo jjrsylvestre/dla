@@ -125,7 +125,7 @@ respective owners.
 		</mrow><mrow>
 			\amp = k \uvec{a}
 		</mrow><mrow>
-			\amp = k \uvec{u}.
+			\amp = \uvec{u}.
 		</mrow>
 	</md>
 	</p>
@@ -159,62 +159,70 @@ respective owners.
 	where <m>\uvec{p}_{\uvec{a}}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}_{\uvec{a}}</m> is normal (<ie /> orthogonal) to <m>\uvec{a}</m>.
 	</p></statement>
 
-	<proof><p>
-	Clearly such a decomposition exists <mdash /> see <xref ref="remark-orthog-theory-decomp"/> below. But suppose we have <em>two</em> such decompositions,
-	<md><mrow>
-		\uvec{u} \amp= \uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}}, \amp
-		\uvec{u} \amp= \uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}',
-	</mrow></md>
-	where both <m>\uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}'</m> are parallel to <m>\uvec{a}</m> and both <m>\uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}'</m> are orthogonal to <m>\uvec{a}</m>. Then each of <m>\uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}'</m> are also orthogonal to each of <m>\uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}'</m>
-	(<xref ref="proposition-orthog-props-orthog-to-parallel">Rule</xref>
-	of
-	<xref ref="proposition-orthog-props" />).
-	We can use the two decompositions to obtain two expressions for each of <m>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}</m> and <m>\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}</m>:
-	<md>
-		<mrow>
-			\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{(\uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}})} \amp
-			\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{(\uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}')}
-		</mrow><mrow>
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}} + \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{n}_{\uvec{a}}} \amp
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{p}_{\uvec{a}}'} + \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{n}_{\uvec{a}}'}
-		</mrow><mrow>
-			\amp= \norm{\uvec{p}_{\uvec{a}}}^2 + \zerovec \amp
-			\amp= \norm{\uvec{p}_{\uvec{a}}'}^2 + \zerovec
-		</mrow><mrow>
-			\amp= \norm{\uvec{p}_{\uvec{a}}}^2, \amp
-			\amp= \norm{\uvec{p}_{\uvec{a}}'}^2,
-		</mrow>
-		<mrow></mrow>
-		<mrow>
-			\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{(\uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}')} \amp
-			\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{(\uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}})}
-		</mrow><mrow>
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'} + \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{n}_{\uvec{a}}'} \amp
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{p}_{\uvec{a}}} + \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{n}_{\uvec{a}}}
-		</mrow><mrow>
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'} + \zerovec \amp
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'} + \zerovec
-		</mrow><mrow>
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'}, \amp
-			\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'}.
-		</mrow>
-	</md>
-	Since the bottom two calculations yield the same result, the quantities they begin with must be equal: <me>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}} = \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}.</me>
-	But these are the beginning quantities of the top two calculations, so those two calculations must have the same result. Therefore, we can conclude that <m>\uvec{p}_{\uvec{a}}</m> and <m>\uvec{p}_{\uvec{a}}'</m> are the same length. Since these two vectors are also parallel (because they are both parallel to <m>\uvec{a}</m>), we must have that either they are the same vector or are negatives of each other. However, if they were negatives of each other, the two calculations of <m>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}</m> above would tells us that
-	<me>
-		\norm{\uvec{p}_{\uvec{a}}}^2
-		= \dotprod{\uvec{p}_{\uvec{a}}}{(-\uvec{p}_{\uvec{a}})}
-		= -(\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}})
-		= -\norm{\uvec{p}_{\uvec{a}}}^2,
-	</me>
-	which is only possible if <m>\norm{\uvec{p}_{\uvec{a}}} = 0</m>, in which case <m>\uvec{p}_{\uvec{a}} = \zerovec</m>, and then also <m>\uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}} = \zerovec</m>. Thus, in every case we have <m>\uvec{p}_{\uvec{a}}' = \uvec{p}_{\uvec{a}}</m>. But then
-	<me> \uvec{n}_{\uvec{a}}' = \uvec{u} - \uvec{p}_{\uvec{a}}' = \uvec{u} - \uvec{p}_{\uvec{a}} = \uvec{n}_{\uvec{a}}. </me>
-	So the two decompositions we started with are actually the same decomposition, and it is not possible to have more than one such decomposition.
-	</p></proof>
+	<proof>
+		<p>
+		Clearly such a decomposition exists <mdash /> see <xref ref="remark-orthog-theory-decomp"/> below. But suppose we have <em>two</em> such decompositions,
+		<md><mrow>
+			\uvec{u} \amp= \uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}}, \amp
+			\uvec{u} \amp= \uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}',
+		</mrow></md>
+		where both <m>\uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}'</m> are parallel to <m>\uvec{a}</m> and both <m>\uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}'</m> are orthogonal to <m>\uvec{a}</m>. Then each of <m>\uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}'</m> are also orthogonal to each of <m>\uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}'</m>
+		(<xref ref="proposition-orthog-props-orthog-to-parallel">Rule</xref>
+		of
+		<xref ref="proposition-orthog-props" />).
+		</p><p>
+		We can use the two decompositions to obtain two expressions for each of <m>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}</m> and <m>\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}</m>:
+		<md>
+			<mrow>
+				\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{(\uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}})} \amp
+				\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{(\uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}')}
+			</mrow><mrow>
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}} + \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{n}_{\uvec{a}}} \amp
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{p}_{\uvec{a}}'} + \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{n}_{\uvec{a}}'}
+			</mrow><mrow>
+				\amp= \norm{\uvec{p}_{\uvec{a}}}^2 + \zerovec \amp
+				\amp= \norm{\uvec{p}_{\uvec{a}}'}^2 + \zerovec
+			</mrow><mrow>
+				\amp= \norm{\uvec{p}_{\uvec{a}}}^2, \amp
+				\amp= \norm{\uvec{p}_{\uvec{a}}'}^2,
+			</mrow>
+			<mrow></mrow>
+			<mrow>
+				\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{(\uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}')} \amp
+				\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{(\uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}})}
+			</mrow><mrow>
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'} + \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{n}_{\uvec{a}}'} \amp
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{p}_{\uvec{a}}} + \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{n}_{\uvec{a}}}
+			</mrow><mrow>
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'} + \zerovec \amp
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'} + \zerovec
+			</mrow><mrow>
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'}, \amp
+				\amp= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'}.
+			</mrow>
+		</md>
+		Since the bottom two calculations yield the same result, the quantities they begin with must be equal: <me>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}} = \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}.</me>
+		But these are also the beginning quantities of the top two calculations, so those two calculations must have the same result,
+		<me> \norm{\uvec{p}_{\uvec{a}}}^2 = \norm{\uvec{p}_{\uvec{a}}'}^2 \text{.} </me>
+		Therefore, we can conclude that <m>\uvec{p}_{\uvec{a}}</m> and <m>\uvec{p}_{\uvec{a}}'</m> are the same length. Since these two vectors are also parallel (because they are both parallel to <m>\uvec{a}</m>), we must have that either they are the same vector or are negatives of each other. However, if they were negatives of each other
+		(<ie /> <m>\uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}}</m>), tracing through the two calculations of <m>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}</m> above would tell us that
+		<me>
+			\norm{\uvec{p}_{\uvec{a}}}^2
+			= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
+			= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}'}
+			= \dotprod{\uvec{p}_{\uvec{a}}}{(-\uvec{p}_{\uvec{a}})}
+			= -(\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}})
+			= -\norm{\uvec{p}_{\uvec{a}}}^2,
+		</me>
+		which is only possible if <m>\norm{\uvec{p}_{\uvec{a}}} = 0</m>, in which case <m>\uvec{p}_{\uvec{a}} = \zerovec</m>, and then also <m>\uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}} = \zerovec</m>. Thus, in every case we have <m>\uvec{p}_{\uvec{a}}' = \uvec{p}_{\uvec{a}}</m>. But then
+		<me> \uvec{n}_{\uvec{a}}' = \uvec{u} - \uvec{p}_{\uvec{a}}' = \uvec{u} - \uvec{p}_{\uvec{a}} = \uvec{n}_{\uvec{a}}. </me>
+		So the two decompositions we started with are actually the same decomposition, and it is not possible to have more than one such decomposition.
+		</p>
+	</proof>
 
 </theorem>
 
