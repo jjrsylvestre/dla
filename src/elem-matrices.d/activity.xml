@@ -33,7 +33,8 @@ respective owners.
 	</p></introduction>
 	<task xml:id="activity-elem-matrices-intro-example">
 		<statement><p>
-			Compute <m>EA</m>. What is happening to <m>A</m> when it is multiplied by <m>E</m>?
+			Compute <m>EA</m>.
+			What is happening to <m>A</m> when it is multiplied by <m>E</m>?
 		</p></statement>
 		<hint><p> Think row operations. </p></hint>
 	</task>
@@ -41,13 +42,17 @@ respective owners.
 		Do you think the same thing will happen when computing <m>E</m> times some other matrix?
 	</p></task>
 	<task xml:id="activity-elem-matrices-intro-pattern"><p>
-		We know that <m>EI = E</m>. But then consider <m>EI</m> in terms of the first two parts of this activity. So in terms of row operations, what is the relationship between <m>E</m> and <m>I</m>?
+		We know that <m>EI = E</m>.
+		But then consider <m>EI</m> in terms of the first two parts of this activity.
+		So in terms of row operations,
+		what is the relationship between <m>E</m> and <m>I</m>?
 	</p></task>
 </activity>
 
 <activity xml:id="activity-elem-matrices-intro-cont">
 	<statement><p>
-		Create a <m>3\times 3</m> matrix <m>E'</m> so that for every <m>3\times n</m> matrix <m>A</m>, the result of <m>E' A</m> is the same as applying the row operation <q>multiply row <m>3</m> by <m>-4</m>.</q>
+		Create a <m>3\times 3</m> matrix <m>E'</m> so that for every <m>3\times n</m> matrix <m>A</m>,
+		the result of <m>E' A</m> is the same as applying the row operation <q>multiply row <m>3</m> by <m>-4</m>.</q>
 	</p></statement>
 	<hint><p>
 		What was the pattern you identified in
@@ -57,7 +62,8 @@ respective owners.
 
 <activity xml:id="activity-elem-matrices-intro-cont-more">
 	<statement><p>
-		Create a <m>3\times 3</m> matrix <m>E''</m> so that for every <m>3 \times n</m> matrix <m>A</m>, the result of <m>E'' A</m> is the same as applying the row operation <q>swap rows <m>1</m> and <m>2</m>.</q>
+		Create a <m>3\times 3</m> matrix <m>E''</m> so that for every <m>3 \times n</m> matrix <m>A</m>,
+		the result of <m>E'' A</m> is the same as applying the row operation <q>swap rows <m>1</m> and <m>2</m>.</q>
 	</p></statement>
 	<hint><p>
 		What was the pattern you identified in
@@ -66,7 +72,9 @@ respective owners.
 </activity>
 
 <p>
-Matrices <m>E,E',E''</m> from the activities so far are called <term>elementary matrices</term><idx><h>elementary</h><h>matrix</h></idx>. As the preceding activities demonstrate, every elementary row operation has a corresponding elementary matrix.
+Matrices <m>E,E',E''</m> from the activities so far are called <term>elementary matrices</term><idx><h>elementary</h><h>matrix</h></idx>.
+As the preceding activities demonstrate,
+every elementary row operation has a corresponding elementary matrix.
 </p>
 
 <activity xml:id="activity-elem-matrices-invert-method">
@@ -81,24 +89,28 @@ Matrices <m>E,E',E''</m> from the activities so far are called <term>elementary 
 		</m>.
 	</p></introduction>
 	<task>
-		<statement><p>
-		Determine elementary matrices <m>E_1,E_2,E_3</m> so that <m>E_3 E_2 E_1 B</m> is the identity matrix.
-		</p></statement>
+		<statement><p> Determine elementary matrices <m>E_1,E_2,E_3</m> so that <m>E_3 E_2 E_1 B</m> is the identity matrix. </p></statement>
 		<hint><p>
-		Use the connection between elementary matrices and row operations that we have discovered in this activity set. Consider carefully the order in which the elementary matrices should be multiplied onto <m>B</m>.
+			Use the connection between elementary matrices and row operations that we have discovered in this activity set.
+			Consider carefully the order in which the elementary matrices should be multiplied onto <m>B</m>.
 		</p></hint>
 	</task>
 	<task xml:id="activity-elem-matrices-invert-method-by-elem-matrices"><p>
-		The matrix <m>B</m> happens to be invertible. Manipulate the formula <m>E_3 E_2 E_1 B = I</m> algebraically to obtain a formula for <m>\inv{B}</m> involving your elementary matrices and <m>I</m>. (The <m>I</m> factor is not strictly necessary, but is important for the next step.)
+		The matrix <m>B</m> happens to be invertible.
+		Manipulate the formula <m>E_3 E_2 E_1 B = I</m> algebraically to obtain a formula for <m>\inv{B}</m> involving your elementary matrices and <m>I</m>.
+		(The <m>I</m> factor is not strictly necessary,
+		but is important for the next step.)
 	</p></task>
 	<task xml:id="activity-elem-matrices-invert-method-by-row-red">
 		<statement><p>
-		Using your formula from
-		<xref ref="activity-elem-matrices-invert-method-by-elem-matrices" text="type-hybrid" />
-		as inspiration, come up with a procedure to use <em>only row reduction</em> (and not elementary matrices) to compute the inverse of a square matrix.
+			Using your formula from
+			<xref ref="activity-elem-matrices-invert-method-by-elem-matrices" text="type-hybrid" />
+			as inspiration, come up with a procedure to use <em>only row reduction</em> (and not elementary matrices) to compute the inverse of a square matrix.
 		</p></statement>
 		<hint><p>
-		Where did your elementary matrices <m>E_1,E_2,E_3</m> come from? And what are they now <q>doing</q> to the identity matrix, and in what order?
+			Where did your elementary matrices <m>E_1,E_2,E_3</m> come from?
+			And what are they now <q>doing</q> to the identity matrix,
+			and in what order?
 		</p></hint>
 	</task>
 </activity>
@@ -109,28 +121,38 @@ Matrices <m>E,E',E''</m> from the activities so far are called <term>elementary 
 		<m>A = \left[\begin{smallmatrix}a \amp b\\c \amp d\end{smallmatrix}\right]</m>.
 	</p></introduction>
 	<task><p>
-		Assume that <m>a\neq 0</m>. Use the method you developed in
+		Assume that <m>a\neq 0</m>.
+		Use the method you developed in
 		<xref ref="activity-elem-matrices-invert-method" />
 		to determine the inverse of <m>A</m>.
 	</p></task>
-	<task><p> Did you need to assume anything about <m>ad-bc</m> for this to work? Why? </p></task>
+	<task><p>
+		Did you need to assume anything about <m>ad-bc</m> for this to work?
+		Why?
+	</p></task>
 	<task><p> Repeat for the other case: assume <m>a=0</m>. </p></task>
 </activity>
 
 <activity xml:id="activity-elem-matrices-invert-elem">
 	<introduction><p>
-		Complete the following tasks for each of the three types of elementary row operations, one at a time:
+		Complete the following tasks for each of the three types of elementary row operations,
+		one at a time:
 		<ol label="(i)">
-			<li> swap two rows;</li>
-			<li> multiply a row by a nonzero constant;</li>
-			<li> add a multiple of one row to another.</li>
+			<li> swap two rows; </li>
+			<li> multiply a row by a nonzero constant; </li>
+			<li> add a multiple of one row to another. </li>
 		</ol>
 	</p></introduction>
 	<task xml:id="activity-elem-matrices-invert-elem-mystery-op"><p>
-		Suppose someone has performed a single elementary row operation on a matrix, but they have only given you the <em>result</em> of this computation (as well as telling you <em>exactly</em> what row operation they performed). How can you recover the original matrix the person started with?
+		Suppose someone has performed a single elementary row operation on a matrix,
+		but they have only given you the <em>result</em> of this computation
+		(as well as telling you <em>exactly</em> what row operation they performed).
+		How can you recover the original matrix the person started with?
 	</p></task>
 	<task><p>
-		Determine a general rule for the inverse of an elementary matrix of the type you are currently considering. You should be able to answer this directly, <em>without</em> using the method you developed in
+		Determine a general rule for the inverse of an elementary matrix of the type you are currently considering.
+		You should be able to answer this directly,
+		<em>without</em> using the method you developed in
 		<xref ref="activity-elem-matrices-invert-method" />,
 		by instead considering your answer to the previous step of this activity.
 	</p></task>
