@@ -90,8 +90,8 @@ respective owners.
 	<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />
 	</p></aside>
 	<p>
-	Finally, we will consider the <q>only if</q> part of the statement. Suppose we have a subcollection of vectors in a vector space that we already know is a subspace. A subspace is itself a vector space, so it must be nonempty (since it at least contains <em>some</em> zero vector
-	(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>),
+	Finally, we will consider the <q>only if</q> part of the statement. Suppose we have a subcollection of vectors in a vector space that we already know is a subspace. A subspace is itself a vector space, so it must be nonempty (since it at least contains <em>some</em> zero vector by
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>),
 	it must be closed under vector addition
 	(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>),
 	and it must be closed under scalar multiplication
@@ -173,60 +173,65 @@ From the first property of subspaces listed above, we can deduce our observation
 		The subspace <m>\Span S</m> is the <em>smallest</em> subspace that contains every vector in <m>S</m> in the following sense: every other subspace that contains the vectors of <m>S</m> must also contain <m>\Span S</m> as a subspace.
 		</li>
 		<li xml:id="proposition-subspaces-span-subspace-full">
-		<!-- used to be its own propositin, labelled: \labelprop{every.space.is.spanned} -->
+		<!-- used to be its own proposition, labelled: \labelprop{every.space.is.spanned} -->
 		Every vector space (and hence, every subspace of a vector space) has a spanning set.
 		</li>
 	</ol></p></statement>
 
 	<proof><p><ol>
 
-		<li><p>
-		Recall that <m>\Span S</m> is the collection of all possible linear combinations of vectors in <m>S</m>. First we verify that <m>\Span S</m> contains every vector in <m>S</m>. Indeed, if <m>\uvec{v}</m> is a vector in <m>S</m>, then it is trivially a linear combination of vectors in <m>S</m> by <m>\uvec{v} = 1\uvec{v}</m>.
-		</p><p>
-		Let <m>V</m> represent the vector space from which the collection of vectors <m>S</m> is taken. First, we know that every vector in <m>\Span S</m> is a vector in <m>V</m>, because the vectors in <m>\Span S</m> are linear combinations of the vectors in <m>S</m>, and <m>V</m> is closed under taking linear combinations (<xref ref="proposition-subspaces-props" />, where <m>V</m> is considered as a subspace of itself using
-		<xref ref="proposition-subspaces-trivial-and-full"/>). So <m>\Span S</m> is a subcollection of <m>V</m>.
-		</p><p>
-		Now let's apply the Subspace Test to <m>\Span S</m>.
-		<ol>
-			<li> We know <m>\Span S</m> is nonempty because it contains each of the vectors of <m>S</m>. </li>
-			<li>
-			Suppose <m>\uvec{u}</m> and <m>\uvec{v}</m> are vectors in <m>\Span S</m>. Then each is a linear combination of vectors in <m>S</m>, say
-			<md>
-				<mrow> \uvec{u} \amp= k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_s\uvec{u}_s, </mrow>
-				<mrow> \uvec{v} \amp= m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_t\uvec{v}_t, </mrow>
-			</md>
-			where each of <m>\uvec{u}_1,\uvec{u}_2,\dotsc,\uvec{u}_s</m> and <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_t</m> are vectors in <m>S</m>. Then,
-			<md>
-				<mrow> \uvec{u} + \uvec{v} \amp = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_s\uvec{u}_s </mrow>
-				<mrow> \amp\phantom{=} \quad {} + m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_t\uvec{v}_t, </mrow>
-			</md>
-			which is again a linear combination of vectors in <m>S</m>, so <m>\uvec{u}+\uvec{v}</m> is also in <m>\Span S</m>. This shows that <m>\Span S</m> is closed under vector addition.
-			</li>
-			<li> Suppose <m>\uvec{v}</m> is a vector in <m>\Span S</m>. Then it is a linear combination of vectors in <m>S</m>, say
-			<me> \uvec{v} = m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_\ell\uvec{v}_\ell, </me>
-			where each of <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are vectors in <m>S</m>. Then for every scalar <m>k</m>,
-			<md>
-				<mrow> k\uvec{v} \amp = k(m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_t\uvec{v}_\ell) </mrow>
-				<mrow> \amp = km_1\uvec{v}_1 + km_2\uvec{v}_2 + \dotsb + km_\ell\uvec{v}_\ell, </mrow>
-			</md>
-			which is again a linear combination of vectors in <m>S</m>, so <m>k\uvec{v}</m> is always also in <m>\Span S</m>. This shows that <m>\Span S</m> is closed under scalar multiplication.
-			</li>
-		</ol>
-		Since <m>\Span S</m> passes the Subspace Test, it is a subspace of <m>V</m>.
-		</p></li>
-
 		<li>
-		<p>
-		We wish to show that every other subspace that contains the vectors of <m>S</m> must also contain <m>\Span S</m> as a subspace. So suppose we have another subspace that contains the vectors of <m>S</m>. Then it must contain every linear combination of the vectors in <m>S</m>, since subspaces are closed under taking linear combinations (<xref ref="proposition-subspaces-props" />). That is, if a subspace contains all of the vectors in <m>S</m>, then it must also contain all of the vectors in <m>\Span S</m>.
-		</p>
-		<aside><title>Note</title><p>
-			There is no need to use the Subspace Test to prove that <m>\Span S</m> is a subspace of this other subspace <mdash /> we already know from <xref ref="proposition-subspaces-span-subspace-is-subspace">Statement</xref> that <m>\Span S</m> is a subspace of <m>V</m>, the vector space from which the vectors <m>S</m> are taken. So <m>\Span S</m> is a vector space all on its own, hence will be a subspace of <em>any</em> space that contains all of its vectors. (See the definition of <term>subspace</term> in <xref ref="section-subspaces-terminology" />.)
-		</p></aside>
+			<p>
+			Recall that <m>\Span S</m> is the collection of all possible linear combinations of vectors in <m>S</m>. First we verify that <m>\Span S</m> contains every vector in <m>S</m>. Indeed, if <m>\uvec{v}</m> is a vector in <m>S</m>, then it is trivially a linear combination of vectors in <m>S</m> by <m>\uvec{v} = 1\uvec{v}</m>.
+			</p><p>
+			Let <m>V</m> represent the vector space from which the collection of vectors <m>S</m> is taken. First, we know that every vector in <m>\Span S</m> is a vector in <m>V</m>, because the vectors in <m>\Span S</m> are linear combinations of the vectors in <m>S</m>, and <m>V</m> is closed under taking linear combinations (<xref ref="proposition-subspaces-props" />, where <m>V</m> is considered as a subspace of itself using
+			<xref ref="proposition-subspaces-trivial-and-full"/>). So <m>\Span S</m> is a subcollection of <m>V</m>.
+			</p><p>
+			Now let's apply the Subspace Test to <m>\Span S</m>.
+			</p>
+			<case><title><xref ref="proposition-subspaces-test-nonempty">Condition</xref></title><p>
+				We know <m>\Span S</m> is nonempty because it contains each of the vectors of <m>S</m>.
+			</p></case>
+			<case><title><xref ref="proposition-subspaces-test-add-closed">Condition</xref></title><p>
+				Suppose <m>\uvec{u}</m> and <m>\uvec{v}</m> are vectors in <m>\Span S</m>. Then each is a linear combination of vectors in <m>S</m>, say
+				<md>
+					<mrow> \uvec{u} \amp= k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_s\uvec{u}_s, </mrow>
+					<mrow> \uvec{v} \amp= m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_t\uvec{v}_t, </mrow>
+				</md>
+				where each of <m>\uvec{u}_1,\uvec{u}_2,\dotsc,\uvec{u}_s</m> and <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_t</m> are vectors in <m>S</m>. Then,
+				<md>
+					<mrow> \uvec{u} + \uvec{v} \amp = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_s\uvec{u}_s </mrow>
+					<mrow> \amp\phantom{=} \quad {} + m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_t\uvec{v}_t, </mrow>
+				</md>
+				which is again a linear combination of vectors in <m>S</m>, so <m>\uvec{u}+\uvec{v}</m> is also in <m>\Span S</m>. This shows that <m>\Span S</m> is closed under vector addition.
+			</p></case>
+			<case><title><xref ref="proposition-subspaces-test-smul-closed">Condition</xref></title><p>
+				Suppose <m>\uvec{v}</m> is a vector in <m>\Span S</m>. Then it is a linear combination of vectors in <m>S</m>, say
+				<me> \uvec{v} = m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_\ell\uvec{v}_\ell, </me>
+				where each of <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are vectors in <m>S</m>. Then for every scalar <m>k</m>,
+				<md>
+					<mrow> k\uvec{v} \amp = k(m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_t\uvec{v}_\ell) </mrow>
+					<mrow> \amp = km_1\uvec{v}_1 + km_2\uvec{v}_2 + \dotsb + km_\ell\uvec{v}_\ell, </mrow>
+				</md>
+				which is again a linear combination of vectors in <m>S</m>, so <m>k\uvec{v}</m> is always also in <m>\Span S</m>. This shows that <m>\Span S</m> is closed under scalar multiplication.
+			</p></case>
+			<p>
+			Since <m>\Span S</m> passes the Subspace Test, it is a subspace of <m>V</m>.
+			</p>
 		</li>
 
 		<li>
-		A vector space <m>V</m> always has an obvious spanning set <mdash /> itself! That is, we claim that <m>V = \Span V</m> is always true. To verify this, we must demonstrate that each vector in the collection <m>V</m> is also in the collection <m>\Span V</m>, and vice versa, so that they are exactly the same collection of vectors. However, by applying
-		<xref ref="proposition-subspaces-span-subspace-is-subspace">Statement</xref> we can immediately say that <m>\Span V</m> is a subspace of <m>V</m> (implying every vector in <m>\Span V</m> is in <m>V</m>) that contains every vector of the spanning set <m>V</m> (<ie /> every vector in <m>V</m> is in <m>\Span V</m>).
+			<p>
+			We wish to show that every other subspace that contains the vectors of <m>S</m> must also contain <m>\Span S</m> as a subspace. So suppose we have another subspace that contains the vectors of <m>S</m>. Then it must contain every linear combination of the vectors in <m>S</m>, since subspaces are closed under taking linear combinations (<xref ref="proposition-subspaces-props" />). That is, if a subspace contains all of the vectors in <m>S</m>, then it must also contain all of the vectors in <m>\Span S</m>.
+			</p>
+			<aside><title>Note</title><p>
+				There is no need to use the Subspace Test to prove that <m>\Span S</m> is a subspace of this other subspace <mdash /> we already know from <xref ref="proposition-subspaces-span-subspace-is-subspace">Statement</xref> that <m>\Span S</m> is a subspace of <m>V</m>, the vector space from which the vectors <m>S</m> are taken. So <m>\Span S</m> is a vector space all on its own, hence will be a subspace of <em>any</em> space that contains all of its vectors. (See the definition of <term>subspace</term> in <xref ref="section-subspaces-terminology" />.)
+			</p></aside>
+		</li>
+
+		<li>
+			A vector space <m>V</m> always has an obvious spanning set <mdash /> itself! That is, we claim that <m>V = \Span V</m> is always true. To verify this, we must demonstrate that each vector in the collection <m>V</m> is also in the collection <m>\Span V</m>, and vice versa, so that they are exactly the same collection of vectors. However, by applying
+			<xref ref="proposition-subspaces-span-subspace-is-subspace">Statement</xref> we can immediately say that <m>\Span V</m> is a subspace of <m>V</m> (implying every vector in <m>\Span V</m> is in <m>V</m>) that contains every vector of the spanning set <m>V</m> (<ie /> every vector in <m>V</m> is in <m>\Span V</m>).
 		</li>
 
 	</ol></p></proof>

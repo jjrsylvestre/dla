@@ -81,19 +81,27 @@ Before concluding this chapter, we'll illustrate the uses of <xref ref="proposit
 	<statement>
 	<p>
 	Consider the set of vectors <m>S = \{A_1,A_2,A_3,A_4\}</m> in <m>\matrixring_2(\R)</m>, where
-	<md><mrow>
-		A_1 \amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right], \amp
-		A_2 \amp= \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right], \amp
-		A_3 \amp= \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right], \amp
-		A_4 \amp= \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right].
-	</mrow></md>
+	<md>
+		<mrow>
+			A_1 \amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right], \amp
+			A_3 \amp= \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right], \amp
+		</mrow>
+		<mrow>
+			A_2 \amp= \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right], \amp
+			A_4 \amp= \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right].
+		</mrow>
+	</md>
 	Is this set a spanning set for <em>all</em> of <m>\matrixring_2(\R)</m>? That is, is <m>\matrixring_2(\R) = \Span S</m>? We already know a spanning set for <m>\matrixring_2(\R)</m> <mdash /> the set of standard basis vectors <m>\basisfont{B} = \{E_{11},E_{12},E_{21},E_{22}\}</m>, where
-	<md><mrow>
-		E_{11} \amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}, \amp
-		E_{12} \amp= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}, \amp
-		E_{21} \amp= \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \amp
-		E_{22} \amp= \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
-	</mrow></md>
+	<md>
+		<mrow>
+			E_{11} \amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}, \amp
+			E_{12} \amp= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}, \amp
+		</mrow>
+		<mrow>
+			E_{21} \amp= \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \amp
+			E_{22} \amp= \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
+		</mrow>
+	</md>
 	That is, we already know that <m>\matrixring_2(\R) = \Span \basisfont{B}</m>. So we can turn our question into: is <m>\Span S = \Span \basisfont{B}</m>? With this new version of our problem, we can use the same method as in the previous example. However, we don't need to explicitly verify that each vector in <m>S</m> can be expressed as a linear combination of the vectors in <m>\basisfont{B}</m>. Besides being obvious, this fact is already implied by our assertion that <m>\matrixring_2(\R) = \Span \basisfont{B}</m>, since clearly each vector in <m>S</m> is a vector in <m>\matrixring_2(\R)</m>. So it just remains to verify that each vector in <m>\basisfont{B}</m> can be expressed as a linear combination of the vectors in <m>S</m>. Let's begin with vector <m>E_{11}</m>. We use the same strategy as in the examples in <xref ref="subsection-subspaces-examples-in-span" />: express <m>E_{11}</m> as a linear combination of the vectors in <m>S</m> with unknown scalar coefficients, set up equations in those unknown scalars, and determine whether the resulting linear system is consistent.
 	<md>
 		<mrow>
@@ -144,7 +152,7 @@ Before concluding this chapter, we'll illustrate the uses of <xref ref="proposit
 		- 17 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
 		- 8  \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
 	</me>
-	though we only cared about the existence of a solution, not the actual solution itself.
+	though we only cared about the <em>existence</em> of a solution, not the actual solution itself.
 	</p><p>
 	In a similar manner, one can calculate that
 	<md>
@@ -168,7 +176,9 @@ Before concluding this chapter, we'll illustrate the uses of <xref ref="proposit
 	<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
 	of
 	<xref ref="proposition-subspaces-eq-span-test" />
-	tells us that <m>\Span S = \Span \basisfont{B}</m>, and since we already knew that <m>\Span\basisfont{B}</m> is equal to the entire space <m>\matrixring_2(\R)</m>, we must also have <m>\Span S</m> equal to this entire space.
+	tells us that <m>\Span S = \Span \basisfont{B}</m>.
+	Since we already knew that <m>\Span\basisfont{B}</m> is equal to the entire space <m>\matrixring_2(\R)</m>,
+	we must also have <m>\Span S</m> equal to this entire space.
 	</p>
 	</statement>
 </example>

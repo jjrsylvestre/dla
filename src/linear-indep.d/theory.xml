@@ -54,23 +54,30 @@ serve as a proof.
 	</p></statement>
 
 	<proof>
-	<p>
-	Suppose <m>S</m> is a set of vectors containing the zero vector. If <m>S</m> consists of <em>just</em> the zero vector, then it is linearly dependent by definition.
-	</p>
-	<aside><title>See</title><p>
-		<xref ref="section-linear-indep-terminology" /> for the definition of <term>linearly dependent</term>.
-	</p></aside>
-	<p>
-	So we might as well assume that <m>S</m> contains at least one nonzero vector <m>\uvec{v}</m>. But then <m>\zerovec</m> can be expressed as the linear combination <m>\zerovec = 0\uvec{v}</m>. Since we have found a vector in <m>S</m> that can be expressed as a linear combination of another vector in <m>S</m>, the set of vectors is linearly dependent.
- 	</p>
-	<aside><title>Note</title><p>
-		This does not violate
-		<xref ref="proposition-linear-indep-test" />,
-		since in the equality <m>\zerovec = 0\uvec{v}</m>, vector <m>\zerovec</m> is acting as a vector in <m>S</m>.
-		This equality is equivalent to <m>1\cdot\zerovec + 0\cdot\uvec{v} = \zerovec</m>,
-		which is an equality of a <em>non</em>trivial linear combination of vectors from <m>S</m> and the zero vector, as required by
-		<xref ref="proposition-linear-indep-test" />.
-	</p></aside>
+		<p>
+		Suppose <m>S</m> is a set of vectors containing the zero vector. We'll break into cases depending on what <em>else</em> is in <m>S</m> besides <m>\zerovec</m>.
+		</p>
+		<case><title><m>S</m> consists of <em>only</em> the zero vector</title>
+			<p>
+			Then <m>S</m> is linearly dependent by definition.
+			</p>
+			<aside><title>See</title><p>
+				<xref ref="section-linear-indep-terminology" /> for the definition of <term>linearly dependent</term>.
+			</p></aside>
+		</case>
+		<case><title><m>S</m> contains <m>at least one</m> nonzero vector <m>\uvec{v}</m></title>
+			<p>
+			But then <m>\zerovec</m> can be expressed as the linear combination <m>\zerovec = 0\uvec{v}</m>. Since we have found a vector in <m>S</m> that can be expressed as a linear combination of another vector in <m>S</m>, the set of vectors is linearly dependent.
+		 	</p>
+			<aside><title>Note</title><p>
+				This does not violate
+				<xref ref="proposition-linear-indep-test" />,
+				since in the equality <m>\zerovec = 0\uvec{v}</m>, vector <m>\zerovec</m> is acting as a vector in <m>S</m>.
+				This equality is equivalent to <m>1\cdot\zerovec + 0\cdot\uvec{v} = \zerovec</m>,
+				which is an equality of a <em>non</em>trivial linear combination of vectors from <m>S</m> and the zero vector, as required by
+				<xref ref="proposition-linear-indep-test" />.
+			</p></aside>
+		</case>
 	</proof>
 
 </proposition>
@@ -146,7 +153,7 @@ First we'll record our observation about preserving spans when reducing spanning
 	<proof><p>
 	If <m>S</m> is already linearly independent, then we have our desired linearly independent spanning set. Otherwise, there is some vector <m>\uvec{w}</m> in <m>S</m> that is a linear combination of the other vectors in <m>S</m>. If we set <m>S'</m> to be the subcollection of <m>S</m> consisting of every vector <em>except</em> <m>\uvec{w}</m>, then from
 	<xref ref="lemma-linear-indep-span-minus-one" />
-	we know that <m>S'</m> will remain a spanning set for the vectors space. If <m>S'</m> is linearly independent, then we have our desired linearly independent spanning set. Otherwise, we can continue removing linearly dependent vectors in this way until we end up with a linearly independent spanning set. And since we assumed there were a finite number of vectors in <m>S</m>, this one-by-one removal process must indeed come to an end at some point.
+	we know that <m>S'</m> will remain a spanning set for the vector space. If <m>S'</m> is linearly independent, then we have our desired linearly independent spanning set. Otherwise, we can continue removing linearly dependent vectors in this way until we end up with a linearly independent spanning set. And since we assumed there were a finite number of vectors in <m>S</m>, this one-by-one removal process must indeed come to an end at some point.
 	</p></proof>
 
 </proposition>

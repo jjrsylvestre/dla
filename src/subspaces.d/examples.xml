@@ -101,7 +101,7 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 	</p><p>
 	Let's apply the subspace test.
 	<ol label="(i)">
-		<li> Clearly this subcollection is nonempty, as any constant polynomial as degree <m>0</m>, which is less than <m>2</m>. In particular, the zero polynomial <m>\zerovec(x)=0</m> (which is the zero vector in this space) also has degree less than <m>2</m>. </li>
+		<li> Clearly this subcollection is nonempty, as any constant polynomial has degree <m>0</m>, which is less than <m>2</m>. In particular, the zero polynomial <m>\zerovec(x)=0</m> (which is the zero vector in this space) also has degree less than <m>2</m>. </li>
 		<li>
 		<p>
 		Suppose <m>p_1</m> and <m>p_2</m> are two polynomials in this subcollection. Then the degree of each of these polynomials is <m>2</m> or less, so we can write
@@ -172,7 +172,7 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 			\amp\text{and} \amp
 			A\uvec{x}_2 \amp= \zerovec.
 		</mrow></md>
-		To check if the sum vector is also in the solutions set, we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+		To check if the sum vector is also in the solution set, we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
 		<me>
 			A(\uvec{x}_1+\uvec{x}_2)
 			= A\uvec{x}_1 + A\uvec{x}_2
@@ -181,7 +181,7 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 		</me>
 		So the sum vector is indeed in the solution set.
 		</li>
-		<li> Suppose <m>\uvec{x}_0</m> is a solution to this system. Then <m>A\uvec{x}_0 = \zerovec</m>. For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solutions set, we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+		<li> Suppose <m>\uvec{x}_0</m> is a solution to this system. Then <m>A\uvec{x}_0 = \zerovec</m>. For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solution set, we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
 		<me>
 			A(k\uvec{x}_0)
 			= kA\uvec{x}_0
@@ -196,7 +196,7 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 </example>
 
 <remark xml:id="remark-subspaces-examples-every-subsp-is-homogeneous"><p>
-	Every subspace is somehow defined by a homogeneous condition or a set of homogeneous conditions. In the solution space example above, this was explicit <mdash /> the subcollection was directly defined as the solution set of a homogeneous matrix equation <m>A\uvec{x} = \zerovec</m>. On the other hand, it's easy to see that the solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> would not be a subspace of <m>\R^n</m>, since it would not contain the zero vector.
+	Every subspace is somehow defined by a homogeneous condition or a set of homogeneous conditions. In the solution space example above, this was explicit <mdash /> the subcollection was directly defined as the solution set of a homogeneous matrix equation <m>A\uvec{x} = \zerovec</m>. On the other hand, it's easy to see that the solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> would <em>not</em> be a subspace of <m>\R^n</m>, since it would not contain the zero vector.
 </p><p>
 	Let's reconsider some of the examples of <xref ref="activity-subspaces-test-examples" /> from this perspective.
 <ul>
@@ -210,7 +210,7 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 	<li>
 	In
 	<xref ref="activity-subspaces-test-examples-M10-diag">Activity</xref>,
-	the collection of <m>10 \times 10</m> diagonal matrices is a subspace of <m>\matrixring_{10}(\R)</m>. and it corresponds to the homogeneous conditions that the off-diagonal entries be zero. However, in
+	the collection of <m>10 \times 10</m> diagonal matrices is a subspace of <m>\matrixring_{10}(\R)</m>, and it corresponds to the homogeneous conditions that the off-diagonal entries be zero. However, in
 	<xref ref="activity-subspaces-test-examples-M12-7-upper-left">Activity</xref>,
 	the collection of those <m>12 \times 12</m> matrices with a <m>7</m> in the <m>(1,1)</m> entry is <em>not</em> a subspace of <m>\matrixring_{12}(\R)</m>, and this collection corresponds to the <em>non</em>homogeneous condition of requiring the top-left entry be <m>7</m>.
 	</li>
@@ -280,8 +280,8 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 	<me>
 		\left[\begin{array}{rrr}  0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{array}\right]
 		=
-		r\begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp  0 \amp  0 \end{bmatrix}
-		s\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp  1 \amp  0 \end{bmatrix}
+		r\begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp  0 \amp  0 \end{bmatrix} +
+		s\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp  1 \amp  0 \end{bmatrix} +
 		t\begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp  0 \amp  1 \end{bmatrix}
 	</me>
 	 in the unknown scalars <m>r,s,t</m>. Combining the linear combination on the right into one matrix, and then comparing entries on each side, we get a linear system with augmented matrix

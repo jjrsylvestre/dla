@@ -109,6 +109,7 @@ where we tested whether a particular vector was in the span of some collection o
 		</li>
 
 		<li>
+		<p>
 		Consider the matrices in
 		<xref ref="activity-linear-indep-using-indep-test-M2-2">Activity</xref>.
 		Again, we start by setting up
@@ -136,7 +137,9 @@ where we tested whether a particular vector was in the span of some collection o
 				0  \amp  0  \amp  0
 			\end{bmatrix}.
 		</me>
-		From the reduced matrix, we see that <m>k_3</m> is a free variable and will be assigned a parameter in the general solution. The necessity of a parameter implies nontrivial solutions, so these vectors are <em>linearly dependent</em>. The reduced matrix can also be used to tell us exactly how these vectors are linearly dependent. Since <m>k_3</m> is free, we obtain a solution to the system for every possible value we assign to it. To get a simple nontrivial solution, let's set <m>k_3=1</m>. Then solving the equations represented by the nonzero rows of the reduced matrix gives us <m>k_1=-1/2</m> and <m>k_2=-5/2</m>. Putting these back into the vector equation from when we first set up
+		From the reduced matrix, we see that <m>k_3</m> is a free variable and will be assigned a parameter in the general solution. The necessity of a parameter implies nontrivial solutions, so these vectors are <em>linearly dependent</em>.
+		</p><p>
+		The reduced matrix can also be used to tell us exactly how these vectors are linearly dependent. Since <m>k_3</m> is free, we obtain a solution to the system for every possible value we assign to it. To get a simple nontrivial solution, let's set <m>k_3=1</m>. Then solving the equations represented by the nonzero rows of the reduced matrix gives us <m>k_1=-1/2</m> and <m>k_2=-5/2</m>. Putting these back into the vector equation from when we first set up
 		the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
 		we get
 		<md>
@@ -153,6 +156,7 @@ where we tested whether a particular vector was in the span of some collection o
 			</mrow>
 		</md>
 		From this we see exactly how one of the vectors in our collection can be expressed as a linear combination of others in the collection.
+		</p>
 		</li>
 
 	</ol></p>
@@ -222,7 +226,8 @@ where we tested whether a particular vector was in the span of some collection o
 
 <example><title>Independence of the standard spanning vectors in <m>\matrixring_{m \times n}(\R)</m></title>
 	<statement>
-	In <xref ref="remark-subspaces-examples-standard-spanning-sets"/>, we noted that there is a similar set of spanning vectors in <m>\matrixring_{m \times n}(\R)</m>, consisting of those matrices that have all zero entries except for a single <m>1</m> in one specific entry. We might call these <q>standard basis vectors</q> for <m>\matrixring_{m \times n}(\R)</m>. Write <m>E_{ij}</m> for the matrix of this type with a <m>1</m> in the <m>\nth[(i,j)]</m> entry. These spanning vectors are also linearly independent. Here, when we apply
+	In <xref ref="remark-subspaces-examples-standard-spanning-sets"/>,
+	we noted that there is also a <q>standard</q> set of spanning vectors in <m>\matrixring_{m \times n}(\R)</m>, consisting of those matrices that have all zero entries except for a single <m>1</m> in one specific entry. We might call these <q>standard basis vectors</q> for <m>\matrixring_{m \times n}(\R)</m>. Write <m>E_{ij}</m> for the matrix of this type with a <m>1</m> in the <m>\nth[(i,j)]</m> entry. These spanning vectors are also linearly independent. Here, when we apply
 	the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
 	it is best if we enumerate our scalars with the same scheme as the vectors:
 	<md><mrow>
@@ -238,7 +243,7 @@ where we tested whether a particular vector was in the span of some collection o
 	<statement>
 	Also in <xref ref="remark-subspaces-examples-standard-spanning-sets"/>, we noted that the powers of <m>x</m> (along with the constant polynomial <m>1</m>) form a spanning set for <m>\poly_n(\R)</m>. We might call these <q>standard basis vectors</q> for <m>\poly_n(\R)</m>. Are they linearly independent? Apply the Test:
 	<me> k_0 \cdot 1 + k_1x + k_2 x^2 + \dotsb + k_n x^n = 0. </me>
-	If any of these coefficients are nonzero, the polynomial on the left-hand side will be nonzero, so we have only the trivial solution. Therefore, powers of <m>x</m> are always linearly independent in <m>\poly_n(\R)</m>.
+	If any of these coefficients are nonzero, the polynomial on the left-hand side will be nonzero, so only the trivial solution is possible. Therefore, powers of <m>x</m> are always linearly independent in <m>\poly_n(\R)</m>.
 	</statement>
 </example>
 
