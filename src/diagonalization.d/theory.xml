@@ -70,14 +70,14 @@ First, we'll record just a few of the facts about general similar matrices from
 				So we can compute <m>\det B</m> as
 				<md>
 					<mrow> \det B \amp= \det (\inv{P}AP) </mrow>
-					<mrow> \amp= \left(\det \left(\inv{P}\right)\right) (\det A) (\det P) </mrow>
+					<mrow> \amp= \left(\det \inv{P}\right) (\det A) (\det P) </mrow>
 					<mrow> \amp= \inv{(\det P)} (\det A) (\det P) </mrow>
 					<mrow> \amp= \require{cancel} \frac{(\det A) \bcancel{(\det P)}}{\bcancel{\det P}} </mrow>
 					<mrow> \amp= \det A. </mrow>
 				</md>
 				Thus, the similar matrices <m>A</m> and <m>B</m> have the same determinant.
 				</p>
-				<aside><title>Warning</title><p>
+				<warning><title>Careful.</title><p> <!-- TODO huh? why does this title need a . -->
 					In this proof of the first statement,
 					it would have been <em>incorrect</em> to cancel the <m>\inv{P}</m> with the <m>P</m> immediately,
 					because <em>order of matrix multiplication matters</em>!
@@ -85,7 +85,7 @@ First, we'll record just a few of the facts about general similar matrices from
 					<m>\det\left(\inv{P}\right)</m>
 					with <m>\det P</m> because all three of the determinants are <em>numbers</em>,
 					and order of <em>number</em> multiplication does not matter.
-				</p></aside>
+				</p></warning>
 			</li>
 
 			<li>
@@ -94,7 +94,10 @@ First, we'll record just a few of the facts about general similar matrices from
 					c_A(\lambda) \amp= \det(\lambda I - A), \amp
 					c_B(\lambda) \amp= \det(\lambda I - B).
 				</mrow></md>
-				Using <m>B = \inv{P}AP</m> and <m>I = \inv{P}IP</m>,
+				Using our assumption
+				<m>B = \inv{P}AP</m>,
+				along with
+				<m>I = \inv{P}IP</m>,
 				we can express the matrix involved in the characteristic polynomial for <m>B</m> as
 				<me> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </me>
 				where in the last step we have factored the common <m>\inv{P}</m> and <m>P</m> factors out of the difference
@@ -150,7 +153,7 @@ First, we'll record just a few of the facts about general similar matrices from
 
 <p>
 We will refine this theorem using our more sophisticated notions of <term>algebraic</term> and <term>geometric multiplicity</term> in the next subsection.
-But first, here is a surprising result that demonstrates how central eigenvalues are to matrix theory.
+But first, here is a surprising result that demonstrates how central eigenvalues are in matrix theory.
 </p>
 
 <proposition xml:id="proposition-diagonalization-diag-det-eigenvalues">
@@ -307,7 +310,7 @@ The next fact answers this question with a more general version of what we explo
 			+ \dotsb + b_m (\lambda_m-\lambda) \uvec{w}_m
 			= \zerovec.
 		</me>
-		Since the collection of <m>\uvec{w}_j</m> are linearly independent,
+		Since the collection of <m>\uvec{w}_j</m> vectors are linearly independent,
 		the scalar coefficient expressions in this new linear combination must all be zero.
 		That is,
 		each scalar expression
@@ -339,8 +342,8 @@ The proposition above is somewhat similar in effect to
 <xref ref="proposition-linear-indep-expand-indep" />,
 in that it lets us build up a linearly independent set of eigenvectors one-by-one.
 But the above fact is a little stronger,
-in that when look to add a new eigenvector to our collection,
-we only need to worry about it being linearly independent from the eigenvectors we already have from <em>that eigenspace</em>.
+in that when we look to add a new eigenvector to our collection,
+we only need to worry about it being linearly independent from the eigenvectors we already have <em>from that eigenspace</em>.
 This leads to the following corollary.
 </p>
 

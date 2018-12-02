@@ -87,7 +87,7 @@ respective owners.
 	<md><mrow>
 		A\uvec{p}_1 \amp= \lambda\uvec{p}_1, \amp
 		A\uvec{p}_2 \amp= \lambda\uvec{p}_2, \amp
-		\amp\dotsc,
+		\amp\dotsc, \amp
 		A\uvec{p}_n \amp= \lambda\uvec{p}_n.
 	</mrow></md>
 	These column vector equalities exhibit the eigenvector-eigenvalue pattern.
@@ -139,20 +139,23 @@ The largest number of linearly independent eigenvectors we can obtain for a part
 In
 <xref ref="activity-diagonalization-indep-eigenspaces" />,
 we discovered that eigenvectors from different eigenspaces of the same matrix are automatically linearly independent.
-<aside><title>Also see</title><p>  <!-- TODO: probably not supposed to have an aside inside a <p> -->
+So the limiting factor is the dimension of each eigenspace,
+and whether these dimensions add up to <m>n</m>,
+the required number of linearly independent columns in <m>P</m>.
+</p>
+<aside><title>Also see</title><p>
 	<xref ref="proposition-diagonalization-indep-e-vectors" />
 	in
 	<xref ref="subsection-diagonalization-theory-geom-evectors" />.
 </p></aside>
-So the limiting factor is the dimension of each eigenspace,
-and whether these dimensions add up to <m>n</m>,
-the required number of linearly independent columns in <m>P</m>.
-</p><p>
+<p>
 An eigenvalue of an <m>n \times n</m> matrix <m>A</m> has two important numbers attached to it <mdash />
 its <term>algebraic multiplicity</term> and its <term>geometric multiplicity</term>.
+</p>
 <aside><title>See</title><p>
 	<xref ref="section-diagonalization-terminology" /> to remind yourself of the definitions of these terms.
 </p></aside>
+<p>
 If the roots of the characteristic polynomial are all real numbers,
 then the characteristic polynomial will factor completely as
 <me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}, </me>
@@ -167,7 +170,7 @@ that somehow,
 the <term>algebraic multiplicity</term> of each eigenvalue is the <q>best-case scenario</q> <mdash />
 <alert>the geometric multiplicity for an eigenvalue can be no greater than its algebraic multiplicity</alert>.
 Thus,
-if any eigenvalue for <m>A</m> is <q>defective</q> in the sense that its geometric multiplicity is <em>strictly less</em> that its algebraic multiplicity,
+if any eigenvalue for <m>A</m> is <q>defective</q> in the sense that its geometric multiplicity is <em>strictly less</em> than its algebraic multiplicity,
 we will not obtain enough linearly independent eigenvectors for that eigenvalue to fill up its <q>portion</q> of the required eigenvectors.
 To summarize,
 <alert>a square matrix is diagonalizable precisely when <em>each</em> of its eigenvalues has geometric multiplicity equal to its algebraic multiplicity</alert>.
