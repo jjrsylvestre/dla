@@ -129,7 +129,7 @@ leading to our conclusion about how to determine a basis for the column space of
 			<m>E = E_t E_{t-1} \dotsm E_1</m>
 			be the product of elementary matrices corresponding to some sequence of row operations that reduces <m>A</m> to its RREF.
 			Because of the nature of RREF,
-			each column of <m>\RREF(A)</m> that contains a leading one will be standard basis vector in <m>\R^m</m>,
+			each column of <m>\RREF(A)</m> that contains a leading one will be a standard basis vector in <m>\R^m</m>,
 			no two such leading-one columns will be the same standard basis vector,
 			and each column that does not contain a leading one will be a linear combination of those leading-one columns that appear to its left.
 			Therefore, the leading-one columns represent the largest set of linearly independent vectors that can be formed from the columns of <m>\RREF(A)</m>.
@@ -193,7 +193,7 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
 		of
 		<xref ref="proposition-subspaces-eq-span-test" />,
-		which tells us how to tell when two spanning sets generate the same subspace.
+		which tells us how to determine when two spanning sets generate the same subspace.
 		</p><p>
 		Let's consider each type of elementary row operation in turn.
 		<ol label="(i)"><li>
@@ -321,7 +321,9 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 			(including the RREF of <m>A</m>)
 			is always the same as that of <m>A</m>.
 		</li>
-		<li> The nonzero rows of each REF for <m>A</m> form a basis for the row space of <m>A</m>. </li>
+		<li xml:id="corollary-col-row-null-space-rref-row-space-basis">
+			The nonzero rows of each REF for <m>A</m> form a basis for the row space of <m>A</m>.
+		</li>
 		<li> The dimension of the row space of <m>A</m> is equal to the rank of <m>A</m>. </li>
 	</ol>
 	</p></statement>
@@ -329,7 +331,7 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 	<proof><p><ol><li>
 		Since <m>E</m> is invertible, it can be expressed as a product of elementary matrices
 		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
-		and the product <m>EA</m> has the same result as applying the sequence of row operations represented by those elementary matrices to <m>A</m>.
+		and the product <m>EA</m> has the same result as applying to <m>A</m> the sequence of row operations represented by those elementary matrices.
 		But
 		<xref ref="proposition-col-row-null-space-row-op-row-space" />
 		tells us that applying those operations does not change the row space.
@@ -365,7 +367,11 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		<m>\uvec{v}_{\ell-1}</m>
 		cannot be in
 		<m>\Span\{\uvec{v}_\ell\}</m>,
-		because no scalar multiple of
+		because the leading one in
+		<m>\uvec{v}_{\ell-1}</m>
+		appears to the left of the leading one in
+		<m>\uvec{v}_\ell</m>,
+		and so no scalar multiple of
 		<m>\uvec{v}_\ell</m>
 		will have a nonzero entry in the component where
 		<m>\uvec{v}_{\ell-1}</m>
@@ -379,7 +385,13 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		<m>\uvec{v}_{\ell-2}</m>
 		cannot be in
 		<m>\Span\{\uvec{v}_{\ell-1},\uvec{v}_\ell\}</m>,
-		because no linear combination of those two vectors will have a nonzero entry in the component where
+		because the leading one in
+		<m>\uvec{v}_{\ell-2}</m>
+		appears to the left of both the leading one in
+		<m>\uvec{v}_{\ell-1}</m>
+		and in
+		<m>\uvec{v}_{\ell}</m>,
+		and so no linear combination of those two vectors will have a nonzero entry in the component where
 		<m>\uvec{v}_{\ell-2}</m>
 		has its leading one.
 		From this,
@@ -390,7 +402,9 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		Repeating this argument as we move up the rows of <m>F</m>,
 		we see that the nonzero rows of <m>F</m> are linearly independent when taken altogether.
 	</li><li>
-		Applying the previous statement of this corollary to the RREF for <m>A</m>,
+		Applying
+		<xref ref="corollary-col-row-null-space-rref-row-space-basis">Statement</xref>
+		of this corollary to the RREF for <m>A</m>,
 		the nonzero rows of <m>\RREF(A)</m> form a basis for the row space of <m>A</m>.
 		But the nonzero rows of <m>\RREF(A)</m> must all contain leading ones,
 		so the number of vectors in a basis for the row space of <m>A</m> is equal to the number of leading ones in <m>\RREF(A)</m>,
@@ -478,7 +492,7 @@ and then continued in
 		<p>
 		We have previously encountered the equivalence of many of these statements,
 		most recently in
-		<xref ref="theorem-col-row-null-space-equiv-to-invertible" />.
+		<xref ref="theorem-more-det-equiv-to-invertible" />.
 		So currently we only need to concern ourselves with the new statements.
 		For each of these,
 		if we can establish equivalence of the new statement to <em>one</em> of the old,
@@ -507,7 +521,7 @@ and then continued in
 		<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">Statement</xref></title><p>
 		From the row space version of
 		the <xref ref="proposition-linear-indep-test" text="title"/>
-		stated
+		stated in
 		<xref ref="procedure-col-row-null-space-concepts-rowspace-linear-indep-test" />,
 		we know that <em>all</em> of the rows of <m>A</m> will be linearly independent if and only if every row of <m>\RREF(A)</m> is nonzero.
 		Therefore, this statement is also equivalent to

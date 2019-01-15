@@ -65,7 +65,7 @@ in the language of our new concept of <term>basis</term>.
 	every linearly independent set can be extended to a basis. (See
 	<xref ref="proposition-dimension-increase-indep-to-basis" />
 	in
-	<xref ref="subsection-dimension-theory-linear-indep-consequences" />).
+	<xref ref="subsection-dimension-theory-linear-indep-consequences" />.)
 </p></paragraphs>
 
 </subsection>
@@ -88,7 +88,7 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 		<li><ol>
 			<li xml:id="theorem-basis-coords-basis-is-minimal-maximal-basis-is-minimal">
 				A basis is a <em>minimal</em> spanning set,
-				in the sense that no proper subcollection of vectors from the basis could still be a spanning set for a vector space.
+				in the sense that no proper subcollection of vectors from the basis could still be a spanning set for the vector space.
 			</li>
 			<li xml:id="theorem-basis-coords-basis-is-minimal-maximal-minimal-is-basis">
 				A finite collection of vectors in a vector space that forms a minimal spanning set
@@ -114,13 +114,13 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 	<proof><p><ol>
 		<li><ol>
 			<li>
-				Suppose <m>\basisfont{B}</m> is a basis for vector space <m>V</m>.
+				Suppose <m>\basisfont{B}</m> is a basis for a vector space.
 				That is, suppose <m>\basisfont{B}</m> is a linearly independent spanning set.
 				If we remove even one vector <m>\uvec{v}</m> from <m>\basisfont{B}</m>,
-				the remaining vectors cannot still form a spanning set for <m>V</m>.
+				the remaining vectors cannot still form a spanning set for the space.
 				Because if they could,
 				then <m>\uvec{v}</m>,
-				being a vector in <m>V</m>,
+				being a vector in that vector space,
 				could be expressed as a linear combination of some number of the remaining vectors in <m>\basisfont{B}</m>.
 				In other words, some vector in <m>\basisfont{B}</m> would be expressible as a linear combination of others,
 				which would violate the assumption that <m>\basisfont{B}</m> is linearly independent.
@@ -131,7 +131,7 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 				Further suppose that <m>S</m> is <em>minimal</em> in the sense that no proper subcollection of <m>S</m> also forms a spanning set for the space.
 				We would like to prove that this forces <m>S</m> to be a basis.
 				We already assuming one-half of the definition of <term>basis</term>,
-				so we need to consider the other half:
+				so we only need to consider the other half:
 				must <m>S</m> also be linearly independent?
 				If it were linearly dependent instead,
 				then it could be reduced to subcollection that forms a linearly independent spanning set
@@ -154,15 +154,15 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 				then that larger collection must be linearly dependent.
 			</li>
 			<li>
-				Suppose <m>S</m> is a linearly independent collection of vectors in a vector space <m>V</m>,
-				and that <m>S</m> is maximal in the sense that no other linearly independent collection of vectors in <m>V</m> can contain <m>S</m> as a proper subcollection.
-				We would like to prove that this forces <m>S</m> to be a basis for <m>V</m>.
+				Suppose <m>S</m> is a linearly independent collection of vectors in a vector space,
+				and that <m>S</m> is maximal in the sense that no other linearly independent collection of vectors can contain <m>S</m> as a proper subcollection.
+				We would like to prove that this forces <m>S</m> to be a basis for the space.
 				We already assuming one-half of the definition of <term>basis</term>,
-				so we need to consider the other half:
-				must <m>S</m> also be a spanning set for <m>V</m>?
-				If it were <em>not</em> a spanning set for <m>V</m>,
-				then <m>\Span S</m> is merely a proper subspace of <m>V</m>,
-				and there must be other vectors in <m>V</m> that are <em>not</em> in that subspace.
+				so we only need to consider the other half:
+				must <m>S</m> also be a spanning set for the space?
+				If it were <em>not</em> a spanning set,
+				then <m>\Span S</m> would merely be a proper subspace,
+				and there would be other vectors in the full vector space that are <em>not</em> in that subspace.
 				Let <m>\uvec{v}</m> be one such vector.
 				Then
 				<xref ref="proposition-linear-indep-expand-indep"/>
@@ -170,7 +170,7 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 				But this is not possible, since this new,
 				<q>larger</q> linearly independent collection would contain <m>S</m> as a proper subcollection,
 				and we have assumed that <m>S</m> is a maximal linearly independent set of vectors.
-				So <m>S</m> must also be a spanning set for <m>V</m>, as required.
+				So <m>S</m> must also be a spanning set for the vector space, as required.
 			</li>
 		</ol></li>
 	</ol></p></proof>
@@ -198,8 +198,8 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 		because we have assumed that these linear combination expressions are different.
 		Now, these two linear combination expressions compute to two vectors in the vector space,
 		<md><mrow>
-			\uvec{v} \amp= a_1\uvec{v}_1 + a_2\uvec{v}_2 + \dotsc a_m\uvec{v}_m, \amp
-			\uvec{w} \amp= b_1\uvec{v}_1 + b_2\uvec{v}_2 + \dotsc b_m\uvec{v}_m.
+			\uvec{v} \amp= a_1\uvec{v}_1 + a_2\uvec{v}_2 + \dotsc + a_m\uvec{v}_m, \amp
+			\uvec{w} \amp= b_1\uvec{v}_1 + b_2\uvec{v}_2 + \dotsc + b_m\uvec{v}_m.
 		</mrow></md>
 		We would like to prove that <m>\uvec{v}\neq\uvec{w}</m>.
 		Equivalently, we would like to prove that <m>\uvec{v}-\uvec{w}\neq\zerovec</m>.

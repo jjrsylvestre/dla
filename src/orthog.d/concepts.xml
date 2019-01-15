@@ -94,12 +94,17 @@ given vector <m>\uvec{u} = (a,b)</m> in the plane, one example of a vector that 
 
 <p>Orthogonal projection is a vector solution to a problem in geometry.</p>
 
-<question><statement><p>
+<question xml:id="question-orthog-concepts-proj-motivation"><statement><p>
 	Given a line through the origin in the plane, and a point not on the line, what point on the line is closest to the given point?
 </p></statement></question>
 
 <p>
-Consider the point on the line at the foot of the perpendicular to the given line that passes through the given point. Any other point on the given line will form a right triangle with that foot and the given point, making it farther from the given point since that distance is the length of the hypotenuse in the right triangle.
+In <xref ref="question-orthog-concepts-proj-motivation"/>,
+write <m>\ell</m> for the line through the origin and <m>Q</m> for the point not on that line.
+Consider the point <m>P</m> on <m>\ell</m> at the foot of the perpendicular to <m>\ell</m> from <m>Q</m> .
+Any other point <m>P'</m> on <m>\ell</m> will form a right triangle with <m>P</m> and <m>Q</m>,
+making it farther from <m>Q</m> than <m>P</m>,
+since the distance <m>P'Q</m> is the length of the hypotenuse in the right triangle.
 </p>
 <sidebyside width="50%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
@@ -107,7 +112,9 @@ Consider the point on the line at the foot of the perpendicular to the given lin
 	<latex-image><xi:include href="concepts.d/shortest-dist-to-line.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-All we know about <m>P</m> is that it is on the line and it is at the vertex of a right angle with the line and <m>Q</m>. But if we introduce some vectors to help tackle this problem, then maybe we can use what we know about the dot product and right angles to help determine <m>P</m>.
+All we know about <m>P</m> is that it is on line <m>\ell</m> and it is at the vertex of a right angle with <m>\ell</m> and <m>Q</m>.
+But if we introduce some vectors to help tackle this problem,
+then maybe we can use what we know about the dot product and right angles to help determine <m>P</m>.
 </p>
 <sidebyside width="50%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
@@ -115,13 +122,14 @@ All we know about <m>P</m> is that it is on the line and it is at the vertex of 
 	<latex-image><xi:include href="concepts.d/proj.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m> determined by the given point <m>Q</m>, and <m>\uvec{w}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m> determined by the unknown point <m>P</m>. Since <m>\uvec{w}</m> is placed with its tail at the origin, the components of <m>\uvec{w}</m> are precisely the coordinates of <m>P</m>. So determining <m>\uvec{w}</m> will solve the problem.
+In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m>, and <m>\uvec{w}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m>, where <m>P</m> is our unknown closest point. Since <m>\uvec{w}</m> is placed with its tail at the origin, the components of <m>\uvec{w}</m> are precisely the coordinates of <m>P</m>. So determining <m>\uvec{w}</m> will solve the problem.
 </p><p>
-We are assuming that the line through the origin is known, and it would be nice to also have a vector means of describing it. But the vectors created by the points on this line (using the origin as a universal tail point) will all be parallel to each other, so (as we discovered in
+We are assuming that the line <m>\ell</m> is known, and it would be nice to also have a vector means of describing it. But the vectors created by the points on this line (using the origin as a universal tail point) will all be parallel to each other,
+so (as we discovered in
 <xref ref="activity-orthog-proj-scalar-mul-line">Activity</xref>)
-the line could be described as all scalar multiples of a particular vector <m>\uvec{a}</m>. This vector can be randomly chosen as any vector along the line. Once we have chosen <m>\uvec{a}</m>, we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{w}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{w} = k\uvec{a}</m>.
+line <m>\ell</m> could be described as all scalar multiples of a particular vector <m>\uvec{a}</m>. This vector can be arbitrarily chosen as any vector parallel to the line. Once we have chosen <m>\uvec{a}</m>, we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{w}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{w} = k\uvec{a}</m>.
 </p><p>
-We represent the knowledge that the closest point on the line lies at the foot of the perpendicular from the given point <m>Q</m> with the normal vector <m>\uvec{n}</m>. As in
+As mentioned, since <m>P</m> is the closest point, the directed line segment <m>\abray{PQ}</m> must be perpendicular to <m>\ell</m>. On the diagram above, we have used the vector <m>\uvec{n}</m> to represent this direct line segment. As in
 <xref ref="activity-orthog-proj-dot-prod-condition">Activity</xref>,
 we know that <m>\udotprod{n}{a}</m> must be zero <mdash /> this is the perpendicular condition. However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.  But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>, and <m>\uvec{w}</m> to replace <m>\uvec{n}</m>:
 <md><mrow>
@@ -130,7 +138,7 @@ we know that <m>\udotprod{n}{a}</m> must be zero <mdash /> this is the perpendic
 Replacing <m>\uvec{n}</m> by this expression in the condition <m>\udotprod{n}{a} = 0</m> gives us an equation of numbers that we can solve for the unknown scale factor <m>k</m>, as we did in
 <xref ref="activity-orthog-proj-solve">Activity</xref>:
 <me> k = \frac{\udotprod{u}{a}}{\unorm{a}^2}. </me>
-This vector <m>\uvec{w} = k\uvec{a}</m> pointing from the origin to the desired closest point is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>, and we write <m>\proj_{\uvec{a}} \uvec{u}</m> to represent it. The normal vector <m>\uvec{n}</m> is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>. These two vectors are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
+This vector <m>\uvec{w} = k\uvec{a}</m> pointing from the origin to the desired closest point <m>P</m> is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>, and we write <m>\proj_{\uvec{a}} \uvec{u}</m> to represent it. The normal vector <m>\uvec{n}</m> is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>. These two vectors are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
 <me> \uvec{u} = \uvec{w} + \uvec{n}, </me>
 where <m>\uvec{w}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}</m> is orthogonal to <m>\uvec{a}</m>. While this decomposition is relative to <m>\uvec{a}</m>, it is really only the <em>direction</em> of <m>\uvec{a}</m> that matters <mdash /> if <m>\uvec{a}'</m> is parallel to <m>\uvec{a}</m> (even possibly opposite to <m>\uvec{a}</m>), then both
 <md><mrow>
@@ -180,11 +188,11 @@ In <xref ref="activity-orthog-point-normal-lines-2" /> we considered a line defi
 	<latex-image><xi:include href="concepts.d/normal-vec-line-nonhomog-1.tex" parse="text" /></latex-image>
 </image></sidebyside>
 <p>
-In the homogeneous case, vectors from the origin determined by a point on the line were also <em>parallel</em> to the line. Since things have shifted away from the origin in the nonhomogeneous case, to get a vector parallel to the line we need to consider <em>two</em> vectors from the origin to points on the line. Two convenient points on the line are <m>Q(1,2)</m> and <m>R(4,0)</m>, with corresponding vectors <m>\uvec{x}_0 = (1,2)</m> and <m>\uvec{x}_1 = (4,0)</m>. Then the difference vector
+In the homogeneous case, vectors from the origin determined by a point on the line were also <em>parallel</em> to the line. Since things have shifted away from the origin in the nonhomogeneous case, to get a vector parallel to the line we need to consider <em>two</em> vectors from the origin to points on the line. Two convenient points for this the line are <m>Q(1,2)</m> and <m>R(4,0)</m>, with corresponding vectors <m>\uvec{x}_0 = (1,2)</m> and <m>\uvec{x}_1 = (4,0)</m>. Then the difference vector
 <me> \uvec{v} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </me>
 is parallel to the line, as in the diagram above. In fact, this vector <m>\uvec{v}</m> is the same as previous vector <m>\uvec{v}</m> that appears parallel to the line through the origin in the diagram for the homogeneous case above, so we know it satisfies <m>\udotprod{n}{v} = 0</m>.
 </p><p>
-Is there a way to use the normal vector <m>\uvec{n}</m> to create a vector condition by which we can tell if a vector <m>\uvec{x}</m> represents a point on the line, as we did with equation <xref ref="equation-orthog-concepts-point-normal-lines-1-normal-form" /> in the homoegenous case? We need <em>two</em> points on the line to create a parallel difference vector, but we could compare the variable vector <m>\uvec{x}</m> with a randomly chosen <em>fixed</em> vector representing a point on the line (like <m>\uvec{x}_0</m>, say).
+Is there a way to use the normal vector <m>\uvec{n}</m> to create a vector condition by which we can tell if a vector <m>\uvec{x}</m> represents a point on the line, as we did with equation <xref ref="equation-orthog-concepts-point-normal-lines-1-normal-form" /> in the homoegenous case? We need <em>two</em> points on the line to create a parallel difference vector, but we could compare the variable vector <m>\uvec{x}</m> with a arbitrarily chosen <em>fixed</em> vector representing a point on the line (like <m>\uvec{x}_0</m>, say).
 </p>
 
 <sidebyside width="75%"><image>
@@ -214,7 +222,7 @@ A similar analysis can be made for an equation <m>ax+by+cz=d</m> describing a pl
 </p>
 
 <remark><p>
-	A line in space does not have a point normal form, because it does not have one unique normal <q>direction</q> like a line in the plane or a plane in space does. To describe a line in space in a similar fashion you would need <em>two</em> normal vectors. We will see several more convenient ways to describe a line in the next chapter.
+	A line in space does not have a point-normal form, because it does not have one unique normal <q>direction</q> like a line in the plane or a plane in space does. To describe a line in space in a similar fashion you would need <em>two</em> normal vectors. We will see several more convenient ways to describe a line in the next chapter.
 </p></remark>
 
 </subsection>
@@ -253,7 +261,7 @@ for the unknown vector <m>\uvec{x} = (x,y,z)</m>. Expanding out the dot products
 		\end{array}
 	\right.
 </me>
-In fact, we get a homogeneous system of two equations in the three unknown coordinates <m>x,y,z</m>. Now, since this system is homogeneous, it is consistent. But its general solution will also require at least one parameter, since its rank is at most <m>2</m>, while we have three variables. In the diagram above, we can see what the <q>freedom</q> of a parameter corresponds to <mdash /> we can make <m>\uvec{x}</m> longer or shorter, or turn it around to be opposite of the way it is pictured, and it will remain orthogonal to <m>\uvec{u}</m> and <m>\uvec{v}</m>. Our end goal is a calculation formula and procedure that will compute one particular solution to this problem, so let's introduce a somewhat arbitrary additional equation to eliminate the need for a parameter in the solution.
+Specifically, we get a homogeneous system of two equations in the three unknown coordinates <m>x,y,z</m>. Now, since this system is homogeneous, it is consistent. But its general solution will also require at least one parameter, since its rank is at most <m>2</m>, while we have three variables. In the diagram above, we can see what the <q>freedom</q> of a parameter corresponds to <mdash /> we can make <m>\uvec{x}</m> longer or shorter, or turn it around to be opposite of the way it is pictured, and it will remain orthogonal to <m>\uvec{u}</m> and <m>\uvec{v}</m>. Our end goal is a calculation formula and procedure that will compute one particular solution to this problem, so let's introduce a somewhat arbitrary additional equation to eliminate the need for a parameter in the solution.
 <me>
 	\left\{
 		\begin{array}{rcrcrcr}
@@ -378,7 +386,7 @@ for an example of using formula
 The cross product follows the
 <term>right-hand rule</term>
 <idx><h>right-hand rule</h></idx>
-<mdash /> if you orient your right hand so that your fingers both point in the direction of <m>\uvec{u}</m> and curl up towards <m>\uvec{v}</m>, then your thumb will point in the direction of <m>\ucrossprod{u}{v}</m>.
+<mdash /> if you orient your right hand so that your fingers point in the direction of <m>\uvec{u}</m> and curl towards <m>\uvec{v}</m>, then your thumb will point in the direction of <m>\ucrossprod{u}{v}</m>.
 </p>
 <aside><title>Check your understanding</title><p>
 	Compute the cross products of the standard basis vectors in the various combinations

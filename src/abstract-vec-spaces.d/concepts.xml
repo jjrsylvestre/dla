@@ -44,52 +44,54 @@ Essentially, these rules consist of our <q>favourite</q> properties of algebra w
 and we would like to explore whether similar algebraic systems can be found elsewhere.
 </p>
 
-<definition xml:id="definition-abstract-vec-spaces-concepts-abstract-vec-space"><statement>
-	<p>
-	A collection of objects is called a
-	<term>vector space</term><idx><h>vector</h><h>space</h></idx>,
-	and the objects inside are then referred to as
-	<term>vectors</term><idx><h>vector</h><h>abstract</h></idx>,
-	if the collection satisfies all ten of the following axioms.
-	In the axiom statements, bold variable letters represent arbitrary objects in the collection,
-	and ordinary variable letters represent arbitrary scalars (<ie /> numbers).
-	</p>
+<definition xml:id="definition-abstract-vec-spaces-concepts-abstract-vec-space">
+	<title>Vector space axioms</title>
+	<statement>
+		<p>
+		A collection of objects is called a
+		<term>vector space</term><idx><h>vector</h><h>space</h></idx>,
+		and the objects inside are then referred to as
+		<term>vectors</term><idx><h>vector</h><h>abstract</h></idx>,
+		if the collection satisfies all ten of the following axioms.
+		In the axiom statements, bold variable letters represent arbitrary objects in the collection,
+		and ordinary variable letters represent arbitrary scalars (<ie /> numbers).
+		</p>
 
-	<!-- Tabular presentation of axioms
-	<table xml:id="table-abstract-vec-spaces-concepts-10-axioms">
-		<caption>The ten vector space axioms.</caption>
-		<tabular top="medium">
-			<col width="50%" />
-			<col width="50%" />
+		<!-- Tabular presentation of axioms
+		<table xml:id="table-abstract-vec-spaces-concepts-10-axioms">
+			<caption>The ten vector space axioms.</caption>
+			<tabular top="medium">
+				<col width="50%" />
+				<col width="50%" />
 
-			<row valign="top">
-				<cell><alert>(A) Addition axioms</alert></cell>
-				<cell><alert>(S) Scalar multiplication axioms</alert></cell>
-			</row>
+				<row valign="top">
+					<cell><alert>(A) Addition axioms</alert></cell>
+					<cell><alert>(S) Scalar multiplication axioms</alert></cell>
+				</row>
 
-			<row bottom="medium" valign="top">
-				<cell><p> <xi:include href="./concepts.d/add-axioms.xml" /> </p></cell>
-				<cell><p> <xi:include href="./concepts.d/smul-axioms.xml" /> </p></cell>
-			</row>
+				<row bottom="medium" valign="top">
+					<cell><p> <xi:include href="./concepts.d/add-axioms.xml" /> </p></cell>
+					<cell><p> <xi:include href="./concepts.d/smul-axioms.xml" /> </p></cell>
+				</row>
 
-		</tabular>
-	</table>
-</statement></definition>
--->
+			</tabular>
+		</table>
+		-->
 
-<!-- sidebyside presentation of axioms -->
-<sidebyside widths="50% 50%" valign="top">
-	<list>
-		<title>(A) Addition axioms</title><caption />
-		<xi:include href="./concepts.d/add-axioms.xml" />
-	</list>
-	<list>
-		<title>(S) Scalar multiplication axioms</title><caption />
-		<xi:include href="./concepts.d/smul-axioms.xml" />
-	</list>
-</sidebyside>
+		<!-- sidebyside presentation of axioms -->
+		<sidebyside widths="50% 50%" valign="top">
+			<list>
+				<title>(A) Addition axioms</title><caption />
+				<xi:include href="./concepts.d/add-axioms.xml" />
+			</list>
+			<list>
+				<title>(S) Scalar multiplication axioms</title><caption />
+				<xi:include href="./concepts.d/smul-axioms.xml" />
+			</list>
+		</sidebyside>
 
-</statement></definition>
+	</statement>
+</definition>
 
 
 <remark><p><ul>
@@ -106,8 +108,8 @@ and we would like to explore whether similar algebraic systems can be found else
 		<q>the vector that is the negative of <m>\uvec{v}</m>,</q>
 		defined by the property that it adds with <m>\uvec{v}</m> to the special zero vector.
 		</p>
-		<aside><title>However</title><p>
-			The algebra of vectors will lead to a connection between the negative of a vector with respect to addition,
+		<aside><title>A look ahead</title><p>
+			The algebra of vectors <em>will</em> lead to a connection between the negative of a vector with respect to addition,
 			and the scalar multiple of a vector by the scalar <m>-1</m>.
 			See
 			<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>
@@ -131,7 +133,7 @@ and we would like to explore whether similar algebraic systems can be found else
 				and then to add that resulting sum vector to <m>\uvec{u}</m>.
 				On the right, the brackets tell us to add vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> first,
 				and then to add that resulting sum vector to <m>\uvec{w}</m>.
-				The equals sign in the middle tells us that we require the two different addition processes to always have the same result.
+				The equals sign in the middle means that we require the two different addition processes to always have the same result.
 			 </li>
 			<li>
 				For another example, in
@@ -139,7 +141,10 @@ and we would like to explore whether similar algebraic systems can be found else
 				the brackets on the left tell us to add <m>\uvec{v}</m> and <m>\uvec{w}</m>,
 				and then scale that sum vector by scalar <m>k</m>,
 				whereas the brackets on the right tell us to scale each of <m>\uvec{v}</m> and <m>\uvec{w}</m> by <m>k</m> separately first,
-				and then add those two scaled vectors together.
+				and then add those two scaled vectors together. The equals sign in the middle means that we require the
+				add-then-scale process on the left
+				to always have the same result as the
+				scale-then-add process on the right.
 			</li>
 		</ul>
 		When we first encounter a new collection of objects for which we have some ideas of addition and scalar multiplication,
@@ -188,7 +193,7 @@ and we would like to explore whether similar algebraic systems can be found else
 </p></paragraphs>
 
 <paragraphs><title>The vector space <m>\matrixring_{m \times n}(\R)</m></title><p>
-	Another set of prototypical examples of vectors spaces are the collections of matrices of a given size,
+	Another set of prototypical examples of vectors spaces are the collections of matrices of given dimensions,
 	<m>\matrixring_{m \times n}(\R)</m>.
 	But these matrix spaces represent our first expansion of the word <term>vector</term> to include other kinds of objects <mdash />
 	since all ten axioms hold true here,
@@ -197,14 +202,14 @@ and we would like to explore whether similar algebraic systems can be found else
 	In these spaces,
 	<ul>
 		<li>
-			adding matrices or scalar multiplying a matrix does not change its size, so these operations always result in a vector in the same space, satisfying
+			adding matrices or scalar multiplying a matrix does not change its dimensions, so these operations always result in a vector in the same space, satisfying
 			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 			and
 			<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>;
 		</li>
 		<li> the zero vector is the zero matrix of the appropriate size; </li>
 		<li>
-			the negative of a vector is the matrix of the same size where all the entries are the negatives of those of the original matrix;
+			the negative of a vector is the matrix of the same dimensions where all the entries are the negatives of those of the original matrix;
 			and
 		</li>
 		<li>
@@ -237,7 +242,7 @@ and we would like to explore whether similar algebraic systems can be found else
 			<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>.
 		</li>
 		<li> The zero vector is the constant (<ie /> degree zero) polynomial <m>p(x) = 0</m>. </li>
-		<li> The negative of a vector is the polynomial of the same degree where all the coefficients are the negatives of those of the the original matrix. </li>
+		<li> The negative of a vector is the polynomial of the same degree where all the coefficients are the negatives of those of the the original polynomial. </li>
 		<li> The rest of the axioms are familiar rules of algebra involving polynomial expressions. </li>
 	</ul>
 	Next,
@@ -245,7 +250,7 @@ and we would like to explore whether similar algebraic systems can be found else
 	(<xref ref="activity-abstract-vec-spaces-basic-vspace-examples-poly-degree-2">Activity</xref>).
 	Everything here works the same as in <m>\poly(\R)</m>,
 	except that we need to reconsider
-	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>.
+	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 	and
 	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>.
 	We define vector addition and scalar multiplication for polynomials as before,
@@ -276,11 +281,25 @@ and we would like to explore whether similar algebraic systems can be found else
 	<md><mrow tag="star" xml:id="equation-abstract-vec-spaces-concepts-functions-add-def">
 		(f+g)(x) = f(x) + g(x).
 	</mrow></md>
+	For example,
+	if function <m>f</m> produces output <m>5</m> at input <m>3</m>
+	(<ie /> <m>f(3)=5</m>),
+	and function <m>g</m> produces output <m>2</m> at input <m>3</m>
+	(<ie /> <m>g(3)=2</m>),
+	then the sum function <m>f+g</m> will produce output <m>7</m> at input <m>3</m>:
+	<me> (f+g)(3) = f(3) + g(3) = 5 + 2 = 7. </me>
+	</p><p>
 	Similarly, to scale a function we should scale its outputs.
 	That is,
 	<md><mrow tag="dstar" xml:id="equation-abstract-vec-spaces-concepts-functions-smul-def">
 		(kf)(x) = kf(x).
 	</mrow></md>
+	For example,
+	if function <m>f</m> produces output <m>5</m> at input <m>3</m>
+	(<ie /> <m>f(3)=5</m>),
+	then the scaled function <m>\sqrt{2}f</m> will produce output <m>5\sqrt{2}</m> at input <m>3</m>:
+	<me> (\sqrt{2}f)(3) = \sqrt{2}\bbrac{f(3)} = \sqrt{2}(5) = 5\sqrt{2}. </me>
+	</p><p>
 	Both of these processes result in a new function with the same domain as the old,
 	so
 	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
@@ -292,6 +311,7 @@ and we would like to explore whether similar algebraic systems can be found else
 	whose outputs are always zero: <m>\zerovec(x) = 0</m> for all <m>x</m>.
 	And the negative of a function is obtained by negating all of its outputs:
 	<m>(-f)(x) = -f(x)</m>.
+	</p><p>
 	See
 	<xref ref="subsection-abstract-vec-spaces-examples-functions" />
 	for examples of carrying out the verification of some of the vector axioms in this space.
@@ -301,7 +321,7 @@ and we would like to explore whether similar algebraic systems can be found else
 <paragraphs><title>The trivial vector space</title>
 	<p>
 	In <xref ref="activity-abstract-vec-spaces-trivial-space" />,
-	we explored the possibility of a vector space having just one vector in it.
+	we explored the possibility of a vector space with just one vector in it.
 	But
 	<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>
 	requires that every vector space have a zero vector, so that single vector inside must be it.
@@ -397,7 +417,9 @@ and we would like to explore whether similar algebraic systems can be found else
 	<me> (a)\oplus(b) = \zerovec. </me>
 	Inserting the definition of <m>\oplus</m> as ordinary multiplication,
 	and inserting <m>\zerovec = (1)</m> from above,
-	we need <m>ab = 1</m>,
+	we see we need
+	<me> (ab) = (1) </me>.
+	That is, we need <m>ab = 1</m>,
 	so that <m>b=1/a</m> (which is positive since <m>a</m> is positive).
 	So we have
 	<me> -(a) = \left(\inv{a}\right). </me>

@@ -27,7 +27,7 @@ respective owners.
 
 
 <subsection xml:id="subsection-abstract-vec-spaces-examples-weird">
-<title>The space of positive numbers</title>
+<title>Verifying axioms: the space of positive numbers</title>
 
 <p>
 Here we will continue our <q>weird</q> example from the end of
@@ -82,7 +82,7 @@ and thus <m>\text{LHS}=\text{RHS}</m> as desired.
 We will leave the other addition axioms up to you,
 but let's verify one of the scalar multiplication axioms.
 Consider
-<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1" text="local">Axiom S</xref>
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1" text="local">Axiom S</xref>.
 We need to verify that
 <m>k(\uvec{v}+\uvec{w}) = k\uvec{v}+k\uvec{w}</m>
 is always true for all scalars <m>k</m> and all vectors <m>\uvec{v}</m> and <m>\uvec{w}</m>,
@@ -102,7 +102,7 @@ Then,
 		\text{RHS} \amp= k\uvec{v} + k\uvec{w}
 	</mrow><mrow>
 		\amp= k\odot\bbrac{(a) \oplus (b)} \amp
-		\amp= k\odot(a) \oplus k\odot(b)
+		\amp= \bbrac{k\odot(a)} \oplus \bbrac{k\odot(b)}
 	</mrow><mrow>
 		\amp= k\odot(ab) \amp
 		\amp= \left(a^k\right) \oplus \left(b^k\right)
@@ -120,6 +120,7 @@ We can now see that <m>\text{LHS}=\text{RHS}</m> as desired because of the expon
 	<xref
 		first="list-abstract-vec-spaces-concepts-smul-axioms-distrib2"
 		last="list-abstract-vec-spaces-concepts-smul-axioms-one"
+		text="local"
 	>Axioms S</xref>
 	for our <q>weird</q> example space,
 	using a similar procedure as in this subsection.
@@ -129,7 +130,7 @@ We can now see that <m>\text{LHS}=\text{RHS}</m> as desired because of the expon
 
 
 <subsection xml:id="subsection-abstract-vec-spaces-examples-functions">
-<title>The space of functions</title>
+<title>Verifying axioms: the space of functions</title>
 
 <p>
 Here we will verify some of the axioms for vectors in the space <m>F(D)</m>.
@@ -210,9 +211,11 @@ Then,
 	</mrow><mrow>
 		\amp= f(x) + \bbrac{-f(x)} \amp \amp\text{(ii)}
 	</mrow><mrow>
-		\amp= 0 \amp \amp\text{(iii)}
+		\amp= f(x) - f(x) \amp \amp\text{(iii)}
 	</mrow><mrow>
-		\amp= \zerovec(x) \amp \amp\text{(iv)}
+		\amp= 0 \amp \amp\text{(iv)}
+	</mrow><mrow>
+		\amp= \zerovec(x) \amp \amp\text{(v)}
 	</mrow><mrow>
 		\amp= \text{RHS},
 	</mrow>
@@ -221,6 +224,7 @@ as desired, with justifications
 <ol label="(i)">
 	<li> definition of the sum of <m>f</m> and <m>-f</m>; </li>
 	<li> definition of the negative of <m>f</m>; </li>
+	<li> algebra of numbers; </li>
 	<li> algebra of numbers; and </li>
 	<li> definition of the zero function. </li>
 </ol>
@@ -274,7 +278,7 @@ Therefore, <m>\text{LHS}=\text{RHS}</m> as desired.
 	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc" text="local">Axiom S</xref>,
 	and
 	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-one" text="local">Axiom S</xref>,
-	using a similar procedure as above.
+	using a similar procedure as in the examples of this subsection.
 	Also verify that in
 	<xref ref="subsection-abstract-vec-spaces-concepts-examples" />,
 	we have chosen the correct <term>zero vector</term> and the correct concept of <term>negative vector</term> in this space

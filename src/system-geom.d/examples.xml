@@ -87,7 +87,7 @@ respective owners.
 <example><title>Parametrically describing a plane in <m>\R^3</m></title><statement><p>
 	When we have just a single plane in space, as in <xref ref="activity-system-geom-R3-plane-parametric" />, we can view its equation as a system of equations, just as we did with the line in
 	<xref ref="activity-system-geom-R2-line-eq2parametric" />.
-	In this activity, we worked with equation <m>x-y+2z=3</m>. In this case, we will need two parameters to express the general solution, and each parameter will provide us with a vector parallel to the plane. Setting <m>y=s</m> and <m>z=t</m> and solving, we get
+	In this activity, we worked with equation <m>x-y+2z=-3</m>. In this case, we will need two parameters to express the general solution, and each parameter will provide us with a vector parallel to the plane. Setting <m>y=s</m> and <m>z=t</m> and solving, we get
 	<me>
 		\uvec{x}
 		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
@@ -100,14 +100,16 @@ respective owners.
 	<me> -1 - 4 + 2\cdot 1 = -3, </me>
 	so that the coordinates of the point satisfy the plane equation <m>x-y+2z=-3</m>. We can also describe this point using the vector equation <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2</m>:
 	<me>
-		\begin{bmatrix} -1 \\ 4 \\ 1 \end{bmatrix}
-		= \begin{bmatrix} -3 \\ 0 \\ 0 \end{bmatrix}
+		\left[\begin{array}{r} -1 \\ 4 \\ 1 \end{array}\right]
+		= \left[\begin{array}{r} -3 \\ 0 \\ 0 \end{array}\right]
 		+ s\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
-		+ t\begin{bmatrix} -2 \\ 0 \\ 1 \end{bmatrix}.
+		+ t\left[\begin{array}{r} -2 \\ 0 \\ 1 \end{array}\right].
 	</me>
 	Solving this vector equation for <m>s</m> and <m>t</m> leads to a <ellipsis /> system of linear equations!
 	<md><mrow>
-		\begin{bmatrix} -1 \\ 4 \\ 1 \end{bmatrix} - \begin{bmatrix}-3\\0\\0\end{bmatrix}
+		\left[\begin{array}{r} -1 \\ 4 \\ 1 \end{array}\right]
+		-
+		\left[\begin{array}{r} -3 \\ 0 \\ 0 \end{array}\right]
 		\amp = \begin{bmatrix} s \\ s \\ 0 \end{bmatrix}
 		+ \begin{bmatrix} -2t \\ 0 \\ t \end{bmatrix}
 		\\
@@ -137,7 +139,7 @@ When lines and/or planes are described using algebraic equations, determining po
 		= \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + t \left[\begin{array}{r} -1 \\ 1 \\ 1 \end{array}\right]
 		= \begin{bmatrix} 2-t \\ t \\ 3+t \end{bmatrix}.
 	</me>
-	If this point is also on the plane, its coordinate must satisfy the equation for the plane:
+	If this point is also on the plane, its coordinates must satisfy the equation for the plane:
 	<md><mrow>
 		2x+y-3z \amp= 7 \\
 		2(2-t) + t - 3(3+t) \amp= 7 \\

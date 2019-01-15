@@ -35,12 +35,14 @@ respective owners.
 	that the solution set of a homogeneous system
 	<m>A\uvec{x} = \zerovec</m> with <m>m\times n</m> coefficient matrix <m>A</m> is a subspace of <m>\R^n</m>.
 	We will return to this special subspace at the end of this section,
-	but first we will discuss a special subspace of <m>\R^m</m> related to nonhomogeneous systems with coefficient matrix <m>A</m>.
+	but first we will discuss a special subspace of <m>\R^m</m> related to <em>non</em>homogeneous systems with coefficient matrix <m>A</m>.
 </p></introduction>
 
 
 <subsection xml:id="subsection-col-row-null-space-concepts-colspace">
 <title>Column space</title>
+
+<paragraphs><title>The <q>consistent space</q> of a coefficient matrix</title>
 
 <p>
 The solution set of a nonhomogeneous system
@@ -138,7 +140,14 @@ It is possible to verify directly that the collection of all such <m>\uvec{b}</m
 <p>
 Until we know more about it,
 for now let's refer to this subspace of <m>\R^m</m> as the <term>consistent space</term> of <m>A</m>.
-To better understand this space, we should relate it back to the matrix <m>A</m> as we did in
+</p>
+
+</paragraphs>
+
+<paragraphs><title>Consistent space versus column space</title>
+
+<p>
+To better understand this so-called consistent space, we should relate it back to the matrix <m>A</m> as we did in
 <xref ref="activity-col-row-null-space-colspan-motivation" />,
 because <m>A</m> is the only thing common to all the <m>\uvec{b}</m> vectors in this space.
 Let's again think of <m>A</m> as being made up of column vectors in <m>\R^m</m>:
@@ -150,7 +159,7 @@ Let's again think of <m>A</m> as being made up of column vectors in <m>\R^m</m>:
 	\end{bmatrix}.
 </me>
 Now recall that if <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector in <m>\R^n</m>,
-then the result of computing <m>A\uvec{e}_j</m> is the <m>\nth[j]</m> column of <m>A</m>.
+then the result of computing <m>A\uvec{e}_j</m> is <m>\uvec{c}_j</m>, the <m>\nth[j]</m> column of <m>A</m>.
 But this says that each system
 <m>A\uvec{x}=\uvec{c}_j</m>
 is consistent,
@@ -163,7 +172,7 @@ of <m>A</m> is also in the consistent space of <m>A</m>.
 </p><p>
 What other vectors could be in this space?
 If <m>A\uvec{x}=\uvec{b}</m> is consistent,
-there it has at least one solution
+then it has at least one solution
 <me>
 	\uvec{x}
 	= \uvec{x}_0
@@ -185,10 +194,18 @@ So the two spaces are equal:
 <alert>
 	the system <m>A\uvec{x}=\uvec{b}</m> is consistent when,
 	and only when,
-	the vectors of constants <m>\uvec{b}</m> is in the column space of <m>A</m>
+	the vector of constants <m>\uvec{b}</m> is in the column space of <m>A</m>
 </alert>.
-</p><p>
-Since the columns of <m>A</m> are a spanning set for this space,
+</p>
+
+</paragraphs>
+
+<paragraphs><title>Determining a basis for a column space</title>
+
+<p>
+Since the columns of <m>A</m> are,
+by definition,
+a spanning set for the column space of <m>A</m>,
 we can reduce it to a basis.
 Once again, we can apply row reduction to this task.
 Row reducing is equivalent to multiplying on the left by elementary matrices,
@@ -237,6 +254,10 @@ leading to the following procedure.
 	but they <em>do</em> change the column space.
 </p></remark>
 
+</paragraphs>
+
+<paragraphs><title> Using column space to determine linear dependence/independence </title>
+
 <p>
 In
 <xref ref="activity-col-row-null-space-summarize-col-indep-row-reduce-test-for-indep">Activity</xref>,
@@ -282,6 +303,8 @@ We will summarize these new facts in
 <xref ref="subsection-col-row-null-space-theory-spaces-vs-rank-invert" />.
 </p>
 
+</paragraphs>
+
 </subsection>
 
 
@@ -306,7 +329,7 @@ But the pattern of leading ones guarantees that the nonzero rows in an REF are l
 </p></aside>
 
 <algorithm>
-	<title>To determine a basis for the row space of matrix <m>A</m>.</title>
+	<title>To determine a basis for the row space of matrix <m>A</m></title>
 	<statement><p>
 	<ol>
 		<li> Reduce to at least REF. </li>

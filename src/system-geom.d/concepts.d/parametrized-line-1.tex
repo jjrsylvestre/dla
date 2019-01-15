@@ -9,7 +9,7 @@
 % Documentation License” that appears in the output document of this
 % PreTeXt source code. All trademarks™ are the registered® marks of
 % their respective owners.
-% 
+%
 % *********************************************************************
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
@@ -21,13 +21,16 @@
 	\node[point] at (-8,6) (xn2) [label=above:{$t=-2$}] {};
 	\node[point] at (-5,5.25) (xn1) [label=above:{$t=-1$}] {};
 	\node[point] at (-3.5,4.875) (xn12) {};
+	\node[point] at (-6.243,5.561) (xnsqrt2) {};
 	\node[point] at (-2,4.5) (x0) [label=above:{$t=0$}] {};
 	\node[point] at (1,3.75) (x1) [label=above:{$t=1$}] {};
 	\node[point] at (4,3) (x2) [label=above:{$t=2$}] {};
 	\node[point] at (7,2.25) (x3) [label=above:{$t=3$}] {};
-	\draw[vector] (o) to node[right] {$\uvec{x}_0$} (x0);
+	\draw[vector] (o) to node[above,sloped,pos=0.6] {$\uvec{x}_0$} (x0);
 	\draw[vector] (x0) to node[below] {$\uvec{p}$} (x1);
-	\draw[vector] (o) to node[below right] {$\uvec{x}_0 + 2\uvec{p}$} (x2);
-	\draw[vector] (o) to node[left] {$\uvec{x}_0 - \frac{1}{2}\uvec{p}$} (-3.5,4.875);
+	\draw[vector] (o) to node[below,sloped,pos=0.6] {$\uvec{x}_0 + 1\uvec{p}$} (x1);
+	\draw[vector] (o) to node[below right,sloped,pos=0.5] {$\uvec{x}_0 + 2\uvec{p}$} (x2);
+	\draw[vector] (o) to node[below,sloped,near end] {$\uvec{x}_0 - \frac{1}{2}\uvec{p}$} (xn12);
+	\draw[vector] (o) to node[below,sloped,near end] {$\uvec{x}_0 - \sqrt{2}\uvec{p}$} (xnsqrt2);
 
 \end{tikzpicture}
