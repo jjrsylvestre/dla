@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2018 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-complex-matrices-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-matrices-examples-systems" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-matrices-examples-systems" /></em></li>
+<li><xref ref="subsection-complex-matrices-examples-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-matrices-examples-matrices" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-complex-matrices-examples-systems">
+<title>Complex linear systems</title>
+
+<p>
+Linear systems with complex coefficients behave exactly the same as systems with real coefficients.
+</p>
+
+<example xml:id="example-complex-matrices-examples-augmented-matrix">
+	<title>Turning a complex linear system into an augmented complex matrix</title>
+	<p>
+	Consider the system
+	<me>
+		\begin{array}{rcrcr}
+			(1 - \ci) x \amp - \amp 4 y \amp = \amp -3 + 9 \ci \\
+			(2 + \ci) x \amp + \amp (1 - 2 \ci) y \amp = \amp -5 \ci
+		\end{array}.
+	</me>
+	As usual,
+	we can represent this system as an augmented matrix,
+	with one row per equation and one column per variable,
+	with an extra augmented column for the constants on the right of the equals signs.
+	</p>
+	<me>
+		\left[\begin{array}{cc|c}
+			1 - \ci \amp -4 \amp -3 + 9 \ci \\
+			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
+		\end{array}\right].
+	</me>
+</example>
+
+<example xml:id="example-complex-matrices-examples-reducing">
+	<title> Reducing a complex augmented matrix </title>
+	<p>
+	Here we will reduce the augmented matrix for the system from
+	<xref ref="example-complex-matrices-examples-augmented-matrix" />.
+	There are always multiple ways to reduce a matrix,
+	but, as usual,
+	we are not interested in the most efficient way.
+	Instead, we will demonstrate a systematic way to reduce while avoiding complicated calculations with complex numbers,
+	especially division.
+	</p>
+	<p>
+	Rather than divide by a complex number to obtain a leading one in the top left,
+	we start by using the complex conjugate to first convert the upper left entry to a real number.
+	(For this particular matrix,
+	we could achieve the same result by simply adding the second row to the first,
+	but again we wish to demonstrate a systematic method in a simple example.)
+	<me>
+		\left[\begin{array}{cc|c}
+			1 - \ci \amp -4 \amp -3 + 9 \ci \\
+			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
+		\end{array}\right]
+		\begin{matrix} (1 + \ci) R_1 \\ \phantom{x} \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{cc|c}
+			2 \amp -4 - 4 \ci \amp -12 + 6 \ci \\
+			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
+		\end{array}\right]
+	</me>
+	Now we can easily obtain a leading one by dividing by a real number.
+	<me>
+		\left[\begin{array}{cc|c}
+			2 \amp -4 - 4 \ci \amp -12 + 6 \ci \\
+			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
+		\end{array}\right]
+		\begin{matrix} \frac{1}{2} R_1 \\ \phantom{x} \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{cc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
+		\end{array}\right]
+	</me>
+	Note that these first two operations together are equivalent to dividing the first row by <m>1 - \ci</m>.
+	</p><p>
+	Now use the leading one to eliminate just the real part of the entry below it.
+	<me>
+		\left[\begin{array}{cc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
+		\end{array}\right]
+		\begin{matrix} \phantom{x} \\ R_2 - 2 R_1 \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{cc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			\ci \amp 5 + 2 \ci \amp 12 - 11 \ci
+		\end{array}\right]
+	</me>
+	Then convert the leading entry in the second row to a real number,
+	by multiplying by <m>\ci</m>.
+	<me>
+		\left[\begin{array}{cc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			\ci \amp 5 + 2 \ci \amp 12 - 11 \ci
+		\end{array}\right]
+		\begin{matrix} \phantom{x} \\ \ci R_2 \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{rc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			-1 \amp -2 + 5 \ci \amp 11 + 12 \ci
+		\end{array}\right]
+	</me>
+	Now we can easily eliminate the bottom left entry.
+	<me>
+		\left[\begin{array}{cc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			-1 \amp -2 + 5 \ci \amp 11 + 12 \ci
+		\end{array}\right]
+		\begin{matrix} \phantom{x} \\ R_2 + R_1 \end{matrix}
+		\longrightarrow
+		\left[\begin{array}{rc|c}
+			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
+			0 \amp -4 + 3 \ci \amp 5 + 15 \ci
+		\end{array}\right]
+	</me>
+	From here we proceed in a similar fashion to obtain and exploit the next leading one.
+	<md>
+		<mrow>
+			\amp
+			\left[\begin{array}{rc|c}
+				1 \amp -2 - 2 \ci \amp -6 + 3 \ci  \\
+				0 \amp -4 + 3 \ci \amp 5 + 15 \ci
+			\end{array}\right]
+			\begin{matrix} \phantom{x} \\ (-4 - 3\ci) R_2 \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rc|c}
+				1 \amp -2 - 2 \ci \amp -6 + 3 \ci  \\
+				0 \amp 25 \amp 25 - 75 \ci
+			\end{array}\right]
+			\begin{matrix} \phantom{x} \\ \frac{1}{25} R_2 \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rc|c}
+				1 \amp -2 - 2 \ci \amp -6 + 3 \ci  \\
+				0 \amp 1 \amp 1 - 3 \ci
+			\end{array}\right]
+			\begin{matrix} R_1 + 2R_2 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rc|c}
+				1 \amp - 2 \ci \amp -4 - 3 \ci  \\
+				0 \amp 1 \amp 1 - 3 \ci
+			\end{array}\right]
+			\begin{matrix} \ci R_1 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{cc|c}
+				\ci \amp 2 \amp 3 - 4 \ci \\
+				0 \amp 1 \amp 1 - 3 \ci
+			\end{array}\right]
+			\begin{matrix} R_1 - 2R_2 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{cc|c}
+				\ci \amp 0 \amp 1 + 2 \ci \\
+				0 \amp 1 \amp 1 - 3 \ci
+			\end{array}\right]
+			\begin{matrix} (-\ci) R_1 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rr|c}
+				1 \amp 0 \amp 2 - \ci \\
+				0 \amp 1 \amp 1 - 3 \ci
+			\end{array}\right]
+		</mrow>
+	</md>
+	From the reduced matrix,
+	we can see that the original complex linear system has a unique solution,
+	<m>x = 2 - \ci</m> and <m>y = 1 - 3 \ci</m>.
+	</p>
+</example>
+
+<example xml:id="example-complex-matrices-examples-solving">
+	<title> Solving a complex linear system </title>
+	<p>
+	To solve a complex linear system we proceed just as in the real case,
+	by reducing, assigning parameters (if necessary), and solving for each variable either exactly or in terms of the assigned parameters.
+	The only difference is that
+	<em>parameters should be allowed to take on every possible <em>complex</em> value</em>,
+	instead of just every possible <em>real</em> value.
+	</p><p>
+	Suppose we have reduced the coefficient matrix for a homogeneous complex linear system,
+	and have arrived at the RREF
+	<me>
+		\begin{bmatrix}
+			1 \amp 2 + 3 \ci \amp 0 \amp 1 - \ci \\
+			0 \amp 0 \amp 1 \amp -2 + 2 \ci \\
+			0 \amp 0 \amp 0 \amp 0
+		\end{bmatrix}.
+	</me>
+	We have four variables,
+	but only two leading ones,
+	so we need two parameters.
+	The variables <m>x_2</m> and <m>x_4</m> are free,
+	so we should assign parameters to those and solve for the others.
+	In parametric form,
+	the general solution is
+	<md><mrow>
+		x_1 \amp = (-2 - 3 \ci) s + (-1 + \ci) t, \amp
+		x_2 \amp = s, \amp
+		x_3 \amp = (2 - 2 \ci) t, \amp
+		x_4 \amp = t.
+	</mrow></md>
+	</p><p>
+	Each different choice of a pair of complex values for parameters <m>s</m> and <m>t</m> leads to a different specific solution.
+	With a homogeneous system,
+	we still always have the trivial solution,
+	<m>x_1 = x_2 = x_3 = x_4 = 0</m>,
+	in this case associated to choice
+	<m>s = 0</m>, <m>t = 0</m>.
+	</p><p>
+	We also have two specific solutions attached to each parameter,
+	one from choosing
+	<m>s = 1</m>, <m>t = 0</m>
+	to obtain solution
+	<md><mrow>
+		x_1 \amp = -2 - 3 \ci, \amp
+		x_2 \amp = 1, \amp
+		x_3 \amp = 0, \amp
+		x_4 \amp = 0,
+	</mrow></md>
+	and another from choosing
+	<m>s = 0</m>, <m>t = 1</m>
+	to obtain solution
+	<md><mrow>
+		x_1 \amp = -1 + \ci, \amp
+		x_2 \amp = 0, \amp
+		x_3 \amp = 2 - 2 \ci, \amp
+		x_4 \amp = 1.
+	</mrow></md>
+	</p><p>
+	As mentioned at the beginning of this example,
+	parameters <m>s</m> and <m>t</m> can take on <em>any complex values</em>.
+	For example,
+	choosing <m>s = 7 \ci</m> and <m>t = 5 - 4 \ci</m>
+	yields particular solution
+	<md><mrow>
+		x_1 \amp = 20 - 5 \ci, \amp
+		x_2 \amp = 7 \ci, \amp
+		x_3 \amp = 2 - 18 \ci, \amp
+		x_4 \amp = 5 - 4 \ci.
+	</mrow></md>
+	</p>
+</example>
+
+</subsection>
+
+
+<subsection xml:id="subsection-complex-matrices-examples-matrices">
+<title>Complex matrices</title>
+
+<introduction>
+	<p>
+	The basic operations of
+	matrix addition, subtraction, multiplication, and scalar multiplication
+	all work the same for matrices with complex entries as for matrices with real entries,
+	except that the computations become a little more involved.
+	</p><p>
+	We will concentrate here on a few examples involving
+	inverses,
+	the determinant,
+	and the new conjugate and complex adjoint operations.
+	</p>
+</introduction>
+
+
+<subsubsection xml:id="subsubsection-complex-matrices-examples-matrices-inverse">
+<title>Inverses</title>
+
+<example xml:id="example-complex-matrices-examples-2x2-inverse">
+	<title>Using the <m>2 \times 2</m> inversion formula</title>
+	<p>
+	<xref ref="proposition-inverses-2x2-inverse" /> also applies to complex matrices.
+	</p><p>
+	For example, consider
+	<me> A = \begin{bmatrix} 5 + 5 \ci \amp 1 + \ci \\ -1 + 5 \ci \amp \ci \end{bmatrix}. </me>
+	First, compute <m>\det A</m>:
+	<me>
+		\det A
+		= (5 + 5 \ci) \cdot \ci - (1 + \ci) (-1 + 5 \ci)
+		= 1 + \ci.
+	</me>
+	Now, using the <m>2 \times 2</m> inversion formula,
+	we have
+	<md>
+		<mrow>
+			\inv{A} \amp =
+			\frac{1}{1 + \ci}
+			\begin{bmatrix}
+				\ci \amp -1 - \ci \\
+				1 - 5 \ci \amp 5 + 5 \ci
+			\end{bmatrix}
+		</mrow><mrow></mrow><mrow>
+			\amp =
+			\frac{1 - \ci}{1 - \ci}
+			\cdot
+			\frac{1}{1 + \ci}
+			\begin{bmatrix}
+				\ci \amp -1 - \ci \\
+				1 - 5 \ci \amp 5 + 5 \ci
+			\end{bmatrix}
+		</mrow><mrow></mrow><mrow>
+			\amp =
+			\frac{1}{2}
+			\left[\begin{array}{cr}
+				1 + \ci  \amp - 2 \\
+				-4 - 6 \ci \amp 10
+			\end{array}\right]
+		</mrow>
+	</md>
+	You can verify that this is the correct inverse by multiplying it against <m>A</m> to ensure it produces the identity matrix.
+	</p>
+</example>
+
+<example xml:id="example-complex-matrices-examples-3x3-inverse">
+	<title>Using the row reduction method to compute an inverse</title>
+	<p>
+	We can row reduce to compute inverses as well,
+	using the method of
+	<xref ref="subsection-elem-matrices-examples-inversion-procedure" />.
+	Consider
+	<me>
+		A = \begin{bmatrix}
+			1 + \ci \amp 0 \amp 2 + \ci \\
+			0 \amp 2 \amp -2 - 4 \ci \\
+			\ci \amp 0 \amp 1 + \ci
+		\end{bmatrix}.
+	</me>
+	Augment with the identity and reduce:
+	<md>
+		<mrow>
+			\amp
+			\left[\begin{array}{ccc|ccc}
+				1 + \ci \amp 0 \amp 2 + \ci \amp 1 \amp 0 \amp 0 \\
+				0 \amp 2 \amp -2 - 4 \ci \amp 0 \amp 1 \amp 0 \\
+				\ci \amp 0 \amp 1 + \ci \amp 0 \amp 0 \amp 1
+			\end{array}\right]
+			\begin{matrix} \phantom{x} \\ R_1 \leftrightarrow R_3 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				\ci \amp 0 \amp 1 + \ci \amp 0 \amp 0 \amp 1 \\
+				0 \amp 2 \amp -2 - 4 \ci \amp 0 \amp 1 \amp 0 \\
+				1 + \ci \amp 0 \amp 2 + \ci \amp 1 \amp 0 \amp 0
+			\end{array}\right]
+			\begin{matrix} -\ci R_1 \\ \frac{1}{2} R_2 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				1 \amp 0 \amp 1 - \ci \amp 0 \amp 0 \amp - \ci \\
+				0 \amp 1 \amp -1 - 2 \ci \amp 0 \amp \frac{1}{2} \amp 0 \\
+				1 + \ci \amp 0 \amp 2 + \ci \amp 1 \amp 0 \amp 0
+			\end{array}\right]
+			\begin{matrix} \phantom{x} \\ \phantom{x} \\ R_3 - R_1 \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				1 \amp 0 \amp 1 - \ci \amp 0 \amp 0 \amp - \ci \\
+				0 \amp 1 \amp -1 - 2 \ci \amp 0 \amp \frac{1}{2} \amp 0 \\
+				\ci \amp 0 \amp 1 + 2 \ci \amp 1 \amp 0 \amp \ci
+			\end{array}\right]
+			\begin{matrix} \phantom{x} \\ \phantom{x} \\ - \ci R_3 \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				1 \amp 0 \amp 1 - \ci \amp 0 \amp 0 \amp - \ci \\
+				0 \amp 1 \amp -1 - 2 \ci \amp 0 \amp \frac{1}{2} \amp 0 \\
+				1 \amp 0 \amp 2 - \ci \amp -\ci \amp 0 \amp 1
+			\end{array}\right]
+			\begin{matrix} \phantom{x} \\ \phantom{x} \\ R_3 - R_1 \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				1 \amp 0 \amp 1 - \ci \amp 0 \amp 0 \amp - \ci \\
+				0 \amp 1 \amp -1 - 2 \ci \amp 0 \amp \frac{1}{2} \amp 0 \\
+				0 \amp 0 \amp 1 \amp -\ci \amp 0 \amp 1 + \ci
+			\end{array}\right]
+			\begin{matrix} R_1 - R_3 \\ R_2 + R_3 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				1 \amp 0 \amp - \ci \amp \ci \amp 0 \amp -1 - 2\ci \\
+				0 \amp 1 \amp - 2 \ci \amp -\ci \amp \frac{1}{2} \amp 1 + \ci \\
+				0 \amp 0 \amp 1 \amp -\ci \amp 0 \amp 1 + \ci
+			\end{array}\right]
+			\begin{matrix} \ci R_1 \\ \ci R_2 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				\ci \amp 0 \amp 1 \amp -1 \amp 0 \amp 2 - \ci \\
+				0 \amp \ci \amp 2 \amp 1 \amp \frac{1}{2} \, \ci \amp -1 + \ci \\
+				0 \amp 0 \amp 1 \amp -\ci \amp 0 \amp 1 + \ci
+			\end{array}\right]
+			\begin{matrix} R_1 - R_3 \\ R_2 - 2 R_3 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				\ci \amp 0 \amp 0 \amp -1 + \ci \amp 0 \amp 1 - 2 \ci \\
+				0 \amp \ci \amp 0 \amp 1 + 2 \ci \amp \frac{1}{2} \, \ci \amp -3 - \ci \\
+				0 \amp 0 \amp 1 \amp -\ci \amp 0 \amp 1 + \ci
+			\end{array}\right]
+			\begin{matrix} -\ci R_1 \\ -\ci R_2 \\ \phantom{x} \end{matrix}
+		</mrow><mrow></mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{ccc|ccc}
+				1 \amp 0 \amp 0 \amp 1 + \ci \amp 0 \amp -2 - \ci \\
+				0 \amp 1 \amp 0 \amp 2 - \ci \amp \frac{1}{2} \amp -1 + 3 \ci \\
+				0 \amp 0 \amp 1 \amp -\ci \amp 0 \amp 1 + \ci
+			\end{array}\right].
+		</mrow>
+	</md>
+	From this calculation,
+	we obtain
+	<me>
+		\inv{A}
+		=
+		\begin{bmatrix}
+			1 + \ci \amp 0 \amp -2 - \ci \\
+			2 - \ci \amp \frac{1}{2} \amp -1 + 3 \ci \\
+			-\ci \amp 0 \amp 1 + \ci
+		\end{bmatrix}.
+	</me>
+	</p>
+</example>
+
+</subsubsection>
+
+
+<subsubsection xml:id="subsubsection-complex-matrices-examples-matrices-det">
+<title>Determinant</title>
+
+<example><title>Complex determinant by cofactor expansion</title>
+	<p>
+	Let's compute the determinant of the complex matrix
+	<me>
+		B = \begin{bmatrix}
+			1 + \ci \amp 2 \amp - 3\ci \\
+			0 \amp 2 \amp -2 - 4 \ci \\
+			\ci \amp 0 \amp 1 + \ci
+		\end{bmatrix}.
+	</me>
+	Matrix <m>B</m> is one row operation away from the matrix <m>A</m> from
+	<xref ref="example-complex-matrices-examples-3x3-inverse" />.
+	Since we found <m>A</m> to be invertible,
+	<m>B</m> should be invertible as well,
+	and so we expect to find <m>\det B</m> to be nonzero.
+	</p><p>
+	Expanding along the middle row,
+	we have
+	<md>
+		<mrow>
+			\det B
+			\amp =
+			\begin{vmatrix}
+				1 + \ci \amp 2 \amp - 3\ci \\
+				0 \amp 2 \amp -2 - 4 \ci \\
+				\ci \amp 0 \amp 1 + \ci
+			\end{vmatrix}
+		</mrow><mrow></mrow><mrow>
+			\amp =
+			2
+			\begin{vmatrix}
+				1 + \ci \amp - 3\ci \\
+				\ci \amp 1 + \ci
+			\end{vmatrix}
+			- (-2 - 4\ci)
+			\begin{vmatrix}
+				1 + \ci \amp 2 \\
+				\ci \amp 0
+			\end{vmatrix}
+		</mrow><mrow></mrow><mrow>
+			\amp
+			= 2 \bbrac{ (1 + \ci)^2 - (- 3\ci) \cdot \ci }
+			+ (2 + 4\ci) (0 - 2 \ci)
+		</mrow><mrow></mrow><mrow>
+			\amp =  2.
+		</mrow>
+	</md>
+	Note that the cofactor expansion is performed exactly as for real matrices, including cofactor signs.
+	</p>
+</example>
+
+</subsubsection>
+
+<subsubsection xml:id="subsubsection-complex-matrices-examples-matrices-adjoint">
+<title>Conjugate and the complex adjoint</title>
+
+<example xml:id="example-complex-matrices-examples-3x3-conjugate">
+	<title>The conjugate of a matrix</title>
+	<p>
+	Let's compute the conjugate of the matrix from
+	<xref ref="example-complex-matrices-examples-3x3-inverse" />:
+	<md><mrow>
+		A \amp =
+		\begin{bmatrix}
+			1 + \ci \amp 0 \amp 2 + \ci \\
+			0 \amp 2 \amp -2 - 4 \ci \\
+			\ci \amp 0 \amp 1 + \ci
+		\end{bmatrix},
+		\amp
+		\cconj{A} \amp =
+		\begin{bmatrix}
+			1 - \ci \amp 0 \amp 2 - \ci \\
+			0 \amp 2 \amp -2 + 4 \ci \\
+			-\ci \amp 0 \amp 1 - \ci
+		\end{bmatrix}.
+	</mrow></md>
+	Notice that the purely real entries do not change, while the purely imaginary entries become negative.
+	</p><p>
+	While we're at it, let's compute the conjugate of the inverse of <m>A</m>:
+	<md><mrow>
+		\inv{A}
+		\amp =
+		\begin{bmatrix}
+			1 + \ci \amp 0 \amp -2 - \ci \\
+			2 - \ci \amp \frac{1}{2} \amp -1 + 3 \ci \\
+			-\ci \amp 0 \amp 1 + \ci
+		\end{bmatrix},
+		\amp
+		\lcconj{\inv{A}}
+		\amp =
+		\begin{bmatrix}
+			1 - \ci \amp 0 \amp -2 + \ci \\
+			2 + \ci \amp \frac{1}{2} \amp -1 - 3 \ci \\
+			\ci \amp 0 \amp 1 - \ci
+		\end{bmatrix}.
+	</mrow></md>
+	What do you think will happen if we multiply <m>\cconj{A}</m> and <m>\lcconj{\inv{A}}</m> together?
+	<md>
+		<mrow>
+			\cconj{A} \lcconj{\inv{A}}
+			\amp =
+			\begin{bmatrix}
+				1 - \ci \amp 0 \amp 2 - \ci \\
+				0 \amp 2 \amp -2 + 4 \ci \\
+				-\ci \amp 0 \amp 1 - \ci
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 - \ci \amp 0 \amp -2 + \ci \\
+				2 + \ci \amp \frac{1}{2} \amp -1 - 3 \ci \\
+				\ci \amp 0 \amp 1 - \ci
+			\end{bmatrix}
+		</mrow><mrow></mrow><mrow>
+			\amp =
+			\begin{bmatrix}
+				(1 - \ci)^2 + (2 - \ci) \cdot \ci \amp 0 \amp (1 - \ci) (-2 + \ci) + (2 - \ci) (1 - \ci) \\
+				2 (2 + \ci) + (-2 + 4 \ci) \cdot \ci \amp 2 \cdot \frac{1}{2} \amp 2 (-1 - 3 \ci) + (-2 + 4 \ci) (1 - \ci) \\
+				-\ci (1 - \ci) + (1 - \ci) \cdot \ci \amp 0 \amp -\ci (-2 + \ci) + (1 - \ci)^2
+			\end{bmatrix}
+		</mrow><mrow></mrow><mrow>
+			\amp =
+			\begin{bmatrix}
+				1 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 1
+			\end{bmatrix}.
+		</mrow>
+	</md>
+	Surprised?
+	With the above calculation,
+	we have verified
+	(for this example)
+	that
+	<m>\inv{(\cconj{A})} = \lcconj{\inv{A}}</m>.
+	In
+	TODO-XREF
+	we will record that this formula holds in general.
+	</p>
+</example>
+
+<example xml:id="example-complex-matrices-examples-3x3-adjoint">
+	<title>The complex adjoint of a matrix</title>
+	<p>
+	Continuing
+	<xref ref="example-complex-matrices-examples-3x3-conjugate" />,
+	we have
+	<md><mrow>
+		A \amp =
+		\begin{bmatrix}
+			1 + \ci \amp 0 \amp 2 + \ci \\
+			0 \amp 2 \amp -2 - 4 \ci \\
+			\ci \amp 0 \amp 1 + \ci
+		\end{bmatrix},
+		\amp
+		\adjoint{A} \amp =
+		\begin{bmatrix}
+			1 - \ci \amp 0 \amp -\ci \\
+			0 \amp 2 \amp 0 \\
+			2 - \ci \amp -2 + 4 \ci \amp 1 - \ci
+		\end{bmatrix}.
+	</mrow></md>
+	The adjoint <m>\adjoint{A}</m> is computed by taking the transpose of the conjugate <m>\cconj{A}</m>.
+	The pattern between <m>A</m> and <m>\adjoint{A}</m> is as follows:
+	each entry along the main diagonal is conjugated,
+	and each off-diagonal entry is both conjugated and reflected to its symmetric position on the other side of the main diagonal.
+	</p><p>
+	Similarly to
+	<xref ref="example-complex-matrices-examples-3x3-conjugate" />,
+	you can compute the product <m>\adjoint{A} \adjoint{\bigl(\inv{A}\bigr)}</m> if you like,
+	but just taking the transpose of both sides of the formula
+	<m>\inv{(\cconj{A})} = \lcconj{\inv{A}}</m>
+	and using
+	<xref ref="proposition-inverses-transpose" />
+	on the left will lead to the formula
+	<m>\inv{\bigl(\adjoint{A}\bigr)} = \adjoint{\bigl(\inv{A}\bigr)}</m>.
+	</p>
+</example>
+
+</subsubsection>
+
+</subsection>
+
+</section>
