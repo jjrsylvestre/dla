@@ -179,7 +179,9 @@ For example,
 if <m>V = \Span\basisfont{B}</m> for some basis
 <m>\basisfont{B} = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>,
 and we have a vector <m>\uvec{w}</m> in <m>V</m> for which
-<me> \uvec{w} = 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3, </me>
+<md><mrow xml:id="equation-basis-coords-concepts-example-lin-comb" tag="star">
+	\uvec{w} = 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3
+</mrow></md>,
 then the numbers <m>3,5,-1</m> (in that order) uniquely identify the vector <m>\uvec{w}</m> relative to the (ordered) basis,
 and no other triple of numbers identify <m>\uvec{w}</m>.
 These coefficients are called the
@@ -190,20 +192,18 @@ vectors in <m>\R^3</m>.
 So, in this example, to every vector in the space <m>V</m>
 (which may be a space of matrices or a space of functions or <etc />)
 we can associate one unique vector in <m>\R^3</m> whose components are the coordinates of the vector relative to the basis <m>\basisfont{B}</m>.
-For our example vector <m>\uvec{w}</m> above, we have
-<md>
-	<mrow> \amp\amp \uvec{w} \amp= 3\uvec{v}_1 + 5\uvec{v}_2 + (-1)\uvec{v}_3 </mrow>
-	<mrow> \amp\Longleftrightarrow \amp \rmatrixOf{\uvec{w}}{B} \amp= (3,5,-1) </mrow>
-	<mrow>
-		\amp\Longleftrightarrow \amp \matrixOf{\uvec{w}}{B}
-		\amp= \left[\begin{array}{r} 3 \\ 5 \\ -1 \end{array}\right].
-	</mrow>
-</md>
+For our example vector <m>\uvec{w}</m> above,
+we can collect the three coefficients from the linear combination in
+<xref ref="equation-basis-coords-concepts-example-lin-comb" />
+either into a triple of coordinates <m>(x,y,z)</m> or into a column vector:
+<md><mrow>
+	\rmatrixOf{\uvec{w}}{B} \amp= (3,5,-1) \text{,} \amp
+	\matrixOf{\uvec{w}}{B} \amp= \left[\begin{array}{r} 3 \\ 5 \\ -1 \end{array}\right] \text{.}
+</mrow></md>
 The equivalent <m>\R^3</m>-vectors <m>\rmatrixOf{\uvec{w}}{B}</m> and <m>\matrixOf{\uvec{w}}{B}</m> are each called the
 <term>coordinate vector</term><idx><h>coordinate vector</h></idx><idx><h>vector</h><h>coordinate</h></idx>
 of <m>\uvec{w}</m> relative to <m>\basisfont{B}</m>,
-the only difference between the two being the presentation,
-either as a triple of coordinates <m>(x,y,z)</m> or as a column vector.
+the only difference between the two being the presentation.
 </p><p>
 To repeat,
 since <m>\basisfont{B}</m> is a spanning set,

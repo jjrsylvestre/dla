@@ -244,11 +244,13 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 	Working in <m>\R^3</m>, we would like to determine if <m>\uvec{v} = (1,-1,4)</m> is in <m>\Span S</m> for <m>S = \bigl\{(1,0,1),(2,1,-1)\bigr\}</m>. Let's try to express <m>\uvec{v}</m> as a linear combination of vectors in the spanning set, and see if it works out. Set
 	<me> (1,-1,4) = s(1,0,1) + t(2,1,-1), </me>
 	for unknown scalars <m>s,t</m>. Combining the linear combination on the right into a single vector and comparing components on each side, we get (surprise!) a linear system of equations:
-	<me>\begin{array}{rcrcr}
-		1 \amp = \amp s \amp + \amp 2t, \\
-		-1 \amp = \amp \amp \amp t, \\
-		4 \amp = \amp s \amp - \amp t.
-	\end{array}</me>
+	<me>
+		\left\{\begin{array}{rcrcr}
+			1 \amp = \amp s \amp + \amp 2t \text{,} \\
+			-1 \amp = \amp \amp \amp t \text{,} \\
+			4 \amp = \amp s \amp - \amp t \text{.}
+		\end{array}\right.
+	</me>
 	Now, we don't actually care about the solution to this system <mdash /> we only care if the system is <em>consistent</em> or not, because if it's consistent then there <em>is</em> a way to express <m>\uvec{v}</m> as a linear combination of the spanning vectors, so that <m>\uvec{v}</m> is in <m>\Span S</m>. And, as you can check for yourself, this system is consistent.
 	</p><p>
 	There is an interesting pattern to note if we actually convert the system above into an augmented matrix:
@@ -311,8 +313,8 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 	Two polynomials are only equal if they have the same degree and all the same coefficients. From this, we get the following linear system:
 	<me>\begin{array}{rrcrcrcr}
 		\text{constant term:} \amp 2 \amp = \amp r \amp + \amp s \amp + \amp t, \\
-		\text{<m>x</m> term:} \amp -1 \amp = \amp \amp \amp s, \\
-		\text{<m>x^2</m> term:} \amp 3 \amp = \amp \amp \amp \amp \amp t,
+		\text{$x$ term:} \amp -1 \amp = \amp \amp \amp s, \\
+		\text{$x^2$ term:} \amp 3 \amp = \amp \amp \amp \amp \amp t,
 	\end{array}</me>
 	which can be converted into augmented matrix
 	<me>
