@@ -203,11 +203,13 @@ But what about the zero vector by itself? Scalar multiples of <m>\zerovec</m> re
 	<p>
 	In <xref ref="activity-linear-indep-max-indep-in-R2-R3" />, we considered the possible sizes of linearly independent sets in <m>\R^2</m> and <m>\R^3</m>. We can certainly have two linearly independent vectors in <m>\R^2</m>, since clearly the standard basis vectors <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> form a linearly independent set in <m>\R^2</m>. Could we have three? Two linearly independent vectors would have to be nonparallel, and so they would have to span a plane <mdash /> <ie /> they would have to span the <m>entire</m> plane. Geometrically, a third linearly independent vector would have to branch off in a <q>new direction,</q> as in our discussion above. But in <m>\R^2</m> there is no new third direction in which to head <mdash /> we can't have a vector breaking up out of the plane <q>into the third dimension,</q> because there is no third dimension available in <m>\R^2</m>. Algebraically, if we had three vectors <m>\uvec{u}=(u_1,u_2)</m>, <m>\uvec{v}=(v_1,v_2)</m>, <m>\uvec{w}=(w_1,w_2)</m> in <m>\R^2</m> and attempted the test for dependence/independence, we would start by setting up the vector equation
 	<me> k_1\uvec{u} + k_2\uvec{v} + k_3\uvec{w} = \zerovec. </me>
-	Combing the linear combination on the left back into one vector, and comparing coordinates on either side, we would obtain linear system
-	<md><mrow>
-		u_1 k_1 + v_1 k_2 + w_1 k_3 \amp= 0, \\
-		u_2 k_1 + v_2 k_2 + w_2 k_3 \amp= 0,
-	</mrow></md>
+	Combining the linear combination on the left back into one vector, and comparing coordinates on either side, we would obtain linear system
+	<me>
+		\left\{\begin{array}{rcrcrcr}
+			u_1 k_1 \amp + \amp v_1 k_2 \amp + \amp w_1 k_3 \amp = \amp 0 \text{,} \\
+			u_2 k_1 \amp + \amp v_2 k_2 \amp + \amp w_2 k_3 \amp = \amp 0 \text{,}
+		\end{array}\right.
+	</me>
 	in the unknown coefficients <m>k_1,k_2,k_3</m>. Because there are only two equations, the reduced form for the coefficient matrix for this system can have no more than two leading ones, so it requires at least one parameter to solve, which means there are nontrivial solutions. So three vectors in <m>\R^2</m> can never by linearly independent.
 	</p><p>
 	We come to a similar conclusion in <m>\R^3</m> using both geometric and algebraic reasoning <mdash /> three independent vectors in <m>\R^3</m> is certainly possible (<eg /> the standard basis vectors), but a set of four vectors in <m>\R^3</m> can never be linearly independent. Geometrically, once you have three independent vectors pointing in three <q>independent directions,</q> there is no new direction in <m>\R^3</m> for a fourth independent vector to take. Algebraically, we could set up the test for independence with four vectors in <m>\R^3</m> and it would lead to a homogeneous system of three equations (one for each coordinate) in four variables (one unknown coefficient for each vector). Since the system would have more variables than equations, it would require parameters to solve, leading to nontrivial solutions.

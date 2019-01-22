@@ -115,22 +115,22 @@ It may seem more natural to write the vector of unknowns as a row vector instead
 <p>
 We would like to express the system as one matrix equation <m>A\uvec{x}=\uvec{b}</m>, and to do this we need to decide what <m>A</m> times <m>\uvec{x}</m> should mean. Whatever it means, we would like this result to be equal to the <m>2\times 1</m> matrix <m>\uvec{b}</m>. So, recalling that for matrices to be equal we first need them to be equal sizes, <em>we need the product of the <m>2\times 3</m> matrix with the <m>3\times 1</m> matrix to be a <m>2\times 1</m> matrix</em>. (Do you see a pattern in the dimension numbers?)
 <me>
-	\left[\begin{array}{rrr} 2 \amp -5 \amp -1\\1 \amp -2 \amp 3 \end{array}\right]
-	\begin{bmatrix}x\\y\\z\end{bmatrix}
+	\left[\begin{array}{rrr} 2 \amp -5 \amp -1 \\ 1 \amp -2 \amp 3 \end{array}\right]
+	\begin{bmatrix} x \\ y \\ z \end{bmatrix}
 	=
-	\begin{bmatrix}?\\?\end{bmatrix}
+	\begin{bmatrix} ? \\ ? \end{bmatrix}
 	=
 	\left[\begin{array}{r} 7 \\ -2 \end{array}\right]
 </me>
 Recalling that the other part of equality of matrices is that corresponding entries are equal, we now want some combination of the entries of <m>A</m> and <m>\uvec{x}</m> to equal <m>7</m> and some other combination of the entries of <m>A</m> and <m>\uvec{x}</m> to equal <m>-2</m>. But we already have this from the original system of equations!
-\[
+<me>
 	\left[\begin{array}{rrr} 2 \amp -5 \amp -1\\1 \amp -2 \amp 3 \end{array}\right]
 	\begin{bmatrix}x\\y\\z\end{bmatrix}
 	=
 	\begin{bmatrix}2x-5y-z\\x-2y+3z\end{bmatrix}
 	=
 	\left[\begin{array}{r} 7 \\ -2 \end{array}\right]
-\]
+</me>
 (Remember that the left-hand side of a linear equation represents <em>a single number</em>.) Hopefully it's now obvious how a matrix times a column should proceed. Take the products of the entries of the first row of the matrix with the corresponding entries in the column, add these products, and put the result in the first entry of the result column matrix. Then multiply the second row of the matrix by the column in the same fashion and put the result in the second entry of the result column matrix. And so on. Defined in this way, the single matrix equation <m>A\uvec{x}=\uvec{b}</m> now contains all the same information as the multiple linear equations of the original system.
 </p>
 

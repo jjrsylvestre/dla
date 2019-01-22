@@ -14,7 +14,7 @@ respective owners.
 *********************************************************************-->
 
 
-<section xml:id="section-eigen-values-vectors-concepts">
+<section xml:id="section-eigen-values-vectors-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <title>Concepts</title>
 
@@ -29,6 +29,8 @@ respective owners.
 <em><xref text="title" ref="subsection-eigen-values-vectors-concepts-espaces" /></em></li>
 <li><xref ref="subsection-eigen-values-vectors-concepts-invertibility" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-eigen-values-vectors-concepts-invertibility" /></em></li>
+<li><xref ref="subsection-eigen-values-vectors-concepts-geometry" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-eigen-values-vectors-concepts-geometry" /></em></li>
 </ul></p></assemblage>
 
 <subsection xml:id="subsection-eigen-values-vectors-concepts-compute-evalues">
@@ -204,6 +206,88 @@ And for <m>\lambda=0</m> to actually be an eigenvalue of <m>A</m>,
 there needs to be nontrivial solutions to this equation <mdash />
 which we know will occur precisely when <m>A</m> is <em>not invertible</em>
 (<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-eigen-values-vectors-concepts-geometry">
+<title>The geometry of eigenvectors</title>
+
+<p>
+Multiplication of column vectors by a particular matrix can be thought of as a sort of <term>function</term>,
+<ie /> an input-output process.
+But unlike the types of functions you are probably used to encountering,
+where the input is a number <m>x</m> and the output is a number <m>y</m>,
+this matrix-multiplication sort of function has a <em>column vector</em> <m>\uvec{x}</m> as input and a <em>column vector</em> <m>\uvec{y}</m> as output.
+</p>
+
+<p>
+When the particular matrix used to form such a function is square,
+then the input and output vectors live in the same space
+(<ie /> <m>\R^n</m>, where <m>n</m> is the size of the matrix),
+so we can think of the matrix <term>transforming</term> an input vector into its corresponding output vector geometrically.
+See <xref ref="figure-eigen-values-vectors-concepts-transformation-example" />
+for an example of this geometric transformation point of view.
+</p>
+
+<figure xml:id="figure-eigen-values-vectors-concepts-transformation-example">
+	<caption>
+		Example matrix function with
+		<m> A = \left[\begin{smallmatrix} 0 \amp -1 \\ 1 \amp 0 \end{smallmatrix}\right] </m>
+		applied to input vector
+		<m>\uvec{x} = \left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m>
+		to produce output vector
+		<m>\uvec{y} = A\uvec{x}</m>.
+	</caption>
+	<image width="33%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Example of matrix multiplication as a function, considered geometrically in the plane.</description>
+		<latex-image><xi:include href="concepts.d/rotate.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+When the input vector <m>\uvec{x}</m> is an <em>eigenvector</em> of the transformation matrix <m>A</m>,
+then the output vector <m>A\uvec{x}</m> is a scalar multiple of <m>\uvec{x}</m>
+(where the scale factor is the corresponding eigenvalue).
+See <xref ref="figure-eigen-values-vectors-concepts-eigen-transformation-example" />
+for a geometric example of this view of eigenvectors.
+</p>
+
+<figure xml:id="figure-eigen-values-vectors-concepts-eigen-transformation-example">
+	<caption>
+		Two input-output examples using the same transformation matrix
+		<m> A = \left[\begin{smallmatrix} 7 \amp 8 \\ -4 \amp -5 \end{smallmatrix}\right] </m>
+		(from <xref ref="activity-eigen-values-vectors-eigen-motivation"/>).
+	</caption>
+	<sidebyside widths="30% 35%">
+		<figure>
+			<caption>
+				With eigenvector <m>\uvec{u}</m>
+				(again from <xref ref="activity-eigen-values-vectors-eigen-motivation"/>)
+				as input vector.
+			</caption>
+			<image>
+				<!-- description gets inserted as alt text in html img tag -->
+				<description>Example of a matrix transformation of an eigenvector and a non-eigenvector.</description>
+				<latex-image><xi:include href="concepts.d/eigen-transformed.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+		<figure>
+			<caption> With a non-eigenvector <m>\uvec{x}</m> as input vector. </caption>
+			<image>
+				<!-- description gets inserted as alt text in html img tag -->
+				<description>Example of a matrix transformation of an eigenvector and a non-eigenvector.</description>
+				<latex-image><xi:include href="concepts.d/noneigen-transformed.tex" parse="text" /></latex-image>
+			</image>
+		</figure>
+	</sidebyside>
+</figure>
+
+<p>
+Geometrically, one vector is a scalar multiple of another if and only if the two vectors are <em>parallel</em>.
+So we can say that
+<alert>a vector is an eigenvector of a matrix precisely when it is transformed to a parallel vector when multiplied by the matrix</alert>.
 </p>
 
 </subsection>

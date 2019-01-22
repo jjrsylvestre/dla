@@ -67,8 +67,14 @@ respective owners.
 </p></warning>
 
 <example><title>Parametrically describing the intersection of two planes in <m>\R^3</m></title><statement><p>
-	In <xref ref="activity-system-geom-R3-line-parametric" />, we considered a system consisting of two equations in three variables,
-	<md><mrow>2x-y+z \amp = 3, \amp x+3y-2z \amp =-1.</mrow></md>
+	In <xref ref="activity-system-geom-R3-line-parametric" />,
+	we considered a system consisting of two equations in three variables,
+	<me>
+		\left\{\begin{array}{rcrcrcr}
+			2x \amp - \amp y \amp + \amp z \amp = \amp 3\text{,} \\
+			x \amp + \amp 3y \amp - \amp 2z \amp = \amp -1\text{.}
+		\end{array}\right.
+	</me>
 	Geometrically, each of the equations represents a plane in space, and solutions to the system represent points that are in common to both planes (<ie /> points in the intersection of the two planes). From the coefficients of the equations we may take <m>\uvec{n}_1 = (2,-1,1)</m> and <m>\uvec{n}_2 = (1,3,-2)</m> as normal vectors for the two planes, respectively. Since these normal vectors are not parallel, neither are the planes, and so they must intersect. Algebraically, this means that the coefficient parts of the two equations are not multiples of each other, so when we row reduce we will find two leading ones, representing the two independent equations with which we started. And so we will only require one parameter to express the general solution, which will then take the form of a line. The free variable in this system is <m>z</m>, so setting <m>z</m> to parameter <m>t</m> and solving we get
 	<me>
 		\uvec{x}
@@ -178,14 +184,19 @@ When lines and/or planes are described using algebraic equations, determining po
 		</mrow>
 	</md>
 	Now, this point can only have one set of coordinates, so these two descriptions must actually be the same. This lets us set up a <ellipsis /> system of linear equations!
-	<md><mrow>
-		x\amp\colon\qquad 2-t = 3+r+3s \amp \amp\implies \amp
-		r+3s+t \amp= -1, \\
-		y\amp\colon\qquad t = 1+r \amp \amp\implies \amp
-		r\;\:\phantom{+3s}-t \amp= -1, \\
-		z\amp\colon\qquad 3+t=r+2s \amp \amp\implies \amp
-		r+2s-t \amp= 3.
-	</mrow></md>
+	<me>
+		\begin{array}{rcl}
+			x\colon \amp \qquad \amp 2-t = 3+r+3s\text{,} \\
+			y\colon \amp \qquad \amp t = 1+r\text{,} \\
+			z\colon \amp \qquad \amp 3+t=r+2s\text{,}
+		\end{array}
+		\qquad\implies\qquad
+		\left\{\begin{array}{rcrcrcr}
+			r \amp + \amp 3 s \amp + \amp t \amp = \amp -1\text{,} \\
+			r \amp \amp \amp - \amp t \amp = \amp -1\text{,} \\
+			r \amp + \amp 2s \amp - \amp t \amp = \amp 3\text{.}
+		\end{array}\right.
+	</me>
 	We could put this system in a matrix and row reduce, but we only really care about the value of parameter <m>t</m> in the solution, because knowing <m>t</m> allows us to determine <m>\uvec{x}</m> from the vector description for the line. So we can use Cramer's rule instead. Write <m>A</m> for the coefficient matrix of this system, and <m>A_3</m> for the matrix obtained by replacing the third column of <m>A</m> by the vector of contants. Then,
 	<md>
 		<mrow>

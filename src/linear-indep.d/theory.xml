@@ -65,7 +65,7 @@ serve as a proof.
 				<xref ref="section-linear-indep-terminology" /> for the definition of <term>linearly dependent</term>.
 			</p></aside>
 		</case>
-		<case><title><m>S</m> contains <m>at least one</m> nonzero vector <m>\uvec{v}</m></title>
+		<case><title><m>S</m> contains <em>at least one</em> nonzero vector <m>\uvec{v}</m></title>
 			<p>
 			But then <m>\zerovec</m> can be expressed as the linear combination <m>\zerovec = 0\uvec{v}</m>. Since we have found a vector in <m>S</m> that can be expressed as a linear combination of another vector in <m>S</m>, the set of vectors is linearly dependent.
 		 	</p>
@@ -237,12 +237,14 @@ and
 	If we set <m>c_1</m> to be the coefficient expression on <m>\uvec{v}_1</m> in the expression above, and <m>c_2</m> to be the coefficient expression on <m>\uvec{v}_2</m>, and so on, then we obtain a vector equality
 	<me> c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_{n'}\uvec{v}_{n'} = \zerovec. </me>
 	But the vectors in this linear combination are the vectors in <m>S'</m>, and we have assumed that <m>S'</m> is a linearly independent set. So this vector equality can only be true for the trivial solution where each <m>c_i = 0</m>. This leads to homogeneous system
-	<md>
-		<mrow> a_{11}k_1 + a_{12}k_2 + \dotsb + a_{1m}k_m \amp= 0, </mrow>
-		<mrow> a_{21}k_1 + a_{22}k_2 + \dotsb + a_{2m}k_m \amp= 0, </mrow>
-		<mrow> \amp\;\;\vdots </mrow>
-		<mrow> a_{n'1}k_1 + a_{n'2}k_2 + \dotsb + a_{n'm}k_m \amp= 0, </mrow>
-	</md>
+	<me>
+		\left\{\begin{array}{rcrcccrcr}
+			a_{11}k_1 \amp + \amp a_{12}k_2 \amp + \amp \dotsb \amp + \amp a_{1m}k_m \amp = \amp 0 \text{,} \\
+			a_{21}k_1 \amp + \amp a_{22}k_2 \amp + \amp \dotsb \amp + \amp a_{2m}k_m \amp = \amp 0 \text{,} \\
+			 \amp \amp \amp \amp \vdots \amp \amp \amp \\
+			 a_{n'1}k_1 \amp + \amp a_{n'2}k_2 \amp + \amp \dotsb \amp + \amp a_{n'm}k_m \amp = \amp 0 \text{,}
+		\end{array}\right.
+	</me>
 	in the variables <m>k_1,k_2,\dotsc,k_m</m>. Now, we have assumed <m>m > n \ge n'</m>, so we have more variables than equations in the homogeneous system above. But then the solution will require parameters, which means there are nontrivial solutions. Thus,
 	the <xref ref="proposition-linear-indep-test" text="title"/>
 	tells us that the collection <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> is linearly dependent.

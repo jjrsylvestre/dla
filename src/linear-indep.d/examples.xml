@@ -37,20 +37,21 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/
 	<title>Testing dependence/independence in <m>\R^n</m></title>
 	<statement><p>
 	Are the vectors <m>(1,0,0,1),(1,1,0,-1),(2,1,0,0),(5,1,0,5)</m> in <m>\R^4</m> linearly dependent or independent? Set up the test:
+	<me> k_1 (1,0,0,1) + k_2(1,1,0,-1) + k_3(2,1,0,0) + k_4(5,1,0,5) = (0,0,0,0). </me>
+	Notice how we have used the proper zero vector in this space on the right-hand side.
+	On the left-hand side, we want to combine the expression into one vector so that we can compare with the zero vector.
 	<md>
-		<mrow> k_1 (1,0,0,1) + k_2(1,1,0,-1) + k_3(2,1,0,0) + k_4(5,1,0,5) \amp= (0,0,0,0). </mrow>
-		<intertext> Notice how we have used the proper zero vector in this space on the right-hand side. On the left-hand side, we want to combine the expression into one vector so that we can compare with the zero vector. </intertext>
 		<mrow> (k_1,0,0,k_1) + (k_2,k_2,0,-k_2) + (2k_3,k_3,0,0) + (5k_4,k_4,0,5k_4) \amp= (0,0,0,0) </mrow>
-		<mrow> (k_1+k_2+2k_3+5k_4,k_2+k_3+k_4,0,k_1-k_2+5k_4) \amp= (0,0,0,0). </mrow>
+		<mrow> (k_1+k_2+2k_3+5k_4,k_2+k_3+k_4,0,k_1-k_2+5k_4) \amp= (0,0,0,0) </mrow>
 	</md>
 	Comparing components on either side, we obtain a system of four equations in the unknown scalars from the linear combination:
 	<me>
-		\begin{array}{rcrcrcrcr}
+		\left\{\begin{array}{rcrcrcrcr}
 			k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp + \amp 5k_4 \amp = \amp 0, \\
 			    \amp   \amp k_2 \amp + \amp  k_3 \amp + \amp  k_4 \amp = \amp 0, \\
 			    \amp   \amp     \amp   \amp      \amp   \amp    0 \amp = \amp 0, \\
 			k_1 \amp - \amp k_2 \amp   \amp      \amp + \amp 5k_4 \amp = \amp 0. \\
-		\end{array}
+		\end{array}\right.
 	</me>
 	Now we'll solve this homogeneous system by row reducing its coefficient matrix.
 	<md><mrow xml:id="equation-linear-indep-examples-testing-R4-independence-homog-system" tag="star">
@@ -168,17 +169,17 @@ where we tested whether a particular vector was in the span of some collection o
 	Consider the polynomials from
 	<xref ref="activity-linear-indep-using-indep-test-P2">Activity</xref>.
 	Are they linearly dependent or independent? Set up the test, using the zero polynomial as the zero vector on the right-hand side:
-	<md>
-		<mrow> k_1(1+x) + k_2(1+x^2) + k_3(2-x+3x^2)  \amp = 0. </mrow>
-		<intertext> As usual, we simplify the linear combination on the left-hand side into one vector. Here, this means collecting like terms. </intertext>
-		<mrow> (k_1+k_2+2k_3) + (k_1-k_3)x + (k_2+3k_3)x^2  \amp = 0. </mrow>
-	</md>
+	<me> k_1(1+x) + k_2(1+x^2) + k_3(2-x+3x^2) = 0. </me>
+	As usual, we simplify the linear combination on the left-hand side into one vector. Here, this means collecting like terms.
+	<me> (k_1+k_2+2k_3) + (k_1-k_3)x + (k_2+3k_3)x^2 = 0. </me>
 	The polynomial on the left can only be equal to the zero polynomial if all its coefficients are zero, leading to the following system of equations:
-	<me>\begin{array}{rcrcrcr}
-		k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp = \amp 0, \\
-		k_1 \amp   \amp     \amp - \amp  k_3 \amp = \amp 0, \\
-		    \amp   \amp k_2 \amp + \amp 3k_3 \amp = \amp 0.
-	\end{array}</me>
+	<me>
+		\left\{\begin{array}{rcrcrcr}
+			k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp = \amp 0, \\
+			k_1 \amp   \amp     \amp - \amp  k_3 \amp = \amp 0, \\
+			    \amp   \amp k_2 \amp + \amp 3k_3 \amp = \amp 0.
+		\end{array}\right.
+	</me>
 	Once again, we reduce the coefficient matrix to determine if there are nontrivial solutions:
 	<me>
 		\left[\begin{array}{rrr} 1 \amp 1 \amp 2 \\ 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \end{array}\right]
