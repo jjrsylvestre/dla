@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2018 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-complex-vspaces-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-vspaces-concepts-complex-n-space" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-vspaces-concepts-complex-n-space" /></em></li>
+<li><xref ref="subsection-complex-vspaces-concepts-abstract-complex-spaces" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-vspaces-concepts-abstract-complex-spaces" /></em></li>
+<li><xref ref="subsection-complex-vspaces-concepts-instances" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-vspaces-concepts-instances" /></em></li>
+<li><xref ref="subsection-complex-vspaces-concepts-complex-as-real-spaces" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-vspaces-concepts-complex-as-real-spaces" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-complex-vspaces-concepts-complex-n-space">
+<title>The vector space <m>\C^n</m></title>
+
+<p>
+Algebraically, <m>n</m>-dimensional complex vectors in <m>\C^n</m> act exactly as <m>n</m>-dimensional real vectors in <m>\R^n</m> <mdash />
+we add them component-wise,
+and we scalar multiply them by multiplying each component by the scalar.
+The only difference is that when we add or multiply components,
+we will be adding or multiplying complex numbers,
+and we specifically allow complex scalars in the scalar multiplication operation.
+See
+<xref ref="example-complex-vspaces-examples-Cn-ops" />
+for examples of carrying out these operations.
+</p><p>
+Furthermore, since we treat the new imaginary number <m>\ci</m> algebraically as if it were a variable representing a real number,
+the <em>patterns</em> of algebra that emerge when working with <m>n</m>-dimensional complex vectors are exactly the same as those we identified from our experience working with <m>n</m>-dimensional real vectors.
+In particular, the collection <m>\C^n</m> will satsify all ten axioms in
+<xref ref="definition-abstract-vec-spaces-concepts-abstract-vec-space" />
+(which were modelled on the algebra of <m>\R^n</m>),
+where <term>scalar</term> is allowed to mean <term>complex number</term> instead of just <term>real number</term>.
+</p><p>
+How to attach geometric meaning to vectors in <m>\C^n</m>,
+similar to how we conceive of vectors in <m>\R^n</m> as <q>displacement arrows</q>,
+is another story. How long is the two-dimensional vector <m>(\ci, \ci)</m>,
+and in what direction does it point?
+Does multiplying a complex vector by <m>2</m> still make it twice as long?
+How does a complex number behave as a <q>scale factor</q>?
+For example, what effect does multiplying a complex vector by the complex scalar <m>\ci</m> have on the <q>length</q> of the vector?
+Should we still think of <m>\C^2</m> as some sort of plane,
+when in
+<xref ref="section-complex-appendix-plane" />
+we have already interpreted <m>\C^1 = \C</m> geometrically as a plane?
+</p><p>
+Some of these geometric questions we will answer in
+<todo>replace with proper xref</todo>
+a later chapter,
+and we will discuss the complex plane as a two-dimensional space in
+<xref ref="subsection-complex-vspaces-concepts-complex-as-real-spaces" />,
+but for now we will mostly just treat complex vectors algebraically.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-vspaces-concepts-abstract-complex-spaces">
+<title>Complex vector spaces</title>
+
+<p>
+As the space <m>\C^n</m> satisfies the ten vector space axioms using complex scalars,
+we again use that example as a model and define a complex vector space by
+<xref ref="definition-abstract-vec-spaces-concepts-abstract-vec-space" />,
+except that we interpret <term>scalar</term> to mean <term>complex number</term> instead of just <term>real number</term>.
+</p><p>
+To recognize a complex vector space,
+we again look for patterns of addition and scalar multiplication,
+but now we must ask whether multiplying by a <em>complex</em> scalar could make sense for the types of objects we are considering.
+</p><p>
+For example, we know we can add and scalar multiply matrices.
+However, if we are <em>only</em> considering matrices of a certain size with entries that are <em>real</em> numbers,
+then multiplying by complex scalars would not make sense,
+because that would violate
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref> <mdash />
+a real matrix multiplied by a complex scalar might yield a <em>complex</em> matrix,
+if the complex scalar doesn't happen to be purely real.
+If we instead consider all <em>complex</em> matrices of a certain size,
+then the fact that a real matrix multiplied by a complex scalar might result in a complex matrix is no longer a problem,
+because we should be thinking of real matrices as complex matrices that just happen to have entries that are purely real.
+</p><p>
+All of the concepts and facts we have learned about real vector spaces apply equally to complex vector spaces,
+with, as always, the caveat that we are now dealing with complex scalars.
+In particular, everything we learned about
+<term>subspaces</term>,
+<term>span</term>,
+<term>linear dependence/independence</term>,
+<term>basis</term>,
+<term>coordinates</term>,
+and
+<term>dimension</term>
+all still applies to complex vectors spaces.
+Even our discoveries about column space, row space, and null space still work the same for complex matrices as for real matrices.
+Perhaps the only subtlety to point out now is that,
+since we are allowing complex scalars,
+we must also allow coefficients in linear combinations to be complex numbers,
+and so coordinate vectors made up of those coefficients in linear combinations of basis vectors will be vectors in <m>\C^n</m> instead of <m>\R^n</m>
+(where <m>n</m> is the dimension of the complex space being considered).
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-complex-vspaces-concepts-instances">
+<title>Instances of complex vector spaces</title>
+
+<introduction><p>
+	Bringing complex numbers into the mix lets us convert some familiar examples into new complex examples.
+</p></introduction>
+
+<paragraphs><title>The vector space <m>\C^n</m></title><p>
+We have already discussed this space in
+<xref ref="subsection-complex-vspaces-concepts-complex-n-space" />,
+and just as we view <m>\R^n</m> as the model example of the abstract concept of <term>real vector space</term>,
+we view <m>\C^n</m> as the model example of the abstract concept of <term>complex vector space</term>.
+This space still has the familiar zero vector
+<m>\zerovec = (0,0,\dotsc,0)</m>,
+and still has the familiar standard basis consisting of the vectors <m>\uvec{e}_j</m> that have all components equal to zero except for a single <m>1</m> in the <m>\nth[j]</m> position.
+Just like <m>\R^n</m>,
+when convenient we will realize vectors in <m>\C^n</m> as (complex) column matrices.
+</p></paragraphs>
+
+<paragraphs><title>Spaces of complex matrices (<m>\matrixring_{m \times n}(\C)</m>)</title><p>
+Just as with <m>\C^n</m> versus <m>\R^n</m>,
+there is little new in <m>\matrixring_{m \times n}(\C)</m> versus <m>\matrixring_{m \times n}(\R)</m>,
+except that of course we allow complex entries in the matrices and allow multiplication by complex scalars.
+The space <m>\matrixring_{m \times n}(\C)</m> still has the zero matrix as the zero vector,
+and still has the familiar standard basis consisting of the matrices <m>E_{ij}</m> that have all entries equal to zero except for a single <m>1</m> in the <m>(i,j)</m> entry.
+</p></paragraphs>
+
+<paragraphs><title>Spaces of complex polynomials</title><p>
+Similar to the real case, we write <m>\poly(\C)</m> for the space of <em>all</em> complex polynomials,
+and write <m>\poly_n(\C)</m> for the space of those polynomials of degree <m>n</m> or less.
+To help distinguish between the real and complex contexts,
+we will continue to use <m>x</m> as the indeterminate in real polynomials
+(<eg /> <m>p(x) = 2 x^2 - x + 1</m>),
+but will use <m>z</m> as the indeterminate in complex polynomials
+(<eg /> <m>p(z) = \ci z^2 - (5 - \ci) z + (1 + 2 \ci)</m>).
+Again, there is nothing really new here in <m>\poly(\C)</m> versus <m>\poly(\R)</m>,
+except for the switch to allowing complex coefficients and to considering the indeterminate <m>z</m> as representing an indeterminate complex number.
+These spaces still have the familiar zero polynomial <m>\zerovec(z) = 0</m> as zero vector,
+and each space <m>\poly_n(\C)</m> still has familiar standard basis
+<m>\{1,z,z^2,\dotsc,z^n\}</m>.
+</p></paragraphs>
+
+<!-- Why bother to include this, just extra "complexity" for very little "linear algebra" gain.
+     See corresponding commented-out passages in terminology.xml.
+<paragraphs><title>Spaces of complex functions (<m>F(D)</m>)</title><p>
+Once again, from a linear algebra point of view there is nothing really new to consider here versus the real case.
+Just as with polynomials,
+we will use variable <m>x</m> in function notation <m>f(x)</m> to mean a real-valued function,
+and variable <m>z</m> in function notation <m>f(z)</m>
+A space of complex functions still has the familiar zero function <m>\zero(z) = 0</m>.
+</p>
+-->
+
+</subsection>
+
+
+<subsection xml:id="subsection-complex-vspaces-concepts-complex-as-real-spaces">
+<title>Every complex space is also a real space</title>
+
+<p>
+The field of complex numbers <m>\C = \C^1</m> is a one-dimensional complex space,
+since it has a basis consisting of a single vector:
+<m>\C = \Span_{\C} \{1\}.</m>
+Since we are allowing complex scalars here
+(as the subscript <m>\C</m> on the word <m>\Span</m> indicates),
+this expression of <m>\C</m> as a span just says that every complex number can be expressed as a complex multiple of <m>1</m>.
+This statement follows from the fact that
+<me> z = z \cdot 1 </me>
+is always true for every complex number <m>z</m>.
+</p><p>
+But in order to let the new imaginary number <m>\ci</m> interact algebraically with all of our other numbers,
+we have <em>defined</em> complex numbers to be algebraic combinations of real numbers and the new number <m>\ci</m>.
+And, since we have the identity <m>\ci^2 = -1</m>,
+the only combinations required in order to describe <em>all possible</em> algebraic combinations of real numbers and <m>\ci</m> are <em>linear</em> combinations of <m>1</m> and <m>\ci</m>:
+<me> z = a + b \ci = a \cdot 1 + b \cdot \ci </me>.
+Since such a linear combination always uses <em>real</em> coefficients <m>a</m> and <m>b</m>,
+we can write
+<me> \C = \Span_{\R} \{ 1, \ci \} </me>.
+That is,
+<alert><m>\C = \C^1</m> is both a one-dimensional complex vector space and a two-dimensional real vector space</alert>.
+This second point of view of <m>\C</m> as a real vector space lets us make sense of the complex plane as a two-dimensional space,
+with a horizontal real axis that corresponds to (real) scalar multiples of the basis vector <m>1</m>,
+combined with a vertical complex axis that corresponds to (real) scalar multiples of the basis vector <m>\ci</m>.
+</p><p>
+We can do something similar with every complex vector space.
+Suppose <m>V</m> is a finite-dimensional complex vector space with basis
+<m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </m>,
+so that
+<md><mrow>
+	V \amp = \Span_{\C} \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} \text{,}
+	\amp
+	\dim_{\C} V \amp = n \text{.}
+</mrow></md>
+Then every vector <m>\uvec{v}</m> in the space is somehow a (complex) linear combination of these basis vectors:
+<me> \uvec{v} = z_1 \uvec{v}_1 + z_2 \uvec{v}_2 + \dotsb + z_n \uvec{v}_n </me>.
+But each complex scalar can be broken into a combination of real and imaginary parts, and so we can do the same with this linear combination.
+Writing <m> z_j = a_j + b_j \ci </m> for each complex scalar,
+we have
+<md>
+	<mrow> \uvec{v} \amp = (a_1 + b_1 \ci) \uvec{v}_1 + (a_2 + b_2 \ci) \uvec{v}_2 + \dotsb + (a_n + b_n \ci) \uvec{v}_n </mrow>
+	<mrow>
+		\amp
+		= a_1 \uvec{v}_1 + b_1 \cdot (\ci \uvec{v}_1)
+		+ a_2 \uvec{v}_2 + b_2 \cdot (\ci \uvec{v}_2)
+		+ \dotsb
+		+ a_n \uvec{v}_n + b_n \cdot (\ci \uvec{v}_n)
+	</mrow>
+</md>.
+Considering this as a linear combination with <em>real</em> coefficients
+(the <m>a_j</m> and <m>b_j</m>),
+we can say that every vector in <m>V</m> is a <em>real</em> linear combination of the vectors
+<me> \uvec{v}_1, \ci \uvec{v}_1, \uvec{v}_2, \ci \uvec{v}_2, \dotsc, \uvec{v}_n, \ci \uvec{v}_n </me>.
+That is,
+<me> V = \Span_{\R} \{ \uvec{v}_1, \ci \uvec{v}_1, \uvec{v}_2, \ci \uvec{v}_2, \dotsc, \uvec{v}_n, \ci \uvec{v}_n \} </me>,
+with
+<me> \dim_{\R} V = 2n </me>.
+</p><p>
+From the above analysis,
+we can conclude that every finite-dimensional complex vector space can also be considered as a real vector space with doubled dimension.
+</p>
+
+</subsection>
+
+</section>

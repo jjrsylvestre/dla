@@ -234,6 +234,43 @@ remains true for complex matrices.
 
 </subsubsection>
 
+<subsubsection>
+<title>Self-adjoint matrices</title>
+
+<p>
+Here we'll record the pattern of
+<xref ref="example-complex-matrices-examples-self-adjoint" />,
+then apply the second formula of
+<xref ref="proposition-complex-matrices-conj-adj-det" />
+to the case of self-adjoint matrices.
+</p>
+
+<proposition><title>Pattern of entries in self-adjoint matrices</title><statement><p>
+	A complex matrix <m>A</m> is self-adjoint precisely when each entry <m>a_{ij}</m> is equal to the complex conjugate of the corresponding symmetric entry <m>a_{ji}</m>.
+	In particular, the entries along the main diagonal in a self-adjoint matrix must be purely real.
+</p></statement></proposition>
+
+<proposition><title>Determinant of a self-adjoint matrix</title>
+	<statement><p> The determinant of a self-adjoint matrix must be a purely real number. </p></statement>
+	<proof><p>
+		Suppose <m>A</m> is a complex, square, self-adjoint matrix.
+		From
+		<xref ref="proposition-complex-matrices-conj-adj-det" />,
+		we have <me>\det \adjoint{A} = \lcconj{\det A}</me>.
+		But if <m>A</m> is self-adjoint,
+		then by definition we have <m>\adjoint{A} = A</m>,
+		and so <me>\det \adjoint{A} = \det A</me>.
+		Combining these two determinant formulas says that <me> \lcconj{\det A} = \det A </me>.
+		But only a real number is equal to its own complex conjugate
+		(<xref ref="proposition-appendix-complex-field-conjugate-relative-properties-real-iff">Statement</xref>
+		of
+		<xref ref="proposition-appendix-complex-field-conjugate-relative-properties" />),
+		and so we can conclude that the complex number <m>\det A</m> must actually be purely real.
+	</p></proof>
+</proposition>
+
+</subsubsection>
+
 </subsection>
 
 </section>

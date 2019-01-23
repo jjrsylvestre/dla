@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2018 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-complex-matrices-motivation">
+
+<title>Motivation</title>
+
+
+<subsection>
+<title>Complex <m>n</m>-dimensional vectors</title>
+
+<p>
+When we first met vectors in
+<xref ref="chapter-vectors" />,
+we conceived of them as displacement arrows in the plane or in space that describe how to move from an initial point to a terminal point.
+Attached to such a displacement arrow are the actual displacement amounts in each direction,
+and we recorded these displacement amounts as an ordered pair
+<m>\uvec{v} = (\Delta x, \Delta y)</m>
+(for a vector in the plane)
+or as an ordered triple
+<m>\uvec{v} = (\Delta x, \Delta y, \Delta z)</m>
+(for a vector in space).
+We immediately generalized this method of representing vectors by numbers,
+by extending to <q>higher-dimensional</q> vectors
+<m>\uvec{v} = (v_1, v_2, \dotsc, v_n)</m>.
+</p><p>
+But such vectors are not constrained to geometric contexts.
+Instead of representing changes in spatial variables as an object moves from some initial point to some terminal point,
+a vector can represent coordinated change in any collection of related variables,
+between some initial state and some terminal state.
+(For example, see
+<xref ref="activity-vectors-other-displacements" />.)
+</p><p>
+What if we have a collection of related <em>complex</em> variables for which we would like to represent change as ordered lists of numbers?
+Then our ordered lists need to contain <em>complex</em> numbers.
+</p>
+
+<example><title>Complex displacement vectors</title><statement><p>
+	If an object <q>moves</q> from
+	<q>point</q> <m>(z_1,z_2) = ( 1 + \ci, 3 - 4 \ci )</m>
+	to
+	<q>point</q> <m>(z_1,z_2) = ( -\ci, 5 + 4 \ci )</m>,
+	we can calculate the change in each variable:
+	<md><mrow>
+		\Delta z_1 \amp = (-\ci) - (1 + \ci) = -1 - 2 \ci\text{,}
+		\amp
+		\Delta z_2 \amp = (5 + 4 \ci) - (3 - 4 \ci) = 2 + 8 \ci\text{.}
+	</mrow></md>
+	Putting these together in an ordered pair,
+	the <q>displacement</q> of the object can be represented as the <em>complex</em> vector
+	<me> \uvec{v} = ( -1 - 2 \ci, 2 + 8 \ci) </me>.
+</p></statement></example>
+
+<p>
+Considering the above example,
+we can say that if we would like to use vectors to represent change in collections of related <em>complex</em> variables,
+then generalizing the concept of
+<term><m>n</m>-dimensional vector</term>
+to allow complex components seems reasonable.
+We will explore such complex vectors further in the rest of this chapter.
+</p>
+
+</subsection>
+
+
+<subsection>
+<title>Complex abstract vectors</title>
+
+<p>
+After exploring <m>n</m>-dimensional vectors with real components in some depth,
+we looked around and noticed that other types of mathematical objects
+(<eg /> matrices, polynomials, functions)
+exhibit similar algebraic properties as <m>n</m>-dimensional vectors,
+and so in
+<xref ref="chapter-abstract-vec-spaces" />
+we developed an abstract framework for describing the algebraic patterns common to each of these various contexts.
+This framework was built on the algebraic patterns satisfied by the two basic operations of
+<m>n</m>-dimensional vectors,
+vector addition and scalar-multiplication:
+<md>
+	<mrow>
+		(u_1,u_2,\dotsc,u_n) + (v_1,v_2,\dotsc,v_n) \amp = ( u_1 + v_1, u_2 + v_2, \dotsc, u_n + v_n )\text{,}
+	</mrow><mrow></mrow><mrow>
+		k(v_1,v_2,\dotsc,v_n) \amp = ( k v_1, k v_2, \dotsc, k v_n )\text{.}
+	</mrow>
+</md>
+The very first rule for each of these operations is a <q>closure</q> rule:
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
+for vector addition and
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>
+for scalar multiplication.
+</p><p>
+Adding two complex <m>n</m>-dimensional vectors will obviously result in another complex <m>n</m>-dimensional vector.
+And multiplying a complex <m>n</m>-dimensional vector by a scalar will obviously result in another complex <m>n</m>-dimensional vector.
+But that will be true <em>even if we multiply by a <em>complex</em> scalar</em>.
+So, in this chapter,
+when we collect the algebraic patterns of complex <m>n</m>-dimensional vectors into an abstract framework similar to the ten axioms in
+<xref ref="definition-abstract-vec-spaces-concepts-abstract-vec-space" />,
+we will allow scalars to be <em>complex numbers</em>,
+instead of restricting them to be real numbers.
+However, we will find that this is the only modification to
+<xref ref="definition-abstract-vec-spaces-concepts-abstract-vec-space" />
+that we need to make in the complex context.
+</p>
+
+</subsection>
+
+</section>
