@@ -213,8 +213,8 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			1 \amp 2 + 3 \ci \amp 0 \amp 1 - \ci \\
 			0 \amp 0 \amp 1 \amp -2 + 2 \ci \\
 			0 \amp 0 \amp 0 \amp 0
-		\end{bmatrix}.
-	</me>
+		\end{bmatrix}
+	</me>.
 	We have four variables,
 	but only two leading ones,
 	so we need two parameters.
@@ -223,10 +223,10 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	In parametric form,
 	the general solution is
 	<md><mrow>
-		x_1 \amp = (-2 - 3 \ci) s + (-1 + \ci) t, \amp
-		x_2 \amp = s, \amp
-		x_3 \amp = (2 - 2 \ci) t, \amp
-		x_4 \amp = t.
+		x_1 \amp = (-2 - 3 \ci) s + (-1 + \ci) t \text{,} \amp
+		x_2 \amp = s \text{,} \amp
+		x_3 \amp = (2 - 2 \ci) t \text{,} \amp
+		x_4 \amp = t \text{.}
 	</mrow></md>
 	</p><p>
 	Each different choice of a pair of complex values for parameters <m>s</m> and <m>t</m> leads to a different specific solution.
@@ -632,6 +632,69 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	<xref ref="proposition-inverses-transpose" />
 	on the left will lead to the formula
 	<me> \inv{\bigl(\adjoint{A}\bigr)} = \adjoint{\bigl(\inv{A}\bigr)} </me>.
+	</p>
+</example>
+
+<example xml:id="example-complex-matrices-examples-self-adjoint">
+	<title>Self-adjoint matrices</title>
+	<p>
+	Consider matrices
+	<md><mrow>
+		A \amp = \begin{bmatrix}
+			1 \amp \ci \amp 1 + \ci \\
+			-\ci \amp 2 \amp 2 - \ci \\
+			1 - \ci \amp 2 + \ci \amp 3
+		\end{bmatrix}\text{,}
+		\amp
+		B \amp = \begin{bmatrix}
+			1 \amp \ci \amp 1 + \ci \\
+			-\ci \amp 2\ci \amp 2 - \ci \\
+			1 + \ci \amp 2 + \ci \amp 3
+		\end{bmatrix}\text{.}
+	</mrow></md>
+	Let's compute their adjoints:
+	<md>
+		<mrow>
+			\cconj{A} \amp = \begin{bmatrix}
+				1 \amp -\ci \amp 1 - \ci \\
+				\ci \amp 2 \amp 2 + \ci \\
+				1 + \ci \amp 2 - \ci \amp 3
+			\end{bmatrix}\text{,}
+			\amp
+			\cconj{B} \amp = \begin{bmatrix}
+				1 \amp -\ci \amp 1 - \ci \\
+				\ci \amp -2\ci \amp 2 + \ci \\
+				1 - \ci \amp 2 - \ci \amp 3
+			\end{bmatrix}\text{,}
+		</mrow><mrow>
+			\adjoint{A} \amp = \begin{bmatrix}
+				1 \amp \ci \amp 1 + \ci \\
+				-\ci \amp 2 \amp 2 - \ci \\
+				1 - \ci \amp 2 + \ci \amp 3
+			\end{bmatrix}\text{,}
+			\amp
+			\adjoint{B} \amp = \begin{bmatrix}
+				1 \amp \ci \amp 1 - \ci \\
+				-\ci \amp -2\ci \amp 2 - \ci \\
+				1 - \ci \amp 2 + \ci \amp 3
+			\end{bmatrix}\text{.}
+		</mrow>
+	</md>
+	Comparing with the original matrices,
+	we see that <m>\adjoint{A} = A</m> but <m>\adjoint{B} \neq B</m>.
+	That is,
+	<m>A</m> is self-adjoint,
+	but <m>B</m> is not.
+	</p><p>
+	What is the pattern that worked in <m>A</m> but not in <m>B</m>?
+	First, every entry along the main diagonal in <m>A</m> is real,
+	and so is equal to its own conjugate.
+	Which is important,
+	because entries along the diagonal do not change when taking the transpose.
+	However, <m>B</m> has an entry along the main diagonal that is not real.
+	Second, every entry <em>not</em> along the main diagonal in <m>A</m> is equal to the conjugate of the entry in the symmetric position on the other side of the main diagonal.
+	However, in <m>B</m> the <m>(1,3)</m> and <m>(3,1)</m> entries are both equal to <m>1 + \ci</m>,
+	and so are not equal to the conjugate of each other.
 	</p>
 </example>
 
