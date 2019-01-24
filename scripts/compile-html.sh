@@ -25,3 +25,12 @@ xsltproc \
 	--output build/html/DELETEME.html \
 	style-html.xsl src/book.xml
 rm -f build/html/DELETEME.html
+
+# local style overrides
+cp css/dla.css build/html/
+sed -i \
+  -e 's/scale: [0-9]*,/scale: 100,/' \
+  -e '/<\/head>/ {
+r css/dla.css.loadstring
+N
+}' build/html/*.html
