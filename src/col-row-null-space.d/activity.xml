@@ -32,6 +32,39 @@ respective owners.
 <subsection xml:id="section-col-row-null-space-activities-colspace">
 <title>Column space</title>
 
+<activity xml:id="activity-col-row-null-space-matrix-times-stdvec">
+	<prelude>
+		<p>
+		Take a minute to remind yourself of the column-wise view of matrix multiplication from
+		<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
+		in
+		<xref ref="subsection-matrix-ops-concepts-matrix-mult" />.
+		In words, this matrix multiplication pattern says that in a matrix product <m>AB</m>,
+		<ul>
+			<li> the first column of <m>AB</m> is the result of multiplying matrix <m>A</m> against the first column of <m>B</m>, </li>
+			<li> the second column of <m>AB</m> is the result of multiplying matrix <m>A</m> against the second column of <m>B</m>, </li>
+			<li> and so on. </li>
+		</ul>
+		</p><p>
+		In the first activity,
+		we'll use this pattern to obtain another important pattern involving the standard basis vectors.
+		</p>
+	</prelude>
+	<statement><p>
+		Notice that the columns of the identity matrix are precisely the standard basis vectors
+		<m>\uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n</m>
+		of <m>\R^n</m>.
+		Use this observation,
+		the matrix multiplication pattern described above,
+		and the matrix identity <m>A I = A</m> to complete the following.
+		<ul>
+			<li> Product <m>A \uvec{e}_1</m> is equal to <fillin characters="30" />. </li>
+			<li> Product <m>A \uvec{e}_2</m> is equal to <fillin characters="30" />. </li>
+			<li> Product <m>A \uvec{e}_j</m> is equal to <fillin characters="30" />. </li>
+		</ul>
+	</p></statement>
+</activity>
+
 <activity xml:id="activity-col-row-null-space-colspan-motivation">
 	<introduction><p>
 		Think of an <m>m\times 3</m> matrix <m>A</m> as being made out of three column vectors from <m>\R^m</m>:
@@ -43,32 +76,20 @@ respective owners.
 			\end{bmatrix}
 		</me>.
 	</p></introduction>
-	<task xml:id="activity-col-row-null-space-colspan-motivation-matrix-times-stdvec">
-		<p>
-			Do you remember what happens when we compute
-			<m>A\uvec{e}_1</m>?
-			<m>A\uvec{e}_2</m>?
-			<m>A\uvec{e}_3</m>?
-		</p>
-		<aside><title>Recall</title><p>
-			Vector <m>\uvec{e}_i</m> represents the <m>\nth[i]</m> standard basis vector in <m>\R^n</m>.
-			In this instance, we are considering it as a <em>column</em> vector.
-		</p></aside>
-	</task>
 	<task xml:id="activity-col-row-null-space-colspan-motivation-matrix-times-vec-eq-colcomb">
 		<p>
 		Suppose we want to compute <m>A\uvec{x}</m>,
 		where <m>\uvec{x} = (5,3,-1)</m>
 		(but as a column vector).
-		Use what you remembered in
-		<xref ref="activity-col-row-null-space-colspan-motivation-matrix-times-stdvec" text="type-local" />
+		Use the pattern you discovered in
+		<xref ref="activity-col-row-null-space-matrix-times-stdvec" />
 		to fill in the following.
 		</p>
 		<p>
 		Since
 		<me>
 			\left[\begin{array}{r} 5 \\ 3 \\ -1 \end{array}\right]
-			= 5\uvec{e}_1 + 3\uvec{e}_2 + (-1)\uvec{e}_3
+			= 5 \uvec{e}_1 + 3 \uvec{e}_2 + (-1) \uvec{e}_3
 		</me>,
 		then
 		<me>
