@@ -414,6 +414,31 @@ See
 for an example of carrying out this procedure.
 </p>
 
+<paragraphs><title>Pattern</title><p>
+Note that
+<xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />
+keeps track of the elementary matrices involved in row reducing a matrix <m>A</m> for us,
+and automatically applies them to the identity
+(effectively multiplying them together)
+to produce the inverse on the right:
+<md>
+	<mrow>
+		\left[\begin{array}{c|c} A \amp I \end{array}\right]
+		\amp \xrightarrow[\text{operation}]{\text{first}}
+		\left[\begin{array}{c|c} E_1 A \amp E_1 I \end{array}\right]
+	</mrow><mrow></mrow><mrow>
+		\amp \xrightarrow[\text{operation}]{\text{second}}
+		\left[\begin{array}{c|c} E_2 E_1 A \amp E_2 E_1 I \end{array}\right]
+	</mrow><mrow></mrow><mrow>
+		\amp \qquad \vdots
+	</mrow><mrow></mrow><mrow xml:id="equation-elem-matrices-concepts-inversion-by-row-red-pattern" tag="star">
+		\amp \xrightarrow[\text{operation}]{\text{last}}
+		\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{array}\right]
+		= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+	</mrow>
+</md>.
+</p></paragraphs>
+
 </subsection>
 
 </section>

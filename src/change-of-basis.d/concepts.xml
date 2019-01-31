@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-change-of-basis-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-change-of-basis-concepts-coord-vecs-linearity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-concepts-coord-vecs-linearity" /></em></li>
+<!--<li><xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" /></em></li>-->
+<li><xref ref="subsection-change-of-basis-concepts-coord-vecs-convert" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-concepts-coord-vecs-convert" /></em></li>
+<li><xref ref="subsection-change-of-basis-concepts-properties" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-concepts-properties" /></em></li>
+<li><xref ref="subsection-change-of-basis-concepts-in-Rn" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-concepts-in-Rn" /></em></li>
+</ul></p></assemblage>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-change-of-basis-concepts-coord-vecs-linearity">
+<title>Linearity of coordinate vectors</title>
+
+<p>
+As a first step in our goal of exploring the concept of <term>transition matrix</term>,
+we re-familiarized ourselves with <term>coordinate vectors</term>
+and reminded ourselves of their <term>linearity properties</term>:
+<md><mrow>
+	\rmatrixOf{\uvec{v} + \uvec{w}}{B} \amp = \rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B} \text{,}
+	\amp
+	\rmatrixOf{k \uvec{v}}{B} \amp = k \rmatrixOf{\uvec{v}}{B} \text{.}
+</mrow></md>
+</p>
+<aside><title>Also</title><p>
+	These properties are of course true for coordinate vectors as column vectors,
+	<m>\matrixOf{\uvec{v}}{B}</m> and <m>\matrixOf{\uvec{w}}{B}</m>,
+	as well.
+</p></aside>
+
+<p>
+We first encountered these properties in
+<xref ref="activity-basis-coords-linearity-of-coords" />
+and
+<xref ref="subsubsection-basis-coords-concepts-coords-linearity" />.
+We will record these properties formally in
+<xref ref="subsection-change-of-basis-theory-coord-linearity" />,
+but for now what is most important for our development of the concept of
+<term>transition matrix</term>
+is the extension of these properties to linear combinations:
+<md><mrow xml:id="equation-change-of-basis-concepts-linearity-coordvecs" tag="star">
+	\rmatrixOf{k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsc + k_m \uvec{v}_m}{B}
+	= k_1 \rmatrixOf{\uvec{v}_1}{B} + k_2 \rmatrixOf{\uvec{v}_2}{B} + \dotsc + k_m \rmatrixOf{\uvec{v}_m}{B}
+</mrow></md>.
+</p>
+
+</subsection>
+
+<!--  DON'T THINK I WANT TO BOTHER WITH THIS
+<subsection xml:id="subsection-change-of-basis-concepts-matrix-mul-lincomb">
+<title><em>Matrix-times-vector</em> as a linear combination</title>
+
+<p>
+<xref ref="activity-change-of-basis-matrix-times-col" />
+was a retread of
+<xref ref="activity-col-row-null-space-colspan-motivation" />,
+but from a different point of view.
+In <xref ref="activity-col-row-null-space-colspan-motivation" />,
+we discovered that a system <m>A \uvec{x} = \uvec{b}</m> is consistent if and only if the column vector <m>\uvec{b}</m> is somehow a linear combination of the columns of the coefficient matrix <m>A</m>.
+But in <xref ref="activity-change-of-basis-matrix-times-col" />,
+we focused on exactly <em>how</em> the product <m>A \uvec{x}</m> is a linear combination of the columns of <m>A</m>.
+</p>
+<aside><title>Recall</title><p>
+	Actually, we saw this pattern in passing already,
+	in <xref ref="equation-col-row-null-space-concepts-lincomb-columns" />
+	of <xref ref="subsection-col-row-null-space-concepts-colspace" />.
+	<todo>If the paragraphs in that subsection get turned into subsubsections, this second xref above could point to that subsubsection instead.</todo>
+</p></aside>
+<p>
+Suppose <m>A</m> is an <m>m \times n</m> matrix,
+considered as a collection of column vectors:
+<me>
+	A = \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\uvec{a}_1 \amp \uvec{a}_2 \amp \dots \amp \uvec{a}_n \\
+		| \amp | \amp \amp | \\
+	\end{bmatrix}
+</me>.
+We have seen that the TODO CONTINUE
+</p>
+
+</subsection>
+-->
+
+
+<subsection xml:id="subsection-change-of-basis-concepts-coord-vecs-convert">
+<title>Converting coordinate vectors</title>
+
+<p>
+In <xref ref="activity-change-of-basis-cob-matrix" />,
+we explored how we might convert from coordinate vectors relative to one basis to those relative to another basis.
+</p><p>
+Suppose we have a basis <m>\basisfont{B}</m> for some particular finite-dimensional vector space <m>V</m>.
+Every vector <m>\uvec{w}</m> in <m>V</m> can be expressed uniquely as a linear combination
+<md><mrow xml:id="equation-change-of-basis-concepts-lincomb" tag="dstar">
+	\uvec{w} = k_1 \uvec{u}_1 + k_2 \uvec{u}_2 + \dotsc + k_n \uvec{u}_n,
+</mrow></md>
+where the <m>\uvec{u}_j</m> are the basis vectors in <m>\basisfont{B}</m>
+(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
+and the <m>n</m>-dimensional vector
+<me> \rmatrixOf{\uvec{w}}{B} = (k_1,k_2,\dotsc,k_n) </me>
+made up of the coefficients in that linear combination are precisely what we call the <term>coordinate vector</term> of <m>\uvec{w}</m> relative to basis <m>\basisfont{B}</m>.
+Now, what if we have a second basis <m>\basisfont{B}'</m> for <m>V</m>?
+We may have already gone to the work of computing the coordinate vectors for a number of vectors in <m>V</m> relative to <m>\basisfont{B}</m>.
+Can we easily convert these coordinate vectors to new ones relative to <m>\basisfont{B}'</m>?
+</p><p>
+To see how this can be done with a matrix,
+let's switch to coordinate vectors as column vectors.
+Just as in
+<xref ref="activity-change-of-basis-cob-matrix-lin-comb" />,
+we can use linearity property
+<xref ref="equation-change-of-basis-concepts-linearity-coordvecs" tag="star" />
+applied to
+<xref ref="equation-change-of-basis-concepts-lincomb" />
+to obtain an expression for the new coordinate vector <m>\matrixOf{w}{B'}</m>
+as a linear combination in <m>\R^n</m> of coordinate vectors:
+<md><mrow xml:id="equation-change-of-basis-concepts-second-basis-coordvec-lincomb" tag="dagger">
+	\matrixOf{\uvec{w}}{B'}
+	= k_1 \matrixOf{\uvec{u}_1}{B'}
+	+ k_2  \matrixOf{\uvec{u}_2}{B'}
+	+ \dotsc
+	+ k_n \matrixOf{\uvec{u}_n}{B'}.
+</mrow></md>
+</p><p>
+Now, the pattern of
+<xref ref="activity-change-of-basis-matrix-times-col-pattern" />
+tells us that for every matrix <m>P</m> of appropriate size to multiply against the column vector <m>\matrixOf{\uvec{w}}{B}</m>,
+the product <m> P \matrixOf{\uvec{w}}{B} </m> can be expressed as
+<md><mrow xml:id="equation-change-of-basis-concepts-matrix-times-col-pattern" tag="ddagger">
+	P \matrixOf{\uvec{w}}{B}
+	= P \begin{bmatrix} k_1 \\ k_2 \\ \vdots \\ k_n \end{bmatrix}
+	= k_1 \uvec{p}_1 + k_2 \uvec{p}_2 + \dotsb + k_n \uvec{p}_n,
+</mrow></md>
+where the <m>\uvec{p}_j</m> are the columns of <m>P</m>.
+Combining
+<xref ref="equation-change-of-basis-concepts-second-basis-coordvec-lincomb" />
+with
+<xref ref="equation-change-of-basis-concepts-matrix-times-col-pattern" />
+gives us a way to use matrix multiplication to convert coordinate vector
+<m>\matrixOf{\uvec{w}}{B}</m> into <m>\matrixOf{\uvec{w}}{B'}</m>:
+if we take <m>P</m> to be the matrix whose columns are the coordinate vectors relative to <m>\basisfont{B}'</m> of the basis vectors of <m>\basisfont{B}</m>,
+<md><mrow xml:id="equation-change-of-basis-concepts-transition-matrix-def" tag="tdagger">
+	P = \begin{bmatrix}
+		| \amp | \amp | \\
+		\matrixOf{\uvec{u}_1}{B'} \amp \matrixOf{\uvec{u}_1}{B'} \amp \matrixOf{\uvec{u}_1}{B'} \\
+		| \amp | \amp |
+	\end{bmatrix}
+</mrow></md>,
+then
+<me>
+	P \matrixOf{\uvec{w}}{B}
+	= k_1 \matrixOf{\uvec{u}_1}{B'} + k_2 \matrixOf{\uvec{u}_2}{B'} + \dotsb + k_n \matrixOf{\uvec{u}_n}{B'}
+	= \matrixOf{\uvec{w}}{B'}
+</me>.
+We call the special matrix <m>P</m> defined in
+<xref ref="equation-change-of-basis-concepts-transition-matrix-def" />
+the <term>transition matrix</term> from basis <m>\basisfont{B}</m> to basis <m>\basisfont{B}'</m>,
+and write <m>\ucobmtrx{B}{B'}</m> to denote it.
+</p><p>
+As usual, it is helpful to express the pattern of
+<xref ref="equation-change-of-basis-concepts-transition-matrix-def" /> in words,
+and you were asked to do this in
+<xref ref="activity-change-of-basis-cobmatrix-pattern" />.
+If we refer to <m>\basisfont{B}</m> as the <q>old basis</q> and <m>\basisfont{B}'</m> as the <q>new basis</q>,
+then the transition matrix <m>\ucobmtrx{B}{B'}</m> is formed as
+<alert>the <m>n \times n</m> matrix whose columns are the coordinate vectors of the old basis relative to the new basis</alert>.
+</p>
+
+<algorithm xml:id="procedure-change-of-basis-concepts-cob-by-pattern"> <!-- algorithm is hijacked to "Procedure" -->
+	<title>Computing a transition matrix</title>
+	<statement><p>
+		To compute a transition matrix <m>\ucobmtrx{B}{B'}</m>,
+		where <m>\basisfont{B}</m> and <m>\basisfont{B}'</m> are bases of the same <m>n</m>-dimensional space,
+		first calculate the coordinate vector of each vector in <m>\basisfont{B}</m> relative to the basis <m>\basisfont{B}'</m>.
+		Then use these coordinate vectors, in order, as columns in the <m>n \times n</m> matrix <m>\ucobmtrx{B}{B'}</m>.
+	</p></statement>
+</algorithm>
+
+<p>
+We worked through an example of forming and using a transition matrix in
+<xref ref="activity-change-of-basis-cobmatrix-example" />,
+and you can also look through
+<xref ref="example-change-of-basis-examples-compute-cob" />
+in
+<xref ref="subsection-change-of-basis-examples-computing" />,
+which is similar.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-change-of-basis-concepts-properties">
+<title>Properities of transition matrices</title>
+
+<p>
+In <xref ref="activity-change-of-basis-properties" />,
+we explored properties of transition matrices via the defining property
+<me> \ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B'} </me>.
+We will state and prove each of the discovered properties in
+<xref ref="subsection-change-of-basis-theory-cob-props" />,
+but we briefly recount them here.
+</p>
+
+<paragraphs><title>No change of basis</title><p>
+First, we considered the transition matrix for the case where the <q>new</q> basis is the same as the <q>old</q>.
+In this case,
+we want to <q>convert</q> each coordinate vector <m>\matrixOf{\uvec{w}}{B}</m> to the coordinate vector <m>\matrixOf{\uvec{w}}{B'}</m>.
+That is, we want the conversion to have no effect at all.
+We already know a matrix that has no effect when it is multiplied against other matrices:
+the identity matrix.
+So we expect
+<me> \ucobmtrx{B}{B} = I. </me>
+</p></paragraphs>
+
+<paragraphs><title>Chains of basis changes</title><p>
+Next, we considered the transition matrices
+<m> \ucobmtrx{B}{B'} </m>, <m>\ucobmtrx{B'}{B''}</m>, and <m>\ucobmtrx{B}{B''}</m>
+associated to three bases of a particular vector space.
+We could consider the transition from the first basis <m>\basisfont{B}</m> to the third basis <m>\basisfont{B}''</m> as a two-step process,
+first converting <m>\matrixOf{\uvec{w}}{B}</m> to <m>\matrixOf{\uvec{w}}{B'}</m> by
+<me> \ucobmtrx{B}{B'} \matrixOf{\uvec{w}}{B} = \matrixOf{\uvec{w}}{B'} </me>,
+and then converting <m>\matrixOf{\uvec{w}}{B'}</m> to <m>\matrixOf{\uvec{w}}{B''}</m> by
+<me> \ucobmtrx{B'}{B''} \matrixOf{\uvec{w}}{B'} = \matrixOf{\uvec{w}}{B''} </me>.
+Substituting the first expression for <m>\matrixOf{\uvec{w}}{B'}</m> into the second equality, we find
+<me> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} \matrixOf{\uvec{w}}{B} = \matrixOf{\uvec{w}}{B''} </me>,
+and so we expect
+<me> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B''} </me>.
+</p></paragraphs>
+
+<paragraphs><title>Reversing change of basis</title><p>
+Finally, we considered the relationship between transition matrices
+<m> \ucobmtrx{B}{B'} </m> and <m>\ucobmtrx{B'}{B}</m>.
+Transitioning <m>\basisfont{B}' \to \basisfont{B}</m> should be the reverse process of transitioning <m>\basisfont{B} \to \basisfont{B}'</m>,
+and so we expect
+<me> \ucobmtrx{B'}{B} = \uinvcobmtrx{B}{B'} </me>.
+This relationship agrees with our expectations for no change of basis and chains of basis changes above,
+since if we consider basis <m>\basisfont{B}</m> to be both the first and third basis in a chain of basis changes,
+then
+<me> \ucobmtrx{B'}{B} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B} = I </me>
+as expected if matrices <m> \ucobmtrx{B}{B'} </m> and <m>\ucobmtrx{B'}{B}</m> are inverses.
+</p></paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-change-of-basis-concepts-in-Rn">
+<title>Change of basis in <m>\R^n</m></title>
+
+<paragraphs><title>Changing to the standard basis</title><p>
+In <xref ref="activity-change-of-basis-Rn" />,
+we first reminded ourselves that, relative to the standard basis <m>\basisfont{S}</m> of <m>\R^n</m>,
+a vector is equal to its coordinate vector.
+In particular,
+if <m>\basisfont{B}</m> is another basis of <m>\R^n</m>,
+then each basis vector in <m>\basisfont{B}</m> is equal to its own coordinate vector <em>relative to the standard basis</em>.
+So when we form a transition matrix <m>\ucobmtrx{B}{S}</m>,
+the columns of this matrix are precisely the vectors of basis <m>\basisfont{B}</m>,
+which makes <m>\ucobmtrx{B}{S}</m> particularly easy to produce.
+</p></paragraphs>
+
+<paragraphs><title>Computing transition matrices using the standard basis as an intermediate</title><p>
+Since transition matrices with the standard basis as the <q>new</q> basis are easy to produce,
+we can use the standard basis as an intermediate in a chain of basis changes to obtain any transition matrix <m>\ucobmtrx{B}{B'}</m> for bases of <m>\R^n</m>.
+Using what we learned in
+<xref ref="subsection-change-of-basis-concepts-properties" />,
+we can write
+<md><mrow xml:id="equation-change-of-basis-concepts-inv-prod-formula-Rn" tag="maltese">
+	\ucobmtrx{B}{B'}
+	= \ucobmtrx{S}{B'} \ucobmtrx{B}{S}
+	= \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S}
+</mrow></md>,
+and so we can compute <m>\ucobmtrx{B}{B'}</m> from the easy-to-produce transition matrices <m>\ucobmtrx{B}{S}</m> and <m>\ucobmtrx{B'}{S}</m>.
+</p></paragraphs>
+
+<paragraphs>
+<title>Computing transition matrices using row reduction</title>
+
+<p>
+We use row reduction to do just about everything,
+so of course we can use it to compute transition matrices!
+Now, computing a transition matrix using
+<xref ref="procedure-change-of-basis-concepts-cob-by-pattern" />
+would already be carried out by (a lot) of row reducing,
+as computing a coordinate vector is equivalent to solving a linear system.
+(See the coordinate vector examples in <xref ref="subsection-basis-coords-examples-coord-vecs" />.)
+But from <xref ref="equation-change-of-basis-concepts-inv-prod-formula-Rn" />,
+we can use what we learned about computing inverses in
+<xref ref="subsection-elem-matrices-concepts-invert-by-row-red" />
+to develop a procedure for computing a transition matrix for <m>\R^n</m> by row reducing a single matrix.
+</p><p>
+In <xref ref="subsection-elem-matrices-concepts-invert-by-row-red" />,
+we learned that if a matrix can be reduced to the identity by some sequence of row operations,
+then the exact same sequence of row operations will <q>unreduce</q> the identity matrix to the inverse of the original matrix.
+Look back at
+<xref ref="equation-elem-matrices-concepts-inversion-by-row-red-pattern" />
+in <xref ref="subsection-elem-matrices-concepts-invert-by-row-red" />,
+which describes the pattern of
+<xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />.
+Here is that pattern again, but in abbreviated form:
+<me>
+	\left[\begin{array}{c|c} A \amp I \end{array}\right] \qquad \rowredarrow \qquad
+	\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{array}\right]
+	= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+</me>,
+where the <m>E_j</m> are the elementary matrices associated to a sequence of operations that reduces <m>A</m> to <m>I</m>.
+</p>
+
+<p>
+What if we augmented <m>A</m> with a matrix other than <m>I</m> and row reduced?
+Then the pattern would be
+<me>
+	\left[\begin{array}{c|c} A \amp B \end{array}\right] \qquad \rowredarrow \qquad
+	\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 B \end{array}\right]
+	= \left[\begin{array}{c|c} I \amp \inv{A} B \end{array}\right]
+</me>.
+This pattern reveals that we can also carry out an inverse-times-matrix computation by row reducing!
+And that kind of computation is exactly what we would carry out if we used
+<xref ref="equation-change-of-basis-concepts-inv-prod-formula-Rn" />
+to compute a transition matrix for <m>\R^n</m>.
+</p>
+
+<algorithm xml:id="procedure-change-of-basis-concepts-cob-by-row-red"> <!-- algorithm is hijacked to "Procedure" -->
+	<title>Computing a transition matrix for <m>\R^n</m></title>
+	<statement><p>
+		To compute a transition matrix <m>\ucobmtrx{B}{B'}</m>,
+		where <m>\basisfont{B}</m> and <m>\basisfont{B}'</m> are bases of <m>\R^n</m>,
+		first form the transition matrices <m>\ucobmtrx{B}{S}</m> and <m>\ucobmtrx{B'}{S}</m> by writing the vectors of each of the two bases as columns in a matrix.
+		Then augment matrix <m>\ucobmtrx{B'}{S}</m> with matrix <m>\ucobmtrx{B}{S}</m>,
+		and row reduce until the identity matrix is obtained on the left.
+		The matrix on the right will now be <m>\ucobmtrx{B}{B'}</m>.
+		<me>
+			\left[\begin{array}{c|c} \ucobmtrx{B'}{S} \amp \ucobmtrx{B}{S} \end{array}\right]
+			\qquad\rowredarrow\qquad
+			\left[\begin{array}{c|c} I \amp \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S} \end{array}\right]
+			= \left[\begin{array}{c|c} I \amp \ucobmtrx{B}{B'} \end{array}\right]
+		</me>
+	</p></statement>
+</algorithm>
+
+<remark xml:id="remark-change-of-basis-concepts-post-Rn-cob-notes">
+	<p><ol>
+		<li>
+			<p>
+			Since a transition matrix <m>\ucobmtrx{B}{S}</m> for <m>\R^n</m> is formed by just writing the vectors of basis <m>\basisfont{B}</m> as columns in a matrix,
+			it might be easier to remember the pattern of
+			<xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />
+			if we remove some of the transition matrix notation:
+			<me>
+				\left[\begin{array}{c|c} \basisfont{B}' \amp \basisfont{B} \end{array}\right]
+				\qquad\rowredarrow\qquad
+				\left[\begin{array}{c|c} I \amp (\basisfont{B} \to \basisfont{B}') \end{array}\right]
+			</me>
+			(where we even could write <m>\basisfont{S}</m> instead of <m>I</m> on the left of the reduced matrix,
+			if we wished).
+			</p><p>
+			Even better might be to express the pattern in words:
+			<me>
+				\left[\begin{array}{c|c} \text{New} \amp \text{Old} \end{array}\right]
+				\qquad\rowredarrow\qquad
+				\left[\begin{array}{c|c} I \amp (\text{Old} \to \text{New}) \end{array}\right]
+			</me>.
+			</p>
+		</li>
+		<li xml:id="remark-change-of-basis-concepts-post-Rn-cob-notes-use-for-other-spaces">
+			<xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />
+			can also be used in other vector spaces besides <m>\R^n</m>,
+			particularly those that have a <q>standard</q> basis that can be used to easily form intermediate transition matrices to use in the row reducing procedure.
+			We will comment again on this in
+			<xref ref="remark-change-of-basis-examples-compare" />,
+			after we have seen a couple of related examples.
+		</li>
+	</ol></p>
+</remark>
+
+</paragraphs>
+
+</subsection>
+
+
+</section>

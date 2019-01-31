@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-change-of-basis-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-change-of-basis-theory-coord-linearity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-theory-coord-linearity" /></em></li>
+<li><xref ref="subsection-change-of-basis-theory-cob-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-theory-cob-props" /></em></li>
+<li><xref ref="subsection-change-of-basis-theory-Rn" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-theory-Rn" /></em></li>
+</ul></p></assemblage>
+
+
+<subsection xml:id="subsection-change-of-basis-theory-coord-linearity">
+<title>Linearity properties of coordinate vectors</title>
+
+<p> Here we finally record the linearity properties of the coordinate vector process. </p>
+
+<theorem xml:id="theorem-change-of-basis-coord-vec-linearity">
+
+	<statement><p>
+		Suppose <m>\basisfont{B}</m> is a basis of a finite-dimensional vector space <m>V</m>.
+		Then we have the following patterns concerning coordinate vectors relative to <m>\basisfont{B}</m>.
+		<ol>
+			<li>
+				The coordinate vector of a sum is the sum of the coordinate vectors.
+				That is,
+				<me> \rmatrixOf{\uvec{v} + \uvec{w}}{B} = \rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B} </me>
+				for each pair of vectors <m>\uvec{v},\uvec{w}</m> in <m>V</m>.
+			</li>
+			<li>
+				The coordinate vector of a scalar multiple is the scalar multiple of the coordinate vector.
+				That is,
+				<me> \rmatrixOf{k \uvec{v}}{B} = k \rmatrixOf{\uvec{v}}{B} </me>
+				for each scalar <m>k</m> and each vector <m>\uvec{v}</m> in <m>V</m>.
+			</li>
+			<li>
+				The coordinate vector of a linear combination is the corresponding linear combination of the coordinate vectors.
+				That is,
+				<me>
+					\rmatrixOf{k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsc + k_m \uvec{v}_m}{B}
+					= k_1 \rmatrixOf{\uvec{v}_1}{B} + k_2 \rmatrixOf{\uvec{v}_2}{B} + \dotsc + k_m \rmatrixOf{\uvec{v}_m}{B}
+				</me>
+				for each collection of scalars <m>k_1,k_2,\dotsc,k_m</m> and each collection of vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> in <m>V</m>.
+			</li>
+		</ol>
+	</p></statement>
+
+	<proof><p>
+		Write <m>\basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_n \}</m>,
+		and suppose <m>\uvec{v}</m> and <m>\uvec{w}</m> are vectors in <m>V</m>.
+		Then each of <m>\uvec{v}</m> and <m>\uvec{w}</m> have a unique expression as a linear combination of the vectors in <m>\basisfont{B}</m>
+		(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />).
+		So we can write
+		<md>
+			<mrow> \uvec{v} \amp = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_n \uvec{u}_n \text{,} </mrow>
+			<mrow> \uvec{w} \amp = b_1 \uvec{u}_1 + b_2 \uvec{u}_2 + \dotsb + b_n \uvec{u}_n \text{,} </mrow>
+		</md>
+		for some unique collections of scalars <m>a_1,a_2,\dotsc,a_n</m> and <m>b_1,b_2,\dotsc,b_n</m>.
+		These linear combinations tell us the coordinate vectors of <m>\uvec{v}</m> and <m>\uvec{w}</m>:
+		<md>
+			<mrow> \rmatrixOf{\uvec{v}}{B} \amp = (a_1,a_2,\dotsc,a_n) \text{,} </mrow>
+			<mrow> \rmatrixOf{\uvec{w}}{B} \amp = (b_1,b_2,\dotsc,b_n) \text{.} </mrow>
+		</md>
+		<ol>
+			<li>
+				We add linear combinations by collecting like terms,
+				so we have
+				<me> \uvec{v} + \uvec{w} = (a_1 + b_1) \uvec{u}_1 + (a_2 + b_2) \uvec{u}_2 + \dotsb + (a_n + b_n) \uvec{u}_n </me>.
+				The coordinate vector of this sum is then
+				<md>
+					<mrow> \rmatrixOf{\uvec{v} + \uvec{w}}{B} \amp = (a_1 + b_1, a_2 + b_2, \dotsc, a_n + b_n) </mrow>
+					<mrow> \amp = (a_1, a_2, \dotsc, a_n) + (b_1, b_2, \dotsc, b_n) </mrow>
+					<mrow> \amp = \rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B} </mrow>
+				</md>,
+				as desired.
+			</li>
+			<li>
+				We scalar multiply a linear combination by distributing the scalar across the vector additions,
+				so for every scalar <m>k</m> we have
+				<me> k \uvec{v} = k a_1 \uvec{u}_1 + k a_2 \uvec{u}_2 + \dotsb + k a_n \uvec{u}_n </me>.
+				The coordinate vector of this scalar multiple is then
+				<md>
+					<mrow> \rmatrixOf{k \uvec{v}}{B} \amp = (k a_1, k a_2, \dotsc, k a_n) </mrow>
+					<mrow> \amp = k (a_1, a_2, \dotsc, a_n) </mrow>
+					<mrow> \amp = k \rmatrixOf{\uvec{v}}{B} </mrow>
+				</md>,
+				as desired.
+			</li>
+			<li> This statement is just the combination of the first two. </li>
+		</ol>
+	</p></proof>
+
+</theorem>
+
+<remark><p>
+	Note that in each of the statements of
+	<xref ref="theorem-change-of-basis-coord-vec-linearity" />,
+	there are different vector operations in use on either side of the equals sign <mdash />
+	on the left the vector operation(s) within the coordinate-vector brackets are those used in the vector space <m>V</m>,
+	while on the right the vector operation(s) used between the coordinate-vector brackets are those used in <m>\R^n</m>.
+	For example, if <m>V</m> is a space of polynomials,
+	then the plus sign in the notation <m>\rmatrixOf{\uvec{v} + \uvec{w}}{B}</m> means addition of polynomials
+	(because that's what <m>\uvec{v}</m> and <m>\uvec{w}</m> are),
+	while the plus sign in the expression <m>\rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B}</m> means addition of vectors in <m>\R^n</m>
+	(because thats what <m>\rmatrixOf{\uvec{v}}{B}</m> and <m>\rmatrixOf{\uvec{w}}{B}</m> are).
+</p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-change-of-basis-theory-cob-props">
+<title>Properties of transition matrices</title>
+
+<p>
+Here we record and prove those properties explored in
+<xref ref="activity-change-of-basis-properties" />
+and further discussed in
+<xref ref="subsection-change-of-basis-concepts-properties" />,
+as well as this initial uniqueness statement.
+</p>
+
+<proposition xml:id="proposition-change-of-basis-unique-cob">
+	<title>Uniqueness of transition matrices</title>
+	<statement><p>
+		For each pair of bases <m>\basisfont{B},\basisfont{B}'</m> of an <m>n</m>-dimensional vector space <m>V</m>,
+		there exists one unique <m>n \times n</m> matrix <m>P</m> such that
+		<m> P \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B'} </m>
+		holds for every vector <m>\uvec{v}</m> in <m>V</m>.
+	</p></statement>
+	<proof>
+		<p>
+		We already know from our discussion in
+		<xref ref="subsection-change-of-basis-concepts-coord-vecs-convert" />
+		that such a matrix exists,
+		so we need to prove that <em>only</em> <m>\ucobmtrx{B}{B'}</m> is capable of converting between coordinate vectors relative to these two bases.
+		</p><p>
+		So suppose that <m>P</m> is an <m>n \times n</m> matrix such that
+		<md><mrow xml:id="equation-change-of-basis-theory-convert-pattern" tag="star">
+			P \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B'}
+		</mrow></md>
+		holds for every vector <m>\uvec{v}</m> in <m>V</m>.
+		In particular, it must then hold for every vector in <m>\basisfont{B}</m>.
+		Write
+		<me> \basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_n \} </me>.
+		Now, it easy to write one of the vectors in <m>\basisfont{B}</m> as a linear combination of these basis vectors.
+		For example,
+		<me> \uvec{u}_1 = 1 \uvec{u}_1 + 0 \uvec{u}_2 + \dotsb + 0 \uvec{u}_n </me>,
+		which says that <m>\rmatrixOf{\uvec{u}_1}{B} = \uvec{e}_1</m>,
+		the first standard basis vector of <m>\R^n</m>.
+		So if we take <m>\uvec{v} = \uvec{u}_1</m> in
+		<xref ref="equation-change-of-basis-theory-convert-pattern" />
+		above,
+		we get
+		<me> P \uvec{e}_1 = \matrixOf{\uvec{u}_1}{B'} </me>.
+		Now, we have seen a couple of times
+		(<eg /> <xref ref="activity-col-row-null-space-matrix-times-stdvec" />)
+		that a matrix times a standard basis vector produces the corresponding column of the matrix.
+		In the above, <m>P</m> times the first standard basis vector of <m>\R^n</m> produces the first column of <m>P</m>.
+		From this we conclude that the first column of <m>P</m> must be <m> \matrixOf{\uvec{u}_1}{B'} </m>,
+		which coincidentally is the same as the first column of <m>\ucobmtrx{B}{B'}</m>.
+		</p><p>
+		If we repeat this argument with <m>\uvec{v} = \uvec{u}_2</m> in
+		<xref ref="equation-change-of-basis-theory-convert-pattern" />,
+		we arrive at the conclusion that the second column of <m>P</m> must be <m> \matrixOf{\uvec{u}_2}{B'} </m>,
+		which coincidentally is the same as the second column of <m>\ucobmtrx{B}{B'}</m>.
+		And so on, running through all the vectors of <m>\basisfont{B}</m>,
+		until we have concluded that <em>every</em> column of <m>P</m> is the same as the corresponding column in <m>\cobmtrx{B}{B'}</m>,
+		at which point we can also conclude that <m> P = \ucobmtrx{B}{B'} </m>.
+		</p>
+	</proof>
+</proposition>
+
+<proposition xml:id="proposition-change-of-basis-cob-props">
+	<title>Properties of transition matrices</title>
+	<statement><p>
+		In the following, assume
+		<m>\basisfont{B}</m>, <m>\basisfont{B}'</m>, and <m>\basisfont{B}''</m>
+		are bases of a finite dimensional vector space <m>V</m>.
+		<ol>
+			<li>
+				The transition <m>\basisfont{B} \to \basisfont{B}</m> is trivial.
+				That is, <m> \ucobmtrx{B}{B} = I </m>, the identity matrix.
+			</li>
+			<li>
+				A chain of transitions <m>\basisfont{B} \to \basisfont{B}'</m>, <m>\basisfont{B}' \to \basisfont{B}''</m>
+				combine to a single transition <m>\basisfont{B} \to \basisfont{B}''</m>.
+				That is, <m> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B''} </m>.
+			</li>
+			<li xml:id="proposition-change-of-basis-cob-props-reverse-is-inverse">
+				The transition <m>\basisfont{B}' \to \basisfont{B}</m> is the reverse of the transition <m>\basisfont{B} \to \basisfont{B}'</m>.
+				That is, <m> \ucobmtrx{B'}{B} = \uinvcobmtrx{B}{B'} </m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><p><ol>
+		<li>
+			<xref ref="proposition-change-of-basis-unique-cob" />
+			says that <m> \ucobmtrx{B}{B} </m> is the one unique matrix so that
+			<m> \ucobmtrx{B}{B} \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B} </m>
+			holds for every vector <m>\uvec{v}</m> in <m>V</m>.
+			But clearly also <m> I \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B} </m>
+			holds for every vector <m>\uvec{v}</m> in <m>V</m>,
+			so we must have <m>I = \ucobmtrx{B}{B}</m>,
+			as desired.
+		</li>
+		<li>
+			<p>
+			<xref ref="proposition-change-of-basis-unique-cob" />
+			says that <m> \ucobmtrx{B}{B''} </m> is the one unique matrix so that
+			<m> \ucobmtrx{B}{B''} \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B''} </m>
+			holds for every vector <m>\uvec{v}</m> in <m>V</m>.
+			</p><p>
+			Set <m> P = \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} </m>.
+			Then for every vector <m>\uvec{v}</m> in <m>V</m> we have
+			<md>
+				<mrow> P \matrixOf{\uvec{v}}{B} \amp = (\ucobmtrx{B'}{B''} \ucobmtrx{B}{B'}) \matrixOf{\uvec{v}}{B} </mrow>
+				<mrow> \amp = \ucobmtrx{B'}{B''} (\ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B}) </mrow>
+				<mrow> \amp = \ucobmtrx{B'}{B''} \matrixOf{\uvec{v}}{B'} </mrow>
+				<mrow> \amp = \matrixOf{\uvec{v}}{B''} </mrow>
+			</md>.
+			So <m>P</m> also satisfies
+			<m> P \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B''} </m>
+			for every vector <m>\uvec{v}</m> in <m>V</m>.
+			The uniqueness of <m> \ucobmtrx{B}{B''} </m> then tells us that <m>P = \ucobmtrx{B}{B''}</m>,
+			or <m> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B''} </m> as desired.
+			</p>
+		</li>
+		<li>
+			To prove that a matrix is the inverse of another,
+			we only need to show that they multiply to the identity in one order
+			(<xref ref="proposition-elem-matrices-check-only-left-inverse" />
+			and
+			<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
+			And the first two statements of this proposition tell us that
+			<me> \ucobmtrx{B'}{B} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B} = I </me>,
+			so that we indeed have <m> \ucobmtrx{B'}{B} = \uinvcobmtrx{B}{B'} </m>,
+			as desired.
+		</li>
+	</ol></p></proof>
+</proposition>
+
+<corollary>
+	<title>Invertibility of transition matrices</title>
+	<statement><p>
+		Every transition matrix is invertible.
+	</p></statement>
+	<proof><p>
+		This fact follows immediately from
+		<xref ref="proposition-change-of-basis-cob-props-reverse-is-inverse">Statement</xref>
+		of
+		<xref ref="proposition-change-of-basis-cob-props" />.
+	</p></proof>
+</corollary>
+
+</subsection>
+
+<subsection xml:id="subsection-change-of-basis-theory-Rn">
+<title>Change of basis in <m>\R^n</m></title>
+
+<p>
+Finally, we record an observation from
+<xref ref="subsection-change-of-basis-concepts-in-Rn" />.
+</p>
+
+<proposition>
+	<title>Invertible matrices are transition matrices</title>
+	<statement><p>
+		Every invertible matrix is somehow a transition matrix between bases of <m>\R^n</m>.
+	</p></statement>
+	<proof><p>
+		If <m>P</m> is an invertible matrix,
+		then its columns form a basis of <m>\R^n</m>
+		(<xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref>
+		of
+		<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+		Let <m>\basisfont{B}</m> represent that basis.
+		Then the columns of the transition matrix <m>\ucobmtrx{B}{S}</m>
+		(where <m>\basisfont{S}</m> is the standard basis of <m>\R^n</m> as usual)
+		are just the vectors in <m>\basisfont{B}</m>.
+		Therefore, <m>\ucobmtrx{B}{S} = P</m>,
+		as desired.
+	</p></proof>
+</proposition>
+
+</subsection>
+
+</section>

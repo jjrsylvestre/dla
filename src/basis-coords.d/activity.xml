@@ -310,4 +310,77 @@ You can imagine repeating this process until finally you are left with a spannin
 	</p></task>
 </activity>
 
+<activity xml:id="activity-basis-coords-linearity-of-coords">
+	<introduction>
+		<p> Coordinate vectors let us transfer the vector algebra in a space to the familiar space <m>V</m>. </p>
+		<p>
+		For example, consider the basis
+		<me>
+			S = \left\{\;
+				\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},\;\;
+				\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix},\;\;
+				\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix},\;\;
+				\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			\;\right\}
+		</me>
+		for the space <m>\matrixring_2(\R)</m> from
+		<xref ref="activity-basis-coords-compute-from-coords-M2-standard" />.
+		</p>
+	</introduction>
+	<task xml:id="activity-basis-coords-linearity-of-coords-compute-from-coords-again"><p>
+		In <xref ref="activity-basis-coords-compute-from-coords-M2-standard" />
+		you have already determined the vector <m>\uvec{w}</m> in <m>\matrixring_2(\R)</m> that has coordinate vector
+		<m>\rmatrixOfplain{\uvec{w}}{S} = (3,-5,1,1)</m>.
+		Now do the same to determine the vector <m>\uvec{v}</m> in <m>\matrixring_2(\R)</m> that has coordinate vector
+		<m>\rmatrixOfplain{\uvec{v}}{S} = (-1,2,0,3)</m>.
+	</p></task>
+	<task xml:id="activity-basis-coords-linearity-of-coords-lincomb-matrices">
+		<p><em> Do some algebra in <m>\matrixring_2(\R)</m>: </em></p>
+		<p>
+		Using your vectors <m>\uvec{v}</m> from
+		<xref ref="activity-basis-coords-linearity-of-coords-compute-from-coords-again" text="type-local" />,
+		and <m>\uvec{w}</m> from
+		<xref ref="activity-basis-coords-compute-from-coords-M2-standard" />
+		compute the linear combination <m>2 \uvec{v} + \uvec{w}</m>.
+		</p><p>
+		<em>Note:</em>
+		Vectors <m>\uvec{v}</m> and <m>\uvec{w}</m> <q>live</q> in the space <m>\matrixring_2(\R)</m>,
+		so your computation in this task should involve <m>2 \times 2</m> matrices,
+		and should also result in a <m>2 \times 2</m> matrix.
+		</p>
+	</task>
+	<task xml:id="activity-basis-coords-linearity-of-coords-lincomb-coord-vecs">
+		<p><em> Do the same algebra in <m>\R^4</m>: </em></p>
+		<p>
+		Compute <m>2 \rmatrixOfplain{\uvec{v}}{S} + \rmatrixOfplain{\uvec{w}}{S}</m>,
+		using the coordinate vectors
+		<m> \rmatrixOfplain{\uvec{v}}{S} </m> and <m>\rmatrixOfplain{\uvec{w}}{S}</m>
+		provided to you in
+		<xref ref="activity-basis-coords-linearity-of-coords-compute-from-coords-again" />.
+		</p><p>
+		<em>Note:</em>
+		These coordinate vectors <q>live</q> in the space <m>\R^4</m>,
+		so your computation in this task should involve four-dimensional vectors,
+		and should also result in a four-dimensional vector.
+		</p>
+	</task>
+	<task>
+		<p><em> Compare your results: </em></p>
+		<p>
+		Consider your four-dimensional result vector from
+		<xref ref="activity-basis-coords-linearity-of-coords-lincomb-coord-vecs" text="type-local" />
+		as a coordinate vector for some vector in <m>\matrixring_2(\R)</m> relative to <m>S</m>.
+		Similarly to your computations in
+		<xref ref="activity-basis-coords-compute-from-coords-M2-standard" />
+		and
+		<xref ref="activity-basis-coords-linearity-of-coords-compute-from-coords-again" text="type-local" />,
+		determine the matrix in <m>\matrixring_2(\R)</m> that has coordinate vector equal to your result vector from
+		<xref ref="activity-basis-coords-linearity-of-coords-lincomb-coord-vecs" text="type-local" />.
+		Then compare with your result vector from
+		<xref ref="activity-basis-coords-linearity-of-coords-lincomb-matrices" />.
+		Surprised?
+		</p>
+	</task>
+</activity>
+
 </worksheet>

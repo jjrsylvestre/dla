@@ -397,27 +397,6 @@ being careful to apply our row operations
 	</me>
 	which agrees with our calculation of <m>\inv{A}</m> using elementary matrices in
 	<xref ref="example-elem-matrices-examples-decompositions" />.
-	Indeed, this process keeps track of the elementary matrices involved in row reducing <m>A</m> for us,
-	and automatically applies them to the identity
-	(essentially multiplying them together)
-	to produce the inverse on the right:
-	<md>
-		<mrow>
-			\left[\begin{array}{c|c} A \amp I \end{array}\right]
-			\amp \xrightarrow[\text{operation}]{\text{first}}
-			\left[\begin{array}{c|c} E_1A \amp E_1 I \end{array}\right]
-		</mrow><mrow></mrow><mrow>
-			\amp \xrightarrow[\text{operation}]{\text{second}}
-			\left[\begin{array}{c|c} E_2E_1A \amp E_2E_1 I \end{array}\right]
-		</mrow><mrow></mrow><mrow>
-			\amp \xrightarrow[\text{operation}]{\text{third}}
-			\left[\begin{array}{c|c} E_3E_2E_1A \amp E_3E_2E_1 I \end{array}\right]
-		</mrow><mrow></mrow><mrow>
-			\amp \xrightarrow[\text{operation}]{\text{fourth}}
-			\left[\begin{array}{c|c} E_4E_3E_2E_1A \amp E_4E_3E_2E_1 I \end{array}\right]
-			= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right].
-		</mrow>
-	</md>
 </p></statement></example>
 
 </subsection>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-change-of-basis-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-change-of-basis-examples-computing" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-examples-computing" /></em></li>
+<li><xref ref="subsection-change-of-basis-examples-Rn-computing" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-examples-Rn-computing" /></em></li>
+</ul></p></assemblage>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-change-of-basis-examples-computing">
+<title>Computing a transition matrix</title>
+
+<p>
+Let's work through an example similar to <xref ref="activity-change-of-basis-cobmatrix-example" />,
+but we'll make it a little more involved by choosing a different basis than the standard basis for <m>\matrixring_2(\R)</m>.
+</p>
+
+<example xml:id="example-change-of-basis-examples-compute-cob">
+	<p>
+	Here are two bases of <m>\matrixring_2(\R)</m>:
+	<md>
+		<mrow>
+			\basisfont{B} \amp = \left\{
+				\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+				\left[\begin{array}{rr} 1 \amp -1 \\ 0 \amp 0 \end{array}\right],
+				\begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix},
+				\left[\begin{array}{rr} 0 \amp 0 \\ -1 \amp 1 \end{array}\right]
+			\right\}
+			\text{,}
+		</mrow><mrow></mrow><mrow>
+			\basisfont{B}' \amp = \left\{
+				\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 2 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 3 \amp 2 \\ 1 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 4 \amp 3 \\ 2 \amp 1 \end{bmatrix}
+			\right\}
+			\text{.}
+		</mrow>
+	</md>
+	Following <xref ref="procedure-change-of-basis-concepts-cob-by-pattern" />,
+	we first need to compute coordinate vectors,
+	which means determining linear combinations.
+	For example, for the first vector in <m>\basisfont{B}</m>,
+	we set up the vector equation
+	<me>
+		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		=
+		k_1 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} +
+		k_2 \begin{bmatrix} 2 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
+		k_3 \begin{bmatrix} 3 \amp 2 \\ 1 \amp 0 \end{bmatrix} +
+		k_4 \begin{bmatrix} 4 \amp 3 \\ 2 \amp 1 \end{bmatrix}
+	</me>
+	in the unknown scalars <m>k_1,k_2,k_3,k_4</m>.
+	We could probably solve this vector equation by inspection,
+	but let's work it out fully.
+	Collapse the linear combination into
+	<me>
+		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		=
+		\begin{bmatrix} k_1 + 2 k_2 + 3 k_3 + 4 k_4 \amp k_2 + 2 k_3 + 3 k_4 \\ k_3 + 2 k_4 \amp k_4 \end{bmatrix}
+	</me>,
+	and then comparing entries on either side leads to linear system
+	<me>
+		\left\{
+			\begin{array}{rcrcrcrcr}
+				k_1 \amp + \amp 2 k_2 \amp + \amp 3 k_3 \amp + \amp 4 k_4 \amp = \amp 1 \text{,} \\
+				 \amp \amp k_2 \amp + \amp 2 k_3 \amp + \amp 3 k_4 \amp = \amp 1 \text{,} \\
+				 \amp \amp \amp \amp k_3 \amp + \amp 2 k_4 \amp = \amp 0 \text{,} \\
+				 \amp \amp \amp \amp \amp \amp k_4 \amp = \amp 0 \text{.}
+			\end{array}
+		\right.
+	</me>
+	Use an augmented matrix to reduce the system:
+	<me>
+		\left[\begin{array}{cccc|c}
+			1 \amp 2 \amp 3 \amp 4 \amp 1 \\
+			0 \amp 1 \amp 2 \amp 3 \amp 1 \\
+			0 \amp 0 \amp 1 \amp 2 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1 \amp 0
+		\end{array}\right]
+		\qquad \rowredarrow \qquad
+		\left[\begin{array}{cccc|r}
+			1 \amp 0 \amp 0 \amp 0 \amp -1 \\
+			0 \amp 1 \amp 0 \amp 0 \amp 1 \\
+			0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1 \amp 0
+		\end{array}\right]
+	</me>.
+	The solution is
+	<md><mrow>
+		k_1 \amp = -1 \text{,} \amp
+		k_2 \amp = 1 \text{,} \amp
+		k_3 \amp = 0 \text{,} \amp
+		k_4 \amp = 0 \text{,}
+	</mrow></md>
+	giving us coordinate vector
+	<me> \matrixOf{A_1}{B'} = \left[\begin{array}{r} -1 \\ 1 \\ 0 \\ 0 \end{array}\right] </me>
+	(where <m>A_1</m> represents the first vector in basis <m>\basisfont{B}</m>).
+	</p><p>
+	A similar procedure can be used to compute coordinate vectors for the other vectors in <m>\basisfont{B}</m>.
+	Here are the results:
+	<md><mrow>
+		\matrixOf{A_2}{B'} \amp = \left[\begin{array}{r} 3 \\ -1 \\ 0 \\ 0 \end{array}\right] \text{,} \amp
+		\matrixOf{A_3}{B'} \amp = \left[\begin{array}{r} 1 \\ -1 \\ -1 \\ 1 \end{array}\right] \text{,} \amp
+		\matrixOf{A_4}{B'} \amp = \left[\begin{array}{r} -1 \\ 3 \\ -3 \\ 1 \end{array}\right]
+	</mrow></md>
+	(where again <m>A_2,A_3,A_4</m> represent the remaining vectors in <m>\basisfont{B}</m>).
+	</p><p>
+	Combine these four coordinate vectors into the transition matrix:
+	<me>
+		\ucobmtrx{B}{B'} =
+		\left[\begin{array}{rrrr}
+			-1 \amp 3 \amp 1 \amp -1 \\
+			1 \amp -1 \amp -1 \amp 3 \\
+			0 \amp 0 \amp -1 \amp -3 \\
+			0 \amp 0 \amp 1 \amp 1
+		\end{array}\right]
+	</me>.
+	</p><p>
+	Let's test this transition matrix against an example coordinate vector.
+	We'll start with a <m>\basisfont{B}</m>-coordinate vector
+	<me> \matrixOf{Y}{B} = \left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right] </me>,
+	which corresponds to vector
+	<me>
+		Y =
+		2 \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
+		(-1) \left[\begin{array}{rr} 1 \amp -1 \\ 0 \amp 0 \end{array}\right] +
+		3 \begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix} +
+		(-2) \left[\begin{array}{rr} 0 \amp 0 \\ -1 \amp 1 \end{array}\right]
+		=
+		\begin{bmatrix} 1 \amp 3 \\ 5 \amp 1 \end{bmatrix}
+	</me>.
+	Now convert to a <m>\basisfont{B}'</m>-coordinate vector:
+	<me>
+		\matrixOf{Y}{B'} = \ucobmtrx{B}{B'} \matrixOf{Y}{B}
+		= \left[\begin{array}{rrrr}
+			-1 \amp 3 \amp 1 \amp -1 \\
+			1 \amp -1 \amp -1 \amp 3 \\
+			0 \amp 0 \amp -1 \amp -3 \\
+			0 \amp 0 \amp 1 \amp 1
+		\end{array}\right]
+		\left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right]
+		= \left[\begin{array}{r} 0 \\ -6 \\ 3 \\ 1 \end{array}\right]
+	</me>,
+	which corresponds to vector
+	<me>
+		Y =
+		0 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} +
+		(-6) \begin{bmatrix} 2 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
+		3 \begin{bmatrix} 3 \amp 2 \\ 1 \amp 0 \end{bmatrix} +
+		1 \begin{bmatrix} 4 \amp 3 \\ 2 \amp 1 \end{bmatrix}
+		=
+		\begin{bmatrix} 1 \amp 3 \\ 5 \amp 1 \end{bmatrix}
+	</me>.
+	As this linear combination results in the same vector <m>Y</m> as before,
+	the coordinate conversion was correct.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-change-of-basis-examples-Rn-computing">
+<title>Computing a transition matrix for <m>\R^n</m></title>
+
+<p>
+Now let's use
+<xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />
+to compute a transition matrix for <m>\R^4</m>.
+</p>
+
+<example xml:id="example-change-of-basis-examples-Rn-compute-cob">
+	<p>
+	Here are two bases of <m>\R^4</m>:
+	<md>
+		<mrow>
+			\basisfont{B} \amp = \left\{
+				\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+				\left[\begin{array}{r} 1 \\ -1 \\ 0 \\ 0 \end{array}\right],
+				\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \end{bmatrix},
+				\left[\begin{array}{r} 0 \\ 0 \\ -1 \\ 1 \end{array}\right]
+			\right\}
+			\text{,}
+		</mrow><mrow></mrow><mrow>
+			\basisfont{B}' \amp = \left\{
+				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 3 \\ 2 \\ 1 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}
+			\right\}
+			\text{.}
+		</mrow>
+	</md>
+	Following <xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />,
+	we form an augmented matrix with the vectors of <m>\basisfont{B}'</m> on the left and the vectors of <m>\basisfont{B}</m> on the right,
+	and then reduce:
+	<md>
+		<mrow xml:id="equation-change-of-basis-examples-cob-by-row-red" tag="star">
+			\amp
+			\left[\begin{array}{rrrr|rrrr}
+				1 \amp 2 \amp 3 \amp 4 \amp 1 \amp  1 \amp 0 \amp  0 \\
+				0 \amp 1 \amp 2 \amp 3 \amp 1 \amp -1 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 1 \amp 2 \amp 0 \amp  0 \amp 1 \amp -1 \\
+				0 \amp 0 \amp 0 \amp 1 \amp 0 \amp  0 \amp 1 \amp  1
+			\end{array}\right]
+		</mrow><mrow></mrow><mrow>
+			\rowredarrow \qquad
+			\amp
+			\left[\begin{array}{rrrr|rrrr}
+				1 \amp 0 \amp 0 \amp 0 \amp -1 \amp  3 \amp  1 \amp -1 \\
+				0 \amp 1 \amp 0 \amp 0 \amp  1 \amp -1 \amp -1 \amp  3 \\
+				0 \amp 0 \amp 1 \amp 0 \amp  0 \amp  0 \amp -1 \amp -3 \\
+				0 \amp 0 \amp 0 \amp 1 \amp  0 \amp  0 \amp  1 \amp  1
+			\end{array}\right]
+		</mrow>
+	</md>.
+	Our transition matrix is now on the right, and we can extract it as
+	<me>
+		\ucobmtrx{B}{B'} =
+		\left[\begin{array}{rrrr}
+			-1 \amp  3 \amp  1 \amp -1 \\
+			 1 \amp -1 \amp -1 \amp  3 \\
+			 0 \amp  0 \amp -1 \amp -3 \\
+			 0 \amp  0 \amp  1 \amp  1
+		\end{array}\right]
+	</me>.
+	</p><p>
+	Let's test this transition matrix against an example coordinate vector.
+	We'll start with a <m>\basisfont{B}</m>-coordinate vector
+	<me> \matrixOf{\uvec{v}}{B'} = \left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right] </me>,
+	which corresponds to vector
+	<me>
+		\uvec{v} =
+		2 \begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix} +
+		(-1) \left[\begin{array}{rr} 1 \\ -1 \\ 0 \\ 0 \end{array}\right] +
+		3 \begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \end{bmatrix} +
+		(-2) \left[\begin{array}{rr} 0 \\ 0 \\ -1 \\ 1 \end{array}\right]
+		=
+		\begin{bmatrix} 1 \\ 3 \\ 5 \\ 1 \end{bmatrix}
+	</me>.
+	Now convert to a <m>\basisfont{B}'</m>-coordinate vector:
+	<me>
+		\matrixOf{\uvec{v}}{B'} = \ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B}
+		= \left[\begin{array}{rrrr}
+			-1 \amp 3 \amp 1 \amp -1 \\
+			1 \amp -1 \amp -1 \amp 3 \\
+			0 \amp 0 \amp -1 \amp -3 \\
+			0 \amp 0 \amp 1 \amp 1
+		\end{array}\right]
+		\left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right]
+		= \left[\begin{array}{r} 0 \\ -6 \\ 3 \\ 1 \end{array}\right]
+	</me>,
+	which corresponds to vector
+	<me>
+		\uvec{v} =
+		0 \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} +
+		(-6) \begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \end{bmatrix} +
+		3 \begin{bmatrix} 3 \\ 2 \\ 1 \\ 0 \end{bmatrix} +
+		1 \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}
+		=
+		\begin{bmatrix} 1 \\ 3 \\ 5 \\ 1 \end{bmatrix}
+	</me>.
+	As this linear combination results in the same vector <m>\uvec{v}</m> as before,
+	the coordinate conversion was correct.
+	</p>
+</example>
+
+<remark xml:id="remark-change-of-basis-examples-compare"><p>
+	You may have noticed that
+	<xref ref="example-change-of-basis-examples-compute-cob" />
+	and
+	<xref ref="example-change-of-basis-examples-Rn-compute-cob" />
+	are essentially the same example,
+	but using different methods to compute the transition matrix.
+	This comparison provides evidence for the claim in
+	<xref ref="remark-change-of-basis-concepts-post-Rn-cob-notes-use-for-other-spaces">Statement</xref>
+	of <xref ref="remark-change-of-basis-concepts-post-Rn-cob-notes" />
+	that <xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />
+	can be used in other spaces besides <m>\R^n</m>.
+	In <xref ref="example-change-of-basis-examples-compute-cob" />,
+	we could have taken the usual standard basis
+	<me>
+		\basisfont{S} = \left\{
+			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+		\right\}
+	</me>
+	of <m>\matrixring_2(\R)</m> as our intermediate basis,
+	and we would have ended up reducing the same <m>4 \times 8</m> augmented matrix to compute <m>\ucobmtrx{B}{B'}</m> as we did in
+	<xref ref="example-change-of-basis-examples-Rn-compute-cob" />.
+	(Look back at <xref ref="equation-change-of-basis-examples-cob-by-row-red" />,
+	and notice the how the columns of that initial <m>4 \times 8</m> augmented matrix are essentially the vectors of <m>\basisfont{B}'</m> and <m>\basisfont{B}</m> written as columns instead of as <m>2 \times 2</m> matrices.)
+</p></remark>
+
+</subsection>
+
+</section>

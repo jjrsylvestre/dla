@@ -164,6 +164,9 @@ But you should assume from this point forward that every basis is an <term>order
 <subsection xml:id="subsection-basis-coords-concepts-coords">
 <title>Coordinates of a vector</title>
 
+<subsubsection>
+<title>Basic concept of coordinates relative to a basis</title>
+
 <p>
 Suppose we have a basis for a vector space.
 Since a basis is a spanning set,
@@ -252,6 +255,68 @@ for examples of computing coordinate vectors and of interpreting vectors in <m>\
 	</p>
 </warning>
 
+</subsubsection>
+
+<subsubsection xml:id="subsubsection-basis-coords-concepts-coords-linearity">
+<title>Linearity of coordinates</title>
+
+<p>
+In <xref ref="activity-basis-coords-linearity-of-coords" />,
+we discovered that performing a computation <m>2 \uvec{v} + \uvec{w}</m> in a vector space <m>V</m>
+and performing the corresponding calculation
+<m>2 \rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B}</m>
+with the corresponding coordinate vectors in <m>\R^n</m> relative to some basis <m>\basisfont{B}</m> of <m>V</m>
+would essentially yield the same result.
+(That is,
+the result of combining coordinate vectors ends up being the coordinate vector of the result of combining the original vectors.)
+</p>
+<p>
+To consider why this works out,
+let's consider the operations involved in a linear combination (vector addition and scalar multiplication) separately.
+For the remainder of this discussion,
+suppose
+<m>\basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_n \}</m>
+is a basis for a particular vector space <m>V</m>.
+</p>
+
+<paragraphs><title>Addition of coordinate vectors</title><p>
+If you have two vectors in <m>V</m> expressed uniquely as linear combinations of the basis vectors,
+<me>
+	\begin{array}{rcrcrcccr}
+		\uvec{v} \amp = \amp a_1 \uvec{u}_1 \amp + \amp a_2 \uvec{u}_2 \amp + \amp \dotsc \amp + \amp a_n \uvec{u}_n \text{,} \\
+		\uvec{w} \amp = \amp b_1 \uvec{u}_1 \amp + \amp b_2 \uvec{u}_2 \amp + \amp \dotsc \amp + \amp b_n \uvec{u}_n \text{,}
+	\end{array}
+</me>
+then adding the vectors can be accomplished by adding the linear combinations.
+Algebraically, we can add linear combinations by collecting like terms,
+and when we do so we will be adding the corresponding coefficients on each basis vector.
+But coefficients on basis vectors are where components of coordinate vectors come from,
+and so we can say that
+<alert> the coordinate vector of a sum is the sum of the coordinate vectors </alert>.
+</p></paragraphs>
+
+<paragraphs><title>Scalar multiplication of a coordinate vector</title><p>
+If you have a vectors in <m>V</m> expressed uniquely as linear combinations of the basis vectors,
+<me> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsc + a_n \uvec{u}_n </me>,
+then multiplying this vector by a scalar can be accomplished by scalar multiplying the linear combination.
+Algebraically, we can scalar multiply a  linear combination by distributing the scalar through the vector sum,
+and when we do so we will be multiplying the coefficient on each basis vector by the scalar.
+But coefficients on basis vectors are where components of coordinate vectors come from,
+and so we can say that
+<alert>the coordinate vector of a scalar multiple is the scalar multiple of the coordinate vector</alert>.
+</p></paragraphs>
+
+<paragraphs><title>A look ahead</title><p>
+We will consider the the linearity properties of coordinate vectors more formally in
+<xref ref="chapter-change-of-basis" />.
+However, these <q>linearity properties</q> are another algebra pattern that we will study in great detail in
+a future part of this book <todo>proper xref once linear transformations chapters are written</todo>
+when we look at other kinds of processes that <term>transform</term> one kind of vector into another kind of vector.
+</p></paragraphs>
+
+</subsubsection>
+
 </subsection>
+
 
 </section>
