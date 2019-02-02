@@ -75,11 +75,13 @@ respective owners.
 \newcommand{\crossprod}[2]{#1\times#2}% cross product
 \newcommand{\ucrossprod}[2]{\crossprod{\uvec{#1}}{\uvec{#2}}}% cross product with undergrad vector style
 \newcommand{\uproj}[2]{\proj_{\uvec{#2}} \uvec{#1}}% projection with undergrad vector style
-\newcommand{\matrixOf}[2]{\left[#1\right]_{\basisfont{#2}}}% matrix of
-\newcommand{\rmatrixOf}[2]{\left(#1\right)_{\basisfont{#2}}}% matrix of, round brackets
+\newcommand{\matrixOfplain}[2]{\left[#1\right]_{#2}}% matrix of, do not use basis font
 \newcommand{\rmatrixOfplain}[2]{\left(#1\right)_{#2}}% matrix of, round brackets, does not use basis font
+\newcommand{\matrixOf}[2]{\matrixOfplain{#1}{\basisfont{#2}}}% matrix of
+\newcommand{\rmatrixOf}[2]{\rmatrixOfplain{#1}{\basisfont{#2}}}% matrix of, round brackets
 \newcommand{\ucobmtrx}[2]{P_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
 \newcommand{\uinvcobmtrx}[2]{\inv{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
 \newcommand{\adjoint}[1]{{#1}^\ast}% adjoint
+\newcommand{\similar}{\sim}
 
 </macros>

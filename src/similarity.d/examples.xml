@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-similarity-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-similarity-examples-algebraic-pattern" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-examples-algebraic-pattern" /></em></li>
+<li><xref ref="subsection-similarity-examples-compute-invpap" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-examples-compute-invpap" /></em></li>
+</ul></p></assemblage>
+
+
+<subsection xml:id="subsection-similarity-examples-algebraic-pattern">
+<title>The algebraic pattern of similarity</title>
+
+<example xml:id="example-similarity-examples-algebraic-pattern">
+	<p>
+	Let's verify the algebraic pattern of similarity identified in
+	<xref ref="activity-similarity-algebraic" />
+	and
+	<xref ref="subsection-similarity-concepts-algebra" />
+	in a specific example.
+	</p><p>
+	Consider matrices
+	<md><mrow>
+		A \amp = \left[\begin{array}{rrr}
+			1 \amp 1 \amp 0 \\
+			2 \amp 7 \amp -1 \\
+			0 \amp 5 \amp 1
+		\end{array}\right]
+		\text{,} \amp
+		B \amp = \left[\begin{array}{rrr}
+			-1 \amp 12 \amp -23 \\
+			2 \amp -1 \amp 8 \\
+			1 \amp -5 \amp 11
+		\end{array}\right]
+		\text{,} \amp
+		P \amp = \left[\begin{array}{rrr}
+			1 \amp 0 \amp 2 \\
+			0 \amp 2 \amp -3 \\
+			1 \amp 1 \amp 0
+		\end{array}\right]
+		\text{.}
+	</mrow></md>
+	Let's verify that <m>A</m> and <m>B</m> are similar and that <m>P</m> is a transition matrix that realizes that similarity relationship using the aforementioned algebraic pattern of similarity.
+	The columns of <m>P</m> are
+	<md><mrow>
+		\uvec{p}_1 \amp = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \text{,} \amp
+		\uvec{p}_2 \amp = \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} \text{,} \amp
+		\uvec{p}_3 \amp = \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right] \text{,}
+	</mrow></md>
+	and we can compute
+	<md><mrow>
+		A \uvec{p}_1 \amp = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \text{,} \amp
+		A \uvec{p}_2 \amp = \begin{bmatrix} 2 \\ 13 \\ 11 \end{bmatrix} \text{,} \amp
+		A \uvec{p}_3 \amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{.}
+	</mrow></md>
+	On the other hand,
+	if we use the columns of <m>B</m> as coefficients in linear combinations of the columns of <m>P</m>,
+	we get
+	<me>
+		\begin{array}{rcrcrcr}
+			P \uvec{b}_1 \amp = \amp - \uvec{p}_1 \amp + \amp 2 \uvec{p}_2 \amp + \amp \uvec{p}_3 \text{,} \\
+			P \uvec{b}_2 \amp = \amp 12 \uvec{p}_1 \amp - \amp \uvec{p}_2 \amp - \amp 5 \uvec{p}_3 \text{,} \\
+			P \uvec{b}_3 \amp = \amp -23 \uvec{p}_1 \amp + \amp 8 \uvec{p}_2 \amp + \amp 11 \uvec{p}_3 \text{.}
+		\end{array}
+	</me>
+	Computing these linear combinations,
+	we get
+	<md>
+		<mrow>
+			- \uvec{p}_1 + 2 \uvec{p}_2 + \uvec{p}_3 \amp = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \text{,}
+		</mrow><mrow>
+			12 \uvec{p}_1 - \uvec{p}_2 - 5 \uvec{p}_3 \amp = \begin{bmatrix} 2 \\ 13 \\ 11 \end{bmatrix} \text{,}
+		</mrow><mrow>
+			-23 \uvec{p}_1 + 8 \uvec{p}_2 + 11 \uvec{p}_3 \amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{,}
+		</mrow>
+	</md>
+	each of which agree with the corresponding <m>A \uvec{p}_j</m> calculation above.
+	</p>
+</example>
+
+<remark><p>
+	In the example above,
+	we are really just computing and comparing <m>AP</m> and <m>PB</m> in a roundabout way,
+	since those two products are where we got our patten of similarity.
+	Rather than a computational tool,
+	the algebraic pattern of similarity identified in
+	<xref ref="activity-similarity-algebraic" />
+	and
+	<xref ref="subsection-similarity-concepts-algebra" />
+	will be a theoretical tool to bring the theory of the vector space <m>\R^n</m> to bear on the analysis of various specific similarity patterns that we will explore in the chapters to come.
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-similarity-examples-compute-invpap">
+<title>Computing <m>\inv{P} A P</m> by row reduction</title>
+
+<introduction><p>
+	In
+	<xref ref="subsection-change-of-basis-concepts-in-Rn-by-row-red" />
+	we modified the inverse-by-row-reduction computation pattern to show that multiplication by an inverse can be computed by row reduction.
+	(See pattern
+	<xref ref="equation-change-of-basis-concepts-row-red-aug-transfer-inv" />
+	in
+	<xref ref="subsection-change-of-basis-concepts-in-Rn-by-row-red" />.)
+	The same modified pattern can be used to compute the product of <m>\inv{P}</m> and <m>AP</m>:
+	<me>
+		\left[\begin{array}{c|c} P \amp AP \end{array}\right] \qquad \rowredarrow \qquad
+		\left[\begin{array}{c|c} I \amp \inv{P}(AP) \end{array}\right]
+	</me>.
+</p></introduction>
+
+<example>
+	<p>
+	Let's use the matrices of
+	<xref ref="example-similarity-examples-algebraic-pattern" />
+	to demonstrate.
+	</p><p>
+	First, compute
+	<me>
+		AP = \left[\begin{array}{rrr}
+			1 \amp 2 \amp -1 \\
+			1 \amp 13 \amp -17 \\
+			1 \amp 11 \amp -15
+		\end{array}\right]
+	</me>.
+	Now augment <m>P</m> with <m>AP</m> and reduce:
+	<md>
+		<mrow>
+			\left[\begin{array}{c|c} P \amp AP \end{array}\right]
+			= \amp
+			\left[\begin{array}{rrr|rrr}
+				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
+				0 \amp 2 \amp -3 \amp 1 \amp 13 \amp -17 \\
+				1 \amp 1 \amp 0 \amp 1 \amp 11 \amp -15
+			\end{array}\right]
+			\begin{matrix} \phantom{X} \\ \phantom{X} \\ R_3 - R_1 \end{matrix}
+		</mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rrr|rrr}
+				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
+				0 \amp 2 \amp -3 \amp 1 \amp 13 \amp -17 \\
+				0 \amp 1 \amp -2 \amp 0 \amp 9 \amp -14
+			\end{array}\right]
+			\begin{matrix} \phantom{X} \\ R_2 \leftrightarrow R_3 \end{matrix}
+		</mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rrr|rrr}
+				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
+				0 \amp 1 \amp -2 \amp 0 \amp 9 \amp -14 \\
+				0 \amp 2 \amp -3 \amp 1 \amp 13 \amp -17
+			\end{array}\right]
+			\begin{matrix} \phantom{X} \\ \phantom{X} \\ R_3 - 2R_2 \end{matrix}
+		</mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rrr|rrr}
+				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
+				0 \amp 1 \amp -2 \amp 0 \amp 9 \amp -14 \\
+				0 \amp 0 \amp 1 \amp 1 \amp -5 \amp 11
+			\end{array}\right]
+			\begin{matrix} R_1 - 2R_3 \\ R_2 + 2R_3 \\ \phantom{X} \end{matrix}
+		</mrow><mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rrr|rrr}
+				1 \amp 0 \amp 0 \amp -1 \amp 12 \amp -23 \\
+				0 \amp 1 \amp 0 \amp 2 \amp -1 \amp 8 \\
+				0 \amp 0 \amp 1 \amp 1 \amp -5 \amp 11
+			\end{array}\right]
+		</mrow>
+	</md>.
+	Comparing with the matrix <m>B</m> from
+	<xref ref="example-similarity-examples-algebraic-pattern" />,
+	we see that <m>\inv{P} A P = B</m> as expected.
+	</p>
+</example>
+
+</subsection>
+
+</section>

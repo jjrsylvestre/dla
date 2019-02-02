@@ -21,8 +21,8 @@ respective owners.
 <assemblage><title>In this section</title><p><ul>
 <li><xref ref="subsection-change-of-basis-concepts-coord-vecs-linearity" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-change-of-basis-concepts-coord-vecs-linearity" /></em></li>
-<!--<li><xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" /></em></li>-->
+<li><xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" /></em></li>
 <li><xref ref="subsection-change-of-basis-concepts-coord-vecs-convert" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-change-of-basis-concepts-coord-vecs-convert" /></em></li>
 <li><xref ref="subsection-change-of-basis-concepts-properties" /><nbsp /><nbsp />
@@ -31,10 +31,6 @@ respective owners.
 <em><xref text="title" ref="subsection-change-of-basis-concepts-in-Rn" /></em></li>
 </ul></p></assemblage>
 
-<introduction>
-
-
-</introduction>
 
 <subsection xml:id="subsection-change-of-basis-concepts-coord-vecs-linearity">
 <title>Linearity of coordinate vectors</title>
@@ -73,7 +69,6 @@ is the extension of these properties to linear combinations:
 
 </subsection>
 
-<!--  DON'T THINK I WANT TO BOTHER WITH THIS
 <subsection xml:id="subsection-change-of-basis-concepts-matrix-mul-lincomb">
 <title><em>Matrix-times-vector</em> as a linear combination</title>
 
@@ -103,11 +98,24 @@ considered as a collection of column vectors:
 		| \amp | \amp \amp | \\
 	\end{bmatrix}
 </me>.
-We have seen that the TODO CONTINUE
+We have seen a few times that a matrix times a standard basis vector is equal to the corresponding column of the matrix:
+<me> A \uvec{e}_j = \uvec{a}_j </me>.
+So if we expand the column vector
+<me> \uvec{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} </me>
+as a linear combination of standard basis vectors,
+<me> \uvec{x} = x_1 \uvec{e}_1 + x_2 \uvec{e}_2 + \dotsb + x_n \uvec{e}_n </me>,
+then we can compute <m>A\uvec{x}</m> by multiplying <m>A</m> through this linear combination:
+<md><mrow xml:id="equation-change-of-basis-concepts-matrix-times-vec-pattern" tag="dstar">
+	\begin{array}{ccccccccc}
+		A \uvec{x} \amp = \amp x_1 A \uvec{e}_1 \amp + \amp x_2 A \uvec{e}_2 \amp + \amp \dotsb \amp + \amp x_n A \uvec{e}_n \\
+		 \amp = \amp x_1 \uvec{a}_1 \amp + \amp x_2 \uvec{a}_2 \amp + \amp \dotsb \amp + \amp x_n \uvec{a}_n
+	\end{array}
+</mrow></md>.
+From this, we see that
+<alert>a matrix times a vector can be expressed as a linear combination of the columns of the matrix with coefficients taken from the vector</alert>.
 </p>
 
 </subsection>
--->
 
 
 <subsection xml:id="subsection-change-of-basis-concepts-coord-vecs-convert">
@@ -119,7 +127,7 @@ we explored how we might convert from coordinate vectors relative to one basis t
 </p><p>
 Suppose we have a basis <m>\basisfont{B}</m> for some particular finite-dimensional vector space <m>V</m>.
 Every vector <m>\uvec{w}</m> in <m>V</m> can be expressed uniquely as a linear combination
-<md><mrow xml:id="equation-change-of-basis-concepts-lincomb" tag="dstar">
+<md><mrow xml:id="equation-change-of-basis-concepts-lincomb" tag="tstar">
 	\uvec{w} = k_1 \uvec{u}_1 + k_2 \uvec{u}_2 + \dotsc + k_n \uvec{u}_n,
 </mrow></md>
 where the <m>\uvec{u}_j</m> are the basis vectors in <m>\basisfont{B}</m>
@@ -136,7 +144,7 @@ let's switch to coordinate vectors as column vectors.
 Just as in
 <xref ref="activity-change-of-basis-cob-matrix-lin-comb" />,
 we can use linearity property
-<xref ref="equation-change-of-basis-concepts-linearity-coordvecs" tag="star" />
+<xref ref="equation-change-of-basis-concepts-linearity-coordvecs" />
 applied to
 <xref ref="equation-change-of-basis-concepts-lincomb" />
 to obtain an expression for the new coordinate vector <m>\matrixOf{w}{B'}</m>
@@ -271,7 +279,10 @@ as expected if matrices <m> \ucobmtrx{B}{B'} </m> and <m>\ucobmtrx{B'}{B}</m> ar
 <subsection xml:id="subsection-change-of-basis-concepts-in-Rn">
 <title>Change of basis in <m>\R^n</m></title>
 
-<paragraphs><title>Changing to the standard basis</title><p>
+<subsubsection xml:id="subsection-change-of-basis-concepts-in-Rn-to-std">
+<title>Changing to the standard basis</title>
+
+<p>
 In <xref ref="activity-change-of-basis-Rn" />,
 we first reminded ourselves that, relative to the standard basis <m>\basisfont{S}</m> of <m>\R^n</m>,
 a vector is equal to its coordinate vector.
@@ -281,9 +292,15 @@ then each basis vector in <m>\basisfont{B}</m> is equal to its own coordinate ve
 So when we form a transition matrix <m>\ucobmtrx{B}{S}</m>,
 the columns of this matrix are precisely the vectors of basis <m>\basisfont{B}</m>,
 which makes <m>\ucobmtrx{B}{S}</m> particularly easy to produce.
-</p></paragraphs>
+</p>
 
-<paragraphs><title>Computing transition matrices using the standard basis as an intermediate</title><p>
+</subsubsection>
+
+
+<subsubsection xml:id="subsection-change-of-basis-concepts-in-Rn-std-in-middle">
+<title>Computing transition matrices using the standard basis as an intermediate</title>
+
+<p>
 Since transition matrices with the standard basis as the <q>new</q> basis are easy to produce,
 we can use the standard basis as an intermediate in a chain of basis changes to obtain any transition matrix <m>\ucobmtrx{B}{B'}</m> for bases of <m>\R^n</m>.
 Using what we learned in
@@ -295,9 +312,11 @@ we can write
 	= \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S}
 </mrow></md>,
 and so we can compute <m>\ucobmtrx{B}{B'}</m> from the easy-to-produce transition matrices <m>\ucobmtrx{B}{S}</m> and <m>\ucobmtrx{B'}{S}</m>.
-</p></paragraphs>
+</p>
 
-<paragraphs>
+</subsubsection>
+
+<subsubsection xml:id="subsection-change-of-basis-concepts-in-Rn-by-row-red">
 <title>Computing transition matrices using row reduction</title>
 
 <p>
@@ -333,11 +352,14 @@ where the <m>E_j</m> are the elementary matrices associated to a sequence of ope
 <p>
 What if we augmented <m>A</m> with a matrix other than <m>I</m> and row reduced?
 Then the pattern would be
-<me>
-	\left[\begin{array}{c|c} A \amp B \end{array}\right] \qquad \rowredarrow \qquad
-	\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 B \end{array}\right]
-	= \left[\begin{array}{c|c} I \amp \inv{A} B \end{array}\right]
-</me>.
+<md>
+	<mrow> \amp \left[\begin{array}{c|c} A \amp B \end{array}\right] </mrow>
+	<mrow xml:id="equation-change-of-basis-concepts-row-red-aug-transfer-inv" tag="dmaltese">
+		\amp \qquad \rowredarrow \qquad
+		\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 B \end{array}\right]
+		= \left[\begin{array}{c|c} I \amp \inv{A} B \end{array}\right]
+	</mrow>
+</md>.
 This pattern reveals that we can also carry out an inverse-times-matrix computation by row reducing!
 And that kind of computation is exactly what we would carry out if we used
 <xref ref="equation-change-of-basis-concepts-inv-prod-formula-Rn" />
@@ -397,7 +419,7 @@ to compute a transition matrix for <m>\R^n</m>.
 	</ol></p>
 </remark>
 
-</paragraphs>
+</subsubsection>
 
 </subsection>
 
