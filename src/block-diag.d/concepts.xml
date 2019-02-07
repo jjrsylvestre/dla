@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-block-diag-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-block-diag-concepts-block-ops" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-concepts-block-ops" /></em></li>
+<li><xref ref="subsection-block-diag-concepts-block-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-concepts-block-props" /></em></li>
+<li><xref ref="subsection-block-diag-concepts-invariant" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-concepts-invariant" /></em></li>
+<li><xref ref="subsection-block-diag-concepts-independent" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-concepts-independent" /></em></li>
+<li><xref ref="subsection-block-diag-concepts-similarity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-concepts-similarity" /></em></li>
+<li><xref ref="subsection-block-diag-concepts-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-concepts-proc" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-block-diag-concepts-block-ops">
+<title>Operations with block matrices</title>
+
+<p>
+Any matrix can be subdivided into <term>submatrices</term> or <term>blocks</term>.
+We usually indicate submatrices of a matrix by marking them off with horizontal and vertical lines.
+For example,
+the matrix on the left, subdivided as shown on the right,
+<md><mrow>
+	\amp \left[\begin{array}{rrrrr}
+		1 \amp 0 \amp 1 \amp 5 \amp 5 \\
+		4 \amp -1 \amp 1 \amp 5 \amp 5 \\
+		2 \amp 2 \amp 0 \amp 5 \amp 5 \\
+		3 \amp 3 \amp 3 \amp 1 \amp 0 \\
+		3 \amp 3 \amp 3 \amp -4 \amp 9
+	\end{array}\right]
+	\amp \amp \longrightarrow \amp
+	\left[\begin{array}{@{}crc|rc@{}}
+		1 \amp 0 \amp 1 \amp 5 \amp 5 \\
+		4 \amp -1 \amp 1 \amp 5 \amp 5 \\
+		2 \amp 2 \amp 0 \amp 5 \amp 5 \\
+		\hline
+		3 \amp 3 \amp 3 \amp 1 \amp 0 \\
+		3 \amp 3 \amp 3 \amp -4 \amp 9
+	\end{array}\right]
+</mrow></md>
+has blocks
+<me>
+	\left[\begin{array}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{array}\right] \text{,} \qquad
+	\begin{bmatrix} 5 \amp 5 \\ 5 \amp 5 \\ 5 \amp 5 \end{bmatrix} \text{,} \qquad
+	\begin{bmatrix} 3 \amp 3 \amp 3 \\ 3 \amp 3 \amp 3 \end{bmatrix} \text{,} \qquad
+	\left[\begin{array}{rc} 1 \amp 0 \\ -4 \amp 9  \end{array}\right] \text{.}
+</me>
+Notationally, we can write a subdivision into blocks as above as
+<me>
+	\begin{bmatrix}
+		A \amp B \\
+		C \amp D
+	\end{bmatrix}
+</me>,
+where now the letters inside the matrix represent blocks of entries instead of individual entries,
+and we drop the division lines.
+(Of course, a matrix can also be subdivided into more or fewer than four blocks.)
+</p><p>
+Adding and scalar multiplying matrices that have been subdivided into blocks works exactly as you'd expect:
+<md><mrow>
+	\begin{bmatrix}
+		A_1 \amp B_1 \\
+		C_1 \amp D_1
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		A_2 \amp B_2 \\
+		C_2 \amp D_2
+	\end{bmatrix}
+	\amp =
+	\begin{bmatrix}
+		A_1 + A_2 \amp B_1 + B_2 \\
+		C_1 + C_2 \amp D_1 + D_2
+	\end{bmatrix}
+	\text{,}
+	\amp
+	k \begin{bmatrix}
+		A \amp B \\
+		C \amp D
+	\end{bmatrix}
+	\amp =
+	\begin{bmatrix}
+		k A \amp k B \\
+		k C \amp k D
+	\end{bmatrix}
+	\text{,}
+</mrow></md>
+where addition by blocks requires not only that both matrices have the same size,
+but also that corresponding blocks have the same size.
+</p><p>
+Recall how multiplication of <m>2 \times 2</m> matrices is defined:
+<me>
+	\begin{bmatrix} a_1 \amp a_2 \\ a_3 \amp a_4 \end{bmatrix} \begin{bmatrix} b_1 \amp b_2 \\ b_3 \amp b_4 \end{bmatrix}
+	= \begin{bmatrix} a_1 b_1 + a_2 b_3 \amp a_1 b_2 + a_2 b_4 \\ a_3 b_1 + a_4 b_3 \amp a_3 b_2 + a_4 b_4 \end{bmatrix}
+</me>.
+If <m>A</m> and <m>B</m> are square matrices that are broken up into four submatrices so that the block in the upper-left corner in each of <m>A</m> and <m>B</m> is also square and both of the same size,
+then we can actually use the same <m>2 \times 2</m> multiplication formula applied to the blocks of <m>A</m> and <m>B</m> to compute <m>AB</m>.
+That is, for
+<md><mrow>
+	A \amp= \begin{bmatrix} A_1 \amp A_2 \\ A_3 \amp A_4 \end{bmatrix} \text{,}
+	\amp
+	B \amp= \begin{bmatrix} B_1 \amp B_2 \\ B_3 \amp B_4 \end{bmatrix} \text{,}
+</mrow></md>
+where
+<ul>
+	<li> <m>A_1</m> and <m>B_1</m> are <m>m \times m</m>, </li>
+	<li> <m>A_2</m> and <m>B_2</m> are <m>m \times (n-m)</m>, </li>
+	<li> <m>A_3</m> and <m>B_3</m> are <m>(n-m) \times m</m>, and </li>
+	<li> <m>A_4</m> and <m>B_4</m> are <m>(n-m) \times (n-m) \times (n-m)</m>, </li>
+</ul>
+then we can compute the product <m>AB</m> as
+<md><mrow xml:id="equation-block-diag-concepts-block-product" tag="star">
+	\begin{bmatrix} A_1 \amp A_2 \\ A_3 \amp A_4 \end{bmatrix}
+	\begin{bmatrix} B_1 \amp B_2 \\ B_3 \amp B_4 \end{bmatrix}
+	= \begin{bmatrix}
+		A_1 B_1 + A_2 B_3 \amp A_1 B_2 + A_2 B_4 \\
+		A_3 B_1 + A_4 B_3 \amp A_3 B_2 + A_4 B_4
+	\end{bmatrix}
+</mrow></md>.
+We will carry out an example of using this formula in
+<xref ref="subsection-block-diag-examples-ops" />.
+</p>
+<aside><title>Check your understanding</title><p>
+	Verify that the products and sums in the formula above are all defined <mdash />
+	that is, make sure the dimenions all match up.
+</p></aside>
+
+<warning><p>
+	Make sure you maintain the proper order of multiplication in the block multiplication formula above <mdash />
+	order of matrix multiplication matters!
+</p></warning>
+
+<p>
+Recall that the product of two diagonal matrices of the same size can be computed by just multiplying corresponding diagonal entries together:
+<me>
+	\begin{bmatrix} x_1 \\ \amp x_2 \\ \amp \amp \ddots \\ \amp \amp \amp x_n \end{bmatrix}
+	\begin{bmatrix} y_1 \\ \amp y_2 \\ \amp \amp \ddots \\ \amp \amp \amp y_n \end{bmatrix}
+	=
+	\begin{bmatrix}
+		x_1 y_1 \\ \amp x_2 y_2 \\ \amp \amp \ddots \\ \amp \amp \amp x_n y_n
+	\end{bmatrix}
+</me>.
+This pattern holds because of the zero entries in a diagonal matrix.
+As you found in <xref ref="activity-block-diag-product" />,
+the zero submatrices in a <em>block</em>-diagonal matrix
+cause the same multiplication pattern to hold again,
+as long as corresponding blocks have the same size:
+<me>
+	\begin{bmatrix} A_1 \\ \amp A_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_n \end{bmatrix}
+	\begin{bmatrix} B_1 \\ \amp B_2 \\ \amp \amp \ddots \\ \amp \amp \amp B_n \end{bmatrix}
+	=
+	\begin{bmatrix}
+		A_1 B_1 \\ \amp A_2 B_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_n B_n
+	\end{bmatrix}
+</me>.
+Similar patterns will hold for powers and inverses of block-diagonal matrices,
+and we will record these patterns as part of
+<xref ref="proposition-block-diag-props" />
+in
+<xref ref="subsection-block-diag-theory-props" />.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-concepts-block-props">
+<title>Properties of block-diagonal matrices</title>
+
+<p>
+One motiviation for studying similarity is to determine a <q>simplest</q> member of each similarity class,
+from which it is easy to obtain properties that are the same for <em>every</em> member of that class.
+So when we encounter a new matrix form,
+we should consider how the form makes it simpler to determine properties of matrices.
+And in the latter part of <xref ref="worksheet-block-diag-activities" />,
+you worked through some of those properties for block-diagonal form.
+</p><p>
+Again comparing to the diagonal case,
+we found in <xref ref="worksheet-block-diag-activities" /> that
+<ul>
+	<li>
+		for a diagonal matrix the determinant is the product of the diagonal entries,
+		whereas for a block-diagonal matrix the determinant is the product of the determinants of the blocks on the diagonal,
+	</li>
+	<li>
+		for a diagonal matrix the characteristic polynomial is the product of the linear factors <m>\lambda - d_j</m>,
+		where the <m>d_j</m> are the diagonal entries,
+		whereas for a block-diagonal matrix the characteristic polynomial is the product of the characteristic polynomials of the blocks on the diagonal,
+		and
+	</li>
+	<li>
+		for a diagonal matrix the eigenvalues are precisely the diagonal entries,
+		whereas for a block-diagonal matrix the eigenvalues are those of the blocks on the diagonal.
+	</li>
+</ul>
+</p><p>
+It is worth pursuing the characteristic polynomial property of block-diagonal matrices a little further.
+An identity matrix
+(or any diagonal matrix, for that matter)
+can be split up into block-diagonal form any way you like.
+For example, if <m>A</m> is block-diagonal with an <m>m_1 \times m_1</m> block <m>A_1</m> in the upper left and an <m>m_2 \times m_2</m> block <m>A_2</m> in the lower left,
+then we can compute <m>\lambda I - A</m> as
+<me>
+	\lambda I_n - A
+	= \lambda \begin{bmatrix} I_{m_1} \\ \amp I_{m_2} \end{bmatrix}
+	- \begin{bmatrix} A_1 \\ \amp A_2 \end{bmatrix}
+	= \begin{bmatrix} \lambda I_{m_1} - A_1 \\ \amp \lambda I_{m_2} - A_2 \end{bmatrix}
+</me>,
+where the subscripts on the identity matrices indicate their sizes.
+To compute the characteristic polynomial,
+we take a determinant:
+<md>
+	<mrow>
+		c_A(\lambda)
+		= \det (\lambda I_n - A)
+		\amp =
+		\det \begin{bmatrix} \lambda I_{m_1} - A_1 \\ \amp \lambda I_{m_2} - A_2 \end{bmatrix}
+	</mrow><mrow>
+		\amp = \det (\lambda I_{m_1} - A_1) \det (\lambda I_{m_2} A_2)
+	</mrow><mrow>
+		\amp = c_{A_1}(\lambda) c_{A_2}(\lambda)
+	</mrow>
+</md>,
+using the pattern of determinants of block-diagonal matrices listed above.
+Since a root of <m>c_A(\lambda)</m> would have to be a root of one or the other
+(or both)
+of the block polynomials <m>c_{A_1}(\lambda)</m> and <m>c_{A_2}(\lambda)</m>,
+we see that the eigenvalues of <m>A</m> are precisely the eigenvalues of the blocks.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-concepts-invariant">
+<title>Invariant subspaces</title>
+
+<p>
+In our analysis of <xref ref="activity-block-diag-pattern" />,
+a pattern that emerged was requiring a vector <m>\uvec{p}</m> from a specific subspace of <m>\R^n</m> to be transformed by <m>n \times n</m> matrix <m>A</m> back into the same subspace.
+This led to the concept of an
+<term><xref ref="definition-block-diag-invariant" text="title"><m>A</m>-invariant subspace</xref></term>.
+</p><p>
+As we will see in a future chapter,
+<todo>proper xref</todo>
+how a matrix transforms vectors in <m>\R^n</m> can be analyzed geometrically.
+In <xref ref="activity-block-diag-invariant-geom" />,
+we looked at geometric transformations of <m>\R^3</m> without tying them to matrices.
+For example, rotation around a line through the origin has two obvious invariant subspaces.
+First, vectors parallel to the axis of rotation stay fixed, and so stay within that line.
+Second, the plane through the origin and normal to the axis of rotation is also invariant,
+as vectors parallel to this plane will be rotated within the plane.
+</p><p>
+As is usually the case, a spanning set for a subspace tells all.
+In the case of invariant subspaces,
+we can determine whether a subspace is invariant by testing whether each of the spanning vectors are transformed by <m>A</m> to vectors that remain in the subspace.
+(See <xref ref="proposition-block-diag-invariant-by-spanning-set" />
+in <xref ref="subsection-block-diag-theory-invariant" />.)
+</p><p>
+For us, the most important example of an invariant subspace is an eigenspace of a matrix <m>A</m>.
+Since an eigenvector is transformed to a scalar multiple of itself,
+the transformed image remains in the eigenspace.
+This example will play a central role in our study of matrix forms.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-concepts-independent">
+<title>Independent subspaces</title>
+
+<subsubsection xml:id="subsubsection-block-diag-concepts-independent-basic">
+<title>Basic concept</title>
+
+<p>
+When we form a transition matrix <m>P</m>,
+we require it to be invertible,
+so its columns must be linearly independent.
+In our analysis of <xref ref="activity-block-diag-pattern" />,
+we found that each block in block-diagonal form corresponds to an invariant subspace,
+and we obtain independent columns for <m>P</m> from bases for the invariant subspaces involved.
+However, just taking independent vectors from different subspaces of <m>\R^n</m> and lumping them together does not guarantee that the whole collection of vectors will remain independent.
+This led to the concept of
+<term><xref ref="definition-block-diag-indep" text="title" /></term>.
+This concept is a direct generalization of the concept of
+<term><xref ref="definition-linear-indep" text="title" /></term>,
+as a independent set of vectors is the same as a collection of independent one-dimensional subspaces.
+(See <xref ref="proposition-block-diag-vecs-indep-iff-spans-independent" />
+in <xref ref="subsection-block-diag-theory-independent" />.)
+</p><p>
+Just any old collection of independent subspaces won't do, however.
+A transition matrix for <m>\R^n</m> has <m>n</m> columns to fill,
+which leads to the concept of a
+<term><xref ref="definition-block-diag-complete-indep" text="title" /></term>.
+</p><p>
+Once again, the most important example of independent subspaces for us will be the different eigenspaces of a particular matrix
+(<xref ref="corollary-diagonalization-evector-bases" />).
+With this point of view,
+since the algebraic multiplicities of the different eigenvalues of a matrix must add up to the degree of the characteristic polynomial
+(hence to the size of the matrix),
+<xref ref="corollary-diagonalization-geom-alg-multiplicity-diag-alg-vs-geom">Statement</xref>
+of
+<xref ref="corollary-diagonalization-geom-alg-multiplicity-diag" />
+could be recast as saying that a matrix is <em>diagonalizable</em> when its eigenspaces form a complete set of subspaces of <m>\R^n</m>.
+</p>
+
+</subsubsection>
+
+<subsubsection>
+<title>Independent subspaces in <m>\R^3</m></title>
+
+<p>
+It is useful to have a picture of independence of subspaces in <m>\R^3</m> to think about.
+We know that every (proper, nontrivial) subspace of <m>\R^3</m> is either a line through the origin or a plane through the origin,
+so we will consider combinations of those below.
+</p>
+
+<paragraphs><title>Independence of lines</title>
+	<p>
+	Consider two nonparallel lines through the origin in <m>\R^3</m>.
+	Every basis for one of the lines will consist of a single vector parallel to the line.
+	If the two lines are nonparallel,
+	so too will be the two basis vectors we have chosen,
+	hence the two basis vectors are independent when lumped together.
+	So a pair of nonparallel lines will form a pair of independent subspaces,
+	but this will not be a complete set of independent subspaces since the combined dimensions of the two lines adds up to only <m>2</m>.
+	</p><p>
+	The same analysis will hold true for three lines through the origin in <m>\R^3</m>,
+	as long as no two of them are parallel,
+	and now this time three independent lines <em>will</em> form a complete set.
+	But it will not work for four lines since we know that any collection of four vectors in <m>\R^3</m> must be dependent
+	(<xref ref="lemma-linear-indep-more-than-spanning-is-dep" />).
+</p></paragraphs>
+
+<paragraphs><title>Independence of a plane and a line</title>
+	<p>
+	If we have a plane and a line in <m>\R^3</m>,
+	both through the origin,
+	and with the line not lying parallel to the plane,
+	then the two spaces will be independent.
+	This is because every basis for the line will consist of a single vector pointing up out of the plane,
+	and so will be independent from any pair of vectors that span the plane
+	(<xref ref="proposition-linear-indep-expand-indep" />).
+	And this will be a <em>complete</em> set of independent spaces,
+	as the dimensions of a plane and a line add up to <m>3</m>.
+	</p><p>
+	However, this won't work for a plane and <em>two</em> lines,
+	again because four vectors in <m>\R^3</m> must be dependent.
+	</p><p>
+	Also, if the line lies parallel to the plane then we have dependence,
+	because a basis vector for the line would also lie in the plane,
+	and so could be paired up with another vector to create a basis for the plane
+	(<xref ref="proposition-dimension-increase-indep-to-basis" />).
+	This would create dependence between the chosen bases for the plane and for the line,
+	since they share a vector.
+	</p>
+</paragraphs>
+
+<paragraphs><title>Dependence of two planes</title><p>
+	Two planes in <m>\R^3</m> will be dependent,
+	regardless of whether they are parallel or not,
+	since choosing a basis for each plane would lead to a total of four vectors
+	(two for each plane),
+	and four vectors in <m>\R^3</m> must be dependent.
+	Geometrically, two nonparallel planes in <m>\R^3</m> must intersect in a line,
+	and it is this line that creates the dependence:
+	we can build a basis for each plane that contains a vector parallel to the line of intersection,
+	and then our collection of four vectors
+	(again, two basis vectors from each plane)
+	will be dependent because each plane has contributed a vector parallel to the line,
+	and these two vectors must be scalar multiples of each other.
+</p></paragraphs>
+
+<warning><p>
+	A pair of two-dimensional planes in <m>\R^4</m> will be dependent if they intersect in a line,
+	but there is <q>room</q> in <m>\R^4</m> for a pair of two-dimensional planes to be independent!
+	And a pair of independent planes would comprise a complete set,
+	as their dimensions would add up to <m>4</m>.
+</p></warning>
+
+</subsubsection>
+
+</subsection>
+
+
+<subsection xml:id="subsection-block-diag-concepts-similarity">
+<title>The similarity pattern of block-diagonal form</title>
+
+<p>
+In <xref ref="activity-block-diag-pattern" />,
+we explored the pattern of similarity for block diagonal form.
+That is, we explored what the general pattern of similarity discussed in
+<xref ref="subsection-similarity-concepts-algebra" />
+becomes when an arbitrary matrix <m>A</m> is assumed to be similar to a matrix <m>B</m> that is in block-diagonal form.
+Using the example matrix
+<me>
+	B = \left[\begin{array}{rrrr}
+		1 \amp -1 \amp 0 \amp 0 \\
+		3 \amp 7 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 4 \amp -2 \\
+		0 \amp 0 \amp -2 \amp 1
+	\end{array}\right]
+</me>
+from that activity,
+if we regard the transition matrix <m>P</m> in a similarity relation <m>\inv{P} A P = B</m> as a collection of columns
+<me>
+	P = \begin{bmatrix}
+		| \amp | \amp | \amp | \\
+		\uvec{p}_1 \amp \uvec{p}_2 \amp \uvec{p}_3 \amp \uvec{p}_4 \\
+		| \amp | \amp | \amp |
+	\end{bmatrix}
+</me>,
+we determined that
+<md>
+	<mrow>
+		A \uvec{p}_1 \amp= 1 \uvec{p}_1 + 3 \uvec{p}_2 + 0 \uvec{p}_3 + 0 \uvec{p}_4 \amp
+		\amp\implies \amp
+		A\uvec{p}_1 \amp= \uvec{p}_1 + 3 \uvec{p}_2
+		\text{,}
+	</mrow><mrow>
+		A \uvec{p}_2 \amp= (-1)\uvec{p}_1 + 7 \uvec{p}_2 + 0 \uvec{p}_3 + 0 \uvec{p}_4 \amp
+		\amp\implies \amp
+		A\uvec{p}_2 \amp= - \uvec{p}_1 + 7 \uvec{p}_2,
+	</mrow><mrow>
+		A \uvec{p}_3 \amp= 0 \uvec{p}_1 + 0 \uvec{p}_2 + 4 \uvec{p}_3 + (-2) \uvec{p}_4 \amp
+		\amp\implies \amp
+		A\uvec{p}_3 \amp= 4 \uvec{p}_3 - 2 \uvec{p}_4.
+	</mrow><mrow>
+		A \uvec{p}_4 \amp= 0 \uvec{p}_1 + 0 \uvec{p}_2 + (-2) \uvec{p}_3 + 1 \uvec{p}_4 \amp
+		\amp\implies \amp
+		A\uvec{p}_3 \amp= -2 \uvec{p}_3 + \uvec{p}_4
+	</mrow>
+</md>
+must all be true,
+where the coefficients in each linear combination on the left come from the corresponding <em>column</em> in the form matrix <m>B</m>.
+</p><p>
+What we notice from the simplified conditions on the right is that <m>A</m> transforms each of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> into a linear combination of those two vectors,
+and similarly transforms each of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m> into a linear combination of those two vectors.
+In fact,
+we could make the same statement about <em>linear combinations</em> of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>, and of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m>.
+In particular,
+for <m>\uvec{w} = a \uvec{p}_1 + b \uvec{p}_2</m>,
+we have
+<md>
+	<mrow> A \uvec{w} \amp = A (a \uvec{p}_1 + b \uvec{p}_2) </mrow>
+	<mrow> \amp = a (A\uvec{p}_1) + b (A\uvec{p}_2) </mrow>
+	<mrow> \amp = a (\uvec{p}_1 + 3 \uvec{p}_2) + b (- \uvec{p}_1 + 7 \uvec{p}_2) </mrow>
+	<mrow> \amp = (a - b) \uvec{p}_1 + (3 a + 7) \uvec{p}_2 </mrow>
+</md>,
+and we would find a similar pattern for how <m>A</m> transforms a linear combination of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m>.
+What we have uncovered are the following two patterns.
+</p>
+<blockquote><p><em>
+	If we multiply any linear combination of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> by <m>A</m>,
+	the result will again be a linear combination of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
+</em></p></blockquote>
+<blockquote><p><em>
+	If we multiply any linear combination of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m> by <m>A</m>,
+	the result will again be a linear combination of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m>.
+</em></p></blockquote>
+<p>
+In other words, both subspaces
+<m>W_1 = \Span \{ \uvec{p}_1, \uvec{p}_2 \}</m> and
+<m>W_2 = \Span \{ \uvec{p}_3, \uvec{p}_4 \}</m>
+exhibit the following behaviour:
+<em> if vector <m>\uvec{w}</m> in subspace <m>W_j</m> is transformed by <m>A</m>,
+then the result <m>A \uvec{w}</m> is again a vector in that subspace </em>.
+This is precisely the condition that defines <m>A</m>-invariance of a subspace.
+</p><p>
+And this invariance condition tells us what to look for in a transition matrix <m>P</m> to put this particular matrix <m>A</m> into block-diagonal form.
+We would need to find a pair of two-dimensional,
+<m>A</m>-invariant subspaces of <m>\R^4</m>.
+If we had such a pair,
+we could determine a basis for each,
+giving us four vectors in total to fill in the columns of the <m>4 \times 4</m> matrix <m>P</m>.
+But there is one further wrinkle:
+we need <em>all four</em> columns of <m>P</m> to be linearly independent in order for <m>P</m> to be invertible,
+and obtaining them as basis vectors from different subspaces of <m>\R^4</m> only guarantees that the two pairs of vectors will be linearly independent separately.
+In other words,
+we need the subspaces <m>W_1,W_2</m> to be <term>independent</term>.
+Even more, we need them to be a <term>complete set of independent subspaces</term>,
+since we need their bases to total up to four vectors to fill the columns of the transition matrix <m>P</m>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-concepts-proc">
+<title>Block-diagonalization procedure</title>
+
+<p>
+We'll now use the pattern of the example from
+<xref ref="activity-block-diag-pattern" />
+analyzed in the previous subsection to create a block-diagonalization procedure.
+</p>
+
+<algorithm><title>To block-diagonalize an <m>n \times n</m> matrix <m>A</m>, if possible</title><statement><p>
+	<ol>
+		<li>
+			Determine a complete set <m>W_1,W_2,\dotsc,W_\ell</m> of independent subspaces of <m>\R^n</m> such that each <m>W_j</m> is <m>A</m>-invariant.
+		</li>
+		<li>
+			Determine a basis for each subspace <m>W_k</m>.
+			Write <m>d_k = \dim W_k</m>.
+		</li>
+		<li><p>
+			Construct the transition matrix <m>P</m> by
+			<ul>
+				<li> setting  the first <m>d_1</m> columns to be the basis vectors for <m>W_1</m>, </li>
+				<li> setting  the next  <m>d_2</m> columns to be the basis vectors for <m>W_2</m>, </li>
+				<li> setting  the next  <m>d_3</m> columns to be the basis vectors for <m>W_3</m>, </li>
+				<li> and so on. </li>
+			</ul>
+		</p></li>
+	</ol>
+	If the matrix <m>P</m> has successfully been constructed,
+	then <m>B = \inv{P}AP</m> will be in block-diagonal form,
+	with the first block of size <m>d_1 \times d_1</m>,
+	the second block of size <m>d_2 \times d_2</m>,
+	and so on,
+	down to the last block of size <m>d_\ell \times d_\ell</m>.
+</p></statement></algorithm>
+
+<remark><p><ol>
+	<li>
+		For the moment,
+		we do not specify how to find these invariant subspaces required by the procedure,
+		or how many to look for,
+		or whether we will even be able to find subspaces that fit all the criteria <mdash />
+		we will tackle these questions in subsequent chapters.
+		For the moment,
+		<xref ref="example-block-diag-examples-diag-block" />,
+		<xref ref="proposition-block-diag-eigenspace-invariant" />,
+		and
+		<xref ref="theorem-block-diag-eigenspace-independent" />
+		will provide a clue of where we should start looking in those subsequent chapters.
+		But <xref ref="example-block-diag-examples-rotation" />
+		also provides an example of how geometry can be used to determine the invariant subspaces.
+	</li>
+	<li><p>
+		As in the diagonalizable case,
+		it is not necessary to compute <m>\inv{P}</m> to determine the block-diagonal form matrix <m>\inv{P} A P</m>.
+		One could use the row reduction to compute <m>\inv{P} A P</m>,
+		as in <xref ref="subsection-similarity-examples-compute-invpap" />.
+		But also one could go back to the pattern of similarity from
+		<xref ref="subsection-similarity-concepts-algebra" />:
+		<ul>
+			<li>
+				the first column of the first block will be the coefficients that appear when <m>A\uvec{p}_1</m> is expressed as a linear combination of
+				<m>\uvec{p}_1,\uvec{p}_2,\dotsc,\uvec{p}_{d_1}</m>
+				(the chosen basis vectors for <m>W_1</m>);
+			</li>
+			<li>
+				the second column of the first block will be the coefficients that appear when <m>A\uvec{p}_2</m> is expressed as a linear combination of
+				<m>\uvec{p}_1,\uvec{p}_2,\dotsc,\uvec{p}_{d_1}</m>;
+			</li>
+			<li> and so on for the remaining columns of the first block; </li>
+			<li>
+				and similarly for the other blocks,
+				where entries in the <m>\nth[j]</m> block are determined using linear combinations of the basis vectors for invariant subspace <m>W_j</m>.
+			</li>
+		</ul>
+	</p></li>
+</ol></p></remark>
+
+</subsection>
+
+
+</section>
