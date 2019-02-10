@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-scalar-triang-theory">
+
+<title>Theory</title>
+
+<p>
+Here we will record some basis facts about generalized eignevectors.
+Note that these statements hold for <em>every</em> matrix,
+not just those with a single eigenvalue.
+</p>
+
+<theorem xml:id="theorem-scalar-triang-gen-espace-facts">
+
+	<statement><p>
+		Suppose <m>\lambda</m> is an eigenvalue of the <m>n\times n</m> matrix <m>A</m>,
+		with algebraic multiplicity <m>m</m>.
+		Then the following hold.
+		<ol>
+			<li xml:id="theorem-scalar-triang-gen-espace-facts-is-subspace">
+				The generalized eigenspace of <m>A</m> corresponding to <m>\lambda</m> is a subspace of <m>\R^n</m>.
+			</li>
+			<li xml:id="theorem-scalar-triang-gen-espace-facts-esubsp-subsp-of-gen">
+				Each generalized eigensubspace of <m>A</m> corresponding to <m>\lambda</m> is a subspace of the generalized eigenspace of <m>A</m> corresponding to <m>\lambda</m>.
+				That is, <m>E^k_\lambda(A) \subseteq G_\lambda(A)</m> for all <m>k \ge 1</m>.
+			</li>
+			<li xml:id="theorem-scalar-triang-gen-espace-facts-esubsp-subsp-of-next">
+				Each generalized eigensubspace of <m>A</m> corresponding to <m>\lambda</m> is a subspace of the next.
+				That is, <m>E^k_\lambda(A) \subseteq E^{k+1}_\lambda(A)</m> for all <m>k \ge 1</m>.
+			</li>
+			<li xml:id="theorem-scalar-triang-gen-espace-facts-dim-gen-espace">
+				The dimension of the generalized eigenspace of <m>A</m> corresponding to <m>\lambda</m> is equal to the algebraic multiplicity of <m>\lambda</m>.
+				That is, <m>\dim G_\lambda(A) = m</m>.
+			</li>
+			<li xml:id="theorem-scalar-triang-gen-espace-facts-gen-subsp-equal-mth-esubsp">
+				The generalized eigenspace of <m>A</m> corresponding to <m>\lambda</m> is <em>equal</em> to the <m>\nth[m]</m> generalized eigensubspace of <m>A</m> corresponding to <m>\lambda</m>.
+				That is, <m>G_\lambda(A) = E^m_\lambda(A)</m>.
+			</li>
+		</ol>
+	</p></statement>
+
+	<proof><title>Proof outline</title><p><ol>
+		<li>
+			You were asked to verify this using the Subspace Test in
+			<xref ref="activity-scalar-triang-gen-espace-subspace" />.
+			Note that when you take two random vectors <m>\uvec{u},\uvec{v}</m> in <m>G_\lambda(A)</m> to begin to show that <m>G_\lambda(A)</m> is closed under addition,
+			you cannot assume that they are both in the same null space.
+			That is, you know that <m>\uvec{u}</m> is in the null space of <m>(\lambda I -A)^{k_1}</m> for some positive integer <m>k_1</m>,
+			and you know that <m>\uvec{v}</m> is in the null space of <m>(\lambda I -A)^{k_2}</m> for some positive integer <m>k_2</m>,
+			but you <em>cannot</em> assume that <m>k_1</m> and <m>k_2</m> are equal.
+		</li>
+		<li> This statement should be obvious from the definitions of <m>G_\lambda(A)</m> and <m>E^k_\lambda(A)</m>. </li>
+		<li> We leave this as an exercise for you, the reader. </li>
+		<li>
+			We will prove this statement in the next chapter.
+			<todo> proper xref </todo> <!-- [See]Theorem \subref{THM::more.gen.espace.facts}{full.gen.espaces} and its proof. -->
+			Alternatively, see Exercise 4 in <section-mark/>6.8 of <xref ref="reference-hoff-kunze" />
+			for the outline of a direct proof of this statement using the theory of abstract linear operators.
+		</li>
+		<li>
+			This statement could be deduced from
+			<xref ref="theorem-scalar-triang-gen-espace-facts-dim-gen-espace">Statement</xref>
+			and the fact that <m>\lambda I - A</m>,
+			when restricted to the subspace <m>G_\lambda(A)</m>,
+			is a nilpotent operator.
+			But we will not pursue that discussion here.
+		</li>
+	</ol></p></proof>
+
+</theorem>
+
+</section>

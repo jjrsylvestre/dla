@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-scalar-triang-motivation">
+
+<title>Motivation</title>
+
+<p>
+We continue our quest to answer
+<xref ref="question-block-diag-motivation-similarity-class-reps" />.
+</p>
+
+<p>
+In <xref ref="chapter-block-diag" />,
+we branched off from diagonal form to a generalization:
+block-diagonal form.
+But if we were to ask what the simplest form of matrix after diagonal form is,
+the answer that likely comes to mind is some kind of triangular form,
+upper or lower.
+Since there is no difference in the relative simplicity of the two,
+we will pursue upper triangular forms for now
+(though we will have reason to switch to lower triangular forms later).
+</p>
+
+<paragraphs><title>Philosophy of inquiry: an incrementally more difficult case</title><p>
+	Take the patterns we are already familiar with and try something slightly more complicated,
+	but maybe aim for the simplest form of <q>slightly more complicated.</q>
+</p></paragraphs>
+
+<p>
+Triangular form will definitely be more complicated than diagonal form.
+What kind of a triangular form will be only <em>slightly</em> more complicated?
+We have seen that eigenvalues and eigenvectors play an important role in diagonal form,
+and perhaps they will be needed again for triangular form.
+Computing eigenspaces for different eigenvalues is tedious,
+and it's not clear how the different eigenspaces will fit together to create a triangular form.
+Let's simplify out initial study of triangular form by only considering matrices that have a <em>single</em> eigenvalue.
+If such a matrix is similar to a triangular form matrix,
+the triangular matrix will also have only a single eigenvalue
+(<xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />).
+Since the eigenvalues of a triangular matrix are precisely the diagonal entries,
+the triangular form matrix must have that eigenvalue repeated down the diagonal.
+Here's an example of a <m>3 \times 3</m> upper triangular matrix of this form:
+<me>
+	U = \left[\begin{array}{rrr}
+		3 \amp 1 \amp -1 \\
+		0 \amp 3 \amp 2 \\
+		0 \amp 0 \amp 3
+	\end{array}\right]
+</me>.
+We will refer to this form of matrix as <term>scalar-triangular</term>.
+</p>
+
+</section>

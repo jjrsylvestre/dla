@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-scalar-triang-activities">
+<title>Activities</title>
+
+<introduction>
+	<p>
+	If <m>P</m> is a square matrix,
+	write <m>\uvec{p}_1, \uvec{p}_2, \dotsc, \uvec{p}_n</m> for the columns of <m>P</m>,
+	so that
+	<m> P = \begin{bmatrix} \uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_n \end{bmatrix} </m>.
+	</p><p>
+	For this activity set,
+	we will need to recall a few important things.
+	<ul>
+		<li>
+			An <m>n \times n</m> matrix is invertible if and only if its columns form a basis of <m>\R^n</m>
+			(<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+		</li>
+		<li>
+			Similarity relation <m>\inv{P} A P = B</m> holds if and only if each column of <m>B</m> consists of coefficients for expressing the corresponding transformed vector <m>A \uvec{p}_j</m> as a linear combination of the columns of <m>P</m>
+			(<xref ref="subsection-similarity-concepts-algebra" />).
+		</li>
+		<li>
+			Vector <m>\uvec{x}</m> in <m>\R^n</m> is an eigenvector of <m>A</m> if <m>A\uvec{x} = \lambda \uvec{x}</m>.
+			Equivalently, <m>\uvec{x}</m> is an eigenvector of <m>A</m> if <m>(\lambda I - A) \uvec{x} = \uvec{0}</m>.
+		</li>
+	</ul>
+</p></introduction>
+
+<activity xml:id="activity-scalar-triang-single-eval">
+	<introduction><p>
+		Suppose <m>A</m> is a <m>3\times 3</m> matrix with characteristic polynomial
+		<m> c_A(\lambda) = (\lambda - 5)^3 </m>.
+	</p></introduction>
+	<task><p>
+		What are the eigenvalues of <m>A</m>? What are the algebraic multiplicities of its eigenvalues?
+	</p></task>
+	<task xml:id="activity-scalar-triang-single-eval-form">
+		<statement><p>
+			If <m>A</m> is similar to a triangular matrix <m>T</m> (upper or lower, whichever you like),
+			how many entries of <m>T</m> can you be sure about?
+			Write down an example matrix <m>T</m> to demonstrate your answer.
+		</p></statement>
+		<hint><p> <xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />. </p></hint>
+	</task>
+	<task>
+		<statement><p>
+			Do you remember what a
+			<term><xref ref="definition-special-forms-scalar-matrix" text="title" /></term>
+			is?
+			Why do you think your example matrix <m>T</m> from
+			<xref ref="activity-scalar-triang-single-eval-form" />
+			is called <term>scalar-triangular form</term>?
+		</p></statement>
+		<hint><p> Break the form matrix <m>T</m> apart into the sum of scalar part and a <q>purely</q> triangular part. </p></hint>
+	</task>
+</activity>
+
+<activity xml:id="activity-scalar-triang-pattern">
+
+	<introduction>
+		<p>
+		The matrix <m>A</m> below is similar to a matrix of the form <m>B</m> below:
+		<md><mrow>
+			A \amp = \left[\begin{array}{rrrrr}
+				 4 \amp 1 \amp 0 \amp  13 \amp  9 \\
+				-1 \amp 2 \amp 0 \amp -12 \amp -8 \\
+				 1 \amp 1 \amp 3 \amp   2 \amp  3 \\
+				 0 \amp 0 \amp 0 \amp   1 \amp -2 \\
+				 0 \amp 0 \amp 0 \amp 2 \amp 5
+			\end{array}\right]
+			\text{,}
+			\amp
+			B \amp = \begin{bmatrix}
+				3 \amp \ast \amp \ast \amp \ast \amp \ast \\
+				0 \amp 3 \amp \ast \amp \ast \amp \ast \\
+				0 \amp 0 \amp 3 \amp \ast \amp \ast \\
+				0 \amp 0 \amp 0 \amp 3 \amp \ast \\
+				0 \amp 0 \amp 0 \amp 0 \amp 3
+			\end{bmatrix}
+			\text{.}
+		</mrow></md>
+		(Treat the <m>\ast</m> entries in <m>B</m> as <q>don't care</q> values.)
+		</p><p>
+		Let <m>P</m> be a transition matrix that realizes the similarity <m>\inv{P}AP = B</m>.
+		As usual, we would like to determine the conditions on the columns of <m>P</m> that create the similarity relationship between <m>A</m> and <m>B</m>.
+	</p></introduction>
+
+	<task xml:id="activity-scalar-triang-pattern-evec">
+		<task><p> Use the first column of <m>B</m> to express <m>A\uvec{p}_1</m> as a linear combination of <m>\uvec{p}_1,\dotsc,\uvec{p}_5</m>. </p></task>
+		<task><p> <em> Identify the pattern: </em> The first column <m>\uvec{p}_1</m> must be <fillin characters="30" />. </p></task>
+		<task><p> Now use your pattern and some row reducing to <em>actually compute</em> a possible <m>\uvec{p}_1</m> that could be used. </p></task>
+	</task>
+
+	<task xml:id="activity-scalar-triang-pattern-another-evec">
+		<p>
+		Remembering that the <m>\ast</m> entries in <m>B</m> are <q>don't care</q> values,
+		could you use the same <em>kind</em> of vector for <m>\uvec{p}_2</m> as for <m>\uvec{p}_1</m>,
+		and still get the proper form for the second column of <m>B</m>?
+		</p><p>
+		Looking back at how you computed <m>\uvec{p}_1</m> in <xref ref="activity-scalar-triang-pattern-evec" text="type-local" />,
+		is it even possible to obtain such a <m>\uvec{p}_2</m>?
+		</p>
+	</task>
+
+	<task><p>
+		Repeat <xref ref="activity-scalar-triang-pattern-another-evec" text="type-local" />
+		for <m>\uvec{p}_3</m>,
+		but this time you need to consider the third column of <m>B</m>.
+	</p></task>
+
+	<task xml:id="activity-scalar-triang-pattern-gen-evec">
+		<task xml:id="activity-scalar-triang-pattern-gen-evec-colpattern"><p>
+			Use the third column of <m>B</m> to express <m>A \uvec{p}_3</m> as a linear combination of <m>\uvec{p}_1,\dotsc,\uvec{p}_5</m>.
+		</p></task>
+		<task xml:id="activity-scalar-triang-pattern-gen-evec-rearrange"><p>
+			Rearrange your linear combination for <m>A \uvec{p}_3</m> into an expression
+			<me> (\lambda I - A) \uvec{p}_3 = <fillin characters="30" /> </me>,
+			where <m>\lambda</m> is the shared single eigenvalue of <m>A</m> and <m>B</m>.
+			(Did you realize you did something similar to compute <m>\uvec{p}_1</m>?
+			See the reminder about eigenvalues and eigenvectors in the introduction to this worksheet.)
+		</p></task>
+		<task><p>
+			From the way you obtained <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> in
+			<xref ref="activity-scalar-triang-pattern-evec" text="type-local" />
+			and
+			<xref ref="activity-scalar-triang-pattern-another-evec" text="type-local" />,
+			what space do those first two vectors span?
+			</p><p>
+			And so it must be that the vector
+			<m>\uvec{w} = (\lambda I - A) \uvec{p}_3</m>
+			is <fillin characters="30" />.
+		</p></task>
+		<task xml:id="activity-scalar-triang-pattern-gen-evec-compute">
+			<p>
+			From the property of <m>\uvec{w}</m> you identified,
+			this vector must satisfy the homogeneous matrix equation
+			<fillin characters="30" />.
+			(Again, see the introduction of this worksheet.)
+			</p><p>
+			And since <m>\uvec{w} = (\lambda I - A) \uvec{p}_3</m>,
+			that means <m>\uvec{p}_3</m> must satisfy the homogeneous matrix equation
+			<fillin characters="30" />.
+			</p><p>
+			Now solve for <m>\uvec{p}_3</m>.
+			</p>
+		</task>
+	</task>
+
+	<task xml:id="activity-scalar-triang-pattern-another-gen-evec"><p>
+		Repeat <xref ref="activity-scalar-triang-pattern-gen-evec-colpattern" text="type-local" />
+		and <xref ref="activity-scalar-triang-pattern-gen-evec-rearrange" text="type-local" />
+		for <m>\uvec{p}_4</m>
+		(considering the fourth column of <m>B</m> now).
+		</p><p>
+		We found <m>(\lambda I - A) \uvec{p}_3</m> needed to be in the span of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
+		What span does <m>(\lambda I - A) \uvec{p}_4</m> need to be in?
+		Will it be okay if it is forced to also be in the span of <em>just</em> <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> instead?
+		(Remember that the <m>\ast</m> entries of <m>B</m> are <q>don't care</q> values.)
+		</p><p>
+		If so, the computation you already performed
+		in <xref ref="activity-scalar-triang-pattern-gen-evec-rearrange" text="type-local" />
+		might provide you with another vector to use as <m>\uvec{p}_4</m>.
+	</p></task>
+
+	<task><p>
+		Can the same reasoning used in
+		<xref ref="activity-scalar-triang-pattern-another-gen-evec" text="type-local" />
+		be used to obtain a suitable vector for <m>\uvec{p}_5</m>?
+	</p></task>
+
+	<task><p>
+		If you've made it this far,
+		repeat the kind of reasoning that we used to determine <m>\uvec{p}_3</m>
+		in <xref ref="activity-scalar-triang-pattern-gen-evec" text="type-local" />
+		to figure out how to solve for a suitable <m>\uvec{p}_5</m>.
+	</p></task>
+
+</activity>
+
+<activity><p>
+	Summarize the pattern of how you determined the columns of <m>P</m>
+	in <xref ref="activity-scalar-triang-pattern" />.
+</p></activity>
+
+<activity xml:id="activity-scalar-triang-gen-espace-subspace">
+	<prelude><p>
+		The collection of vectors that are in the null space of <m>(\lambda I - A)^k</m> for at least one positive exponent <m>k</m> is called the <term>generalized eigenspace</term> of <m>A</m> for the eigenvalue <m>\lambda</m>,
+		and is denoted <m>G_{\lambda}(A)</m>.
+	</p></prelude>
+	<statement>
+		<p> Suppose <m>A</m> is an <m>n \times n</m> matrix and <m>\lambda</m> is an eigenvalue of <m>A</m>. </p>
+		<p>
+		Use the Subspace Test
+		<todo>Once statement of subspace test is turned into a proper procedure, turn this into a text="title" xref</todo>
+		to verify that <m>G_{\lambda}(A)</m> is a subspace of <m>\R^n</m>.
+		</p><p>
+		<em>Careful:</em>
+		When you check closure under addition,
+		you cannot assume that both arbitrary vectors from <m>G_{\lambda}(A)</m> are in the null space of the <em>same</em> power of <m>(\lambda I - A)</m>.
+		</p>
+	</statement>
+</activity>
+
+<activity xml:id="activity-scalar-triang-upper-vs-lower">
+	<introduction><p>
+		It is quite easy to switch between upper and lower triangular forms.
+		Consider the transition matrix
+		<me>
+			J = \begin{bmatrix}
+				\amp \amp \amp \amp 1 \\
+				\amp \amp \amp \iddots \\
+				\amp \amp 1 \\
+				\amp 1 \\
+				1
+			\end{bmatrix}
+		</me>.
+	</p></introduction>
+	<task><p> Verify that <m>\inv{J} = J</m>. </p></task>
+	<task xml:id="activity-scalar-triang-upper-vs-lower-to"><p>
+		Use the pattern of similarity described in the introduction of this activity set to show that if <m>U</m> is an upper triangular matrix of the same size as <m>J</m>,
+		then <m>\inv{J}UJ</m> is lower triangular.
+	</p></task>
+	<task>
+		<statement><p>
+			Show that if <m>L</m> is a lower triangular matrix of the same size as <m>J</m>,
+			then <m>\inv{J}LJ</m> is upper triangular.
+		</p></statement>
+		<hint><p>
+			Instead of reworking your argument from
+			<xref ref="activity-scalar-triang-upper-vs-lower-to" text="type-local" />
+			to handle this case,
+			you can save yourself some work by noticing that <m>\utrans{J} = J</m>,
+			and then directly using the result of
+			<xref ref="activity-scalar-triang-upper-vs-lower-to" text="type-local" />.
+		</p></hint>
+	</task>
+</activity>
+
+
+</worksheet>
