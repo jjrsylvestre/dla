@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sys-diff-eq-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-sys-diff-eq-concepts-systems" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-sys-diff-eq-concepts-systems" /></em></li>
+<li><xref ref="subsection-sys-diff-eq-concepts-diagonalizable" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-sys-diff-eq-concepts-diagonalizable" /></em></li>
+<li><xref ref="subsection-sys-diff-eq-concepts-second-order" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-sys-diff-eq-concepts-second-order" /></em></li>
+<li><xref ref="subsection-sys-diff-eq-concepts-complex-evals" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-sys-diff-eq-concepts-complex-evals" /></em></li>
+</ul></p></assemblage>
+
+
+<subsection xml:id="subsection-sys-diff-eq-concepts-systems">
+<title>Change of variables in a system of first-order, linear differential equations</title>
+
+<p>
+A system of linear differential equations such as
+<me>
+	\left\{\begin{array}{rcrcr}
+		\dd{y_1}{t} \amp = \amp a y_1(t) \amp + \amp b y_2(t) \\
+		\dd{y_2}{t} \amp = \amp c y_1(t) \amp + \amp d y_2(t)
+	\end{array}\right.
+</me>
+has the same form as a system of linear equations,
+and we can write it as a single matrix equation as
+<me>
+	\begin{bmatrix} \dd{y_1}{t} \\ \dd{y_2}{t} \end{bmatrix}
+	=
+	\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+	\begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}
+</me>.
+If we treat the differential operator <m>\ddt</m> as a scalar,
+we can instead write
+<me>
+	\ddt \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}
+	=
+	\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+	\begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}
+</me>,
+or even more compactly as
+<md><mrow xml:id="equation-sys-diff-eq-concepts-2x2-diff-matrix-eq" tag="star">
+	\dd{\uvec{y}}{t} = A \uvec{y}
+</mrow></md>,
+where
+<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+is the coefficient matrix, and
+<me> \uvec{y}(t) = \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix} </me>
+is a vector that collects together the unknown functions <m>y_1(t), y_2(t)</m>.
+</p><p>
+Suppose we use an invertible matrix <m>Q</m> to change variables by
+<me> \uvec{w}(t) = Q \uvec{y}(t) </me>.
+Then the new functions <m>w_1(t),w_2(t)</m> in the function vector <m>\uvec{w}(t)</m> will be related to the old functions <m>y_1(t),y_2(t)</m> via linear formulas,
+where the coefficients come from the entries of <m>Q</m>.
+And, reversing the change of variables to <m>\uvec{y} = \inv{Q} \uvec{w}</m>,
+we can substitute into our differential matrix equation <xref ref="equation-sys-diff-eq-concepts-2x2-diff-matrix-eq" />
+to get a new equation
+<md><mrow xml:id="equation-sys-diff-eq-concepts-2x2-transformed-diff-matrix-eq" tag="dstar">
+	\ddt (\inv{Q} \uvec{w}) = A \inv{Q} \uvec{w}
+</mrow></md>.
+</p><p>
+While we may not have heard it phrased in this language,
+one of the first things that we learn about the derivative in a first course on differential calculus is that it is a <term>linear operator</term>:
+<md><mrow>
+	\ddt \bigl( k y(t) \bigr) \amp = k \dydt \text{,} \amp
+	\ddt \bigl( y_1(t) + y_2(t) \bigr) \amp = \dd{y_1}{t} + \dd{y_2}{t}
+</mrow></md>
+(where <m>k</m> is an arbitrary constant).
+It follows from these properties that differentiation of the entries in a vector of functions and multiplication by a matrix of constants can be performed in either order:
+<me> \ddt \bigl( M \uvec{y}(t) \bigr) = M \dd{\uvec{y}}{t} </me>.
+<todo>Do I want to create a whole theory section just for this fact?</todo>
+This lets us rearrange <xref ref="equation-sys-diff-eq-concepts-2x2-diff-matrix-eq" /> as
+<me>
+	\inv{Q} \dd{\uvec{w}}{t} = A \inv{Q} \uvec{w}
+	\qquad \implies \qquad
+	\dd{\uvec{w}}{t} = Q A \inv{Q} \uvec{w}
+</me>.
+We immediately see the similarity relationship between the coefficient matrices of the original differential equation and the transformed one.
+If we reverse the point of view on the change of variables by setting <m>P = \inv{Q}</m>,
+so that
+<me> \uvec{y}(t) = P \uvec{w}(t) </me>,
+then we can write the transformed differential matrix equation as
+<me> \dd{\uvec{w}}{t} = \inv{P} A P \uvec{w} </me>.
+Assuming the new transformed system is easier to solve,
+we can transfer solutions for <m>w_1(t),w_2(t)</m> back to solutions for <m>y_1(t),y_2(t)</m> using <m>P</m>.
+</p><p>
+Of course, all of the above can be carried out for larger systems of equations involving more unknown functions as well.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-sys-diff-eq-concepts-diagonalizable">
+<title>Systems with a diagonalizable coefficient matrix</title>
+
+<p>
+A system of differential equations with a diagonal coefficient matrix is easy to solve.
+For example, system
+<me>
+	\begin{bmatrix} \dd{w_1}{t} \\ \dd{w_2}{t} \end{bmatrix}
+	= \begin{bmatrix} \lambda_1 \\ \amp \lambda_2 \end{bmatrix}
+	\begin{bmatrix} w_1 \\ w_2 \end{bmatrix}
+</me>
+is not coupled <mdash />
+it describes two separate differential equations
+<md>
+	<mrow> \dd{w_1}{t} \amp = \lambda_1 w_1 \text{,} </mrow>
+	<mrow> \dd{w_2}{t} \amp = \lambda_2 w_2 \text{,} </mrow>
+</md>
+where the rate of change of each function is proportional to the value of the function.
+As we reminded ourselves in <xref ref="activity-sys-diff-eq-one-var" />,
+such equations have exponential solutions:
+<md>
+	<mrow> w_1(t) \amp = c_1 e^{\lambda_1 t} \text{,} </mrow>
+	<mrow> w_2(t) \amp = c_2 e^{\lambda_2 t} \text{,} </mrow>
+</md>
+where the <m>c_j</m> are the initial values of the functions.
+</p><p>
+If instead we have a system <m>\uvec{y}' = A \uvec{y}</m> with a <em>diagonalizable</em> coefficient matrix <m>A</m>,
+then we can carry out a change of variables as in
+<xref ref="subsection-sys-diff-eq-concepts-systems" />
+to obtain transformed system <m>\uvec{w}' = \inv{P} A P \uvec{w}</m> that has diagonal coefficient matrix <m>\inv{P} A P</m>.
+The solutions to this transformed system are again exponential,
+but since we know that the diagonal entries in diagonal form <m>\inv{P} A P</m> are precisely the eigenvalues of <m>A</m>,
+<em>the rate constants in the exponential solutions are the eigenvalues of the coefficient matrix <m>A</m></em>.
+</p><p>
+Using the transition matrix <m>P</m>, we can transform the solutions for <m>w_1(t),w_2(t)</m> back to solutions
+<md>
+	<mrow> y_1(t) \amp = p_{11} c_1 e^{\lambda_1 t} + p_{12} c_2 e^{\lambda_2 t} \text{,} </mrow>
+	<mrow> y_2(t) \amp = p_{21} c_1 e^{\lambda_1 t} + p_{22} c_2 e^{\lambda_2 t} \text{.} </mrow>
+</md>
+</p><p>
+The above formulas represent the general solution to the system of equations in arbitrary parameters <m>c_1,c_2</m>.
+To obtain a particular solution,
+initial values <m>y_1(0) = a_1</m> and <m>y_2(0) = a_2</m> might be used.
+But solving the equations <m>y_1(0) = a_1</m> and <m>y_2(0) = a_2</m> for coefficients <m>c_1,c_2</m> is equivalent to solving
+<me> P \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} </me>,
+which we can do with <m>\inv{P}</m>:
+<me> \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \inv{P} \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} </me>.
+Notice what this is doing: the coefficients <m>c_1,c_2</m> are the initial conditions of our transformed functions
+<md>
+	<mrow> w_1(t) \amp = c_1 e^{\lambda_1 t} \text{,} </mrow>
+	<mrow> w_2(t) \amp = c_2 e^{\lambda_2 t} \text{,} </mrow>
+</md>
+and multiplying the vector of initial conditions
+<m> \left[\begin{smallmatrix} a_1 \\ a_2 \end{smallmatrix}\right] </m>
+by the transition matrix <m>\inv{P}</m> converts these initial conditions for <m>y_1(t),y_2(t)</m> into initial conditions for <m>w_1(t),w_2(t)</m>,
+which provides an immediate answer for the values of <m>c_1</m> and <m>c_2</m>.
+See <xref ref="section-sys-diff-eq-examples" />
+for an example of solving an initial value problem involving a system of differential equations.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-sys-diff-eq-concepts-second-order">
+<title>Homogeneous, second-order, linear differential equations</title>
+
+<p>
+Every homogeneous, second-order, linear differential equation
+<md><mrow xml:id="equation-sys-diff-eq-concepts-2nd-order" tag="tstar">
+	y'' - a y' - b y = 0
+</mrow></md>
+can be recast as a coupled system of differential equations by setting <m>x(t) = y'(t)</m>.
+Then
+<me> x' = y'' = a y' + b y = a x + b y </me>,
+giving us system
+<me>
+	\left\{\begin{array}{rcrcr}
+		x' \amp = \amp a x \phantom{\text{.}} \amp + \amp b y \text{,} \\
+		y' \amp = \amp x \text{.}
+	\end{array}\right.
+</me>
+We can attempt to decouple this system by diagonalizing the coefficient matrix,
+as in
+<xref ref="subsection-sys-diff-eq-concepts-diagonalizable" />,
+but if we are able to solve this way we should remember that in the end we are only interested in the solution for <m>y(t)</m>,
+as the solution of <m>x(t)</m> should just be the derivative of <m>y(t)</m>.
+</p><p>
+Let's take at least the first steps to diagonalizing the coefficient matrix
+<me> A = \begin{bmatrix} a \amp b \\ 1 \amp 0 \end{bmatrix} </me>
+by computing
+<me> \lambda I - A = \begin{bmatrix} \lambda - a \amp - b \\ - 1 \amp \lambda \end{bmatrix} </me>,
+which leads to characteristic polynomial
+<me> c_A(\lambda) = \det (\lambda I - A) = \lambda^2 - a\lambda - b </me>.
+If you compare this characteristic polynomial with the original second-order differential equation
+<xref ref="equation-sys-diff-eq-concepts-2nd-order" />,
+you should notice a similarity.
+</p><p>
+In fact, every system of equations can be converted to a homogeneous, linear, second-order differential equation,
+and the above pattern between characteristic polynomial and original second-order equation will recur.
+For system
+<me>
+	\left\{\begin{array}{rcrce}
+		x' \amp = a x + b y \text{,} \\
+		y' \amp = c x + d y \text{,}
+	\end{array}\right.
+</me>
+we can compute
+<me> x'' = a x' + b y' = a x' + b (c x + d y) = a x' + b c x + b d y </me>.
+Substituting <m> b y = x' - a x </m>
+from the first equation in the system gives
+<md>
+	<mrow> x'' = a x' + b c x + d (x' - a x) </mrow>
+	<mrow> \implies \quad x'' - (a + d) x' + (a d - b c) x = 0 </mrow>
+</md>.
+If you compute the characteristic polynomial of the general <m>2 \times 2</m> matrix
+<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>,
+which is also the coefficient matrix of our system of differential equations,
+you will find
+<me> c_A(\lambda) = \lambda^2 - (a + d) \lambda + (a d - b c) </me>,
+mirroring the second-order equation we obtained from the system.
+<todo> If det-trace pattern for char polys is added to eigen chapter, rewrite last line above and use an xref. </todo>
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-sys-diff-eq-concepts-complex-evals">
+<title>Systems with complex eigenvalues</title>
+
+<p>
+If the coefficient matrix of a coupled system of linear differential equations is not diagonalizable as a real matrix but <em>is</em> diagonalizable as a complex matrix,
+the solutions to the decoupled system will involve complex exponential functions.
+Complex eigenvalues always come in conjugate pairs,
+and using this fact along with <term>Euler's formula</term>
+(see <xref ref="equation-complex-appendix-plane-euler" /> in <xref ref="subsection-complex-appendix-plane-polar" />)
+it is possible to get <em>real</em> solutions to the coupled system that involve combinations of cosine and sine,
+with frequencies related to the imaginary part of a complex eigenvalue pair and amplitudes related to the real part.
+But we will not pursue that discussion here <mdash />
+you will likely encounter this case in a first course in ordinary differential equations.
+</p>
+
+</subsection>
+
+</section>

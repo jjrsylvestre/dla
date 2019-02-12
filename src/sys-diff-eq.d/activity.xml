@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-sys-diff-eq-activities">
+
+<title>Activities</title>
+
+<activity xml:id="activity-sys-diff-eq-one-var">
+	<task>
+		<p> Verify that <m>y(t) = 5 e^{-2t}</m> solves the differential equation <m>\dydt = -2 y(t)</m>. </p>
+		<p> What is the initial value of the solution function? </p>
+	</task>
+	<task xml:id="activity-sys-diff-eq-one-var-pattern"><p>
+		Remind yourself of the pattern:
+		the general solution to <m>\dydt = k y</m> is <m>y(t) = <fillin characters="30" /></m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-sys-diff-eq-two-vars-example">
+
+	<introduction><p>
+		Consider the following <term>coupled system of linear differential equations</term>:
+		<me>
+			\left\{\begin{array}{rcrcr}
+				\dxdt \amp = \amp 5 x(t) \amp - \amp 6 y(t) \text{,} \\
+				\dydt \amp = \amp 3 x(t) \amp - \amp 4 y(t) \text{.}
+			\end{array}\right.
+		</me>
+	</p></introduction>
+
+	<task>
+		<statement>
+			<p>
+			Suppose we create new functions
+			<me>
+				\left\{\begin{array}{rcrcr}
+					w(t) \amp = \amp - x(t) \amp + \amp y(t) \text{,} \\
+					z(t) \amp = \amp x(t) \amp - \amp 2 y(t) \text{,}
+				\end{array}\right.
+			</me>
+			out of the old.
+			Create a new system of differential equations in
+			<m>w(t), w'(t), z(t), z'(t)</m>.
+			</p><p>
+			What happened?
+			</p>
+		</statement>
+		<hint><p>
+			Differentiate the expression for <m>w(t)</m> to get a formula for <m>w'(t)</m> in terms of <m>x'(t)</m> and <m>y'(t)</m>.
+			Then substitute the expressions for <m>x'(t)</m> and <m>y'(t)</m> from the original differential equations into your expression for <m>w'(t)</m>.
+			Simplify, and then see if you can relate what you have back to the change-of-variable expressions for <m>w(t)</m> and <m>z(t)</m>.
+			Then repeat for <m>z(t)</m>.
+		</p></hint>
+	</task>
+
+	<task><p>
+		Now use the pattern from
+		<xref ref="activity-sys-diff-eq-one-var-pattern" />
+		to solve the simplified system in the new variables <m>w(t), z(t)</m>.
+	</p></task>
+
+	<task xml:id="activity-sys-diff-eq-two-vars-example-change-var-back">
+		<p>
+		If we want to convert these solutions for <m>w(t), z(t)</m> to solutions to for <m>x(t),y(t)</m>,
+		we'll need to reverse the change of variables.
+		That is, we'll need to solve the system
+		<me>
+			\left\{\begin{array}{rcrcr}
+				- x \amp + \amp y \amp = \amp w \text{,} \\
+				x \amp - \amp 2 y \amp = \amp z \text{,}
+			\end{array}\right.
+		</me>
+		for <m>x</m> and <m>y</m>.
+		</p><p>
+		Wait!
+		The pattern of the equations above looks familiar <ellipsis />
+		Perhaps we could use linear algebra to solve them.
+		(And maybe use matrix inversion to solve,
+		instead of row reducing.)
+		</p><p>
+		Once you've solved the reverse change of variables,
+		express the solutions for <m>x(t)</m> and <m>y(t)</m> as combinations of the solutions for <m>w(t)</m> and <m>z(t)</m>.
+		</p>
+	</task>
+
+	<task>
+		<p>
+		<xref ref="activity-sys-diff-eq-two-vars-example-change-var-back" text="type-local" />
+		demonstrated that the linear change-of-variable equations could be written in matrix form:
+		<me>
+			\begin{bmatrix} w \\ z \end{bmatrix}
+			= \begin{bmatrix}
+				<fillin characters="2" /> \amp <fillin characters="2" /> \\
+				<fillin characters="2" /> \amp <fillin characters="2" />
+			\end{bmatrix}
+			\begin{bmatrix} x \\ y \end{bmatrix}
+		</me>.
+		</p><p>
+		But the original system of differential equations involving <m>x(t),y(t)</m> also looks linear.
+		Can you write that differential system in terms of matrix multiplication as well?
+		One side of your matrix equation should involve a <m>2 \times 2</m> matrix times
+		<m>\left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right]</m>.
+		Can you convert the other <q>differential</q> side of the matrix equation into an expression involving
+		<m>\left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right]</m>?
+		</p><p>
+		Can you also turn your simplified system involving <m>w(t),w'(t),z'(t),z(t)</m> into a matrix equation?
+		What do you notice about coefficient matrix in this system?
+		</p>
+	</task>
+
+	<task><p>
+		So we have
+		<ul>
+			<li>
+				a coefficient matrix relating
+				<m>\ddt \left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right] </m>
+				to
+				<m>\left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right] </m>,
+			</li>
+			<li>
+				a coefficient matrix relating
+				<m>\ddt \left[\begin{smallmatrix} w \\ z \end{smallmatrix}\right] </m>
+				to
+				<m>\left[\begin{smallmatrix} w \\ z \end{smallmatrix}\right] </m>,
+				and
+			</li>
+			<li>
+				a coefficient matrix relating coordinate systems
+				<m>\left[\begin{smallmatrix} w \\ z \end{smallmatrix}\right] </m>
+				and
+				<m>\left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right] </m>.
+			</li>
+		</ul>
+		What recent topic that we've been studying do you think relates these three coefficient matrices together?
+	</p></task>
+
+</activity>
+
+<activity><p>
+	Work out the pattern of <xref ref="activity-sys-diff-eq-two-vars-example" />.
+	Suppose matrices <m>A,B</m> are similar via transition matrix <m>P</m> in the similarity relation <m>\inv{P}AP = B</m>,
+	and that <m>y_1(t), y_2(t), \dotsc, y_n(t)</m> are functions that satisfy the differential matrix equation
+	<md><mrow>
+		\ddt \uvec{y}(t) \amp = A \uvec{y}(t) \text{,} \amp
+		\text{where } \uvec{y}(t) \amp = \begin{bmatrix} y_1(t) \\ y_2(t) \\ \vdots \\ y_n(t) \end{bmatrix} \text{.}
+	</mrow></md>
+	Substitute the similarity relation into the differential matrix equation and rearrange to get a new differential equation
+	<me> \ddt \uvec{w}(t) = B \uvec{w}(t) </me>,
+	where <m>\uvec{w}(t)</m> is some change of variables from <m>\uvec{y}(t)</m>.
+	Be explicit about how your change of variables relates <m>\uvec{y}(t)</m> and <m>\uvec{w}(t)</m>.
+</p></activity>
+
+<activity>
+	<introduction><p>
+		<xref ref="activity-sys-diff-eq-two-vars-example" />
+		demonstrated that if a differential matrix equation
+		<m> \ddt \uvec{y}(t) = A \uvec{y}(t) </m>
+		has a diagonalizable coefficient matrix <m>A</m>,
+		then a change of variables via a transition matrix <m>P</m> that diagonalizes <m>A</m> will <term>decouple</term> the underlying system of equations,
+		leaving simple proportional differential equations that are solved by exponential functions <m>w_j(t) = c_j e^{k_j t}</m>.
+	</p></introduction>
+	<task><p>
+		What do the constants <m>k_j</m> represent relative to the diagonal coefficient matrix <m>\inv{P} A P</m>?
+		What do they represent relative to the original coefficient matrix <m>A</m>?
+	</p></task>
+	<task><p>
+		Suppose you were given a collection of initial values
+		<me>
+			\left\{\begin{array}{rcr}
+				y_1(0) \amp = \amp a_1 \text{,} \\
+				y_2(0) \amp = \amp a_2 \text{,} \\
+				\amp \vdots \\
+				y_n(0) \amp = \amp a_n \text{.}
+			\end{array}\right.
+		</me>
+		We can collect these into an initial vector
+		<me> \uvec{y}(0) = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix} </me>.
+		How does this vector relate to the initial values for the <m>w_j(t)</m> solution functions?
+	</p></task>
+</activity>
+
+<activity>
+	<p>
+	The equation <me> y''(t) + 5 y'(t) + 4 y(t) = 0 </me>
+	is an example of a homogeneous, linear, second-order differential equation.
+	</p><p>
+	Setting <m>y_1(t) = y(t)</m> and <m>y_2(t) = y'(t)</m>,
+	turn the second-order equation into a coupled system of first-order equations.
+	Then try to solve by diagonalizing the coefficient matrix.
+	</p><p>
+	When you have computed the characteristic polynomial of the coefficient matrix,
+	look back at the original second-order differential equation.
+	Do you notice anything special?
+	</p>
+</activity>
+
+</worksheet>

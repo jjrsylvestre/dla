@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sys-diff-eq-examples">
+
+<title>Examples</title>
+
+<p>
+Let's do a larger example than those discussed in
+<xref ref="worksheet-sys-diff-eq-activities" />
+or
+<xref ref="section-sys-diff-eq-concepts" />
+as an initial value problem.
+</p>
+
+<example><title>Three coupled differential equations</title><statement>
+	<p>
+	Consider the following system,
+	with the provided initial values:
+	<md><mrow>
+		\amp
+		\left\{\begin{array}{rcrcrcr}
+			y_1' \amp = \amp -9 y_1 \amp - \amp 14 y_2 \amp + \amp 14 y_3 \text{,} \\
+			y_2' \amp = \amp  9 y_1 \amp + \amp 16 y_2 \amp - \amp 13 y_3 \text{,} \\
+			y_3' \amp = \amp  2 y_1 \amp + \amp  4 y_2 \amp - \amp  1 y_3 \text{,}
+		\end{array}\right.
+		\amp
+		\amp
+		\left\{\begin{array}{rcr}
+			y_1(0) \amp = \amp  6 \text{,} \\
+			y_2(0) \amp = \amp -4 \text{,} \\
+			y_3(0) \amp = \amp  4 \text{.}
+		\end{array}\right.
+	</mrow></md>
+	In matrix form, we express this as
+	<me>
+		\ddt
+		\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}
+		= \left[\begin{array}{rrr}
+			-9 \amp -14 \amp 14 \\
+			9 \amp 16 \amp -13 \\
+			2 \amp 4 \amp -1
+		\end{array}\right]
+		\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}
+	</me>.
+	The characteristic polynomial of the coefficient matrix is
+	<me>
+		\lambda^3 - 6 \lambda^2 - \lambda + 30
+		= (\lambda + 2)(\lambda - 3)(\lambda - 5)
+	</me>,
+	so the eigenvalues are <m>\lambda_1 = -2</m>, <m>\lambda_2 = 3</m>, <m>\lambda_3 = 5</m>.
+	Computing eigenspaces by row reducing <m>\lambda I - A</m> for the various eigenvalues as usual,
+	we obtain
+	<md>
+		<mrow>
+			E_{\lambda_1}(A) =
+			\Span\left\{ \left[\begin{array}{r} -2 \\ 1 \\ 0 \end{array}\right] \right\} \text{,}
+			\qquad
+			E_{\lambda_2}(A) =
+			\Span\left\{ \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} \right\} \text{,}
+		</mrow><mrow>
+			E_{\lambda_3}(A) =
+			\Span\left\{ \left[\begin{array}{r} -1 \\ 2 \\ 1 \end{array}\right] \right\} \text{.}
+		</mrow>
+	</md>
+	So we can use the transition matrix
+	<me>
+		P = \left[\begin{array}{rrr}
+			-2 \amp 0 \amp -1 \\
+			 1 \amp 1 \amp  2 \\
+			 0 \amp 1 \amp  1
+		\end{array}\right]
+	</me>
+	and its inverse to convert between the original system and a decoupled one involving transformed functions
+	<me> \uvec{w}(t) = \inv{P} \uvec{y}(t) </me>.
+	With our ordering of the columns of <m>P</m>,
+	the general solution of the decoupled system is
+	<me> \uvec{w}(t) = \begin{bmatrix} c_1 e^{-2 t} \\ c_2 e^{3 t} \\ c_3 e^{5 t} \end{bmatrix} </me>,
+	where <m>c_1,c_2,c_3</m> are arbitrary parameters.
+	The general solution to the coupled system is then obtained by converting back via <m>\uvec{y}(t) = P \uvec{w}(t)</m>,
+	yielding
+	<me>
+		\left\{\begin{array}{rcrcrcr}
+			y_1(t) \amp = \amp -2 c_1 e^{-2 t} \amp   \amp             \amp - \amp   c_3 e^{5 t} \text{,} \\
+			y_2(t) \amp = \amp    c_1 e^{-2 t} \amp + \amp c_2 e^{3 t} \amp + \amp 2 c_3 e^{5 t} \text{,} \\
+			y_3(t) \amp = \amp                 \amp   \amp c_2 e^{3 t} \amp + \amp   c_3 e^{5 t} \text{.}
+		\end{array}\right.
+	</me>
+	It's easier to work with the decoupled system to determine the parameter values that correspond to the initial values.
+	Convert the vector of initial values <m>\uvec{y}(0)</m> to a vector of initial values for the decoupled system:
+	<me> \uvec{w}(0) = \inv{P} \uvec{y}(0) = \left[\begin{array}{r} 2 \\ 14 \\ -10 \end{array}\right] </me>.
+	These three transformed initial values are precisely the values of the parameters <m>c_1,c_2,c_3</m>
+	we need to create a particular solution that meets the initial values for <m>y_1(t),y_2(t),y_3(t)</m>
+	provided at the beginning of this example.
+	</p><p>
+	Inserting these parameter values, we obtain particular solution
+	<me>
+		\left\{\begin{array}{rcrcrcr}
+			y_1(t) \amp = \amp -4 e^{-2 t} \amp   \amp            \amp + \amp 10 e^{5 t} \text{,} \\
+			y_2(t) \amp = \amp  2 e^{-2 t} \amp + \amp 14 e^{3 t} \amp - \amp 20 e^{5 t} \text{,} \\
+			y_3(t) \amp = \amp             \amp   \amp 14 e^{3 t} \amp - \amp 10 e^{5 t} \text{.}
+		\end{array}\right.
+	</me>
+	</p>
+</statement></example>
+
+</section>
