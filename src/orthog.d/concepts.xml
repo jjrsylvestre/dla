@@ -82,7 +82,7 @@ In <xref ref="activity-orthog-guess-orthog-in-plane" />, we tried to find a patt
 Two numbers add to zero only if one is the negative of the other. We can make both terms in the sum the same number by entering <m>b</m> in the first blank and <m>a</m> in the second, so we can make the sum cancel to zero by also making one of those entries zero:
 <me> a\cdot\boxed{b} + b\cdot\boxed{(-a)} = 0. </me>
 We have now answered the question in
-<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Activity</xref>:
+<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Discovery</xref>:
 given vector <m>\uvec{u} = (a,b)</m> in the plane, one example of a vector that is orthogonal to <m>\uvec{u}</m> is <m>\uvec{v} = (b,-a)</m>.
 </p>
 
@@ -126,17 +126,17 @@ In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line se
 </p><p>
 We are assuming that the line <m>\ell</m> is known, and it would be nice to also have a vector means of describing it. But the vectors created by the points on this line (using the origin as a universal tail point) will all be parallel to each other,
 so (as we discovered in
-<xref ref="activity-orthog-proj-scalar-mul-line">Activity</xref>)
+<xref ref="activity-orthog-proj-scalar-mul-line">Discovery</xref>)
 line <m>\ell</m> could be described as all scalar multiples of a particular vector <m>\uvec{a}</m>. This vector can be arbitrarily chosen as any vector parallel to the line. Once we have chosen <m>\uvec{a}</m>, we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{w}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{w} = k\uvec{a}</m>.
 </p><p>
 As mentioned, since <m>P</m> is the closest point, the directed line segment <m>\abray{PQ}</m> must be perpendicular to <m>\ell</m>. On the diagram above, we have used the vector <m>\uvec{n}</m> to represent this direct line segment. As in
-<xref ref="activity-orthog-proj-dot-prod-condition">Activity</xref>,
+<xref ref="activity-orthog-proj-dot-prod-condition">Discovery</xref>,
 we know that <m>\udotprod{n}{a}</m> must be zero <mdash /> this is the perpendicular condition. However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.  But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>, and <m>\uvec{w}</m> to replace <m>\uvec{n}</m>:
 <md><mrow>
 	\uvec{w} + \uvec{n} \amp= \uvec{u} \amp \amp\implies \amp \uvec{n} \amp= \uvec{u} - \uvec{w} = \uvec{u} - k\uvec{a}
 </mrow></md>
 Replacing <m>\uvec{n}</m> by this expression in the condition <m>\udotprod{n}{a} = 0</m> gives us an equation of numbers that we can solve for the unknown scale factor <m>k</m>, as we did in
-<xref ref="activity-orthog-proj-solve">Activity</xref>:
+<xref ref="activity-orthog-proj-solve">Discovery</xref>:
 <me> k = \frac{\udotprod{u}{a}}{\unorm{a}^2}. </me>
 This vector <m>\uvec{w} = k\uvec{a}</m> pointing from the origin to the desired closest point <m>P</m> is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>, and we write <m>\proj_{\uvec{a}} \uvec{u}</m> to represent it. The normal vector <m>\uvec{n}</m> is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>. These two vectors are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
 <me> \uvec{u} = \uvec{w} + \uvec{n}, </me>
