@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-triang-block-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-triang-block-theory-form" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-block-theory-form" /></em></li>
+<li><xref ref="subsection-triang-block-theory-gen-evecs" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-block-theory-gen-evecs" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-triang-block-theory-form">
+<title>Similarity to triangular block form</title>
+
+<p>
+Every similarity class contains a triangular block matrix,
+at least if we are will to use complex scalars, vectors, and matrices.
+It is possible to prove this without the aid of generalized eigenvectors first,
+and then from that fact deduce the required properties of generalized eigenspaces to make
+<xref ref="procedure-triang-block" /> work.
+</p>
+
+<theorem xml:id="theorem-triang-block-form">
+	<statement><p>
+		If the characteristic polynomial of square matrix <m>A</m> factors completely as
+		<me>
+			c_A(\lambda)
+			= (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
+		</me>,
+		then there exists an invertible matrix <m>P</m> such that <m>\inv{P} A P</m> has the block-diagonal form
+		<me> <!-- old LaTeX label THM::triangular.block.form::the.form -->
+			\inv{P} A P = \begin{bmatrix} U_1 \\ \amp U_2 \\ \amp \amp \ddots \\ \amp \amp \amp U_\ell \end{bmatrix}
+		</me>,
+		where each <m>U_j</m> is an <m>m_j \times m_j</m> matrix in scalar-triangular form that has scalar <m>\lambda_j</m> down the diagonal.
+	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		The proof is by induction on <m>n</m>,
+		the size of <m>A</m>.
+		We will assume we are working with a real matrix and real scalars.
+		But there is no detail of the proof that depends on this assumption,
+		and so the proof is valid for complex matrices and scalars as well.
+		</p>
+		<case><title>Base case</title><p> Every <m>1 \times 1</m> matrix is trivially in triangular-block form. </p></case>
+		<case><title>Induction step</title>
+			<p>
+			First, we make the <term>induction hypothesis</term>:
+			let <m>k</m> represent a fixed positive integer,
+			and assume that every <m>k \times k</m> matrix whose characteristic polynomial factors completely as in the statement of the theorem is similar to a matrix in triangular-block form.
+			</p><p>
+			We must now use the induction hypothesis to prove that every matrix <m>A</m> of size <m>(k+1) \times (k+1)</m>
+			whose characteristic polynomial factors completely as in the statement of the theorem is similar to a matrix in triangular-block form.
+			</p><p>
+			Suppose <m>\uvec{x}</m> is an eigenvector of <m>A</m> corresponding to <m>\lambda_1</m>.
+			Choose a basis of <m>\R^{k+1}</m> that contains <m>\uvec{x}</m> as its first element,
+			and let <m>Q</m> be the invertible <m>(k+1) \times (k+1)</m> matrix made up of these basis vectors as columns.
+			Then <m>\inv{Q} A Q</m> has block form
+			<me> \inv{Q} A Q = \left[\begin{array}{@{}c|c@{}} \lambda_1 \amp B \\ \hline \zerovec \amp A' \end{array}\right] </me>,
+			where <m>A'</m> is <m>k \times k</m>,
+			and <m>B</m> is <m>1 \times k</m>.
+			</p><p>
+			Similar to
+			<xref ref="proposition-block-diag-props-char-poly">Statement</xref>
+			of
+			<xref ref="proposition-block-diag-props" />,
+			the characteristic polynomial of <m>\inv{Q} A Q</m> must be
+			<me> c_{\inv{Q} A Q}(\lambda) = (\lambda - \lambda_1) \cdot c_{A'}(\lambda) </me>.
+			But similar matrices have the same characteristic polynomial
+			(<xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />),
+			and so from
+			<me> c_A(\lambda) = (\lambda - \lambda_1) \cdot c_{A'}(\lambda) </me>
+			we may conclude that
+			<me> c_{A'}(\lambda) = (\lambda-\lambda_1)^{m_1-1} (\lambda-\lambda_2)^{m_2} \dotsm (\lambda-\lambda_\ell)^{m_\ell} </me>.
+			</p><p>
+			As the characteristic polynomial of <m>c_{A'}</m> also factors completely,
+			we may apply the induction hypothesis to obtain an invertible,
+			<m>k \times k</m> matrix <m>Q'</m> such that <m>\inv{(Q')} A' Q'</m> is in triangular-block form
+			<me> \inv{(Q')}A' Q' = \begin{bmatrix} U'_1 \\ \amp U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U_\ell' \end{bmatrix} </me>,
+			where each block <m>U'_j</m> has size <m>m_j \times m_j</m>,
+			except block <m>U'_1</m>, which has size <m>(m_1-1)\times(m_1-1)</m>.
+			Thus, if we set <m>P</m> to be the invertible <m>(k+1) \times (k+1)</m> matrix
+			<me> P = Q \left[ \begin{array}{c|c} 1 \amp \zerovec \\ \hline \zerovec \amp Q' \end{array} \right] </me>,
+			we get
+			<md>
+				<mrow>
+					\inv{P} A P
+					\amp =
+					\left[\begin{array}{@{}c|c@{}}
+						\lambda_1 \amp BQ' \\ \hline
+						\zerovec \amp \inv{(Q')}A'Q'
+					\end{array}\right]
+				</mrow><mrow>
+					\amp = \left[\begin{array}{@{}c|c@{}}
+						\lambda_1 \amp BQ' \\ \hline
+						\zerovec \amp
+						\begin{matrix} U'_1 \\ \amp U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U'_\ell \end{matrix}
+					 \end{array}\right]
+				</mrow><mrow>
+					\amp = \left[\begin{array}{@{}c|c|c@{}}
+						\lambda_1 \amp C_1 \amp C_2 \\ \hline
+						\zerovec \amp U'_1 \amp \zerovec \\ \hline
+						\zerovec \amp \zerovec \amp
+						\begin{matrix} U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U_\ell' \end{matrix}
+					 \end{array}\right]
+				</mrow>
+			</md>.
+			</p><p>
+			In the last matrix above,
+			we have broken the row matrix <m>B Q'</m> up into row matrices <m>C_1</m> and <m>C_2</m>,
+			where <m>C_1</m> has size <m>1 \times (m_1-1)</m>.
+			This is almost in triangular-block form <mdash />
+			the remaining difficulty is that <m>C_2</m> might have nonzero entries.
+			The remainder of the proof revolves around showing that one can choose the matrix <m>Q'</m> so that <m>C_2 = \zerovec</m>;
+			see <xref ref="reference-nicholson-linalg" /> for the details.
+			</p><p>
+			Finally, note that the blocks of <m>\inv{P} A P</m> have size <m>m_1,m_2,\dotsc,m_\ell</m>, respectively.
+			</p>
+		</case>
+	</proof>
+</theorem>
+
+<remark><p><ul>
+	<li>
+		If our field of scalars is <m>\C</m>,
+		then <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />
+		tells us that the characteristic polynomial of <em>every</em> matrix factors completely.
+		However, if our field of scalars is <m>\R</m>,
+		then the characteristic polynomials of some matrices will contain irreducible quadratic factors.
+	</li>
+	<li>
+		Notice that in triangular-block form,
+		to each distinct eigenvalue of <m>A</m> there corresponds precisely one block in the scalar-triangular form,
+		with the eigenvalue down the diagonal, and of size equal to the algebraic multiplicity of the eigenvalue.
+	</li>
+</ul></p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-triang-block-theory-gen-evecs">
+<title>Properties of generalized eigenvectors</title>
+
+<p>
+We previously stated some properties of generalized eigenspaces as
+<xref ref="theorem-scalar-triang-gen-espace-facts" />,
+and we are now in a position to prove
+<xref ref="theorem-scalar-triang-gen-espace-facts-dim-gen-espace">Statement</xref> of that theorem.
+As well, we know from <xref ref="chapter-scalar-triang" /> that it is generalized eigenspaces that produce matrices in scalar-triangular form.
+All we need further is to establish that the generalized eigenspaces of a matrix satisfy the requirements of the block-diagonalization procedure:
+invariance and independence.
+</p>
+
+<lemma xml:id="lemma-triang-block-gen-esubsp-invariant">
+	<title>Invariance of generalized eigensubspaces</title>
+	<statement><p> Each generalized eigensubspace of a square matrix is invariant under that matrix. </p></statement>
+	<proof>
+		<p>
+		Suppose <m>A</m> is a square matrix, <m>\lambda</m> is an eigenvalue of <m>A</m>, and <m>k</m> is a positive integer.
+		We would like to verify that the generalized eigensubspace <m>E_\lambda^k(A)</m> is <m>A</m>-invariant.
+		</p><p>
+		First, note that the matrices <m>(\lambda I - A)</m> and <m>A</m> commute,
+		since
+		<me> (\lambda I - A)A = \lambda A - A^2 = A(\lambda I - A) </me>.
+		From this, we can conclude that <m>A</m> commutes with <m>(\lambda I - A)^k</m>,
+		since
+		<md>
+			<mrow>
+				(\lambda I - A)^k A
+				\amp = (\lambda I - A)^{k-1} A (\lambda I - A)
+			</mrow><mrow>
+				\amp = (\lambda I - A)^{k-2} A (\lambda I - A)^2
+			</mrow><mrow>
+				\amp \vdots
+			</mrow><mrow>
+				\amp = (\lambda I - A) A (\lambda I - A)^{k-1}
+			</mrow><mrow>
+				\amp = A (\lambda I - A)^k
+			</mrow>
+		</md>.
+		</p><p>
+		Now, to show that <m>E_\lambda^k(A)</m> is <m>A</m>-invariant, we must show that,
+		given vector <m>\uvec{u}</m> in <m>E_\lambda^k(A)</m>,
+		the vector <m>A\uvec{u}</m> is again in <m>E_\lambda^k(A)</m>.
+		So assume that <m>\uvec{u} \in E_\lambda^k(A)</m>.
+		By definition, this means that <m>(\lambda I - A)^k \uvec{u} = \zerovec</m>.
+		But then, using the fact that <m>A</m> commutes with <m>(\lambda I - A)^k</m> proved above, we have
+		<me> (\lambda I - A)^k A \uvec{u} = A (\lambda I - A)^k \uvec{u} = A \zerovec = \zerovec </me>.
+		Since <m> (\lambda I - A)^k (A \uvec{u}) = \zerovec</m>, we have that <m>A\uvec{u}</m> in <m>E_\lambda^k(A)</m> as well, as desired.
+		</p>
+	</proof>
+</lemma>
+
+<theorem xml:id="theorem-triang-block-more-gen-espace-facts">
+	<title>More properties of generalized eigenspaces</title>
+	<statement><p>
+		Suppose <m>A</m> is an <m>n \times n</m> matrix.
+		<ol>
+
+			<li xml:id="theorem-triang-block-more-gen-espace-facts-invariant">
+				If <m>\lambda</m> is an eigenvalue of <m>A</m>,
+				then the generalized eigenspace <m>G_\lambda(A)</m> is an <m>A</m>-invariant subspace of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
+			</li>
+
+<!--
+			<li xml:id="theorem-triang-block-more-gen-espace-facts-indep">
+				Suppose <m>\lambda_1,\lambda_2,\dotsc,\lambda_\ell</m> is a complete list of the eigenvalues of <m>A</m>, with no duplicates.
+				Then the collection of generalized eigenspaces <m>G_{\lambda_1}(A),G_{\lambda_2}(A),\dotsc,G_{\lambda_\ell}(A)</m> is independent.
+			</li>
+-->
+
+			<li xml:id="theorem-triang-block-more-gen-espace-facts-full-gen-espacess">
+				Suppose the characteristic polynomial of <m>A</m> <em>factors completely</em> as
+				<me>
+					c_A(\lambda)
+					= (\lambda-\lambda_1)^{m_1} (\lambda-\lambda_2)^{m_2} \dotsm (\lambda-\lambda_\ell)^{m_\ell}.
+				</me>
+				Then each generalized eigenspace <m>G_{\lambda_j}(A)</m> has dimension <m>m_j</m>.
+				Furthermore, if we have a basis for each generalized eigenspace of <m>A</m>,
+				taking these bases all together gives a basis for <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
+				That is, the generalized eigenspaces of <m>A</m> are a complete set of independent subspaces.
+			</li>
+
+		</ol>
+	</p></statement>
+	<proof><title>Proof of <xref ref="theorem-triang-block-more-gen-espace-facts-invariant">Statement</xref></title>
+		<p>
+		We already know that <m>G_\lambda(A)</m> is a subspace of <m>\R^n</m> or <m>\C^n</m>, as appropriate
+		(<xref ref="theorem-scalar-triang-gen-espace-facts-is-subspace">Statement</xref>
+		of
+		<xref ref="theorem-scalar-triang-gen-espace-facts" />).
+		So we only need to verify that it is <m>A</m>-invariant.
+		</p><p>
+		If <m>\uvec{x}</m> is a vector in the generalized eigenspace <m>G_\lambda(A)</m>,
+		then by definition it is in a generalized eigensubspace <m>E_\lambda^k(A)</m> for some <m>k</m>.
+		But we have already shown that each <m>E_\lambda^k(A)</m> is <m>A</m>-invariant
+		(<xref ref="lemma-triang-block-gen-esubsp-invariant" />),
+		so <m>A\uvec{x}</m> must again be back in <m>E_\lambda^k(A)</m>,
+		which puts it back in <m>G_\lambda(A)</m>.
+		</p>
+	</proof>
+	<proof><title>Outline of proof of <xref ref="theorem-triang-block-more-gen-espace-facts-full-gen-espacess">Statement</xref></title>
+		<p>
+		We give a proof for <m>A</m> a real matrix,
+		and assuming real scalars.
+		The proof for the complex context is identical.
+		</p><p>
+		By <xref ref="theorem-triang-block-form" />,
+		there exists an invertible matrix <m>P</m> such that <m>\inv{P} A P</m> is in triangular-block form.
+		From the block form of <m>\inv{P} A P</m>,
+		confirm that
+		<md><mrow>
+			G_{\lambda_1}(\inv{P} A P) \amp = \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_{m_1} \} \text{,} \\
+			G_{\lambda_2}(\inv{P} A P) \amp = \Span \{ \uvec{e}_{m_1+1}, \dotsc, \uvec{e}_{m_1+m_2} \} \text{,} \\
+			\amp \vdots \text{,} \\
+			G_{\lambda_\ell}(\inv{P} A P) \amp = \Span \{ \uvec{e}_{n - m_\ell-1}, \dotsc, \uvec{e}_{n} \} \text{,}
+		</mrow></md>
+		where each spanning set above is obviously linearly independent.
+		</p><p>
+		As usual, the transition matrix <m>P</m> transfers properties of <m>\inv{P} A P</m> to the equivalent properties of <m>A</m>.
+		In particular, it can be shown that the above spanning sets for the generalized eigenspaces of <m>\inv{P} A P</m> can be transferred to spanning sets for the generalized eigenspaces of <m>A</m>:
+		<md><mrow>
+			G_{\lambda_1}(A) \amp = \Span \{ P\uvec{e}_1, \dotsc, P\uvec{e}_{m_1} \} \text{,} \\
+			G_{\lambda_2}(A) \amp = \Span \{ P\uvec{e}_{m_1+1}, \dotsc, P\uvec{e}_{m_1+m_2} \} \text{,} \\
+			\amp \vdots \\
+			G_{\lambda_\ell}(A) \amp = \Span \{ P\uvec{e}_{n - m_\ell-1}, \dotsc, P\uvec{e}_{n} \} \text{.}
+		</mrow></md>
+		Since <m>P</m> is invertible,
+		each of these transformed spanning sets is also linearly independent
+		(<xref ref="proposition-col-row-null-space-dep-indep-of-images-indep-implies-indep-of-images">Statement</xref>
+		of
+		<xref ref="proposition-col-row-null-space-dep-indep-of-images" />).
+		Thus, <m>\dim G_{\lambda_j}(A) = m_j</m>.
+		Similarly, since the standard basis of <m>\R^n</m> is linearly independent,
+		and <m>P</m> is invertible,
+		taking all these spanning sets together forms a basis of <m>\R^n</m>.
+		</p>
+	</proof>
+</theorem>
+
+
+
+</subsection>
+
+</section>

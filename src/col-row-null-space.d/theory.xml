@@ -39,36 +39,46 @@ leading to our conclusion about how to determine a basis for the column space of
 
 	<title> Dependence/independence versus matrix transformation </title>
 
-	<statement><p><ol>
+	<statement>
+		<p>
+		Suppose
+		<m>\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell</m>
+		are column vectors in <m>\R^n</m> and <m>E</m> is an <m>m \times n</m> matrix.
+		<ol>
 
-		<li xml:id="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">
-			Suppose
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
-			are column vectors in <m>\R^n</m> and <m>E</m> is an <m>m\times n</m> matrix.
-			If vectors
-			<m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m>
-			are linearly independent in <m>\R^m</m>,
-			then so too
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
-			are linearly independent in <m>\R^n</m>.
-		</li>
+			<li xml:id="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">
+				If vectors
+				<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>
+				are linearly independent,
+				then so too are
+				<m>\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell</m>.
+			</li>
 
-		<li xml:id="proposition-col-row-null-space-dep-indep-of-images-pullback-image-dependence">
-			Suppose
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
-			and
-			<m>\uvec{w}</m> are column vectors in <m>\R^n</m> and <m>E</m> is an invertible <m>n\times n</m> matrix.
-			If vector <m>E\uvec{w}</m> is linearly dependent with the vectors
-			<m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m>
-			by the dependence relation
-			<me> E\uvec{w} = k_1 E\uvec{v}_1 + k_2 E\uvec{v}_2 + \dotsb + k_\ell E\uvec{v}_\ell, </me>
-			then <m>\uvec{w}</m> is linearly dependent with
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
-			by a dependence relation involving the same scalars,
-			<me> \uvec{w} = k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_\ell\uvec{v}_\ell. </me>
-		</li>
+			<li xml:id="proposition-col-row-null-space-dep-indep-of-images-indep-implies-indep-of-images">
+				If <m>E</m> is square and invertible
+				and vectors
+				<m>\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell</m>
+				are linearly independent,
+				then so too are
+				<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>.
+			</li>
 
-	</ol></p></statement>
+			<li xml:id="proposition-col-row-null-space-dep-indep-of-images-pullback-image-dependence">
+				If <m>E</m> is square and invertible
+				and <m>\uvec{w}</m> is another column vector in <m>\R^n</m>
+				so that vector <m>E \uvec{w}</m> is linearly dependent with the vectors
+				<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>
+				by the dependence relation
+				<me> E \uvec{w} = k_1 E \uvec{v}_1 + k_2 E \uvec{v}_2 + \dotsb + k_\ell E \uvec{v}_\ell </me>,
+				then <m>\uvec{w}</m> is linearly dependent with
+				<m>\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell</m>
+				by a dependence relation involving the same scalars,
+				<me> \uvec{w} = k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_\ell \uvec{v}_\ell </me>.
+			</li>
+
+		</ol>
+		</p>
+	</statement>
 
 	<proof><p><ol>
 		<li>
@@ -92,6 +102,18 @@ leading to our conclusion about how to determine a basis for the column space of
 			must be the trivial one, and so the vectors
 			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
 			are linearly independent.
+		</li>
+		<li>
+			We assume <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are linearly independent.
+			Since we also assume <m>E</m> to be invertible,
+			we can restate this as saying that
+			<m>\inv{E} (E \uvec{v}_1), \inv{E} (E \uvec{v}_2), \dotsc, \inv{E} (E \uvec{v}_\ell)</m>
+			are linearly independent.
+			Now we can apply <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
+			with <m>E</m> replaced by <m>\inv{E}</m> and
+			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
+			replaced by
+			<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>.
 		</li>
 		<li>
 			Simply apply the inverse <m>\inv{E}</m> to both sides of

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-triang-block-examples">
+
+<title>Examples</title>
+
+<example>
+	<title>A transition matrix of generalized eigenvectors for a matrix with more than one eigenvalue</title>
+	<statement>
+		<p>
+		Let's see what happens if we try to apply
+		<xref ref="procedure-scalar-triang-concepts-proc" />
+		to the <m>7 \times 7</m> matrix
+		<me>
+			A = \left[\begin{array}{rrrrrrr}
+				3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
+				0 \amp 3 \amp -4 \amp  0 \amp  4 \amp  0 \amp  0 \\
+				0 \amp 0 \amp  5 \amp -1 \amp -1 \amp  0 \amp  0 \\
+				0 \amp 0 \amp -2 \amp  2 \amp  3 \amp  0 \amp  0 \\
+				0 \amp 0 \amp  6 \amp -1 \amp -2 \amp  0 \amp  0 \\
+				0 \amp 4 \amp -5 \amp  0 \amp  5 \amp -1 \amp  0 \\
+				4 \amp 3 \amp  1 \amp -1 \amp  0 \amp -3 \amp -1
+			\end{array}\right]
+		</me>.
+		If you compute the characteristic polynomial of <m>A</m> (maybe use a computer algebra system?),
+		you will find
+		<me> c_A(\lambda) = (\lambda - 3)^4(\lambda + 1)^3 </me>.
+		Thus, the eigenvalues of <m>A</m> are
+		<m>\lambda_1 = 3</m>, with multiplicity <m>m_1 = 4</m>, and
+		<m>\lambda_2 = -1</m>, with multiplicity <m>m_2 = 3</m>.
+		Since <m>A</m> has two distinct eigenvalues,
+		we will not be able to put <m>A</m> into scalar-triangular form.
+		But let's compute the (generalized) eigenspaces of <m>A</m> anyway.
+		</p><p>
+		We begin with <m>\lambda_1 = 3</m>:
+		<md alignment="gather">
+			<mrow>
+				3 I - A
+				= \left[\begin{array}{rrrrrrr}
+					 0 \amp -4 \amp -1 \amp 1 \amp  0\amp 4 \amp 0 \\
+					 0 \amp  0 \amp  4 \amp 0 \amp -4\amp 0 \amp 0 \\
+					 0 \amp  0 \amp -2 \amp 1 \amp  1\amp 0 \amp 0 \\
+					 0 \amp  0 \amp  2 \amp 1 \amp -3\amp 0 \amp 0 \\
+					 0 \amp  0 \amp -6 \amp 1 \amp  5\amp 0 \amp 0 \\
+					 0 \amp -4 \amp  5 \amp 0 \amp -5\amp 4 \amp 0 \\
+					-4 \amp -3 \amp -1 \amp 1 \amp  0\amp 3 \amp 4
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\rowredarrow \quad
+				\left[\begin{array}{rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp -1 \\
+					0 \amp 1 \amp 0 \amp 0 \amp  0 \amp -1 \amp  0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp -1 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 1 \amp -1 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies
+				E_3(A) = \Span\left\{
+					\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+				\right\}
+			</mrow>
+		</md>.
+		Since the geometric multiplicity of the eigenvalue <m>\lambda_1 = 3</m> is not equal to the algebraic multiplicity,
+		we need to continue with powers of <m>(3 I - A)</m>.
+		<md alignment="gather">
+			<mrow>
+				(3I-A)^2
+				= \left[\begin{array}{rrrrrrr}
+					  0 \amp -16 \amp   8 \amp 0 \amp - 8 \amp 16 \amp  0 \\
+					  0 \amp   0 \amp  16 \amp 0 \amp -16 \amp  0 \amp  0 \\
+					  0 \amp   0 \amp   0 \amp 0 \amp   0 \amp  0 \amp  0 \\
+					  0 \amp   0 \amp  16 \amp 0 \amp -16 \amp  0 \amp  0 \\
+					  0 \amp   0 \amp -16 \amp 0 \amp  16 \amp  0 \amp  0 \\
+					  0 \amp -16 \amp  24 \amp 0 \amp -24 \amp 16 \amp  0 \\
+					-16 \amp - 8 \amp   7 \amp 0 \amp - 7 \amp  8 \amp 16
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\rowredarrow \quad
+				\left[\begin{array}{rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp -1 \\
+					0 \amp 1 \amp 0 \amp 0 \amp  0 \amp -1 \amp  0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp -1 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \qquad
+				E_3^2(A) = \Span\left\{
+					\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+				\right\}
+			</mrow>
+		</md>
+		The dimension of this generalized eigensubspace is equal to the multiplicity of <m>\lambda_1 = 3</m>,
+		so we have <m>G_3(A) = E^2_3(A)</m>
+		(<xref ref="theorem-scalar-triang-gen-espace-facts-gen-subsp-equal-mth-esubsp">Statement</xref>
+		of <xref ref="theorem-scalar-triang-gen-espace-facts" />).
+		Following <xref ref="procedure-scalar-triang-concepts-proc" />,
+		we extend our basis for <m>E_3(A)</m> to one for <m>E^2_3(A)</m> instead of just using the above basis.
+		<me>
+			G_3(A) = \Span\left\{
+				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+			\right\}.
+		</me>
+		</p><p>
+		Now we continue with eigenvalue <m>\lambda_2 = -1</m>:
+		<todo>Why is the rowredarrow below getting stretched so much?</todo>
+		<md alignment="gather">
+			<mrow>
+				(-1) I - A
+				= \left[\begin{array}{rrrrrrr}
+					-4 \amp -4 \amp -1 \amp  1 \amp  0 \amp 4 \amp 0 \\
+					 0 \amp -4 \amp  4 \amp  0 \amp -4 \amp 0 \amp 0 \\
+					 0 \amp  0 \amp -6 \amp  1 \amp  1 \amp 0 \amp 0 \\
+					 0 \amp  0 \amp  2 \amp -3 \amp -3 \amp 0 \amp 0 \\
+					 0 \amp  0 \amp -6 \amp  1 \amp  1 \amp 0 \amp 0 \\
+					 0 \amp -4 \amp  5 \amp  0 \amp -5 \amp 0 \amp 0 \\
+					-4 \amp -3 \amp -1 \amp  1 \amp  0 \amp 3 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\rowredarrow \quad
+				\amp\left[\begin{array}{rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies
+				E_{-1}(A) = \Span\left\{ \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix} \right\}
+			</mrow>
+		</md>.
+		We are not up to the algebraic multiplicity <m>m_2 = 3</m>,
+		so continue with powers of <m>(-I - A)</m>:
+		<md alignment="gather">
+			<mrow>
+				(-I - A)^2
+				= \left[\begin{array}{rrrrrrr}
+					16 \amp 16 \amp  16 \amp -8 \amp -8 \amp -16 \amp 0 \\
+					 0 \amp 16 \amp -16 \amp  0 \amp 16 \amp   0 \amp 0 \\
+					 0 \amp  0 \amp  32 \amp -8 \amp -8 \amp   0 \amp 0 \\
+					 0 \amp  0 \amp   0 \amp  8 \amp  8 \amp   0 \amp 0 \\
+					 0 \amp  0 \amp  32 \amp -8 \amp -8 \amp   0 \amp 0 \\
+					 0 \amp 16 \amp -16 \amp  0 \amp 16 \amp   0 \amp 0 \\
+					16 \amp 16 \amp  15 \amp -8 \amp -7 \amp -16 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\rowredarrow \quad
+				\left[\begin{array}{rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp -1 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \amp  0 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \quad
+				E^2_{-1}(A) = \Span\left\{
+					\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
+					\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}
+				\right\}
+			</mrow>
+		</md>.
+		<!-- Notice that the first vector in the eigensubspace basis above is the eigenvector from our basis for <m>E_{-1}(A)</m>. -->
+		The dimension of <m>E^2_{-1}(A)</m> is still not equal to the algebraic multiplicity of <m>\lambda_2 = -1</m>,
+		so continue:
+		<md alignment="gather">
+			<mrow>
+				(-I-A)^3
+				= \left[\begin{array}{rrrrrrr}
+					-64 \amp -64 \amp - 96 \amp  48 \amp  48 \amp 64 \amp 0 \\
+					  0 \amp -64 \amp   64 \amp   0 \amp -64 \amp  0 \amp 0 \\
+					  0 \amp   0 \amp -160 \amp  48 \amp  48 \amp  0 \amp 0 \\
+					  0 \amp   0 \amp - 32 \amp -16 \amp -16 \amp  0 \amp 0 \\
+					  0 \amp   0 \amp -160 \amp  48 \amp  48 \amp  0 \amp 0 \\
+					  0 \amp -64 \amp   64 \amp   0 \amp -64 \amp  0 \amp 0 \\
+					-64 \amp -64 \amp - 96 \amp  48 \amp  48 \amp 64 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\rowredarrow \quad
+				\left[\begin{array}{rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp -1 \amp -1 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \amp  1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp  0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \amp  1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \qquad
+				E^3_{-1}(A) = \Span\left\{
+					\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
+					\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+					\left[\begin{array}{r} 1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 0 \end{array}\right]
+				\right\}
+			</mrow>
+		</md>.
+		We are now up to the algebraic multiplicity for <m>\lambda_2 = -1</m>,
+		so <m>G_{-1}(A) = E^3_{-1}(A)</m>.
+		Again, remember that we need to build our basis for <m>G_{-1}(A)</m> one eigensubspace at a time.
+		But notice that this time the first two vectors in our basis for <m>E^3_{-1}(A)</m> above are already the same as our basis for <m>E^2_{-1}(A)</m>,
+		and the first vector in <em>that</em> basis is already the same as our basis vector for <m>E_{-1}(A)</m>.
+		So we already have a basis for the generalized eigenspace <m>G_{-1}(A)</m> of the form required by the scalar-triangularization procedure,
+		without any further adjustment:
+		<me>
+			G_{-1}(A) = \Span\left\{
+				\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
+				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+				\left[\begin{array}{r} 1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 0 \end{array}\right]
+			\right\}
+		</me>.
+		</p><p>
+		Finally, let's take <m>P</m> to be the matrix whose columns are our basis vectors for <m>G_3(A)</m> and <m>G_{-1}(A)</m>:
+		<me>
+			P =
+			\left[\begin{array}{rrrrrrr}
+				1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+				0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp -1 \\
+				0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 1 \amp 0 \amp 0 \amp -1 \\
+				0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 1 \\
+				0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0
+			\end{array}\right]
+		</me>.
+		If you compute the rank of <m>P</m>, you will find that it is <m>7</m>.
+		Since <m>P</m> is a <m>7 \times 7</m> matrix,
+		this tells us that the columns of <m>P</m> form a basis for <m>\R^7</m>
+		(<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+		And since <m>P</m> was formed by combining the bases from two different subspaces of <m>\R^7</m>,
+		this calculation tells us that the generalized eigenspaces actually form a complete independent set of subspaces.
+		</p><p>
+		But are they a complete set of independent, <em><m>A</m>-invariant</em> subspaces?
+		We're not yet sure, but let's compute <m>\inv{P}AP</m> anyway and see what happens.
+		Remember that we can do this by row reducing
+		<m> \left[\begin{array}{c|c} P \amp AP \end{array}\right] \to \left[\begin{array}{c|c} I \amp \inv{P}AP \end{array}\right] </m>:
+		<md alignment="gather">
+			<mrow>
+				\left[\begin{array}{rrrrrrr|rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp  1   \amp   3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
+					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp -1   \amp   0 \amp 3 \amp -4 \amp  0 \amp  4 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp  0   \amp   0 \amp 0 \amp  5 \amp -1 \amp -1 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp 1 \amp 0 \amp 0 \amp -1   \amp   0 \amp 0 \amp -2 \amp  2 \amp  3 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp  1   \amp   0 \amp 0 \amp  6 \amp -1 \amp -2 \amp  0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 1 \amp  0   \amp   0 \amp 4 \amp -5 \amp  0 \amp  5 \amp -1 \amp  0 \\
+					1 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp  0   \amp   4 \amp 3 \amp  1 \amp -1 \amp  0 \amp -3 \amp -1
+				\end{array}\right]
+			</mrow><mrow>
+				\rowredarrow \qquad
+				\left[\begin{array}{rrrrrrr|rrrrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0   \amp   3 \amp 0 \amp 0 \amp -1 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0   \amp   0 \amp 3 \amp 0 \amp  0 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0   \amp   0 \amp 0 \amp 3 \amp -1 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0   \amp   0 \amp 0 \amp 0 \amp  3 \amp  0 \amp  0 \amp  0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0   \amp   0 \amp 0 \amp 0 \amp  0 \amp -1 \amp  1 \amp  2 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0   \amp   0 \amp 0 \amp 0 \amp  0 \amp  0 \amp -1 \amp  1 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1   \amp   0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \amp -1
+				\end{array}\right]
+			</mrow>
+		</md>.
+		It worked!
+		Form matrix <m>\inv{P} A P</m> is upper triangular.
+		But it also has a block diagonal form <mdash />
+		to emphasize this, let's remove some of the zeros in the bottom left and top right:
+		<me>
+			\inv{P} A P
+			= \left[\begin{array}{rrrrrrr}
+				3 \amp 0 \amp 0 \amp -1 \\
+				0 \amp 3 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 3 \amp -1 \\
+				0 \amp 0 \amp 0 \amp  3 \\
+				 \amp  \amp  \amp  \amp -1 \amp  1 \amp  2 \\
+				 \amp  \amp  \amp  \amp  0 \amp -1 \amp  1 \\
+				 \amp  \amp  \amp  \amp  0 \amp  0 \amp -1
+			\end{array}\right]
+		</me>.
+		We have two blocks,
+		one for each generalized eigenspace of <m>A</m>.
+		Each block is scalar-triangular,
+		with the corresponding eigenvalue down the diagonal of the block,
+		and of size equal to the algebraic multiplicity of the eigenvalue.
+		This pattern is no coincidence.
+		</p>
+	</statement>
+</example>
+
+</section>
