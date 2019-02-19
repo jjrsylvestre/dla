@@ -37,6 +37,7 @@ and then from that fact deduce the required properties of generalized eigenspace
 </p>
 
 <theorem xml:id="theorem-triang-block-form">
+	<title>Triangular block form of a matrix</title>
 	<statement><p>
 		If the characteristic polynomial of square matrix <m>A</m> factors completely as
 		<me>
@@ -150,6 +151,27 @@ and then from that fact deduce the required properties of generalized eigenspace
 	</li>
 </ul></p></remark>
 
+<p>
+In the case of a matrix with a single repeated eigenvalue,
+as in <xref ref="chapter-scalar-triang" />,
+we can be more specific.
+</p>
+
+<corollary xml:id="corollary-triang-block-scalar-triang">
+	<title>Triangular block form in case of a single eigenvalue</title>
+	<statement><p>
+		Every matrix with a single repeated eigenvalue is similar (over <m>\C</m>) to a scalar-triangular matrix with the eigenvalue repeated down the main diagonal.
+	</p></statement>
+	<proof><p>
+		In this case,
+		the characteristic polynomial must factor as
+		<me> c(\lambda) = (\lambda - \lambda_0)^n </me>,
+		where <m>\lambda_0</m> is the single repeated eigenvalue,
+		and so <xref ref="theorem-triang-block-form" />
+		tells us that the matrix is similar to a triangular block matrix with a single scalar-triangular block.
+	</p></proof>
+</corollary>
+
 </subsection>
 
 <subsection xml:id="subsection-triang-block-theory-gen-evecs">
@@ -223,7 +245,7 @@ invariance and independence.
 			</li>
 -->
 
-			<li xml:id="theorem-triang-block-more-gen-espace-facts-full-gen-espacess">
+			<li xml:id="theorem-triang-block-more-gen-espace-facts-full-gen-espaces">
 				Suppose the characteristic polynomial of <m>A</m> <em>factors completely</em> as
 				<me>
 					c_A(\lambda)
@@ -253,7 +275,7 @@ invariance and independence.
 		which puts it back in <m>G_\lambda(A)</m>.
 		</p>
 	</proof>
-	<proof><title>Outline of proof of <xref ref="theorem-triang-block-more-gen-espace-facts-full-gen-espacess">Statement</xref></title>
+	<proof><title>Outline of proof of <xref ref="theorem-triang-block-more-gen-espace-facts-full-gen-espaces">Statement</xref></title>
 		<p>
 		We give a proof for <m>A</m> a real matrix,
 		and assuming real scalars.

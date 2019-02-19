@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-cayley-hamilton-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-cayley-hamilton-concepts-matrix-poly" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-concepts-matrix-poly" /></em></li>
+<li><xref ref="subsection-cayley-hamilton-concepts-nilpotent" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-concepts-nilpotent" /></em></li>
+<li><xref ref="subsection-cayley-hamilton-concepts-theorem" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-concepts-theorem" /></em></li>
+<li><xref ref="subsection-cayley-hamilton-concepts-det-trace-evals" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-concepts-det-trace-evals" /></em></li>
+</ul></p></assemblage>
+
+<introduction><p>
+	We have already used triangular block form to establish some important properties of generalized eigenspaces
+	(<xref ref="theorem-triang-block-more-gen-espace-facts-full-gen-espaces">Statement</xref>
+	of
+	<xref ref="theorem-triang-block-more-gen-espace-facts" />).
+	In <xref ref="worksheet-cayley-hamilton" />,
+	we further explored what triangular block tells about the connections between a matrix and its characteristic polynomial.
+</p></introduction>
+
+<subsection xml:id="subsection-cayley-hamilton-concepts-matrix-poly">
+<title>Matrix polynomials</title>
+
+<p>
+Just as we can evaluate polynomials at specific numeric values of the indeterminate <m>x</m>,
+matrix algebra allows us to evaluate polynomials at <q>values</q> of <m>x</m> that are square matrices,
+if we regard the constant term of the polynomial as a scalar multiple of the identity matrix.
+</p><p>
+For example, the polynomial
+<me> p(x) = x^2 - 3x + 6 </me>
+from <xref ref="activity-cayley-hamilton-matrix-poly" />
+can be rewritten as
+<me> p(X) = X^2 - 3X + 6I </me>,
+where now we interpret the indeterminate <m>X</m> to represent a square matrix
+(of whatever size is appropriate to the context).
+</p>
+
+<paragraphs><title>Similarity and matrix polynomials</title><p>
+In <xref ref="activity-cayley-hamilton-matrix-poly-similarity" />,
+we conjectured that
+<me> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </me>
+is always true,
+so that
+<alert>similar matrices evaluate to similar results in a matrix polynomial</alert>.
+Even more, the same transition matrix that realizes the similarity of the original matrices will realize the similarity of the evaluation results.
+We will state and provide the outline of a proof for this fact as
+<xref ref="lemma-cayley-hamilton-poly-of-similar" />
+in
+<xref ref="subsection-cayley-hamilton-theory-theorem" />.
+</p></paragraphs>
+
+<paragraphs><title>Diagonal and block-diagonal matrices in matrix polynomials</title>
+<p>
+Powers, scalar multiples, and sums of diagonal matrices all result in diagonal matrices,
+and can all be calculated by performing those operations on the diagonal entries.
+So, as we discovered in <xref ref="activity-cayley-hamilton-matrix-poly-diag" />,
+for a diagonal matrix <m>D</m> matrix and polynomial <m>p(x)</m>,
+we can calculate
+<me>
+	D =
+	\begin{bmatrix}
+		d_1 \\
+		 \amp d_2\\
+		 \amp \amp \ddots \\
+		 \amp \amp \amp d_n
+	\end{bmatrix}
+	\quad\implies\quad
+	p(D) =
+	\begin{bmatrix}
+		p(d_1) \\
+		 \amp p(d_2)\\
+		 \amp \amp \ddots \\
+		 \amp \amp \amp p(d_n)
+	\end{bmatrix}
+</me>.
+In other words, a matrix polynomial of a diagonal matrix can be evaluated by evaluating the polynomial at each diagonal entry.
+</p><p>
+Powers, scalar multiples, and sums of block-diagonal matrices can be calculated in a similar fashion by working with the blocks on the diagonal,
+so that if <m>D</m> is in block-diagonal form, then
+<me>
+	D =
+	\begin{bmatrix}
+		D_1 \\
+		 \amp D_2\\
+		 \amp \amp \ddots \\
+		 \amp \amp \amp D_m
+	\end{bmatrix}
+	\quad\implies\quad
+	p(D) =
+	\begin{bmatrix}
+		p(D_1) \\
+		 \amp p(D_2)\\
+		 \amp \amp \ddots \\
+		 \amp \amp \amp p(D_m)
+	\end{bmatrix}
+</me>.
+</p></paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-cayley-hamilton-concepts-nilpotent">
+<title>Nilpotent matrices</title>
+
+<p>
+In <xref ref="activity-cayley-hamilton-scalar-triang-case" />
+and <xref ref="activity-cayley-hamilton-triang-block-case" />
+we noticed a common pattern for a matrix <m>T</m> in triangular block form:
+if <m>\lambda</m> is an eigenvalue of <m>T</m>,
+then <m>\lambda I - T</m> will have zeros down the diagonal of one of its upper triangular blocks.
+A scalar-triangular matrix is just a triangular block matrix with a single block,
+and in this case <m>\lambda I - T</m> has zeros down the entire main diagonal.
+In <xref ref="subsection-scalar-triang-concepts-form" /> we observed an alternate form of this pattern:
+a scalar-triangular matrix can always be decomposed into a sum of a scalar matrix and a scalar-triangular matrix with zeros down the diagonal.
+In general, this can be visualized as
+<me>
+	\begin{bmatrix}
+		\lambda \amp \ast \amp \cdots \amp \ast \\
+		\phantom{\ddots} \amp   \lambda  \amp \ddots \amp \vdots \\
+		 \amp \phantom{\ddots} \amp \ddots \amp \ast \\
+		 \amp \amp \amp   \lambda
+	\end{bmatrix}
+	= \lambda I
+	+ \begin{bmatrix}
+		0 \amp \ast \amp \cdots \amp \ast \\
+		\phantom{\ddots} \amp   0  \amp \ddots \amp \vdots \\
+		 \amp \phantom{\ddots} \amp \ddots \amp \ast \\
+		 \amp \amp \amp   0
+	\end{bmatrix}
+</me>.
+</p><p>
+In <xref ref="activity-cayley-hamilton-nilpotent" />
+we focused specifically on matrices of form like the last matrix on the right above.
+A matrix of this form is called <term>nilpotent</term>,
+and we soon discovered why:
+in subsequent powers of such a matrix,
+the zeros marches up the <q>super</q> diagonals above the main diagonal,
+until the whole matrix becomes zero when the exponent reaches the size of the matrix.
+</p><p>
+This form of matrix is just a special case of scalar-triangular form,
+with single eigenvalue <m>0</m> of multiplicity equal to the size of the matrix,
+and characteristic polynomial <m>c(\lambda) = \lambda^n</m>.
+</p><p>
+Generalizing from this nilpotent form of matrix,
+<em>every</em> matrix with the property that powers eventually become zero is also called <term>nilpotent</term>,
+and we will study the similarity patterns of such matrices in the next two chapters.
+<todo>Is "next two chapters" right?</todo>
+But we will have a few things to say about the eigenvalues and characteristic polynomial of nilpotent matrices in
+<xref ref="section-cayley-hamilton-theory" />,
+similar to our above analysis of the nilpotent scalar-triangular form.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-cayley-hamilton-concepts-theorem">
+<title>Matrices and their characteristic polynomials</title>
+
+<p>
+In <xref ref="activity-cayley-hamilton-triang-block-case" />,
+the pattern of powers of nilpotent matrices led us to the conclusion that a triangular block matrix evaluates to zero in its own characteristic polynomial.
+Combining this with the facts that
+<ul>
+	<li> every matrix is similar (over <m>\C</m>) to a triangular block matrix, </li>
+	<li> similar matrices evaluate to similar results in a polynomial, and </li>
+	<li> the only matrix that is similar to the zero matrix is the zero matrix itself, </li>
+</ul>
+we are led to the conclusion that <em><em>every</em> matrix evaluates to zero in its own characteristic polynomial</em>.
+This fact is usually referred to as
+<term><xref ref="theorem-cayley-hamilton" text="title" /></term>.
+</p>
+
+<paragraphs><title>Roots and field extensions</title>
+<p>
+<xref ref="theorem-cayley-hamilton" text="title" /> is an extraordinary result!
+It says that every matrix is a <term>root</term> of its own characteristic polynomial,
+which provides an algebraic way to deal with roots rather than just symbolically writing a <m>\sqrt{}</m> symbol.
+It is beyond the scope of this book to go into exactly what this means,
+but we can give a flavour here with an example.
+</p><p>
+In <xref ref="subsection-special-forms-concepts-scalar-matrix-algebra" />,
+we saw how scalar matrices allow us to embed the algebra of numbers into the algebra of matrices <mdash />
+that is, a <term>scalar matrix</term> is essentially the same as a <term>number</term>.
+</p>
+<aside><title>Note</title><p>
+	This view of scalar matrices also justifies our practice of interpreting the constant term in a polynomial as a scalar matrix in order to convert it into a <em>matrix</em> polynomial.
+</p></aside>
+<p>
+What if we further expand the concept of <term>number</term> to include the <m>2 \times 2</m> matrix
+<me> C = \left[\begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array}\right] </me>?
+It is straightforward to compute the characteristic polynomial
+<me> c_C(\lambda) = \lambda^2 + 1 </me>,
+so <xref ref="theorem-cayley-hamilton" text="title" /> tells us that
+<me> C^2 + 1 = 0 </me>.
+This is precisely the defining condition of the <q>imaginary number</q> <m>\ci</m>.
+It turns out that <m>\ci</m> is not so imaginary after all,
+as here we have a matrix embodiment of it that only requires the numbers <m>0,1,-1</m> to construct!
+</p><p>
+Combining this special matrix with <m>2 \times 2</m> scalar matrices,
+we can even construct a realization of the field of complex numbers inside <m>\matrixring_2(\R)</m>.
+Every complex number <m>z</m> can be expressed as
+<me> z = a + b \ci </me>
+for some real numbers <m>a,b</m>.
+If we replace <m>a</m> by the scalar matrix <m>a I</m> and <m>\ci</m> by the special matrix <m>C</m>,
+we can realize the complex number <m>z</m> as the <m>2 \times 2</m> matrix
+<me> Z = \left[\begin{array}{rr} a \amp -b \\ b \amp a \end{array}\right] </me>.
+We leave it as an exercise for you, the reader,
+to verify that adding, multiplying, and inverting matrices of the form of <m>Z</m> have the same results as adding, multiplying, and inverting the corresponding complex numbers.
+You might also get a surprise if you compute <m>\det Z</m>!
+</p>
+</paragraphs>
+
+<paragraphs><title>Companion matrices</title>
+<p>
+A slightly less precise way to phrase
+<xref ref="theorem-cayley-hamilton" text="title" />
+would be to say that,
+given any square matrix,
+we can construct a polynomial that has that matrix as a <term>root</term>.
+Turning this statement around, we could also ask:
+given any polynomial, can we construct a matrix root of that polynomial?
+Getting more precise again, we ask the following question.
+</p>
+<question xml:id="question-cayley-hamilton-concepts-companion">
+	<p>
+	Given a monic, degree <m>n</m> polynomial,
+	can we construct an <m>n \times n</m> matrix that has that polynomial as its characteristic polynomial?
+	</p>
+	<aside><title>Terminology</title><p>
+		<term>Monic</term> means that the coefficient on the highest power of <m>x</m> in the polynomial is equal to <m>1</m>.
+	</p></aside>
+</question>
+<p>
+We leave it as an exercise for you, the reader,
+to verify that the matrix
+<me>
+	\begin{bmatrix}
+		0 \amp 0 \amp 0 \amp \cdots \amp 0 \amp -a_0 \\
+		1 \amp 0 \amp 0 \amp \cdots \amp 0 \amp -a_1 \\
+		0 \amp 1 \amp 0 \amp \cdots \amp 0 \amp -a_2 \\
+		\vdots \amp \vdots \amp \vdots \amp \amp \vdots \amp \vdots \\
+		0 \amp 0 \amp 0 \amp \cdots \amp 1 \amp -a_{n-1}
+	\end{bmatrix}
+</me>
+answers <xref ref="question-cayley-hamilton-concepts-companion" />
+in the affirmative.
+The matrix above is called the <term>companion matrix</term> of the monic polynomial
+<me> p(x) = x^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \dotsb + a_1 x + a_0 </me>.
+</p>
+</paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-cayley-hamilton-concepts-det-trace-evals">
+<title>Connection to determinants and traces of matrices</title>
+
+<p>
+Finally, in <xref ref="activity-cayley-hamilton-det-trace-vs-evals-charpoly" />
+we encountered some surprising connections between properties of a matrix, its eigenvalues, and its characteristic polynomial
+by looking more closely at triangular block form.
+We will leave it to
+<xref ref="subsection-cayley-hamilton-theory-more" />
+to restate and prove these properties.
+</p>
+
+</subsection>
+
+</section>

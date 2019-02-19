@@ -61,6 +61,8 @@ as the first <q>simple</q> form of interest.
 	</p></proof>
 </proposition>
 
+<remark><p> Note that this proposition applies to both the zero matrix <m>\zerovec = 0 I</m> and the identity matrix <m>I = 1 I</m>. </p></remark>
+
 </subsection>
 
 <subsection xml:id="subsection-similarity-theory-props">
@@ -68,7 +70,7 @@ as the first <q>simple</q> form of interest.
 
 <p> Now we'll state and prove the properties of similar matrices that can be transferred from one to the other via a transition matrix that realizes the similarity. </p>
 
-<proposition>
+<proposition xml:id="proposition-similarity-powers">
 	<statement><p>
 		If <m>A</m> and <m>B</m> are similar,
 		then so are <m>A^k</m> and <m>B^k</m> for every positive integer <m>k</m>.
@@ -167,6 +169,7 @@ We will just state this corollary without proof.
 <p> Now we work toward relating eigenvalues and eigenvectors between similar matrices. </p>
 
 <proposition xml:id="proposition-similarity-similar-same-det">
+	<!-- TODO add same trace? -->
 	<statement><p> Similar matrices have the same determinant. </p></statement>
 	<proof><title>Proof idea</title><p>
 		Assuming <m>B = \inv{P} A P</m>, begin with <m>\det B = \det (\inv{P} A P)</m>, and use

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-cayley-hamilton">
+<title>Discovery guide</title>
+
+<activity xml:id="activity-cayley-hamilton-matrix-poly"> <!-- old label: LBL::mtrx.polynomial -->
+	<task xml:id="activity-cayley-hamilton-matrix-poly-exmp"><p>
+		Consider the polynomial <m>p(x) = x^2 - 3x + 6</m>.
+		What should <m>p(A)</m> mean when <m>A</m> is a square matrix?
+	</p></task>
+	<task xml:id="activity-cayley-hamilton-matrix-poly-similarity">
+		<p>
+		Using the polynomial <m>p(x)</m> from <xref ref="activity-cayley-hamilton-matrix-poly-exmp" text="type-local" />,
+		verify that <m>p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P</m> will be true for all square matrices <m>A</m>.
+		</p><p>
+		Will the same be true if we use a different polynomial?
+		</p><p>
+		Describe the pattern of what you've discovered using the words <term>similar</term> and <term>polynomial</term>.
+		</p>
+	</task>
+	<task xml:id="activity-cayley-hamilton-matrix-poly-diag">
+		<p> Determine a pattern to quickly calculate <m>p(D)</m> when <m>D</m> is diagonal that works for every polynomial <m>p(x)</m>. </p>
+		<p> Now repeat for block-diagonal. </p>
+	</task>
+</activity>
+
+<activity xml:id="activity-cayley-hamilton-scalar-triang-case">
+	<introduction><p>
+		Consider the scalar-triangular matrix
+		<me>
+			S = \begin{bmatrix}
+				3 \amp a \amp b \\
+				0 \amp 3 \amp c \\
+				0 \amp 0 \amp 3
+			\end{bmatrix}
+		</me>.
+	</p></introduction>
+	<task xml:id="activity-cayley-hamilton-scalar-triang-case-evals"><p>
+		What are the eigenvalues of <m>S</m>?
+		What are their algebraic multiplicities?
+		(You should be able to determine this just by inspection.)
+	 </p></task>
+	<task xml:id="activity-cayley-hamilton-scalar-triang-char-poly"><p>
+		Write the characteristic polynomial <m>c_S(\lambda)</m> in fully factored form.
+		(Using your answers <xref ref="activity-cayley-hamilton-scalar-triang-case-evals" text="type-local" />,
+		you should be able to do this without any calculation.)
+	</p></task>
+	<task>
+		<p>
+		Compute <m>c_S(S)</m> using your factored form of <m>c_S(\lambda)</m> from
+		<xref ref="activity-cayley-hamilton-scalar-triang-char-poly" text="type-local" />.
+		</p><p>
+		What happened?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-cayley-hamilton-nilpotent">
+	<introduction>
+		<p> Let's explore the pattern of <xref ref="activity-cayley-hamilton-scalar-triang-case" /> a little more. </p>
+		<p>
+		If <m>S</m> is a matrix in scalar-triangular form with eigenvalue <m>\lambda = \lambda_0</m> repeated down the diagonal,
+		then <m>\lambda I - S</m> will have form like
+		<md><mrow>
+			N_2 \amp = \begin{bmatrix} 0 \amp \ast \\ 0 \amp 0 \end{bmatrix} \text{,} \amp
+			N_3 \amp = \begin{bmatrix} 0 \amp \ast \amp \ast \\ 0 \amp 0 \amp \ast \\ 0 \amp 0 \amp 0 \end{bmatrix} \text{,} \amp
+			N_4 \amp = \begin{bmatrix} 0 \amp \ast \amp \ast \amp \ast \\ 0 \amp 0 \amp \ast \amp \ast \\ 0 \amp 0 \amp 0 \amp \ast \\ 0 \amp 0 \amp 0 \amp 0 \end{bmatrix} \text{,}
+		</mrow></md>
+		or similarly for larger sizes.
+		</p>
+	</introduction>
+	<task>
+		<p> Compute power <m>N_2^2</m>. </p>
+		<p> Compute powers <m>N_3^2</m>, <m>N_3^2</m>. </p>
+		<p> Compute powers <m>N_4^2</m>, <m>N_4^3</m>, <m>N_4^4</m>. </p>
+		<p> What is the pattern? </p>
+	</task>
+	<task>
+		<p>
+		What are the eigenvalues of each of <m>N_2</m>, <m>N_3</m>, <m>N_4</m>?
+		What are the algebraic multiplicities of these eigenvalues?
+		</p>
+		<p> What is the characteristic polynomial of each of <m>N_2</m>, <m>N_3</m>, <m>N_4</m>? </p>
+	</task>
+</activity>
+
+<activity xml:id="activity-cayley-hamilton-triang-block-case">
+	<p>
+	Repeat the tasks of <xref ref="activity-cayley-hamilton-scalar-triang-case" />
+	using the matrix
+	<me>
+		T = \left[\begin{array}{rrrrr}
+			3 \amp \ast \amp \ast \\
+			0 \amp 3 \amp \ast \\
+			0 \amp 0 \amp 3 \\
+			\amp \amp \amp -1 \amp \ast \\
+			\amp \amp \amp 0 \amp -1
+		\end{array}\right]
+	</me>
+	in place of <m>S</m>,
+	treating the <m>\ast</m> entries as <q>don't care</q> values.
+	</p><p>
+	When you compute <m>c_T(T)</m>,
+	you may wish to use the patterns you discovered in
+	<xref ref="activity-cayley-hamilton-matrix-poly-diag" />
+	and
+	<xref ref="activity-cayley-hamilton-scalar-triang-case" />
+	to speed things up.
+	</p>
+</activity>
+
+<activity xml:id="activity-cayley-hamilton-triang-general-case"><p>
+	Based on <xref ref="activity-cayley-hamilton-triang-block-case" />,
+	make a conjecture about the relationship between a matrix <m>A</m> and its characteristic polynomial <m>c_A(\lambda)</m>.
+	In doing this, you should consider the following:
+	<ul>
+		<li> every matrix is similar to a triangular block matrix (at least over <m>\C</m>, anyway), and </li>
+		<li> the pattern of <xref ref="activity-cayley-hamilton-matrix-poly-similarity" />. </li>
+	</ul>
+</p></activity>
+
+<activity xml:id="activity-cayley-hamilton-det-trace-vs-evals-charpoly">
+	<introduction><p>
+		Again, for this discovery activity you should keep in mind that if we work over <m>\C</m>,
+		then <em>every</em> matrix is similar to one in triangular block form
+		(<xref ref="theorem-triang-block-form" />).
+	</p></introduction>
+	<task xml:id="activity-cayley-hamilton-det-trace-vs-evals-charpoly-det">
+		<statement><p> Make a conjecture about the relationship between the eigenvalues and the determinant of a matrix. </p></statement>
+		<hint><p>
+			See
+			<xref ref="proposition-det-special-forms-triangular">Statement</xref>
+			of
+			<xref ref="proposition-det-special-forms" />,
+			<xref ref="proposition-eigen-values-vectors-special-forms" />,
+			<xref ref="proposition-similarity-similar-same-det" />,
+			and
+			<xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />.
+		</p></hint>
+	</task>
+	<task xml:id="activity-cayley-hamilton-det-trace-vs-evals-charpoly-constant-term">
+		<p>
+		The characteristic polynomial of a matrix always factors (over <m>\C</m>) as
+		<md><mrow xml:id="equation-cayley-hamilton-discovery-general-char-poly" tag="star">
+			c(\lambda) = (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
+		</mrow></md>,
+		where the <m>\lambda_j</m> are the eigenvalues of the matrix and the <m>m_j</m> are the corresponding algebraic multiplicities.
+		</p><p>
+		If you were to expand the characteristic polynomial out completely again,
+		what would the constant term be?
+		Can you make a connection between this pattern and that of
+		<xref ref="activity-cayley-hamilton-det-trace-vs-evals-charpoly-det" text="type-local" />?
+		</p>
+	</task>
+	<task xml:id="activity-cayley-hamilton-det-trace-vs-evals-charpoly-trace"><p>
+		Recall that the <term>trace</term> of a matrix is the sum of the diagonal entries.
+		It turns out that similar matrices also have the same trace.
+		<todo>
+			Make proper XREF if similar-implies-trace is added to similarity chapter.
+			(It's already in diagonalizability chapter.)
+		</todo>
+		Similar to <xref ref="activity-cayley-hamilton-det-trace-vs-evals-charpoly-det" text="type-local" />,
+		make a conjecture about the relationship between the eigenvalues and the trace of a matrix.
+	</p></task>
+	<task xml:id="activity-cayley-hamilton-det-trace-vs-evals-charpoly-lambda-nm1-term"><p>
+		Similar to <xref ref="activity-cayley-hamilton-det-trace-vs-evals-charpoly-constant-term" text="type-local" />,
+		if you were to expand the characteristic polynomial in
+		<xref ref="equation-cayley-hamilton-discovery-general-char-poly" />
+		out completely again,
+		what would the coefficient on the <m>\lambda^{n-1}</m> term be?
+		Can you make a connection between this pattern and that of
+		<xref ref="activity-cayley-hamilton-det-trace-vs-evals-charpoly-trace" text="type-local" />?
+	</p></task>
+</activity>
+
+</worksheet>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-cayley-hamilton-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-cayley-hamilton-examples-matrix-poly" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-examples-matrix-poly" /></em></li>
+<li><xref ref="subsection-cayley-hamilton-examples-nilpotent" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-examples-nilpotent" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-cayley-hamilton-examples-matrix-poly">
+<title>Matrix polynomials</title>
+
+<example><title>Evaluating a matrix polynomial</title>
+	<p>
+	Consider again the polynomial
+	<me> p(x) = x^2 - 3x + 6 </me>
+	from <xref ref="activity-cayley-hamilton-matrix-poly" />.
+	As in <xref ref="subsection-cayley-hamilton-concepts-matrix-poly" />,
+	we rewrite this as
+	<me> p(X) = X^2 - 3X + 6I_n </me>,
+	where the indeterminate <m>X</m> now represents an <m>n \times n</m> matrix.
+	We have also written <m>I_n</m> to represent the <m>n \times n</m> identity matrix so that we can be specific about the size of identity used.
+	</p><p>
+	First, let's try substituting the <m>2 \times 2</m> matrix
+	<me> A = \left[\begin{array}{rc} 1 \amp 2 \\ -1 \amp 3 \end{array}\right] </me>
+	into <m>p(X)</m>:
+	<md>
+		<mrow> p(A) \amp= A^2 - 3A + 6I_2 </mrow>
+		<mrow>
+			\amp=
+			\left[\begin{array}{rc}
+				-1 \amp 8 \\
+				-4 \amp 7
+			\end{array}\right]
+			-
+			\left[\begin{array}{rc}
+				3 \amp 6 \\
+				-3 \amp 9
+			\end{array}\right]
+			+
+			\begin{bmatrix}
+				6 \amp 0\\
+				0 \amp 6
+			\end{bmatrix}
+		</mrow>
+		<mrow> \amp= \left[\begin{array}{rc} 2 \amp 2 \\ -1 \amp 4 \end{array}\right] </mrow>
+	</md>.
+	</p><p>
+	Now here's an example of substituting the diagonal <m>3 \times 3</m> matrix
+	<me>
+		D =
+		\left[\begin{array}{crc}
+			5 \amp 0 \amp 0 \\
+			0 \amp -1 \amp 0 \\
+			0 \amp 0 \amp 4
+		\end{array}\right]
+	</me>
+	into <m>p(X)</m>.
+	Notice how the result matrix is diagonal with the result of evaluating the polynomial at each diagonal entry down the main diagonal.
+	<md>
+		<mrow> p(D) \amp= D^2 - 3D + 6I_3 </mrow>
+		<mrow>
+			\amp =
+			\begin{bmatrix}
+				25 \amp 0 \amp 0\\
+				0 \amp 1 \amp 0\\
+				0 \amp 0 \amp 16
+			\end{bmatrix}
+			-
+			\left[\begin{array}{crc}
+				15 \amp 0 \amp 0\\
+				0 \amp -3 \amp 0\\
+				0 \amp 0 \amp 12
+			\end{array}\right]
+			+
+			\begin{bmatrix}
+				6 \amp 0 \amp 0\\
+				0 \amp 6 \amp 0\\
+				0 \amp 0 \amp 6
+			\end{bmatrix}
+		</mrow><mrow>
+			\amp=
+			\begin{bmatrix}
+				16 \amp 0 \amp 0\\
+				0 \amp 10 \amp 0\\
+				0 \amp 0 \amp 10
+			\end{bmatrix}
+		</mrow>
+	</md>
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-cayley-hamilton-examples-nilpotent">
+<title>Nilpotent matrices</title>
+
+<example xml:id="example-cayley-hamilton-super-sub-diag-patterns">
+	<title>Patterns of super- and sub-diagonals in powers of a triangular nilpotent matrix</title>
+	<p>
+	Here are two examples, one upper and one lower triangular,
+	of powers of nilpotent matrices.
+	Notice how the main diagonal of zeros marches up the super-diagonals of the upper triangular powers and down the sub-diagonals in the lower triangular powers,
+	until eventually the entire matrix becomes zero.
+	(We have omitted the zeros below the main diagonal in the upper triangular example and above the main diagonal in the lower triangular example to emphasize this pattern.)
+	<md>
+		<mrow>
+			U \amp =
+			\begin{bmatrix}
+				0 \amp 1 \amp 1 \amp 1 \amp 1 \\
+				  \amp 0 \amp 1 \amp 1 \amp 1 \\
+				  \amp   \amp 0 \amp 1 \amp 1 \\
+				  \amp   \amp   \amp 0 \amp 1 \\
+				  \amp   \amp   \amp   \amp 0
+			\end{bmatrix}
+			\amp
+			L \amp =
+			\begin{bmatrix}
+				0 \\
+				1 \amp 0 \\
+				1 \amp 1 \amp 0 \\
+				1 \amp 1 \amp 1 \amp 0 \\
+				1 \amp 1 \amp 1 \amp 1 \amp 0
+			\end{bmatrix}
+		</mrow><mrow>
+			U^2 \amp =
+			\begin{bmatrix}
+				0 \amp 0 \amp 1 \amp 2 \amp 3 \\
+				  \amp 0 \amp 0 \amp 1 \amp 2 \\
+				  \amp   \amp 0 \amp 0 \amp 1 \\
+				  \amp   \amp   \amp 0 \amp 0 \\
+				  \amp   \amp   \amp   \amp 0
+			\end{bmatrix}
+			\amp
+			L^2 \amp =
+			\begin{bmatrix}
+				0 \\
+				0 \amp 0 \\
+				1 \amp 0 \amp 0 \\
+				2 \amp 1 \amp 0 \amp 0 \\
+				3 \amp 2 \amp 1 \amp 0 \amp 0
+			\end{bmatrix}
+		</mrow><mrow>
+			U^3 \amp =
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 1 \amp 3 \\
+				  \amp 0 \amp 0 \amp 0 \amp 1 \\
+				  \amp   \amp 0 \amp 0 \amp 0 \\
+				  \amp   \amp   \amp 0 \amp 0 \\
+				  \amp   \amp   \amp   \amp 0
+			\end{bmatrix}
+			\amp
+			L^3 \amp =
+			\begin{bmatrix}
+				0 \\
+				0 \amp 0 \\
+				0 \amp 0 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0 \\
+				3 \amp 1 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+		</mrow><mrow>
+			U^4 \amp =
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+				  \amp 0 \amp 0 \amp 0 \amp 0 \\
+				  \amp   \amp 0 \amp 0 \amp 0 \\
+				  \amp   \amp   \amp 0 \amp 0 \\
+				  \amp   \amp   \amp   \amp 0
+			\end{bmatrix}
+			\amp
+			L^4 \amp =
+			\begin{bmatrix}
+				0 \\
+				0 \amp 0 \\
+				0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+		</mrow><mrow>
+			U^5 \amp = \zerovec
+			\amp
+			L^5 \amp = \zerovec
+		</mrow>
+	</md>
+</p></example>
+
+<example xml:id="example-cayley-hamilton-scalar-triang-nilpotent">
+	<title>Scalar-triangular matrices with <m>\lambda = 0</m></title>
+	<p>
+	A scalar-triangular matrix with <m>\lambda = 0</m> repeated down the main diagonal is always nilpotent.
+	The <m>5 \times 5</m> matrices in <xref ref="example-cayley-hamilton-super-sub-diag-patterns" />
+	were both of this form,
+	but it is not necessary to have a super- or sub-diagonal of ones to be nilpotent.
+	<md>
+		<mrow>
+			U_2 \amp=
+			\begin{bmatrix}
+				0 \amp a \\
+				0 \amp 0
+			\end{bmatrix}
+			\amp
+			U_3 \amp=
+			\begin{bmatrix}
+				0 \amp a \amp b \\
+				0 \amp 0 \amp c \\
+				0 \amp 0 \amp 0
+			\end{bmatrix}
+			\amp
+			U_4 \amp=
+			\begin{bmatrix}
+				0 \amp a \amp b \amp c \\
+				0 \amp 0 \amp d \amp e \\
+				0 \amp 0 \amp 0 \amp f \\
+				0 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+		</mrow><mrow>
+			U_2^2 \amp= \zerovec
+			\amp
+			U_3^2
+			\amp=
+			\begin{bmatrix}
+				0 \amp 0 \amp ac \\
+				0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0
+			\end{bmatrix}
+			\amp
+			U_4^2 \amp=
+			\begin{bmatrix}
+				0 \amp 0 \amp bd \amp ae + bf \\
+				0 \amp 0 \amp 0 \amp df \\
+				0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+		</mrow><mrow>
+			\amp \amp
+			U_3^3 \amp= \zerovec
+			\amp
+			U_4^3 \amp=
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp adf \\
+				0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+			\amp
+		</mrow><mrow>
+			\amp \amp
+			\amp \amp
+			U_4^4 \amp= \zerovec
+		</mrow>
+	</md>
+</p></example>
+
+
+<example xml:id="example-cayley-hamilton-non-triang-nilpotent">
+	<title>A non-triangular nilpotent matrix</title>
+	<p>
+	Matrices can be nilpotent without being scalar-triangular.
+	And while we will see that the size of a nilpotent matrix is the upper bound for when its powers first become zero
+	(<xref ref="corollary-cayley-hamilton-max-nilpotency" />
+	in <xref ref="subsection-cayley-hamilton-theory-nilpotent" />),
+	it can occur before that too.
+	<md>
+		<mrow>
+			N \amp =
+			\left[\begin{array}{rrrrr}
+				 1 \amp -2 \amp -1 \amp -1 \amp  0 \\
+				-1 \amp -2 \amp -2 \amp  0 \amp  1 \\
+				 0 \amp  1 \amp  1 \amp  0 \amp  0 \\
+				 3 \amp  1 \amp  2 \amp -1 \amp -2 \\
+				 0 \amp -3 \amp -2 \amp -1 \amp  1
+			\end{array}\right]
+		</mrow><mrow>
+			N^2 \amp =
+			\left[\begin{array}{rrrrr}
+				 0 \amp  0 \amp  0 \amp 0 \amp  0 \\
+				 1 \amp  1 \amp  1 \amp 0 \amp -1 \\
+				-1 \amp -1 \amp -1 \amp 0 \amp  1 \\
+				-1 \amp -1 \amp -1 \amp 0 \amp  1 \\
+				 0 \amp  0 \amp  0 \amp 0 \amp  0
+			\end{array}\right]
+		</mrow><mrow>
+			N^3 \amp = \zerovec
+		</mrow>
+	</md>
+	In a future chapter, <todo>PROPER XREF this is the example from the nilp-triang.tex</todo>
+	we will see that this particular nilpotent <m>5 \times 5</m> matrix becomes zero at the third power instead of just at the fifth power because it has a smaller <m>3 \times 3</m> nilpotent block <q>hiding</q> inside it.
+</p></example>
+
+</subsection>
+
+</section>

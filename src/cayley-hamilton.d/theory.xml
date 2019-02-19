@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-cayley-hamilton-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-cayley-hamilton-theory-nilpotent" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-theory-nilpotent" /></em></li>
+<li><xref ref="subsection-cayley-hamilton-theory-theorem" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-theory-theorem" /></em></li>
+<li><xref ref="subsection-cayley-hamilton-theory-more" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-cayley-hamilton-theory-more" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-cayley-hamilton-theory-nilpotent">
+<title>Nilpotent matrices</title>
+
+<p> First, we establish the pattern we've seen so many times in this chapter already. </p>
+
+<lemma xml:id="lemma-cayley-hamilton-scalar-triang-nilpotent">
+	<title>Scalar-triangular with <m>\lambda = 0</m> is nilpotent</title>
+	<statement><p>
+		A scalar-triangular matrix <m>A</m> with <m>\lambda = 0</m> down the main diagonal will satisfy <m>A^n = 0</m>,
+		where <m>n</m> is the size of <m>A</m>.
+		In particular, such a matrix is always nilpotent.
+	</p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		We omit a detailed proof,
+		relying on <xref ref="example-cayley-hamilton-scalar-triang-nilpotent" /> to demonstrate the pattern.
+		</p><p>
+		However, a proof by induction is fairly straightforward,
+		as a matrix of this form can be broken up into a block matrix
+		<me> A = \left[\begin{array}{@{}c|c@{}} 0 \amp R \\ \hline \zerovec \amp B \end{array}\right] </me>,
+		where <m>B</m> is an <m>(n-1) \times (n-1)</m> matrix of the same form,
+		<m>R</m> is a <m>1 \times (n-1)</m> row vector,
+		and <m>\zerovec</m> represents an <m>(n-1) \times 1</m> zero vector.
+		Using the pattern of block multiplication from <xref ref="subsection-block-diag-concepts-block-ops" />,
+		one can calculate
+		<me> A^k = \left[\begin{array}{@{}c|c@{}} 0 \amp RB^{k-1} \\ \hline \zerovec \amp B^k \end{array}\right] </me>
+		for any positive exponent <m>k</m>,
+		and from there the result follows readily using the appropriate induction hypothesis.
+		</p>
+	</proof>
+</lemma>
+
+<p>
+Despite the lemma above,
+keep <xref ref="example-cayley-hamilton-non-triang-nilpotent" /> in mind here <mdash />
+a matrix does not have to be triangular to be nilpotent.
+</p>
+
+<proposition><title>Eigenvalues and characteristic polynomial of nilpotent</title>
+	<statement><p>
+		A nilpotent matrix always has only a single eigenvalue <m>\lambda = 0</m>,
+		and its characteristic polynomial must be <m>c(\lambda) = \lambda^n</m>.
+	</p></statement>
+	<proof>
+		<p>
+		Suppose <m>A</m> is a square matrix,
+		<m>\lambda = \lambda_0</m> is an eigenvalue of <m>A</m>,
+		and <m>\uvec{x}</m> is a (nonzero) eigenvector of <m>A</m> corresponding to <m>\lambda_0</m>.
+		For every positive exponent <m>k</m>, we have
+		<me> A^k \uvec{x} = \lambda_0^k \uvec{x} </me>.
+		But if <m>A</m> is nilpotent with <m>A^k = \zerovec</m> for some <m>k</m>,
+		then the above becomes
+		<me> \zerovec = \lambda_0^k \uvec{x} </me>.
+		Since <m>\uvec{x}</m> is assumed nonzero,
+		we must have <m>\lambda_0^k = 0</m>
+		(<xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-eq-zero">Rule</xref>
+		of
+		<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />),
+		which forces <m>\lambda = 0</m> as well.
+		</p><p>
+		We have established that <m>A</m> cannot have any eigenvalues besides <m>0</m>, real or complex,
+		and the assertion that <m>c_A(\lambda) = \lambda^n</m> follows.
+		</p>
+	</proof>
+</proposition>
+
+<p>
+While a matrix does not have to be triangular to be nilpotent,
+combining the above proposition with
+<xref ref="corollary-triang-block-scalar-triang" />
+does tell us the following.
+</p>
+
+<corollary xml:id="corollary-cayley-hamilton-triang-block-nilpotent">
+	<title>Triangular block form of nilpotent matrices</title>
+	<statement><p>
+		Every nilpotent matrix is similar to a scalar-triangular matrix with <m>\lambda = 0</m> down the main diagonal.
+	</p></statement>
+</corollary>
+
+<p> This corollary in turn tells us about the maximum exponent required to take a nilpotent matrix to zero. </p>
+
+<corollary xml:id="corollary-cayley-hamilton-max-nilpotency">
+	<title>Maximum degree of nilpotency</title>
+	<statement><p>
+		If <m>A</m> is an <m>n \times n</m> nilpotent matrix,
+		then <m>A^n = \zerovec</m>.
+	</p></statement>
+	<proof><p>
+		By <xref ref="corollary-cayley-hamilton-triang-block-nilpotent" />,
+		<m>A</m> is similar to a scalar-triangular matrix <m>T</m> with <m>\lambda = 0</m> down the main diagonal.
+		Applying <xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" /> to <m>T</m>,
+		we have <m>T^n = \zerovec</m>.
+		But <xref ref="proposition-similarity-powers" /> tells us that <m>A^n</m> will be similar to <m>T^n</m>,
+		and the only matrix that is similar to the zero matrix is the zero matrix itself
+		(<xref ref="proposition-similarity-scalar-sim-classes" />),
+		from which we can conclude that <m>A^n = \zerovec</m>.
+	</p></proof>
+</corollary>
+
+<remark><p>
+	<xref ref="example-cayley-hamilton-non-triang-nilpotent" /> demonstrates that powers of a nilpotent matrix can become zero <em>before</em> the exponent reaches the size of the matrix.
+	We call the first exponent where zero occurs the <term>degree of nilpotency</term> of the matrix,
+	a concept that will become important in completing our study of matrix forms.
+	<todo>PROPER XREF?</todo>
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-cayley-hamilton-theory-theorem">
+<title>The Cayley-Hamilton Theorem</title>
+
+<p>
+First,
+we establish the similarity pattern of matrix polynomials explored in
+<xref ref="activity-cayley-hamilton-matrix-poly-similarity" />
+and discussed in
+<xref ref="subsection-cayley-hamilton-concepts-matrix-poly" />.
+</p>
+
+<lemma xml:id="lemma-cayley-hamilton-poly-of-similar"> <!-- old label \label{LEM::poly.of.conjugate} -->
+	<title>Similar matrices evaluate to similar results</title>
+	<statement><p>
+		Suppose <m>p(x)</m> is a polynomial and <m>A</m> and <m>P</m> are square matrices of the same size with <m>P</m> invertible.
+		Then, <me> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </me>.
+	</p></statement>
+	<proof><title>Proof outline</title><p>
+		The case that <m>p(x)</m> consists of just a power of <m>x</m>,
+		so that <m>p(x) = x^k</m>,
+		is proved exactly as in the proof of
+		<xref ref="proposition-similarity-powers" />.
+		And then the case of a general polynomial
+		<me> p(x) = a_0 + a_1 x + a_2 x^2 + \dotsb + a_m x^m </me>
+		follows from single-power case,
+		and is left as an exercise for you, the reader.
+	</p></proof>
+</lemma>
+
+<p> Now we'll record and prove the main result of this chapter. </p>
+
+<theorem xml:id="theorem-cayley-hamilton">
+	<idx><h>Cayley-Hamilton Theorem</h></idx>
+	<idx><h>Theorem</h><h>Cayley-Hamilton</h></idx>
+	<title>The Cayley-Hamilton Theorem</title>
+	<statement><p> For every square matrix <m>A</m>, <m>c_A(A) = \zerovec</m>. </p></statement>
+	<proof>
+		<p>
+		As in <xref ref="activity-cayley-hamilton-triang-block-case" />,
+		first we will prove the statement in the case that <m>A</m> is a matrix in triangular block form.
+		The eigenvalues of such a matrix are precisely the diagonal entries,
+		and each algebraic multiplicity is equal to the size of the corresponding scalar-triangular block along the block diagonal.
+		So the characteristic polynomial of <m>A</m> will be of the form
+		<md><mrow xml:id="equation-cayley-hamilton-fully-factored-char-poly" tag="star">
+			c_A(\lambda) = (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
+		</mrow></md>,
+		where we assume that the linear factors appear in the same order according to eigenvalue that the scalar-triangular blocks appear down the block diagonal of <m>A</m>.
+		Evaluating <m>c_A(\lambda)</m> at <m>A</m> gives
+		<me> c_A(A) = (A - \lambda_1 I)^{m_1} (A - \lambda_2 I)^{m_2} \dotsm (A - \lambda_\ell I)^{m_\ell} </me>.
+		Now, each linear expression
+		<me> A - \lambda_j I </me>
+		will also be in triangular block form,
+		but the blocks will now have the <em>differences</em> of eigenvalues against the specific eigenvalue <m>\lambda_j</m> down their main diagonals.
+		In particular, the <m>\nth[j]</m> scalar-triangular block will have zero repeated down the main diagonal.
+		And since that <m>\nth[j]</m> block has size equal to the corresponding algebraic multiplicity <m>m_j</m>,
+		raising it to the exponent <m>m_j</m> will result in the zero matrix
+		(<xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" />).
+		Applying <xref ref="proposition-block-diag-props-products-powers">Statement</xref>
+		of <xref ref="proposition-block-diag-props" />,
+		each factor
+		<me> (A - \lambda_j I)^{m_j} </me>
+		will have a zero block,
+		and these will appear in descending positions down the block diagonal from factor to factor as <m>j</m> increases from <m>1</m> to <m>\ell</m>.
+		Multiplying these factors together is achieved by multiplying together all the corresponding block matrices from the block diagonals,
+		and this will result in zero for each block position since each such product will have a zero factor in it.
+		Therefore, <m>c_A(A) = \zerovec</m>.
+		</p><p>
+		Now we proceed as in <xref ref="activity-cayley-hamilton-triang-general-case" />.
+		Suppose that <m>A</m> is a general square matrix,
+		not necessarily in any special form.
+		Even if <m>A</m> is a real matrix,
+		we will consider it to be a complex matrix (every real number is also a complex number!),
+		and we will work over the field of scalars <m>\C</m>.
+		<xref ref="theorem-complex-fund-thm-alg-complex" text="title" /> implies that every polynomial,
+		considered as a complex polynomial,
+		factors completely into linear factors.
+		(See <xref ref="corollary-complex-fund-thm-alg-complex-factoring" />.)
+		Therefore, the characteristic polynomial of <m>A</m> can be factored completely as in
+		<xref ref="equation-cayley-hamilton-fully-factored-char-poly" /> above,
+		and so <xref ref="theorem-triang-block-form" />
+		can be applied to obtain a matrix <m>T</m> in triangular block form to which <m>A</m> is similar.
+		From the first case above, we know <me> c_T(T) = \zerovec </me>.
+		But similar matrices have the same characteristic polynomial
+		(<xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />)
+		and evaluate to similar results in polynomials
+		(<xref ref="lemma-cayley-hamilton-poly-of-similar" />),
+		so <m> c_A(A) </m> is similar to <m> c_T(T) = \zerovec </m>.
+		However, the only matrix that is similar to the zero matrix is the zero matrix itself,
+		so we can conclude that <me> c_A(A) = \zerovec </me>.
+		</p>
+	</proof>
+</theorem>
+
+</subsection>
+
+<subsection xml:id="subsection-cayley-hamilton-theory-more">
+<title>More consequences of triangular block form</title>
+
+<p>
+Finally,
+we'll record the patterns we discovered in
+<xref ref="activity-cayley-hamilton-det-trace-vs-evals-charpoly" />.
+</p>
+
+<theorem>
+	<title>Determinant and trace versus characteristic polynomial and eigenvalues</title>
+	<statement><p>
+		Suppose <m>A</m> is an <m>n \times n</m> matrix.
+		<ol>
+			<li><p><ol>
+				<li>
+					The determinant of <m>A</m> is equal to the product of its eigenvalues, both real and complex,
+					and with each eigenvalue repeated in the product according to its algebraic multiplicity.
+				</li>
+				<li> The constant term in the characteristic polynomial of <m>A</m> is always <m>(-1)^n \det A</m>. </li>
+			</ol></p></li>
+			<li><p><ol>
+				<li>
+					The trace of <m>A</m> is equal to the sum of its eigenvalues, both real and complex,
+					and with each eigenvalue repeated in the sum according to its algebraic multiplicity.
+				</li>
+				<li> The <m>\lambda^{n-1}</m> term in the characteristic polynomial of <m>A</m> always has coefficient <m>- \trace A</m>. </li>
+			</ol></p></li>
+		</ol>
+	</p></statement>
+	<proof>
+		<p>
+		Since similar matrices have the same determinant, trace, characteristic polynomial, and eigenvalues,
+		and since every matrix is similar (over <m>\C</m>) to a matrix in triangular block form,
+		it suffices to consider the case of triangular block form.
+		So suppose <m>A</m> is a triangular block matrix,
+		and its characteristic polynomial factors as a complex polynomial into
+		<md><mrow xml:id="equation-cayley-hamilton-fully-factored-char-poly2" tag="dstar">
+			c_A(\lambda) = (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
+		</mrow></md>.
+		</p><p>
+		The <m>\nth[j]</m> block of <m>A</m> is scalar-triangular with determinant equal to <m>\lambda_j^{m_j}</m>,
+		the product of its diagonal entries.
+		Applying <xref ref="proposition-block-diag-props-det">Statement</xref>
+		of <xref ref="proposition-block-diag-props" />,
+		we immediately get
+		<me> \det A = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </me>.
+		Determining the constant term of <m>c_A(\lambda)</m> is as easy as evaluating the polynomial at <m>\lambda = 0</m>,
+		which yields
+		<md>
+			<mrow> c_A(0) \amp = (- \lambda_1)^{m_1} (- \lambda_2)^{m_2} \dotsm (- \lambda_\ell)^{m_\ell} </mrow>
+			<mrow> \amp = (-1)^{m_1 + m_2 + \dotsb + m_\ell} \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </mrow>
+			<mrow> \amp = (-1)^n \det A </mrow>
+		</md>,
+		where
+		<me> m_1 + m_2 + \dotsb + m_\ell = n </me>
+		because the degree of a characteristic polynomial is always equal to the size of the matrix.
+		</p><p>
+		Similarly, the trace of the <m>\nth[j]</m> block of <m>A</m> is equal to <m>m_j \lambda_j</m>,
+		the sum of its diagonal entries.
+		The trace of <m>A</m> is then clearly equal to the sum of these sums of diagonal entries, so that
+		<me> \trace A = m_1 \lambda_1 + m_2 \lambda_2 + \dotsb + m_\ell \lambda_\ell </me>.
+		To investigate the coefficient on <m>\lambda^{n-1}</m> in
+		<xref ref="equation-cayley-hamilton-fully-factored-char-poly2" />,
+		first consider this expression as
+		<me> c_A(\lambda) = \bigl[(\lambda - \lambda_1) \dotsm (\lambda - \lambda_1)\bigr] \dotsm \bigl[(\lambda - \lambda_\ell) \dotsm (\lambda - \lambda_\ell)\bigr] </me>,
+		where each factor is repeated according to algebraic multiplicity.
+		Similar to how the Binomial Theorem is investigated,
+		in expanding the above expression we get a term involving <m>\lambda^{n-1}</m> by choosing <m>\lambda</m> from all but one of the linear factors and choosing <m>(-\lambda_j)</m> from the remaining factor,
+		and multiplying all these choices together.
+		Each such product will be equal to <m>-\lambda_j \lambda^{n-1}</m>,
+		and we get <m>m_j</m> such terms for each eigenvalue because there are <m>m_j</m> linear factors involving that eigenvalue to end up as the <q>remaining factor</q> in our choices.
+		Collecting these like terms,
+		the coefficient on the term involving <m>\lambda^{n-1}</m> is
+		<me>
+			- m_1 \lambda_1 - m_2 \lambda_2 - \dotsb - m_\ell \lambda_\ell
+			= - \trace A
+		</me>.
+		</p>
+	</proof>
+</theorem>
+
+
+</subsection>
+
+</section>
