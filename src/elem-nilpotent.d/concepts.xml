@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-elem-nilpotent-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-elem-nilpotent-concepts-past-triang-block" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-nilpotent-concepts-past-triang-block" /></em></li>
+<li><xref ref="subsection-elem-nilpotent-concepts-similarity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-nilpotent-concepts-similarity" /></em></li>
+<li><xref ref="subsection-elem-nilpotent-concepts-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-nilpotent-concepts-proc" /></em></li>
+<li><xref ref="subsection-elem-nilpotent-concepts-cyclic" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-nilpotent-concepts-cyclic" /></em></li>
+</ul></p></assemblage>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-elem-nilpotent-concepts-past-triang-block">
+<title>Moving past triangular block form</title>
+
+<p>
+In <xref ref="activity-elem-nilpotent-moving-past-triang-block" />,
+we first reminded ourselves that similarity is <term>transitive</term>,
+and applied this fact with triangular block form as an intermediate form:
+if a matrix is similar to a triangular block matrix,
+and that triangular block matrix is similar to another (hopefully simpler) matrix,
+then the first matrix is also similar to the third matrix.
+So in our quest to determine a uniform answer to
+<xref ref="question-block-diag-motivation-similarity-class-reps" />,
+we can attempt to move past triangular block form by concentrating on that form itself.
+</p><p>
+As in <xref ref="activity-elem-nilpotent-moving-past-triang-block" />,
+consider triangular block form matrix
+<me> T = \begin{bmatrix} T_1 \\ \amp T_2 \\ \amp \amp \ddots \\ \amp \amp \amp T_\ell \end{bmatrix} </me>,
+where each block <m>T_j</m> is a scalar-triangular form.
+We would like to construct a transition matrix <m>Q</m> so that <m>\inv{Q} T Q</m> is somehow even simpler in form than <m>T</m>.
+There are aspects of triangular block form that make it particularly simple,
+and we don't want to mess those up.
+But if we restrict ourselves to working with transition matrices
+<me> Q = \begin{bmatrix} Q_1 \\ \amp Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp Q_\ell \end{bmatrix} </me>
+that are also in block-diagonal form,
+with the same number and sizes of blocks as <m>T</m>,
+then the algebra of block-diagonal matrices
+(<xref ref="proposition-block-diag-props-products-powers">Statement</xref>
+of <xref ref="proposition-block-diag-props" />)
+tells us that
+<me> \inv{Q} T Q = \begin{bmatrix} \inv{Q}_1 T_1 Q_1 \\ \amp \inv{Q}_2 T_2 Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp \inv{Q}_\ell T_\ell Q_\ell \end{bmatrix} </me>.
+So instead of focusing on how to make triangular block form simpler,
+we can focus on how to make each scalar-triangular block simpler.
+</p><p>
+A scalar-triangular matrix <m>S</m> can be decomposed as a sum of a scalar matrix and an upper triangular matrix,
+<me> S = \lambda I + N </me>,
+where the upper triangular matrix has zeros down the diagonal.
+(See <xref ref="equation-cayley-hamilton-scalar-triang-decomp" />
+in <xref ref="subsection-cayley-hamilton-concepts-nilpotent" />.)
+If <m>Q</m> is any transition matrix,
+then
+<me> \inv{Q} S Q = \inv{Q} (\lambda I + N) Q = \lambda \inv{Q} I Q + \inv{Q} N Q = \lambda I + \inv{Q} N Q </me>,
+so again we can narrow our focus onto how to make matrices of the form of <m>N</m> simpler through similarity.
+And since an upper triangular matrix of this form is always nilpotent
+(<xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" />),
+we should turn our attention to the similarity patterns of nilpotent matrices.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-nilpotent-concepts-similarity">
+<title>The similarity pattern of elementary nilpotent form</title>
+
+<p>
+As uncovered in <xref ref="activity-elem-nilpotent-similar-to-nilpotent" />,
+nilpotent matrices can only be similar to other nilpotent matrices.
+And as discussed in <xref ref="section-elem-nilpotent-motivation" />,
+it might be fruitful to first examine the case of nilpotent matrices that are similar to
+<term><xref ref="definition-elem-nilpotent-form" text="title" /></term>.
+</p>
+<aside><title>Triangular switch</title><p>
+	Here we are switching from an upper triangular form to a lower triangular form so that the pattern we are about to uncover is more obvious.
+</p></aside>
+<p>
+We'll follow the example of <xref ref="activity-elem-nilpotent-transition-col-pattern" />
+and consider the <m>4 \times 4</m> case.
+Suppose that <m>A</m> is similar to
+<me> N = \begin{bmatrix} 0 \amp 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \end{bmatrix} </me>.
+Using <xref ref="pattern-similarity-concepts-similarity-by-columns" />,
+we know that <m>\inv{P} A P = N</m> can only be true if
+<md>
+	<mrow>
+		A\uvec{p}_1 \amp = 0\uvec{p}_1 + 1 \uvec{p}_2 + 0\uvec{p}_3 + 0\uvec{p}_4 \text{,}
+	</mrow><mrow>
+		A\uvec{p}_2 \amp = 0\uvec{p}_1 + 0 \uvec{p}_2 + 1\uvec{p}_3 + 0\uvec{p}_4 \text{,}
+	</mrow><mrow>
+		A\uvec{p}_3 \amp = 0\uvec{p}_1 + 0\uvec{p}_2 + 0\uvec{p}_3 + 1\uvec{p}_4 \text{,}
+	</mrow><mrow>
+		A\uvec{p}_4 \amp = 0\uvec{p}_1 + 0\uvec{p}_2 + 0\uvec{p}_3 + 0\uvec{p}_4 \text{,}
+	</mrow>
+</md>
+where the <m>\uvec{p}_j</m> are the columns of <m>P</m>, as usual.
+Rewriting this to make it a little more clear, we have
+<md>
+	<mrow>
+		A\uvec{p}_1 \amp = \uvec{p}_2 \text{,}
+	</mrow><mrow>
+		A\uvec{p}_2 \amp = \uvec{p}_3 \text{,}
+	</mrow><mrow>
+		A\uvec{p}_3 \amp = \uvec{p}_4 \text{,}
+	</mrow><mrow>
+		A\uvec{p}_4 \amp = \zerovec \text{.}
+	</mrow>
+</md>
+The effect of multiplication by <m>A</m> on the columns of <m>P</m> seems to follow a cyclic pattern,
+though the pattern ends in the zero vector instead of wrapping back around to <m>\uvec{p}_1</m>.
+This pattern becomes more evident if we repeatedly apply <m>A</m> to <m>\uvec{p}_1</m>.
+<md>
+	<mrow>
+		A \uvec{p}_1 \amp = \uvec{p}_2 \text{,}
+	</mrow><mrow>
+		A^2 \uvec{p}_1 \amp = A(A\uvec{p}_1) = A\uvec{p}_2 = \uvec{p}_3 \text{,}
+	</mrow><mrow>
+		A^3 \uvec{p}_1 \amp = A(A^2\uvec{p}_1) = A\uvec{p}_3 = \uvec{p}_4 \text{,}
+	</mrow><mrow>
+		A^4 \uvec{p}_1 \amp = A(A^3\uvec{p}_1) = A\uvec{p}_4 = \zerovec \text{.}
+	</mrow>
+</md>
+Of course, the pattern ended at <m>A^4 \uvec{p}_1 = \zerovec</m> because <m>A</m> is <m>4 \times 4</m> nilpotent
+(<xref ref="corollary-cayley-hamilton-max-nilpotency" />).
+</p><p>
+It should be clear that the pattern will unfold in a similar manner for an <m>n \times n</m> matrix <m>A</m> that is similar to an elementary nilpotent form matrix.
+</p>
+
+<convention xml:id="pattern-elem-nilpotent-concepts-similarity">
+	<title>Similarity with an elementary nilpotent matrix</title>
+	<p>
+	For <m>n \times n</m> matrix <m>A</m> to be similar to an elementary nilpotent matrix <m>N</m> via similarity relation <m>\inv{P} A P</m>,
+	the columns <m>\uvec{p}_1,\uvec{p}_2,\dotsc,\uvec{p}_n</m> of the transition matrix <m>P</m> must satisfy the pattern
+	<me> \uvec{p}_{j+1} = A \uvec{p}_j = A^j \uvec{p}_1 </me>.
+	</p>
+</convention>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-nilpotent-concepts-proc">
+<title>Elementary nilpotent procedure</title>
+
+<p>
+According to <xref ref="pattern-elem-nilpotent-concepts-similarity" />,
+choosing the first column <m>\uvec{p}_1</m> of a transition matrix <m>P</m> automatically chooses all the other columns by
+<me> \uvec{p}_{j+1} = A^j \uvec{p}_1 </me>.
+However, none of the columns of <m>P</m> may be zero,
+since we need <m>P</m> to be invertible.
+In particular, we need
+<md><mrow xml:id="equation-elem-nilpotent-concepts-transition-pattern" tag="star">
+	\uvec{p}_n = A^{n-1} \uvec{p}_1 \ne \zerovec
+</mrow></md>.
+So while <m>A</m> must be nilpotent in order to be similar to a nilpotent matrix,
+and so will satisfy <m>A^n = \zerovec</m>
+(<xref ref="corollary-cayley-hamilton-max-nilpotency" />),
+<alert>we must have <m>A^{n-1} \ne \zerovec</m></alert>.
+</p><p>
+Note that condition <xref ref="equation-elem-nilpotent-concepts-transition-pattern" />
+is enough to guarantee that all the other columns of <m>P</m> are nonzero,
+since if
+<me> \uvec{p}_j = A^{j-1} \uvec{p}_1 = \zerovec </me>
+were true for some <m>j \lt n</m>, then
+<me> A^{n-1} \uvec{p}_1 = A^{n-j} (A^{j-1} \uvec{p}_1) = \zerovec </me>
+would be true as well.
+<!--
+But picking a <m>\uvec{p}_1</m> to satisfy
+<xref ref="equation-elem-nilpotent-concepts-transition-pattern" />
+is easy using the assumption that <m>A^{n-1} \ne \zerovec</m>.
+By this assumption,
+some column of <m>A^{n-1}</m> must be nonzero,
+and so we may simply pick <m>\uvec{p}_1 = \uvec{e}_j</m>,
+a standard basis vector corresponding to some nonzero column of <m>A^{n-1}</m>.
+In that case,
+<me> A^{n-1} \uvec{p}_1 = A^{n-1} \uvec{e}_j </me>
+will be equal to that nonzero <m>\nth[j]</m> column of <m>A^{n-1}</m>.
+-->
+</p>
+
+<algorithm xml:id="procedure-elem-nilpotent-concepts-max-nilp-elem-form">  <!-- old label  \label{PROC::max.nilp.to.triang.form}  -->
+	<title>For realizing a similarity relation between a nilpotent matrix of maximum degree of nilpotency and an elementary nilpotent matrix</title>
+	<statement>
+		<p>
+		Suppose <m>A</m> is a nilpotent <m>n \times n</m> matrix with <m>A^{n-1} \ne \zerovec</m>.
+		To determine a transition matrix <m>P</m> so that <m>\inv{P} A P</m> is in elementary nilpotent form,
+		choose a vector <m>\uvec{v}</m> in <m>\R^n</m> (or <m>\C^n</m>, as appropriate)
+		so that <m>A^{n-1} \uvec{v} \ne \zerovec</m>,
+		then form transition matrix <m>P</m> with columns
+		<md><mrow>
+			\uvec{p}_1 \amp = \uvec{v}, \amp
+			\uvec{p}_2 \amp = A \uvec{v}, \amp
+			\uvec{p}_3 \amp = A^2 \uvec{v}, \amp
+			\amp \dotsc, \amp
+			\uvec{p}_n \amp = A^{n-1} \uvec{v}.
+		</mrow></md>
+		A suitable choice can be to choose <m>\uvec{v}</m> to be a standard basis vector <m>\uvec{e}_j</m> when the <m>\nth[j]</m> column of <m>A^{n-1}</m> is nonzero.
+		</p>
+	</statement>
+</algorithm>
+
+<remark><p><ol>
+	<li>
+		Such a vector <m>\uvec{v}</m> as in the procedure must exist because the only <m>n \times n</m> matrix whose null space is all of <m>\R^n</m>
+		(or <m>\C^n</m>, as appropriate)
+		is the zero matrix.
+		Since we have assumed <m>A^{n-1} \ne \zerovec</m>,
+		there must exist vectors that are <em>not</em> in the null space of <m>A^{n-1}</m>.
+		In particular, if the <m>\nth[j]</m> column of <m>A^{n-1}</m> is nonzero,
+		then we could take <m>\uvec{v}</m> to be <m>\uvec{e}_j</m>, the <m>\nth[j]</m> standard basis vector.
+	</li>
+	<li>
+		While we have justified above that choosing <m>\uvec{v}</m> so that <m>A^{n-1} \uvec{v} \ne \zerovec</m> will guarantee that none of the columns of <m>P</m> with be zero,
+		this is not enough to guarantee that those columns will be <em>linearly independent</em>,
+		which is required for <m>P</m> to be invertible.
+		We leave this to be verified in <xref ref="section-elem-nilpotent-theory" />.
+	</li>
+</ol></p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-nilpotent-concepts-cyclic">
+<title>Cyclic subspaces</title>
+
+<p>
+In <xref ref="procedure-elem-nilpotent-concepts-max-nilp-elem-form" />,
+for the transition matrix <m>P</m> to be invertible it must be true that the vectors
+<me> \uvec{v}, A \uvec{v}, A^2 \uvec{v}, \dotsc, A^{n-1} \uvec{v} </me>
+are linearly independent and so form a basis of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
+It is reasonable to turn the <q>cyclic</q> pattern exhibited by these basis vectors into a general concept,
+for all matrices instead of just for <em>nilpotent</em> ones.
+</p><p>
+Given an <m>n \times n</m> matrix <m>A</m>,
+a subspace <m>W</m> of <m>\R^n</m> (or <m>\C^n</m>, as appropriate)
+that can be described by a <q>cyclic</q> spanning set as
+<me> W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc \} </me>
+is called an <term><m>A</m>-cyclic subspace</term>,
+and the generating vector <m>\uvec{w}</m> is called an
+<term><m>A</m>-cyclic vector</term> for <m>W</m>.
+We will explore the theory of <m>A</m>-cyclic subspaces in
+<xref ref="section-elem-nilpotent-theory" />,
+but we will say a couple of things here.
+</p><p>
+First, being contained in a finite-dimensional space,
+the infinite spanning set for <m>W</m> cannot be linarly independent.
+So there will be a point in the sequence
+<me> \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc </me>
+where <m>A^k \uvec{w}</m> is dependent with all the previous vectors,
+and then we will have
+<me> W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc, A^{k-1} \uvec{w} \} </me>.
+(See <xref ref="lemma-elem-nilpotent-cyclic-transition" />.)
+</p><p>
+Second, an <m>A</m>-cyclic subspace is always <m>A</m>-invariant.
+Every vector in such a subspace <m>W</m> is a linear combination of the cyclic spanning vectors <m>A^j \uvec{w}</m>,
+and multiplying such a linear combination by <m>A</m> will obviously still be a linear combination of those cyclic spanning vectors,
+just with each power of <m>A</m> in the linear combination increased by one.
+</p>
+<warning><p>
+	A subspace of <m>\R^n</m> (or <m>\C^n</m>, as appropriate)
+	does not necessarily contain any <m>A</m>-cyclic vectors,
+	even if it is <m>A</m>-invariant.
+</p></warning>
+
+</subsection>
+
+</section>

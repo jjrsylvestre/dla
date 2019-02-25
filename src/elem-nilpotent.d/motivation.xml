@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-elem-nilpotent-motivation" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Motivation</title>
+
+<p>
+We continue on our quest to answer <xref ref="question-block-diag-motivation-similarity-class-reps" />.
+If we are happy with triangular block form, then we have succeeded:
+every matrix is similar (over <m>\C</m>) to one in triangular block form.
+But could we make a triangular block form similar to some even simpler form?
+</p>
+
+<paragraphs><title>Philosophy of inquiry: break the problem apart</title><p>
+	If a problem is made up of readily-identifiable smaller and/or simpler parts,
+	concentrate on each individual part separately,
+	if possible.
+</p></paragraphs>
+
+<p>
+A matrix in triangular block form is immediately recognizable as being made out of parts that are both smaller and simpler:
+the blocks themselves.
+But we can break each block into parts as well.
+</p><p>
+Each block in triangular block form is in scalar-triangular form,
+and a scalar-triangular form matrix can be decomposed as a sum
+<me> \lambda I + N </me>
+of a scalar matrix <m>\lambda I</m> and a nilpotent matrix <m>N</m>.
+As we realized in <xref ref="activity-elem-nilpotent-moving-past-triang-block" />,
+attempting to simplify each block in triangular form is equivalent to simplifying each nilpotent part of the scalar-triangular blocks.
+However, just as we did when we considered scalar-triangular form as an initial special case before analyzing general triangular block form,
+we will consider first consider a special case of nilpotent matrix.
+</p>
+
+<paragraphs><title>Philosophy of inquiry: analyze the <q>cusp</q> case</title>
+	<p>
+	A <q>cusp</q> is a boundary between two different kinds of behaviour,
+	in analogy with a cusp point on the graph of a function.
+	</p>
+	<sidebyside width="50%"><image>
+	  <!-- description gets inserted as alt text in html img tag -->
+	  <description> Visualization of a cusp point  </description>
+	  <latex-image><xi:include href="motivation.d/cusp.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+	<p> A cusp is often where interesting things happen or where special patterns are revealed. </p>
+</paragraphs>
+
+<p>
+In <xref ref="chapter-eigen-values-vectors" />,
+we learned that a singular matrix must have <m>\lambda = 0</m> as an eigenvalue
+(<xref ref="theorem-eigen-values-vectors-equiv-to-invertible" />).
+So in the triangular form for a singular matrix,
+one of the blocks will have zeros down the diagonal,
+with as many diagonal zeros as the algebraic multiplicity of eigenvalue <m>\lambda = 0</m> in the characteristic polynomial.
+We often think of a singular matrix as being <q>like zero</q>,
+since <m>0</m> is the only <em>number</em> that does not have an inverse.
+But an <m>n \times n</m> zero matrix has eigenvalue <m>\lambda = 0</m> with <em>maximum</em> algebraic multiplicity <m>m_\lambda = n</m>.
+So, in a way,
+the algebraic multiplicity of <m>\lambda = 0</m> for a singular matrix measures how <q>close</q> to being zero that matrix is.
+</p>
+<figure>
+	<caption>
+		Partition of the set of <m>n \times n</m> matrices into invertible and singular,
+		with the set of singular matrices further partitioned by multiplicity of the eigenvalue <m>\lambda = 0</m>.
+	</caption>
+	<image width="75%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of a partition of the set of <m>n \times n</m> matrices.</description>
+		<latex-image><xi:include href="motivation.d/nxn-partition.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+
+<p>
+But the zero matrix is not the sole example of a matrix with eigenvalue <m>\lambda = 0</m> of maximum algebraic multiplicity <mdash />
+every nilpotent matrix does as well
+(<xref ref="proposition-cayley-hamilton-nilpotent-evalues" />).
+So in one sense, nonzero nilpotent is as close as you can get to being zero without actually being zero.
+</p><p>
+However, we can further partition the set of nilpotent matrices of a particular size by <term>degree of nilpotency</term> <mdash />
+the lowest positive exponent which takes the nilpotent matrix to zero.
+The zero matrix stands alone in this partition,
+as it is the only matrix with degree of nilpotency equal to <m>1</m>
+(since it already <em>is</em> zero).
+</p>
+<figure>
+	<caption> Partition of the set of <m>n \times n</m> singular matrices by <term>degree of nilpotency</term>. </caption>
+	<image width="100%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of a partition of the set of nilpotent <m>n \times n</m> matrices.</description>
+		<latex-image><xi:include href="motivation.d/nilpotent-nxn-partition.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+The <q>cusp</q> case we will consider is at the top of this partition:
+those nilpotent matrices with degree of nilpotency <m>n</m>.
+These matrices are <q>close</q> to zero in the sense that they are nilpotent
+(and so have eigenvalue <m>\lambda = 0</m> with maximum algebraic multiplicity).
+But of all nilpotent matrices they are as far from zero as possible,
+since it takes the maximum exponent <m>n</m> for them to reveal their nilpotency.
+They are on the <em>cusp</em> between being nilpotent and being singular non-nilpotent.
+</p><p>
+We have already encountered a prototypical example of this sort of nilpotent matrix that is <q>on the cusp</q>:
+the <term>elementary nilpotent form</term> matrices of <xref ref="activity-elem-nilpotent-first-encounter" />.
+Our task in this chapter (that we have already begun in <xref ref="worksheet-elem-nilpotent" />)
+is to determine the pattern of similarity that emerges when a nilpotent matrix is similar to an elementary nilpotent one.
+</p>
+
+</section>

@@ -65,7 +65,8 @@ keep <xref ref="example-cayley-hamilton-non-triang-nilpotent" /> in mind here <m
 a matrix does not have to be triangular to be nilpotent.
 </p>
 
-<proposition><title>Eigenvalues and characteristic polynomial of nilpotent</title>
+<proposition xml:id="proposition-cayley-hamilton-nilpotent-evalues">
+	<title>Eigenvalues and characteristic polynomial of nilpotent</title>
 	<statement><p>
 		A nilpotent matrix always has only a single eigenvalue <m>\lambda = 0</m>,
 		and its characteristic polynomial must be <m>c(\lambda) = \lambda^n</m>.
@@ -87,11 +88,27 @@ a matrix does not have to be triangular to be nilpotent.
 		<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />),
 		which forces <m>\lambda = 0</m> as well.
 		</p><p>
-		We have established that <m>A</m> cannot have any eigenvalues besides <m>0</m>, real or complex,
-		and the assertion that <m>c_A(\lambda) = \lambda^n</m> follows.
+		We have established that <m>A</m> cannot have any eigenvalues, real or complex, besides <m>\lambda = 0</m>.
+		The assertion that <m>c_A(\lambda) = \lambda^n</m> immediately follows.
 		</p>
 	</proof>
 </proposition>
+
+<p>
+A matrix whose powers eventually become zero does not sound like it could be invertible,
+and that is the case.
+</p>
+
+<corollary>
+	<title>Nilpotent is singular</title>
+	<statement><p> A nilpotent matrix is always singular. </p></statement>
+	<proof><p>
+		Combine <xref ref="proposition-cayley-hamilton-nilpotent-evalues" />
+		with the equivalence of <xref ref="theorem-eigen-values-vectors-equiv-to-invertible-invertible">Statement</xref>
+		and <xref ref="theorem-eigen-values-vectors-equiv-to-invertible-evalue-0">Statement</xref>
+		in <xref ref="theorem-eigen-values-vectors-equiv-to-invertible" />.
+	</p></proof>
+</corollary>
 
 <p>
 While a matrix does not have to be triangular to be nilpotent,
