@@ -27,12 +27,9 @@ respective owners.
 <em><xref text="title" ref="subsection-elem-nilpotent-concepts-proc" /></em></li>
 <li><xref ref="subsection-elem-nilpotent-concepts-cyclic" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-elem-nilpotent-concepts-cyclic" /></em></li>
+<li><xref ref="subsection-elem-nilpotent-concepts-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-elem-nilpotent-concepts-props" /></em></li>
 </ul></p></assemblage>
-
-<introduction>
-
-
-</introduction>
 
 <subsection xml:id="subsection-elem-nilpotent-concepts-past-triang-block">
 <title>Moving past triangular block form</title>
@@ -143,6 +140,7 @@ This pattern becomes more evident if we repeatedly apply <m>A</m> to <m>\uvec{p}
 </md>
 Of course, the pattern ended at <m>A^4 \uvec{p}_1 = \zerovec</m> because <m>A</m> is <m>4 \times 4</m> nilpotent
 (<xref ref="corollary-cayley-hamilton-max-nilpotency" />).
+In particular, the fact that it ended in the zero vector tells us that the vector before that in the cycle must be in the null space of <m>A</m>.
 </p><p>
 It should be clear that the pattern will unfold in a similar manner for an <m>n \times n</m> matrix <m>A</m> that is similar to an elementary nilpotent form matrix.
 </p>
@@ -152,7 +150,8 @@ It should be clear that the pattern will unfold in a similar manner for an <m>n 
 	<p>
 	For <m>n \times n</m> matrix <m>A</m> to be similar to an elementary nilpotent matrix <m>N</m> via similarity relation <m>\inv{P} A P</m>,
 	the columns <m>\uvec{p}_1,\uvec{p}_2,\dotsc,\uvec{p}_n</m> of the transition matrix <m>P</m> must satisfy the pattern
-	<me> \uvec{p}_{j+1} = A \uvec{p}_j = A^j \uvec{p}_1 </me>.
+	<me> \uvec{p}_{j+1} = A \uvec{p}_j = A^j \uvec{p}_1 </me>,
+	where the last vector <m>\uvec{p}_n = A^{n-1} \uvec{p}_1</m> must be in the null space of <m>A</m>.
 	</p>
 </convention>
 
@@ -175,6 +174,11 @@ So while <m>A</m> must be nilpotent in order to be similar to a nilpotent matrix
 and so will satisfy <m>A^n = \zerovec</m>
 (<xref ref="corollary-cayley-hamilton-max-nilpotency" />),
 <alert>we must have <m>A^{n-1} \ne \zerovec</m></alert>.
+This echoes <xref ref="activity-elem-nilpotent-first-encounter-first-power" />,
+where we recognized that an <m>n \times n</m> elementary nilpotent matrix has maximum degree of nilpotency <m>n</m>.
+It follows that for <m>A</m> to be similar to an elementary nilpotent matrix,
+it must also have maximum degree of nilpotency
+(<xref ref="proposition-cayley-hamilton-similar-to-nilpotent" />).
 </p><p>
 Note that condition <xref ref="equation-elem-nilpotent-concepts-transition-pattern" />
 is enough to guarantee that all the other columns of <m>P</m> are nonzero,
@@ -279,6 +283,44 @@ just with each power of <m>A</m> in the linear combination increased by one.
 	does not necessarily contain any <m>A</m>-cyclic vectors,
 	even if it is <m>A</m>-invariant.
 </p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-elem-nilpotent-concepts-props">
+<title>Properties of elementary nilpotent matrices</title>
+
+<p>
+In <xref ref="activity-elem-nilpotent-first-encounter" />,
+we explored properties of elementary nilpotent matrices and their powers.
+Here we will simply summarize our two main discoveries,
+which are both a consequence of a simple observation:
+in powers of an elementary nilpotent matrix,
+the diagonal of ones marches down the sub-diagonals of the matrix,
+taking one step down per increase in exponent.
+</p><p>
+Suppose <m>N</m> is an <m>n \times n</m> matrix in elementary nilpotent form.
+<ul>
+	<li>
+		Matrix <m>N</m> has maximum degree of nilpotency <m>n</m>.
+		That is, the first power of <m>N</m> that becomes the zero matrix is the <m>\nth</m> power.
+	</li>
+	<li>
+		The rank of <m>N</m> is one less than full, <m>n - 1</m>,
+		and ranks of powers of <m>N</m> decrease from there:
+		<me> \rank N = n - 1, \quad \rank N^2 = n - 2, \quad \rank N^3 = n - 3, \quad \dotsc </me>,
+		until we reach <m>\rank N^n = 0</m>.
+	</li>
+</ul>
+Since rank and degree of nilpotency are both preserved by similarity,
+<todo>proper xref?</todo>
+any matrix that is similar to a matrix in elementary nilpotent form will share the same properties.
+</p>
+
+<paragraphs><title>A look ahead</title><p>
+	We will not need these properties to further explore similarity to elementary nilpotent form,
+	but they will become important in the next chapter for being able to determine similarity to a matrix built out of elementary nilpotent <em>blocks</em>,
+	without actually having to determine the transition matrix to realize such similarity.
+</p></paragraphs>
 
 </subsection>
 

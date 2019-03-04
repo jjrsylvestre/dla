@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-triang-nilpotent-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-triang-nilpotent-concepts-elem-to-block" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-nilpotent-concepts-elem-to-block" /></em></li>
+<li><xref ref="subsection-triang-nilpotent-concepts-indirect" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-nilpotent-concepts-indirect" /></em></li>
+<li><xref ref="subsection-triang-nilpotent-concepts-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-nilpotent-concepts-proc" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-triang-nilpotent-concepts-elem-to-block">
+<title>From elementary to block nilpotent form</title>
+
+<p>
+Just as scalar-triangular form is the single-block case of triangular block form,
+elementary nilpotent form is the single-block case of a multi-block nilpotent form that we will call
+<term>triangular-block nilpotent form</term>.
+Elementary nilpotent form can be achieved when the nilpotent matrix has maximum degree of nilpotency.
+If the degree of nilpotency is less than maximum,
+then the matrix must be <q>built</q> out of smaller elementary nilpotent blocks that become zero earlier.
+</p><p>
+Justifying the theory behind the pattern of similarity for triangular-block nilpotent form is beyond the scope of this book,
+but we can recognize the pattern by combining the patterns for block-diagonal form and elementary nilpotent form.
+A matrix is similar to one in block diagonal form when there exists a complete set of independent, invariant subspaces of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
+Each of those blocks will be in elementary nilpotent form when the corresponding subspace is cyclic with a spanning set that terminates in the zero vector,
+<ie /> the last vector in each cyclic basis for the independent subspaces must be in the null space of the matrix.
+Since cyclic spaces are always invariant
+(<xref ref="proposition-elem-nilpotent-cyclic-is-invariant" />),
+we can instead say that <alert>we need a complete set of independent, cyclic subspaces with each cyclic basis terminating in the null space of the matrix</alert>.
+</p><p>
+We can be even a little more specific.
+We need a cyclic basis for each of these subspaces,
+but we also need the collection of subspaces to be independent.
+By definition, this means that we need the collection of cyclic bases to be independent when taken all together.
+In particular, the collection of final null space vectors from each cyclic basis must be independent when taken all together.
+</p>
+
+<convention xml:id="pattern-elem-nilpotent-concepts-similarity">
+	<title>Similarity with a triangular-block nilpotent matrix</title>
+	<p>
+	For <m>n \times n</m> matrix <m>A</m> to be similar to a triangular-block nilpotent matrix <m>N</m> via similarity relation <m>\inv{P} A P</m>,
+	the columns of the transition matrix <m>P</m> must form a collection of cyclic bases for a complete set of independent, <m>A</m>-cyclic subspaces of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
+	</p><p>
+	Furthermore, if the final vector is removed from each of these <m>A</m>-cyclic bases,
+	this collection of final vectors must be a linearly independent subset of the null space of <m>A</m>.
+	</p>
+</convention>
+
+<p>
+We will learn that the condition on the final null space vectors in this procedure actually guarantees that the collection of <em>subspaces</em> will be independent
+(<xref ref="proposition-triang-nilpotent-indep-cyclic-with-last-vector-null" />),
+which reduces the conditions to be checked even further.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-triang-nilpotent-concepts-indirect">
+<title>Determining the form indirectly</title>
+
+<p>
+In <xref ref="subsection-elem-nilpotent-concepts-props" />,
+we listed two important properties of elementary nilpotent form:
+<ul>
+	<li> powers of elementary nilpotent form only become zero at the size of the matrix; and </li>
+	<li>
+		the ranks of powers of elementary nilpotent form decrease by one for each increase in exponent,
+		beginning at rank <m>n - 1</m> at exponent <m>1</m> and ending at rank <m>0</m> at exponent <m>n</m>.
+	</li>
+</ul>
+</p><p>
+Each block in a triangular-block nilpotent matrix will exhibit the same properties,
+and each of these properties is preserved by similarity.
+So for a given nilpotent matrix <m>A</m>,
+we can determine exactly what form of triangular-block nilpotent matrix that <m>A</m> is similar to simply by considering the
+<xref ref="definition-elem-nilpotent-degree-nilpotency" text="title" /> of <m>A</m>
+and the ranks of its powers.
+</p><p>
+In <xref ref="activity-triang-nilpotent-rank-info" />,
+we carried out this task for a specific form of triangular-block form matrix,
+but then used our observations to imagine how we could reverse-engineer the form matrix.
+</p>
+
+<paragraphs><title>The number of elementary blocks</title><p>
+Suppose that <m>A</m> is an <m>n \times n</m> nilpotent matrix,
+and is similar to triangular-block form matrix <m>N</m>.
+Our first observation in
+<xref ref="subsection-elem-nilpotent-concepts-props" />
+was that the nullity of <m>A</m> tells us the number of blocks in <m>N</m>.
+The identity matrix with its diagonal of ones down the <em>main</em> diagonal has full rank <m>n</m>.
+If <m>N</m> were actually in elementary nilpotent form,
+effectively consisting of one large elementary block with a line of ones down the first <em>sub</em>-diagonal,
+then <m>\rank N</m> would be one less than full at <m>n - 1</m>.
+If <m>N</m> instead contains <m>\ell</m> blocks,
+then <em>each</em> of those blocks is deficient from full rank by one,
+and so <m>\rank N</m> would be <m>n - \ell</m>.
+<xref ref="theorem-col-row-null-space-rank-nullity" text="title" />
+tells us that rank and nullity add up to the size of the matrix,
+so the nullity must be <m>\ell</m>.
+And since similar <m>A</m> and <m>N</m> share the same nullity,
+<alert>the nullity of <m>A</m> tells the number of elementary nilpotent blocks in <m>N</m></alert>.
+</p></paragraphs>
+
+<paragraphs><title>The size of the largest block</title><p>
+We may compute powers of a block diagonal matrix by just computing powers of the blocks.
+And we know that powers of an elementary nilpotent block in <m>N</m> won't become zero until the size of the block.
+Since the smaller blocks become zero at smaller exponents,
+<m>N</m> itself will become zero precisely when its largest blocks do.
+And since similar <m>A</m> and <m>N</m> share degree of nilpotency
+(<xref ref="proposition-cayley-hamilton-similar-to-nilpotent" />),
+we can say that
+<alert>the degree of nilpotency of <m>A</m> determines the size of the largest block in <m>N</m></alert>.
+</p></paragraphs>
+
+<paragraphs><title>The number of blocks of largest size</title><p>
+It is certainly possible for <m>N</m> to have multiple blocks of the same size.
+Now that we know how to determine the size of the largest block,
+we can ask: how many blocks of that size does <m>N</m> have?
+Suppose the largest size of block in <m>N</m> is <m>k \times k</m>.
+Then from our discussion above, we will see <m>N^k = \zerovec</m> but <m>N^{k-1} \neq \zerovec</m>.
+In <m>N^{k - 1}</m>, all blocks of size smaller than <m>k</m> have still been taken to zero by the exponent <m>k - 1</m>.
+What will appear in the powers blocks of largest size to make <m>N^{k - 1} \neq \zerovec</m> true?
+Backing the exponent off by one from the degree of nilpotency of the largest blocks will cause a single one to appear in the lower left entry of each block of largest size.
+We can use these solitary ones to count the blocks of largest size,
+but again transfer the property by which we will count them from <m>N</m> to <m>A</m> via similarity:
+<alert>if <m>k</m> is the size of the largest blocks in <m>N</m>, then <m>\rank A</m> tells the number of these blocks of largest size</alert>.
+</p></paragraphs>
+
+<paragraphs><title>The number and sizes of smaller blocks</title>
+<p>
+We can continue the reasoning in our analysis of the blocks of largest size.
+And just as in that analysis,
+we can think in terms of the blocks of <m>N</m> but compute in terms of <m>A</m>
+Again let <m>k</m> represent the size of the largest block in <m>N</m>,
+and let <m>m</m> represent the number of these blocks.
+We then have <m>\rank A^k = 0</m> and <m>\rank AN^{k - 1} = m</m>.
+If we back the exponent off one more to <m>A^{k - 2}</m>,
+the line of sub-diagonal ones in <m>N</m> will start reappearing in each block of size <m>k</m>,
+and we expect the rank to increase by one in each of those blocks.
+And this continues with every step that we decrease the exponent.
+That is, we expect
+<me> \rank N^{k - 2} = 2m, \quad \rank N^{k-3} = 3m, \quad \rank N^{k-4} = 4m, \dotsc </me>.
+However, this pattern will be broken as soon as the block of next largest size <q>reappears</q> with a solitary one in its lower left corner.
+So if <m>\rank N^{k-j}</m> is larger than the pattern above predicts,
+we must have a new block of smaller size reappearing.
+Since boosting the exponent back up to <m>k - j + 1</m> would make that block disappear again,
+that exponent value must be the size of that next largest block.
+And since we will get a new solitary corner one in <m>N^{k-j}</m> in each block,
+the <em>amount</em> that <m>\rank N^{k-j}</m> is larger than the pattern above predicts tells the number of blocks of that size.
+</p><p>
+From here, we can make a new <q>expected</q> pattern of rank increases in <m>A</m> based on the sizes and numbers of blocks in <m>N</m> that we already know about,
+and any new jump in rank to a value larger than the pattern predicts tells the existence, size, and number of occurrences of new blocks in <m>N</m>.
+</p>
+</paragraphs>
+
+<p> See <xref ref="example-triang-nilpotent-indirect" /> for an example of using this kind of indirect information gathering. </p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-triang-nilpotent-concepts-proc">
+<title>Procedure for any nilpotent matrix</title>
+
+<p>
+For the sake of completeness,
+here is a procedure that will put any nilpotent matrix into triangular-block nilpotent form.
+It is a very inefficient algorithm,
+but at least it is directly comprehensible (with some effort) from the theory developed in this chapter.
+</p>
+
+<algorithm xml:id="procedure-triang-nilpotent-concepts-form-proc">
+	<title>Procedure to put a <em>nilpotent</em> <m>n \times n</m> matrix <m>A</m> into triangular-block nilpotent form</title>
+	<p><ol>
+		<li> Determine an <m>A</m>-cyclic basis for each of the <m>A</m>-cyclic spaces generated by standard basis vectors. </li>
+		<li>
+			Check each cyclic space of dimension <m>1</m> in this collection:
+			if the generating vector is in the span of the collection of final vectors taken from each of the other cyclic bases,
+			discard that cyclic space.
+		</li>
+		<li>
+			If the set of final vectors taken from each remaining cyclic basis is linearly independent, stop.
+			You can now form the matrix <m>P</m> by ordering your cyclic spaces by dimension (largest to smallest),
+			and using the cyclic bases as the columns of <m>P</m>.
+			Otherwise, go on to the next step.
+		</li>
+		<li>
+			Determine a linear dependence relation amongst the final vectors taken from each cyclic basis.
+			Factor out the largest power of <m>A</m> possible from this relation.
+			Use the vector left behind (after factoring out the power of <m>A</m>) to generate a new <m>A</m>-cyclic space.
+			Use this new space to replace one of your old spaces:
+			in particular, it should replace a space whose final vector was involved in the determined dependence relation,
+			and whose dimension was smallest amongst such spaces.
+		</li>
+		<li> Repeat the steps above for the new, refined collection of <m>A</m>-cyclic spaces, beginning at the second step. </li>
+	</ol></p>
+</algorithm>
+
+<remark><p>
+	Unless <m>A</m> is the zero matrix, there is no way the collection of <m>A</m>-cyclic spaces generated by the standard basis vectors obtained in the first step can be independent,
+	because the dimensions of these spaces will add up to more than <m>n</m>.
+	The point of the procedure is to take this collection as a starting point,
+	and reduce it down to an independent collection by discarding dependent spaces,
+	just as we might reduce a dependent spanning set down to a basis for a space by discarding dependent vectors.
+	The main criteria for deciding which spaces to discard is dependence of the final null space vectors in each <m>A</m>-cyclic basis,
+	as well as a preference for larger <m>A</m>-cyclic spaces over smaller ones.
+</p></remark>
+
+</subsection>
+
+</section>

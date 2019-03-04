@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-triang-nilpotent-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-triang-nilpotent-examples-indirect" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-nilpotent-examples-indirect" /></em></li>
+<li><xref ref="subsection-triang-nilpotent-examples-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-triang-nilpotent-examples-proc" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-triang-nilpotent-examples-indirect">
+<title>Determining the form indirectly</title>
+
+<p>
+Here we will carry out the indirect analysis method described in
+<xref ref="subsection-triang-nilpotent-concepts-indirect" />
+for a matrix <m>A</m> that is similar to a triangular-block nilpotent form matrix <m>N</m> as in
+<xref ref="activity-triang-nilpotent-rank-info" />.
+</p>
+
+<example xml:id="example-triang-nilpotent-indirect">
+	<p>
+	Suppose <m>A</m> is an <m>18 \times 18</m> matrix that is similar to the triangular-block nilpotent matrix
+	<me> N = \begin{bmatrix} N_1 \\ \amp N_2 \\ \amp\amp N_3 \\ \amp\amp\amp N_4 \\ \amp\amp\amp\amp N_5 \end{bmatrix} </me>,
+	where the elementary nilpotent blocks <m>N_1</m> and <m>N_2</m> are each <m>5 \times 5</m>,
+	blocks <m>N_3</m> and <m>N_4</m> are each <m>3 \times 3</m>,
+	and block <m>N_5</m> is <m>2 \times 2</m>.
+	</p><p>
+	We will carry out our analysis as if we don't actually know the form matrix <m>N</m>,
+	but at the same time we will use our <q>secret</q> knowledge of <m>N</m> to <q>know</q> the required properties of <m>A</m>.
+	</p><p>
+	We should first compute the powers of <m>A</m> to determine the degree of nilpotency.
+	For this matrix, we should find <m>A^5 = \zerovec</m> while <m>A^4 \neq \zerovec</m>.
+	This would tells us that the largest block in <m>N</m> is size <m>5 \times 5</m>
+	(which we know it is).
+	After this we should compute <m>\rank A^4</m>,
+	and in this case we should find it to be <m>2</m>,
+	which would tells us that there are two blocks of size <m>5 \times 5</m>.
+	</p><p>
+	After determining the size and number of blocks of largest size,
+	we would continue with rank computations of lower power.
+	For this matrix,
+	we would calculate <m>\rank A^3 = 4</m>.
+	Since we already know there are two blocks of size <m>5 \times 5</m>,
+	and each of these blocks should increase in rank by one from <m>A^4</m> to <m>A^3</m>,
+	we would expect <m>\rank A^3 = 4</m>,
+	which tells us that there are no blocks of size <m>4 \times 4</m>.
+	</p><p>
+	However, calculating <m>\rank A^2 = 8</m> yields a rank larger than expected.
+	The two <m>5 \times 5</m> blocks should only increase the rank from <m>4</m> to <m>6</m> as we move from <m>A^3</m> to <m>A^2</m>,
+	but the calculated rank is <m>2</m> larger than expected.
+	This means that two new blocks have appeared,
+	and since they appeared at the second power, they must have size <m>3 \times 3</m>.
+	So know we know about two <m>5 \times 5</m> blocks and two <m>3 \times 3</m> blocks.
+	</p><p>
+	Finally, with four known blocks, we would expect the rank to increase from <m>8</m> to <m>12</m> as we move from <m>A^2</m> to <m>A^1</m>.
+	But a calculation should reveal <m>\rank A = 13</m>,
+	which means that one new block has appeared.
+	And since it appeared at exponent one,
+	it must have size <m>2 \times 2</m>.
+	</p><p>
+	From above, we have <m>\rank A = 13</m>, so
+	<me>\nullity A = 18 - 13 = 5</me>.
+	This means that <m>N</m> should have five blocks (which we know it does).
+	And since we already have <m>5</m> blocks
+	(two <m>5 \times 5</m> blocks, two <m>3 \times 3</m> blocks, and one <m>2 \times 2</m> block),
+	we have enough information to know the form matrix <m>N</m> precisely.
+	</p>
+</example>
+
+<remark><p>
+	At <m>\rank A</m>, there is no further backwards one can go.
+	But what if our number of blocks hasn't reached <m>\nullity A</m>?
+	A <m>1 \times 1</m> elementary nilpotent block is just a <m>1 \times 1</m> zero matrix,
+	and makes no contribution to the rank at any exponent.
+	So if we haven't yet filled out the full size of the matrix at the end of the analysis,
+	we would conclude that the rest of the form matrix is filled out by <m>1 \times 1</m> zero blocks.
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-triang-nilpotent-examples-proc">
+<title>Determining a transition matrix</title>
+
+<p>
+Here are two examples of determining a transition matrix <m>P</m> that will put a nilpotent matrix <m>A</m> into triangular-block nilpotent form.
+In the first we will carrying out <xref ref="procedure-triang-nilpotent-concepts-form-proc" />,
+but in the second we will use a different strategy.
+</p>
+
+<example xml:id="example-triang-nilpotent-proc-5x5">
+	<title>A <m>5 \times 5</m> example</title>
+	<p>
+	Consider the <m>5 \times 5</m> matrix
+	<md><mrow>
+		A = \left[\begin{array}{rrrrr}
+			 1 \amp -2 \amp -1 \amp -1 \amp  0 \\
+			-1 \amp -2 \amp -2 \amp  0 \amp  1 \\
+			 0 \amp  1 \amp  1 \amp  0 \amp  0 \\
+			 3 \amp  1 \amp  2 \amp -1 \amp -2 \\
+			 0 \amp -3 \amp -2 \amp -1 \amp  1
+		\end{array}\right]
+	</mrow></md>.
+	Compute the powers of <m>A</m>:
+	<md><mrow>
+		A^2 \amp= \left[\begin{array}{rrrrr}
+			 0 \amp  0 \amp  0 \amp 0 \amp  0 \\
+			 1 \amp  1 \amp  1 \amp 0 \amp -1 \\
+			-1 \amp -1 \amp -1 \amp 0 \amp  1 \\
+			-1 \amp -1 \amp -1 \amp 0 \amp  1 \\
+			 0 \amp  0 \amp  0 \amp 0 \amp  0
+		\end{array}\right]
+		\amp
+		A^3 \amp= \zerovec
+	</mrow></md>.
+	So <m>A</m> is nilpotent of degree <m>3</m>.
+	</p><p>
+	The standard basis for <m>\R^5</m> has five vectors in it,
+	so we begin with five <m>A</m>-cyclic spaces:
+	<md alignment="gather">
+		<mrow>
+			W_1 = \Span \{ \uvec{e}_1, A\uvec{e}_1, A^2\uvec{e}_1, \dotsc \}, \quad
+			W_2 = \Span \{ \uvec{e}_2, A\uvec{e}_2, A^2\uvec{e}_2, \dotsc \},
+		</mrow><mrow>
+			W_3 = \Span \{ \uvec{e}_3, A\uvec{e}_3, A^2\uvec{e}_3, \dotsc \}, \quad
+			W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4, A^2\uvec{e}_4, \dotsc \},
+		</mrow><mrow>
+			W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5, \dotsc \}.
+		</mrow>
+	</md>
+	But recall that for any matrix <m>B</m>,
+	the product <m>B \uvec{e}_j</m> is precisely the <m>\nth[j]</m> column of <m>B</m>.
+	So, by examining when the columns of powers of <m>A</m> first become zero,
+	we see we can reduce the cyclic spanning sets for each of these spaces:
+	<md alignment="gather">
+		<mrow>
+			W_1 = \Span \{ \uvec{e}_1, A\uvec{e}_1, A^2\uvec{e}_1 \}, \quad
+			W_2 = \Span \{ \uvec{e}_2, A\uvec{e}_2, A^2\uvec{e}_2 \},
+		</mrow><mrow>
+			W_3 = \Span \{ \uvec{e}_3, A\uvec{e}_3, A^2\uvec{e}_3 \}, \quad
+			W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \},
+		</mrow><mrow>
+			W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+		</mrow>
+	</md>
+	</p><p>
+	We don't have any dimension <m>1</m> cyclic spaces, so let's move on to considering the collection of final vectors from each basis:
+	<me> \{ A^2\uvec{e}_1, A^2\uvec{e}_2, A^2\uvec{e}_3, A\uvec{e}_4, A^2\uvec{e}_5 \}. </me>
+	Examining the columns of <m>A^2</m>,
+	notice that the first three vectors are all equal to each other,
+	and the fifth vector is the negative of the those first three.
+	Let's begin with the dependence relation
+	<me> A^2\uvec{e}_1 - A^2\uvec{e}_2 = \zerovec </me>.
+	Factoring out the <m>A^2</m>, this turns into
+	<me> A^2(\uvec{e}_1 - \uvec{e}_2) = \zerovec. </me>
+	</p>
+	<aside><title>Careful</title><p>
+		It is <em>not</em> correct to just <q>cancel</q> off the <m>A^2</m>, since <m>A^2</m> is not invertible.
+	</p></aside>
+	<p>
+	We form the new cyclic space generated by <m>\uvec{f}_1 = \uvec{e}_1 - \uvec{e}_2</m>,
+	and call it <m>U_1</m>.
+	The above relation says that <m>A^2 \uvec{f}_1 = \zerovec</m>, so we have
+	<me> U_1 = \Span \{ \uvec{f}_1, A \uvec{f}_1 \} </me>.
+	Our dependence relation involved the final vectors from <m>W_1</m> and <m>W_2</m>.
+	These two spaces have equal dimension,
+	so we can use the new space <m>U_1</m> to replace either of <m>W_1</m> or <m>W_2</m>.
+	If we decide to replace <m>W_1</m>, our new collection of cyclic subspaces is
+	<md alignment="gather">
+		<mrow>
+			U_1 = \Span \{ \uvec{f}_1, A\uvec{f}_1 \}, \quad
+			W_2 = \Span \{ \uvec{e}_2, A\uvec{e}_2, A^2\uvec{e}_2 \},
+		</mrow><mrow>
+			W_3 = \Span \{ \uvec{e}_3, A\uvec{e}_3, A^2\uvec{e}_3 \}, \quad
+			W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \},
+		</mrow><mrow>
+			W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+		</mrow>
+	</md>
+	We will work more quickly through this process now.
+	<ul>
+		<li>
+			From the dependence relation
+			<me> A^2\uvec{e}_2 - A^2\uvec{e}_3 = \zerovec </me>
+			obtain new cyclic vector <m>\uvec{f}_2 = \uvec{e}_2 - \uvec{e}_3</m>,
+			and use it to replace <m>W_2</m>:
+			<md alignment="gather">
+				<mrow>
+					U_1 = \Span \{ \uvec{f}_1, A\uvec{f}_1 \}, \quad
+					U_2 = \Span \{ \uvec{f}_2, A\uvec{f}_2 \}, \quad
+					W_3 = \Span \{ \uvec{e}_3, A\uvec{e}_3, A^2\uvec{e}_3 \},
+				</mrow><mrow>
+					W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \}, \quad
+					W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+				</mrow>
+			</md>
+		</li>
+		<li>
+			From the dependence relation
+			<me> A^2\uvec{e}_3 + A^2\uvec{e}_5 = \zerovec </me>
+			obtain new cyclic vector <m>\uvec{f}_3 = \uvec{e}_3 + \uvec{e}_5</m>,
+			and use it to replace <m>W_3</m>:
+			<md alignment="gather">
+				<mrow>
+					U_1 = \Span \{ \uvec{f}_1, A\uvec{f}_1 \}, \quad
+					U_2 = \Span \{ \uvec{f}_2, A\uvec{f}_2 \}, \quad
+					U_3 = \Span \{ \uvec{f}_3, A\uvec{f}_3 \},
+				</mrow><mrow>
+					W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \}, \quad
+					W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+				</mrow>
+			</md>
+		</li>
+		<li>
+			From the dependence relation
+			<me> A\uvec{f}_2 - A\uvec{e}_4 = \zerovec </me>
+			obtain new cyclic vector <m>\uvec{f}_4 = \uvec{f}_2 - \uvec{e}_4</m>,
+			and use it to replace <m>U_2</m>.
+			However, <m>\uvec{f}_4</m> only generates a cyclic space of dimension <m>1</m>,
+			and is the negative of <m>A^2 \uvec{e}_5</m>.
+			So discard <m>\uvec{f}_4</m>, bringing us down to four cyclic spaces:
+			<md alignment="gather">
+				<mrow>
+					U_1 = \Span \{ \uvec{f}_1, A\uvec{f}_1 \}, \quad
+					U_3 = \Span \{ \uvec{f}_3, A\uvec{f}_3 \},
+				</mrow><mrow>
+					W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \}, \quad
+					W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+				</mrow>
+			</md>
+		</li>
+		<li>
+			From the dependence relation
+			<me> A \uvec{f}_1 + A \uvec{f}_3 + 2 A \uvec{e}_4 = \zerovec </me>
+			obtain new cyclic vector <m>\uvec{f}_5 = \uvec{f}_1 + \uvec{f}_3 + 2 \uvec{e}_4 </m>,
+			and use it to replace <m>U_1</m>.
+			However, <m>\uvec{f}_5</m> only generates a cyclic space of dimension <m>1</m>,
+			and is equal to <m>A^2 \uvec{e}_5 - A \uvec{e}_4 </m>.
+			So discard <m>\uvec{f}_5</m>, bringing us down to three cyclic spaces:
+			<me>
+				U_3 = \Span \{ \uvec{f}_3, A\uvec{f}_3 \}, \quad
+				W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \}, \quad
+				W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+			</me>
+		</li>
+		<li>
+			From the dependence relation
+			<me> A \uvec{f}_3 - A \uvec{e}_4 - A^2 \uvec{e}_5 = \zerovec </me>
+			obtain new cyclic vector <m>\uvec{f}_6 = \uvec{f}_3 - \uvec{e}_4 - A \uvec{e}_5 </m>,
+			and use it to replace <m>U_3</m>.
+			However, <m>\uvec{f}_6</m> only generates a cyclic space of dimension <m>1</m>,
+			and is equal to <m>A^2 \uvec{e}_5 </m>.
+			So discard <m>\uvec{f}_5</m>, bringing us down to two cyclic spaces:
+			<me>
+				W_4 = \Span \{ \uvec{e}_4, A\uvec{e}_4 \}, \quad
+				W_5 = \Span \{ \uvec{e}_5, A\uvec{e}_5, A^2\uvec{e}_5 \}.
+			</me>
+		</li>
+	</ul>
+	Since <m>A</m> does not have maximum degree of nilpotency,
+	we know it is not similar to an elementary nilpotent form matrix.
+	In other words, it is not possible for us to reduce down to a single <m>A</m>-invariant space,
+	and the fact that <m>A \uvec{e}_4</m> and <m>A^2 \uvec{e}_5</m> are independent confirm that we are finished at this point.
+	All that is left is to form the transition matrix
+	<me>
+		P = \begin{bmatrix}
+			| \amp | \amp | \amp | \amp | \\
+			\uvec{e}_5 \amp A \uvec{e}_5 \amp A^2 \uvec{e}_5 \amp \uvec{e}_4 \amp A \uvec{e}_4 \\
+			| \amp | \amp | \amp | \amp |
+		\end{bmatrix}
+		= \left[\begin{array}{rrrrr}
+			0 \amp  0 \amp  0 \amp 0 \amp -1 \\
+			0 \amp  1 \amp -1 \amp 0 \amp  0 \\
+			0 \amp  0 \amp  1 \amp 0 \amp  0 \\
+			0 \amp -2 \amp  1 \amp 1 \amp -1 \\
+			1 \amp  1 \amp  0 \amp 0 \amp -1
+		\end{array}\right]
+	</me>,
+	where we have ordered the bases for our <m>A</m>-cyclic spaces in the columns of <m>P</m> according to their dimensions to ensure that the elementary nilpotent blocks appear in order of decreasing size in the form matrix <m>\inv{P} A P</m>:
+	<me>
+		\inv{P}AP = \begin{bmatrix}
+			\boxed{ \begin{matrix} 0 \\ 1 \amp 0 \\ \amp 1 \amp 0 \end{matrix} } \\
+			\amp \boxed{ \begin{matrix} 0 \\ 1 \amp 0 \end{matrix} }
+		\end{bmatrix}
+	</me>.
+	</p>
+</example>
+
+<remark><p>  <!-- old label: \label{REM::nilp.triang.compute.form.no.inv.P} -->
+	Once again, it is not necessary to compute <m>\inv{P}</m> to know the form of <m>\inv{P}A P </m> in <xref ref="example-triang-nilpotent-proc-5x5" />.
+	We know that each block is elementary nilpotent,
+	and the number and sizes of the blocks is determined by the number and dimensions of the obtained <m>A</m>-cyclic spaces.
+</p></remark>
+
+<example xml:id="example-triang-nilpotent-proc-9x9">
+	<title>A <m>9 \times 9</m> example</title>
+	<p>
+	Consider the matrix
+	<me>
+		A = \left[\begin{array}{rrrrrrrrr}
+			 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 2 \amp 0 \amp -5 \amp  0 \\
+			-1 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  2 \\
+			 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 2 \amp 0 \amp -5 \amp  0 \\
+			 2 \amp 0 \amp 1 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp -2 \\
+			 0 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \\
+			-1 \amp 0 \amp 0 \amp  0 \amp 1 \amp 0 \amp 0 \amp  0 \amp  1 \\
+			 0 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \\
+			 1 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 1 \amp  0 \amp -1 \\
+			 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 2 \amp 0 \amp -5 \amp  0
+		\end{array}\right]
+	</me>.
+	With such a large matrix,
+	<xref ref="procedure-triang-nilpotent-concepts-form-proc" /> would take quite a while.
+	Instead, we'll try arrive at the transition matrix <m>P</m> a bit faster by using the observation that the final vectors in each of a complete set of independent, cyclic bases for nilpotent <m>A</m> must form a linearly independent set in the null space of <m>A</m>.
+	</p><p>
+	But first, let's use the patterns of <xref ref="subsection-triang-nilpotent-concepts-indirect" /> to determine the number and sizes of the blocks in the triangular-block nilpotent form for <m>A</m>,
+	as this will tell us the number and dimensions of <m>A</m>-cyclic spaces that we need.
+	Ask your favourite computer algebra system (CAS) to compute the powers of <m>A</m>.
+	This will confirm that <m>A</m> is nilpotent,
+	with degree of nilpotency <m>4</m>.
+	This tells us that the largest block in the nilpotent triangular form for <m>A</m> should have size <m>4 \times 4</m>.
+	Now ask your CAS to compute <m>\rank A</m> <mdash />
+	it should return the answer <m>5</m>.
+	Therefore, <m>\nullity A = 9 - 5 = 4</m>,
+	so we are looking for four blocks in total.
+	Next, have your CAS tell you that <m>\rank(A^3) = 1</m>,
+	and conclude that there is only a single block of size <m>4 \times 4</m>.
+	Computing <m>\rank (A^2) = 2</m> and combining it with the previously calculated <m>\rank A = 5</m>,
+	we can conclude that there are also two <m>2 \times 2</m> blocks.
+	But as this is only three of the four blocks accounted for,
+	we must also have a final <m>1 \times 1</m> zero block.
+	So we now know exactly what we're looking for:
+	four independent, cyclic subspaces of dimensions <m>4,2,2,1</m>.
+	</p><p>
+	The first column of <m>A^3</m> is nonzero and lies in the null space of <m>A</m> (since <m>A^4 = \zerovec</m>),
+	so we can get our desired four-dimensional cyclic subspace by taking
+	<me> W_1 = \Span \{ \uvec{e}_1, A\uvec{e}_1, A^2 \uvec{e}_1, A^3 \uvec{e}_1 \}. </me>
+	</p><p>
+	We could try to use a similar approach to get a dimension <m>2</m> cyclic space by examining the zero columns in <m>A^2</m>,
+	but unfortunately there are none.
+	So let's attack more directly using the null space of <m>A</m>,
+	since we will need the final vectors from each of our cyclic bases to form an independent set in this null space.
+	</p><p>
+	Ask your CAS to put <m>A</m> into RREF.
+	From <m>\RREF(A)</m>,
+	we find the null space of <m>A</m> to be
+	<me>
+		\Span \left\{
+			\left[ \begin{array}{r} 0 \\  1 \\  0 \\ 1 \\ 0 \\ 0 \\  0 \\ 0 \\ 0 \end{array} \right],
+			\left[ \begin{array}{r} 2 \\  0 \\ -2 \\ 0 \\ 1 \\ 0 \\ -1 \\ 0 \\ 1 \end{array} \right],
+			\left[ \begin{array}{r} 0 \\  5 \\  0 \\ 0 \\ 0 \\ 0 \\  0 \\ 1 \\ 0 \end{array} \right],
+			\left[ \begin{array}{r} 0 \\ -2 \\  0 \\ 0 \\ 0 \\ 1 \\  0 \\ 0 \\ 0 \end{array} \right]
+		\right\}.
+	</me>
+	Write <m>\uvec{n}_1,\uvec{n}_2,\uvec{n}_3,\uvec{n}_4</m> for these four null space basis vectors above.
+	Now, <m>\uvec{n}_1</m> lies in <m>W_1</m> (it's a scalar multiple of <m>A^3 \uvec{e}_1</m>),
+	so let's move on to considering <m>\uvec{n}_2</m>.
+	Since <m>A\uvec{n}_2 = \zerovec</m>,
+	the vector <m>\uvec{n}_2</m> generates a one-dimensional cyclic space.
+	Could we enlarge it to a two-dimensional cyclic space?
+	This would entail going <em>backwards</em> in the cyclic spanning set sequence
+	<me> \{ \uvec{v}, A \uvec{v}, A^2 \uvec{v}, \dotsc \} </me>,
+	where each vector is <m>A</m> times the previous one.
+	We already have the last-before-<m>\zerovec</m> in this sequence as <m>\uvec{n}_2</m>.
+	So, we would like to determine a vector <m>\uvec{n}_2'</m> such that <m>A\uvec{n}_2' = \uvec{n}_2</m>.
+	This is equivalent to trying to find a solution to the system
+	<me> \left[\begin{array}{c|c} A \amp \uvec{n}_2 \end{array}\right] </me>.
+	Ask your CAS to put the augmented matrix above into RREF <mdash />
+	you will discover that this system is inconsistent.
+	This is not a failure though,
+	because we know we need a one-dimensional cyclic space that is independent from <m>W_1</m>,
+	and the space
+	<me> W_4 = \Span \{ \uvec{n}_2 \} </me>
+	fits the bill.
+	</p>
+	<aside><title>Note</title><p>
+		We have labelled this one-dimensional space as <m>W_4</m> instead of <m>W_2</m> because we know we want four cyclic spaces ordered from largest to smallest,
+		and the one-dimensional space will have to be the smallest.
+	</p></aside>
+	<p>
+	Let's try the same idea for <m>\uvec{n}_3</m>.
+	Since <m>A\uvec{n}_3 = \zerovec</m>,
+	the vector <m>\uvec{n}_3</m> generates a one-dimensional cyclic space.
+	Could we enlarge this space by finding <m>\uvec{n}_3'</m> such that <m>A\uvec{n}_3' = \uvec{n}_3</m>?
+	To do this, try to solve the system
+	<me> \left[\begin{array}{c|c} A \amp \uvec{n}_3 \end{array}\right] </me>.
+	This time the system has solutions,
+	and a particular solution is <me> \uvec{n}_3' = (-5, 0, 10, 0, -5, 0, 6, 0, 0) </me>.
+	Using this vector we can form a two-dimensional cyclic space
+	<me> W_2 = \Span \{\uvec{n}_3', A\uvec{n}_3' \} </me>,
+	where <m>A\uvec{n}_3'=\uvec{n}_3</m>.
+	</p>
+	<aside><title>Note</title><p>
+		If we hadn't pre-determined the number and dimensions of the required cyclic spaces,
+		we might be tempted to try to enlarge this space even further by going backwards another step.
+		But system
+		<me> \left[\begin{array}{c|c} A \amp \uvec{n}_3' \end{array}\right] </me>
+		is inconsistent anyway.
+	</p></aside>
+	<p>
+	We just need one more two-dimensional cyclic space.
+	Let's work with <m>\uvec{n}_4</m> now.
+	The system
+	<me> \left[\begin{array}{c|c} A \amp \uvec{n}_4 \end{array}\right] </me>
+	is also consistent,
+	and one particular solution is
+	<me> \uvec{n}_4' = (2, 0, -4, 0, 3, 0, -2, 0, 0) </me>,
+	giving us our needed cyclic space
+	<me> W_3 = \Span \{ \uvec{n}_4', A\uvec{n}_4' \} = \Span \{ \uvec{n}_4', \uvec{n}_4 \} </me>.
+	</p><p>
+	We now have the required collection of <m>A</m>-cyclic subspaces of <m>\R^9</m>.
+	Use their cyclic bases to form the matrix <m>P</m>,
+	to get
+	<md>
+		<mrow>
+			P \amp = \begin{bmatrix}
+				| \amp | \amp | \amp | \amp | \amp | \amp | \amp | \amp |
+				\\
+				\uvec{e}_1 \amp A\uvec{e}_1 \amp A^2\uvec{e}_1 \amp A^3\uvec{e}_1 \amp
+				\uvec{n}_3' \amp A\uvec{n}_3' \amp
+				\uvec{n}_4' \amp A\uvec{n}_4' \amp
+				\uvec{n}_2
+				\\
+				| \amp | \amp | \amp | \amp | \amp | \amp | \amp | \amp |
+			\end{bmatrix}
+		</mrow><mrow>
+			\amp = \left[ \begin{array}{rrrrrrrrr}
+				1 \amp  0 \amp -10 \amp   0 \amp -5 \amp 0 \amp  2 \amp 0 \amp  2 \\
+				0 \amp -1 \amp   0 \amp -10 \amp  0 \amp 5 \amp  0 \amp-2 \amp  0 \\
+				0 \amp  0 \amp -10 \amp   0 \amp 10 \amp 0 \amp -4 \amp 0 \amp -2 \\
+				0 \amp  2 \amp   0 \amp -10 \amp  0 \amp 0 \amp  0 \amp 0 \amp  0 \\
+				0 \amp  0 \amp   0 \amp   0 \amp -5 \amp 0 \amp  3 \amp 0 \amp  1 \\
+				0 \amp -1 \amp   0 \amp   0 \amp  0 \amp 0 \amp  0 \amp 1 \amp  0 \\
+				0 \amp  0 \amp   0 \amp   0 \amp  6 \amp 0 \amp -2 \amp 0 \amp -1 \\
+				0 \amp  1 \amp   0 \amp   0 \amp  0 \amp 1 \amp  0 \amp 0 \amp  0 \\
+				0 \amp  0 \amp -10 \amp   0 \amp  0 \amp 0 \amp  0 \amp 0 \amp  1
+			\end{array} \right]
+		</mrow>
+	</md>.
+	If we wanted to ensure that this transition matrix is in fact invertible,
+	we could compute its rank to be <m>9</m>.
+	But actually,
+	we will see in <xref ref="proposition-triang-nilpotent-indep-cyclic-with-last-vector-null" />
+	that if the collection of terminal null space vectors from each cyclic basis is a linearly independent set,
+	then the cyclic subspaces must form an independent collection.
+	</p><p>
+	Finally, without computing <m>\inv{P} A P</m> we know the form matrix will be
+	<me>
+		\inv{P}AP = \begin{bmatrix}
+			\boxed{ \begin{matrix} 0 \\ 1 \amp 0 \\ \amp 1 \amp 0 \\ \amp \amp 1 \amp 0 \end{matrix} } \\
+			\amp \boxed{ \begin{matrix} 0 \\ 1 \amp 0 \end{matrix} } \\
+			\amp \amp \boxed{ \begin{matrix} 0 \\ 1 \amp 0 \end{matrix} } \\
+			\amp \amp \amp \boxed{ \begin{matrix} 0 \end{matrix} }
+		\end{bmatrix}
+	</me>.
+	</p>
+</example>
+
+</subsection>
+
+</section>
