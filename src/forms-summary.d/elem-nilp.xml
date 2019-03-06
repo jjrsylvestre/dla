@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-forms-summary-elem-nilp">
+
+<title>Elementary nilpotent form</title>
+
+<paragraphs><title>What</title><p>
+	<me>
+		\inv{P} A P
+		= \begin{bmatrix} 0 \\ 1 \amp 0 \\ \amp \ddots \amp \ddots \\ \amp  \amp 1 \amp 0 \end{bmatrix}
+	</me>.
+</p></paragraphs>
+
+<paragraphs><title>When</title><p>
+	Matrix <m>A</m> is nilpotent, with <m>A^{n-1} \ne \zerovec</m>.
+</p></paragraphs>
+
+<paragraphs><title>How</title><p>
+	Choose an index <m>j</m> such that the <m>\nth[j]</m> column of <m>A^{n-1}</m> is nonzero.
+	Then take the columns of <m>P</m> to be
+	<md><mrow>
+		\uvec{p}_1 \amp = \uvec{e}_j, \amp
+		\uvec{p}_2 \amp = A\uvec{e}_j, \amp
+		\uvec{p}_3 \amp = A^2\uvec{e}_j, \amp
+		\amp\dotsc, \amp
+		\uvec{p}_n \amp = A^{n-1}\uvec{e}_j
+	</mrow></md>,
+	where <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector.
+</p></paragraphs>
+
+<paragraphs><title>Result</title><p>
+	Always exactly of the form described at the beginning of this section.
+</p></paragraphs>
+
+</section>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-forms-summary-jordan">
+
+<title>Jordan normal form</title>
+
+<paragraphs><title>What</title><p>
+	A block-diagonal matrix
+	<me>
+		\inv{P}AP
+		= \begin{bmatrix} J_1 \\ \amp J_2 \\  \amp  \amp \ddots \\  \amp \amp \amp J_t \end{bmatrix}
+	</me>,
+	where each block <m>J_i</m> is a Jordan block.
+	That is, each <m>J_i</m> is in (lower triangular) scalar-triangular form,
+	with an eigenvalue <m>\lambda</m> down the diagonal,
+	such that <m>J_i - \lambda I</m> is in elementary nilpotent form.
+	There can be multiple blocks corresponding to the same eigenvalue,
+	but all blocks for a specific eigenvalue appear consecutively,
+	ordered by size of the block, largest to smallest.
+</p></paragraphs>
+
+<paragraphs><title>When</title>
+	<p>
+	The characteristic polynomial of <m>A</m> factors completely as
+	<me>
+		c_A(\lambda)
+		= (\lambda - \lambda_1)^{m_1}
+		(\lambda - \lambda_2)^{m_2}
+		\dotsm
+		(\lambda - \lambda_\ell)^{m_\ell}
+	</me>.
+	</p>
+	<aside><title>Note</title><p>
+		If <m>A</m> is a complex matrix
+		(or, at least, regarded as a complex matrix),
+		then this condition is always true.
+	</p></aside>
+</paragraphs>
+
+<paragraphs><title>How</title>
+	<p>
+	First, obtain a matrix <m>M</m> such that <m>U = \inv{M} A M</m> is in triangular block form.
+	(See summary <xref ref="section-forms-summary-tri-block" />.)
+	Write <m>U_1,U_2,\dotsc,U_\ell</m> for the blocks in <m>U</m>.
+	The matrix <m>U_1</m> corresponds to eigenvalue <m>\lambda_1</m> of <m>A</m>,
+	and has size <m>m_1 \times m_1</m>,
+	where <m>m_1</m> is the algebraic multiplicity of <m>\lambda_1</m>.
+	This matrix can be decomposed as
+	<me> U_1 = \lambda_1 I + N_1 </me>,
+	where <m>N_1</m> is an <m>m_1 \times m_1</m>, upper triangular, nilpotent matrix.
+	Next, obtain a matrix <m>Q_1</m> such that <m>\inv{Q_1} N_1 Q_1</m> is in triangular-block nilpotent form.
+	(See summary <xref ref="section-forms-summary-nilp-tri" />.)
+	</p><p>
+	Now repeat for <m>N_2</m>,
+	where <me> U_2 = \lambda_2 I + N_2 </me>,
+	to obtain <m>Q_2</m> such that <m>\inv{Q_2} N_2 Q_2</m> is in triangular-block nilpotent form.
+	Then repeat for <m>N_3</m>,
+	where <me> U_3 = \lambda_3 I + N_3 </me>,
+	obtaining matrix <m>Q_3</m>.
+	And so on.
+	</p><p>
+	Finally, take <m>P = M Q</m>, where
+	<me>
+		Q
+		= \begin{bmatrix} Q_1 \\ \amp Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp Q_\ell \end{bmatrix}
+	</me>.
+</p></paragraphs>
+
+<paragraphs><title>Result</title><p>
+	Similar to the summary of triangular-block nilpotent form
+	(<xref ref="section-forms-summary-nilp-tri" />),
+	the number of blocks corresponding to a particular eigenvalue <m>\lambda</m> is equal to the nullity of <m>A - \lambda I</m>
+	(which is the same as the dimension of the eigenspace <m>E_\lambda(A)</m>).
+	Write <m>m</m> for the algebraic multiplicity of <m>\lambda</m>.
+	The largest (and first) block corresponding to <m>\lambda</m> has dimensions <m>k \times k</m>,
+	where <m>k</m> is the smallest positive integer such that
+	<me> \rank (A - \lambda I)^k = n-m </me>.
+	(In other words, <m>k</m> is the degree of nilpotency of the nilpotent part of the <q>macro</q> triangular block corresponding to <m>\lambda</m>.)
+	The sizes of the remaining Jordan blocks for <m>\lambda</m> can be deduced from the ranks of the powers
+	<me> (A - \lambda I)^{k-1}, (A - \lambda I)^{k-2}, \dotsc, (A - \lambda I)^1 </me>.
+</p></paragraphs>
+
+</section>
