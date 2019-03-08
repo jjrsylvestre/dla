@@ -395,14 +395,14 @@ Since the graph <m>y=\cos\theta</m> passes through every possible <m>y</m>-value
 We have already seen that the dot product is intimately tied to the geometry of <m>\R^n</m>, acting as a link between norm (length) and angle. But as we discovered in <xref ref="activity-vector-geom-dot-product-vs-norm" />, it is also directly linked to the norm by the observation
 <md><mrow>
 	\unorm{v}^2
-	\amp= (\sqrt{v_1^2 + v_2^2 + \dotsb v_n^2})^2
+	\amp= (\sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2})^2
 	\amp
 	\udotprod{v}{v}
 	\amp= v_1v_1 + v_2v_2 + \dotsb + v_n v_n
 	\\
-	\amp= v_1^2 + v_2^2 + \dotsb v_n^2,
+	\amp= v_1^2 + v_2^2 + \dotsb + v_n^2,
 	\amp
-	\amp= v_1^2 + v_2^2 + \dotsb v_n^2.
+	\amp= v_1^2 + v_2^2 + \dotsb + v_n^2.
 </mrow></md>
 So we obtain a very convenient formula: <m>\unorm{v}^2 = \udotprod{v}{v}</m>.
 </p>
@@ -432,19 +432,19 @@ The pattern in the formula for the dot product of two vectors should look vaguel
 we have
 <md>
 	<mrow>
-		(\utrans{\uvec{v}})\uvec{u}
+		\utrans{\uvec{v}} \uvec{u}
 		\amp=
-		\begin{bmatrix}v_1 \amp v_2 \amp \cdots \amp v_n\end{bmatrix}
-		\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}
+		\begin{bmatrix} v_1 \amp v_2 \amp \cdots \amp v_n \end{bmatrix}
+		\begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}
 	</mrow><mrow>
-		\amp= v_1 u_1 + v_2 u_2 + \dotsb v_n u_n.
+		\amp= v_1 u_1 + v_2 u_2 + \dotsb + v_n u_n.
 	</mrow><mrow>
-		\amp= u_1 v_1 + u_2 v_2 + \dotsb u_n v_n.
+		\amp= u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n.
 	</mrow><mrow>
 		\amp= \udotprod{u}{v}.
 	</mrow>
 </md>
-So we obtain a matrix formula for dot product: <m>\udotprod{u}{v} = (\utrans{\uvec{v}})\uvec{u}</m>.
+So we obtain a matrix formula for dot product: <m>\udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u}</m>.
 </p>
 
 <remark><p><ul>
@@ -456,13 +456,13 @@ So we obtain a matrix formula for dot product: <m>\udotprod{u}{v} = (\utrans{\uv
 	<me>
 		\udotprod{u}{v} \,=\, \utrans{\uvec{u}}\uvec{v}
 		\,=\,
-		\begin{bmatrix}u_1 \amp u_2 \amp \cdots \amp u_n\end{bmatrix}
-		\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
-		\,=\, u_1 v_1 + u_2 v_2 + \dotsb u_n v_n
+		\begin{bmatrix} u_1 \amp u_2 \amp \cdots \amp u_n \end{bmatrix}
+		\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+		\,=\, u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n
 	</me>
 	(as we did in <xref ref="activity-vector-geom-dot-prod-vs-matrix-mult" />),
 	instead of the seemingly pointless reversal of order in the formula
-	<m>\udotprod{u}{v} = (\utrans{\uvec{v}})\uvec{u}</m>.
+	<m>\udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u}</m>.
 	However, if you continue on in your study of linear algebra beyond this course, you will discover that this reversal of order is absolutely necessary when studying <em>complex</em> vectors (that is, vectors where the components are <em>complex</em> numbers). Since this reversal of order is harmless here, we will start using it now so as to avoid confusion later.
 	<!-- TODO rewrite the above when book is extended -->
 	</li>
