@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-inner-prod-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-inner-prod-examples-typical" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inner-prod-examples-typical" /></em></li>
+<li><xref ref="subsection-inner-prod-examples-geometry" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inner-prod-examples-geometry" /></em></li>
+<li><xref ref="subsection-inner-prod-examples-skewing-Rn-geometry" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inner-prod-examples-skewing-Rn-geometry" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-inner-prod-examples-typical">
+<title>Inner products on familiar spaces</title>
+
+<example><title>An inner product on <m>\poly_n(\R)</m></title><p>
+	In <xref ref="activity-inner-prod-P2" />,
+	we verified the four real inner product axioms for an example inner product on <m>\poly_2(\R)</m>,
+	the space of polynomials with real coefficients of degree <m>2</m> or less.
+	We can mimic this example to create an inner product on <m>\poly_n(\R)</m> for any <m>n</m>:
+	choose <m>n+1</m> distinct real numbers <m>c_0, c_1, \dotsc, c_n</m>,
+	and using them create pairing
+	<me> \inprod{p}{q} = p(c_0) q(c_0) + p(c_1) q(c_1) + \dotsb + p(c_n) q(c_n) </me>.
+	Checking
+	<xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+	<xref ref="list-inner-prod-concepts-real-axioms-additive" text="local">Axiom RIP</xref>,
+	and <xref ref="list-inner-prod-concepts-real-axioms-homogeneous" text="local">Axiom RIP</xref>
+	is straightforward.
+	And <xref ref="theorem-complex-fund-thm-alg-reals" text="title" />
+	guarantees that no nonzero polynomial <m>p</m> can evaluate to zero at more than <m>n</m> input values,
+	hence not all of the terms in the pairing expression
+	<me> \inprod{p}{p} = \bigl[p(c_0)\bigr]^2 + \bigl[p(c_1)\bigr]^2 + \dotsb + \bigl[p(c_n)\bigr]^2 </me>
+	can be zero, which verifies
+	<xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>.
+</p></example>
+
+<example>
+	<title>The standard inner product on <m>\matrixring_{m\times n}(\R)</m></title>
+	<p>
+	An <m>m \times n</m> matrix is just <m>mn</m> <q>components</q> (<ie /> entries) arranged in a grid instead of in a column.
+	So we would expect the pairing
+	<me> \inprod{A}{B} = a_{11} b_{11} + a_{12} b_{12} + \dotsb + a_{mn} b_{mn} </me>,
+	which is really just a <q>dot product</q> of matrices,
+	to create an inner product on <m>\matrixring_{m\times n}(\R)</m>.
+	And it does.
+	</p><p>
+	We can wrap this pairing up in a neat formula by
+	<me> \inprod{A}{B} = \trace (\utrans{B} A) </me>.
+	(Again, the reversal of order is in preparation of the complex version.)
+	</p><p>
+	Let's verify <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>:
+	<md>
+		<mrow> \inprod{B}{A} \amp = \trace (\utrans{A} B) \amp \amp \text{(i)} </mrow>
+		<mrow> \amp = \trace \left(\utrans{A} \utrans{(\utrans{B})}\right)  \amp \amp \text{(ii)} </mrow>
+		<mrow> \amp = \trace \utrans{(\utrans{B} A)} \amp \amp \text{(iii)} </mrow>
+		<mrow> \amp = \trace (\utrans{B} A) \amp \amp \text{(iv)} </mrow>
+		<mrow> \amp = \inprod{A}{B} \amp \amp \text{(v)} </mrow>
+	</md>,
+	with justifications
+	<ol label="(i)">
+		<li> definition of the pairing; </li>
+		<li> <xref ref="proposition-matrix-ops-algebra-rules-transpose-transpose">Rule</xref> of <xref ref="proposition-matrix-ops-algebra-rules" />; </li>
+		<li> <xref ref="proposition-matrix-ops-algebra-rules-transpose-product">Rule</xref> of <xref ref="proposition-matrix-ops-algebra-rules" />; </li>
+		<li>
+			transpose does not change the diagonal entries, so trace remains the same; and
+			<todo>trace needs proper properties theorem somewhere</todo>
+		</li>
+		<li> definition of the pairing. </li>
+	</ol>
+	</p><p>
+	<xref ref="list-inner-prod-concepts-real-axioms-additive" text="local">Axiom RIP</xref>
+	and
+	<xref ref="list-inner-prod-concepts-real-axioms-homogeneous" text="local">Axiom RIP</xref>
+	are also easily verified using the properties of transpose and trace.
+	So let's finish this example by verifying
+	<xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>.
+	Consider a matrix <m>A</m> as being made up of column vectors in <m>\R^n</m>:
+	<me>
+		A = \begin{bmatrix}
+			| \amp | \amp \amp | \\
+			\uvec{a}_1 \amp \uvec{a}_2 \amp \cdots \amp \uvec{a}_n \\
+			| \amp | \amp \amp |
+		\end{bmatrix}
+	</me>.
+	Then the diagonal entries of <m>\utrans{A} A</m> are of the form
+	<me> \utrans{\uvec{a}}_j \uvec{a} = \dotprod{\uvec{a}_j}{\uvec{a}_j} = \norm{\uvec{a}_j}^2 </me>.
+	If <m>A \neq \zerovec</m>, then at least one of its columns <m>\uvec{a}_j</m> must be nonzero,
+	and that column will contribute the positive value <m>\norm{\uvec{a}_j}^2</m> to
+	<me> \inprod{A}{A} = \trace (\utrans{A} A) = \norm{\uvec{a}_1}^2 + \norm{\uvec{a}_2}^2 + \dotsb + \norm{\uvec{a}_n}^2 </me>.
+	</p>
+</example>
+
+<example><title>The standard inner product on <m>\matrixring_{m\times n}(\C)</m></title><p>
+	Similar to the real case, we can effectively make a complex matrix <q>dot product</q> by setting
+	<me> \inprod{A}{B} = a_{11} \cconj{b}_{11} + a_{12} \cconj{b}_{12} + \dotsb + a_{mn} \cconj{b}_{mn} </me>.
+	Again, we can achieve this result with the compact formula
+	<me> \inprod{A}{B} = \trace (\adjoint{B} A) </me>.
+	We leave it to you, the reader, to verify that this pairing will satisfy the axioms for a complex inner product.
+</p></example>
+
+<example xml:id="example-inner-prod-cont-funcs">
+	<title>An inner product for continuous functions</title>
+	<p>
+	Let <m>C[a,b]</m> represent the space of all <em>continuous</em> functions on the closed interval <m>[a,b]</m>.
+	Since adding continuous functions or vertically scaling a continuous function always results in a continuous function,
+	this is a subspace of <m>F[a,b]</m>, the space of <em>all</em> functions defined on domain <m>[a,b]</m>.
+	</p><p>
+	Define a pairing on <m>C[a,b]</m> by
+	<me> \inprod{f}{g} = \integral{a}{b}{f(x) g(x)}{x} </me>.
+	A product of two continuous functions is also continuous,
+	and the <em>Fundamental Theorem of Calculus</em> tells us that continuous functions are always integrable.
+	</p><p>
+	This pairing obviously satisfies <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+	and the basic properties of definite integrals tell us that
+	<xref ref="list-inner-prod-concepts-real-axioms-additive" text="local">Axiom RIP</xref>
+	and
+	<xref ref="list-inner-prod-concepts-real-axioms-homogeneous" text="local">Axiom RIP</xref>
+	are also satisfied.
+	For <xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>,
+	consider that
+	<me> \inprod{f}{f} = \integral{a}{b}{\bigl[f(x)\bigr]^2}{x} </me>
+	must at least be nonnegative because the integrand is,
+	but if <m>f(x)</m> is not the zero function,
+	then the properties of continuous functions require that this integral will evaluate to a positive number.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-inner-prod-examples-geometry">
+<title>Geometry in inner product spaces</title>
+
+<example>
+	<title>The <q>length</q> of a matrix</title>
+	<p>
+	Let's use the inner product
+	<me> \inprod{A}{B} = \trace (\utrans{B} A) </me>
+	on <m>\matrixring_{2 \times 2}(\R)</m> to compute the norm of the vector
+	<me> A = \begin{bmatrix} 2 \amp 3 \\ 1 \amp -1 \end{bmatrix} </me>.
+	We have
+	<md>
+		<mrow>
+			\inprod{A}{A} \amp = \trace\left(
+				\begin{bmatrix} 2 \amp 1 \\ 3 \amp -1 \end{bmatrix}
+				\begin{bmatrix} 2 \amp 3 \\ 1 \amp -1 \end{bmatrix}
+			\right)
+		</mrow><mrow>
+			\amp = \trace \begin{bmatrix} 5 \amp 5 \\ 5 \amp 10 \end{bmatrix}
+		</mrow><mrow>
+			\amp = 15
+		</mrow>
+	</md>,
+	and so
+	<me> \norm{A} = \sqrt{15} </me>.
+	</p><p>
+	What <term>unit vectors</term> in <m>\matrixring_{2 \times 2}(\R)</m> are <q>parallel</q> to <m>A</m>?
+	Just as in <m>\R^n</m>,
+	we can normalize a vector to a unit vector by dividing by its norm.
+	So
+	<me> U = \frac{1}{\sqrt{15}} \begin{bmatrix} 2 \amp 3 \\ 1 \amp -1 \end{bmatrix} </me>
+	is one unit vector that is <q>parallel</q> to <m>A</m>,
+	and <m>-U</m> is another.
+	</p>
+	<aside><title>Careful</title><p>
+		In a real inner product space,
+		there are only two unit vectors in <m>\Span {\uvec{v}}</m> for a given nonzero vector <m>\uvec{v}</m>.
+		But in a complex inner product space, there are actually an infinite number!
+		(See <xref ref="proposition-inner-prod-unit-vectors" />
+		and <xref ref="remark-inner-prod-theory-unit-vectors" />.)
+	</p></aside>
+</example>
+
+<example><title>Orthogonal functions</title>
+	<p>
+	The functions <m>f(x) = \sin x</m> and <m>g(x) = \cos x</m> are continuous,
+	and so are vectors in <m>C[0,2\pi]</m>.
+	If we use the inner product of <xref ref="example-inner-prod-cont-funcs" />
+	to compute
+	<me> \inprod{f}{g} = \integral{0}{2\pi}{\sin(x) \cos(x)}{x} = 0 </me>,
+	we find that the angle between these functions is
+	<me>
+		\theta = \inv{\cos} \left(
+			\frac{\inprod{f}{g}}{\unorm{f}\unorm{g}}
+		\right)
+		= \inv{\cos} 0
+		= \frac{\pi}{2}
+	</me>,
+	so that <m>f</m> and <m>g</m> are at a right angle to each other.
+	</p>
+</example>
+
+</subsection>
+
+
+<subsection xml:id="subsection-inner-prod-examples-skewing-Rn-geometry">
+<title>Skewing geometry in <m>\R^n</m></title>
+
+<p>
+In the usual geometry of <m>\R^2</m>
+(<ie /> relative to the standard inner product),
+the <term>unit circle</term> consists of those points that are a distance <m>1</m> from the origin.
+</p>
+<sidebyside width="30%"><image>
+  <!-- description gets inserted as alt text in html img tag -->
+  <description> The unit circle in <m>\R^2</m>. </description>
+  <latex-image><xi:include href="examples.d/circle.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+What happens if we skew this geometry using a different inner product?
+The matrix
+<me> A = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 2 \end{bmatrix} </me>
+is symmetric and satisfies
+<me>
+	\begin{bmatrix} x \amp y \end{bmatrix}
+	\begin{bmatrix} 1 \amp 0 \\ 0 \amp 2 \end{bmatrix}
+	\begin{bmatrix} x \\ y \end{bmatrix}
+	= x^2 + 2 y^2
+	> 0
+</me>
+for all <m>(x,y) \neq (0,0)</m>.
+Therefore,
+<me> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </me>
+defines an inner product on <m>\R^2</m>.
+</p><p>
+What is the <term>unit circle</term> for this inner product?
+That is, what vectors <m>(x,y)</m> in <m>\R^2</m> will satisfy
+<me>
+	\begin{bmatrix} x \amp y \end{bmatrix}
+	\begin{bmatrix} 1 \amp 0 \\ 0 \amp 2 \end{bmatrix}
+	\begin{bmatrix} x \\ y \end{bmatrix}
+	= 1
+</me>?
+Using our calculation above,
+this occurs precisely when
+<me> x^2 + 2 y^2 = 1 </me>,
+which is the equation of an ellipse.
+</p>
+<sidebyside width="30%"><image>
+  <!-- description gets inserted as alt text in html img tag -->
+  <description> A distorted unit circle in <m>\R^2</m>. </description>
+  <latex-image><xi:include href="examples.d/ellipse.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+So, by using a different inner product, we can treat an ellipse as if it were a circle.
+<todo>Refer ahead to principle axis stuff.</todo>
+</p>
+
+</subsection>
+
+</section>

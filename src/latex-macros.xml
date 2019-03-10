@@ -43,6 +43,7 @@ respective owners.
 \newcommand{\inv}[2][1]{{#2}^{-{#1}}}% inverse
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
 \newcommand{\degree}[1]{{#1}^\circ} % makeshift degree symbol
+\newcommand{\blank}{-}% dash for blank in maps
 
 % number systems
 \newcommand{\R}{\mathbb{R}}% real numbers
@@ -85,13 +86,18 @@ respective owners.
 \newcommand{\uinvcobmtrx}[2]{\inv{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
 \newcommand{\adjoint}[1]{{#1}^\ast}% adjoint
 \newcommand{\similar}{\sim}
+\newcommand{\inprod}[2]{\left\langle\, #1,\, #2 \,\right\rangle}% inner product
+\newcommand{\uvecinprod}[2]{\inprod{\uvec{#1}}{\uvec{#2}}}% inner product with vector notation of arguments
 
-% diff eq
+% analysis
 \newcommand{\dd}[2]{\frac{d{#1}}{d#2}}% Leibniz derivative
 \newcommand{\ddx}[1][x]{\dd{}{#1}}% Leibniz differential operator
 \newcommand{\ddt}[1][t]{\dd{}{#1}}% Leibniz differential operator
 \newcommand{\dydx}{\dd{y}{x}}% Leibniz derivative, filled in
 \newcommand{\dxdt}{\dd{x}{t}}% Leibniz derivative, filled in
 \newcommand{\dydt}{\dd{y}{t}}% Leibniz derivative, filled in
+\newcommand{\intspace}{\;}
+\newcommand{\integral}[4]{\int^{#2}_{#1} #3 \intspace d{#4}}% spaced out integral
+
 
 </macros>
