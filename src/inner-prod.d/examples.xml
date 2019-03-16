@@ -118,9 +118,9 @@ respective owners.
 <example xml:id="example-inner-prod-cont-funcs">
 	<title>An inner product for continuous functions</title>
 	<p>
-	Let <m>C[a,b]</m> represent the space of all <em>continuous</em> functions on the closed interval <m>[a,b]</m>.
+	Let <m>C[a,b]</m> represent the space of all <em>continuous</em> functions on the closed interval <m>a \le x \le b</m>.
 	Since adding continuous functions or vertically scaling a continuous function always results in a continuous function,
-	this is a subspace of <m>F[a,b]</m>, the space of <em>all</em> functions defined on domain <m>[a,b]</m>.
+	this is a subspace of <m>F[a,b]</m>, the space of <em>all</em> functions defined on domain <m>a \le x \le b</m>.
 	</p><p>
 	Define a pairing on <m>C[a,b]</m> by
 	<me> \inprod{f}{g} = \integral{a}{b}{f(x) g(x)}{x} </me>.
@@ -187,7 +187,62 @@ respective owners.
 	</p></aside>
 </example>
 
-<example><title>Orthogonal functions</title>
+<example><title>Angle between matrices</title>
+	<p>
+	What is the angle between
+	<md><mrow>
+		A \amp = \begin{bmatrix} 3 \amp 5 \\ 0 \amp 4 \end{bmatrix}, \amp
+		B \amp = \left[\begin{array}{rr} 0 \amp 1 \\ -1 \amp 0 \end{array}\right]
+	</mrow></md>
+	in <m>\matrixring_{2 \times 2}(\R)</m> when using the inner product <m>\inprod{X}{Y} = \trace (\utrans{B} A)</m>?
+	</p><p>
+	Compute:
+	<md alignment="gather">
+		<mrow>
+			\inprod{A}{B} = \trace\left(
+				\left[\begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array}\right]
+				\begin{bmatrix} 3 \amp 5 \\ 0 \amp 4 \end{bmatrix}
+			\right)
+			= \trace\left(
+				\left[\begin{array}{rr} 0 \amp -4 \\ 3 \amp 5 \end{array}\right]
+			\right)
+			= 5 \text{,}
+		</mrow><mrow></mrow><mrow>
+			\norm{A}^2 = \trace\left(
+				\begin{bmatrix} 3 \amp 0 \\ 5 \amp 4 \end{bmatrix}
+				\begin{bmatrix} 3 \amp 5 \\ 0 \amp 4 \end{bmatrix}
+			\right)
+			= \trace\left(
+				\begin{bmatrix} 9 \amp 15 \\ 15 \amp 41 \end{bmatrix}
+			\right)
+			= 50 \text{,}
+		</mrow><mrow></mrow><mrow>
+			\norm{B}^2 = \trace\left(
+				\left[\begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array}\right]
+				\left[\begin{array}{rr} 0 \amp 1 \\ -1 \amp 0 \end{array}\right]
+			\right)
+			= \trace\left(
+				\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			\right)
+			= 2 \text{.}
+		</mrow>
+	</md>
+	Put these calculations together in the formula
+	<me>
+		\theta = \inv{\cos} \left(
+			\frac{\inprod{A}{B}}{\norm{A}\norm{B}}
+		\right)
+		= \inv{\cos} \left(
+			\frac{5}{\sqrt{50}\sqrt{2}}
+		\right)
+		= \inv{\cos} \left( \frac{1}{2} \right)
+		= \frac{\pi}{3}
+	</me>.
+	</p>
+</example>
+
+<example xml:id="example-inner-prod-examples-orthog-funcs">
+	<title>Orthogonal functions</title>
 	<p>
 	The functions <m>f(x) = \sin x</m> and <m>g(x) = \cos x</m> are continuous,
 	and so are vectors in <m>C[0,2\pi]</m>.

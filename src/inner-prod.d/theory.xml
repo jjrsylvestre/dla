@@ -181,7 +181,7 @@ while a complex inner product is <term>sesquilinear</term>
 </p>
 <aside><title>Terminology</title><p> The prefix <term>sesqui-</term> means <q>one-and-a-half</q>.</p></aside>
 
-<proposition>
+<proposition xml:id="proposition-inner-prod-linearity">
 	<title>Linearity of inner products</title>
 	<statement><p><ol>
 		<li>
@@ -378,7 +378,13 @@ and
 		<me> \inprod{\uvec{e}_i}{\uvec{e}_j} = a_{ji} = \utrans{\uvec{e}}_j A \uvec{e}_i </me>,
 		which is a start.
 		And, as usually is the case, what is true for basis vectors will be true for all vectors.
-		</p><p>
+		</p>
+		<aside><title>Notice</title><p>
+			Because of <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+			we actually have <m>a_{ij} = \inprod{\uvec{e}_i}{\uvec{e}_j}</m>,
+			which is a more pleasing way to state the relationship between entries of <m>A</m> and inner product values of the standard basis vectors.
+		</p></aside>
+		<p>
 		Let's check: given <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>, we have
 		<md>
 			<mrow>
@@ -397,6 +403,23 @@ and
 			</mrow>
 		</md>,
 		as desired.
+		</p><p>
+		It only remains to verify that <m>A</m> is positive definite.
+		Using <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+		we have
+		<me>
+			a_{ij} = \inprod{\uvec{e}_j}{\uvec{e}_i}
+			 = \inprod{\uvec{e}_i}{\uvec{e}_j}
+			 = a_{ji}
+		</me>,
+		so <m>A</m> is symmetric.
+		And the fact that
+		<me> \utrans{\uvec{v}} A \uvec{u} = \uvecinprod{u}{v} </me>,
+		that we have verified above,
+		guarantees that
+		<me> \utrans{\uvec{v}} A \uvec{v} \gt 0 </me>
+		for all nonzero <m>\uvec{v}</m>,
+		by <xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>.
 		</p>
 	</proof>
 </theorem>
