@@ -98,10 +98,10 @@ leads to a pattern for the coefficients in the expansion for a vector relative t
 in a finite-dimensional inner product space:
 <me>
 	\uvec{v}
-	= \left(\frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
-	+ \left(\frac{\inprod{\uvec{v}}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2}\right) \, \uvec{e}_2
+	= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+	+ \frac{\inprod{\uvec{v}}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
 	+ \dotsb
-	+ \left(\frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2}\right) \, \uvec{e}_n
+	+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
 </me>.
 </p>
 <warning><p>
@@ -150,21 +150,21 @@ we attempted to reinvent a procedure by which we can convert a basis into an ort
 	for that space, calculate
  	<md>
 		<mrow> \uvec{e}_1 \amp = \uvec{v}_1 \text{,} </mrow>
-		<mrow> \uvec{e}_2 \amp = \uvec{v}_2 -  \left(\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1 \text{,} </mrow>
+		<mrow> \uvec{e}_2 \amp = \uvec{v}_2 -  \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 \text{,} </mrow>
 		<mrow>
-			\uvec{e}_3 \amp = \uvec{v}_3 - \left[
-				\left(\frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
-				+ \left(\frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2}\right) \, \uvec{e}_2
-			\right]
+			\uvec{e}_3 \amp = \uvec{v}_3 - \left(
+				\frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+				+ \frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
+			\right)
 			\text{,}
 		</mrow>
 		<mrow> \amp \vdots </mrow>
 		<mrow>
-			\uvec{e}_n \amp = \uvec{v}_n - \left[
-				\left(\frac{\inprod{\uvec{v}_n}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
+			\uvec{e}_n \amp = \uvec{v}_n - \left(
+				\frac{\inprod{\uvec{v}_n}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 				+ \dotsb
-				+ \left(\frac{\inprod{\uvec{v}_n}{\uvec{e}_{n-1}}}{\norm{\uvec{e}_{n-1}}^2}\right) \, \uvec{e}_{n-1}
-			\right]
+				+ \frac{\inprod{\uvec{v}_n}{\uvec{e}_{n-1}}}{\norm{\uvec{e}_{n-1}}^2} \, \uvec{e}_{n-1}
+			\right)
 		</mrow>
 	</md>.
 	If an ortho<em>normal</em> basis is desired,
@@ -194,8 +194,8 @@ that <em>if</em> we are able to succeed in creating the orthogonal basis <m>\bas
 then the coefficient on <m>\uvec{e}_1</m> in the expansion of <m>\uvec{v}_2</m> relative to <m>\basisfont{B}</m> is
 <me> \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} </me>.
 In other words,
-the portion of <m>\uvec{v}_2</m> in the direction of <m>\uvec{e}_1</m> is
-<me> \widetilde{\uvec{v}}_2 = \left( \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \right) \, \uvec{e}_1 </me>.
+the portion of <m>\uvec{v}_2</m> parallel to <m>\uvec{e}_1</m> is
+<me> \widetilde{\uvec{v}}_2 = \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>.
 </p>
 <sidebyside width="30%"><image>
 	<!-- description gets inserted as alt text in html img tag -->
@@ -205,7 +205,7 @@ the portion of <m>\uvec{v}_2</m> in the direction of <m>\uvec{e}_1</m> is
 <p>
 This diagram should look familiar <mdash /> it is essentially the same diagram that we used to illustrate orthogonal projection in <m>\R^2</m>.
 The formula for orthogonal projection even appears to be the same:
-<me> \proj_{\uvec{a}} \uvec{u} = \left( \frac{\udotprod{u}{a}}{\unorm{a}^2} \right) \, \uvec{a} </me>.
+<me> \proj_{\uvec{a}} \uvec{u} = \frac{\udotprod{u}{a}}{\unorm{a}^2} \, \uvec{a} </me>.
 And from our experience with orthogonal projection onto a line,
 the vector running from the head of <m> \widetilde{\uvec{v}}_2 </m> to the head of <m>\uvec{v}_2</m> should be both a difference vector
 <me> \uvec{v}_2 - \widetilde{\uvec{v}}_2 </me>
@@ -233,8 +233,8 @@ Similarly to the last step,
 the vector
 <me>
 	\widetilde{\uvec{v}}_3
-	= \left( \frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \right) \, \uvec{e}_1
-	+ \left( \frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \right) \, \uvec{e}_2
+	= \frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+	+ \frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
 </me>
 represents the portion of <m>\uvec{v}_3</m> that lies parallel to that plane.
 </p>
@@ -296,7 +296,7 @@ we start by setting
 <me> \uvec{e}_1 = \uvec{u}_1 </me>,
 so <m>\uvec{e}_1</m> is in <m>U</m>.
 Then we set
-<me> \uvec{e}_2 = \uvec{v}_2 -  \left(\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1 </me>,
+<me> \uvec{e}_2 = \uvec{v}_2 -  \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>,
 a linear combination of vectors in <m>U</m>.
 So <m>\uvec{e}_2</m> is also in <m>U</m>.
 And so on: at each step the next vector <m>\uvec{e}_j</m> is a linear combination of a vector from <m>\basisfont{B}_U</m> and the previous vectors <m>\uvec{e}_1,\dotsc,\uvec{e}_{j-1}</m>.

@@ -196,9 +196,9 @@ to express a vector as a linear combination of orthogonal basis vectors.
 	<md>
 		<mrow>
 			q(x) \amp
-			= \left(\frac{\inprod{q}{p_1}}{\norm{p_1}^2}\right) \, p_1(x)
-			+ \left(\frac{\inprod{q}{p_2}}{\norm{p_2}^2}\right) \, p_2(x)
-			+ \left(\frac{\inprod{q}{p_3}}{\norm{p_3}^2}\right) \, p_3(x)
+			= \frac{\inprod{q}{p_1}}{\norm{p_1}^2} \, p_1(x)
+			+ \frac{\inprod{q}{p_2}}{\norm{p_2}^2} \, p_2(x)
+			+ \frac{\inprod{q}{p_3}}{\norm{p_3}^2} \, p_3(x)
 		</mrow><mrow>
 			\amp
 			= \frac{10}{8/3} \cdot p_1(x)
@@ -221,7 +221,7 @@ to express a vector as a linear combination of orthogonal basis vectors.
 <subsection xml:id="subsection-inprod-orthog-examples-gram-schmidt">
 <title>Using the Gram-Schmidt orthogonalization process</title>
 
-<example>
+<example xml:id="example-inprod-orthog-apply-gs-P2">
 	<title>Producing an orthogonal basis</title>
 	<p>
 	Consider <m>V = \poly_2(\R)</m> equipped with inner product
@@ -236,7 +236,7 @@ to express a vector as a linear combination of orthogonal basis vectors.
 	</md>
 	Then we set
 	<me>
-		e_2(x) = x - \left(\frac{\inprod{x}{e_1}}{\norm{e_1}^2}\right) \, e_1(x)
+		e_2(x) = x - \frac{\inprod{x}{e_1}}{\norm{e_1}^2} \, e_1(x)
 		= x - \frac{1/2}{1} \cdot 1
 		= x - \frac{1}{2}
 	</me>.
@@ -250,10 +250,10 @@ to express a vector as a linear combination of orthogonal basis vectors.
 	<md>
 		<mrow>
 			e_3(x) \amp
-			= x^2 - \left[
-				\left( \frac{\inprod{x^2}{e_1}}{\norm{e_1}^2} \right) \, e_1(x) +
-				\left( \frac{\inprod{x^2}{e_2}}{\norm{e_2}^2} \right) \, e_2(x)
-			\right]
+			= x^2 - \left(
+				\frac{\inprod{x^2}{e_1}}{\norm{e_1}^2} \, e_1(x) +
+				\frac{\inprod{x^2}{e_2}}{\norm{e_2}^2} \, e_2(x)
+			\right)
 		</mrow><mrow>
 			\amp
 			= x^2 - \left(
@@ -322,7 +322,7 @@ to express a vector as a linear combination of orthogonal basis vectors.
 	<p>
 	Normally, we would now set <m>\uvec{e}_2</m> to be
 	<me>
-		\uvec{w}_2 - \left( \frac{\inprod{\uvec{w}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \right) \, \uvec{e}_1
+		\uvec{w}_2 - \frac{\inprod{\uvec{w}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 		= (1,-1,\ci,\ci) - \frac{2}{4} (1,1,\ci,\ci)
 		= \left(\frac{1}{2}, -\frac{3}{2}, \frac{\ci}{2}, \frac{\ci}{2} \right)
 	</me>.
@@ -341,10 +341,10 @@ to express a vector as a linear combination of orthogonal basis vectors.
 	<md><mrow>
 		\uvec{e}_3 \amp = \uvec{w}_3 - (\zerovec + \zerovec) \text{,} \amp
 		\uvec{e}_4 \amp =
-		\uvec{w}_4 - \left[
+		\uvec{w}_4 - \left(
 			\zerovec + \zerovec
-			+ \left( \frac{\inprod{\uvec{w}_4}{\uvec{e}_3}}{\norm{\uvec{e}_3}^2} \right) \, \uvec{e}_3
-		\right]
+			+ \frac{\inprod{\uvec{w}_4}{\uvec{e}_3}}{\norm{\uvec{e}_3}^2} \, \uvec{e}_3
+		\right)
 	</mrow></md>
 	So using <m>\uvec{e}_3 = \uvec{w}_3</m>, calculate
 	<md>
@@ -365,7 +365,7 @@ to express a vector as a linear combination of orthogonal basis vectors.
 	<md>
 		<mrow>
 			\uvec{e}_4
-			\amp = \uvec{w}_4 - \left( \frac{\inprod{\uvec{w}_4}{\uvec{e}_3}}{\norm{\uvec{e}_3}^2} \right) \, \uvec{e}_3
+			\amp = \uvec{w}_4 - \frac{\inprod{\uvec{w}_4}{\uvec{e}_3}}{\norm{\uvec{e}_3}^2} \, \uvec{e}_3
 		</mrow><mrow>
 			\amp = (\ci, 0, 0, 1) - \frac{1}{2} \, (\ci, 0, 1, 0)
 		</mrow><mrow>
@@ -391,7 +391,7 @@ Since the Gram-Schmidt process is our main tool for obtaining orthogonal bases,
 we can use the process to determine orthogonal complements.
 </p>
 
-<example>
+<example xml:id="example-inprod-orthog-orthog-comp-from-gs-M22">
 	<p>
 	Let's revisit <xref ref="example-inprod-orthog-complement-in-real-matrix-space" />,
 	where we considered subspace
@@ -402,6 +402,8 @@ we can use the process to determine orthogonal complements.
 		\right\}
 	</me>
 	of <m>V = \matrixring_{2 \times 2}(\R)</m>.
+	(We equip <m>V</m> with the standard inner product <m>\inprod{A}{B} = \trace (\utrans{B} A)</m>.)
+	</p><p>
 	The basis for <m>U</m> can be enlarged into a basis for <m>V</m> by including a couple of standard basis vectors:
 	<me>
 		\basisfont{B}_0 = \left\{
@@ -440,7 +442,7 @@ we can use the process to determine orthogonal complements.
 	</p>
 </example>
 
-<example>
+<example xml:id="example-inprod-orthog-orthog-comp-from-gs-C4">
 	<p>
 	Now we'll revisit <xref ref="example-inprod-orthog-complement-in-complex-space" />,
 	where we considered the subspace

@@ -64,7 +64,8 @@ we have already taken advantage of this fact to clear fractions when carrying ou
 <xref ref="section-inprod-orthog-examples" />.
 </p>
 
-<proposition><title>Orthogonality versus scalar multiplication</title>
+<proposition xml:id="proposition-inprod-orthog-scaling">
+	<title>Orthogonality versus scalar multiplication</title>
 	<statement><p>
 		Suppose <m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m>
 		is an orthogonal set in an inner product space.
@@ -96,7 +97,8 @@ we have already taken advantage of this fact to clear fractions when carrying ou
 
 <p> Orthogonal sets satisfy a Pythagorean formula. </p>
 
-<theorem><creator>Pythagoras</creator>
+<theorem xml:id="theorem-inprod-orthog-pythag">
+	<creator>Pythagoras</creator>
 	<statement><p>
 		If <m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m> is an orthogonal set in an inner product space,
 		then
@@ -140,16 +142,18 @@ Once again, we've already seen an outline of the proof in <xref ref="activity-in
 so we will not provide a proof here.
 </p>
 
-<theorem><title>The expansion theorem</title><p>
+<theorem xml:id="theorem-inprod-orthog-expansion">
+	<title>The expansion theorem</title>
+	<p>
 	Suppose <m>\basisfont{B} = \{ \uvec{e}_1, \dotsc, \uvec{e}_n \}</m> is an orthogonal basis of a finite-dimensional inner product space, and <m>\uvec{v}</m> is some vector in the space.
 	<ol>
 		<li>
 			The expansion of <m>\uvec{v}</m> as a linear combination of the vectors in <m>\basisfont{B}</m> is
 			<me>
 				\uvec{v}
-				= \left(\frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
+				= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 				+ \dotsb
-				+ \left(\frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2}\right) \, \uvec{e}_n
+				+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
 			</me>.
 		</li>
 		<li>
@@ -163,40 +167,57 @@ so we will not provide a proof here.
 			</me>.
 		</li>
 	</ol>
-</p></theorem>
+	</p>
+</theorem>
 
 <p>
 If two vectors are expanded relative to an orthonormal basis,
 their inner product becomes a dot product between their coordinates.
 </p>
 
-<proposition>
+<proposition xml:id="proposition-inprod-orthog-vs-dot">
 	<title>Inner products are dot products</title>
 	<statement><p>
 		Suppose <m>\basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>
-		is an <em>orthonormal</em> basis for a finite-dimensional inner product space.
-		For
+		is an <em>orthonormal</em> basis for a finite-dimensional inner product space <m>V</m>,
+		and <m>\uvec{v},\uvec{w}</m> are vectors in <m>V</m> with
 		<md>
 			<mrow>
 				\uvec{v} \amp = a_1 \uvec{e}_1 + a_2 \uvec{e}_2 + \dotsb + a_n \uvec{e}_n \text{,} \amp
 				\uvec{w} \amp = b_1 \uvec{e}_1 + b_2 \uvec{e}_2 + \dotsb + b_n \uvec{e}_n
 			</mrow>
-		</md>,
-		we have
-		<me> \uvecinprod{v}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>
-		in a real inner product space and
-		<me> \uvecinprod{v}{w} = a_1 \cconj{b}_1 + a_2 \cconj{b}_2 + \dotsb + a_n \cconj{b}_n </me>
-		in a complex inner product space.
+		</md>.
+		<ol>
+			<li>
+				We have
+				<me> \uvecinprod{v}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>
+				in a real inner product space and
+				<me> \uvecinprod{v}{w} = a_1 \cconj{b}_1 + a_2 \cconj{b}_2 + \dotsb + a_n \cconj{b}_n </me>
+				in a complex inner product space.
+			</li>
+			<li xml:id="proposition-inprod-orthog-vs-dot-norm">
+				We have
+				<me> \unorm{v} = \sqrt{\abs{a_1}^2 + \dotsb + \abs{a_n}^2} </me>,
+				where the absolute values are redundant in the real context,
+				but indicate modulus in the complex context.
+			</li>
+		</ol>
 	</p></statement>
-	<proof><title>Proof idea</title><p>
-		This is straightforward computation using
-		<xref ref="proposition-inner-prod-linearity" text="title" />,
-		along with the orthonormal conditions:
-		<md><mrow>
-			\inprod{\uvec{e}_i}{\uvec{e}_i} \amp = 1 \text{,} \amp
-			\inprod{\uvec{e}_i}{\uvec{e}_j} \amp = 0 \qquad (j \neq i)
-		</mrow></md>.
-	</p></proof>
+	<proof><title>Proof idea</title><p><ol>
+		<li>
+			This is straightforward computation using
+			<xref ref="proposition-inner-prod-linearity" text="title" />,
+			along with the orthonormal conditions:
+			<md><mrow>
+				\inprod{\uvec{e}_i}{\uvec{e}_i} \amp = 1 \text{,} \amp
+				\inprod{\uvec{e}_i}{\uvec{e}_j} \amp = 0 \qquad (j \neq i)
+			</mrow></md>.
+		</li>
+		<li>
+			Apply <xref ref="theorem-inprod-orthog-pythag" /> to the expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m>,
+			first noting <xref ref="proposition-inprod-orthog-scaling" />.
+		</li>
+	</ol></p></proof>
 </proposition>
 
 <warning><p>
@@ -221,11 +242,11 @@ produces an orthogonal basis.
 		<m>\{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>,
 		where
 		<me>
-			\uvec{e}_j = \uvec{v}_j - \left[
-				\left(\frac{\inprod{\uvec{v}_j}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
+			\uvec{e}_j = \uvec{v}_j - \left(
+				\frac{\inprod{\uvec{v}_j}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 				+ \dotsb
-				+ \left(\frac{\inprod{\uvec{v}_j}{\uvec{e}_{j-1}}}{\norm{\uvec{e}_{j-1}}^2}\right) \, \uvec{e}_{j-1}
-			\right]
+				+ \frac{\inprod{\uvec{v}_j}{\uvec{e}_{j-1}}}{\norm{\uvec{e}_{j-1}}^2} \, \uvec{e}_{j-1}
+			\right)
 		</me>,
 		is an orthogonal basis for the space.
 	</p></statement>
@@ -245,19 +266,19 @@ produces an orthogonal basis.
 				\inprod{\uvec{e}_2}{\uvec{e}_1}
 				\amp =
 				\inprod{
-					\uvec{v}_2 - \left(\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
+					\uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 				}{\uvec{e}_1}
 			</mrow><mrow>
 				\amp =
 				\inprod{\uvec{v}_2}{\uvec{e}_1}
 				-
-				\left(\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right)
+				\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}
 				\, \inprod{\uvec{e}_1}{\uvec{e}_1}
 			</mrow><mrow>
 				\amp =
 				\inprod{\uvec{v}_2}{\uvec{e}_1}
 				-
-				\left(\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\cancel{\norm{\uvec{e}_1}^2}}\right)
+				\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\cancel{\norm{\uvec{e}_1}^2}}
 				\, \cancel{\norm{\uvec{e}_1}^2}
 			</mrow><mrow>
 				\amp = \inprod{\uvec{v}_2}{\uvec{e}_1} - \inprod{\uvec{v}_2}{\uvec{e}_1}
@@ -278,20 +299,20 @@ produces an orthogonal basis.
 				\inprod{\uvec{e}_{\ell + 1}}{\uvec{e}_j}
 				\amp =
 				\left\langle \,
-					\uvec{v}_{\ell + 1} - \left[
-						\left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
+					\uvec{v}_{\ell + 1} - \left(
+						\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 						+
 					\right.
 				\right.
 			</mrow><mrow>
 				\amp
-				\phantom{= \langle \uvec{v}_{\ell + 1} - [}
+				\phantom{= \langle \uvec{v}_{\ell + 1} - (}
 				\qquad
 				\left.
 					\left.
 						\dotsb
-						+ \left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2}\right) \, \uvec{e}_{\ell}
-					\right]
+						+ \frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2} \, \uvec{e}_{\ell}
+					\right)
 					, \, \uvec{e}_j
 				\, \right\rangle
 			</mrow><mrow>
@@ -299,7 +320,7 @@ produces an orthogonal basis.
 				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
 				-
 				\left\langle \,
-					\left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \, \uvec{e}_1
+					\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 					+
 				\right.
 			</mrow><mrow>
@@ -308,14 +329,14 @@ produces an orthogonal basis.
 				\qquad
 				\left.
 					\dotsb
-					+ \left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2}\right) \, \uvec{e}_{\ell}
+					+ \frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2} \, \uvec{e}_{\ell}
 					, \, \uvec{e}_j
 				\, \right\rangle
 			</mrow><mrow>
 				\amp =
 				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
-				- \left[
-					\left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}\right) \,
+				- \left(
+					\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \,
 					\inprod{\uvec{e}_1}{\uvec{e}_j}
 					+
 				\right.
@@ -324,8 +345,8 @@ produces an orthogonal basis.
 				\phantom{= \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j} -}
 				\qquad \left.
 					\dotsb
-					+ \left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2}\right) \, \inprod{\uvec{e}_{\ell}}{\uvec{e}_j}
-				\right]
+					+ \frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2} \, \inprod{\uvec{e}_{\ell}}{\uvec{e}_j}
+				\right)
 			</mrow>
 		</md>.
 		By our assumption that <m>S_\ell</m> is an orthogonal set,
@@ -336,13 +357,13 @@ produces an orthogonal basis.
 				\amp =
 				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
 				-
-				\left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}}{\norm{\uvec{e}_j}^2}\right) \,
+				\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}}{\norm{\uvec{e}_j}^2} \,
 				\inprod{\uvec{e}_j}{\uvec{e}_j}
 			</mrow><mrow>
 				\amp =
 				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
 				-
-				\left(\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}}{\cancel{\norm{\uvec{e}_j}^2}}\right) \,
+				\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}}{\cancel{\norm{\uvec{e}_j}^2}} \,
 				\cancel{\norm{\uvec{e}_j}^2}
 			</mrow><mrow>
 				\amp = \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j} - \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
