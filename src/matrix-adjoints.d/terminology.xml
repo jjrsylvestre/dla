@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-matrix-adjoints-terminology">
+
+<title>Terminology and notation</title>
+
+<p>
+We will make the following two definitions relative to the standard inner products on <m>\R^n</m> and <m>\C^n</m> simultaneously.
+So, when interpreting the definitions for the real case,
+take <m>V = \R^n</m> and <m>\inprod{\blank}{\blank}</m> to mean the dot product.
+And when interpreting the definitions for the complex case,
+take <m>V = \C^n</m> and <m>\inprod{\blank}{\blank}</m> to mean the complex dot product.
+</p>
+
+<p><dl>
+
+	<li>
+	<title><term>adjoint matrix (of an <m>n \times n</m> matrix <m>A</m>)</term></title>
+	<idx><h>matrix</h><h>adjoint (relative to an inner product)</h></idx>
+	<idx><h>adjoint</h><h>matrix (relative to an inner product)</h></idx>
+	<p>
+	the matrix <m>\adjoint{A}</m> that satisfies
+	<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\adjoint{A} \uvec{u}}{\uvec{v}} </me>
+	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>
+	</p>
+	</li>
+
+	<li>
+	<title><term>self-adjoint matrix</term></title>
+	<idx><h>matrix</h><h>self-adjoint (relative to an inner product)</h></idx>
+	<idx><h>self-adjoint</h><h>matrix (relative to an inner product)</h></idx>
+	<p>
+	a matrix for which <m>\adjoint{A} = A</m>,
+	so that <m>A</m> satisfies
+	<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </me>
+	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>;
+	usually called <term>symmetric</term> in the real context and <term>Hermitian</term> in the complex context
+	</p>
+	</li>
+
+</dl></p>
+
+<p>
+The following two terminology instances are already differentiated between the real and complex contexts,
+though they describe the same concept.
+</p>
+
+<p><dl>
+
+	<li>
+	<title><term>orthogonal matrix</term></title>
+	<idx><h>matrix</h><h>orthogonal</h></idx>
+	<idx><h>orthogonal</h><h>matrix</h></idx>
+	<p>
+	a real matrix <m>A</m> that satisfies
+	<me> {\inprod{A \uvec{u}}{A \uvec{v}}}_{\R} = {\inprod{\uvec{u}}{\uvec{v}}}_{\R} </me>
+	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>
+	</p>
+	</li>
+
+	<li>
+	<title><term>unitary matrix</term></title>
+	<idx><h>matrix</h><h>unitary</h></idx>
+	<idx><h>unitary</h><h>matrix</h></idx>
+	<p>
+	a complex matrix <m>A</m> that satisfies
+	<me> {\inprod{A \uvec{u}}{A \uvec{v}}}_{\C} = {\inprod{\uvec{u}}{\uvec{v}}}_{\C} </me>
+	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>\C^n</m>
+	</p>
+	</li>
+
+</dl></p>
+
+<p>
+For convenience, we will unify the two versions of the concept above into one terminology instance.
+Again, take <m>V = \R^n</m> and <m>\inprod{\blank}{\blank}</m> to mean the dot product in the real context,
+and take <m>V = \C^n</m> and <m>\inprod{\blank}{\blank}</m> to mean the complex dot product in the complex context.
+</p>
+
+<p><dl>
+
+	<li>
+	<title><term>product-preserving matrix</term></title>
+	<idx><h>matrix</h><h>product-preserving</h></idx>
+	<idx><h>product-preserving</h><h>matrix</h></idx>
+	<p>
+	a matrix <m>A</m> that satisfies
+	<me> \inprod{A \uvec{u}}{A \uvec{v}} = \inprod{\uvec{u}}{\uvec{v}} </me>
+	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>
+	</p>
+	</li>
+
+</dl></p>
+
+</section>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-matrix-adjoints">
+<title>Discovery guide</title>
+
+<introduction>
+	<paragraphs><title>Recall</title><p>
+		The standard inner product on <m>\R^n</m> (<ie /> the dot product) can be calculated as a matrix product of column vectors:
+		<me> \uvecinprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </me>.
+		Similarly, the standard inner product on <m>\C^n</m> (<ie /> the complex dot product) can be calculated as a matrix product of column vectors:
+		<me> \uvecinprod{u}{v} = \adjoint{\uvec{v}} \uvec{u} </me>,
+		where <m>\adjoint{\uvec{v}}</m> means conjugate-transpose.
+	</p></paragraphs>
+	<paragraphs><title>Notation</title><p>
+		In this discovery guide we will write
+		<md><mrow>
+			\amp {\inprod{\blank}{\blank}}_{\R} \text{,} \amp
+			\amp {\inprod{\blank}{\blank}}_{\C}
+		</mrow></md>
+		to distinguish between the real and complex dot products, respectively.
+	</p></paragraphs>
+</introduction>
+
+<activity xml:id="activity-matrix-adjoints-first-principles">  <!-- old LaTeX label: {EXER::real.adjoint} -->
+	<task xml:id="activity-matrix-adjoints-first-principles-real">
+		<p>
+		Fill in the blank with a matrix so that the formula below is valid for all vectors <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>,
+		and would be true no matter what real <m>n\times n</m> matrix <m>A</m> is used:
+		<me> {\inprod{\uvec{u}}{A \uvec{v}}}_{\R} = {\inprod{<fillin characters="2" /> \uvec{u}}{\uvec{v}}}_{\R} </me>.
+		</p><p>
+		Similarly, what matrix fills in the blank in the formula
+		<me> {\inprod{A \uvec{u}}{\uvec{v}}}_{\R} = {\inprod{\uvec{u}}{<fillin characters="2" /> \uvec{v}}}_{\R} </me>?
+		</p>
+	</task>
+	<task xml:id="activity-matrix-adjoints-first-principles-symmetric"><p>
+		Based on your answer to <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />,
+		what property would a real matrix <m>B</m> need to possess in order for the formula
+		<me> {\inprod{B \uvec{u}}{\uvec{v}}}_{\R} = {\inprod{\uvec{u}}{B \uvec{v}}}_{\R} </me>
+		to be true for all real vectors <m>\uvec{u},\uvec{v}</m>?
+	</p></task>
+	<task xml:id="activity-matrix-adjoints-first-principles-orthogonal">
+		<statement><p>
+			Again, using your answer to <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" /> as a guide,
+			what property would a real matrix <m>C</m> need to possess in order for the formula
+			<md><mrow xml:id="equation-matrix-adjoints-discovery-first-principles-orthogonal" tag="star">
+				{\inprod{C \uvec{u}}{C \uvec{v}}}_{\R} = {\inprod{\uvec{u}}{\uvec{v}}}_{\R}
+			</mrow></md>
+			to be true for all real vectors <m>\uvec{u},\uvec{v}</m>?
+		</p></statement>
+		<hint>
+			<p>
+			First apply the pattern you found <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />
+			to the left-hand side of <xref ref="equation-matrix-adjoints-discovery-first-principles-orthogonal" />.
+			Then perhaps insert an identity matrix into the right-hand side,
+			and re-evaluate the new equality in light of the pattern of <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />.
+			</p><p>
+			Alternatively, you could turn both sides of <xref ref="equation-matrix-adjoints-discovery-first-principles-orthogonal" />
+			into the matrix-multiplication version of the dot product,
+			and investigate what happens when you take both of <m>\uvec{u},\uvec{v}</m> to be standard basis vectors.
+			</p>
+		</hint>
+	</task>
+	<task xml:id="activity-matrix-adjoints-first-principles-complex">
+		<p>
+		Fill in the blank with a matrix so that the formula below is valid for all vectors <m>\uvec{u},\uvec{v}</m> in <m>\C^n</m>,
+		and would be true no matter what <em>complex</em> <m>n\times n</m> matrix <m>A</m> is used:
+		<me> {\inprod{\uvec{u}}{A \uvec{v}}}_{\C} = {\inprod{<fillin characters="2" /> \uvec{u}}{\uvec{v}}}_{\C} </me>.
+		</p><p>
+		Similarly, what matrix fills in the blank in the formula
+		<me> {\inprod{A \uvec{u}}{\uvec{v}}}_{\C} = {\inprod{\uvec{u}}{<fillin characters="2" /> \uvec{v}}}_{\C} </me>?
+		</p>
+	</task>
+	<task xml:id="activity-matrix-adjoints-first-principles-hermitian"><p>
+		Based on your answer to <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" />,
+		what property would a <em>complex</em> matrix <m>B</m> need to possess in order for the formula
+		<me> {\inprod{B \uvec{u}}{\uvec{v}}}_{\C} = {\inprod{\uvec{u}}{B \uvec{v}}}_{\C} </me>
+		to be true for all complex vectors <m>\uvec{u},\uvec{v}</m>?
+	</p></task>
+	<task xml:id="activity-matrix-adjoints-first-principles-unitary">
+		<statement><p>
+			Again, using your answer to <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" /> as a guide,
+			what property would a <em>complex</em> matrix <m>C</m> need to possess in order for the formula
+			<me> {\inprod{C \uvec{u}}{C \uvec{v}}}_{\C} = {\inprod{\uvec{u}}{\uvec{v}}}_{\C} </me>
+			to be true for all complex vectors <m>\uvec{u},\uvec{v}</m>?
+		</p></statement>
+		<hint><p>
+			Employ the same strategy as for <xref ref="activity-matrix-adjoints-first-principles-orthogonal" text="type-local" />.
+			Or you probably could just infer the new complex pattern from the real pattern discovered in
+			<xref ref="activity-matrix-adjoints-first-principles-orthogonal" text="type-local" />.
+		</p></hint>
+	</task>
+	<postlude><p>
+		While we already have names for some of these things,
+		they are examples of more abstract concepts,
+		so we will use new terminology consistent with the abstract context.
+		<dl>
+			<li><title>(real) adjoint matrix</title>
+			<p>
+			the matrix that filled in the blank
+			in <xref ref="activity-matrix-adjoints-first-principles-real">Discovery</xref>
+			</p>
+			</li>
+			<li><title>(complex) adjoint matrix</title>
+			<p>
+			the matrix that filled in the blank
+			in <xref ref="activity-matrix-adjoints-first-principles-complex">Discovery</xref>
+			</p>
+			</li>
+			<li><title>self-adjoint matrix</title>
+			<p>
+			a real matrix that satisfies the condition identified
+			in <xref ref="activity-matrix-adjoints-first-principles-symmetric">Discovery</xref>
+			(also referred to as <term>symmetric</term>),
+			or a complex matrix that satisfies the condition identified
+			in <xref ref="activity-matrix-adjoints-first-principles-hermitian">Discovery</xref>
+			(also referred to as <term>Hermitian</term>)
+			</p>
+			</li>
+			<li><title>orthogonal matrix</title>
+			<p>
+			a real matrix that satisfies the condition identified
+			in <xref ref="activity-matrix-adjoints-first-principles-orthogonal">Discovery</xref>
+			</p>
+			</li>
+			<li><title>unitary matrix</title>
+			<p>
+			a complex matrix that satisfies the condition identified
+			in <xref ref="activity-matrix-adjoints-first-principles-unitary">Discovery</xref>
+			</p>
+			</li>
+		</dl>
+	</p></postlude>
+</activity>
+
+<activity>
+	<p> What is the adjoint of the adjoint of a matrix <m>A</m>? </p>
+	<p>
+	Verify your conjecture against the inner product-based version of what <term>adjoint</term> means
+	using the patterns of
+	<xref ref="activity-matrix-adjoints-first-principles-real">Discovery</xref> (real case)
+	and
+	<xref ref="activity-matrix-adjoints-first-principles-complex">Discovery</xref> (complex case).
+	</p>
+</activity>
+
+<activity xml:id="activity-matrix-adjoints-orthogonal-initial">
+	<title>Orthogonal matrices: initial properties</title>
+	<task xml:id="activity-matrix-adjoints-orthogonal-initial-det">
+		<statement><p> What can you say about the determinant of an orthogonal matrix? </p></statement>
+		<hint><p>
+			See <xref ref="lemma-det-by-row-red-det-transpose" />,
+			and either
+			<xref ref="proposition-more-det-product-two-matrices">Rule</xref>
+			of <xref ref="proposition-more-det-product" />
+			or <xref ref="proposition-more-det-inverse" />,
+			depending on how you are thinking about orthogonal matrices.
+		</p></hint>
+	</task>
+	<task xml:id="activity-matrix-adjoints-orthogonal-initial-columns">
+		<statement><p> What can you say about the columns of an orthogonal matrix? </p></statement>
+		<hint><p> A row times a column is the pattern of a dot product. </p></hint>
+	</task>
+</activity>
+
+<activity xml:id="activity-matrix-adjoints-orthogonal-geometry">
+	<title>Orthogonal matrices: geometry</title>
+	<prelude><p>
+		Our motivation for studying inner products was to connect algebra with geometry.
+		<xref ref="activity-matrix-adjoints-orthogonal-initial-columns">Discovery</xref> suggests a strong connection between an orthogonal matrix and the geometry of <m>\R^n</m>.
+		Let's explore that more through the inner product rather than through inspection of the matrix.
+	</p></prelude>
+	<introduction><p>
+		A real matrix <m>A</m> is orthogonal if it satisfies
+		<md><mrow xml:id="equation-matrix-adjoints-discovery-orthog-by-inner-prod" tag="dstar">
+			{\inprod{A \uvec{u}}{A \uvec{v}}}_{\R} = {\inprod{\uvec{u}}{\uvec{v}}}_{\R}
+		</mrow></md>
+		for every pair of vectors <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>.
+	</p></introduction>
+	<task>
+		<p><em> State the pattern of rule <xref ref="equation-matrix-adjoints-discovery-orthog-by-inner-prod" />: </em></p>
+		<p> Orthogonal <m>A</m> preserves <fillin characters="20" />. </p>
+	</task>
+	<task>
+		<p>
+		What if we apply rule <xref ref="equation-matrix-adjoints-discovery-orthog-by-inner-prod" />
+		with both <m>\uvec{u},\uvec{v}</m> to be the same vector <m>\uvec{x}</m>?
+		What does
+		<me> {\inprod{A \uvec{x}}{A \uvec{x}}}_{\R} = {\inprod{\uvec{x}}{\uvec{x}}}_{\R} </me>
+		say about about the <em>geometry</em> of how multiplication by <m>A</m> transforms vectors in <m>\R^n</m>?
+		</p><p>
+		<em>Summarize the pattern:</em>
+		Orthogonal <m>A</m> preserves <fillin characters="20" />.
+		</p>
+	</task>
+	<task>
+		<p>
+		If we apply the previous pattern to the norm <m>\norm{A \uvec{u} - A \uvec{v}}</m>,
+		we can also say:
+		</p><p>
+		Orthogonal <m>A</m> preserves <fillin characters="20" />.
+		</p>
+	</task>
+	<task>
+		<p>
+		Compare the angle between <m>\uvec{u},\uvec{v}</m> with the angle between <m>A \uvec{u}, A \uvec{v}</m>:
+		<md><mrow>
+			\cos \theta_1 \amp = \frac{\uvecinprod{u}{v}}{\unorm{u} \unorm{v}} \text{,} \amp
+			\cos \theta_2 \amp = \frac{\inprod{A \uvec{u}}{A \uvec{v}}}{\norm{A \uvec{u}} \norm{A \uvec{v}}}
+		</mrow></md>.
+		Combine two of the previous patterns into a new one:
+		</p><p>
+		Orthogonal <m>A</m> preserves <fillin characters="20" />.
+		</p>
+	</task>
+	<task>
+		<p> What about when <m>\theta = \pi/2</m> ? </p>
+		<p> Orthogonal <m>A</m> preserves <fillin characters="20" />. </p>
+	</task>
+</activity>
+
+<activity xml:id="activity-matrix-adjoints-unitary">
+	<title>Unitary matrices</title>
+	<task>
+		<statement><p>
+			Which of the conclusions of <xref ref="activity-matrix-adjoints-orthogonal-initial" />
+			are the same for unitary complex matrices as for orthogonal real matrices?
+			Which parts need to be updated, and how?
+		</p></statement>
+		<hint><p>
+			When reconsidering <xref ref="activity-matrix-adjoints-orthogonal-initial-det" />,
+			also consider <xref ref="proposition-complex-matrices-conj-adj-det" />.
+		</p></hint>
+	</task>
+	<task><p>
+		Which of the conclusions of <xref ref="activity-matrix-adjoints-orthogonal-geometry" />
+		are the same for unitary complex matrices as for orthogonal real matrices?
+		Which parts need to be updated, and how?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-matrix-adjoints-invariant-subspaces-vs-adjoints"><p>
+	Suppose that <m>A</m> is an <m>n \times n</m> complex matrix and that <m>W</m> is an <m>A</m>-invariant subspace of <m>\C^n</m>.
+	Verify that the orthogonal complement <m>W^\perp</m> is <m>\adjoint{A}</m>-invariant:
+	assume <m>\uvec{x}</m> is orthogonal to every vector in <m>W</m> and verify that <m>\adjoint{A} \uvec{x}</m> is as well.
+</p></activity>
+
+<activity xml:id="activity-matrix-adjoints-cob-matrix-unitary">
+	<introduction><p>
+		Suppose <m>V</m> is a finite-dimensional complex inner product space,
+		<m>\basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \}</m> is an orthonormal basis for <m>V</m>,
+		and <m>\basisfont{B'} = \{ \uvec{v}_1', \uvec{v}_2', \dotsc, \uvec{v}_n' \}</m> is some other basis of <m>V</m>.
+	</p></introduction>
+	<task xml:id="activity-matrix-adjoints-cob-matrix-unitary-entries-non-ortho-to-ortho">
+		<statement><p>
+			What is the <m>(i,j)</m> entry of the transition matrix <m>\ucobmtrx{B'}{B}</m>?
+		</p></statement>
+		<hint><p>
+			Columns of a transition matrix are coordinate vectors of <q>old</q> basis vectors relative to the <q>new</q> basis.
+			Here the <q>new</q> basis <m>\basisfont{B}</m> is <em>orthonormal</em>,
+			so <xref ref="theorem-inprod-orthog-expansion" text="title" /> might help.
+		</p></hint>
+	</task>
+	<task>
+		<statement><p>
+			Use <xref ref="activity-matrix-adjoints-cob-matrix-unitary-entries-non-ortho-to-ortho" text="type-local" />
+			to verify that if <m>\basisfont{B'}</m> is also orthonormal,
+			then <m>\ucobmtrx{B'}{B}</m> is a unitary matrix.
+		</p></statement>
+		<hint>
+			<p>
+			What does the pattern of
+			<xref ref="activity-matrix-adjoints-cob-matrix-unitary-entries-non-ortho-to-ortho" text="type-local" />
+			say is the relationship between the entries of <m>\ucobmtrx{B'}{B}</m> and <m>\ucobmtrx{B}{B'}</m>?
+			</p><p>
+			Also, recall that <m>\uinvcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</m>.
+			</p>
+		</hint>
+	</task>
+	<task><p> Explain how every unitary matrix can somehow be considered as a transition matrix between orthonormal bases of <m>\C^n</m>. </p></task>
+</activity>
+
+</worksheet>

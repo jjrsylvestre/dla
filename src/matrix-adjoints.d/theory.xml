@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-matrix-adjoints-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-matrix-adjoints-theory-adjoints" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-matrix-adjoints-theory-adjoints" /></em></li>
+<li><xref ref="subsection-matrix-adjoints-theory-prod-preserv" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-matrix-adjoints-theory-prod-preserv" /></em></li>
+</ul></p></assemblage>
+
+<introduction><p>
+	As much as possible,
+	we will work relative to the standard inner products on <m>\R^n</m> and <m>\C^n</m>
+	instead of just appealing to properties of matrices,
+	to make the future study of adjoint linear operators on an abstract inner product space a generalization of the current theory.
+</p></introduction>
+
+<subsection xml:id="subsection-matrix-adjoints-theory-adjoints">
+<title>Properties of adjoints</title>
+
+<p> Again, we will simultaneously treat the real and complex contexts. </p>
+
+<theorem xml:id="theorem-matrix-adjoints-unique">
+	<title>Uniqueness of adjoints</title>
+	<statement><p>
+		For <m>n \times n</m> matrix <m>A</m> there exists one unique adjoint matrix <m>\adjoint{A}</m> so that
+		<md><mrow xml:id="equation-matrix-adjoints-theory-adjoint-def" tag="star">
+			\inprod{\uvec{u}}{A \uvec{v}} = \inprod{\adjoint{A} \uvec{u}}{\uvec{v}}
+		</mrow></md>
+		holds for every pair of <m>n</m>-dimensional column vectors <m>\uvec{u},\uvec{v}</m>.
+	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		As in the proof of <xref ref="theorem-inner-prod-on-Rn-Cn-is-pos-def-dot-product" />,
+		an expression
+		<me> \utrans{\uvec{e}}_i A \uvec{e}_j </me>,
+		picks off the <m>(i,j)</m> entry of <m>A</m>,
+		where <m>\uvec{e}_i,\uvec{e}_j</m> are standard basis vectors.
+		</p>
+		<aside><title>Note</title><p>
+			A standard basis vector will satisfy <m>\adjoint{\uvec{e}}_i = \utrans{\uvec{e}}_i</m>,
+			so there is no difference here between real and complex cases.
+		</p></aside>
+		<p>
+		So we can take <m>\uvec{u},\uvec{v}</m> to be various combinations of standard basis vectors <m>\uvec{e}_i,\uvec{e}_j</m>
+		in <xref ref="equation-matrix-adjoints-theory-adjoint-def" />,
+		and comparing results on either side will tell us about the entries of <m>A</m> versus the possible entries for an adjoint matrix <m>\adjoint{A}</m>.
+		</p>
+	</proof>
+</theorem>
+
+<proposition><title>Adjoint of an adjoint</title>
+	<statement><p>
+		The adjoint of an adjoint is the original matrix.
+		That is, <m>\adjoint{(\adjoint{A})} = A</m>.
+	</p></statement>
+	<proof><title>Proof</title>
+		<p>
+		The validity of the formula <m>\adjoint{(\adjoint{A})} = A</m> should be obvious in both the real and complex cases,
+		since both transpose and complex conjugate undo each other.
+		Nevertheless, we will give a proof based on the inner product.
+		</p><p>
+		Applying <xref ref="theorem-matrix-adjoints-unique" /> to <m>\adjoint{A}</m>,
+		there is a unique matrix <m>\adjoint{(\adjoint{A})}</m> so that
+		<me> \inprod{\uvec{u}}{\adjoint{A} \uvec{v}} = \inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}} </me>
+		is true for all column vectors <m>\uvec{u},\uvec{v}</m>.
+		But then
+		<md>
+			<mrow>
+				\inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}}
+				\amp = \inprod{\uvec{u}}{\adjoint{A} \uvec{v}}
+				\amp \amp\text{(i)}
+			</mrow><mrow>
+				\amp = \lcconj{\inprod{\adjoint{A} \uvec{v}}{\uvec{u}}}
+				\amp \amp\text{(ii)}
+			</mrow><mrow>
+				\amp = \lcconj{\inprod{\uvec{v}}{A \uvec{u}}}
+				\amp \amp\text{(iii)}
+			</mrow><mrow>
+				\amp = \inprod{A \uvec{u}}{\uvec{v}}
+				\amp \amp\text{(iv)}
+			</mrow>
+		</md>,
+		with justifications
+		<ol label="(i)">
+			<li> definition of the adjoint <m>\adjoint{(\adjoint{A})}</m>; </li>
+			<li>
+				<xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref> (real case)
+				or <xref ref="list-inner-prod-concepts-complex-axioms-symmetric" text="local">Axiom CIP</xref> (complex case),
+				where in the real case the complex conjugate has no effect;
+			</li>
+			<li> definition of the adjoint <m>\adjoint{A}</m>; </li>
+			<li>
+				again <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref> (real case)
+				or <xref ref="list-inner-prod-concepts-complex-axioms-symmetric" text="local">Axiom CIP</xref> (complex case).
+			</li>
+		</ol>
+		The equality
+		<me> \inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </me>
+		holds for all column vectors <m>\uvec{u},\uvec{v}</m>,
+		so if we apply it with those vectors replaced by various combinations of standard basis vectors <m>\uvec{e}_i,\uvec{e}_j</m>,
+		we will find that the matrices <m>A</m> and <m>\adjoint{(\adjoint{A})}</m> have all the same entries.
+		</p>
+	</proof>
+</proposition>
+
+<proposition><title>Orthogonal complement is adjoint invariant</title>
+	<statement><p>
+		If <m>W</m> is an <m>A</m>-invariant subspace of <m>\R^n</m> or <m>\C^n</m>, as appropriate,
+		then <m>\orthogcmp{W}</m> is <m>\adjoint{A}</m>-invariant.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		It necessary to show that if <m>\uvec{v}</m> is a column vector so that
+		<me> \uvecinprod{v}{w} = 0 </me>
+		for every column vector <m>\uvec{w}</m> in <m>W</m>,
+		then also
+		<me> \uvecinprod{\adjoint{A} v}{w} = 0 </me>
+		for every column vector <m>\uvec{w}</m> in <m>W</m>.
+		This follows from the adjoint condition <xref ref="equation-matrix-adjoints-theory-adjoint-def" />
+		and the fact that <m>W</m> is <m>A</m>-invariant,
+		and we leave the details to you, the reader.
+	</p></proof>
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-matrix-adjoints-theory-prod-preserv">
+<title>Properties of product-preserving matrices</title>
+
+<p>
+As explored in <xref ref="activity-matrix-adjoints-orthogonal-geometry" />
+and <xref ref="activity-matrix-adjoints-unitary" />,
+and discussed in <xref ref="subsection-matrix-adjoints-concepts-orthog-unitary" />,
+product-preserving matrices preserve geometric aspects of vectors.
+We leave the formal verification of these properties to you, the reader.
+</p>
+
+<proposition xml:id="proposition-matrix-adjoints-prod-preserv-props">
+	<title>Product-preserving preserves geometry</title>
+	<statement><p>
+		Suppose <m>A</m> is a <m>n \times n</m> product-preserving matrix.
+		<ol>
+			<li xml:id="proposition-matrix-adjoints-prod-preserv-props-norm">
+				For every <m>n</m>-dimensional column vector <m>\uvec{v}</m>,
+				we have <m>\norm{A \uvec{v}} = \norm{\uvec{v}}</m>.
+				That is, multiplication by <m>A</m> preserves lengths.
+			</li>
+			<li xml:id="proposition-matrix-adjoints-prod-preserv-props-dist">
+				For every pair of <m>n</m>-dimensional column vectors <m>\uvec{v},\uvec{w}</m>,
+				we have <m>\norm{A \uvec{v} - A \uvec{w}} = \norm{\uvec{v} - \uvec{w}}</m>.
+				That is, multiplication by <m>A</m> preserves distances.
+			</li>
+			<li xml:id="proposition-matrix-adjoints-prod-preserv-props-orthog">
+				If <m>\{\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m\}</m> is an orthogonal set of <m>n</m>-dimensional column vectors,
+				then so is <m>\{A \uvec{v}_1, A \uvec{v}_2, \dotsc, A \uvec{v}_m\}</m>.
+				That is, multiplication by <m>A</m> preserves orthogonality.
+			</li>
+			<li xml:id="proposition-matrix-adjoints-prod-preserv-props-orthonorm">
+				If <m>\{\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m\}</m> is an orthonormal set of <m>n</m>-dimensional column vectors,
+				then so is <m>\{A \uvec{v}_1, A \uvec{v}_2, \dotsc, A \uvec{v}_m\}</m>.
+				That is, multiplication by <m>A</m> preserves orthonormality.
+			</li>
+		</ol>
+	</p></statement>
+</proposition>
+
+<p> The following lemma will help us relate the rows and columns of a product-preserving matrix. </p>
+
+<lemma xml:id="lemma-matrix-adjoints-transpose-prod-preserv">
+	<statement><p> If <m>A</m> is a product-preserving matrix, then so is <m>\utrans{A}</m>. </p></statement>
+	<proof>
+		<p>
+		For this proof, we will need to rely on the matrix characterization of product-preserving matrices:
+		<me> \adjoint{A} A = I </me>.
+		</p><p>
+		In the real case, the above equality says that <m>\inv{A} = \utrans{A}</m>, so
+		<me> \utrans{(\utrans{A})} \utrans{A} = A \utrans{A} = I </me>
+		as well.
+		</p><p>
+		In the complex case, we can turn
+		<me> \adjoint{A} A = I </me>
+		into
+		<me> \utrans{A} \cconj{A} = I </me>
+		by taking the transpose of both sides.
+		So we have <m>\inv{(\utrans{A})} = \cconj{A}</m>.
+		We can use this in our check that <m>\utrans{A}</m> is unitary, by
+		<me> \adjoint{(\utrans{A})} \utrans{A} = \cconj{A} \utrans{A} = I </me>.
+		</p>
+	</proof>
+</lemma>
+
+<p> Now we characterize product-preserving matrices in different ways relative to the inner product. </p>
+
+<theorem xml:id="theorem-matrix-adjoints-prod-preserv-equiv">
+	<title>Characterizations of product-preserving matrices</title>
+	<statement><p>
+		The following are equivalent for an <m>n \times n</m> product-preserving matrix <m>A</m>.
+		<ol>
+			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-def">
+				Matrix <m>A</m> is product-preserving.
+			</li>
+			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-1">
+				Matrix <m>A</m> is invertible,
+				and for every pair of <m>n</m>-dimensional column vectors <m>\uvec{u},\uvec{v}</m>, we have
+				<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </me>.
+				In other words, the adjoint of <m>A</m> is its inverse.
+			</li>
+			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-2">
+				Matrix <m>A</m> is invertible,
+				and for every pair of <m>n</m>-dimensional column vectors <m>\uvec{u},\uvec{v}</m>, we have
+				<me> \inprod{A \uvec{u}}{\uvec{v}} = \inprod{\uvec{u}}{\inv{A} \uvec{v}} </me>.
+			</li>
+			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">
+				The columns of <m>A</m> form an orthonormal basis of <m>\R^n</m> or <m>\C^n</m>, as appropriate.
+			</li>
+			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-ortho-rows">
+				The rows of <m>A</m> form an orthonormal basis of <m>\R^n</m> or <m>\C^n</m>, as appropriate.
+			</li>
+		</ol>
+	</p></statement>
+	<proof>
+		<p> We will prove that each subsequent statement is equivalent to the first. </p>
+		<case>
+			<title>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+				<m>\implies</m>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-1">Statement</xref>
+			</title>
+			<p>
+			Suppose <m>A</m> is product-preserving.
+			To verify that <m>A</m> is invertible,
+			we may verify that the homogeneous system <m>A\uvec{x} = \zerovec</m> has no nontrivial solutions
+			(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+			But if <m>\uvec{x} \neq \zerovec </m>,
+			then using <xref ref="proposition-matrix-adjoints-prod-preserv-props-norm">Statement</xref>
+			of <xref ref="proposition-matrix-adjoints-prod-preserv-props" />
+			we have
+			<me> \norm{A \uvec{x}} = \unorm{x} \neq 0 </me>,
+			so <m>A \uvec{x} \neq 0</m>.
+			</p><p>
+			For column vectors <m>\uvec{u},\uvec{w}</m>,
+			we have
+			<md>
+				<mrow> \inprod{\uvec{u}}{A \uvec{v}} \amp = \inprod{I \uvec{u}}{A \uvec{v}} </mrow>
+				<mrow> \amp = \inprod{A \inv{A} \uvec{u}}{A \uvec{v}} </mrow>
+				<mrow> \amp = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </mrow>
+			</md>,
+			where in the last step of each calculation we have applied the product-preserving property of <m>A</m> to the pair
+			<m>\inv{A} \uvec{u}, \uvec{v}</m> of column vectors.
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-1">Statement</xref>
+				<m>\implies</m>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+			</title>
+			<p>
+			Suppose <m>A</m> is invertible,
+			and for every pair of column vectors <m>\uvec{u},\uvec{v}</m>, we have
+			<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </me>.
+			Applying this property to the pair <m>A \uvec{u},\uvec{v}</m>, we have
+			<md>
+				<mrow> \inprod{A \uvec{u}}{A \uvec{v}} \amp = \inprod{\inv{A} A \uvec{u}}{\uvec{v}} </mrow>
+				<mrow> \amp = \inprod{I \uvec{u}}{\uvec{v}} </mrow>
+				<mrow> \amp = \inprod{\uvec{u}}{\uvec{v}} </mrow>
+			</md>,
+			which verifies that <m>A</m> is product preserving.
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+				<m>\iff</m>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-2">Statement</xref>
+			</title>
+			<p>
+			This can be verified similarly to the verification of the equivalence of
+			<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+			and
+			<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-1">Statement</xref>
+			above.
+			</p>
+		</case>
+		<p>
+		For the next two arguments,
+		write <m>\uvec{a}_1,\uvec{a}_2,\dotsc,\uvec{a}_n</m> for the columns of <m>A</m>,
+		and recall that for each index <m>j</m> we have
+		<md><mrow xml:id="equation-matrix-adjoints-theory-cols-by-std-vecs" tag="dstar">
+			\uvec{a}_j = A \uvec{e}_j
+		</mrow></md>,
+		where <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector.
+		</p>
+		<case>
+			<title>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+				<m>\implies</m>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+			</title>
+			<p>
+			The standard basis is an orthonormal set,
+			and so taking <xref ref="equation-matrix-adjoints-theory-cols-by-std-vecs" /> into consideration,
+			applying <xref ref="proposition-matrix-adjoints-prod-preserv-props-orthonorm">Statement</xref>
+			of <xref ref="proposition-matrix-adjoints-prod-preserv-props" />
+			allows us to conclude that the columns of <m>A</m> must also be an orthonormal set.
+			They are therefore also linearly independent
+			(<xref ref="proposition-inprod-orthog-indep" />),
+			and since there are <m>n</m> of them they must be a basis (of <m>\R^n</m> or <m>\C^n</m>, as appropriate).
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+				<m>\implies</m>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+			</title>
+			<p>
+			Suppose the columns of <m>A</m> are an orthonormal basis of <m>\R^n</m> or <m>\C^n</m>, as appropriate.
+			We must verify that <m>A</m> is product-preserving.
+			So consider arbitrary <m>n</m>-dimensional column vectors <m>\uvec{u},\uvec{v}</m> and their expansions
+			<md>
+				<mrow>
+					\uvec{u} \amp = k_1 \uvec{e}_1 + k_2 \uvec{e}_2 + \dotsb + k_n \uvec{e}_n \text{,} \amp
+					\uvec{v} \amp = m_1 \uvec{e}_1 + m_2 \uvec{e}_2 + \dotsb + m_n \uvec{e}_n
+				</mrow>
+			</md>
+			in terms of the standard basis vectors.
+			Then
+			<me> \uvecinprod{u}{v} = k_1 \lcconj{m}_1 + k_2 \lcconj{m}_2 + \dotsb + k_n \lcconj{m}_n </me>,
+			where the complex conjugate is irrelevant in the real case.
+			Using <xref ref="equation-matrix-adjoints-theory-cols-by-std-vecs" />,
+			we obtain expansions
+			<md>
+				<mrow>
+					A \uvec{u} \amp = k_1 \uvec{a}_1 + k_2 \uvec{a}_2 + \dotsb + k_n \uvec{a}_n \text{,} \amp
+					A \uvec{v} \amp = m_1 \uvec{a}_1 + m_2 \uvec{a}_2 + \dotsb + m_n \uvec{a}_n
+				</mrow>
+			</md>
+			in terms of the orthonormal basis formed by the columns of <m>A</m>.
+			Applying <xref ref="proposition-inprod-orthog-vs-dot" /> for this orthonormal basis,
+			we obtain
+			<me> \inprod{A \uvec{u}}{A \uvec{v}} = k_1 \lcconj{m}_1 + k_2 \lcconj{m}_2 + \dotsb + k_n \lcconj{m}_n </me>,
+			where again the complex conjugate is irrelevant in the real case.
+			Comparing expressions for <m>\uvecinprod{u}{v}</m> and <m>\inprod{A \uvec{u}}{A \uvec{v}}</m> above,
+			we see that <m>A</m> is product-preserving.
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+				<m>\iff</m>
+				<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-rows">Statement</xref>
+			</title>
+			<p>
+			This equivalence now follows from our already proven equivalence of
+			<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-def">Statement</xref>
+			and
+			<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>,
+			combined with
+			<xref ref="lemma-matrix-adjoints-transpose-prod-preserv" />.
+			</p>
+		</case>
+	</proof>
+</theorem>
+
+<p>
+The possible values of the determinant of a product-preserving matrix are constrained by the condition <m>\adjoint{A} A = I</m>.
+As this was already discussed in <xref ref="subsection-matrix-adjoints-concepts-orthog-unitary" />,
+we will state the result without proof.
+</p>
+
+<proposition><title>Determinant values of product-preserving</title>
+	<p>
+	An <m>n \times n</m> product-preserving matrix <m>A</m> satisfies <m>\abs{\det A} = 1</m>,
+	indicating normal absolute value in the real case and complex modulus in the complex case.
+	</p><p>
+	So for a real orthogonal matrix, we have <m>\det A = \pm 1</m>,
+	and for a complex unitary matrix, the complex number <m>\det A</m> must lie on the unit circle in the complex plane.
+	</p>
+</proposition>
+
+<p>
+Finally, we record our observation about transition matrices between orthonormal bases
+from <xref ref="activity-matrix-adjoints-cob-matrix-unitary" />
+and <xref ref="subsection-matrix-adjoints-concepts-orthog-unitary" />.
+</p>
+
+<proposition><title>Product-preserving matrices are inner product space transition matrices</title>
+	<statement><p>
+		Every product-preserving matrix is somehow a transition matrix between bases of <m>\R^n</m> or <m>\C^n</m>, as appropriate.
+	</p></statement>
+	<proof><p>
+		If <m>P</m> is a product-preserving matrix,
+		then its columns form an orthonormal basis of <m>\R^n</m>
+		(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+		of
+		<xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />).
+		Let <m>\basisfont{B}</m> represent that basis.
+		Then the columns of the transition matrix <m>\ucobmtrx{B}{S}</m>
+		(where <m>\basisfont{S}</m> is the standard basis as usual)
+		are just the vectors in <m>\basisfont{B}</m>.
+		Furthermore, the standard basis is orthonormal as well,
+		whether considered as the standard basis of <m>\R^n</m> or of <m>\C^n</m>.
+		Therefore, <m>P = \ucobmtrx{B}{S}</m>,
+		a transition matrix between orthonormal bases, as desired.
+	</p></proof>
+</proposition>
+
+</subsection>
+
+</section>
