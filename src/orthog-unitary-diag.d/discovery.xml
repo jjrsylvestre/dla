@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-orthog-unitary-diag">
+<title>Discovery guide</title>
+
+<introduction>
+	<paragraphs><title>Recall</title><p><ol>
+		<li>
+			A matrix is <term>self-adjoint</term> if
+			<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </me>
+			always, so that <m>\adjoint{A} = A</m>.
+		</li>
+		<li>
+			A matrix is <term>product-preserving</term>
+			(or <term>orthogonal</term> in the real case, <term>unitary</term> in the complex case)
+			if
+			<me> \inprod{A \uvec{u}}{A \uvec{v}} = \inprod{\uvec{u}}{\uvec{v}} </me>
+			always, so that <m>\adjoint{A}A = I</m>.
+		</li>
+	</ol></p></paragraphs>
+	<paragraphs><title>Notation</title><p>
+		Where necessary, in this discovery guide we will write
+		<md><mrow>
+			\amp {\inprod{\blank}{\blank}}_{\R} \text{,} \amp
+			\amp {\inprod{\blank}{\blank}}_{\C}
+		</mrow></md>
+		to distinguish between the real and complex dot products, respectively.
+	</p></paragraphs>
+</introduction>
+
+<activity xml:id="activity-orthog-unitary-diag-hermitian-eigenvalues">
+	<title>Hermitian eigenvalues</title>
+	<statement><p>
+		Suppose <m>H</m> is a Hermitian (<ie /> complex self-adjoint) matrix and <m>\lambda</m> and <m>\uvec{x}</m> are an eigenvalue-eigenvector pair for <m>H</m>,
+		so that
+		<me> H\uvec{x} = \lambda \uvec{x} </me>.
+		Use
+		<me> {\inprod{\uvec{x}}{H \uvec{x}}}_{\C} = {\inprod{H \uvec{x}}{\uvec{x}}}_{\C} </me>
+		to discover something about <m>\lambda</m>.
+	</p></statement>
+	<hint><p>
+		Refer to the <xref ref="proposition-inner-prod-complex-algebra" text="title" />.
+		<q>Simplify</q> each side separately, and then compare the new versions of the two sides again.
+	</p></hint>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-symmetric-eigenvalues">
+	<title>Symmetric eigenvalues</title>
+	<p> Convince yourself that a real self-adjoint matrix is also self-adjoint when considered as a complex matrix. </p>
+	<p>
+	Based on <xref ref="activity-orthog-unitary-diag-hermitian-eigenvalues" />,
+	what does this mean about the eigenvalues of a symmetric matrix?
+	</p>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-hermitian-exmp">
+	<introduction><p>
+		The Hermitian matrix
+		<me> H = \left[\begin{array}{rcc} 0 \amp \ci \amp 0 \\ -\ci \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{array}\right] </me>
+		has eigenvalues <m>\lambda = \pm 1</m> with
+		<md><mrow>
+			E_{-1}(H) \amp = \Span \left\{
+				\left[\begin{array}{r} -\ci \\ 1 \\ 0 \end{array}\right]
+			\right\} \text{,}
+			\amp
+			E_1(H) \amp = \Span \left\{
+				\begin{bmatrix} \ci \\ 1 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+			\right\} \text{.}
+		</mrow></md>
+	</p></introduction>
+	<task><p> Write down a transition matrix <m>P</m> so that <m>\inv{P} H P</m> is diagonal. </p></task>
+	<task xml:id="activity-orthog-unitary-diag-hermitian-exmp-unitary-transition">
+		<statement><p> Write down a <em>unitary</em> transition matrix <m>U</m> so that <m>\adjoint{U} H U</m> is diagonal. </p></statement>
+		<hint>
+			<p>
+			<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statment</xref>
+			of <xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />.
+			</p><p>
+			Also remember that the complex dot product involves a conjugate.
+			</p>
+		</hint>
+	</task>
+	<task xml:id="activity-orthog-unitary-diag-hermitian-exmp-what-if-not-orthog">
+		<p>
+		What relationship between the provided eigenvectors of <m>H</m> was crucial to allowing
+		<xref ref="activity-orthog-unitary-diag-hermitian-exmp-unitary-transition" text="type-local" /> to work?
+		</p><p>
+		What if the two provided eigenvectors for <m>\lambda = 1</m> had not initially had that relationship with each other <mdash />
+		would you have been able to <q>fix</q> it?
+		How?
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-non-exmp">
+	<introduction><p>
+		The complex matrix
+		<me> A = \left[\begin{array}{rrc} 1 \amp 0 \amp 0 \\ -2 \ci \amp -1 \amp 0 \\ -2 \amp 2 \ci \amp 1 \end{array}\right] </me>
+		has eigenvalues <m>\lambda = \pm 1</m> with
+		<md><mrow>
+			E_{-1}(A) \amp = \Span \left\{
+				\begin{bmatrix} 0 \\ \ci \\ 1 \end{bmatrix}
+			\right\} \text{,}
+			\amp
+			E_1(A) \amp = \Span \left\{
+				\begin{bmatrix} \ci \\ 1 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+			\right\} \text{.}
+		</mrow></md>
+	</p></introduction>
+	<task><p> Write down a transition matrix <m>P</m> so that <m>\inv{P} A P</m> is diagonal. </p></task>
+	<task>
+		<statement><p>
+			Will you be able to write down a <em>unitary</em> transition matrix <m>U</m> so that <m>\adjoint{U} A U</m> is diagonal?
+			Will trying to <q>fix</q> things
+			as in <xref ref="activity-orthog-unitary-diag-hermitian-exmp-what-if-not-orthog">Discovery</xref>
+			work?
+		</p></statement>
+		<hint><p> The columns of <m>U</m> <em>must</em> be eigenvectors to diagonalize <m>A</m>! </p></hint>
+	</task>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-hermitian-orthog-evecs">
+	<prelude><p> Let's focus on what seemed to work, and why, in <xref ref="activity-orthog-unitary-diag-hermitian-exmp" />. </p></prelude>
+	<introduction><p>
+		Suppose <m>H</m> is a Hermitian matrix,
+		<m>\lambda_1,\lambda_2</m> are two <em>different</em> eigenvalues for <m>H</m>,
+		and <m>\uvec{x}_1,\uvec{x}_2</m> are corresponding eigenvectors those two eigenvalues, respectively.
+	</p></introduction>
+	<task><p>
+		Obtain an expression for
+		<m>\inprod{H \uvec{x}_1}{\uvec{x}_2}</m>
+		in terms of <m>\lambda_1</m> and
+		<m>\inprod{\uvec{x}_1}{\uvec{x}_2}</m>.
+	</p></task>
+	<task>
+		<statement><p>
+			Use the fact that <m>H</m> is self-adjoint to obtain an expression for
+			<m>\inprod{H \uvec{x}_1}{\uvec{x}_2}</m>
+			in terms of <m>\lambda_2</m> and
+			<m>\inprod{\uvec{x}_1}{\uvec{x}_2}</m>.
+		</p></statement>
+		<hint><p>
+			You may wish to make use of the property of eigenvalues of Hermitian matrices found in
+			<xref ref="activity-orthog-unitary-diag-hermitian-eigenvalues" />.
+		</p></hint>
+	</task>
+	<task><p>
+		By comparing your two expressions for <m>\inprod{H \uvec{x}_1}{\uvec{x}_2}</m>,
+		use the assumption that <m>\lambda_1 \neq \lambda_2</m> to learn something about the eigenvectors <m>\uvec{x}_1,\uvec{x}_2</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-non-hermitian-exmp">
+	<p>
+	Determine a unitary matrix <m>U</m> so that <m>\adjoint{U} A U</m> is diagonal,
+	for matrix
+	<me> A = \begin{bmatrix} 2 \amp 0 \\ 0 \amp \ci \end{bmatrix} </me>.
+	</p><p>
+	What is the point of this discovery activity?
+	</p>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-explore-normal">
+	<task xml:id="activity-orthog-unitary-diag-explore-normal-diag-case"><p>
+		Convince yourself that a diagonal complex matrix <m>D</m> commutes with its adjoint: <m>\adjoint{D} D = D \adjoint{D}</m>.
+	</p></task>
+	<task>
+		<p>
+		Suppose <m>A</m> is a <term>unitarily diagonalizable</term> complex matrix,
+		so that <m>\adjoint{U} A U</m> is diagonal for some unitary matrix <m>U</m>.
+		</p><p>
+		Use the diagonal case from <xref ref="activity-orthog-unitary-diag-explore-normal-diag-case" text="type-local" />
+		to help verify that <m>A</m> commutes with its adjoint: <m>\adjoint{A} A = A \adjoint{A}</m>.
+		</p>
+	</task>
+	<task><p>
+		What do you think is the point of this discovery activity?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-unitary-eigenvalues">
+	<title>Unitary eigenvalues</title>
+	<statement><p>
+		Suppose <m>A</m> is a unitary complex matrix and <m>\lambda</m> and <m>\uvec{x}</m> are an eigenvalue-eigenvector pair for <m>A</m>,
+		so that
+		<me> A\uvec{x} = \lambda \uvec{x} </me>.
+		Use
+		<me> {\inprod{A \uvec{x}}{A \uvec{x}}}_{\C} = {\inprod{\uvec{x}}{\uvec{x}}}_{\C} </me>
+		to discover something about <m>\lambda</m>.
+	</p></statement>
+	<hint><p> Refer to the <xref ref="proposition-inner-prod-complex-algebra" text="title" />. </p></hint>
+</activity>
+
+<activity xml:id="activity-orthog-unitary-diag-orthogonal-eigenvalues">
+	<title>Orthogonal eigenvalues</title>
+	<p> Convince yourself that a real orthogonal matrix is also unitary when considered as a complex matrix. </p>
+	<p>
+	Based on <xref ref="activity-orthog-unitary-diag-unitary-eigenvalues" />,
+	what does this mean about the eigenvalues of an orthogonal matrix?
+	</p>
+</activity>
+
+</worksheet>

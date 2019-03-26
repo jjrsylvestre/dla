@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-orthog-unitary-diag-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-orthog-unitary-diag-examples-symmetric" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-examples-symmetric" /></em></li>
+<li><xref ref="subsection-orthog-unitary-diag-examples-hermitian" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-examples-hermitian" /></em></li>
+<li><xref ref="subsection-orthog-unitary-diag-examples-normal" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-examples-normal" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-orthog-unitary-diag-examples-symmetric">
+<title>Orthogonal diagonalization of a symmetric matrix</title>
+
+<example xml:id="example-orthog-unitary-diag-symmetric">
+	<p>
+	Here we will carry out <xref ref="procedure-orthog-unitary-diag-symmetric" /> on the symmetric matrix
+	<me>
+		S = \begin{bmatrix}
+			0 \amp 1 \amp 0 \amp 1 \\
+			1 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 1 \\
+			1 \amp 0 \amp 1 \amp 0
+		\end{bmatrix}
+	</me>.
+	The characteristic polynomial is <me> c_S(\lambda) = \lambda^2 (\lambda - 2) (\lambda + 2) </me>,
+	so the eigenvalues are <m>\lambda_1 = 0</m>, <m>\lambda_2 = 2</m>, and <m>\lambda_3 = -2</m>.
+	</p><p>
+ 	Solving the homogeneous system <m>(2 I - S) \uvec{x} = \zerovec</m> leads to
+	<me> E_2(S) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} \right\} </me>.
+	Solving the homogeneous system <m>(-2 I - S) \uvec{x} = \zerovec</m> leads to
+	<me> E_{-2}(S) = \Span \left\{ \left[\begin{array}{r} 1 \\ -1 \\ 1 \\ -1 \end{array}\right] \right\} </me>.
+	Solving the homogeneous system <m>(0 I - S) \uvec{x} = \zerovec</m> leads to
+	<me>
+		E_0(S) = \Span \left\{
+			\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 0 \end{array}\right],
+			\left[\begin{array}{r} 0 \\ -1 \\ 0 \\ 1 \end{array}\right]
+		\right\}
+	</me>.
+	Notice that these four eigenvectors form an orthogonal set.
+	In particular, the two basis vectors for <m>E_0(S)</m> are already orthogonal.
+	If they had not turned out that way from just solving the system,
+	we could have applied the Gram-Schmidt process to just those two vectors to obtain an orthogonal basis for that eigenspace.
+	</p><p>
+	Normalizing our eigenvectors leads to the orthonormal basis
+	<me>
+		E_0(S) = \Span \left\{
+			\frac{1}{2} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix},
+			\frac{1}{2} \left[\begin{array}{r} 1 \\ -1 \\ 1 \\ -1 \end{array}\right],
+			\frac{1}{\sqrt{2}} \left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 0 \end{array}\right],
+			\frac{1}{\sqrt{2}} \left[\begin{array}{r} 0 \\ -1 \\ 0 \\ 1 \end{array}\right]
+		\right\}
+	</me>
+	for <m>\R^n</m>.
+	Placing these four orthonormal vectors into a transition matrix
+	<me>
+		P = \left[\begin{array}{crrr}
+			\frac{1}{2} \amp   \frac{1}{2} \amp - \frac{1}{\sqrt{2}}  \amp   0 \\
+			\frac{1}{2} \amp - \frac{1}{2} \amp   0                   \amp - \frac{1}{\sqrt{2}} \\
+			\frac{1}{2} \amp   \frac{1}{2} \amp   \frac{1}{\sqrt{2}}  \amp   0 \\
+			\frac{1}{2} \amp - \frac{1}{2} \amp   0                   \amp   \frac{1}{\sqrt{2}}
+		\end{array}\right]
+	</me>
+	allows us to orthogonally diagonalize <m>S</m> as
+	<me> \utrans{P} S P = \begin{bmatrix} 2 \\ \amp -2 \\ \amp \amp 0 \\ \amp \amp \amp 0 \end{bmatrix} </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-unitary-diag-examples-hermitian">
+<title>Unitary diagonalization of a Hermitian matrix</title>
+
+<p>
+<xref ref="procedure-orthog-unitary-diag-symmetric" /> is for real symmetric matrices,
+but it can be applied without modification to complex Hermitian matrices.
+</p>
+
+<example xml:id="example-orthog-unitary-diag-hermitian">
+	<p>
+	Here we will attempt to unitarily diagonalize the Hermitian matrix
+	<me> H = \left[\begin{array}{rcr} 1 \amp 1 \amp \ci \\ 1 \amp 1 \amp -\ci \\ -\ci \amp \ci \amp 1 \end{array}\right] </me>.
+	The characteristic polynomial is <me> c_H(\lambda) = (\lambda + 1) (\lambda - 2)^2 </me>,
+	so the eigenvalues are <m>\lambda_1 = -1</m>, <m>\lambda_2 = 2</m>.
+	</p><p>
+	Solving the homogeneous system <m>(- I - H) \uvec{x} = \zerovec</m> leads to
+	<me> E_{-1}(H) = \Span \left\{ \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right] \right\} </me>.
+	Solving the homogeneous system <m>(2 I - H) \uvec{x} = \zerovec</m> leads to
+	<me>
+		E_2(H) = \Span \left\{
+			\begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
+			\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+		\right\}
+	</me>.
+	Notice that the basis vector for <m>E_{-1}(H)</m> is already orthogonal to each of the basis vectors for <m>E_2(H)</m>,
+	as expected.
+	But the basis for <m>E_2(H)</m> is not orthogonal,
+	so we will need to apply the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process to those two vectors.
+	Labelling those two vectors as <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m>,
+	we may keep <m>\uvec{e}_1 = \uvec{v}_1</m>,
+	but we must adjust
+	<me>
+		\uvec{e}_2
+		= \uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+		= \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+		- \frac{- \ci}{2} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix}
+		= \begin{bmatrix} \frac{1}{2} \\ 1 \\ \frac{\ci}{2} \end{bmatrix}
+	</me>.
+	We now have an orthogonal set of eigenvectors which we can normalize to obtain an orthonormal set
+	<me>
+		\left\{
+			\frac{1}{\sqrt{3}} \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right],
+			\frac{1}{\sqrt{2}} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
+			\frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 2 \\ \ci \end{bmatrix}
+		\right\}
+	</me>.
+	</p><p>
+	Finally, taking <m>U</m> to be the unitary matrix with these orthonormal vectors as columns
+	<me>
+		U = \frac{\sqrt{6}}{6}
+		\begin{bmatrix}
+			-\ci \sqrt{2} \amp   \ci \sqrt{3} \amp  1 \\
+			 \ci \sqrt{2} \amp       0        \amp  2 \\
+			 \sqrt{2}     \amp     \sqrt{3}   \amp \ci
+		\end{bmatrix}
+	</me>
+	allows us to unitarily digaonalize <m>H</m>:
+	<me> \inv{U} H U = \adjoint{U} H U = \begin{bmatrix} -1 \\ \amp 2 \\ \amp \amp 2 \end{bmatrix} </me>.
+	</p>
+</example>
+
+<example>
+	<title>Gram-Schmidt can't fix everything</title>
+	<p>
+	Let's attempt to unitarily diagonalize the matrix
+	<me> A = \left[\begin{array}{cr} \ci \amp 0 \\ 1 \amp -\ci \end{array}\right] </me>.
+	The characteristic polynomial is <me> c_A(\lambda) = (\lambda - \ci)(\lambda + \ci) </me>,
+	so the eigenvalues are <m>\lambda_1 = \ci</m>, <m>\lambda_2 = - \ci</m>.
+	</p><p>
+	Solving the homogeneous system <m>(\ci I - A) \uvec{x} = \zerovec</m> leads to
+	<me> E_{\ci}(A) = \Span \left\{ \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix} \right\} </me>.
+	Solving the homogeneous system <m>(- \ci I - A) \uvec{x} = \zerovec</m> leads to
+	<me> E_{-\ci}(A) = \Span \left\{ \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\} </me>.
+	These eigenvectors are not orthogonal, so let's attempt to fix that using
+	the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process.
+	Write <m>\uvec{v}_1,\uvec{v}_2</m> for the two eigenvectors we have above.
+	As usual, we start with <m>\uvec{e}_1 = \uvec{v}_1</m>, and then correct <m>\uvec{v}_w</m> to
+	<me>
+		\uvec{e}_2
+		= \uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+		= \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+		- \frac{1}{5} \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix}
+		= \begin{bmatrix} - \frac{2 \ci}{5} \\ \frac{4}{5} \end{bmatrix}
+	</me>.
+	Now we normalize to get orthonormal set
+	<me>
+		\left\{
+			\frac{1}{\sqrt{5}} \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix},
+			\frac{1}{\sqrt{5}} \left[\begin{array}{r} - \ci \\ 2 \end{array}\right]
+		\right\}
+	</me>.
+	Using these vectors as columns,
+	we obtain unitary matrix
+	<me> U = \frac{1}{\sqrt{5}} \left[\begin{array}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{array}\right] </me>.
+	Check whether <m>U</m> unitarily diagonalizes <m>A</m>:
+	<md>
+		<mrow>
+			\inv{U} A U = \adjoint{U} A U
+			\amp = \frac{1}{\sqrt{5}} \left[\begin{array}{rc} 2 \ci \amp 1 \\ - \ci \amp 2 \end{array}\right]
+			\cdot
+			\left[\begin{array}{cr} \ci \amp 0 \\ 1 \amp - \ci \end{array}\right]
+			\cdot
+			\frac{1}{\sqrt{5}} \left[\begin{array}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{array}\right]
+		</mrow><mrow>
+			\amp = \frac{1}{5} \left[\begin{array}{cr} 5 \ci \amp -5 \ci \\ 0 \amp -5 \ci \end{array}\right]
+		</mrow><mrow>
+			\amp = \left[\begin{array}{cr} i \amp -\ci \\ 0 \amp -\ci \end{array}\right]
+		</mrow>
+	</md>.
+	What happened?
+	By applying the Gram-Schmidt process <em>across</em> eigenspaces instead of just <em>within</em> a particular eigenspace,
+	we have replaced the second eigenvector <m>\uvec{v}_2</m> by a vector that is orthogonal to the first eigenvector <m>\uvec{v}_1</m>,
+	as required,
+	but this replacement for <m>\uvec{v}_2</m> <em>was no longer an eigenvector</em>.
+	To diagonalize a matrix, the transition matrix must have columns which are linearly independent eigenvectors.
+	But in the end only one column of our unitary <m>U</m> was an eigenvector for <m>A</m>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-unitary-diag-examples-normal">
+<title>Unitary diagonalization of a normal matrix</title>
+
+<example xml:id="example-orthog-unitary-diag-normal">
+	<p>
+	Let's apply <xref ref="procedure-orthog-unitary-diag-normal" /> to the normal matrix
+	<me>
+		N = \begin{bmatrix}
+		 2 + \ci \amp 1 - \ci \amp  1 + \ci \\
+		 1 - \ci \amp 2 + \ci \amp -1 - \ci \\
+		-1 - \ci \amp 1 + \ci \amp  2 + \ci
+		\end{bmatrix}
+	</me>.
+	But first, let's verify that it is normal:
+	<md>
+		<mrow>
+			\adjoint{N} N
+			\amp =
+			\begin{bmatrix}
+				 2 + \ci \amp 1 - \ci \amp  1 + \ci \\
+				 1 - \ci \amp 2 + \ci \amp -1 - \ci \\
+				-1 - \ci \amp 1 + \ci \amp  2 + \ci
+			\end{bmatrix}
+			\begin{bmatrix}
+				2 - \ci \amp  1 + \ci \amp -1 + \ci \\
+				1 + \ci \amp  2 - \ci \amp  1 - \ci \\
+				1 - \ci \amp -1 + \ci \amp  2 - \ci
+			\end{bmatrix}
+		</mrow><mrow>
+			\amp
+			= \begin{bmatrix}
+			9 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 9 \\
+			0 \amp 0 \amp 9
+			\end{bmatrix}
+			\text{,}
+		</mrow><mrow></mrow><mrow>
+			N \adjoint{N}
+			\amp =
+			\begin{bmatrix}
+				2 - \ci \amp  1 + \ci \amp -1 + \ci \\
+				1 + \ci \amp  2 - \ci \amp  1 - \ci \\
+				1 - \ci \amp -1 + \ci \amp  2 - \ci
+			\end{bmatrix}
+			\begin{bmatrix}
+				 2 + \ci \amp 1 - \ci \amp  1 + \ci \\
+				 1 - \ci \amp 2 + \ci \amp -1 - \ci \\
+				-1 - \ci \amp 1 + \ci \amp  2 + \ci
+			\end{bmatrix}
+		</mrow><mrow>
+			\amp = \begin{bmatrix}
+				9 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 9 \\
+				0 \amp 0 \amp 9
+			\end{bmatrix}
+			\text{.}
+		</mrow>
+	</md>
+	The characteristic polynomial is <me> c_N(\lambda) = (\lambda - 3)^2 (\lambda - 3 \ci) </me>,
+	so the eigenvalues are <m>\lambda_1 = 3</m>, <m>\lambda_2 = 3 \ci</m>.
+	</p><p>
+	Solving the homogeneous system <m>(3 I - N) \uvec{x} = \zerovec</m> leads to
+	<me>
+		E_3(N) = \Span \left\{
+			\begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
+			\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+		\right\}
+	</me>.
+	Solving the homogeneous system <m>(3 I - N) \uvec{x} = \zerovec</m> leads to
+	<me> E_{3 \ci}(N) = \Span \left\{ \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right] \right\} </me>.
+	</p><p>
+	Notice that the basis vector for <m>E_{3 \ci}(N)</m> is already orthogonal to each of the basis vectors for <m>E_3(N)</m>,
+	as expected.
+	But the basis for <m>E_3(N)</m> is not orthogonal,
+	so we will need to apply the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process to those two vectors.
+	Labelling those two vectors as <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m>,
+	we may keep <m>\uvec{e}_1 = \uvec{v}_1</m>,
+	but we must adjust
+	<me>
+		\uvec{e}_2
+		= \uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+		= \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+		- \frac{- \ci}{2} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix}
+		= \begin{bmatrix} \frac{1}{2} \\ 1 \\ \frac{\ci}{2} \end{bmatrix}
+	</me>.
+	We now have an orthogonal set of eigenvectors which we can normalize to obtain an orthonormal set
+	<me>
+		\left\{
+			\frac{1}{\sqrt{2}} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
+			\frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 2 \\ \ci \end{bmatrix},
+			\frac{1}{\sqrt{3}} \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right]
+		\right\}
+	</me>.
+	</p><p>
+	Finally, taking <m>U</m> to be the unitary matrix with these orthonormal vectors as columns
+	<me>
+		U = \frac{1}{\sqrt{6}}
+		\begin{bmatrix}
+			\ci \sqrt{3} \amp  1  \amp -\ci \sqrt{2} \\
+			     0       \amp  2  \amp  \ci \sqrt{2} \\
+			  \sqrt{3}   \amp \ci \amp    \sqrt{2}
+		\end{bmatrix}
+	</me>
+	allows us to unitarily digaonalize <m>N</m>:
+	<me> \inv{U} N U = \adjoint{U} N U = \begin{bmatrix} 3 \\ \amp 3 \\ \amp \amp 3 \ci \end{bmatrix} </me>.
+	</p>
+</example>
+
+</subsection>
+
+</section>
