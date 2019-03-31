@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-quadratic-forms-theory">
+
+<title>Theory</title>
+
+<p>
+The fact that a quadratic form can always be represented by a symmetric matrix allows us to state the following version of
+<xref ref="theorem-orthog-unitary-diag-symmetric-is-orthog-diag" />.
+</p>
+
+<theorem><title>The principal axis theorem</title><p>
+	Every quadratic form can be diagonalized to remove cross terms by an appropriate orthogonal change of variables.
+</p></theorem>
+
+<p>
+In the two-variable case,
+we can also be specific about when a level set of a quadratic form corresponds to an ellipse in the plane,
+and when it corresponds to a hyperbola.
+</p>
+<aside><title>Note</title><p>
+	A level set of a quadratic form can also correspond to a circle,
+	but a circle is just a special kind of ellipse,
+	just as a square is a special kind of rectangle.
+</p></aside>
+
+<theorem xml:id="theorem-quadratic-forms-2D-principal-axes">
+	<title>The principal axis theorem for quadratic forms in two variables</title>
+	<statement><p>
+		Consider the quadratic form <m> q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </m>
+		represented by symmetric matrix <m>A</m>.
+		<ol>
+			<li> There exists a rotation in the plane that transforms <m>q</m> into a diagonal form. </li>
+			<li>
+				The graph of <m>q(\uvec{x}) = 1</m> is an ellipse if <m>A</m> has two positive eigenvalues,
+				is a hyperbola if <m>A</m> has one positive and one negative eigenvalue,
+				and does not exist if <m>A</m> has two negative eigenvalues.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof idea</title><p><ol>
+		<li>
+			We know that there exists a <m>2 \times 2</m> orthogonal matrix <m>P</m> so that <m>\utrans{P} A P</m> is diagonal,
+			and a change of variables <m>\uvec{x} = P \uvec{w}</m> will diagonalize <m>q_A</m>,
+			so that
+			<me> q_A(\uvec{x}) = q_{\inv{P} A P} (\uvec{w}) </me>.
+			The first column of <m>P</m> is a unit vector,
+			so it must point from the origin to a point on the unit circle:
+			<me> \uvec{p}_1 = \begin{bmatrix} \cos \theta \\ \sin \theta \end{bmatrix} </me>.
+			As discussed in <xref ref="remark-quadratic-forms-examples-2x2-choosing-second-evector" />,
+			the second eigenvector must be orthogonal to the first,
+			so we can choose <m>\uvec{p}_2</m> to be either of
+			<me>
+				\left[\begin{array}{r} - \sin \theta \\ \cos \theta \end{array}\right] \text{,}
+				\qquad
+				\left[\begin{array}{r} \sin \theta \\ - \cos \theta \end{array}\right]
+			</me>.
+			Both of these vectors are unit vectors and are orthogonal to <m>\uvec{p}_1</m>.
+			Also, eigenspaces are subspaces,
+			and subspaces are closed under taking negatives,
+			so it doesn't matter which one of the two options above we choose.
+			If we choose the first option for <m>\uvec{p}_2</m>,
+			we get rotation matrix
+			<me> P = \left[\begin{array}{r} \cos \theta \amp - \sin \theta \\ \sin \theta \amp \cos \theta \end{array}\right] </me>.
+		</li>
+		<li>
+			This statement should be obvious from the fact that the eigenvalues of <m>A</m> will be the coefficients in the diagonalized quadratic form.
+		</li>
+	</ol></p></proof>
+</theorem>
+
+</section>
