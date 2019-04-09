@@ -27,6 +27,9 @@ respective owners.
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\trace}{trace} % trace, more explicitly than just tr
 \DeclareMathOperator{\dist}{dist}% distance
+\DeclareMathOperator{\neg}{neg}% negative operator
+\DeclareMathOperator{\Hom}{Hom}% hom space
+\DeclareMathOperator{\im}{im}% image of a function
 
 % font aliases
 %\newcommand{\basisfont}[1]{\mathscr{#1}}% font for module basis
@@ -84,6 +87,7 @@ respective owners.
 \newcommand{\rmatrixOfplain}[2]{\left(#1\right)_{#2}}% matrix of, round brackets, does not use basis font
 \newcommand{\matrixOf}[2]{\matrixOfplain{#1}{\basisfont{#2}}}% matrix of
 \newcommand{\rmatrixOf}[2]{\rmatrixOfplain{#1}{\basisfont{#2}}}% matrix of, round brackets
+\newcommand{\stdmatrixOf}[1]{\left[#1\right]}% standard matrix of a linear transformation, no basis specified
 \newcommand{\ucobmtrx}[2]{P_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
 \newcommand{\uinvcobmtrx}[2]{\inv{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style inverse change of basis matrix
 \newcommand{\uadjcobmtrx}[2]{\adjoint{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style adjoint change of basis matrix
@@ -91,6 +95,8 @@ respective owners.
 \newcommand{\inprod}[2]{\left\langle\, #1,\, #2 \,\right\rangle}% inner product
 \newcommand{\uvecinprod}[2]{\inprod{\uvec{#1}}{\uvec{#2}}}% inner product with vector notation of arguments
 \newcommand{\orthogcmp}[1]{{#1}^{\perp}}
+\newcommand{\vecdual}[1]{{#1}^\ast}% vector space dual
+\newcommand{\vecddual}[1]{{#1}^{\ast\ast}}% vector space double dua
 
 % analysis
 \newcommand{\dd}[2]{\frac{d{#1}}{d#2}}% Leibniz derivative
@@ -101,6 +107,6 @@ respective owners.
 \newcommand{\dydt}{\dd{y}{t}}% Leibniz derivative, filled in
 \newcommand{\intspace}{\;}
 \newcommand{\integral}[4]{\int^{#2}_{#1} #3 \intspace d{#4}}% spaced out integral
-
+\newcommand{\funcdef}[3]{#1\colon #2\to #3}
 
 </macros>

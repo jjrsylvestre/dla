@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-basic-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-basic-theory-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-theory-props" /></em></li>
+<li><xref ref="subsection-lintrans-basic-theory-hom-space" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-theory-hom-space" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-basic-theory-props">
+<title>Properties of linear transformations</title>
+
+<p>
+We begin by demonstrating that we chose the correct two axioms in <xref ref="activity-lintrans-basic-axioms" /> for our definition of <term><xref ref="definition-lintrans-basic-lintrans" text="title" /></term>.
+We leave the verification of these properties to you, the reader.
+</p>
+
+<proposition xml:id="proposition-lintrans-basic-additional-props">
+	<title>Properties of linear transformations</title><p>
+	A linear transformation <m>\funcdef{T}{V}{W}</m> satisfies the following additional linearity properties.
+	<ol>
+		<li xml:id="proposition-lintrans-basic-additional-props-zero-image">
+			The image of zero is zero.
+			That is, <m>T(\zerovec_V) = \zerovec_W</m>. </li>
+		<li>
+			The image of negative is negative.
+			That is, <m>T(-\uvec{v}) = - T(\uvec{v})</m> for all <m>\uvec{v}</m> in <m>V</m>.
+		</li>
+		<li>
+			The image of a linear combination is a linear combination.
+			That is,
+			<me> T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_m \uvec{v}_m) = a_1 T(\uvec{v}_1) + a_2 T(\uvec{v}_2) + \dotsb + a_m T(\uvec{v}_m) </me>
+			for all scalars <m>a_1,a_2,\dotsc,a_m</m> and all vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> in <m>V</m>.
+		</li>
+	</ol>
+</p></proposition>
+
+<p>
+As is usually the case with vector spaces,
+a spanning set
+(or, preferably, a basis)
+tells all.
+</p>
+
+<theorem xml:id="theorem-lintrans-basis-unique-spanning-image">
+	<title>Uniqueness of vector images for a domain spanning set</title>
+	<statement>
+		<p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation
+		and <m>\{\uvec{v}_1,\dotsc,\uvec{v}_m\}</m> is a spanning set for the domain space <m>V</m>.
+		Then <m>T</m> is uniquely determined by the image vectors <m>T(\uvec{v}_1),\dotsc,T(\uvec{v}_m)</m>.
+		</p><p>
+		In other words, <m>T</m> is the one unique linear transformation <m>V \to W</m> with these spanning set image vectors,
+		and every other image vector for <m>T</m> can be determined from these spanning set image vectors.
+		</p>
+	</statement>
+	<proof>
+		<p>
+		Write <m>\uvec{w}_j</m> for the <m>\nth[j]</m> spanning set image vector <m>T(\uvec{v}_j)</m>.
+		Since each vector <m>\uvec{v}</m> in the domain space <m>V</m> can be expressed as a linear combination
+		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </me>,
+		we can use the linearity of <m>T</m> to compute
+		<me> T(\uvec{v}) = a_1 \uvec{w}_1 + \dotsb + a_m \uvec{w}_m </me>.
+		This demonstrates that <m>T</m> is completely determined by the image vectors <m>\uvec{w}_1,\dotsc,\uvec{w}_m</m>.
+		</p><p>
+		Now assume <m>\funcdef{T'}{V}{W}</m> is another linear transformation with <m>T'(\uvec{v}_j) = \uvec{w}_j</m>.
+		But then for
+		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </me>,
+		the linearity of <m>T'</m> will lead to
+		<me> T'(\uvec{v}) = a_1 \uvec{w}_1 + \dotsb + a_m \uvec{w}_m = T(\uvec{v}) </me>.
+		Since <m>T,T'</m> agree on all input domain vectors,
+		they must be the same linear transformation.
+		</p>
+	</proof>
+</theorem>
+
+<p>
+The above fact lets us easily create linear transformations from desired image vectors on a specific spanning set.
+(See <xref ref="procedure-lintrans-basic-basis-to-transformation" />.)
+However, as explained in <xref ref="remark-lintrans-basic-concepts-use-basis-image-vectors" />,
+and illustrated in <xref ref="example-lintrans-basic-via-nonbasis" />,
+a domain space <em>basis</em> should be used instead of merely a spanning set.
+</p>
+
+<corollary xml:id="corollary-lintrans-basic-unique-basis-image">
+	<title>Creating a transformation from a domain space basis</title>
+	<statement><p>
+		Given basis <m>\basisfont{B} = \{\uvec{v}_1,\dotsc,\uvec{v}_n\}</m> of vector space <m>V</m>,
+		and arbitrary vectors <m>\uvec{w}_1,\dotsc,\uvec{w}_n</m> in vector space <m>W</m>
+		(with duplicates permitted),
+		there there exists one unique transformation <m>\funcdef{T}{V}{W}</m> satisfying
+		<m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>.
+	</p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		If we can show that there exists <em>at least one</em> such linear transformation
+		<m>\funcdef{T}{V}{W}</m>,
+		then <xref ref="theorem-lintrans-basis-unique-spanning-image" /> will guarantee that it is the only one.
+		</p><p>
+		We want <m>T</m> to both be linear and to satisfy <m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>.
+		Given that each vector <m>\uvec{v}</m> in the domain space <m>V</m> has a <em>unique</em> expansion
+		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb a_n \uvec{v}_n </me>
+		in terms of the basis vectors in <m>\basisfont{B}</m>
+		(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
+		there is no ambiguity in <em>defining</em> <m>T</m> relative to such expansions:
+		<me> T(\uvec{v}) = T(a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n) = a_1 \uvec{w}_1 + \dotsb + a_n \uvec{w}_n </me>.
+		</p>
+		<aside><title>Note</title><p>
+			The uniqueness of vector expansions relative to a basis is exactly what prevents the ambiguity of
+			<xref ref="example-lintrans-basic-via-nonbasis" /> occurring.
+		</p></aside>
+		<p>
+		Then <m>T</m> will be linear (check!),and since each basis vector is expanded as <m>\uvec{v}_j = 1 \uvec{v}_j</m>, with zero coefficients on each of the other basis vectors, we will have
+		<me> T(\uvec{v}_j) = 1 \uvec{w}_j = \uvec{w}_j </me>,
+		as desired.
+		</p>
+	</proof>
+</corollary>
+
+<p>
+We can also use the theorem to justify our claim that every transformation <m>\R^n \to \R^m</m> is a matrix transformation.
+(And similarly for transformations <m>\C^n \to \C^m</m>.)
+</p>
+
+<corollary xml:id="corollary-lintrans-basic-euclidean-trans-is-matrix-trans">
+	<title>Transformations <m>\R^n \to \R^m</m> or <m>\C^n \to \C^m</m> are matrix transformations</title>
+	<statement><p><ol>
+		<li>
+			If <m>\funcdef{T}{\R^n}{\R^m}</m> is a linear transformation,
+			then there exists a unique <m>m \times n</m> real matrix <m>A</m> so that <m>T = T_A</m>,
+			where <m>\funcdef{T_A}{\R^n}{\R^m}</m> is defined by <m>T_A(\uvec{x}) = A \uvec{x}</m>,
+			as usual.
+		</li>
+		<li>
+			If <m>\funcdef{T}{\C^n}{\C^m}</m> is a linear transformation,
+			then there exists a unique <m>m \times n</m> complex matrix <m>A</m> so that <m>T = T_A</m>,
+			where <m>\funcdef{T_A}{\C^n}{\C^m}</m> is defined by <m>T_A(\uvec{x}) = A \uvec{x}</m>,
+			as usual.
+		</li>
+	</ol></p></statement>
+	<proof><title>Proof idea</title><p>
+		The proof is identical for both the real and complex versions of the statement.
+		By <xref ref="theorem-lintrans-basis-unique-spanning-image" />,
+		the transformation <m>T</m> is uniquely determined by the output vectors
+		<me> T(\uvec{e}_1), \; T(\uvec{e}_2), \; \dotsc, \; T(\uvec{e}_n) </me>,
+		where <m>\basisfont{S} = \{\uvec{e}_1,\dotsc,\uvec{e}_n\}</m> is the standard basis for <m>\R^n</m> or <m>\C^n</m>,
+		as appropriate.
+		But if <m>A</m> is the matrix whose columns are these output vectors,
+		then since
+		<me> T_A(\uvec{e}_j) = A \uvec{e}_j </me>
+		is equal to the <m>\nth[j]</m> column of <m>A</m>,
+		the transformations <m>T</m> and <m>T_A</m> agree on each of the vectors in basis <m>\basisfont{S}</m>.
+		From this we can conclude that <m>T</m> and <m>T_A</m> are in fact the same transformation.
+	</p></proof>
+</corollary>
+
+</subsection>
+
+
+<subsection xml:id="subsection-lintrans-basic-theory-hom-space">
+<title>Spaces of linear transformations</title>
+
+<p>
+As in <xref ref="activity-lintrans-basic-hom-space" />
+and <xref ref="subsection-lintrans-basic-concepts-hom-space" />,
+the collection of all linear transformations from one vector space to another is itself a vector space.
+</p>
+
+<theorem><title>Transformations form a vector space</title>
+	<statement><p>
+		For vector spaces <m>V,W</m>,
+		collection <m>L(V,W)</m> of all linear transformations <m>V \to W</m>
+		is a vector space under the operations
+		<md><mrow>
+			(T_1 + T_2)(\uvec{v}) \amp = T_1(\uvec{v}) + T_2(\uvec{v}) \text{,} \amp
+			(k T)(\uvec{v}) \amp = k \, T(\uvec{v})
+		</mrow></md>.
+	</p></statement>
+	<proof>
+		<p>
+		We will verify
+		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>,
+		and leave the other nine axioms to you, the reader.
+		</p><p>
+		If <m>\funcdef{T_1,T_2}{V}{W}</m> are linear, is <m>\funcdef{T_1 + T_2}{V}{W}</m> linear?
+		First check additivity:
+		<md>
+			<mrow>
+				(T_1 + T_2)(\uvec{v}_1 + \uvec{v}_2)
+				\amp = T_1(\uvec{v}_1 + \uvec{v}_2) + T_2(\uvec{v}_1 + \uvec{v}_2)
+				\amp \amp\text{(i)}
+			</mrow><mrow>
+				\amp
+				= \bigl(T_1(\uvec{v}_1) + T_1(\uvec{v}_2)\bigr)
+				+ \bigl(T_2(\uvec{v}_1) + T_2(\uvec{v}_2)\bigr)
+				\amp \amp\text{(ii)}
+			</mrow><mrow>
+				\amp
+				= \bigl(T_1(\uvec{v}_1) + T_2(\uvec{v}_1)\bigr)
+				+ \bigl(T_1(\uvec{v}_2) + T_2(\uvec{v}_2)\bigr)
+				\amp \amp\text{(iii)}
+			</mrow><mrow>
+				\amp
+				= (T_1 + T_2)(\uvec{v}_1) + (T_1 + T_2)(\uvec{v}_2)
+				\amp \amp\text{(iv)}
+			</mrow>
+		</md>,
+		with justifications
+		<ol label="(i)">
+			<li> definition of addition of <m>T_1,T_2</m>; </li>
+			<li> additivity of <m>T_1,T_2</m>; </li>
+			<li> vector algebra in the codomain space <m>W</m>; and </li>
+			<li> definition of addition of <m>T_1,T_2</m>. </li>
+		</ol>
+		Now check homogeneity:
+		<md>
+			<mrow>
+				(T_1 + T_2)(k \uvec{v})
+				\amp = T_1(k \uvec{v}) + T_2(k \uvec{v})
+				\amp \amp\text{(i)}
+			</mrow><mrow>
+				\amp = k \, T_1(\uvec{v}) + k \, T_2(\uvec{v})
+				\amp \amp\text{(ii)}
+			</mrow><mrow>
+				\amp = k \bigl(T_1(\uvec{v}) + T_2(\uvec{v})\bigr)
+				\amp \amp\text{(iii)}
+			</mrow><mrow>
+				\amp = k \bigl((T_1 + T_2)(\uvec{v})\bigr)
+				\amp \amp\text{(iv)}
+			</mrow>
+		</md>,
+		with justifications
+		<ol label="(i)">
+			<li> definition of addition of <m>T_1,T_2</m>; </li>
+			<li> homogeneity of <m>T_1,T_2</m>; </li>
+			<li> vector algebra in the codomain space <m>W</m>; and </li>
+			<li> definition of addition of <m>T_1,T_2</m>. </li>
+		</ol>
+		</p>
+	</proof>
+</theorem>
+
+<corollary><title>Dual spaces are vector spaces</title><p><ol>
+	<li>
+		For every real vector space <m>V</m>,
+		the dual space <m>\vecdual{V} = L(V,\R)</m>
+		is a real vector space.
+	</li>
+	<li>
+		For every complext vector space <m>V</m>,
+		the dual space <m>\vecdual{V} = L(V,\C)</m>
+		is a complex vector space.
+	</li>
+</ol></p></corollary>
+
+<p>
+While we won't pursue a thorough study of dual spaces here,
+we will at least establish that a finite-dimensional vector space and its dual space have the same dimension.
+</p>
+
+<theorem>
+	<statement>
+		<p>
+		Suppose <m>V</m> is a finite-dimensional vector space.
+		For every basis
+		<me> \basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n\} </me>
+		for <m>V</m>,
+		we can define a
+		<term>dual basis</term><idx><h>dual</h><h>basis</h></idx>
+		<me> \vecdual{\basisfont{B}} = \{ \vecdual{\uvec{e}}_1, \vecdual{\uvec{e}}_2, \dotsc, \vecdual{\uvec{e}}_n \} </me>
+		for <m>\vecdual{V}</m> as follows.
+		</p><p>
+		For each index <m>i</m>,
+		take <m>\funcdef{\vecdual{\uvec{e}}_i}{V}{\R}</m>
+		(or <m>\funcdef{\vecdual{\uvec{e}}_i}{V}{\C}</m>, as appropriate)
+		to be the unique linear transformation such that
+		<me>
+			\vecdual{\uvec{e}}_i(\uvec{e}_j)
+			= \begin{cases}
+				1, \amp i = j, \\
+				0, \amp i \ne j,
+			\end{cases}
+		</me>
+		for each index <m>j</m>.
+	</p></statement>
+	<proof>
+		<p>
+		First, note that the existence and uniqueness of each <m>\vecdual{\uvec{e}}_i</m> linear functional is guaranteed by
+		<xref ref="corollary-lintrans-basic-unique-basis-image" />.
+		So we just need to establish that these special linear functionals form a basis of <m>\vecdual{V}</m>.
+		</p><p>
+		Before we do that, it will help to establish a pattern of evaluating these special functionals.
+		As <m>\vecdual{V}</m> is a vector space,
+		a linear combination of linear functionals is also a linear functional on <m>V</m>,
+		and so can be evaluated as a function on vectors in <m>V</m>.
+		In particular,
+		consider a linear combination
+		<me> c_1 \vecdual{\uvec{e}}_1 + c_2 \vecdual{\uvec{e}}_2 + \dotsb + c_n \vecdual{\uvec{e}}_n </me>
+		evaluated at <m>\uvec{e}_1</m>.
+		Using the definition of the <m>\vecdual{\uvec{e}}_i</m> functionals in the statement of the theorem,
+		we calculate:
+		<md>
+			<mrow> \amp (c_1 \vecdual{\uvec{e}}_1 + c_2 \vecdual{\uvec{e}}_2 + \dotsb + c_n \vecdual{\uvec{e}}_n)(\uvec{e}_1) </mrow>
+			<mrow> \amp \phantom{(c_1} = c_1 \vecdual{\uvec{e}}_1(\uvec{e}_1) + c_2 \vecdual{\uvec{e}}_2(\uvec{e}_1) + \dotsb + c_n \vecdual{\uvec{e}}_n(\uvec{e}_1) </mrow>
+			<mrow> \amp \phantom{(c_1} = c_1 \cdot 1 + c_2 \cdot 0 + \dotsb + c_n \cdot 0 </mrow>
+			<mrow> \amp \phantom{(c_1} = c_1 </mrow>
+		</md>.
+		Similarly,
+		<md><mrow xml:id="equation-lintrans-basic-theory-lincomb-linfunc-eval" tag="star">
+			(c_1 \vecdual{\uvec{e}}_1 + c_2 \vecdual{\uvec{e}}_2 + \dotsb + c_n \vecdual{\uvec{e}}_n)(\uvec{e}_j) = c_j
+		</mrow></md>
+		for each index <m>j</m>.
+		</p>
+		<case><title>Linear independence</title><p>
+			To apply the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
+			we begin with a homogeneous vector equation
+			<md><mrow xml:id="equation-lintrans-basic-theory-dual-basis-lin-indep" tag="dstar">
+				k_1 \vecdual{\uvec{e}}_1 + k_2 \vecdual{\uvec{e}}_2 + \dotsb + k_n \vecdual{\uvec{e}}_n = \zerovec
+			</mrow></md>.
+			The zero vector on the right is the zero linear functional,
+			which evaluates to zero at all vectors in <m>V</m>.
+			So evaluating both sides of <xref ref="equation-lintrans-basic-theory-dual-basis-lin-indep" /> at vector <m>\uvec{e}_j</m>,
+			and using <xref ref="equation-lintrans-basic-theory-lincomb-linfunc-eval" /> to simplify on the left,
+			we get <m>k_j = 0</m> for each index <m>j</m>.
+			This means that vector equation <xref ref="equation-lintrans-basic-theory-dual-basis-lin-indep" />
+			has only the trivial solution,
+			so that these <q>dual</q> linear functionals are linearly independent.
+		</p></case>
+		<case><title>Spans</title><p>
+			We must show that every linear functional in <m>\vecdual{V}</m> is a linear combination of the special <m>\vecdual{\uvec{e}}_i</m> functionals.
+			So suppose that <m>f</m> is an arbitrary functional on <m>V</m>.
+			Since <m>\basisfont{B}</m> is a basis for <m>V</m>,
+			<xref ref="theorem-lintrans-basis-unique-spanning-image" />
+			says that <m>f</m> is uniquely determined by the values
+			<me> f(\uvec{e}_1), \, f(\uvec{e}_2), \, \dotsc, \, f(\uvec{e}_n) </me>.
+			Let <m>a_1,a_2,\dotsc,a_n</m> represent these values,
+			and let <m>g</m> be the linear functional
+			<me> a_1 \vecdual{\uvec{e}}_1 + a_2 \vecdual{\uvec{e}}_2 + \dotsb + a_n \vecdual{\uvec{e}}_n </me>.
+			The pattern of <xref ref="equation-lintrans-basic-theory-lincomb-linfunc-eval" />
+			says that
+			<me> g(\uvec{e}_j) = a_j </me>.
+			But since <m>f</m> is uniquely determined by the <m>a_j</m> values,
+			we can conclude that <m>f = g</m>,
+			a linear combination of the <m>\vecdual{\uvec{e}}_i</m> functionals.
+		</p></case>
+	</proof>
+</theorem>
+
+<corollary><p>
+	For finite-dimensional <m>V</m>,
+	we have <m>\dim \vecdual{V} = \dim V</m>.
+</p></corollary>
+
+</subsection>
+
+</section>
