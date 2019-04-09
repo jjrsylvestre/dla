@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-ker-im-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-ker-im-theory-subspaces" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-theory-subspaces" /></em></li>
+<li><xref ref="subsection-lintrans-ker-im-theory-dim" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-theory-dim" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-ker-im-theory-subspaces">
+<title>Kernel and image are subspaces</title>
+
+<theorem>
+
+	<statement><p>
+		For linear transformation <m>\funcdef{T}{V}{W}</m>,
+		<m>\ker T</m> is a subspace of the domain space <m>V</m>
+		and
+		<m>\im T</m> is a subspace of the codomain space <m>W</m>.
+	</p></statement>
+
+	<proof>
+
+		<paragraphs><title>Kernel is a subspace</title><p>
+		Apply the Subspace Test. <!-- TODO proper xref to alogrithm -->
+		<case><title>Nonempty</title><p>
+			By <xref ref="proposition-lintrans-basic-additional-props-zero-image">Statement</xref>
+			of <xref ref="proposition-lintrans-basic-additional-props" />,
+			<m>\ker T</m> always contains <m>\zerovec_V</m>,
+			the zero vector in the domain space <m>V</m>.
+		</p></case>
+		<case><title>Closed under addition</title><p>
+			Suppose <m>\uvec{v}_1,\uvec{v}_2</m> are in <m>\ker T</m>.
+			Is <m>\uvec{v}_1 + \uvec{v}_2</m> also in <m>\ker T</m>?
+			Using the additivity of <m>T</m>, we have
+			<me>
+				T(\uvec{v}_1 + \uvec{v}_2)
+				= T(\uvec{v}_1) + T(\uvec{v}_2)
+				= \zerovec_W + \zerovec_W
+				= \zerovec_W
+			</me>,
+			so yes, <m>\uvec{v}_1 + \uvec{v}_2</m> is also in <m>\ker T</m>.
+		</p></case>
+		<case><title>Closed under scalar multiplication</title><p>
+			Suppose <m>\uvec{v}</m> is in <m>\ker T</m>.
+			Is <m>k \uvec{v}</m> also in <m>\ker T</m> for arbitrary scalar <m>k</m>?
+			Using the homogeneity of <m>T</m>, we have
+			<me> T(k \uvec{v}) = k T(\uvec{v}) = k \zerovec_W = \zerovec_W </me>,
+			so yes, <m>k \uvec{v}</m> is also in <m>\ker T</m>.
+		</p></case>
+		</p></paragraphs>
+
+		<paragraphs><title>Image is a subspace</title><p>
+		Apply the Subspace Test. <!-- TODO proper xref to alogrithm -->
+		<case><title>Nonempty</title><p>
+			By <xref ref="proposition-lintrans-basic-additional-props-zero-image">Statement</xref>
+			of <xref ref="proposition-lintrans-basic-additional-props" />,
+			<m>\im T</m> always contains <m>\zerovec_W</m>,
+			the zero vector in the codomain space <m>W</m>.
+		</p></case>
+		<case><title>Closed under addition</title><p>
+			Suppose <m>\uvec{w}_1,\uvec{w}_2</m> are in <m>\im T</m>,
+			so that there exist <m>\uvec{v}_1,\uvec{v}_2</m> in <m>V</m> with
+			<md><mrow>
+				T(\uvec{v}_1) \amp = \uvec{w}_1 \text{,} \amp
+				T(\uvec{v}_2) \amp = \uvec{w}_2
+			</mrow></md>.
+			Is <m>\uvec{w}_1 + \uvec{w}_2</m> also in <m>\im T</m>?
+			Using the additivity of <m>T</m>, we have
+			<me>
+				\uvec{w}_1 + \uvec{w}_2
+				= T(\uvec{v}_1) + T(\uvec{v}_2)
+				= T(\uvec{v}_1 + \uvec{v}_2)
+			</me>,
+			so yes, <m>\uvec{w}_1 + \uvec{w}_2</m> is also in <m>\im T</m>.
+		</p></case>
+		<case><title>Closed under scalar multiplication</title><p>
+			Suppose <m>\uvec{w}</m> is in <m>\im T</m>,
+			so that there exists <m>\uvec{v}</m> in <m>V</m> with
+			<me> T(\uvec{v}) = \uvec{w} </me>.
+			Is <m>k \uvec{w}</m> also in <m>\im T</m> for arbitrary scalar <m>k</m>?
+			Using the homogeneity of <m>T</m>, we have
+			<me> k \uvec{w} = k T(\uvec{v}) = T(k \uvec{v}) </me>,
+			so yes, <m>k \uvec{w}</m> is also in <m>\im T</m>.
+		</p></case>
+		</p></paragraphs>
+
+	</proof>
+
+</theorem>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-ker-im-theory-dim">
+<title>Basis and dimension of kernel and image</title>
+
+<p>
+First we formally state the pattern of <xref ref="activity-lintrans-ker-im-describe-im" />,
+which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bases" />.
+</p>
+
+<lemma xml:id="lemma-lintrans-ker-im-spanning-im">
+	<title>Image of a spanning set is a spanning set for the image</title>
+	<p>
+	If <m>\funcdef{T}{V}{W}</m> is linear and
+	<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m \} </me>
+	is a spanning set for the domain space <m>V</m>,
+	then the collection of image vectors
+	<me> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_m) \} </me>
+	is a spanning set for <m>\im T</m>.
+	</p>
+</lemma>
+
+<p> Now we will justify the conclusion of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />. </p>
+
+<theorem xml:id="theorem-lintrans-ker-im-basis-im">
+	<title>Basis for image</title>
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is linear with <m>V</m> finite-dimensional,
+		and
+		<md><mrow>
+			\basisfont{K} \amp = \{ \uvec{u}_1, \dotsc, \uvec{u}_m \} \text{,} \amp
+			\basisfont{K}' \amp = \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \}
+		</mrow></md>
+		are collections of vectors in <m>V</m> so that
+		<ol label="(i)">
+			<li> <m>\basisfont{K}</m> is a basis for <m>\ker T</m>, and </li>
+			<li> the vectors of <m>\basisfont{K},\basisfont{K}'</m>, taken all together, form a basis for <m>V</m>. </li>
+		</ol>
+		Then the collection of image vectors
+		<me> T(\basisfont{K}') = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>
+		is a basis for <m>\im T</m>.
+	</p></statement>
+	<proof>
+		<p>
+		We need to establish that the collection <m>T(\basisfont{K}')</m> is both linearly independent and a spanning set for <m>\im T</m>.
+		</p>
+		<case><title>Linear independence</title><p>
+			To apply the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
+			we begin with a homogeneous vector equation
+			<me> k_1 T(\uvec{v}_1) + k_2 T(\uvec{v}_2) + \dotsb + k_\ell T(\uvec{v}_\ell) = \zerovec_W </me>.
+			The linearity of <m>T</m> can be used to collapse the linear combination on the left into a single image vector
+			<me> T(k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_\ell \uvec{v}_\ell) = \zerovec_W </me>,
+			which implies that the domain space linear combination
+			<me> k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_\ell \uvec{v}_\ell </me>
+			is in <m>\ker T</m>.
+			Since the vectors in <m>\basisfont{K}</m> are a basis for <m>\ker T</m>,
+			there exist scalars <m>a_1,a_2,\dotsc,a_m</m> so that
+			<me>
+				k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_\ell \uvec{v}_\ell
+				= a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_m \uvec{u}_m
+			</me>.
+			Rearranging, we obtain
+			<me>
+				k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_\ell \uvec{v}_\ell
+				- a_1 \uvec{u}_1 - a_2 \uvec{u}_2 - \dotsb - a_m \uvec{u}_m
+				= \zerovec_V
+			</me>.
+			On the left is now a linear combination of all the vectors from <m>\basisfont{K}</m> and <m>\basisfont{K}'</m>.
+			But we have assumed that these vectors together form a basis for <m>V</m>,
+			hence are linearly independent.
+			So the only way this last vector equation above is possible is the trivial way:
+			<md><mrow>
+				k_1 = k_2 = \dotsb = k_\ell \amp = 0 \text{,} \amp
+				a_1 = a_2 = \dotsb = a_m \amp = 0
+			</mrow></md>.
+			In particular, since all of the <m>k_j</m> scalars must be zero,
+			we can conclude that the vectors in <m>T(\basisfont{K}')</m> are independent,
+			as desired.
+		</p></case>
+		<case><title>Spans</title><p>
+			Write <m>\basisfont{B}_V</m> for the collection of all vectors from <m>\basisfont{K}</m> and <m>\basisfont{K}'</m> taken together,
+			which we have assumed is a basis for the domain space <m>V</m>.
+			By <xref ref="lemma-lintrans-ker-im-spanning-im" />,
+			the collection of image vectors
+			<me>
+				T(\basisfont{B}_V) = \{
+					T(\uvec{u}_1), \dotsc, T(\uvec{u}_m),
+					T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell)
+				\}
+			</me>
+			is a spanning set for <m>\im T</m>.
+			But since the <m>\uvec{u}_j</m> are in <m>\ker T</m>,
+			we actually have
+			<me>
+				T(\basisfont{B}_V) = \{
+					\zerovec_W, \dotsc, \zerovec_W,
+					T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell)
+				\}
+			</me>,
+			and clearly the collection of image vectors
+			<me> T(\basisfont{K}') = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>
+			will span the same space that <m>T(\basisfont{B}_V)</m> does.
+		</p></case>
+	</proof>
+</theorem>
+
+<p> Finally, we can connect the dimensions of the kernel and image of a transformation. </p>
+
+<theorem xml:id="theorem-lintrans-ker-im-dimension">
+	<title>The Dimension Theorem</title>
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is linear with <m>V</m> finite-dimensional.
+		Then the sum of the rank and nullity of <m>T</m> is the dimension of the domain space <m>V</m>.
+		That is,
+		<me> \dim (\ker T) + \dim (\im T) = \dim V </me>.
+	</p></statement>
+	<proof>
+		<p>
+		Let <m>\basisfont{K}</m> be a basis for <m>\ker T</m>,
+		and let <m>\basisfont{K}'</m> be a collection of vectors in <m>V</m> that enlarges <m>\basisfont{K}</m> to a basis <m>\basisfont{B}_V</m> of <m>V</m>
+		(<xref ref="proposition-dimension-increase-indep-to-basis" />).
+		Then <xref ref="theorem-lintrans-ker-im-basis-im" /> says that the collection of image vectors <m>T(\basisfont{K}')</m> is a basis for <m>\im T</m>.
+		Now, the collection <m>T(\basisfont{K}')</m> cannot contain any duplicates because it is linearly independent.
+		So <m>T(\basisfont{K}')</m> contains exactly the same number of vectors as <m>\basisfont{K}'</m>.
+		</p><p>
+		Using the notation <m>\# S</m> to mean the number of vectors in collection <m>S</m>,
+		we now have
+		<md>
+			<mrow> \dim (\ker T) = \# \basisfont{K} \text{,} </mrow>
+			<mrow> \dim (\im T) = \# T(\basisfont{K}') = \# \basisfont{K}' \text{,} </mrow>
+			<mrow> \dim V = \# \basisfont{K} + \# \basisfont{K}' </mrow>
+		</md>,
+		and the result follows.
+		</p>
+	</proof>
+</theorem>
+
+</subsection>
+
+</section>

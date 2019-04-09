@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-ker-im-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-ker-im-examples-matrix" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-examples-matrix" /></em></li>
+<li><xref ref="subsection-lintrans-ker-im-examples-general" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-examples-general" /></em></li>
+<li><xref ref="subsection-lintrans-ker-im-examples-special" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-examples-special" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-ker-im-examples-matrix">
+<title>Kernel and image of a matrix transformation</title>
+
+<example>
+	<p>
+	Using matrix
+	<me>
+		A = \left[\begin{array}{rrrrr}
+			-1 \amp  0 \amp -2 \amp -2 \amp  7 \\
+			-5 \amp  1 \amp -7 \amp -3 \amp 16 \\
+			 1 \amp  0 \amp  2 \amp  1 \amp -4 \\
+			 2 \amp -2 \amp -2 \amp -1 \amp -3
+		\end{array}\right]
+	</me>,
+	create the matrix transformation <m>\funcdef{T_A}{\R^5}{\R^4}</m> by
+	defining <m>T_A(\uvec{x}) = A \uvec{x}</m>, as usual.
+	The RREF of <m>A</m> is
+	<me>
+		\left[\begin{array}{rrrrr}
+			1 \amp 0 \amp 2 \amp 0 \amp -1 \\
+			0 \amp 1 \amp 3 \amp 0 \amp  2 \\
+			0 \amp 0 \amp 0 \amp 1 \amp -3 \\
+			0 \amp 0 \amp 0 \amp 0 \amp  0
+		\end{array}\right]
+	</me>.
+	(This is the same RREF as
+	in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker-matrix">Discovery</xref>
+	and <xref ref="activity-lintrans-ker-im-matrix-transformation-im-matrix">Discovery</xref>.)
+	</p><p>
+	To determine a basis for <m>\ker T_A</m>,
+	we solve the homogeneous system <m>A \uvec{x} = \zerovec</m>.
+	The RREF indicates that we should assign parameters to variables <m>x_3</m> and <m>x_5</m>.
+	This assignment of parameters leads to general solution
+	<me>
+		\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
+		= \begin{bmatrix} -2 s + t \\ -3 s - 2 t \\ s \\ 3 t \\ t \end{bmatrix}
+		= s \left[\begin{array}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{array}\right]
+		+ t \left[\begin{array}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{array}\right]
+	</me>,
+	and so
+	<me>
+		\ker T_A = \Span \left\{
+			\left[\begin{array}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{array}\right],
+			\left[\begin{array}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{array}\right]
+		\right\}
+	</me>.
+	</p><p>
+	To determine a basis of <m>\im T_A</m>,
+	we need to determine a basis for the column space of <m>A</m>,
+	which can be carried out using
+	<xref ref="procedure-col-row-null-space-concepts-col-space-basis" />.
+	We have already reduced <m>A</m> to RREF above,
+	so identifying leading ones in the first, second, and fourth columns of <m>\RREF(A)</m> leads to
+	<me>
+		\im T_A = \Span \left\{
+			\left[\begin{array}{r} -1 \\ -5 \\ 1 \\ 2 \end{array}\right],
+			\left[\begin{array}{r} 0 \\ 1 \\ 0 \\ -2 \end{array}\right],
+			\left[\begin{array}{r} -2 \\ -3 \\ 1 \\ -1 \end{array}\right]
+		\right\}
+	</me>.
+	</p><p>
+	Finally, notice that
+	<me> \dim (\ker T_A) + \dim (\im T_A) = 2 + 3 = 5 </me>,
+	the number of columns of <m>A</m>,
+	as expected.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-ker-im-examples-general">
+<title>Kernel and image of a linear transformation</title>
+
+<example xml:id="example-lintrans-ker-im-symm-skew-basis">
+	<title>Symmetric and skew-symmetric matrices</title>
+	<p>
+	Consider <m>\funcdef{T}{\matrixring_2(\R)}{\matrixring_2(\R)}</m> by
+	<me>T(A) = A - \utrans{A}</me>,
+	as considered in <xref ref="activity-lintrans-ker-im-describe-ker-symmetric">Discovery</xref>
+	and <xref ref="activity-lintrans-ker-im-basis-ker-symmetric">Discovery</xref>.
+	In those discovery activities,
+	we identified the kernel as consisting of symmetric matrices.
+	In the <m>2 \times 2</m> case,
+	an arbitrary symmetric matrix is of the form
+	<me>
+		\begin{bmatrix} a \amp b \\ b \amp d \end{bmatrix}
+		= a \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		+ b \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
+		+ d \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+	</me>,
+	so that
+	<me>
+		\ker T = \Span \left\{
+			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+		\right\}
+	</me>.
+	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
+	we take
+	<me>
+		\basisfont{K} = \left\{
+			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+		\right\}
+	</me>.
+	Since <m>\dim \bigl(\matrixring_2(\R)\bigr) = 4</m>,
+	we only need one more vector to enlarge to a basis for the domain space <m>\matrixring_2(\R)</m>.
+	The standard basis vector
+	<me> \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>
+	is not symmetric, and so does not lie in <m>\ker T</m>.
+	Therefore, taking
+	<me> \basisfont{K}' = \left\{ \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} \right\} </me>,
+	the vectors in <m>\basisfont{K}</m> and <m>\basisfont{K}'</m> together form a basis for <m>\matrixring_2(\R)</m>.
+	To obtain a basis for <m>\im T</m>,
+	just apply <m>T</m> to the vector in <m>\basisfont{K}'</m>:
+	<me>
+		T\left(\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}\right)
+		= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		- \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		= \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right]
+	</me>,
+	so that
+	<me>
+		\im T
+		= \Span T(\basisfont{K}')
+		= \Span \left\{ \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right] \right\}
+	</me>.
+	Notice that <m>\im T</m> consists of the <term>skew-symmetric</term> <m>2 \times 2</m> matrices,
+	defined by the <q>skewed</q> symmetry condition <m>\utrans{A} = - A</m>.
+	</p><p>
+	And also notice that
+	<me> \dim (\ker T) + \dim (\im T) = 3 + 1 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </me>,
+	as expected.
+	</p>
+</example>
+
+<example xml:id="example-lintrans-ker-im-left-matrix-mult-basis">
+	<title>Left multiplication of <m>2 \times 2</m> matrices</title>
+	<p>
+	Consider <m>\funcdef{L_B}{\matrixring_{2}(\R)}{\matrixring_{2}(\R)}</m> defined by <m>L_B(A) = B A</m>,
+	where
+	<me> B = \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>,
+	as in <xref ref="activity-lintrans-ker-im-basis-ker-left-mult-M22">Discovery</xref>.
+	An arbitray <m>2 \times 2</m> matrix
+	<me> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+	is in <m>\ker L_B</m> when
+	<me>
+		L_B\left(\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\right)
+		=
+		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+		= \begin{bmatrix} a + c \amp b + d \\ 0 \amp 0 \end{bmatrix}
+		= \begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+	</me>,
+	which occurs when <m>c = -a</m> and <m>d = -b</m>.
+	Inserting these two conditions into the arbitrary matrix above,
+	we have
+	<me>
+		\left[\begin{array}{rr} a \amp b \\ -a \amp -b \end{array}\right]
+		= a \left[\begin{array}{rr} 1 \amp 0 \\ -1 \amp 0 \end{array}\right]
+		+ b \left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+	</me>,
+	so that
+	<me>
+		\ker L_B = \Span \left\{
+			\left[\begin{array}{rr} 1 \amp 0 \\ -1 \amp 0 \end{array}\right],
+			\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+		\right\}
+	</me>.
+	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
+	we take
+	<me>
+		\basisfont{K} = \left\{
+			\left[\begin{array}{rr} 1 \amp 0 \\ -1 \amp 0 \end{array}\right],
+			\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+		\right\}
+	</me>.
+	Since <m>\dim \bigl(\matrixring_2(\R)\bigr) = 4</m>,
+	we need two more vectors to enlarge to a basis for the domain space <m>\matrixring_2(\R)</m>.
+	Neither of the standard basis vectors
+	<me>
+		\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \;
+		\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+	</me>
+	is in <m>\ker T</m>,
+	and the four vectors in <m>\basisfont{K}</m> and
+	<me>
+		\basisfont{K}' = \left\{
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+		\right\}
+	</me>
+	remain independent when taken all together,
+	and so form a basis for the domain space <m>\matrixring_2(\R)</m>.
+	Putting each of the vectors in <m>\basisfont{K}'</m> through <m>L_B</m>, we get
+	<md>
+		<mrow>
+			L_B\left(\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}\right)
+			\amp =
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+			= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+			\text{,}
+		</mrow><mrow></mrow><mrow>
+			L_B\left(\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}\right)
+			\amp =
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		</mrow>
+	</md>,
+	so that
+	<me>
+		\im L_B = \Span \left\{
+			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		\right\}
+	</me>.
+	This agrees with our earlier calculation of arbitrary input result
+	<me>
+		L_B\left(\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\right)
+		= \begin{bmatrix} a + c \amp b + d \\ 0 \amp 0 \end{bmatrix}
+		= \begin{bmatrix} e \amp f \\ 0 \amp 0 \end{bmatrix}
+		= e \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		+ f \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+	</me>,
+	where we have replaced the top two entries in the result first result with new arbitrary entries <m>e,f</m> to emphasize that these entries are independently arbitrary through choice of <m>a,c</m> values versus <m>b,d</m> values.
+	</p><p>
+	And, once again, we have
+	<me> \dim (\ker L_B) + \dim (\im L_B) = 2 + 2 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </me>,
+	as expected.
+	</p>
+</example>
+
+<example><title>Differentiation of polynomials</title>
+	<p>
+	Consider <m>\funcdef{\ddx}{\poly_n(\R)}{\poly_n(\R)}</m> by <m>\ddx\bigl(p(x)\bigr) = p'(x)</m>.
+	For simplicity, write <m>D</m> in place of the differential operator <m>\ddx</m>.
+	</p><p>
+	Similarly to <xref ref="activity-lintrans-ker-im-describe-ker-diff">Discovery</xref>,
+	<m>\ker D</m> consists of the constant polynomials, so that
+	<me> \ker D = \Span \{ 1 \} </me>.
+	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
+	we take
+	<me> \basisfont{K} = \{ 1 \} </me>
+	as a basis for <m>\ker D</m>.
+	It is straightforward to enlarge this to a basis for the domain space <m>\poly_n(\R)</m>,
+	as the constant polynomial <m>1</m> is the first vector in the standard basis
+	<me> \{ 1, x, x^2, \dotsc, x^n \} </me>.
+	So we may take
+	<me> \basisfont{K}' = \{ x, x^2, \dotsc, x^n \} </me>,
+	and differentiate each of these vectors to get
+	<me> D(\basisfont{K}') = \{ 1, 2 x, 3 x^2, \dotsc, n x^{n-1} \} </me>.
+	So we have
+	<me> \im D = \Span \{ 1, 2 x, 3 x^2, \dotsc, n x^{n-1} \} </me>.
+	But since scalar multiples do not affect linear independence,
+	we could instead take
+	<me> \im D = \Span \{ 1, x, x^2, \dotsc, x^{n-1} \} = \poly_{n-1}(\R) </me>.
+	This result should not be surprising,
+	as our knowledge of antidifferentiation leads us to expect that every polynomial in <m>\poly_{n-1}(\R)</m> is the derivative of at least one polynomial in <m>\poly_n(\R)</m>.
+	</p><p>
+	And, yet again, we have
+	<me> \dim (\ker D) + \dim (\im D) = 1 + (n - 1) = n = \dim \bigl(\poly_n(\R)\bigr) </me>,
+	as expected.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-ker-im-examples-special">
+<title>Three special examples</title>
+
+<example><title>Kernel and image of a zero transformation</title><p>
+	Consider <m>\funcdef{\zerovec_{V,W}}{V}{W}</m> defined by <m>\zerovec_{V,W}(\uvec{v}) = \zerovec_W</m> for all <m>\uvec{v}</m> in the domain space <m>V</m>,
+	where <m>\zerovec_W</m> is the zero vector in the codomain space <m>W</m>.
+	Then clearly
+	<md><mrow>
+		\ker \zerovec_{V,W} \amp = V \text{,} \amp
+		\im \zerovec_{V,W} \amp = \{ \zerovec_W \}
+	</mrow></md>,
+	and we have
+	<me> \dim (\ker \zerovec_{V,W}) + \dim (\im \zerovec_{V,W}) = \dim V + 0 = \dim V </me>,
+	as expected.
+</p></example>
+
+<example><title>Kernel and image of an identity operator</title><p>
+	Consider <m>\funcdef{I_V}{V}{V}</m> defined by <m>I_V(\uvec{v}) = \uvec{v}</m> for all <m>\uvec{v}</m> in <m>V</m>.
+	Then clearly
+	<md><mrow>
+		\ker I_V \amp = \{ \zerovec \} \text{,} \amp
+		\im I_V \amp = V
+	</mrow></md>,
+	and we have
+	<me> \dim (\ker I_V) + \dim (\im I_V) = 0 + \dim V = \dim V </me>,
+	as expected.
+</p></example>
+
+<example xml:id="example-lintrans-ker-im-coord-map">
+	<title>Kernel and image of a coordinate map</title>
+	<p>
+	For finite-dimensional space <m>V</m> with basis <m>\basisfont{B}</m>,
+	consider <m>\funcdef{\coordmap{B}}{V}{\R^n}</m> or <m>\funcdef{\coordmap{B}}{V}{\C^n}</m>,
+	depending on whether <m>V</m> is a real or complex space,
+	where <me> \coordmap{B}(\uvec{v}) = \matrixOf{\uvec{v}}{B} </me>
+	for each <m>\uvec{v}</m> in <m>V</m>.
+	Since coordinate vectors are unique
+	(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
+	the only vector in <m>\ker \coordmap{B}</m> is the zero vector.
+	And since every column vector of scalars can be traced back to a vector in <m>V</m> by using those scalars as coefficients in a linear combination,
+	as in
+	<me>
+		\uvec{x} = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix}
+		\quad \mapsto \quad
+		\uvec{v} = x_1 \uvec{v}_1 + \dotsb + \uvec{v}_n
+	</me>
+	(where the <m>\uvec{v}_j</m> are the basis vectors in <m>\basisfont{B}</m>),
+	we must have <m>\im \coordmap{B}</m> equal to <m>\R^n</m> or <m>\C^n</m>, as appropriate.
+	</p>
+</example>
+
+</subsection>
+
+</section>
