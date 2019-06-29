@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-iso-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-iso-theory-composition" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-theory-composition" /></em></li>
+<li><xref ref="subsection-lintrans-iso-theory-invertible" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-theory-invertible" /></em></li>
+<li><xref ref="subsection-lintrans-iso-theory-iso" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-theory-iso" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-iso-theory-composition">
+<title>Properties of composite transformations</title>
+
+<proposition><title>Composition of linear is linear</title>
+	<statement><p>
+		If <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m> are linear,
+		then so is <m>\funcdef{ST}{U}{W}</m>.
+	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		Linearity of <m>T</m> and <m>S</m> means that
+		<md>
+			<mrow>
+				T(\uvec{u}_1 + \uvec{u}_2) \amp = T(\uvec{u}_1) + T(\uvec{u}_2) \text{,} \amp
+				S(\uvec{v}_1 + \uvec{v}_2) \amp = S(\uvec{v}_1) + S(\uvec{v}_2) \text{,} \amp
+			</mrow><mrow>
+				T(k \uvec{u}) \amp = k \, T(\uvec{u}) \text{,} \amp
+				S(k \uvec{v}) \amp = k \, S(k \uvec{v}) \amp
+			</mrow>
+		</md>
+		for all vectors <m>\uvec{u}_1,\uvec{u}_2,\uvec{u}</m> in <m>U</m>,
+		all vectors <m>\uvec{v}_1,\uvec{v}_2,\uvec{v}</m> in <m>V</m>,
+		and all scalars <m>k</m>.
+		</p><p>
+		To verify that the composition <m>ST</m> is linear,
+		the above linearity properties for <m>T</m> and <m>S</m> can be used to verify the linearity properties for <m>ST</m>:
+		<md><mrow>
+			ST(\uvec{u}_1 + \uvec{u}_2) \amp = ST(\uvec{u}_1) + ST(\uvec{u}_2) \text{,} \amp
+			ST(k \uvec{u}) \amp = k \, ST(\uvec{u})
+		</mrow></md>
+		for all vectors <m>\uvec{u}_1,\uvec{u}_2,\uvec{u}</m> in <m>U</m>,
+		and all scalars <m>k</m>.
+		</p>
+		<p> We leave the details to you, the reader.</p>
+	</proof>
+</proposition>
+
+<p>
+The linearity of compositions can be extended to the composition of any number of linear transformations,
+provided domains and codomains match up as necessary to actually form the composition.
+And compositions of three or more transformations satisfy the associative property.
+</p>
+
+<proposition><title>Associativity of compositions</title>
+	<statement><p>
+		For
+		<md><mrow>
+			\amp \funcdef{T}{U}{V} \text{,} \amp
+			\amp \funcdef{S}{V}{W} \text{,} \amp
+			\amp \funcdef{R}{W}{X}
+		</mrow></md>,
+		we have <me> (R S) T = R (S T) </me>
+		as functions <m>U \to X</m>.
+	</p></statement>
+	<proof><p>
+		This is a basic property of compositions of <em>functions</em>,
+		and so holds for linear transformations between vector spaces.
+	</p></proof>
+</proposition>
+
+<p>
+Here are some facts about composition with two special transformations.
+Verification of these statements is straightforward,
+and we leave that task to you, the reader.
+</p>
+
+<proposition xml:id="proposition-lintrans-iso-comp-ident-zero">
+	<title>Composition with the zero and identity transformations</title>
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is linear.
+		Then the following hold.
+		<ol>
+			<li xml:id="proposition-lintrans-iso-comp-ident-zero-ident">
+				Composition with the identity operator has no effect.
+				That is, we have both
+				<md><mrow> T I_V \amp = T \text{,} \amp I_W T \amp = T </mrow></md>.
+			</li>
+			<li>
+				Composition with a zero transformation always results in a zero transformation.
+				That is, we have both
+				<md><mrow> T \zerovec_{U,V} \amp = \zerovec_{U,W} \text{,} \amp \zerovec_{W,U} T \amp = \zerovec_{V,U} </mrow></md>
+				for every other vector space <m>U</m>.
+			</li>
+		</ol>
+	</p></statement>
+</proposition>
+
+<p> Finally, we record our observation about the standard matrix of a composition of matrices, without proof. </p>
+
+<proposition xml:id="proposition-lintrans-iso-std-matrix-composite">
+	<title>Standard matrix of a composition</title>
+	<p><ol>
+		<li>
+			For linear transformations <m>\funcdef{T}{\R^n}{\R^m}</m> and <m>\funcdef{S}{\R^m}{\R^\ell}</m>,
+			we have <me> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </me>.
+		</li>
+		<li>
+			For linear transformations <m>\funcdef{T}{\C^n}{\C^m}</m> and <m>\funcdef{S}{\C^m}{\C^\ell}</m>,
+			we have <me> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </me>.
+		</li>
+	</ol></p>
+</proposition>
+
+</subsection>
+
+
+<subsection xml:id="subsection-lintrans-iso-theory-invertible">
+<title>One-to-one and invertible transformations</title>
+
+<p> First, we prove our characterization of injective transformations via the kernel. </p>
+
+<theorem xml:id="theorem-lintrans-iso-injective-trivial-ker">
+	<title>Injective iff trivial kernel</title>
+	<statement><p> A linear transformation <m>\funcdef{T}{V}{W}</m> is injective if and only if its kernel is trivial. </p></statement>
+	<proof>
+		<case><title>Assume <m>T</m> is injective</title><p>
+			In this case, we would like to verify that <m>\ker T = \{\zerovec_V\}</m>.
+			But linear <m>T</m> must satisfy <m>T(\zerovec_V) = \zerovec_W</m>
+			(<xref ref="proposition-lintrans-basic-additional-props-zero-image">Statement</xref>
+			of <xref ref="proposition-lintrans-basic-additional-props" />).
+			Since <m>T</m> is injective,
+			there can be no other vectors in the domain space <m>V</m> with image <m>\zerovec_W</m>,
+			and so <m>\ker T = \{\zerovec_V\}</m>.
+		</p></case>
+		<case><title>Assume <m>T</m> has trivial kernel</title><p>
+			That is, we assume <m>\ker T = \{\zerovec_V\}</m>,
+			and would like to verify that <m>T</m> is injective.
+			So suppose <m>\uvec{v}_1,\uvec{v}_2</m> are vectors in the domain space <m>V</m> with the same image vector under <m>T</m>.
+			Then,
+			<md>
+				<mrow> \phantom{\implies} T(\uvec{v}_1) = T(\uvec{v}_2) </mrow>
+				<mrow> \implies T(\uvec{v}_1) - T(\uvec{v}_2) = \zerovec_W </mrow>
+				<mrow> \implies T(\uvec{v}_1 - \uvec{v}_2) = \zerovec_W </mrow>
+			</md>,
+			where in the last step we have used the linearity of <m>T</m>.
+			This final equality says that the difference <m>\uvec{v}_1 - \uvec{v}_2</m> must be in <m>\ker T</m>.
+			But as we have assumed that <m>\zerovec_V</m> is the only vector in <m>\ker T</m>,
+			we have
+			<md>
+				<mrow> \phantom{\implies} \uvec{v}_1 - \uvec{v}_2 = \zerovec_V </mrow>
+				<mrow> \implies \uvec{v}_1 = \uvec{v}_2 </mrow>
+			</md>.
+			This verifies that <em>different</em> domain space vectors cannot produce the same image vector in the codomain,
+			hence <m>T</m> is one-to-one.
+		</p></case>
+	</proof>
+</theorem>
+
+<p>
+Through <xref ref="theorem-lintrans-ker-im-dimension" text="title" />,
+the above theorem puts a restriction on the dimension of the codomain for a one-to-one transformation.
+</p>
+
+<corollary><title>Too small codomain implies not injective</title>
+	<statement><p>
+		If <m>\dim W \lt \dim V</m>,
+		then linear <m>\funcdef{T}{V}{W}</m> <em>cannot</em> be injective.
+	</p></statement>
+	<proof><p>
+		<xref ref="theorem-lintrans-ker-im-dimension" text="title" /> says that
+		<me> \dim(\ker T) + \dim(\im T) = \dim V </me>.
+		If <me> \dim W \lt \dim V </me>,
+		then also <me> \dim(\im T) \lt \dim V </me>,
+		since <m>\im T</m> is a subspace of <m>W</m>
+		(<xref ref="proposition-dimension-subspace-dim-props-le">Statement</xref>
+		of <xref ref="proposition-dimension-subspace-dim-props" />).
+		But then
+		<me> \dim(\ker T) = \dim V - \dim(\im T) \gt 0 </me>,
+		so that <m>\ker T</m> cannot be trivial.
+		The result now follows from <xref ref="theorem-lintrans-iso-injective-trivial-ker" />.
+	</p></proof>
+</corollary>
+
+<p>
+As well,
+if the kernel is trivial,
+then the transformation must preserve independence.
+This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-transformation" />.
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-inj-vs-indep">
+	<title>Injective must send independent to independent</title>
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation.
+		Then the following are equivalent.
+		<ol>
+			<li xml:id="corollary-lintrans-iso-inj-vs-indep-inj">
+				Transformation <m>T</m> is injective.
+			</li>
+			<li xml:id="corollary-lintrans-iso-inj-vs-indep-every">
+				For every linearly independent set <m>S</m> in the domain space <m>V</m>,
+				the collection <m>T(S)</m> of image vectors for vectors in <m>S</m>
+				is linearly independent in <m>W</m>.
+			</li>
+			<li xml:id="corollary-lintrans-iso-inj-vs-indep-one-basis">
+				For at least one basis <m>\basisfont{B}</m> of the domain space <m>V</m>,
+				the collection <m>T(\basisfont{B})</m> of image vectors for vectors in <m>\basisfont{B}</m>
+				is linearly independent in <m>W</m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof>
+		<case>
+			<title>
+				<xref ref="corollary-lintrans-iso-inj-vs-indep-inj">Statement</xref>
+				implies <xref ref="corollary-lintrans-iso-inj-vs-indep-every">Statement</xref>
+			</title>
+			<p>
+			Assume <m>S</m> is linearly independent in <m>V</m>,
+			and suppose <m>\uvec{w}_1, \dotsc, \uvec{w}_m</m> is a collection of distinct vectors from <m>T(S)</m>.
+			Since these are image vectors,
+			there are corresponding vectors <m>\uvec{v}_1, \dotsc, \uvec{v}_m</m> in <m>S</m> so that <m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>
+			And since <m>T</m> is assumed injective,
+			there can be no repeats amongst the <m>\uvec{v}_j</m>.
+			</p><p>
+			To test the <m>\uvec{w}_j</m> for linear independence,
+			we follow the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
+			and form the homogeneous vector equation
+			<me> k_1 \uvec{w}_1 + \dotsb + k_n \uvec{w}_n = \zerovec_W </me>.
+			Making substitutions <m>\uvec{w}_j = T(\uvec{v}_j)</m> and using the linearity of <m>T</m>,
+			we have
+			<md>
+				<mrow> \phantom{\implies} k_1 T(\uvec{v}_1) + \dotsb + k_n T(\uvec{v}_n) = \zerovec_W </mrow>
+				<mrow> \implies T(k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n) = \zerovec_W </mrow>
+			</md>,
+			which says that
+			<me> k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n </me>
+			is in <m>\ker T</m>.
+			But we have assumed that <m>T</m> is injective,
+			so its kernel is trivial
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
+			Therefore,
+			<me> k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n = \zerovec_V </me>.
+			This is now the beginning of the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
+			applied to a set of vectors from <m>S</m>,
+			which we know is independent.
+			Hence we must have each <m>k_j = 0</m>, as desired.
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="corollary-lintrans-iso-inj-vs-indep-every">Statement</xref>
+				implies <xref ref="corollary-lintrans-iso-inj-vs-indep-one-basis">Statement</xref>
+			</title>
+			<p> This is obvious from the fact that a basis is linearly independent. </p>
+		</case>
+		<case>
+			<title>
+				<xref ref="corollary-lintrans-iso-inj-vs-indep-one-basis">Statement</xref>
+				implies <xref ref="corollary-lintrans-iso-inj-vs-indep-inj">Statement</xref>
+			</title>
+			<p>
+			First, we assume that for at least one basis of the domain space <m>V</m>,
+			<m>T</m> sends those basis vectors to a linearly independent set in the codomain space <m>W</m>.
+			So let <m>\basisfont{B}</m> represent just such a basis for <m>V</m>.
+			</p><p>
+			To verify that <m>T</m> must be an injective,
+			we can instead verify that <m>\ker T</m> is trivial
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
+			So suppose <m>\uvec{v}</m> is in <m>\ker T</m>.
+			We can express <m>\uvec{v}</m> as a linear combination of <m>\basisfont{B}</m>-vectors,
+			say
+			<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n </me>.
+			From our assumption that <m>\uvec{v}</m> is in <m>\ker T</m>,
+			and using the linearity of <m>T</m>,
+			we have
+			<md>
+				<mrow> \phantom{\implies} T(\uvec{v}) = \zerovec_W </mrow>
+				<mrow> \implies T(a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n) = \zerovec_W </mrow>
+				<mrow> \implies a_1 T(\uvec{v}_1) + \dotsb + a_n T(\uvec{v}_n) = \zerovec_W </mrow>
+			</md>.
+			Our assumption about the special basis <m>\basisfont{B}</m> is that the image vectors <m>T(\uvec{v}_j)</m> form a linearly independent set in <m>W</m>.
+			Hence the only way the last equality above can be true is if each of the <m>a_j = 0</m>,
+			which means that
+			<md>
+				<mrow> \uvec{v} \amp = a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n </mrow>
+				<mrow> \amp = 0 \uvec{v}_1 + \dotsb + 0 \uvec{v}_n </mrow>
+				<mrow> \amp = \zerovec_V </mrow>
+			</md>.
+			We started with the assumption that <m>\uvec{v}</m> was in <m>\ker T</m>,
+			and were able to show that in fact <m>\uvec{v} = \zerovec_V</m>.
+			This implies that the <em>only</em> vector in <m>\ker T</m> is <m>\zerovec_V</m>,
+			and so <m>\ker T</m> is trivial, as required.
+			</p>
+		</case>
+		<p> We have now completed the cycle of logical dependence to demonstrate that these three statements are equivalent. </p>
+	</proof>
+</corollary>
+
+<p>
+Having trivial kernel also means that constructing a basis for the image of an injective transformation becomes simpler.
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-inj-basis-to-basis">
+	<title>Injective sends domain basis to image basis</title>
+	<statement><p>
+		Suppose <m>\basisfont{B}</m> is a basis for the finite-dimensional domain space <m>V</m> of an injective linear transformation <m>\funcdef{T}{V}{W}</m>.
+		Then <m>T(\basisfont{B})</m>,
+		the collection of image vectors under <m>T</m> for the vectors in <m>\basisfont{B}</m>,
+		is a basis for <m>\im T</m>.
+	</p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		We already know how to construct a basis for <m>\im T</m> using
+		<xref ref="theorem-lintrans-ker-im-basis-im" />.
+		Taking a basis <m>\basisfont{K}</m> for <m>\ker T</m>
+		and additional linearly independent vectors <m>\basisfont{K}'</m> in <m>V</m>
+		so that together the vectors from <m>\basisfont{K}</m> and <m>\basisfont{K}'</m>
+		form a basis for <m>V</m>,
+		then the image vectors <m>T(\basisfont{K}')</m> will form a basis for <m>\im T</m>.
+		</p><p>
+		However, if <m>T</m> is injective,
+		then <m>\ker T</m> is trivial,
+		and so <m>\basisfont{K}</m> can only be the empty set
+		(see <xref ref="subsection-dimension-concepts-trivial" />).
+		Therefore, we can take <m>\basisfont{K}'</m> to be all of <m>\basisfont{B}</m>,
+		and then <m>T(\basisfont{K}') = T(\basisfont{B})</m> is a basis for <m>\im T</m>,
+		as desired.
+		</p>
+	</proof>
+</corollary>
+
+<p> Now we verify that inverse transformations are, in fact, linear. </p>
+
+<lemma><title>Inverse is linear</title>
+	<statement>
+		<p>
+		For injective linear transformation <m>\funcdef{T}{V}{W}</m>,
+		define <me> \funcdef{\inv{T}}{\im T}{V} </me>
+		by setting <m>\inv{T}(\uvec{w})</m> to be the unique domain space vector <m>\uvec{v}</m> so that <m>T(\uvec{v}) = \uvec{w}</m>,
+		for each <m>\uvec{w}</m> in <m>\im T</m>.
+		</p><p>
+		Then <m>\inv{T}</m> is also linear.
+		</p>
+	</statement>
+	<proof>
+		<case><title>Additivity</title><p>
+			Suppose <m>\uvec{w}_1,\uvec{w}_2</m> are vectors in <m>\im T</m>,
+			and set
+			<md><mrow>
+				\inv{T}(\uvec{w}_1) \amp = \uvec{v}_1 \text{,} \amp
+				\inv{T}(\uvec{w}_2) \amp = \uvec{v}_2
+			</mrow></md>.
+			Since <m>T</m> is injective,
+			these are the unique domain space vectors satisfying
+			<md><mrow>
+				T(\uvec{v}_1) \amp = \uvec{w}_1 \text{,} \amp
+				T(\uvec{v}_2) \amp = \uvec{w}_2
+			</mrow></md>.
+			But then, using the additivity of <m>T</m>, we have
+			<me> T(\uvec{v}_1 + \uvec{v}_2) = T(\uvec{v}_1) + T(\uvec{v}_2) = \uvec{w}_1 + \uvec{w}_2 </me>.
+			So <m>\uvec{v}_1 + \uvec{v}_2</m> must be the unique domain space vector that produces image vector <m>\uvec{w}_1 + \uvec{w}_2</m>.
+			In other words,
+			<me> \inv{T}(\uvec{w}_1 + \uvec{w}_2) = \uvec{v}_1 + \uvec{v}_2 = \inv{T}(\uvec{w}_1) + \inv{T}(\uvec{w}_2) </me>,
+			as required.
+		</p></case>
+		<case><title>Homogeneity</title><p>
+			Suppose <m>\uvec{w}</m> is a vector in <m>\im T</m>,
+			and set <me> \inv{T}(\uvec{w}) = \uvec{v} </me>.
+			Since <m>T</m> is injective,
+			this is the unique domain space vectors satisfying
+			<me> T(\uvec{v}) = \uvec{w} </me>.
+			But then, using the Homogeneity of <m>T</m>, for each scalar <m>k</m> we have
+			<me> T(k \uvec{v}) = k \, T(\uvec{v}) = k \uvec{w} </me>.
+			So <m>k \uvec{v}</m> must be the unique domain space vector that produces image vector <m>k \uvec{w}</m>.
+			In other words,
+			<me> \inv{T}(k \uvec{w}) = k \uvec{v} = k \, \inv{T}(\uvec{w}) </me>,
+			as required.
+		</p></case>
+	</proof>
+</lemma>
+
+<p>
+The purpose of an inverse function is to reverse the original function,
+and that remains the case for inverses of linear transformations.
+</p>
+
+<proposition xml:id="proposition-lintrans-iso-inverse-reverse">
+	<title>Inverse reverses</title>
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is an injective linear transformation.
+		Then the following hold.
+		<ol>
+			<li>
+				For each vector <m>\uvec{v}</m> in the domain space <m>V</m>,
+				we have <m>(\inv{T} T) (\uvec{v}) = \uvec{v}</m>.
+				In other words, <m>\inv{T} T = I_V</m>.
+			</li>
+			<li>
+				For each vector <m>\uvec{w}</m> in <m>\im T</m>,
+				we have <m>(T \inv{T}) (\uvec{w}) = \uvec{w}</m>.
+				In other words, <m>T \inv{T} = I_{\im T}</m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><p><ol>
+		<li>
+			For <m>\uvec{v}</m> in <m>V</m>,
+			write <m>\uvec{w} = T(\uvec{v})</m>.
+			By definition, <m>\inv{T}(\uvec{w})</m> is the unique vector in the domain space <m>V</m> whose image vector under <m>T</m> is <m>\uvec{w}</m>.
+			Clearly, that domain space vector is <m>\uvec{v}</m>.
+		</li>
+		<li>
+			For <m>\uvec{w}</m> in <m>\im T</m>,
+			write <m>\uvec{v} = \inv{T}(\uvec{w})</m>.
+			By definition, <m>\uvec{v}</m> is the unique vector in the domain space <m>V</m> satisfying <m>T(\uvec{v}) = \uvec{w}</m>.
+			But then this says <m>(T \inv{T}) (\uvec{w}) = \uvec{w}</m>, as desired.
+		</li>
+	</ol></p></proof>
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-theory-iso">
+<title>Isomorphisms</title>
+
+<p>
+An isomorphism is a linear transformation that is both injective and surjective.
+We have already characterized injective transformations above in terms of the kernel
+(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />),
+and the concept of <term>surjective</term> is <em>defined</em> in terms of the image.
+But here we will characterize surjectivity in terms of the dimensions of those spaces.
+</p>
+
+<proposition xml:id="proposition-lintrans-iso-surj-vs-dim">
+	<title>Surjectivity versus dimension</title>
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation.
+		Then the following hold.
+		<ol>
+			<li xml:id="proposition-lintrans-iso-surj-vs-dim-rank">
+				Transformation <m>T</m> is surjective if and only if <m>\rank T = \dim W</m>.
+			</li>
+			<li xml:id="proposition-lintrans-iso-surj-vs-dim-nullity">
+				Transformation <m>T</m> is surjective if and only if <m>\nullity T = \dim V - \dim W</m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof outline</title><p>
+		Recall that, by definition, <m>T</m> is surjective if <m>\im T = W</m>.
+		Since <m>\im T</m> is a subspace of <m>W</m>,
+		then the first statement follows
+		from <xref ref="proposition-dimension-subspace-dim-props-same-dim">Statement</xref>
+		of <xref ref="proposition-dimension-subspace-dim-props" />.
+		And the second statement follows from the first via
+		<xref ref="theorem-lintrans-ker-im-dimension" text="title" />.
+	</p></proof>
+</proposition>
+
+<p>
+Similarly to how dimension lets us reduce the task of verifying a basis to <em>one</em> of linear independence and spanning
+(<xref ref="corollary-dimension-basis-right-num-just-one-check" />),
+dimension also lets us reduce checking isomorphism to <em>one</em> of injective and surjective.
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-eq-dim-pick-inj-surj">
+	<statement><p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation between finite-dimensional vector spaces,
+		with <m>\dim V = \dim W</m>.
+		If <m>T</m> is <em>either</em> known to be injective <em>or</em> known to be surjective,
+		then <m>T</m> must also have the other property,
+		and hence must be an isomorphism.
+	</p></statement>
+	<proof>
+		<case><title>Assume <m>T</m> is injective</title><p>
+			Then <m>\nullity T = 0</m>,
+			hence <m>\rank T = \dim V</m> by <xref ref="theorem-lintrans-ker-im-dimension" text="title" />.
+			But we have assumed <m>\dim V = \dim W</m>,
+			so we have <m>\rank T = \dim W</m>,
+			hence <m>T</m> is surjective
+			by <xref ref="proposition-lintrans-iso-surj-vs-dim-rank">Statement</xref>
+			of <xref ref="proposition-lintrans-iso-surj-vs-dim" />.
+		</p></case>
+		<case><title>Assume <m>T</m> is surjective</title><p>
+			Hence <m>\rank T = \dim W</m>
+			(<xref ref="proposition-lintrans-iso-surj-vs-dim-rank">Statement</xref>
+			of <xref ref="proposition-lintrans-iso-surj-vs-dim" />).
+			But we have assumed <m>\dim W = \dim V</m>,
+			so we have <m>\rank T = \dim V</m> as well.
+			By <xref ref="theorem-lintrans-ker-im-dimension" text="title" />,
+			we must have <m>\nullity T = 0</m>,
+			so that <m>\ker T</m> is trivial.
+			Therefore, <m>T</m> is injective, as desired
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />),
+		</p></case>
+	</proof>
+</corollary>
+
+<p>
+Before we characterize <term>isomorphic spaces</term> in terms of dimension,
+we will first characterize <term>isomorphism</term> in terms of <term>basis</term>.
+(Which makes sense, since <term>dimension</term> is defined in terms of <term>basis</term>.)
+This characterization will also justify <xref ref="procedure-lintrans-iso-basis-to-basis" />.
+</p>
+
+<theorem xml:id="theorem-lintrans-iso-by-basis">
+	<title>Isomorphism must send a domain basis to a codomain basis</title>
+	<statement>
+		<p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation with finite-dimensional domain space <m>V</m>.
+		Then the following are equivalent.
+		<ol>
+			<li xml:id="theorem-lintrans-iso-by-basis-iso">
+				Transformation <m>T</m> is an isomorphism.
+			</li>
+			<li xml:id="theorem-lintrans-iso-by-basis-every">
+				For every basis <m>\basisfont{B}</m> of the domain space <m>V</m>,
+				the collection <m>T(\basisfont{B})</m> of image vectors for vectors in <m>\basisfont{B}</m>
+				is a basis for the codomain space <m>W</m>.
+			</li>
+			<li xml:id="theorem-lintrans-iso-by-basis-one">
+				For at least one basis <m>\basisfont{B}</m> of the domain space <m>V</m>,
+				the collection <m>T(\basisfont{B})</m> of image vectors for vectors in <m>\basisfont{B}</m>
+				is a basis for the codomain space <m>W</m>.
+			</li>
+		</ol>
+		</p>
+		<aside><title>Compare</title><p>
+			this theorem with <xref ref="corollary-lintrans-iso-inj-vs-indep" />.
+		</p></aside>
+	</statement>
+	<proof>
+		<case>
+			<title>
+				<xref ref="theorem-lintrans-iso-by-basis-iso">Statement</xref>
+				implies <xref ref="theorem-lintrans-iso-by-basis-every">Statement</xref>
+			</title>
+			<p>
+			This is essentially just <xref ref="corollary-lintrans-iso-inj-basis-to-basis" />,
+			using the fact that for an isomorphism <m>\funcdef{T}{V}{W}</m> we have <m>\im T = W</m>.
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-lintrans-iso-by-basis-every">Statement</xref>
+				implies <xref ref="theorem-lintrans-iso-by-basis-one">Statement</xref>
+			</title>
+			<p> This is obvious. </p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-lintrans-iso-by-basis-one">Statement</xref>
+				implies <xref ref="theorem-lintrans-iso-by-basis-iso">Statement</xref>
+			</title>
+			<p>
+			First, we assume that for at least one basis of the domain space <m>V</m>,
+			<m>T</m> sends those basis vectors to a basis for the codomain space <m>W</m>.
+			So let <m>\basisfont{B}</m> represent just such a basis for <m>V</m>.
+			Then <m>T(\basisfont{B})</m> cannot contain any repeat image vectors, since it is a linearly independent set.
+			Hence <m>\basisfont{B}</m> and <m>T(\basisfont{B})</m> must have the same number of vectors.
+			In other words, <m>\dim V = \dim W</m>.
+			</p><p>
+			With this established,
+			we can use <xref ref="corollary-lintrans-iso-eq-dim-pick-inj-surj" /> to verify that <m>T</m> must be an isomorphism by checking that <m>T</m> is injective.
+			But injectivity is immediate using the equivalence
+			of <xref ref="corollary-lintrans-iso-inj-vs-indep-inj">Statement</xref>
+			and <xref ref="corollary-lintrans-iso-inj-vs-indep-one-basis">Statement</xref>
+			of <xref ref="corollary-lintrans-iso-inj-vs-indep" />,
+			given that every basis is linearly independent.
+			</p>
+		</case>
+		<p> We have now completed the cycle of logical dependence to demonstrate that these three statements are equivalent. </p>
+	</proof>
+</theorem>
+
+<remark><p>
+	It may seem that
+	including <xref ref="theorem-lintrans-iso-by-basis-one">Statement</xref>
+	of the theorem is redundant,
+	given <xref ref="theorem-lintrans-iso-by-basis-every">Statement</xref>.
+	However, the direction of logic is important when applying this theorem.
+	If we <em>already</em> know (or assume) that a transformation <m>T</m> is an isomorphism,
+	then we would like as strong a statement as possible about what <m>T</m> does to bases of the domain space <m>V</m>,
+	hence the <q>every</q> in <xref ref="theorem-lintrans-iso-by-basis-every">Statement</xref>.
+	On the other hand,
+	if we are trying to <em>verify</em> that a transformation <m>T</m> is an isomorphism,
+	then we would like as weak a condition as possible to reduce the amount of effort necessary,
+	hence the <q>at least one</q> in <xref ref="theorem-lintrans-iso-by-basis-one">Statement</xref>.
+</p></remark>
+
+<p>
+The theorem says that all we need to do to create an isomorphism is create a correspondence between bases.
+The only potential barrier to carrying this out is if the number of vectors in bases for domain and codomain spaces do not match.
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-iff-same-dim">
+	<title>Isomorphic iff same dimension</title>
+	<statement><p>
+		Finite-dimensional spaces <m>V,W</m> are isomorphic if and only if they have the same dimension.
+	</p></statement>
+	<proof>
+		<case><title>Assume <m>V,W</m> are isomorphic</title><p>
+			By definition,
+			this means that there exists some isomorphism <m>\funcdef{T}{V}{W}</m>.
+			By the equivalence of the statements of <xref ref="theorem-lintrans-iso-by-basis" />,
+			<m>T</m> sends a basis for <m>V</m> to a basis for <m>W</m>.
+			But then these two bases have the same number of vectors,
+			and so the dimensions of the two spaces are equal.
+		</p></case>
+		<case><title>Assume <m>V,W</m> have the same dimension</title><p>
+			Choose bases of <m>V</m> and <m>W</m>:
+			<md>
+				<mrow> \basisfont{B}_V \amp = \{\uvec{v}_1,\dotsc,\uvec{v}_n\} \text{,} </mrow>
+				<mrow> \basisfont{B}_W \amp = \{\uvec{w}_1,\dotsc,\uvec{w}_n\} </mrow>
+			</md>.
+			Let <m>\funcdef{T}{V}{W}</m> be the unique linear transformation satisfying <m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>
+			(<xref ref="corollary-lintrans-basic-unique-basis-image" />).
+			But then the equivalence
+			of <xref ref="theorem-lintrans-iso-by-basis-iso">Statement</xref>
+			and <xref ref="theorem-lintrans-iso-by-basis-one">Statement</xref>
+			of <xref ref="theorem-lintrans-iso-by-basis" />
+			tells us that <m>T</m> is an ismorphism,
+			which verifies that <m>V,W</m> are isomorphic.
+		</p></case>
+	</proof>
+</corollary>
+
+<p>In each of the real and complex cases we have a favourite <m>n</m>-dimensional space to which others must be isomorphic.</p>
+
+<corollary xml:id="corollary-lintrans-iso-to-Rn-Cn">
+	<p><ol>
+		<li xml:id="corollary-lintrans-iso-to-Rn-Cn-real">
+			Every <m>n</m>-dimensional real vector space is isomorphic to <m>\R^n</m>.
+		</li>
+		<li> Every <m>n</m>-dimensional complex vector space is isomorphic to <m>\C^n</m>. </li>
+	</ol></p>
+</corollary>
+
+<p>
+We have already seen how simply specifying a basis for an <m>n</m>-dimensional vector space creates a very specific isomorphism to <m>\R^n</m> or <m>\C^n</m> (real or complex case).
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-coord-map-is-iso">
+	<title>Coordinate maps are isomorphisms</title>
+	<statement><p>
+		For every basis <m>\basisfont{B}</m> of a finite-dimensional vector space <m>V</m>,
+		the associated coordinate map <m>\coordmap{B}</m> is an isomorphism from <m>V</m> to <m>\R^n</m> (real case) or to <m>\C^n</m> (complex case).
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		In <xref ref="subsection-lintrans-iso-concepts-special" />,
+		we justified the claim in the statement of this corollary by appealing to kernel and image,
+		but <xref ref="theorem-lintrans-iso-by-basis" /> gives one simple criterion to verify.
+		The collection <m>\coordmap{B}(\basisfont{B})</m> of image vectors for the specific basis <m>\basisfont{B}</m> of <m>V</m> used to create the coordinate map <m>\coordmap{B}</m> is particularly simple to compute.
+		If we write
+		<me> \basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>,
+		then from
+		<me> \uvec{v}_j = 0 \uvec{v}_1 + \dotsb + 0 \uvec{v}_{j-1} + 1 \uvec{v}_j + 0 \uvec{v}_{j+1} + \dotsb + 0 \uvec{v}_n </me>
+		we have
+		<me> \coordmap{B}(\uvec{v}_j) = (0,\dotsc,0,1,0,\dotsc,0) </me>
+		in <m>\R^n</m> or <m>\C^n</m>, as appropriate.
+		That is, the collection <m>\coordmap{B}(\basisfont{B})</m> of image vectors is actually the collection of standard basis vectors
+		in <m>\R^n</m> or <m>\C^n</m>, as appropriate,
+		so <xref ref="theorem-lintrans-iso-by-basis-one">Statement</xref> of <xref ref="theorem-lintrans-iso-by-basis" />
+		is satisfied by <m>\coordmap{B}</m>.
+	</p></proof>
+</corollary>
+
+<remark><p>
+	In fact, if you look back at the proof of <xref ref="corollary-lintrans-iso-iff-same-dim" />,
+	the isomorphism constructed in the second case by sending a basis of <m>V</m> to a basis of <m>W</m>
+	is precisely the coordinate map relative to the basis for <m>V</m> in the case that <m>W</m> is <m>\R^n</m> (real case) or <m>\C^n</m> (complex case),
+	and the basis for <m>W</m> is chosen to be the standard basis.
+</p></remark>
+
+<p>
+Combining <xref ref="corollary-lintrans-iso-iff-same-dim" /> and <xref ref="corollary-lintrans-basic-dim-dual" />
+leads to the following.
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-to-dual"><p>
+	Every finite-dimensional vector space is isomorphic to its dual space.
+</p></corollary>
+
+<remark xml:id="remark-lintrans-iso-theory-coord-iso-to-dual"><p>
+	Via <xref ref="theorem-lintrans-iso-by-basis" />,
+	<xref ref="theorem-lintrans-basic-dual-basis" /> provides a means to realizing an isomorphism <m>V \to \vecdual{V}</m> <mdash />
+	choose a basis for <m>V</m> and send each of those basis vectors to the corresponding vector in the dual basis provided by that theorem.
+</p></remark>
+
+<p>
+By the same reasoning,
+every finite-dimensional vector space is also isomorphic to its double dual space,
+since all three spaces <m>V, \vecdual{V}, \vecddual{V}</m> always have the same dimension as each other.
+However, creating an isomorphism between a space <m>V</m> and its dual space <m>\vecdual{V}</m> always requires first choosing a basis for <m>V</m>.
+The isomorphic relationship between <m>V</m> and its <em>double</em> dual space <m>\vecddual{V}</m> is special in that a <term>coordinate-free</term> isomorphism can be created, as in the following theorem.
+</p>
+
+<theorem>
+	<title>Coordinate-free isomorphism between a space and its double dual space</title>
+	<statement>
+		<p>
+		Suppose <m>V</m> is a finite-dimensional vector space.
+		Given vector <m>\uvec{v}</m> in <m>V</m>,
+		define a functional <m>F_{\uvec{v}}</m> on the dual space <m>\vecdual{V}</m> by setting
+		<md>
+			<mrow xml:id="equation-lintrans-iso-theory-dual-functional" tag="star">
+				F_\uvec{v}(f) = f(\uvec{v})
+			</mrow>
+		</md>
+		for each linear functional <m>f</m> on <m>V</m>.
+		Then the following hold.
+		</p>
+		<p><ol>
+			<li>
+				For each <m>\uvec{v}</m> in <m>V</m>,
+				the corresponding <m>F_{\uvec{v}}</m> is a linear functional on <m>\vecdual{V}</m>.
+			</li>
+			<li>
+				The transformation <m>\funcdef{E}{V}{\vecddual{V}}</m>
+				defined by
+				<me> E(\uvec{v}) = F_{\uvec{v}} </me>
+				is linear and an isomorphism.
+			</li>
+		</ol>
+		</p>
+	</statement>
+	<proof><p><ol>
+		<li>
+			It must be checked that each <m>F_{\uvec{v}}</m> satisfies the linearity properties:
+			additivity and homogeneity.
+			We leave this task to you, the reader.
+		</li>
+		<li>
+			<p>
+			From <xref ref="corollary-lintrans-basic-dim-dual" />,
+			we may conclude that <m>\dim \vecddual{V} = \dim V</m>.
+			So by <xref ref="corollary-lintrans-iso-eq-dim-pick-inj-surj" />,
+			it suffices to check that <m>E</m> is injective.
+			And for this task it suffices to check that <m>\ker E</m> is trivial,
+			by <xref ref="theorem-lintrans-iso-injective-trivial-ker" />.
+			</p><p>
+			So suppose that vector <m>\uvec{v}</m> in <m>V</m> is in <m>\ker E</m>,
+			so that
+			<me> E(\uvec{v}) = \zerovec_{\vecddual{V}} </me>,
+			the zero functional on <m>\vecdual{V}</m>.
+			Then for each element <m>f</m> in <m>\vecdual{V}</m>
+			(<ie /> for each linear functional <m>f</m> on <m>V</m>),
+			we have
+			<me> E(\uvec{v})(f) = \zerovec_{\vecddual{V}}(f) = 0 </me>.
+			But by our definitions,
+			we have
+			<me> E(\uvec{v})(f) = F_{\uvec{v}}(f) = f(\uvec{v}) </me>,
+			so we may conclude that
+			<me> f(\uvec{v}) = 0 </me>
+			for each linear functional <m>f</m> on <m>V</m>.
+			If <m>\uvec{v}</m> is <em>not</em> the zero vector of <m>V</m>,
+			then the linearly independent set <m>\{\uvec{v}\}</m> can be enlarged to a basis for <m>V</m>
+			(<xref ref="proposition-dimension-increase-indep-to-basis" />),
+			from which we can obtain a dual basis for <m>\vecdual{V}</m>
+			(<xref ref="theorem-lintrans-basic-dual-basis" />).
+			But then the first vector in this dual basis will be <m>\vecdual{\uvec{v}}</m>,
+			for which
+			<me> \vecdual{\uvec{v}}(\uvec{v}) = 1 </me>,
+			which contradicts the conclusion that every linear functional on <m>V</m> evaluates to zero on <m>\uvec{v}</m>.
+			So the only possibility for a vector <m>\uvec{v}</m> to be in <m>\ker E</m> is <m>\uvec{v} = \zerovec_V</m>.
+			That is, <m>\ker E</m> is trivial,
+			as desired.
+			</p>
+		</li>
+	</ol></p></proof>
+</theorem>
+
+<p>
+<xref ref="theorem-lintrans-iso-by-basis" /> also has immediate consequences for
+the inverse of an isomorphism
+and the composition of isomorphisms.
+</p>
+
+<corollary xml:id="corollary-lintrans-iso-inv-of-iso">
+	<title>Inverse of an isomorphism is an isomorphism</title>
+	<statement>
+		<p>
+		The inverse of an isomorphism is an isomorphism,
+		and the inverse of the inverse is the original isomorphism.
+		</p><p>
+		That is, if <m>\funcdef{T}{V}{W}</m> is an isomorphism,
+		then so is <m>\funcdef{\inv{T}}{W}{V}</m>,
+		with <me> \inv{(\inv{T})} = T </me>.
+		</p>
+	</statement>
+	<proof>
+		<p>
+		We will make repeated use of the equivalence of the statements of <xref ref="theorem-lintrans-iso-by-basis" />,
+		first applied to <m>T</m> and then to <m>\inv{T}</m>.
+		</p><p>
+		Suppose <m>\basisfont{B}</m> is a basis for the domain space <m>V</m>.
+		Because <m>T</m> is assumed to be an isomorphism,
+		the collection <m>T(\basisfont{B})</m> of image vectors for the vectors in <m>\basisfont{B}</m> is a basis for <m>W</m>.
+		But clearly <m>\inv{T}</m> sends the vectors of <m>T(\basisfont{B})</m> right back to their counterparts in <m>\basisfont{B}</m>.
+		That is, <m>\inv{T}</m> sends at least one basis for <m>W</m> to a basis for <m>V</m>,
+		and hence must be an isomorphism.
+		</p><p>
+		Now, <m>T</m> sends each vector in <m>\basisfont{B}</m> to its image in <m>T(\basisfont{B})</m>,
+		and <m>\inv{T}</m> sends each vector in <m>T(\basisfont{B})</m> right back.
+		So <m>\inv{(\inv{T})}</m> must send the vectors in <m>\basisfont{B}</m> <em>forward</em> again to their corresponding <m>T</m>-images.
+		But this says that <m>T</m> and <m>\inv{(\inv{T})}</m> act the same on basis <m>\basisfont{B}</m>,
+		which implies that they must be the same transformation
+		(<xref ref="theorem-lintrans-basis-unique-spanning-image" />).
+		</p>
+	</proof>
+</corollary>
+
+<corollary xml:id="corollary-lintrans-iso-comp-of-iso">
+	<title>Composition of isomorphisms is an isomorphism</title>
+	<statement>
+		<p>
+		The composition of two isomorphisms is an isomorphism,
+		and the inverse of the composition is the composition of the inverses,
+		in reverse order.
+		</p><p>
+		That is, if <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m> are isomorphisms,
+		then so is <m>\funcdef{S T}{U}{W}</m>,
+		with <me> \inv{(S T)} = \inv{T} \inv{S} </me>.
+		</p>
+	</statement>
+	<proof>
+		<p>
+		Again, we will make repeated use of the equivalence of the statements of <xref ref="theorem-lintrans-iso-by-basis" />,
+		first applied to <m>T</m> and <m>S</m>, and then to the composition <m>ST</m>.
+		</p><p>
+		Suppose <m>\basisfont{B}_U</m> is a basis for the domain space <m>U</m> of <m>T</m>.
+		Because <m>T</m> is assumed to be an isomorphism,
+		the collection <m>\basisfont{B}_V = T(\basisfont{B}_U)</m> of image vectors for the vectors in <m>\basisfont{B}_U</m> is a basis for <m>V</m>.
+		And then also the collection <m>\basisfont{B}_W = S(\basisfont{B}_V)</m> of image vectors for the vectors in <m>\basisfont{B}_V</m> is a basis for <m>W</m>,
+		because <m>S</m> is also assumed to be an isomorphism.
+		But then <me> \basisfont{B}_W = S\bigl(T(\basisfont{B}_U)\bigr) = ST(\basisfont{B}_U) </me>,
+		so that the composition <m>ST</m> takes basis <m>\basisfont{B}_U</m> for its domain to a basis <m>\basisfont{B}_W</m> for its codomain.
+		Applying the theorem, we may conclude that <m>ST</m> is an isomorphism.
+		</p><p>
+		Now, <m>T</m> sends each vector in <m>\basisfont{B}_U</m> to its image in <m>\basisfont{B}_V</m>,
+		and <m>\inv{T}</m> sends each vector in <m>\basisfont{B}_V</m> right back.
+		Similarly, <m>S</m> sends each vector in <m>\basisfont{B}_V</m> to its image in <m>\basisfont{B}_W</m>,
+		and <m>\inv{S}</m> sends each vector in <m>\basisfont{B}_W</m> right back.
+		Chaining this forward,
+		we can say that <m>ST</m> sends each vector in <m>\basisfont{B}_U</m> to the corresponding vector in <m>\basisfont{B}_W</m>.
+		But we can also trace this backwards to see that <em>both</em> <m>\inv{(S T)}</m> and <m>\inv{T} \inv{S}</m> send each vector in <m>\basisfont{B}_W</m> to its counterpart in <m>\basisfont{B}_U</m>.
+		This says that <m>\inv{(S T)}</m> and <m>\inv{T} \inv{S}</m> act the same on basis <m>\basisfont{B}_W</m>,
+		from which we may conclude that they are the same transformation
+		(<xref ref="theorem-lintrans-basis-unique-spanning-image" />).
+		</p>
+	</proof>
+</corollary>
+
+<p> Finally, we record our observation about invertibility of standard matrices of transformations <m>\R^n \to \R^n</m>. </p>
+
+<corollary><title>Matrix isomorphisms</title>
+	<statement>
+		<p>
+		A transformation <m>\funcdef{T}{\R^n}{\R^m}</m> is an isomorphism if and only if <m>m = n</m> and the standard matrix for <m>T</m> is invertible.
+		</p><p>
+		In this case,
+		the standard matrix for the inverse <m>\funcdef{\inv{T}}{\R^n}{\R^n}</m> is the inverse of the standard matrix for <m>T</m>. That is,
+		<me> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </me>.
+		</p><p>
+		And the same conclusions can be drawn about complex linear transformations <m>\C^n \to \C^m</m>.
+		</p>
+	</statement>
+	<proof>
+		<p> We will prove only the real case; the complex case is identical. </p>
+		<case><title>Assume <m>T</m> is an isomorphism</title><p>
+			In this case,
+			<m>T</m> sends each basis for the domain space <m>\R^n</m> to a basis for the codomain space <m>\R^m</m>
+			(<xref ref="theorem-lintrans-iso-by-basis" />).
+			Therefore, these two spaces must have the same dimension,
+			<ie /> <m>m = n</m>.
+			And, in particular, <m>T</m> must send the standard basis of <m>\R^n</m> to another basis for <m>\R^n</m>.
+			But
+			<me> T(\uvec{e}_j) = \stdmatrixOf{T} \uvec{e}_j </me>
+			results in the <m>\nth[j]</m> column of <m>\stdmatrixOf{T}</m>,
+			so the columns of <m>\stdmatrixOf{T}</m> must form a basis of <m>\R^n</m>.
+			From this, we can conclude that <m>\stdmatrixOf{T}</m> must be invertible
+			using <xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref>
+			of <xref ref="theorem-col-row-null-space-equiv-to-invertible" />.
+		</p></case>
+		<case><title>Assume <m>m = n</m> and that <m>\stdmatrixOf{T}</m> is an invertible matrix</title><p>
+			Since we assume that domain and codomain spaces have the same dimension,
+			we can use <xref ref="corollary-lintrans-iso-eq-dim-pick-inj-surj" /> to verify that <m>T</m> must be an isomorphism by checking that <m>T</m> is injective.
+			And to do that, we can check that <m>\ker T</m> is trivial
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
+			But for matrix transformation <m>T</m>,
+			<m>\ker T</m> is the same as the null space of <m>\stdmatrixOf{T}</m>.
+			So using <xref ref="theorem-col-row-null-space-equiv-to-invertible-null-trivial">Statement</xref>
+			of <xref ref="theorem-col-row-null-space-equiv-to-invertible" />,
+			we can conclude that <m>\ker T</m> is trivial from our assumption that <m>\stdmatrixOf{T}</m> is invertible.
+		</p></case>
+		<p>
+		It remains to verify that <m> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </m>.
+		However, using
+		<xref ref="proposition-lintrans-iso-std-matrix-composite" />
+		and <xref ref="proposition-lintrans-iso-inverse-reverse" />,
+		we know that
+		<me>
+			\stdmatrixOf{T} \stdmatrixOf{\inv{T}}
+			= \stdmatrixOf{T \inv{T}}
+			= \stdmatrixOf{I_{\R^n}}
+			= I
+		</me>,
+		the <m>n \times n</m> identity matrix.
+		We can thus conclude that <m> \stdmatrixOf{\inv{T}} </m> and <m>\stdmatrixOf{T}</m> are inverses of each other,
+		using <xref ref="proposition-elem-matrices-check-only-left-inverse" />.
+		</p>
+	</proof>
+</corollary>
+
+</subsection>
+
+</section>

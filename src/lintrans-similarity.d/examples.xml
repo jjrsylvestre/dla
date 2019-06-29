@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-similarity-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-similarity-examples-cob" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-similarity-examples-cob" /></em></li>
+<li><xref ref="subsection-lintrans-similarity-examples-det-eigen" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-similarity-examples-det-eigen" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-similarity-examples-cob">
+<title>Using a <q>natural</q> basis for an operator</title>
+
+<example><title>Projection onto a line in <m>\R^2</m></title>
+	<p>
+	Let <m>\funcdef{T}{\R^2}{\R^2}</m> be the operator that orthogonally projects vectors onto the line
+	<me> \ell = \Span \{ (1,2) \} </me>.
+	A <q>natural</q> basis to use to analyze the action of <m>T</m> on <m>\R^2</m> is an orthogonal basis consisting of one vector parallel to and one vector orthogonal to <m>\ell</m>.
+	So let's take
+	<me> \basisfont{B} = \{ (1,2), (-2,1) \} </me>.
+	From calculations
+	<md>
+		<mrow> T(1,2) = (1,2) = 1 \, (1,2) + 0 \, (-2,1) \text{,} </mrow>
+		<mrow> T(-2,1) = \zerovec = 0 \, (1,2) + 0 \, (-2,1) </mrow>
+	</md>,
+	we obtain
+	<me> \matrixOf{T}{B} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} </me>.
+	As this is a diagonal matrix, we can say that <m>T</m> is a <term>diagonalizable operator</term>.
+	</p><p>
+	If we would like to obtain the matrix <m>\matrixOf{T}{S}</m> relative to the standard basis <m>\basisfont{S}</m>,
+	we can use a change of basis matrix.
+	First form the transition matrix
+	<me> \ucobmtrx{B}{S} = \left[\begin{array}{cr} 1 \amp -2 \\ 2 \amp 1 \end{array}\right] </me>
+	and calculate the reverse transition matrix
+	<me> \ucobmtrx{S}{B} = \uinvcobmtrx{B}{S} = \frac{1}{5} \; \left[\begin{array}{rc} 1 \amp 2 \\ - 2 \amp 1 \end{array}\right] </me>.
+	Then we have
+	<md>
+		<mrow> \matrixOf{T}{S} \amp = \ucobmtrx{B}{S} \matrixOf{T}{B} \ucobmtrx{S}{B} </mrow>
+		<mrow>
+			\amp = \left[\begin{array}{cr} 1 \amp -2 \\ 2 \amp 1 \end{array}\right]
+			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+			\left(\frac{1}{5} \; \left[\begin{array}{rc} 1 \amp 2 \\ - 2 \amp 1 \end{array}\right]\right)
+		</mrow>
+		<mrow> \amp = \frac{1}{5} \; \begin{bmatrix} 1 \amp 2 \\ 2 \amp 4 \end{bmatrix} </mrow>
+	</md>.
+	Note that even though this is not a diagonal matrix,
+	it does not contradict the fact the <m>T</m> is <em>diagonalizable</em>,
+	as we only require that the matrix of <m>T</m> be diagonal relative to <em>at least</em> one basis of the domain space,
+	not all bases.
+	</p>
+</example>
+
+<example><title>Transpose of matrices</title>
+	<p>
+	Consider <m>\funcdef{T}{\matrixring_n(\R)}{\matrixring_n(\R)}</m> by <me> T(A) = \utrans{A} </me>.
+	As usual,
+	let <me> \basisfont{S} = \{ E_{ij} \} </me> represent the standard basis of <m>\matrixring_n(\R)</m>,
+	where <m>E_{ij}</m> is the <m>n \times n</m> matrix with a <m>1</m> in the <m>(i,j)</m> entry and <m>0</m> in every other entry.
+	Then <me> T(E_{ij}) = E_{ji} </me>,
+	so the matrix <m>\matrixOf{T}{S}</m> is not difficult to calculate.
+	</p><p>
+	However, we can also use these standard basis vectors to create a basis of <m>\matrixring_n(\R)</m> consisting of eigenvectors.
+	Write <me> \uvec{d}_i = E_{ii} </me> for the diagonal matrices in <m>\basisfont{S}</m>,
+	write <me> \uvec{s}_{ij} = E_{ij} + E_{ji} \quad (j \gt i) </me> for certain symmetric combinations of matrices in <m>\basisfont{S}</m>,
+	and write <me> \uvec{n}_{ij} = E_{ij} - E_{ji} \quad (j \gt i) </me> for certain skew-symmetric combinations of matrices in <m>\basisfont{S}</m>.
+	All these matrices together form a basis <m>\basisfont{B}</m> of <m>\matrixring_n(\R)</m>,
+	and we can verify
+	<md><mrow>
+		T(\uvec{d}_i) \amp = \uvec{d}_i \text{,} \amp
+		T(\uvec{s}_{ij}) \amp = \uvec{s}_{ij} \text{,} \amp
+		T(\uvec{n}_{ij}) \amp = - \uvec{n}_{ij}
+	</mrow></md>.
+	Relative to this basis of eigenvectors,
+	we will indeed obtain a diagonal matrix for <m>T</m>:
+	<me> \matrixOf{T}{B} = \begin{bmatrix} I_a \\ \amp - I_b \end{bmatrix} </me>,
+	where <m>I_a,I_b</m> are identity matrices of sizes
+	<md><mrow> a \amp = \frac{n^2 + n}{2} \text{,} \amp b \amp = \frac{n^2 - n}{2} </mrow></md>.
+	So <m>T</m> is a <term>diagonalizable operator</term>,
+	since a basis for the domain space consisting of eigenvectors for the operator can be found.
+</p></example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-similarity-examples-det-eigen">
+<title>Computing determinant, eigenvalues, and eigenvectors of operators</title>
+
+<example xml:id="example-lintrans-similarity-det">
+	<title>Computing the determinant of an operator</title>
+	<p>
+	Consider the <q>reversal</q> operator <m>\funcdef{T}{\poly_3(\R)}{\poly_3(\R)}</m> defined by
+	<me> T(a x^3 + b x^2 + c x + d) = d x^3 + c x^2 + b x + a </me>.
+	Relative to the standard basis <m>\basisfont{S} = \{ x^3, x^2, x, 1 \}</m>,
+	we compute the matrix for <m>T</m> by first calculating the image vectors
+	<md><mrow>
+		T(x^3) \amp = 1 \text{,} \amp
+		T(x^2) \amp = x \text{,} \amp
+		T(x) \amp = x^2 \text{,} \amp
+		T(1) \amp = x^3
+	</mrow></md>.
+	Then <me> \matrixOf{T}{S} = \begin{bmatrix} \amp \amp \amp 1 \\ \amp \amp 1 \\ \amp 1 \\ 1 \end{bmatrix} </me>,
+	and we can compute
+	<me> \det T = \det \matrixOf{T}{S} = 1 </me>.
+	Using <xref ref="corollary-lintrans-matrix-iso" />,
+	we can conclude that <m>T</m> must be an isomorphism.
+	(Though in this case that should have been obvious,
+	as <m>T</m> is clearly its own inverse.)
+	</p>
+</example>
+
+<example><title>Computing eigenvalues and eigenvectors of an operator</title>
+	<p>
+	For <m>p(x)</m> in <m>\poly_3(\R)</m>,
+	write <m>\tilde{p}(x)</m> for the <q>reversal</q> of <m>p(x)</m>,
+	as in <xref ref="example-lintrans-similarity-det" /> above,
+	but now define <m>\funcdef{T}{\poly_3(\R)}{\poly_3(\R)}</m> by
+	<me> T\bigl(p(x)\bigr) = p(x) + \tilde{p}(x) </me>.
+	Compute the image vectors
+	<md><mrow>
+		T(x^3) \amp = x^3 + 1 \text{,} \amp
+		T(x^2) \amp = x^2 + x \text{,} \amp
+		T(x) \amp = x + x^2 \text{,} \amp
+		T(1) \amp = 1 + x^3
+	</mrow></md>,
+	from which we obtain the matrix of <m>T</m> relative to the standard basis <m>\basisfont{S} = \{ x^3, x^2, x, 1 \}</m>:
+	<me> \matrixOf{T}{S} = \begin{bmatrix} 1 \amp 0 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \amp 0 \\ 0 \amp 1 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \amp 1 \end{bmatrix} </me>.
+	</p><p>
+	From
+	<me>
+		\lambda I - \matrixOf{T}{S}
+		= \begin{bmatrix}
+			\lambda - 1 \amp 0 \amp 0 \amp -1 \\
+			 0 \amp \lambda - 1 \amp -1 \amp 0 \\
+			 0 \amp -1 \amp \lambda - 1 \amp 0 \\
+			-1 \amp 0 \amp 0 \amp \lambda - 1
+		\end{bmatrix}
+	</me>,
+	we can calculate
+	<me> c_T(\lambda) = \det \bigl(\lambda I - \matrixOf{T}{S}\bigr) = \lambda^2 (\lambda - 2)^2 </me>,
+	so that <m>T</m> has eigenvalues <m>\lambda = 0, 2</m>.
+	</p><p>
+	As usual, row reduce the matrices <m>0 I - \matrixOf{T}{S}</m> and <m>2 I - \matrixOf{T}{S}</m> to find that
+	<md><mrow>
+		E_0\bigl(\matrixOf{T}{S}\bigr)
+		\amp = \Span \left\{
+			\left[\begin{array}{r} 0 \\ -1 \\ 1 \\ 0 \end{array}\right],
+			\left[\begin{array}{r} -1 \\ 0 \\ 0 \\ 1 \end{array}\right]
+		\right\} \text{,}
+		\amp
+		E_2\bigl(\matrixOf{T}{S}\bigr)
+		\amp = \Span \left\{
+			\begin{bmatrix} 0 \\ 1 \\ 1 \\ 0 \end{bmatrix},
+			\begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+		\right\}
+	</mrow></md>.
+	To convert these from eigenvectors of <m>\matrixOf{T}{S}</m> into eigenvectors of <m>T</m>,
+	simply convert them from coordinate vectors relative to <m>\basisfont{S}</m> into <m>\poly_3(\R)</m> vectors:
+	<md><mrow>
+		E_0(T) \amp = \Span \{ -x^2 + x, -x^3 + 1 \} \text{,}
+		\amp
+		E_2(T) \amp = \Span \{ x^2 + x, x^3 + 1 \}
+	</mrow></md>.
+	We could verify that these are eigenvectors of <m>T</m> directly,
+	without appeal to properties of <m>\matrixOf{T}{S}</m>.
+	For example,
+	<me> T(x^2 + x) = (x^2 + x) + (x + x^2) = 2 (x^2 + x) </me>,
+	as required by the eigenvalue-eigenvector pattern.
+</p></example>
+
+</subsection>
+
+</section>

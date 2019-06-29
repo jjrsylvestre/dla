@@ -21,6 +21,7 @@ respective owners.
 \DeclareMathOperator{\adj}{adj}% classical adjoint
 \DeclareMathOperator{\proj}{proj}% projection
 \DeclareMathOperator{\matrixring}{M}% $m\times n$ matrices
+\DeclareMathOperator{\uppermatring}{U}% $m\times n$ upper triangular matrices
 \DeclareMathOperator{\poly}{P}% polynomials
 \DeclareMathOperator{\Span}{Span}
 \DeclareMathOperator{\rank}{rank}
@@ -48,6 +49,7 @@ respective owners.
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
 \newcommand{\degree}[1]{{#1}^\circ} % makeshift degree symbol
 \newcommand{\blank}{-}% dash for blank in maps
+\newcommand{\iso}{\simeq}% isomorphic objects
 
 % number systems
 \newcommand{\R}{\mathbb{R}}% real numbers
@@ -87,10 +89,16 @@ respective owners.
 \newcommand{\rmatrixOfplain}[2]{\left(#1\right)_{#2}}% matrix of, round brackets, does not use basis font
 \newcommand{\matrixOf}[2]{\matrixOfplain{#1}{\basisfont{#2}}}% matrix of
 \newcommand{\rmatrixOf}[2]{\rmatrixOfplain{#1}{\basisfont{#2}}}% matrix of, round brackets
+\newcommand{\invmatrixOfplain}[2]{\inv{\left[#1\right]}_{#2}}% inverse matrix of, do not use basis font
+\newcommand{\invrmatrixOfplain}[2]{\inv{\left(#1\right)}_{#2}}% inverse matrix of, round brackets, does not use basis font
+\newcommand{\invmatrixOf}[2]{\invmatrixOfplain{#1}{\basisfont{#2}}}% inverse matrix of
+\newcommand{\invrmatrixOf}[2]{\invrmatrixOfplain{#1}{\basisfont{#2}}}% inverse matrix of, round brackets
 \newcommand{\stdmatrixOf}[1]{\left[#1\right]}% standard matrix of a linear transformation, no basis specified
 \newcommand{\ucobmtrx}[2]{P_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
 \newcommand{\uinvcobmtrx}[2]{\inv{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style inverse change of basis matrix
 \newcommand{\uadjcobmtrx}[2]{\adjoint{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style adjoint change of basis matrix
+\newcommand{\coordmap}[1]{C_{\basisfont{#1}}}% coordinate map to $\R^n$ or $\C^n$
+\newcommand{\invcoordmap}[1]{\inv{C}_{\basisfont{#1}}}% inverse coordinate map from $\R^n$ or $\C^n$
 \newcommand{\similar}{\sim}
 \newcommand{\inprod}[2]{\left\langle\, #1,\, #2 \,\right\rangle}% inner product
 \newcommand{\uvecinprod}[2]{\inprod{\uvec{#1}}{\uvec{#2}}}% inner product with vector notation of arguments

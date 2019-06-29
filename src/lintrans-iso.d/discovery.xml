@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-lintrans-iso">
+<title>Discovery guide</title>
+
+<activity>
+	<introduction><p>
+		Let <m>\funcdef{T}{\poly_3(\R)}{\matrixring_2(\R)}</m>
+		and <m>\funcdef{S}{\matrixring_2(\R)}{\R^1}</m>
+		be defined by
+		<md><mrow>
+			T(a x^3 + b x^2 + c x + d) \amp = \begin{bmatrix} a + b \amp b + c \\ c + d \amp d - a \end{bmatrix} \text{,} \amp
+			S\left(\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\right)
+			\amp = a + d
+		</mrow></md>.
+	</p></introduction>
+	<task><p> Are <m>T</m> and <m>S</m> linear? </p></task>
+	<task><p>
+		What are the domain and the codomain of the <term>composite transformation</term> <m>S \circ T</m>?
+	</p></task>
+	<task><p>
+		Compute a general input-output formula for <m>S \circ T</m> similar to the formulas for <m>S</m> and <m>T</m> defined above.
+	</p></task>
+	Is <m>S \circ T</m> linear?
+</activity>
+
+<activity><p>
+	Verify that if <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m> are linear,
+	then <m>\funcdef{S \circ T}{U}{W}</m> is also linear.
+</p></activity>
+
+<activity xml:id="activity-lintrans-iso-std-matrix-composite">
+	<introduction><p>
+		Consider matrix transformations
+		<m>\funcdef{T_A}{\R^3}{\R^2}</m>
+		and
+		<m>\funcdef{S_B}{\R^2}{\R^4}</m>
+		corresponding to matrices
+		<md><mrow>
+			A \amp = \left[\begin{array}{rcr}
+				1 \amp 2 \amp -1 \\
+				-1 \amp 3 \amp 1
+			\end{array}\right]
+			\text{,}
+			\amp
+			B \amp = \left[\begin{array}{rcr}
+				1 \amp 1 \\
+				2 \amp -2 \\
+				-3 \amp 4 \\
+				0 \amp 5
+			\end{array}\right]
+		</mrow></md>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-iso-std-matrix-composite-image-vec"><p>
+		How should an image vector <m>(S_B \circ T_A)(\uvec{x})</m> be computed?
+	</p></task>
+	<task><p>
+		<xref ref="corollary-lintrans-basic-euclidean-trans-is-matrix-trans" />
+		says that every transformation <m>\R^3 \to \R^4</m> is a matrix transformation.
+		Based on the pattern in
+		<xref ref="activity-lintrans-iso-std-matrix-composite-image-vec" text="type-local" />,
+		what is the matrix of the composite transformation <m>S_B \circ T_A</m>?
+	</p></task>
+	<task xml:id="activity-lintrans-iso-std-matrix-composite-pattern">
+		<p>
+		<em>Describe the pattern in words:</em>
+		The standard matrix of a composition of matrix transformations is
+		<fillin characters="30" />.
+		</p><p>
+		<em>Describe the pattern in symbols:</em>
+		For <m>\funcdef{T}{\R^n}{\R^m}</m>
+		and <m>\funcdef{S}{\R^m}{\R^\ell}</m>,
+		<m> \stdmatrixOf{S \circ T} = <fillin characters="10" /> </m>.
+		</p>
+	</task>
+</activity>
+
+<paragraphs><title>Notation</title><p>
+	In analogy with the pattern of
+	<xref ref="activity-lintrans-iso-std-matrix-composite-pattern">Discovery</xref>,
+	we will use multiplication notation <m>S T</m> in place of
+	composite function notation <m>S \circ T</m> for <em>all</em> linear transformations.
+</p></paragraphs>
+
+<activity xml:id="activity-lintrans-iso-inverse-from-image">
+	<introduction><p>
+		Let <m>\uppermatring_2(\R)</m> represent the space of <m>2 \times 2</m> upper triangular matrices,
+		and let
+		<md><mrow>
+			\amp \funcdef{T}{\poly_2(\R)}{\matrixring_2(\R)} \text{,} \amp
+			\amp \funcdef{S}{\uppermatring_2(\R)}{\poly_2(\R)}
+		</mrow></md>
+		be defined by
+		<md alignment="gather">
+			<mrow>
+				T(a x^2 + b x + c) = \begin{bmatrix} a + b \amp b + c \\ 0 \amp c \end{bmatrix}
+				\text{,}
+			</mrow><mrow>
+				S\left(\begin{bmatrix} a \amp b \\ 0 \amp c \end{bmatrix}\right)
+				= (a - b + c) x^2 + (b - c) x + c
+			</mrow>
+		</md>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-iso-inverse-from-image-compose"><p>
+		Compute an input-output formula similar to those above for the composite transformation <m>S T</m>.
+	</p></task>
+	<task><p>
+		Based on your result in
+		<xref ref="activity-lintrans-iso-inverse-from-image-compose" text="type-local" />,
+		what should we call <m>S</m> relative to <m>T</m>?
+	</p></task>
+	<task xml:id="activity-lintrans-iso-inverse-from-image-right-inv"><p>
+		Does it work the other way?
+		Compute an input-output formula for the composite transformation <m>T S</m>.
+	</p></task>
+	<task><p>
+		Would <xref ref="activity-lintrans-iso-inverse-from-image-right-inv" text="type-local" />
+		have worked if <m>S</m> used the same <em>output</em> formula,
+		but was defined as a transformation <m>\funcdef{S}{\matrixring_2(\R)}{\poly_2(\R)}</m>?
+		Say, as
+		<me>
+			S\left(\begin{bmatrix} a \amp b \\ z \amp c \end{bmatrix}\right)
+			= (a - b + c) x^2 + (b - c) x + c
+		</me>?
+	</p></task>
+	<task xml:id="activity-lintrans-iso-inverse-from-image-pattern"><p>
+		<em>Describe the pattern:</em>
+		If <m>T</m> is an <term>invertible</term> linear transformation,
+		the domain of <m>\inv{T}</m> should be <fillin characters="5" />.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-iso-invertibility-condition">
+	<introduction><p>
+		Consider <m>\funcdef{T}{\poly_2(\R)}{\matrixring_2(\R)}</m>
+		defined by
+		<me> T(a x^2 + b x + c) = \begin{bmatrix} 0 \amp a + b + c \\ 0 \amp 0 \end{bmatrix} </me>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-iso-invertibility-condition-domain"><p>
+		Based on the pattern from
+		<xref ref="activity-lintrans-iso-inverse-from-image-pattern">Discovery</xref>,
+		if <m>T</m> is invertible,
+		what should the domain of <m>\inv{T}</m> be?
+	</p></task>
+	<task><p>
+		Is <m>T</m> invertible?
+		To decide, try to define an input-output formula for <m>\funcdef{\inv{T}}{D}{\poly_2(\R)}</m>
+		(where <m>D</m> is the domain for <m>\inv{T}</m> that you identified in
+		<xref ref="activity-lintrans-iso-invertibility-condition-domain" text="type-local" />)
+		so that your formula <q>reverses</q> <m>T</m>,
+		just as <m>S</m> reversed the transformation <m>T</m> in
+		<xref ref="activity-lintrans-iso-inverse-from-image" />.
+	</p></task>
+	<task xml:id="activity-lintrans-iso-invertibility-condition-repeated-images">
+		<p> Compute the image vectors <m>T(x^2)</m> and <m>T(1)</m>. </p>
+		<p> What do the results say about the potential invertibility of <m>T</m>? </p>
+	</task>
+	<task>
+		<p>
+			Compute the image vector <m> T(x^2 - 1) </m>
+			(and compare with
+			<xref ref="activity-lintrans-iso-invertibility-condition-repeated-images" text="type-local" />).
+		</p>
+		<p> What does the result say about the potential invertibility of <m>T</m>? </p>
+	</task>
+	<task xml:id="activity-lintrans-iso-invertibility-condition-ker-im">
+		<statement>
+			<p>
+			<em>Describe the pattern:</em>
+			If a transformation <m>\funcdef{T}{V}{W}</m> is invertible,
+			then the kernel of <m>T</m> must be <fillin characters="10" />.
+			</p><p>
+			So <m>\nullity T</m> must be <fillin characters="3" />
+			and then <m>\rank T</m> must be <fillin characters="3" />.
+			</p>
+		</statement>
+		<hint><p>
+			For <m>\rank T</m>,
+			consider <xref ref="theorem-lintrans-ker-im-dimension" text="title" />.
+		</p></hint>
+	</task>
+</activity>
+
+<activity xml:id="activity-lintrans-iso-invertibility-codomain">
+	<task><p>
+		Based on <xref ref="activity-lintrans-iso-invertibility-condition-ker-im">Discovery</xref>,
+		could a transformation <m>\funcdef{T}{\matrixring_5(\R)}{\R^5}</m> be invertible?
+	</p></task>
+	<task xml:id="activity-lintrans-iso-invertibility-codomain-dims"><p>
+		<em>Describe the pattern:</em>
+		If a transformation <m>\funcdef{T}{V}{W}</m> is invertible,
+		then <m>\dim V</m> and <m>\dim W</m> must satisfy:
+		<fillin characters="15" />.
+	</p></task>
+</activity>
+
+<activity>
+	<introduction><p>
+		Consider matrix transformation
+		<m>\funcdef{T_A}{\R^3}{\R^3}</m>
+		corresponding to matrix
+		<me>
+			A = \left[\begin{array}{ccr}
+				1 \amp 2 \amp -1 \\
+				0 \amp 3 \amp 1 \\
+				0 \amp 1 \amp 2
+			\end{array}\right]
+		</me>.
+	</p></introduction>
+	<task>
+		<p>
+		Confirm that <m>T_A</m> satisfies the conditions you've identified in both
+		<xref ref="activity-lintrans-iso-invertibility-condition-ker-im">Discovery</xref>
+		and <xref ref="activity-lintrans-iso-invertibility-codomain-dims">Discovery</xref>.
+		</p><p>
+		Assuming <m>T_A</m> is invertible,
+		what must the domain of <m>\inv{T}_A</m> be?
+		</p>
+	</task>
+	<task>
+		<p>
+		<xref ref="corollary-lintrans-basic-euclidean-trans-is-matrix-trans" />
+		says that every transformation <m>\R^3 \to \R^3</m> is a matrix transformation.
+		Based on the calculation patterns from <xref ref="activity-lintrans-iso-inverse-from-image" />,
+		we should have <m>(\inv{T}_A T_A)(\uvec{x}) = \uvec{x}</m> for <em>every</em> <m>\uvec{x}</m> in <m>\R^3</m>.
+		</p><p>
+		So what matrix should correspond to <m>\inv{T}_A</m>?
+		</p>
+	</task>
+	<task>
+		<p>
+		<em>Describe the pattern in words:</em>
+		The standard matrix of the inverse of a matrix transformations is
+		<fillin characters="30" />.
+		</p><p>
+		<em>Describe the pattern in symbols:</em>
+		For invertible <m>\funcdef{T}{\R^n}{\R^n}</m>,
+		<m>\stdmatrixOf{\inv{T}} = <fillin characters="5" /></m>.
+		</p>
+	</task>
+</activity>
+
+<p> An <term>isomorphism</term> is an invertible linear transformation whose image is the whole codomain space. </p>
+
+<activity xml:id="activity-lintrans-iso-findim-iso-to-Rn">
+	<introduction><p>
+		In each of the following,
+		provide a specific example of an isomorphism <m>\funcdef{T}{V}{\R^n}</m> for a specific value of <m>n</m>.
+		In each case, are there multiple values of <m>n</m> for which this is achievable?
+	</p></introduction>
+	<task><p> <m>V = \matrixring_2(\R)</m>. </p></task>
+	<task><p> <m>V = \uppermatring_2(\R)</m>. </p></task>
+	<task><p> <m>V = \poly_3(\R)</m>. </p></task>
+	<task><p> <m>V = \poly_2(\R)</m>. </p></task>
+	<task><p> <m>V = \Span \{ \sin x, \cos x, e^x \}</m> (as a subspace of <m>F(\R)</m>). </p></task>
+</activity>
+
+</worksheet>

@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-matrix-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-matrix-concepts-idea" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-concepts-idea" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-concepts-computing" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-concepts-computing" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-concepts-special" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-concepts-special" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-concepts-comp-inv" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-concepts-comp-inv" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-concepts-properties" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-concepts-properties" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-matrix-concepts-idea">
+<title>Attaching a matrix to a transformation</title>
+
+<p>
+As usual, we will deal with the real case,
+as the complex case is identical,
+just with different scalars.
+</p><p>
+If <m>V</m> and <m>W</m> are finite-dimensional real vector spaces,
+then they are isomorphic to <m>\R^n</m> and <m>\R^m</m>,
+respectively, where <m>n = \dim V</m> and <m>m = \dim W</m>
+(<xref ref="corollary-lintrans-iso-to-Rn-Cn-real">Statement</xref>
+of <xref ref="corollary-lintrans-iso-to-Rn-Cn" />).
+Isomorphisms effectively create an identification between vectors in two spaces,
+so that the two vector spaces can be viewed as essentially the same space.
+So if we have a linear transformation <m>\funcdef{T}{V}{W}</m>,
+with <m>V \iso \R^n</m> and <m>W \iso \R^m</m>,
+then effectively we have a linear transformation <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>.
+<sidebyside width="18%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of transformations <m>\R^n \to V \to W \to \R^m</m></description>
+	<latex-image><xi:include href="concepts.d/square-diagram.tex" parse="text" /></latex-image>
+</image></sidebyside>
+</p>
+<p>
+How can we realize the <term>induced</term> transformation <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>?
+We just need to decide how to traverse the two vertical arrows in the diagram above,
+by choosing specific isomorphisms <m>\funcdef{S_1}{V}{\R^n}</m> and <m>\funcdef{S_2}{W}{\R^m}</m>.
+Then we can take <m>\widetilde{T}</m> to the composition <m>S_2 T \inv{S}_1</m>.
+</p><p>
+However, we know how to realize isomorphisms <m>V \to \R^n</m> and <m>W \to \R^m</m>:
+through coordinate maps!
+(See <xref ref="corollary-lintrans-iso-coord-map-is-iso" />.)
+So all we have to do is choose a basis <m>\basisfont{B}</m> for <m>V</m> and a basis <m>\basisfont{B}'</m> for <m>W</m>,
+and take
+<me> \widetilde{T} = \coordmap{B'} T \invcoordmap{B} </me>.
+<sidebyside width="22%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of using coordinate maps to extend a transformation <m>V \to W</m> to a transform <m>\R^n \to V \to W \to \R^m</m></description>
+	<latex-image><xi:include href="concepts.d/square-diagram-coord-maps.tex" parse="text" /></latex-image>
+</image></sidebyside>
+We know that every transformation <m>\R^n \to \R^m</m> is a matrix transformation by
+<me> \widetilde{T}(\uvec{x}) = \stdmatrixOf{\widetilde{T}} \uvec{x} </me>,
+where <m>\stdmatrixOf{\widetilde{T}}</m> is the standard matrix of <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>,
+as usual.
+<alert>So we define the matrix of <m>T</m> relative to bases <m>\basisfont{B}</m> of <m>V</m> and <m>\basisfont{B}'</m> of <m>W</m> to be the matrix <m>\stdmatrixOf{\widetilde{T}}</m></alert>:
+<me> \matrixOf{T}{B'B} = \stdmatrixOf{\widetilde{T}} = \stdmatrixOf{\coordmap{B'} T \invcoordmap{B}} </me>.
+</p>
+<aside><title>Note</title><p>
+	The reason for the reversal of the order of <m>B,B'</m> in the notation will become clear below.
+</p></aside>
+<p>
+What use is this matrix?
+By reversing the relationship between <m>T</m> and <m>\widetilde{T}</m> to
+<me> T = \invcoordmap{B'} \widetilde{T} \coordmap{B} </me>,
+we can use matrix multiplication to compute outputs for <m>T</m>.
+<sidebyside width="22%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of realizing a transformation through its matrix</description>
+	<latex-image><xi:include href="concepts.d/square-diagram-coord-maps-reverse.tex" parse="text" /></latex-image>
+</image></sidebyside>
+Computationally, it is more instructive to split the four transformations into two pairs.
+<sidebyside width="22%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of tracing a transformation from domain space to coordinate space of its image</description>
+	<latex-image><xi:include href="concepts.d/square-diagram-coord-maps-split.tex" parse="text" /></latex-image>
+</image></sidebyside>
+Equating the two legs in this diagram, we have <me> \coordmap{B'} T = \widetilde{T} \coordmap{B} </me>.
+Consider the results of starting with a vector <m>\uvec{v}</m> in <m>V</m> and <q>chasing</q> it through each leg of the diagram:
+<md>
+	<mrow>
+		\coordmap{B'} T (\uvec{v}) \amp = \coordmap{B'} \bigl(T(\uvec{v})\bigr) \amp
+		\widetilde{T} \coordmap{B} (\uvec{v}) \amp = \widetilde{T} \bigl(\matrixOf{\uvec{v}}{B}\bigr)
+	</mrow><mrow>
+		\amp = \matrixOf{T(\uvec{v})}{B'} \text{,} \amp
+		\amp = \stdmatrixOf{\widetilde{T}} \matrixOf{\uvec{v}}{B}
+	</mrow><mrow>
+		\amp \amp
+		\amp = \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B}
+	</mrow>
+</md>.
+Since these two results must be equal,
+we obtain the main computational pattern regarding the use of the matrix of a linear transformation:
+<me> \matrixOf{T(\uvec{v})}{B'} = \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B} </me>.
+In other words,
+<alert>
+	to obtain the coordinate vector of image vector <m>T(\uvec{v})</m> relative to codomain space basis <m>\basisfont{B}'</m>,
+	multiply the coordinate vector of <m>\uvec{v}</m> relative to domain space basis <m>\basisfont{B}</m> by the matrix <m>\matrixOf{T}{B'B}</m>
+</alert>.
+</p>
+<p>
+This input-output pattern for coordinate vectors explains the reason for writing <m>\basisfont{B'B}</m> instead of <m>\basisfont{BB'}</m> in the notation <m>\matrixOf{T}{B'B}</m>:
+the <m>\basisfont{B}</m> on the right puts it on the inside of the product <m>\matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B}</m>,
+closest to the <m>\basisfont{B}</m>-coordinate vector <m>\matrixOf{\uvec{v}}{B}</m>,
+and the <m>\basisfont{B}'</m> on the left puts it closest to the resulting <m>\basisfont{B}'</m>-coordinate vector <m>\matrixOf{T(\uvec{v})}{B'}</m>.
+</p><p>
+Finally, consider the case for a linear <em>operator</em> <m>\funcdef{T}{V}{V}</m>.
+In this case we may (but do not <em>have</em> to) choose the same basis <m>\basisfont{B}</m> for both the domain and codomain spaces,
+as these are the same space.
+With this choice we simply write <m>\matrixOf{T}{B}</m> for the matrix of <m>T</m>,
+instead of the redundant <m>\matrixOf{T}{BB}</m>.
+<sidebyside width="22%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of realizing an operator through its matrix</description>
+	<latex-image><xi:include href="concepts.d/square-diagram-operator.tex" parse="text" /></latex-image>
+</image></sidebyside>
+With this choice,
+our input-output relationship between coordinate vecors becomes
+<me> \matrixOf{T(\uvec{v})}{B} = \matrixOf{T}{B} \matrixOf{\uvec{v}}{B} </me>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-concepts-computing">
+<title>Computing the matrix of a transformation</title>
+
+<p>
+Recall that the columns of the standard matrix of a transformation <m>\R^n \to \R^m</m> are precisely the image vectors of the standard basis vectors for <m>\R^n</m>.
+(See <xref ref="equation-lintrans-basic-concepts-std-matrix" />
+in <xref ref="subsection-lintrans-basic-concepts-std-matrix" />.)
+So for transformation <m>\funcdef{T}{V}{W}</m> and bases <m>\basisfont{B},\basisfont{B}'</m> of the domain space <m>V</m> and codomain space <m>W</m>, respectively,
+we can compute the matrix
+<me> \matrixOf{T}{B'B} = \stdmatrixOf{\widetilde{T}} = \stdmatrixOf{\coordmap{B'} T \invcoordmap{B}} </me>
+by determining the images under <m>\widetilde{T}</m> of the standard basis vectors for <m>\R^n</m>,
+where <m>n = \dim V</m>.
+</p><p>
+This means that to obtain the <m>\nth[j]</m> column of <m>\matrixOf{T}{B'}</m>,
+we will be calculating
+<me> \widetilde{T}(\uvec{e}_j) = \stdmatrixOf{\widetilde{T}} \uvec{e}_j = \matrixOf{T}{B'B} \uvec{e}_j </me>,
+where <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector.
+Compare the above with our input-output pattern involving <m>\matrixOf{T}{B'B}</m>:
+<me> \matrixOf{T(\uvec{v})}{B'} = \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B} </me>.
+For what <m>\uvec{v}</m> in <m>V</m> will
+<me> \matrixOf{\uvec{v}}{B} = \uvec{e}_j </me>?
+Remember that the components in a coordinate vector are coefficients to use in a linear combination of the basis vectors that will recreate the original vector.
+But the only nonzero component in <m>\uvec{e}_j</m> is the <m>\nth[j]</m> component,
+which is a <m>1</m>,
+so <m>\uvec{e}_j</m> corresponds to linear combination
+<me>
+	0 \uvec{v}_1 + \dotsb + 0 \uvec{v}_{j-1} + 1 \uvec{v}_j + 0 \uvec{v}_{j+1} + \dotsb 0 \uvec{v}_n
+	= \uvec{v}_j
+</me>,
+where the <m>\uvec{v}_j</m> are the domain space vectors in <m>\basisfont{B}</m>.
+In other words,
+<me> \uvec{e}_j = \matrixOf{\uvec{v}_j}{B} </me>.
+So the <m>\nth[j]</m> column of <m>\matrixOf{T}{B'B}</m> is
+<me>
+	\matrixOf{T}{B'B} \uvec{e}_j
+	= \matrixOf{T}{B'B} \matrixOf{\uvec{v}_j}{B}
+	= \matrixOf{T(\uvec{v}_j)}{B'}
+</me>.
+In words, the pattern is that
+<alert>
+	the <m>\nth[j]</m> column of <m>\matrixOf{T}{B'B}</m> is the coordinate vector,
+	relative to the codomain space basis <m>\basisfont{B}'</m>,
+	of the image vector <m>T(\uvec{v}_j)</m> of the <m>\nth[j]</m> vector <m>\uvec{v}_j</m> in the domain space basis <m>\basisfont{B}</m>
+</alert>.
+If we write <m>\basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \}</m>,
+then
+<md><mrow xml:id="equation-lintrans-matrix-concepts-cols" tag="star">
+	\matrixOf{T}{B'B}
+	= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\matrixOf{T(\uvec{v}_1)}{B'} \amp \matrixOf{T(\uvec{v}_2)}{B'} \amp \cdots \amp \matrixOf{T(\uvec{v}_n)}{B'} \\
+		| \amp | \amp \amp |
+	\end{bmatrix}
+</mrow></md>.
+</p>
+
+<algorithm xml:id="procedure-lintrans-matrix-concepts-compute">
+	<title>The matrix of a linear transformation</title>
+	<p>
+	To compute <m>\matrixOf{T}{B'B}</m> for a linear transformation <m>\funcdef{T}{V}{W}</m> and bases <m>\basisfont{B}</m> of domain space <m>V</m> and <m>\basisfont{B}'</m> of codomain space <m>W</m>.
+	<ol>
+		<li> Compute image vector <m>T(\uvec{v}_j)</m> for each domain space basis vector <m>\uvec{v}_j</m> in <m>\basisfont{B}</m>. </li>
+		<li>
+			Expand each <m>T(\uvec{v}_j)</m> as a linear combination of the codomain space basis vectors in <m>\basisfont{B}'</m>,
+			and use the coefficients to form the coordinate vector <m>\matrixOf{T(\uvec{v}_j)}{B'}</m>.
+		</li>
+		<li> Use the computed coordinate vectors as the columns in <m>\matrixOf{T}{B'B}</m>. </li>
+	</ol>
+</p></algorithm>
+
+<!-- TODO xref to examples -->
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-concepts-special">
+<title>Important examples</title>
+
+<paragraphs><title>The standard matrix of a transformation <m>\R^n \to \R^m</m></title>
+<p>
+Compare <xref ref="procedure-lintrans-matrix-concepts-compute" /> above
+with <xref ref="procedure-lintrans-basic-concepts-std-matrix" />
+for computing the standard matrix of a transformation <m>\R^n \to \R^m</m>.
+Suppose we apply <xref ref="procedure-lintrans-matrix-concepts-compute" />
+to a transformation <m>\funcdef{T}{\R^n}{\R^m}</m>,
+taking both <m>\basisfont{B},\basisfont{B}'</m> to be standard bases.
+Since every <m>\R^m</m>-vector is equal to its own coordinate vector relative to the standard basis,
+the columns of <m>\matrixOf{T}{B'B}</m> will simply be the image vectors <m>T(\uvec{e}_j)</m> of the standard basis vectors of <m>\R^n</m>.
+So the result of
+applying <xref ref="procedure-lintrans-matrix-concepts-compute" />
+will be precisely as in <xref ref="procedure-lintrans-basic-concepts-std-matrix" />.
+</p>
+<warning><p>
+	If a <em>non</em>standard basis is used for <em>either</em> <m>\R^n</m> <em>or</em> <m>\R^m</m> (or both),
+	then the matrix <m>\matrixOf{T}{B'B}</m> will be different from the standard matrix <m>\stdmatrixOf{T}</m>.
+	In a future chapter, <!-- TODO change to xref -->
+	we will investigate how <m>\matrixOf{T}{B}</m> relates to <m>\stdmatrixOf{T}</m> in the case of a linear <em>operator</em> <m>\funcdef{T}{\R^n}{\R^n}</m>
+	(and, more generally, how matrices for a linear operator <m>\funcdef{T}{V}{V}</m> relative to different bases for <m>V</m> relate to one another).
+</p></warning>
+</paragraphs>
+
+<paragraphs><title>Matrices for a zero transformation</title><p>
+Consider the zero transformation <m>\funcdef{\zerovec_{V,W}}{V}{W}</m> relative to any choice of a pair of bases <m>\basisfont{B},\basisfont{B}'</m> for spaces <m>V,W</m>, respectively.
+To compute <m>\matrixOf{\zerovec_{V,W}}{B'B}</m>,
+we follow <xref ref="procedure-lintrans-matrix-concepts-compute" /> and compute the coordinate vectors for image vectors
+<me> \zerovec_{V,W}(\uvec{v}_j) </me>,
+where the <m>\uvec{v}_j</m> are the domain space basis vectors in <m>\basisfont{B}</m>.
+But each <me> \zerovec_{V,W}(\uvec{v}_j) = \zerovec_W </me>,
+which has coordinate vector <me> \matrixOf{\zerovec_W}{B'} = \zerovec_m </me>,
+where <m>\zerovec_m</m> indicates the zero vector in <m>\R^m</m> for <m>m = \dim W</m>.
+Therefore, we always have
+<me> \matrixOf{\zerovec_{V,W}}{B'B} = \zerovec_{m \times n} </me>,
+the <m>m \times n</m> zero matrix (for <m>n = \dim V</m>).
+</p></paragraphs>
+
+<paragraphs><title>Matrix for an identity operator relative to a single basis</title><p>
+Consider the identity operator <m>\funcdef{I_V}{V}{V}</m> relative to a choice of a single basis <m>\basisfont{B}</m> for space <m>V</m>.
+To compute <m>\matrixOf{I_V}{B}</m>,
+we follow <xref ref="procedure-lintrans-matrix-concepts-compute" /> and compute the coordinate vectors for image vectors
+<me> I_V(\uvec{v}_j) </me>,
+where the <m>\uvec{v}_j</m> are the basis vectors in <m>\basisfont{B}</m>.
+But each
+<me> I_V(\uvec{v}_j) = \uvec{v}_j = 0 \uvec{v}_1 + \dotsb + 0 \uvec{v}_{j-1} + 1 \uvec{v}_j + 0 \uvec{v}_{j+1} + \dotsb + 0 \uvec{v}_n </me>,
+where <m>n = \dim V</m>.
+So each <m>I_V(\uvec{v}_j)</m> has coordinate vector
+<me> \matrixOf{I_V(\uvec{v}_j)}{B} = \uvec{e}_j </me>,
+the <m>\nth[j]</m> standard basis vector of <m>\R^n</m>.
+Therefore, we always have
+<me> \matrixOf{I_V}{B} = I_n </me>,
+the <m>n \times n</m> identity matrix.
+</p></paragraphs>
+
+<paragraphs><title>Matrix for an identity operator relative to <em>two</em> bases</title>
+<p>
+Again, consider the identity operator <m>\funcdef{I_V}{V}{V}</m>,
+but suppose we choose <em>two</em> different bases for <m>V</m>:
+one basis <m>\basisfont{B}</m> to be considered as the <em>domain</em> space basis,
+and another basis <m>\basisfont{B}'</m> to be considered as the <em>codomain</em> space basis.
+</p>
+<aside><title>A look back</title><p>
+	We explored this situation in <xref ref="activity-lintrans-matrix-transition-matrices" />.
+</p></aside>
+<p>
+To compute <m>\matrixOf{I_V}{B'B}</m>,
+we follow <xref ref="procedure-lintrans-matrix-concepts-compute" /> and compute the coordinate vectors for image vectors
+<me> I_V(\uvec{v}_j) = \uvec{v}_j </me>,
+where the <m>\uvec{v}_j</m> are the basis vectors in <m>\basisfont{B}</m>.
+But now we will be computing these coordinate vectors relative to the second basis <m>\basisfont{B}'</m>:
+<me> \matrixOf{I_V(\uvec{v}_j)}{B'} = \matrixOf{\uvec{v}_j}{B'} </me>.
+Inserting this pattern into <xref ref="equation-lintrans-matrix-concepts-cols" />,
+we obtain
+<md>
+	<mrow>
+		\matrixOf{I_V}{B'B}
+		\amp = \begin{bmatrix}
+			| \amp | \amp \amp | \\
+			\matrixOf{I_V(\uvec{v}_1)}{B'} \amp \matrixOf{I_V(\uvec{v}_2)}{B'} \amp \cdots \amp \matrixOf{I_V(\uvec{v}_n)}{B'} \\
+			| \amp | \amp \amp |
+		\end{bmatrix}
+	</mrow><mrow>
+		\amp = \begin{bmatrix}
+			| \amp | \amp \amp | \\
+			\matrixOf{\uvec{v}_1}{B'} \amp \matrixOf{\uvec{v}_2}{B'} \amp \cdots \amp \matrixOf{\uvec{v}_n}{B'} \\
+			| \amp | \amp \amp |
+		\end{bmatrix}
+	</mrow>
+</md>.
+We've seen this pattern before!
+It is precisely the pattern of the <term>transition  matrix</term> <m>\ucobmtrx{B}{B'}</m>
+(see <xref ref="equation-change-of-basis-concepts-transition-matrix-def" />
+in <xref ref="subsection-change-of-basis-concepts-coord-vecs-convert" />).
+That is, <alert>a transition matrix is the matrix of the identity operator relative to the two different bases of the space</alert>:
+<me> \ucobmtrx{B}{B'} = \matrixOf{I_V}{B'B} </me>.
+This makes sense,
+as the purpose of a transition matrix is to convert coordinate vectors relative to one basis into coordinate vectors relative to another basis,
+but without <q>transforming</q> the underlying vector in the process <mdash />
+whether we consider <m>\matrixOf{\uvec{v}}{B}</m> or <m>\matrixOf{\uvec{v}}{B'}</m>,
+it's the same vector <m>\uvec{v}</m>,
+just different linear combinations (of the different basis vectors) to realize that vector.
+</p></paragraphs>
+
+<paragraphs><title>Matrix for a linear transformation relative to kernel and image bases</title>
+<p>
+Consider linear transformation <m>\funcdef{T}{V}{W}</m> between finite-dimensional spaces <m>V,W</m>.
+Suppose we carry out <xref ref="procedure-lintrans-ker-im-concepts-im-basis" /> to obtain a basis for <m>\im T</m>.
+We begin by determining a basis <m>\basisfont{K}</m> for <m>\ker T</m>,
+and then we extend that to a basis for <m>V</m> by obtaining additional linearly independent vectors <m>\basisfont{K}'</m>.
+But here, let's reverse the order of these vectors in constructing a basis for <m>V</m>:
+write
+<me> \basisfont{B} = \{ \uvec{v}_1, \dotsc, \uvec{v}_r, \uvec{u}_1, \dotsc, \uvec{u}_t \} </me>,
+where the <m>\uvec{v}_j</m> are the vectors from <m>\basisfont{K}'</m> and the <m>\uvec{u}_j</m> are the vectors from <m>\basisfont{K}</m>.
+</p><p>
+According to <xref ref="theorem-lintrans-ker-im-basis-im" />,
+the collection of image vectors
+<me> \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>
+will be a basis for <m>\im T</m> in <m>W</m>.
+Now extend this linearly independent set of vectors to a basis for all of <m>W</m> by including some additional linearly independent collection of vectors,
+giving us basis
+<me> \basisfont{B}' = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r), \uvec{w}_1, \dotsc, \uvec{w}_s \} </me>
+for <m>W</m>.
+</p><p>
+According to <xref ref="procedure-lintrans-matrix-concepts-compute" />,
+to compute <m>\matrixOf{T}{B'B}</m> we should express each of the image vectors in the collection
+<md>
+	<mrow> T(\basisfont{B}) \amp = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r), T(\uvec{u}_1), \dotsc, T(\uvec{u}_t) \} </mrow>
+	<mrow> \amp = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r), \zerovec_W, \dotsc, \zerovec_W \} </mrow>
+</md>
+as linear combinations of the vectors in <m>\basisfont{B}'</m>.
+But this is straightforward,
+as we have
+<md>
+	<mrow> T(\uvec{v}_1) \amp = 1 \, T(\uvec{v}_1) + \dotsb + 0 \, T(\uvec{v}_r) + 0 \, \uvec{w}_1 + \dotsb + 0 \, \uvec{w}_s \text{,} </mrow>
+	<mrow> \amp \vdots </mrow>
+	<mrow> T(\uvec{v}_r) \amp = 0 \, T(\uvec{v}_1) + \dotsb + 1 \, T(\uvec{v}_r) + 0 \, \uvec{w}_1 + \dotsb + 0 \, \uvec{w}_s \text{,} </mrow>
+	<mrow></mrow>
+	<mrow> T(\uvec{u}_1) \amp = 0 \, T(\uvec{v}_1) + \dotsb + 0 \, T(\uvec{v}_r) + 0 \, \uvec{w}_1 + \dotsb + 0 \, \uvec{w}_s \text{,} </mrow>
+	<mrow> \amp \vdots </mrow>
+	<mrow> T(\uvec{u}_s) \amp = 0 \, T(\uvec{v}_1) + \dotsb + 0 \, T(\uvec{v}_r) + 0 \, \uvec{w}_1 + \dotsb + 0 \, \uvec{w}_s </mrow>
+</md>.
+Thus for this particular choice of bases,
+the matrix <m>\matrixOf{T}{B'B}</m> has block form
+<me> \matrixOf{T}{B'B} = \begin{bmatrix} I_r \\ \amp \zerovec_{s \times t} \end{bmatrix} </me>,
+where
+<md><mrow> r \amp = \rank T \text{,} \amp s \amp = \dim W - \rank T \text{,} \amp t \amp = \nullity T </mrow></md>,
+and <m>I_r</m> and <m>\zerovec_{s \times t}</m> are the <m>r \times r</m> identity matrix and the <m>s \times t</m> zero matrix, respectively.
+</p>
+</paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-concepts-comp-inv">
+<title>Matrices of compositions and inverses</title>
+
+<paragraphs><title>The matrix of a composition</title>
+<p>
+In <xref ref="activity-lintrans-matrix-composition" />,
+we explored the relationship of the matrix of a composition to the matrices of the constituent transformations.
+Suppose
+<md><mrow>
+	\amp\funcdef{T}{U}{V} \text{,} \amp \amp\funcdef{S}{V}{W}
+</mrow></md>
+are linear,
+and we have chosen bases <m>\basisfont{B},\basisfont{B}',\basisfont{B}'''</m>
+for spaces <m>U,V,W</m>, respectively.
+Then we can create compositions both of <m>S,T</m> and of the induced transformations <m>\R^\ell \to \R^n</m>,  <m>\R^n \to \R^m</m>.
+<sidebyside width="40%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of a composition of transformations and the corresponding composition of matrix transformations</description>
+	<latex-image><xi:include href="concepts.d/rect-diagram-composition.tex" parse="text" /></latex-image>
+</image></sidebyside>
+Recall that the matrices <m>\matrixOf{T}{B'B}</m> and <m>\matrixOf{S}{B''B'}</m> are the standard matrices of the induced transformations
+<md><mrow>
+	\amp\funcdef{\widetilde{T} = \coordmap{B'} T \invcoordmap{B}}{\R^\ell}{\R^n} \text{,} \amp
+	\amp\funcdef{\widetilde{S} = \coordmap{B''} S \invcoordmap{B'}}{\R^n}{\R^m}
+</mrow></md>.
+The induced map of the composition <m>S T</m> satisfies
+<md>
+	<mrow> \widetilde{ST} \amp = \coordmap{B''} (S T) \invcoordmap{B} </mrow>
+	<mrow> \amp = \coordmap{B''} S \invcoordmap{B'} \coordmap{B'} T \invcoordmap{B} </mrow>
+	<mrow> \amp = \widetilde{S} \widetilde{T} </mrow>
+</md>,
+and so is the composition of the two induced transformations <m>\widetilde{S},\widetilde{T}</m>.
+We know that the standard matrix of a composition is the product of the standard matrices,
+which yields:
+<me>
+	\matrixOf{ST}{B''B}
+	= \stdmatrixOf{\widetilde{ST}}
+	= \stdmatrixOf{\widetilde{S} \widetilde{T}}
+	= \stdmatrixOf{\widetilde{S}} \stdmatrixOf{\widetilde{T}}
+	= \matrixOf{S}{B''B'} \matrixOf{T}{B' B}
+</me>.
+So the matrix of the composition of general linear transformations satisfies the same pattern as standard matrices do:
+<alert>the matrix of a composition is the product of the matrices</alert>,
+as long as the same intermediate basis <m>\basisfont{B'}</m> is used for both constituent transformations.
+</p>
+<remark><p>
+	Notice how the notation acts as a guide to the correct composition matrix.
+	An <m>m \times n</m> matrix and an <m>n \times \ell</m> matrix can be multiplied because the dimension on the inside matches,
+	and the result will correspond to the outside dimensions,
+	so that the size of the matrix product will be <m>m \times \ell</m>.
+	Similarly,
+	you can think of the two matrices <m>\matrixOf{S}{B''B'}</m> and <m>\matrixOf{T}{B'B}</m> as being compatible for multiplication because the two intermediate <m>\basisfont{B}'</m> match,
+	and then the result is <m>\matrixOf{ST}{B''B}</m>, a matrix relative to what were the two <q>outside</q> bases.
+</p></remark>
+</paragraphs>
+
+<paragraphs><title>The matrix of an operator composed with itself</title>
+<p>
+Applying the pattern of the matrix of a composition to the case of a linear operator <m>\funcdef{T}{V}{V}</m> composed with itself,
+relative to the choice of a <em>single</em> basis for the space <m>V</m>,
+we find that
+<me> \matrixOf{TT}{B} = \matrixOf{T}{B} \matrixOf{T}{B} = (\matrixOf{T}{B})^2 </me>.
+In analogy with this squaring of matrices,
+we write <m>T^2</m> instead of <m>TT</m> for the composition of <m>T</m> with itself.
+</p><p>
+Extending this pattern,
+writing <m>T^k</m> for the composition of <m>k</m> copies of operator <m>T</m>,
+we always have
+<md><mrow xml:id="equation-lintrans-matrix-concepts-matrix-of-power" tag="dagger">
+	\matrixOf{T^k}{B} = (\matrixOf{T}{B})^k
+</mrow></md>.
+</p>
+</paragraphs>
+
+<paragraphs><title>The matrix of an inverse</title>
+<p>
+In <xref ref="activity-lintrans-matrix-inverse" />,
+we explored matrices of isomorphisms and the relationship of the matrix of the inverse transformation to the matrix of the original isomorphism.
+Suppose <m>\funcdef{T}{V}{W}</m> is an isomorphism,
+in which case spaces <m>V,W</m> must have the same dimesion,
+say <m>n</m>.
+Also suppose we have chosen bases <m>\basisfont{B},\basisfont{B}'</m>
+of spaces <m>V,W</m>, respectively.
+Then we can compose <m>T</m> with its inverse to get <m>\inv{T} T = I_V</m>, the identity operator on <m>V</m>.
+<sidebyside width="40%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram of a composition of an isomorphism and its inverse</description>
+	<latex-image><xi:include href="concepts.d/rect-diagram-compose-inverse.tex" parse="text" /></latex-image>
+</image></sidebyside>
+Using our pattern of compositions from above,
+we have
+<me> \matrixOf{I_V}{B} = \matrixOf{\inv{T} T}{BB} = \matrixOf{\inv{T}}{BB'} \matrixOf{T}{B'B} </me>.
+However, the matrix of the identity operator relative to a single basis is always the identity matrix,
+so the above becomes
+<me> \matrixOf{\inv{T}}{BB'} \matrixOf{T}{B'B} = I </me>,
+from which we can conclude that these two matrices are inverses of each other
+(<xref ref="proposition-elem-matrices-check-only-left-inverse" />);
+<ie />
+<me> \matrixOf{\inv{T}}{BB'} = \invmatrixOf{T}{B'B} </me>.
+That is,
+<alert>the matrix of an inverse is the inverse of the matrix</alert>,
+as long as the same bases (in reverse order) are used to create both matrices.
+</p><p>
+For a linear operator <m>\funcdef{T}{V}{V}</m> with basis choice <m>\basisfont{B}' = \basisfont{B}</m>
+that is an isomorphism of <m>V</m> onto itself,
+we can use the above pattern to extend <xref ref="equation-lintrans-matrix-concepts-matrix-of-power" />:
+<me> \matrixOf{T^k}{B} = (\matrixOf{T}{B})^k </me>
+holds for <em>all</em> integer exponents <m>k</m>.
+</p>
+</paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-concepts-properties">
+<title>Properties of a transformation reflected in its matrix</title>
+
+<p>
+As we began to explore in <xref ref="activity-lintrans-matrix-inverse" />,
+we can tell a lot about a transformation from its matrix relative to any choice of bases for the domain and codomain space.
+</p><p>
+For example, since the only vector in a space that can have <m>\zerovec</m> as its coordinate vector is the zero vector,
+we can determine kernel vectors from the null space of the matrix of the transformation.
+And since linearity allows us to tie injectivity to the kernel
+(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />),
+we can tell if a transformation is injective by determining if its matrix has trivial null space.
+</p><p>
+Similarly, we can connect image vectors of the transformation to the column space of its matrix.
+In particular we can tie the rank of the transformation to the rank of the matrix,
+and thereby determine surjectivity.
+</p><p>
+Combining these two considerations,
+for a transformation between spaces of the same dimension
+(and, in particular, for linear operators),
+we can determine whether the transformation is an isomorphism by considering the invertibility of its matrix.
+</p><p>
+See the <em>Theory</em> section for this chapter <!-- TODO proper xrefs -->
+for formal statements of these connections between the properties of a transformation and the properties of its matrix.
+</p>
+
+</subsection>
+
+</section>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-iso-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-iso-examples-compositions" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-examples-compositions" /></em></li>
+<li><xref ref="subsection-lintrans-iso-examples-inverses" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-examples-inverses" /></em></li>
+<li><xref ref="subsection-lintrans-iso-examples-surjective" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-examples-surjective" /></em></li>
+<li><xref ref="subsection-lintrans-iso-examples-by-basis" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-examples-by-basis" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-iso-examples-compositions">
+<title>Computing with compositions</title>
+
+<example><title>Computing the image of a composition</title>
+	<p>
+	Consider
+	<md><mrow>
+		\amp\funcdef{T}{\poly_3(\R)}{\matrixring_2(\R)} \text{,} \amp
+		\amp\funcdef{S}{\matrixring_2(\R)}{\R}
+	</mrow></md>
+	defined by
+	<md><mrow>
+		T(a x^3 + b x^2 + c x + d)
+		\amp = \begin{bmatrix} a + b \amp b + c \\ c + d \amp a - d \end{bmatrix} \text{,}
+		\amp
+		S(A) \amp = \trace A
+	</mrow></md>.
+	Then the composition is <me> \funcdef{ST}{\poly_3}{\R} </me>.
+	</p><p>
+	What is the image vector under the composition for <me> p(x) = 3 x^3 - 2 x^2 + x - 5 </me>?
+	Compute:
+	<md alignment="gather">
+		<mrow>
+			T\bigl(p(x)\bigr)
+			= \begin{bmatrix} 3 + (-2) \amp (-2) + 1 \\ 1 + (-5) \amp 3 - (-5) \end{bmatrix}
+			= \begin{bmatrix} 1 \amp -1 \\ -4 \amp 8 \end{bmatrix}
+			\text{,}
+		</mrow>
+		<mrow></mrow>
+		<mrow> S\left( \begin{bmatrix} 1 \amp -1 \\ -4 \amp 8 \end{bmatrix} \right) = 1 + 8 = 9 </mrow>
+	</md>.
+	So <me> ST(3 x^3 - 2 x^2 + x - 5) = 9 </me>.
+	</p>
+</example>
+
+<example><title>Computing input-output formulas for a composition</title><p>
+	Consider
+	<md><mrow>
+		\amp\funcdef{D}{\poly_3(\R)}{\poly_2(\R)} \text{,} \amp
+		\amp\funcdef{E_3}{\poly_2(\R)}{\R} \text{,} \amp
+		\amp\funcdef{T}{\R}{\R^3}
+	</mrow></md>,
+	where <m>D</m> is differentiation, <m>E_3</m> is evaluation at <m>x = 3</m>, and <m>T</m> is defined by
+	<me> T(y) = (y, 0, -y) </me>.
+	We can compute an input-output formula for the composition <m>S = T E_3 D</m> by
+	<md>
+		<mrow> S(a x^3 + b x^2 + c x + d) \amp = T\Bigl(E _3\bigl(D(a x^3 + b x^2 + c x + d)\bigr)\Bigr) </mrow>
+		<mrow> \amp = T\bigl(E _3(3 a x^2 + 2 b x + c)\bigr) </mrow>
+		<mrow> \amp = T(27 a + 3 b + c) </mrow>
+		<mrow> \amp = (27 a + 3 b + c, 0, - 27 a - 3 b - c) </mrow>
+	</md>.
+</p></example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-examples-inverses">
+<title>Checking and computing inverses</title>
+
+<example xml:id="example-lintrans-iso-determining-invertible">
+	<title>Determining whether a transformation is invertible</title>
+	<p>
+	Consider <m>\funcdef{T}{\R^4}{\matrixring_{2\times 3}(\R)}</m> defined by
+	<me> T(a,b,c,d) = \begin{bmatrix} a + d \amp b + c \amp a + d \\ b - c \amp a - d \amp b - c \end{bmatrix} </me>.
+	Does <m>T</m> have an inverse transformation <m>funcdef{T}{\im T}{\R^4}</m>?
+	We can use the kernel to investigate:
+	<md alignment="gather">
+		<mrow> \phantom{\implies} T(a,b,c,d) = \zerovec </mrow>
+		<mrow>
+			\implies
+			\begin{bmatrix} a + d \amp b + c \amp a + d \\ b - c \amp a - d \amp b - c \end{bmatrix}
+			= \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix}
+		</mrow><mrow>
+			\implies \left\{ \begin{array}{ccccl}
+				a \amp + \amp d \amp = \amp 0 \text{,} \\
+				b \amp + \amp c \amp = \amp 0 \text{,} \\
+				a \amp + \amp d \amp = \amp 0 \text{,} \\
+				b \amp - \amp c \amp = \amp 0 \text{,} \\
+				a \amp - \amp d \amp = \amp 0 \text{,} \\
+				b \amp - \amp c \amp = \amp 0 \text{.}
+			\end{array}\right.
+		</mrow>
+	</md>
+	We could use row reducing to solve this homogeneous system,
+	but it should be clear that we cannot have both <m>a = d</m> and <m>a = - d</m> simultaneously unless both <m>a,d</m> are zero,
+	and similarly for <m>b</m> and <m>c</m>.
+	</p><p>
+	Therefore, since <m>\ker T = \{\zerovec\}</m>,
+	<m>T</m> is one-to-one and an inverse <m>\funcdef{\inv{T}}{\im T}{\R^4}</m> exists.
+	</p>
+</example>
+
+<example><title>Computing inverse images</title>
+	<p>
+	Let's continue with the invertible transformation <m>T</m> from <xref ref="example-lintrans-iso-determining-invertible" />.
+	What is the inverse image
+	<me> \inv{T}\left(\left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]\right) </me>?
+	First, recall that <m>\inv{T}</m> is only defined on <m>\im T</m>.
+	Is the matrix used as input to <m>\inv{T}</m> above actually in <m>\im T</m>?
+	Attempting to compute its inverse image will answer the question for us <mdash />
+	if we are able to come to a solution,
+	then it must be in <m>\im T</m>,
+	and if we find that there is no solution,
+	then it must not be in <m>\im T</m>.
+	As usual, attempting to solve for the inverse image will lead to a linear system,
+	and we know how to determine when a system has solutions or not
+	(<xref ref="proposition-row-red-sys-sol-type-conditions" />).
+	</p><p>
+	The inverse image we would like to calculate (if it exists) will be precisely the <m>\R^4</m> vector that satisfies
+	<md><mrow>
+		T(a,b,c,d) \amp = \left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]
+		\amp \amp \Longleftrightarrow \amp
+		\begin{bmatrix} a + d \amp b + c \amp a + d \\ b - c \amp a - d \amp b - c \end{bmatrix}
+		\amp = \left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]
+	</mrow></md>,
+	from which we obtain linear system
+	<md>
+		<mrow>
+			\left\{ \begin{array}{ccccrl}
+				a \amp + \amp d \amp = \amp  6 \amp \text{,} \\
+				b \amp + \amp c \amp = \amp  1 \amp \text{,} \\
+				a \amp + \amp d \amp = \amp  6 \amp \text{,} \\
+				b \amp - \amp c \amp = \amp  5 \amp \text{,} \\
+				a \amp - \amp d \amp = \amp -4 \amp \text{,} \\
+				b \amp - \amp c \amp = \amp  5 \amp \text{.}
+			\end{array}\right.
+		</mrow>
+	</md>
+	This system can be converted to an augmented matrix and reduced,
+	leading to one unique solution
+	<md><mrow> a \amp = 1 \text{,} \amp b \amp = 3 \text{,} \amp c \amp = -2 \text{,} \amp d \amp = 5 </mrow></md>,
+	hence
+	<me> \inv{T}\left(\left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]\right) = (1,3,-2,5) </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-examples-surjective">
+<title>Checking surjectivity</title>
+
+<p> The easiest way to determine surjectivity of a transformation is to use <xref ref="theorem-lintrans-ker-im-dimension" /> to establish the dimension of the image. </p>
+
+<example><title>Determining whether a transformation is surjective</title><p>
+	In <xref ref="example-lintrans-iso-determining-invertible" />,
+	we found that a transformation <m>\funcdef{T}{\R^4}{\matrixring_{2\times 3}(\R)}</m> had trivial kernel.
+	Using <xref ref="theorem-lintrans-ker-im-dimension" />,
+	we must then have
+	<me> \dim (\im T) = \dim (\R^4) - \dim (\ker T) = 4 - 0 = 4 </me>,
+	and so
+	<me> \dim (\im T) \lt \dim \bigl(\matrixring_{2 \times 3}(\R)\bigr) </me>.
+	Since <m>\im T</m> is a subspace of the codomain space <m>\matrixring_{2 \times 3}(\R)</m>,
+	<xref ref="proposition-dimension-subspace-dim-props-same-dim">Statement</xref> of <xref ref="proposition-dimension-subspace-dim-props" />
+	tells us that it is not possible for <m>T</m> to be surjective.
+</p></example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-examples-by-basis">
+<title>Defining isomorphisms by choice of bases</title>
+
+<example><title>Creating an isomorphism by sending a domain space basis to a codomain space basis</title><p>
+	Let's create an isomorphsm <m>\funcdef{T}{\R^4}{\matrixring_2(\R)}</m> by sending the standard basis for <m>\R^4</m> to some nonstandard basis of <m>\matrixring_2(\R)</m>:
+	<md>
+		<mrow>
+			T(1,0,0,0) \amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \text{,} \amp
+			T(0,0,1,0) \amp = \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right] \text{,}
+		</mrow>
+		<mrow>
+			T(0,1,0,0) \amp = \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix} \text{,} \amp
+			T(0,0,0,1) \amp = \left[\begin{array}{cr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] \text{.}
+		</mrow>
+	</md>
+	We can determine an input-ouput formula for <m>T</m> by expanding an arbitrary input as a linear combination of the standard basis of <m>\R^4</m>,
+	and using the linearity of <m>T</m>:
+	<md>
+		<mrow> T(a,b,c,d) \amp = a \, T(1,0,0,0) + b \, T(0,1,0,0) + c \, T(0,0,1,0) + d \, T(0,0,0,1) </mrow>
+		<mrow>
+			\amp
+			= a \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			+ b \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
+			+ c \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right]
+			+ d \left[\begin{array}{cr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
+		</mrow>
+		<mrow> \amp = \begin{bmatrix} a + d \amp b + c \\ b - c \amp a - d  \end{bmatrix} </mrow>
+	</md>.
+	Similarly to <xref ref="example-lintrans-iso-determining-invertible" />,
+	it is easy to check that this transformation is one-to-one by verifying that the kernel is trivial.
+	Then, using <xref ref="theorem-lintrans-ker-im-dimension" />,
+	we must have
+	<me> \dim (\im T) = \dim (\R^4) - \dim (\ker T) = 4 - 0 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </me>,
+	from which we can conclude that <m>T</m> must be surjective as well.
+	Together, trivial kernel and full image tells us that <m>T</m> is indeed an isomorphism.
+</p></example>
+
+<example><title>A geometric example: rotation in <m>\R^3</m></title>
+	<p>
+	Rotation around an axis should be an isomorphism of <m>\R^3</m> onto <m>\R^3</m>,
+	as every vector in <m>\R^3</m> can be realized as the rotated image of one unique <q>input</q> vector.
+	</p><p>
+	Let <m>\funcdef{T}{\R^3}{\R^3}</m> represent counter-clockwise rotation by <m>\pi/2</m> around the axis through the origin and parallel to the vector
+	<me> \uvec{n} = (2,-1,3) </me>,
+	where <q>counter-clockwise</q> is considered as one looks <q>downward</q> along <m>\uvec{n}</m> back toward the origin.
+	Let's set up an orthogonal basis of <m>\R^3</m> that will help describe <m>T</m>, beginning with the axis <m>\uvec{n}</m>.
+	It will be easiest to analyze rotation around <m>\uvec{n}</m> using vectors in the plane normal to <m>\uvec{n}</m>.
+	So let's guess a vector
+	<me> \uvec{v}_1 = (1,2,0) </me>
+	that is parallel to this plane
+	(which we can verify by computing <m>\dotprod{\uvec{n}}{\uvec{v}_1} = 0</m>).
+	Now, since <m>T</m> rotates by <m>\pi/2</m>,
+	it will be convenient to take another vector in the normal plane that is also orthogonal to <m>\uvec{v}_1</m>.
+	We could use Gram-Schmidt to do this,
+	but instead we'll use the cross product to be able to use the right-hand rule to control the direction
+	(<q>positive</q> or <q>negative</q>)
+	of the result.
+	Use the right-hand rule to convince yourself that
+	<me> \uvec{v}_2 = \crossprod{\uvec{n}}{\uvec{v}_1} = (-6, 3, 5) </me>
+	will be counter-clockwise (relative to <m>\uvec{n}</m> as described above) from <m>\uvec{v}_1</m>.
+	</p><p>
+	Finally, we need to adjust <m>\uvec{v}_1, \uvec{v}_2</m> to be the same length,
+	as vectors shouldn't change length as they rotate.
+	However, instead of normalizing both to unit vectors,
+	we can compute that <m>\uvec{v}_2</m> is <m>\sqrt{14}</m> times as long as <m>\uvec{v}_1</m>,
+	so let's redefine <m>\uvec{v}_1</m> to be
+	<me> \uvec{v}_1 = (\sqrt{14}, 2 \sqrt{14}, 0) </me>.
+	We now have an orthogonal basis
+	<m> \basisfont{B} = \{ \uvec{n}, \uvec{v}_1, \uvec{v}_2 \} </m>
+	of <m>\R^3</m>.
+	Since <m>T</m> is uniquely defined by the collection of image vectors <m>T(\basisfont{B})</m>,
+	we know <m>T</m> completely by knowing the images
+	<md><mrow>
+		T(\uvec{n}) \amp = \uvec{n} \text{,} \amp
+		T(\uvec{v}_1) \amp = \uvec{v}_2 \text{,} \amp
+		T(\uvec{v}_2) \amp = - \uvec{v}_1
+	</mrow></md>.
+	</p>
+</example>
+
+</subsection>
+
+</section>

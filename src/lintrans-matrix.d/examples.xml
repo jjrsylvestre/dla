@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-matrix-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-matrix-examples-computing" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-examples-computing" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-examples-using" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-examples-using" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-matrix-examples-computing">
+<title>Computing the matrix of a linear transformation</title>
+
+<p>
+Here we will carry out the computations of <xref ref="activity-lintrans-matrix-examples" />.
+In that discovery activity,
+the instruction to use the isomorphisms from <xref ref="activity-lintrans-matrix-coord-maps-and-inverses" />
+amounts to choosing standard bases for each space
+(and choosing the provided basis for <m>V</m> in <xref ref="activity-lintrans-matrix-examples-trig-exp-diff">Discovery</xref>).
+We will work each example in two different ways <mdash />
+using <xref ref="procedure-lintrans-matrix-concepts-compute" />,
+but also by just considering input-output formulas.
+</p>
+
+<example xml:id="example-lintrans-matrix-computing">
+	<title>From <xref ref="activity-lintrans-matrix-examples" /></title>
+	<p><ol>
+		<li>
+			<p>
+			In <xref ref="activity-lintrans-matrix-examples-M2-to-P2">Discovery</xref>,
+			we considered <m>\funcdef{T}{\matrixring_2(\R)}{\poly_2(\R)}</m>
+			defined by
+			<me> T\left(\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\right) = (a + b) x^2 + (a + b + c) x - d </me>.
+			Choosing the standard basis <m>\basisfont{S}</m> for domain space <m>\matrixring_2(\R)</m>
+			and the choice <m>\basisfont{S}' = \{ x^2, x, 1 \}</m> of a standard basis for <m>\poly_2(\R)</m>,
+			we create a chain of transformations
+			<me> \R^4 \xrightarrow{\invcoordmap{S}} \matrixring_2(\R) \xrightarrow{T} \poly_2(\R) \xrightarrow{\coordmap{S'}} \R^3 </me>
+			where a typical vector <m>(a,b,c,d)</m> in <m>\R^4</m> shuttles through the pipe by
+			<me>
+				\begin{bmatrix} a \\ b \\ c \\ d \end{bmatrix}
+				\mapsto
+				\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+				\mapsto
+				(a + b) x^2 + (a + b + c) x - d
+				\mapsto
+				\begin{bmatrix} a + b \\ a + b + c \\ -d \end{bmatrix}
+			</me>.
+			So the composite transformation <m>\R^4 \to \R^3</m> has input-output formulas
+			<me>
+				\left\{\begin{array}{cclclclcl}
+					y_1 \amp = \amp x_1 \amp + \amp x_2 \text{,} \\
+					y_2 \amp = \amp x_1 \amp + \amp x_2 \amp + \amp x_3 \text{,} \\
+					y_3 \amp = \amp \amp \amp \amp \amp \amp - \amp x_4 \text{.} \\
+				\end{array}\right.
+			</me>
+			Using these formulas as rows,
+			we obtain matrix
+			<me>
+				\matrixOf{T}{S'S}
+				= \left[\begin{array}{rrrr}
+					1 \amp 1 \amp 0 \amp  0 \\
+					1 \amp 1 \amp 1 \amp  0 \\
+					0 \amp 0 \amp 0 \amp -1
+				\end{array}\right]
+			</me>.
+			</p><p>
+			We should get the same result if we using <xref ref="procedure-lintrans-matrix-concepts-compute" />.
+			First, compute the images of the four basis vectors in <m>\basisfont{S}</m>:
+			<md>
+				<mrow>
+					T\left(\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}\right)
+					\amp = x^2 + x \text{,}
+					\amp
+					T\left(\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}\right)
+					\amp = x^2 + x \text{,}
+				</mrow><mrow>
+					T\left(\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}\right)
+					\amp = x \text{,}
+					\amp
+					T\left(\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}\right)
+					\amp = -1 \text{.}
+				</mrow>
+			</md>
+			Relative to the chosen basis <m>\basisfont{S}'</m> of the codomain space <m>\poly_2(\R)</m>,
+			we have coordinate vectors
+			<md>
+				<mrow>
+					\matrixOf{T(E_{11})}{S'} \amp = \begin{bmatrix} 1 \\ 1 \\  0 \end{bmatrix} \text{,} \amp
+					\matrixOf{T(E_{12})}{S'} \amp = \begin{bmatrix} 1 \\ 1 \\  0 \end{bmatrix} \text{,}
+				</mrow><mrow></mrow><mrow>
+					\matrixOf{T(E_{21})}{S'} \amp = \begin{bmatrix} 0 \\ 1 \\  0 \end{bmatrix} \text{,} \amp
+					\matrixOf{T(E_{22})}{S'} \amp = \left[\begin{array}{r} 0 \\ 0 \\ -1 \end{array}\right]
+				</mrow>
+			</md>.
+			Using these coordinate vectors as columns in a matrix,
+			we obtain the same result for <m>\matrixOf{T}{S'S}</m> as before.
+			</p>
+		</li>
+		<li>
+			<p>
+			In <xref ref="activity-lintrans-matrix-examples-P2-to-U2">Discovery</xref>,
+			we considered
+			<m>\funcdef{T}{\poly_2(\R)}{\uppermatring_2(\R)}</m>,
+			for <m>\uppermatring_2(\R)</m> the space of <m>2 \times 2</m> upper triangular matrices,
+			defined by
+			<me> T(a x^2 + b x + c) = \begin{bmatrix} a - b \amp b + c \\ 0 \amp c - a \end{bmatrix} </me>.
+			Again, we take <m>\basisfont{S} = \{ x^2, x, 1 \}</m> as a choice of standard basis for <m>\poly_2(\R)</m>,
+			and choose <m>\basisfont{S}' = \{ E_{11}, E_{12}, E_{22} \}</m> as a basis for <m>\uppermatring_2(\R)</m>.
+			With these choices,
+			we create a chain of transformations
+			<me> \R^3 \xrightarrow{\invcoordmap{S}} \poly_2(\R) \xrightarrow{T} \uppermatring_2(\R) \xrightarrow{\coordmap{S'}} \R^3 </me>
+			where a typical vector <m>(a,b,c)</m> in <m>\R^3</m> shuttles through the pipe by
+			<me>
+				\begin{bmatrix} a \\ b \\ c \end{bmatrix}
+				\mapsto
+				a x^2 + b x + c
+				\mapsto
+				\begin{bmatrix} a - b \amp b + c \\ 0 \amp c - a \end{bmatrix}
+				\mapsto
+				\begin{bmatrix} a - b \\ b + c \\ c - a \end{bmatrix}
+			</me>.
+			So the composite transformation <m>\R^3 \to \R^3</m> has input-output formulas
+			<me>
+				\left\{\begin{array}{ccrcccl}
+					y_1 \amp = \amp   x_1 \amp - \amp x_2 \text{,} \\
+					y_2 \amp = \amp       \amp   \amp x_2 \amp + \amp x_3 \text{,} \\
+					y_3 \amp = \amp - x_1 \amp \amp \amp + \amp x_3 \text{.} \\
+				\end{array}\right.
+			</me>
+			Using these formulas as rows,
+			we obtain matrix
+			<me>
+				\matrixOf{T}{S'S}
+				= \left[\begin{array}{rrrr}
+					 1 \amp -1 \amp 0 \\
+					 0 \amp  1 \amp 1 \\
+					-1 \amp  0 \amp 1
+				\end{array}\right]
+			</me>.
+			</p><p>
+			We should get the same result if we using <xref ref="procedure-lintrans-matrix-concepts-compute" />.
+			First, compute the images of the three basis vectors in <m>\basisfont{S}</m>:
+			<md><mrow>
+				T(x^2) \amp = \left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] \text{,} \amp
+				T(x) \amp = \left[\begin{array}{rr} -1 \amp 1 \\ 0 \amp 0 \end{array}\right] \text{,} \amp
+				T(1) \amp = \begin{bmatrix} 0 \amp 1 \\ 0 \amp 1 \end{bmatrix} \text{.}
+			</mrow></md>
+			Relative to the chosen basis <m>\basisfont{S}'</m> of the codomain space <m>\uppermatring_2(\R)</m>,
+			we have coordinate vectors
+			<md><mrow>
+				\matrixOf{T(x^2)}{S'} \amp = \left[\begin{array}{r} 1 \\ 0 \\ -1 \end{array}\right] \text{,} \amp
+				\matrixOf{T(x)}{S'} \amp = \left[\begin{array}{r} -1 \\ 1 \\  0 \end{array}\right] \text{,} \amp
+				\matrixOf{T(1)}{S'} \amp = \begin{bmatrix} 0 \\ 1 \\  1 \end{bmatrix}
+			</mrow></md>.
+			Using these coordinate vectors as columns in a matrix,
+			we obtain the same result for <m>\matrixOf{T}{S'S}</m> as before.
+			</p>
+		</li>
+		<li xml:id="example-lintrans-matrix-computing-diff">
+			<p>
+			In <xref ref="activity-lintrans-matrix-examples-trig-exp-diff">Discovery</xref>,
+			we considered the differentiation operator <m>\funcdef{D}{V}{V}</m> on the space <m>V = \Span \{ e^x \sin x, e^x \cos x \}</m>.
+			The provided spanning set for <m>V</m> is linearly independent (check!).
+			Using this basis on both the <q>input</q> and <q>output</q> ends,
+			we create a chain of transformations
+			<me> \R^2 \xrightarrow{\invcoordmap{B}} V \xrightarrow{D} V \xrightarrow{\coordmap{B}} \R^2 </me>
+			where a typical vector <m>(a,b)</m> in <m>\R^2</m> shuttles through the pipe by
+			<me>
+				\begin{bmatrix} a \\ b \end{bmatrix}
+				\mapsto
+				a e^x \sin x + b e^x \cos x
+				\mapsto
+				(a - b) e^x \sin x + (a + b) \cos x
+				\mapsto
+				\begin{bmatrix} a - b \\ a + b \end{bmatrix}
+			</me>.
+			So the composite transformation <m>\R^2 \to \R^2</m> has input-output formulas
+			<me>
+				\left\{\begin{array}{cclcl}
+					y_1 \amp = \amp x_1 \amp - \amp x_2 \text{,} \\
+					y_2 \amp = \amp x_1 \amp + \amp x_2 \text{.}
+				\end{array}\right.
+			</me>
+			Using these formulas as rows,
+			we obtain matrix
+			<me>
+				\matrixOf{T}{B}
+				= \left[\begin{array}{rr}
+					1 \amp -1 \\
+					1 \amp  1
+				\end{array}\right]
+			</me>.
+			</p><p>
+			We should get the same result if we using <xref ref="procedure-lintrans-matrix-concepts-compute" />.
+			First, compute the images of the two basis vectors in <m>\basisfont{S}</m>:
+			<md>
+				<mrow> D(e^x \sin x) \amp = e^x \sin x + e^x \cos x \text{,} </mrow>
+				<mrow> D(e^x \cos x) \amp = - e^x \sin x + e^x \cos x \text{.} </mrow>
+			</md>
+			Relative to the basis <m>\basisfont{B}</m> of <m>V</m>,
+			we have coordinate vectors
+			<md><mrow>
+				\matrixOf{D(e^x \sin x)}{B} \amp = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \text{,} \amp
+				\matrixOf{D(e^x \cos x)}{B} \amp = \left[\begin{array}{r} -1 \\ 1 \end{array}\right]
+			</mrow></md>.
+			Using these coordinate vectors as columns in a matrix,
+			we obtain the same result for <m>\matrixOf{D}{B}</m> as before.
+			</p>
+		</li>
+	</ol></p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-examples-using">
+<title>Using the matrix of a linear transformation</title>
+
+<p> We can use the matrix of a linear transformation to compute image vectors. </p>
+<p>
+In each of the following examples,
+we consider the differentiation operator <m>\funcdef{D}{V}{V}</m> on the space <m>V = \Span \{ e^x \sin x, e^x \cos x \}</m>.
+In <xref ref="example-lintrans-matrix-computing-diff" text="local">Part</xref>
+of <xref ref="example-lintrans-matrix-computing" /> above,
+we have already computed
+<me>
+	\matrixOf{D}{B}
+	= \left[\begin{array}{rr}
+		1 \amp -1 \\
+		1 \amp  1
+	\end{array}\right]
+</me>,
+where <m>\basisfont{B}</m> is the provided basis for <m>V</m>,
+by simply computing the derivatives of the basis vectors.
+This information should be enough to allow us to compute the derivative of every <em>linear combination</em> of the basis vectors by simple matrix multiplication,
+and in fact will also allow us to compute <em>anti</em>derivatives,
+since <m>\matrixOf{D}{B}</m> is invertible.
+</p>
+
+<example xml:id="example-lintrans-matrix-diff-once">
+	<title>Computing an image vector</title>
+	<p>
+	Consider <m>f(x) = 3 e^x \sin x - e^x \cos x</m>,
+	with
+	<me> \matrixOf{f}{B} = \left[\begin{array}{r} 3 \\ -1 \end{array}\right] </me>.
+	Then we can compute
+	<me>
+		\matrixOf{D(f)}{B}
+		= \matrixOf{D}{B} \matrixOf{f}{B}
+		= \left[\begin{array}{rr}
+			1 \amp -1 \\
+			1 \amp  1
+		\end{array}\right]
+		\left[\begin{array}{r} 3 \\ -1 \end{array}\right]
+		= \begin{bmatrix} 4 \\ 2 \end{bmatrix}
+	</me>.
+	Converting this coordinate vector back into a linear combination,
+	we find
+	<me> D\bigl(f(x)\bigr) = 4 e^x \sin x + 2 e^x \cos x </me>.
+	</p>
+</example>
+
+<example xml:id="example-lintrans-matrix-diff-twice">
+	<title>Computing the image vector of a composition</title>
+	<p>
+	Again consider <m>f(x) = 3 e^x \sin x - e^x \cos x</m>.
+	What if we would like to compute the <em>second</em> derivative of <m>f(x) = 3 e^x \sin x - e^x \cos x</m>?
+	We could of course just multiply the resulting coordinate vector from <xref ref="example-lintrans-matrix-diff-once" />
+	by <m>\matrixOf{D}{B}</m> again.
+	But let's proceed as if we had not already calculated <m>D(f)</m>.
+	</p><p>
+	Since the second derivative of <m>f</m> is <me>D\bigl(D(f)\bigr) = D^2(f)</me>,
+	we can compute
+	<me>
+		\matrixOf{D^2}{B}
+		= (\matrixOf{D}{B})^2
+		= \left[\begin{array}{rr}
+			1 \amp -1 \\
+			1 \amp  1
+		\end{array}\right]^2
+		= \left[\begin{array}{rr}
+			0 \amp -2 \\
+			2 \amp  0
+		\end{array}\right]
+	</me>.
+	Then from this we can compute
+	<me>
+		\matrixOf{D^2(f)}{B}
+		= \matrixOf{D^2}{B} \matrixOf{f}{B}
+		= \left[\begin{array}{rr}
+			0 \amp -2 \\
+			2 \amp  0
+		\end{array}\right]
+		\left[\begin{array}{r} 3 \\ -1 \end{array}\right]
+		= \begin{bmatrix} 2 \\ 6 \end{bmatrix}
+	</me>.
+	Converting this coordinate vector back into a linear combination,
+	we find
+	<me> D^2\bigl(f(x)\bigr) = 2 e^x \sin x + 6 e^x \cos x </me>.
+	</p>
+</example>
+
+<example xml:id="example-lintrans-matrix-antidiff">
+	<title>Computing the image vector of the inverse of an operator</title>
+	<p>
+	Once again consider <m>f(x) = 3 e^x \sin x - e^x \cos x</m>.
+	Since <m>\matrixOf{D}{B}</m> is invertible,
+	so must be operator <m>D</m>.
+	And if <m>D</m> represents differentiation,
+	then <m>\inv{D}</m> must represent antidifferentiation,
+	so computing <m>\inv{D}(f)</m> will be the antiderivative of <m>f(x)</m>.
+	</p><p>
+	First compute
+	<me>
+		\matrixOf{\inv{D}}{B}
+		= \invmatrixOf{D}{B}
+		= \inv{\left[\begin{array}{rr} 1 \amp -1 \\ 1 \amp  1 \end{array}\right]}
+		= \frac{1}{2} \, \left[\begin{array}{rr} 1 \amp 1 \\ -1 \amp  1 \end{array}\right]
+	</me>.
+	With this,
+	we can compute
+	<me>
+		\matrixOf{\inv{D}(f)}{B}
+		= \matrixOf{\inv{D}}{B} \matrixOf{f}{B}
+		= \frac{1}{2} \, \left[\begin{array}{rr} 1 \amp 1 \\ -1 \amp  1 \end{array}\right]
+		\left[\begin{array}{r} 3 \\ -1 \end{array}\right]
+		= \left[\begin{array}{r} 1 \\ -2 \end{array}\right]
+	</me>.
+	Converting this coordinate vector back into a linear combination,
+	we find that the antiderivative of <m>f</m> is
+	<me> \inv{D}\bigl(f(x)\bigr) = e^x \sin x - 2 e^x \cos x </me>.
+	</p>
+</example>
+
+</subsection>
+
+</section>

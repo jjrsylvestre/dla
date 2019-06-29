@@ -180,7 +180,7 @@ See <xref ref="example-lintrans-basic-via-spanning" /> for an example of using a
 This pattern suggests a way to <em>define</em> a linear transformation with desired outputs.
 </p>
 
-<algorithm xml:id="procedure-lintrans-basic-basis-to-transformation">
+<algorithm xml:id="procedure-lintrans-basic-concepts-basis-to-transformation">
 	<title>Using a domain basis to define a linear transformation</title>
 	<p>
 	To create a linear transformation <m>\funcdef{T}{V}{W}</m>,
@@ -218,7 +218,7 @@ See <xref ref="example-lintrans-basic-via-nonbasis" /> for an example of how thi
 <title>The standard matrix of a transformation <m>\R^n \to \R^m</m></title>
 
 <p>
-Suppose we apply <xref ref="procedure-lintrans-basic-basis-to-transformation" />
+Suppose we apply <xref ref="procedure-lintrans-basic-concepts-basis-to-transformation" />
 to the task of creating a linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>
 by choosing the standard basis of the domain space <m>\R^n</m>,
 and then setting
@@ -275,6 +275,20 @@ so that <m>T = T_A</m> for <m>A = \stdmatrixOf{T}</m>,
 is called the <term>standard matrix of <m>T</m></term>.
 Expressing the above pattern in words,
 <alert>the standard matrix of a transformation is the matrix whose columns are the image vectors for the standard basis vectors under the transformation</alert>.
+</p>
+
+<algorithm xml:id="procedure-lintrans-basic-concepts-std-matrix">
+	<title>The standard matrix of a linear transformation <m>\R^n \to \R^m</m></title>
+	<p>
+	To compute <m>\stdmatrixOf{T}</m> for a linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>.
+	<ol>
+		<li> Compute image vector <m>T(\uvec{e}_j)</m> for each standard basis vector in the domain space <m>\R^n</m>. </li>
+		<li> Use the computed image vectors as the columns in <m>\stdmatrixOf{T}</m>. </li>
+	</ol>
+	</p>
+</algorithm>
+
+<p>
 See <xref ref="subsection-lintrans-basic-examples-std-matrix" /> for examples of determining standard matrices.
 </p>
 <aside><title>A look ahead</title><p>
@@ -371,18 +385,18 @@ for all vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m> and all scalars <m>k</m>.
 and <xref ref="subsection-change-of-basis-concepts-coord-vecs-linearity" />.)
 So the <term>coordinate transformation</term>
 <md><mrow>
-	\amp\funcdef{C_{\basisfont{B}}}{V}{\R^n} \text{,} \amp
-	C_{\basisfont{B}}(\uvec{v}) \amp = \matrixOf{\uvec{v}}{B}
+	\amp\funcdef{\coordmap{B}}{V}{\R^n} \text{,} \amp
+	\coordmap{B}(\uvec{v}) \amp = \matrixOf{\uvec{v}}{B}
 </mrow></md>
 is linear.
 </p><p>
 If <m>V = \R^n</m>,
-then the standard matrix for <m>C_{\basisfont{B}}</m> is
+then the standard matrix for <m>\coordmap{B}</m> is
 <me>
-	\stdmatrixOf{C_{\basisfont{B}}}
+	\stdmatrixOf{\coordmap{B}}
 	= \begin{bmatrix}
 		| \amp | \amp \amp | \\
-		C_{\basisfont{B}}(\uvec{e}_1) \amp C_{\basisfont{B}}(\uvec{e}_2) \amp \cdots \amp C_{\basisfont{B}}(\uvec{e}_n) \\
+		\coordmap{B}(\uvec{e}_1) \amp \coordmap{B}(\uvec{e}_2) \amp \cdots \amp \coordmap{B}(\uvec{e}_n) \\
 		| \amp | \amp \amp |
 	\end{bmatrix}
 	= \begin{bmatrix}

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-matrix-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-matrix-theory-unique" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-theory-unique" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-theory-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-theory-props" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-theory-comp-inv" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-theory-comp-inv" /></em></li>
+<li><xref ref="subsection-lintrans-matrix-theory-hom-space" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-matrix-theory-hom-space" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-matrix-theory-unique">
+<title>The matrix of a linear transformation</title>
+
+<p>
+Once a choice of bases for domain and codomain are made,
+there is one single matrix that will represent a transformation.
+</p>
+
+<theorem xml:id="theorem-lintrans-matrix-unique">
+	<title>Transformation matrices are unique relative to a choice of bases</title>
+	<statement>
+		<p>
+		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation between finite-dimensional vector spaces <m>V,W</m>,
+		with <m>\dim V = n</m> and <m>\dim W = m</m>.
+		Further suppose we have chosen bases <m>\basisfont{B},\basisfont{B}'</m> of <m>V</m> and <m>W</m>, respectively.
+		</p><p>
+		Then there exists one unique <m>m \times n</m> matrix <m>\matrixOf{T}{B'B}</m> so that
+		<md><mrow xml:id="equation-lintrans-matrix-mult-coord-vec" tag="star">
+			\matrixOf{T(\uvec{v})}{B'} = \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B}
+		</mrow></md>
+		for all vectors <m>\uvec{v}</m> in the domain space <m>V</m>.
+		</p>
+	</statement>
+	<proof><title>Proof idea</title>
+		<p>
+		We already discussed this in <xref ref="subsection-lintrans-matrix-concepts-idea" />.
+		The matrix of <m>T</m> relative to <m>\basisfont{B},\basisfont{B}'</m> is defined to be the standard matrix of the composition
+		<m>\coordmap{B'} T \invcoordmap{B}</m>,
+		where <m>\coordmap{B},\coordmap{B'}</m> are the coordinate maps on <m>V,W</m> relative to <m>\basisfont{B},\basisfont{B}'</m>,
+		respectively.
+		And we know that standard matrices are unique from
+		<xref ref="corollary-lintrans-basic-euclidean-trans-is-matrix-trans" />.
+		</p>
+	</proof>
+</theorem>
+
+<p>
+If the bases for domain and codomain are made in an informed manner,
+the matrix for the transformation will be particularly simple.
+</p>
+
+<theorem><title>Block form relative to bases for kernel and image</title>
+	<statement><p>
+		For linear transformation <m>\funcdef{T}{V}{W}</m> between finite-dimensional vector spaces <m>V,W</m>,
+		there exist bases <m>\basisfont{B},\basisfont{B}'</m> of <m>V,W</m>, respectively,
+		such that
+		<me> \matrixOf{T}{B'B} = \begin{bmatrix} I_r \\ \amp \zerovec_{s \times t} \end{bmatrix} </me>,
+		where
+		<md><mrow> r \amp = \rank T \text{,} \amp s \amp = \dim W - \rank T \text{,} \amp t \amp = \nullity T </mrow></md>,
+		and <m>I_r</m> and <m>\zerovec_{s \times t}</m> are the <m>r \times r</m> identity matrix and the <m>s \times t</m> zero matrix, respectively.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		We already discussed this in <xref ref="subsection-lintrans-matrix-concepts-special" />.
+		The matrix <m>\matrixOf{T}{B'B}</m> will have this form when we choose <m>\basisfont{B}</m> to be an extension of a basis for <m>\ker T</m> to a basis for <m>V</m>
+		(with the kernel basis vectors appearing <em>after</em> all the non-kernel vectors),
+		and we choose <m>\basisfont{B}'</m> to be an extension of the basis for <m>\im T</m> afforded by the nonzero image vectors in <m>T(\basisfont{B})</m> to a basis for <m>W</m>
+		(with the image basis vectors appearing <em>before</em> all the non-image vectors).
+	</p></proof>
+</theorem>
+
+<p>
+An identity operator does not transform the vectors in the domain space,
+but its matrix can change the basis relative to which coordinate vectors are formed.
+As this was already explored in <xref ref="activity-lintrans-matrix-transition-matrices" />
+and examined in detail in <xref ref="subsection-lintrans-matrix-concepts-special" />,
+we state it without proof
+</p>
+
+<proposition xml:id="proposition-lintrans-matrix-identity-as-cob">
+	<title>Transition matrices represent an identity operator</title>
+	<p>
+	If <m>\basisfont{B},\basisfont{B}'</m> are bases of finite-dimensional vector space <m>V</m>,
+	then the matrix for the identity operator <m>\funcdef{I_V}{V}{V}</m> is the transition matrix between <m>\basisfont{B}</m> and <m>\basisfont{B}'</m>.
+	</p><p>
+	That is, <m> \matrixOf{I_V}{B'B} = \ucobmtrx{B}{B'} </m>.
+	</p>
+</proposition>
+
+</subsection>
+
+
+<subsection xml:id="subsection-lintrans-matrix-theory-props">
+<title>Properties of a transformation from properties of its matrix</title>
+
+<proposition xml:id="proposition-lintrans-matrix-ker-im-vs-null-col">
+	<title>Kernel and image versus null and column spaces</title>
+	<statement><p>
+		Suppose that <m>\funcdef{T}{V}{W}</m> is a linear transformation between finite-dimensional vector spaces,
+		and <m>\basisfont{B},\basisfont{B}'</m> is a choice of bases for <m>V,W</m>, respectively.
+		Then the following hold.
+		<ol>
+			<li xml:id="proposition-lintrans-matrix-ker-im-vs-null-col-ker-null">
+				A vector <m>\uvec{v}</m> in the domain space <m>V</m> is in <m>\ker T</m> if and only if the coordinate vector <m>\matrixOf{\uvec{v}}{B}</m> is in the null space of <m>\matrixOf{T}{B'B}</m>.
+			</li>
+			<li>
+				The dimension of the kernel of <m>T</m> is equal to the dimension of the null space of <m>\matrixOf{T}{B'B}</m>.
+				That is, the nullity of <m>T</m> is equal to the nullity of <m>\matrixOf{T}{B'B}</m>.
+			</li>
+			<li xml:id="proposition-lintrans-matrix-ker-im-vs-null-col-im-col">
+				A vector <m>\uvec{w}</m> in the codomain space <m>W</m> is in <m>\im T</m> if and only if the coordinate vector <m>\matrixOf{\uvec{w}}{B'}</m> is in the column space of <m>\matrixOf{T}{B'B}</m>.
+			</li>
+			<li>
+				The dimension of the image of <m>T</m> is equal to the dimension of the column space of <m>\matrixOf{T}{B'B}</m>.
+				That is, the rank of <m>T</m> is equal to the rank of <m>\matrixOf{T}{B'B}</m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><p><ol>
+		<li>
+			By definition, vector <m>\uvec{v}</m> in <m>V</m> is in <m>\ker T</m> precisely when <m>T(\uvec{v}) = \zerovec_W</m>.
+			As the coordinate map is an isomorphism,
+			the only vector in <m>W</m> with coordinate vector <m>\zerovec_m</m> (where <m>m = \dim W</m>)
+			is <m>\zerovec_W</m>.
+			So <m>T(\uvec{v}) = \zerovec_W</m> if and only if
+			<me> \matrixOf{T(\uvec{v})}{B'} = \zerovec_m </me>.
+			Using <xref ref="equation-lintrans-matrix-mult-coord-vec" />,
+			we can say that <m>\uvec{v}</m> is in <m>\ker T</m> if and only if
+			<me> \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B} = \zerovec_m </me>,
+			which says that <m>\matrixOf{\uvec{v}}{B}</m> is in the null space of <m>\matrixOf{T}{B'B}</m>.
+		</li>
+		<li>
+			It follows from <xref ref="proposition-lintrans-matrix-ker-im-vs-null-col-ker-null">Statement</xref>
+			that the isomorphism <m>\coordmap{B}</m> must send a basis for <m>\ker T</m> to a basis for the null space of <m>\matrixOf{T}{B'B}</m>.
+			Hence the dimensions of these two spaces must be equal.
+		</li>
+		<li>
+			By definition, vector <m>\uvec{w}</m> in <m>W</m> is in <m>\im T</m> precisely when there exists at least one vector <m>\uvec{v}</m> in <m>V</m> with <m>\uvec{w} = T(\uvec{v})</m>.
+			In this case,
+			using <xref ref="equation-lintrans-matrix-mult-coord-vec" />
+			and the fact that <m>\coordmap{B'}</m> is an isomorphism,
+			we would have
+			<me> \matrixOf{\uvec{w}}{B'} = \matrixOf{T(\uvec{v})}{B'} = \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B} </me>.
+			But then,
+			using the fact that <m>\coordmap{B}</m> is also an isomorphism,
+			we can say that <m>\uvec{w}</m> is in <m>\im T</m> if and only if there exists a column vector <m>\uvec{x}</m> with
+			<me> \matrixOf{\uvec{w}}{B'} = \matrixOf{T}{B'B} \uvec{x} </me>.
+			As the column space of a matrix <m>A</m> consists of the results of all possible products <m>A \uvec{x}</m>
+			(<xref ref="subsection-col-row-null-space-concepts-colspace" />),
+			we arrive at the statement at hand.
+		</li>
+		<li>
+			Again, it follows from <xref ref="proposition-lintrans-matrix-ker-im-vs-null-col-im-col">Statement</xref>
+			that the isomorphism <m>\coordmap{B'}</m> must send a basis for <m>\im T</m> to a basis for the column space of <m>\matrixOf{T}{B'B}</m>.
+			Hence the dimensions of these two spaces must be equal.
+		</li>
+	</ol></p></proof>
+</proposition>
+
+<p> We can also characterize isomorphisms via invertibility of their matrices. </p>
+
+<corollary xml:id="corollary-lintrans-matrix-iso">
+	<title>Isomorphism has invertible matrix</title>
+	<statement><p>
+		Suppose that <m>\funcdef{T}{V}{W}</m> is a linear transformation between finite-dimensional vector spaces.
+		Then the following are equivalent.
+		<ol>
+			<li xml:id="corollary-lintrans-matrix-iso-iso">
+				Transformation <m>T</m> is an isomorphism.
+			</li>
+			<li xml:id="corollary-lintrans-matrix-iso-every">
+				For every choice of bases <m>\basisfont{B},\basisfont{B}'</m> for <m>V,W</m>, respectively,
+				the matrix <m>\matrixOf{T}{B'B}</m> is square and invertible.
+			</li>
+			<li xml:id="corollary-lintrans-matrix-iso-one">
+				For at least one choice of bases <m>\basisfont{B},\basisfont{B}'</m> for <m>V,W</m>, respectively,
+				the matrix <m>\matrixOf{T}{B'B}</m> is square and invertible.
+			</li>
+		</ol>
+	</p></statement>
+	<proof>
+		<case>
+			<title>
+				<xref ref="corollary-lintrans-matrix-iso-iso">Statement</xref>
+				implies <xref ref="corollary-lintrans-matrix-iso-every">Statement</xref>
+			</title>
+			<p>
+			Assume <m>T</m> is an isomorphism,
+			and suppose <m>\basisfont{B},\basisfont{B}'</m> is an arbitrary choice of bases for <m>V,W</m>, respectively.
+			Then the dimensions of <m>V</m> and <m>W</m> must be equal
+			(<xref ref="corollary-lintrans-iso-iff-same-dim" />),
+			hence <m>\matrixOf{T}{B'B}</m> must be square.
+			Furthermore, to be an isomorphism the transformation <m>T</m> must be injective,
+			hence its kernel is trivial
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
+			Using <xref ref="proposition-lintrans-matrix-ker-im-vs-null-col-ker-null">Statement</xref>
+			of <xref ref="proposition-lintrans-matrix-ker-im-vs-null-col" />,
+			we can conclude that the null space of <m>\matrixOf{T}{B'B}</m> is also trivial,
+			in which case <m>\matrixOf{T}{B'B}</m> is invertible
+			(<xref ref="theorem-col-row-null-space-equiv-to-invertible-null-trivial">Statement</xref>
+			of <xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="corollary-lintrans-matrix-iso-every">Statement</xref>
+				implies <xref ref="corollary-lintrans-matrix-iso-one">Statement</xref>
+			</title>
+			<p> This is obvious. </p>
+		</case>
+		<case>
+			<title>
+				<xref ref="corollary-lintrans-matrix-iso-one">Statement</xref>
+				implies <xref ref="corollary-lintrans-matrix-iso-iso">Statement</xref>
+			</title>
+			<p>
+			Suppose <m>\basisfont{B},\basisfont{B}'</m> is a choice of bases for <m>V,W</m>, respectively,
+			for which the matrix <m>\matrixOf{T}{B'B}</m> is square and invertible.
+			Since the dimensions of <m>\matrixOf{T}{B'B}</m> reflect the dimensions of <m>V</m> and <m>W</m>,
+			these two spaces must have the same dimension.
+			Applying <xref ref="corollary-lintrans-iso-eq-dim-pick-inj-surj" />,
+			it now suffices to verify that <m>T</m> is injective,
+			which we can do by considering <m>\ker T</m>
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
+			But if <m>\matrixOf{T}{B'B}</m> is invertible,
+			it must have trivial null space
+			(<xref ref="theorem-col-row-null-space-equiv-to-invertible-null-trivial">Statement</xref>
+			of <xref ref="theorem-col-row-null-space-equiv-to-invertible" />),
+			which implies that <m>\ker T</m> is trivial as well
+			(<xref ref="proposition-lintrans-matrix-ker-im-vs-null-col-ker-null">Statement</xref>
+			of <xref ref="proposition-lintrans-matrix-ker-im-vs-null-col" />).
+			</p>
+		</case>
+		<p> We have now completed the cycle of logical dependence to demonstrate that these three statements are equivalent. </p>
+	</proof>
+</corollary>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-theory-comp-inv">
+<title>Matrices of compositions and inverses</title>
+
+<p>
+As we have thoroughly discussed these relationships in <xref ref="subsection-lintrans-matrix-concepts-comp-inv" />,
+we will state them here without proof.
+</p>
+
+<proposition xml:id="proposition-lintrans-matrix-comp-inv"><p><ol>
+	<li xml:id="proposition-lintrans-matrix-comp-inv-comp">
+		Suppose <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m>
+		are linear transformations between finite-dimensional vector spaces,
+		and we have chosen bases <m>\basisfont{B},\basisfont{B}',\basisfont{B}'''</m>
+		for spaces <m>U,V,W</m>, respectively.
+		Then <me> \matrixOf{ST}{B''B} = \matrixOf{S}{B''B'} \matrixOf{T}{B' B} </me>.
+	</li>
+	<li xml:id="proposition-lintrans-matrix-comp-inv-inv">
+		Suppose <m>\funcdef{T}{V}{W}</m> is an isomorphism between finite-dimensional vector spaces,
+		and we have chosen bases <m>\basisfont{B},\basisfont{B}'</m>
+		for spaces <m>V,W</m>, respectively.
+		Then <me> \matrixOf{\inv{T}}{BB'} = \inv{(\matrixOf{T}{B'B})} </me>.
+	</li>
+	<li xml:id="proposition-lintrans-matrix-comp-power">
+		Suppose <m>\funcdef{T}{V}{V}</m> is a linear operator on a finite-dimensional vector space,
+		and we have chosen a basis <m>\basisfont{B}</m> for <m>V</m>.
+		Then for all positive exponents <m>k</m>,
+		we have <me> \matrixOf{T^k}{B} = (\matrixOf{T}{B})^k </me>.
+		In addition, if <m>T</m> is an isomorphism then we can say that the above equality holds for <em>all</em> integer exponents.
+	</li>
+</ol></p></proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-matrix-theory-hom-space">
+<title>The space of linear transformations as a space of matrices</title>
+
+<p>
+We now have a correspondence that associates a matrix <m>\matrixOf{T}{B'B}</m> to each linear transformation <m>\funcdef{T}{V}{W}</m> via a choice of bases <m>\basisfont{B},\basisfont{B}'</m> of spaces <m>V,W</m>, respectively,
+such that the properties of the transformation are reflected in the properties of the matrix,
+and vice versa.
+Essentially, the space of transformations <m>L(V,W)</m> comes to resemble a space of matrices <m>\matrixring_{m \times n}(\R)</m>
+(or <m>\matrixring_{m \times n}(\C)</m>, as appropriate).
+</p>
+
+<theorem><title>Transformations are matrices</title>
+	<statement><p>
+		Suppose <m>\basisfont{B},\basisfont{B}'</m> are bases for finite-dimensional vector spaces <m>V,W</m>, respectively.
+		Then the correspondence
+		<me> T \leftrightarrow \matrixOf{T}{B'B} </me>
+		is an isomorphism between <m>L(V,W)</m>, the space of all transformations <m>V \to W</m>,
+		and <m>\matrixring_{m \times n}(\R)</m> (real case) or <m>\matrixring_{m \times n}(\C)</m> (complex case),
+		where <m>n = \dim V</m> and <m>m = \dim W</m>.
+	</p></statement>
+	<proof>
+		<p>
+		As usual, we treat only the real case, as the complex case is identical.
+		</p><p>
+		Let <m>\funcdef{M}{L(V,W)}{\matrixring_{m \times n}(\R)}</m> represent the function defined by
+		<me> M(T) = \matrixOf{T}{B'B} </me>.
+		First, we must verify that <m>M</m> is linear.
+		</p>
+		<case><title>Additivity</title><p>
+			Suppose <m>T_1,T_2</m> are transformations in <m>L(V,W)</m>,
+			and let <m>\uvec{v}</m> be an arbitrary vector in the domain space <m>V</m>.
+			Then we have
+			<md>
+				<mrow>
+					(\matrixOf{T_1}{B'B} + \matrixOf{T_2}{B'B}) \matrixOf{\uvec{v}}{B}
+					\amp = \matrixOf{T_1}{B'B} \matrixOf{\uvec{v}}{B} + \matrixOf{T_2}{B'B} \matrixOf{\uvec{v}}{B}
+					\amp \amp\text{(i)}
+				</mrow><mrow>
+					\amp = \matrixOf{T_1(\uvec{v})}{B'} + \matrixOf{T_2(\uvec{v})}{B'}
+					\amp \amp\text{(ii)}
+				</mrow><mrow>
+					\amp = \matrixOf{T_1(\uvec{v}) + T_2(\uvec{v})}{B'}
+					\amp \amp\text{(iii)}
+				</mrow><mrow>
+					\amp = \matrixOf{(T_1 + T_2)(\uvec{v})}{B'}
+					\amp \amp\text{(iv)}
+				</mrow>
+			</md>,
+			with justifications
+			<ol label="(i)">
+				<li>
+					matrix algebra
+					(<xref ref="proposition-matrix-ops-algebra-rules-basic-right-distrib">Rule</xref>
+					of <xref ref="proposition-matrix-ops-algebra-rules" />);
+				</li>
+				<li> equality <xref ref="equation-lintrans-matrix-mult-coord-vec" />, applied to both <m>T_1</m> and <m>T_2</m>; </li>
+				<li> linearity of the coordinate map (<xref ref="theorem-change-of-basis-coord-vec-linearity" />); and </li>
+				<li> definition of the sum of linear transformations (see <xref ref="subsection-lintrans-basic-concepts-hom-space" />). </li>
+			</ol>
+			But <m>\matrixOf{T_1 + T_2}{B'B}</m> should be the one unique matrix that satisfies
+			<me> \matrixOf{(T_1 + T_2)(\uvec{v})}{B'} = \matrixOf{T_1 + T_2}{B'B} \matrixOf{\uvec{v}}{B} </me>
+			for every vector <m>\uvec{v}</m> in the domain space <m>V</m>
+			(<xref ref="theorem-lintrans-matrix-unique" />).
+			As the matrix <m>\matrixOf{T_1}{B'B} + \matrixOf{T_2}{B'B}</m> satisfies the same condition,
+			we must have
+			<me> \matrixOf{T_1 + T_2}{B'B} = \matrixOf{T_1}{B'B} + \matrixOf{T_2}{B'B} </me>.
+			Using the notation of <m>\funcdef{M}{L(V,W)}{\matrixring_{m \times n}(\R)}</m>,
+			this says that
+			<me> M(T_1 + T_2) = M(T_1) + M(T_2) </me>,
+			as required.
+		</p></case>
+		<case><title>Homogeneity</title><p>
+			Suppose <m>T</m> is a transformation in <m>L(V,W)</m>,
+			<m>k</m> is a scalar,
+			and let <m>\uvec{v}</m> be an arbitrary vector in the domain space <m>V</m>.
+			Then we have
+			<md>
+				<mrow>
+					(k \, \matrixOf{T}{B'B}) \matrixOf{\uvec{v}}{B}
+					\amp = k \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B}
+					\amp \amp\text{(i)}
+				</mrow><mrow>
+					\amp = k \matrixOf{T(\uvec{v})}{B'}
+					\amp \amp\text{(ii)}
+				</mrow><mrow>
+					\amp = \matrixOf{k \, T(\uvec{v})}{B'}
+					\amp \amp\text{(iii)}
+				</mrow><mrow>
+					\amp = \matrixOf{(k T)(\uvec{v})}{B'}
+					\amp \amp\text{(iv)}
+				</mrow>
+			</md>,
+			with justifications
+			<ol label="(i)">
+				<li>
+					matrix algebra
+					(<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
+					of <xref ref="proposition-matrix-ops-algebra-rules" />);
+				</li>
+				<li> equality <xref ref="equation-lintrans-matrix-mult-coord-vec" />; </li>
+				<li> linearity of the coordinate map (<xref ref="theorem-change-of-basis-coord-vec-linearity" />); and </li>
+				<li> definition of the scalar multiple of a linear transformation (see <xref ref="subsection-lintrans-basic-concepts-hom-space" />). </li>
+			</ol>
+			But <m>\matrixOf{k T}{B'B}</m> should be the one unique matrix that satisfies
+			<me> \matrixOf{(k T)(\uvec{v})}{B'} = \matrixOf{k T}{B'B} \matrixOf{\uvec{v}}{B} </me>
+			for every vector <m>\uvec{v}</m> in the domain space <m>V</m>
+			(<xref ref="theorem-lintrans-matrix-unique" />).
+			As the matrix <m>k \, \matrixOf{T}{B'B}</m> satisfies the same condition,
+			we must have
+			<me> \matrixOf{k T}{B'B} = k \, \matrixOf{T}{B'B} </me>.
+			Using the notation of <m>\funcdef{M}{L(V,W)}{\matrixring_{m \times n}(\R)}</m>,
+			this says that
+			<me> M(k T) = k \, M(T) </me>,
+			as required.
+		</p></case>
+		<p> Now we check that <m>M</m> is an isomorphism. </p>
+		<case><title>Injectivity</title><p>
+			As we have already shown that <m>M</m> is linear,
+			we may check that <m>M</m> is injective by verifying that <m>\ker M</m> is trivial
+			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
+			So suppose that transformation <m>T</m> in <m>L(V,W)</m> satisfies <m>M(T) = \zerovec_{m \times n}</m>,
+			the <m>m \times n</m> zero matrix.
+			Then for every <m>\uvec{v}</m> in <m>V</m>,
+			we have
+			<me>
+				\matrixOf{T(\uvec{v})}{B'}
+				= \matrixOf{T}{B'B} \matrixOf{\uvec{v}}{B}
+				= M(T) \matrixOf{\uvec{v}}{B}
+				= \zerovec_{m \times n} \matrixOf{\uvec{v}}{B}
+				= \zerovec_m
+			</me>.
+			But the coordinate map <m>\coordmap{B'}</m> is an isomorphism,
+			and <m>\zerovec_W</m> is the one unique vector in <m>W</m> satisfying
+			<me> \matrixOf{\zerovec_W}{B'} = \zerovec_m </me>,
+			so we must have <me> T(\uvec{v}) = \zerovec_W </me> for each <m>\uvec{v}</m> in <m>V</m>.
+			In particular, this holds for each basis vector in <m>\basisfont{B}</m>.
+			However, the zero transformation is the unique transformation <m>V \to W</m> that sends each vector in the domain space basis <m>\basisfont{B}</m> to <m>\zerovec_W</m>
+			(<xref ref="corollary-lintrans-basic-unique-basis-image" />),
+			and so we can conclude <m>T = \zerovec_{V,W}</m>,
+			as desired.
+		</p></case>
+		<case><title>Surjectivity</title><p>
+			We wish to verify that, given matrix <m>A</m> in <m>\matrixring_{m \times n}(\R)</m>,
+			there exists a transformation <m>T</m> in <m>L(V,W)</m> with <me>M(T) = A</me>,
+			<ie /> with <me>\matrixOf{T}{B'B} = A</me>.
+			As in <xref ref="corollary-lintrans-basic-unique-basis-image" />,
+			we may attempt to define such a <m>T</m> by simply specifying the image vectors for each of the domain space basis vectors in <m>\basisfont{B}</m>.
+			Writing <m>\uvec{a}_1,\dotsc,\uvec{a}_n</m> for the columns of <m>A</m> and <m>\uvec{v}_1,\dotsc,\uvec{v}_n</m> for the vectors in <m>\basisfont{B}</m>,
+			for each index <m>j</m> set <m>T(\uvec{v}_j)</m> to be the vector in <m>W</m> whose coordinate vector in <m>\R^m</m> is <m>\uvec{a}_j</m>.
+			That is, set each <me> T(\uvec{v}_j) = \invcoordmap{B'}(\uvec{a}_j) </me>.
+			Then, using the computation pattern <xref ref="equation-lintrans-matrix-concepts-cols" /> developed in <xref ref="subsection-lintrans-matrix-concepts-computing" />,
+			we see that <m>\matrixOf{T}{B'B} = A</m> will be true, as desired.
+		</p></case>
+	</proof>
+</theorem>
+
+<remark>
+	<p>
+	Recall that the dual space of a vector space <m>V</m> is the space <m>\vecdual{V} = L(V,\R^1)</m> (real case) or <m>\vecdual{V} = L(V,\C^1)</m> (complex case).
+	Applying the theorem to this situation,
+	we have <me> \vecdual{V} \iso \matrixring_{1 \times n}(\R) \quad \text{or} \quad \vecdual{V} \iso \matrixring_{1 \times n}(\C) </me>,
+	as appropriate,
+	where <me> n = \dim V = \dim \vecdual{V} </me>.
+	This is merely another version of <xref ref="corollary-lintrans-iso-to-Rn-Cn" />,
+	where we realize <m>\R^n</m> and <m>\C^n</m> as spaces of <m>1 \times n</m> <em>row</em> vectors instead of <m>n \times 1</m> column vectors.
+	In other words, in realizing <m>V \iso \R^n</m> (or <m>V \iso \C^n</m>, as appropriate) via coordinate maps,
+	we naturally associate vectors in <m>V</m> with column vectors,
+	whereas in realizing <m>\vecdual{V} \iso \R^n</m> (or <m>\vecdual{V} \iso \C^n</m>, as appropriate)
+	it is actually more natural to associate vectors in <m>\vecdual{V}</m> with <em>row</em> vectors.
+	</p><p>
+	These associations allow us to think of evaluation of a linear functional <m>f</m> in <m>\vecdual{V}</m> on a vector <m>\uvec{v}</m> in <m>V</m> as a dot-product-like pairing
+	<me> f(\uvec{v}) = \inprod{\uvec{v}}{f} </me>,
+	so that evaluation <m>f(\uvec{v})</m> is akin to multiplication of the row vector for <m>f</m> times the column vector for <m>\uvec{v}</m>.
+	</p>
+</remark>
+
+<corollary><title>Dimension of <m>L(V,W)</m></title><p>
+	The dimension of the space of transformations between two finite-dimensional vector spaces is the product of their dimensions.
+	That is, if <me> \dim V = n \text{,} \quad \dim W = m </me>,
+	then <me> \dim \bigl(L(V,W)\bigr) = n m </me>.
+</p></corollary>
+
+</subsection>
+
+</section>
