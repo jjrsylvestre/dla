@@ -1,10 +1,12 @@
 #!/bin/sh
 
-mkdir -p /run/user/${UID}/pretext/DLA/html/knowl
+TMPOUTD=/run/user/${UID}/pretext/DLA/html
+
+mkdir -p ${TMPOUTD}/knowl
 mkdir -p build
 if ! test -L build/html
 then
-	ln -s /run/user/${UID}/pretext/DLA/html build/html
+	ln -s ${TMPOUTD} build/html
 fi
 
 if ! test -f mathbook-xsl.d/mathbook-html.xsl
@@ -22,15 +24,18 @@ fi
 
 xsltproc \
   --xinclude \
-	--output build/html/DELETEME.html \
-	style-html.xsl src/book.xml
+  --stringparam html.css.extra "dla.css" \
+  --output build/html/DELETEME.html \
+  style-html.xsl src/book.xml
 rm -f build/html/DELETEME.html
 
 # local style overrides
 cp css/dla.css build/html/
 sed -i \
   -e 's/scale: [0-9]*,/scale: 100,/' \
-  -e '/<\/head>/ {
-r css/dla.css.loadstring
-N
-}' build/html/*.html
+  build/html/*.html
+
+#   -e '/<\/head>/ {
+# r css/dla.css.loadstring
+# N
+# }' \
