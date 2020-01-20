@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-similarity-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-similarity-concepts-different-bases-similar-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-similarity-concepts-different-bases-similar-matrices" /></em></li>
+<li><xref ref="subsection-lintrans-similarity-concepts-props-transfer" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-similarity-concepts-props-transfer" /></em></li>
+<li><xref ref="subsection-lintrans-similarity-concepts-canonical" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-similarity-concepts-canonical" /></em></li>
+</ul></p></assemblage>
+
+<introduction><p>
+	In <xref ref="part-matrix-forms" />,
+	we went to great lengths to determine the <q>simplest form</q> a square matrix could take.
+	It turns out that essentially we were studying linear operators on finite-dimensional spaces
+	and the best way to choose a <em>single</em> basis for the space so that the matrix of the operator has a particular form.
+</p></introduction>
+
+<subsection xml:id="subsection-lintrans-similarity-concepts-different-bases-similar-matrices">
+<title>Matrices of an operator</title>
+
+<p>
+Suppose <m>\funcdef{T}{V}{V}</m> is a linear operator on a finite-dimensional vector space <m>V</m>.
+For a choice of basis <m>\basisfont{B}</m>,
+we may form the square matrix <m>\matrixOf{T}{B}</m> that represents the matrix and allows us to perform matrix calculations that are equivalent to computing outputs for the operator.
+</p><p>
+Suppose <m>\basisfont{B}'</m> is another choice of basis for <m>V</m>.
+The matrices <m>\matrixOf{T}{B}</m> and <m>\matrixOf{T}{B'}</m> should be related somehow,
+since they each correspond to the <em>same</em> linear operator on <m>V</m>,
+just relative to different bases.
+</p>
+<figure xml:id="figure-lintrans-similarity-transformation-vs-matrix">
+	<caption>Illustration of a linear operator versus the matrix operator created by coordinate maps relative to two different choices of bases for the domain space.</caption>
+	<image width="48%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of transformations <m>\R^n \to V \to V \to \R^n</m></description>
+		<latex-image><xi:include href="concepts.d/double-square-diagram.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+To relate the two matrices,
+it would seem to make sense to work in a change of basis.
+According to our analysis in <xref ref="subsection-lintrans-matrix-concepts-special" />,
+we can change basis using the identity operator, but choosing different bases for domain and codomain versions of the vector space.
+</p>
+<figure xml:id="figure-lintrans-similarity-transformation-vs-matrix-expanded">
+	<caption>
+		Illustration of a linear operator versus the matrix operator created by coordinate maps,
+		incorporating a change of basis.
+	</caption>
+	<image width="54%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of a change of basis for the matrix of an operator</description>
+		<latex-image><xi:include href="concepts.d/double-rect-diagram.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+In the chain of transformations along the top leg of <xref ref="figure-lintrans-similarity-transformation-vs-matrix-expanded" />,
+we can use <xref ref="proposition-lintrans-iso-comp-ident-zero-ident">Statement</xref>
+of <xref ref="proposition-lintrans-iso-comp-ident-zero" />
+to simplify
+<me> I_V T I_V = T </me>.
+With this in mind, the composition along the bottom leg must be represented by <m>\matrixOf{T}{B'}</m>,
+since the two long arrows at top and bottom create a square equivalent to the <m>T</m> versus <m>\matrixOf{T}{B'}</m> square on the right
+in <xref ref="figure-lintrans-similarity-transformation-vs-matrix" />.
+Yet we know how compositions work:
+the matrix of a composition is the product of the matrices
+(<xref ref="proposition-lintrans-matrix-comp-inv-comp">Statement</xref>
+of <xref ref="proposition-lintrans-matrix-comp-inv" />).
+So we must have
+<me> \matrixOf{T}{B'} = \matrixOf{I_V T I_V}{B'} = \matrixOf{I_V}{B'B} \matrixOf{T}{B} \matrixOf{I_V}{BB'} </me>.
+</p>
+<aside><title>Careful</title><p>
+	Remember that composition notation <m>f \circ g \circ h</m>
+	reverses the order of how we would visualize the chain of functions with a diagram like
+	<me> W \xrightarrow{h} X \xrightarrow{g} Y \xrightarrow{f} Z </me>.
+</p></aside>
+<p>
+Applying the facts that the matrix of an identity operator is a transition matrix
+(<xref ref="proposition-lintrans-matrix-identity-as-cob" />)
+and that the inverse of a transition matrix represents the reverse change of basis
+(<xref ref="proposition-change-of-basis-cob-props-reverse-is-inverse">Statement</xref>
+of <xref ref="proposition-change-of-basis-cob-props" />),
+we obtain
+<md><mrow xml:id="equation-lintrans-similarity-cob" tag="star">
+	\matrixOf{T}{B'}
+	= \matrixOf{I_V}{B'B} \matrixOf{T}{B} \matrixOf{I_V}{BB'}
+	= \ucobmtrx{B}{B'} \matrixOf{T}{B} \ucobmtrx{B'}{B}
+	= \uinvcobmtrx{B'}{B} \matrixOf{T}{B} \ucobmtrx{B'}{B}
+</mrow></md>.
+In other words,
+<alert>matrices of an operator relative to different bases are similar</alert>.
+Restricting our attention to <m>V = \R^n</m> (or <m>V = \C^n</m> in the complex case),
+we can turn this around and say that
+<alert>similar matrices represent the same linear operator relative to different bases</alert>,
+and a similarity relation just realizes a change of basis between the two representations of the operator.
+</p><p>
+Finally, note that the change-of-basis perspective in <xref ref="equation-lintrans-similarity-cob" />
+agrees with the calculation pattern
+<me> \matrixOf{T(\uvec{v})}{C} = \matrixOf{T}{C} \matrixOf{\uvec{v}}{C} </me>
+that holds for every basis <m>\basisfont{C}</m> of the domain space <m>V</m>.
+Indeed, for every vector <m>\uvec{v}</m> in <m>V</m>,
+we have
+<md>
+	<mrow> \matrixOf{T}{B'} \matrixOf{\uvec{v}}{B'} \amp = \ucobmtrx{B}{B'} \matrixOf{T}{B} \ucobmtrx{B'}{B} \matrixOf{\uvec{v}}{B'} </mrow>
+	<mrow> \amp = \ucobmtrx{B}{B'} \matrixOf{T}{B} \matrixOf{\uvec{v}}{B} </mrow>
+	<mrow> \amp = \ucobmtrx{B}{B'} \matrixOf{T(\uvec{v})}{B} </mrow>
+	<mrow> \amp = \matrixOf{T(\uvec{v})}{B'} </mrow>
+</md>,
+as required.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-similarity-concepts-props-transfer">
+<title>Transferring matrix concepts to operators</title>
+
+<p>
+We have seen that similar matrices are essentially the same matrix,
+just with different entries <mdash />
+similar matrices have the same determinant, trace, rank, nullity, characterisic polynomial, and eigenvalues,
+and their column spaces, null spaces, and eigenspaces can be related through a suitable transition matrix.
+This allows us to <em>unambiguously</em> transfer or relate these concepts to corresponding concepts for operators.
+</p><p>
+For example, we can define the <term>determinant of an operator</term> <m>T</m> on a finite-dimensional space <m>V</m> to be the determinant of the matrix <m>\matrixOf{T}{B}</m> relative to a basis <m>\basisfont{B}</m> for <m>V</m>. This definition is unambiguous even though it seems to depend on what basis for <m>V</m> is chosen, because <em>matrices for an operator relative to different bases are always similar</em>,
+so those different matrices will always have the same determinant as each other. And similarly for the trace of an operator.
+</p><p>
+For eigenvalues and eigenvectors,
+we can make initial definitions based on the same pattern as for matrices instead of using matrices to make the definition.
+So an <term>eigenvalue/eigenvector pair for a linear operator</term> <m>T</m> on a vector space <m>V</m>
+(and here, for the purposes of the definition, we do not need <m>V</m> to be finite-dimensional)
+is a scalar <m>\lambda</m> and a nonzero vector <m>\uvec{v}</m> in <m>V</m> so that
+<me> T(\uvec{v}) = \lambda \uvec{v} </me>.
+Manipulating this definition in the same way as for matrices,
+we see that we have an eigenvalue/eigenvector pair precisely when
+<me> (\lambda I_V - T)(\uvec{v}) = \zerovec_V  </me>,
+which leads to the familiar definition of the <term>characterisic polynomial of an operator</term> as
+<me> \det (\lambda I_V - T) </me>,
+which is now meaningful based on the idea of a determinant of an operator.
+And it will be straightforward to connect these new concepts for operators to the corresponding concepts for the matrix <m>\matrixOf{T}{B}</m> for arbitrary choice of basis <m>\basisfont{B}</m> of <m>V</m>. <!-- TODO xref to examples and theory -->
+</p><p>
+For rank and nullity, the connection is direct.
+We already have these concepts for both matrices and general linear transformations
+(not just operators),
+and we know they coincide when we create a matrix out of a transformation
+(<xref ref="proposition-lintrans-matrix-ker-im-vs-null-col" />).
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-similarity-concepts-canonical">
+<title>Canonical forms of linear operators</title>
+
+<p>
+Taking our analogies between linear operators and their matrices even further,
+using similarity of operators via change of basis we can identify
+<ul>
+	<li>
+		<term>diagonalizable operators</term>
+		as those that have a matrix representation relative to some basis that a diagonal matrix;
+	</li>
+	<li>
+		<term>block-diagonal form for operators</term>
+		relative to a complete set of independent, operator-invariant subspaces of the domain space;
+	</li>
+	<li>
+		<term>generalized eigenvectors and eigenspaces of an operator</term>
+		that correspond to a matrix for the operator in triangular-block form;
+	</li>
+	<li>
+		<term>nilpotent operators</term>
+		and collections of cyclic subspaces of the domain space that correspond to a matrix for the operator that is in elementary nilpotent form or has blocks of elementary nilpotent submatrices;
+		and
+	</li>
+	<li>
+		<term>Jordan form for operators</term> corresponding to a choice of basis for which the matrix of the operator is in Jordan normal form.
+	</li>
+</ul>
+</p>
+
+</subsection>
+
+</section>

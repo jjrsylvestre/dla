@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-similarity-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-similarity-concepts-geometry" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-concepts-geometry" /></em></li>
+<li><xref ref="subsection-similarity-concepts-algebra" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-concepts-algebra" /></em></li>
+<li><xref ref="subsection-similarity-concepts-classes" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-concepts-classes" /></em></li>
+<li><xref ref="subsection-similarity-concepts-similarities" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-concepts-similarities" /></em></li>
+</ul></p></assemblage>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-similarity-concepts-geometry">
+<title>The geometry of similarity</title>
+
+<p>
+In <xref ref="activity-similarity-geometric" />,
+we explored the geometric nature of similarity between matrices by examining how each matrix in a similar pair <q>transformed</q> vectors in <m>\R^n</m>.
+In effect, the columns of the transition matrix <m>P</m> form a new basis <m>\basisfont{B}</m> of <m>\R^n</m>,
+making <m>P</m> and <m>\inv{P}</m> transition matrices from <m>\basisfont{B}</m> to the standard basis <m>\basisfont{S}</m>
+and vice versa
+(justifying our double defintion of the term <term>transition matrix</term> in
+<xref ref="section-change-of-basis-terminology" />
+and
+<xref ref="section-diagonalization-terminology" />).
+The new basis <m>\basisfont{B}</m> forms a new set of axes in <m>\R^n</m>,
+and we then find that the geometric nature of how a standard-coordinate vector is transformed relative to the new axes by one matrix
+agrees with how the same vector is transformed by the other matrix after the vector is first converted to the new coordinates.
+</p><p>
+The goal is to understand the first matrix and how it transforms vectors in <m>\R^n</m> by finding a second similar matrix that is significantly simpler to understand,
+and then to use the transition matrices <m>P</m> and <m>\inv{P}</m> to convert information about the simpler matrix into information about the original matrix.
+</p><p>
+Relating this back to
+<xref ref="activity-similarity-geometric" />,
+when we plotted the vectors
+<md><mrow>
+	\matrixOf{\uvec{v}}{B} \amp = \inv{P}\uvec{v}, \amp
+	B \matrixOf{\uvec{v}}{B} \amp = B\inv{P}\uvec{v}
+</mrow></md>
+on their own set of <m>wz</m>-axes,
+we observed that the simple diagonal form of <m>B</m> made it easy to determine how <m>\matrixOf{\uvec{v}}{B}</m> is transformed by <m>B</m>:
+a stretch by a factor of <m>4</m> in the <m>w</m>-direction and both a reflection and a stretch by a factor of <m>2</m> in the <m>z</m>-direction.
+After superimposing a set of <m>wz</m>-axes onto the <m>xy</m>-axes using the <m>\basisfont{B}</m> vectors,
+we observed that <m>\uvec{v}</m> was transformed by <m>A</m> in exactly the same way relative to the new superimposed axes.
+This should not have been a surprise,
+since the formula
+<me> A \uvec{v} = P B \inv{P} \uvec{v} = \ucobmtrx{B}{S} B \ucobmtrx{S}{B} \uvec{v} </me>
+(where <m> A = P B \inv{P}</m> by the reversal of the similarity relation <m> \inv{P} A P = B </m>)
+can be translated as:
+</p>
+<blockquote><p>
+	to transform <m>\uvec{v}</m> by <m>A</m>,
+	one can instead convert <m>\uvec{v}</m> to <m>\basisfont{B}</m>-coordinates,
+	transform the result by <m>B</m>,
+	and then convert that transformed vector back to standard coordinates.
+</p></blockquote>
+
+</subsection>
+
+<subsection xml:id="subsection-similarity-concepts-algebra">
+<title>The algebra of similarity</title>
+
+<p>
+In <xref ref="activity-similarity-geometric" />,
+we explored the algebraic connections between similar matrices <m>A,B</m> and the transition matrix <m>P</m> that realizes the similarity by <m>\inv{P} A P = B</m>.
+</p><p>
+Since inverses are complicated to work with,
+we first converted the similarity relation into <m>A P = P B</m>,
+and then we analyzed this equality of matrices by comparing corresponding columns of each side.
+Using the pattern of
+<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
+in
+<xref ref="subsection-matrix-ops-concepts-matrix-mult" />,
+the columns of <m>AP</m> are
+<me> A \uvec{p}_1, A \uvec{p}_2, \dotsc, A \uvec{p}_n </me>,
+where the <m>\uvec{p}_j</m> are the columns of <m>P</m>.
+On the other side,
+the same matrix multiplication pattern gives the columns of <m>PB</m> as
+<me> P \uvec{b}_1, P \uvec{b}_2, \dotsc, P \uvec{b}_n </me>,
+where the <m>\uvec{b}_j</m> are the columns of <m>B</m>.
+To have both sides expressed in terms of the columns of <m>P</m>,
+we used the matrix-times-vector pattern of
+<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
+in
+<xref ref="subsection-matrix-ops-concepts-matrix-mult" />
+to write each <m>P \uvec{b}_j</m> as a linear combination of the columns of <m>P</m>,
+<em>with coefficients from the column <m>\uvec{b}_j</m></em>.
+</p><p>
+Putting both sides together,
+we must have
+<me> A \uvec{p}_j = P \uvec{b}_j = b_{1j} \uvec{p}_1 + b_{2j} \uvec{p}_2 + \dotsb + b_{nj} \uvec{p}_n </me>.
+Since <m>P</m> is assumed invertible,
+its columns form a basis of <m>\R^n</m>.
+And linear combinations of basis vectors are precisely how we determine coordinates relative to a basis,
+which leads from the above equality of columns to the following pattern.
+</p>
+
+<convention xml:id="pattern-similarity-concepts-similarity-by-columns">  <!-- convention is hijacked to "Pattern" -->
+	<title>Similarity by columns</title>
+	<p>
+	<!-- TODO 
+		Turn this into a xref-able thing (DONE),
+		then fix all xrefs to this subsection (NOT DONE).
+	 -->
+	Square matrices <m>A</m> and <m>B</m> are similar via <m>\inv{P} A P = B</m> if and only if each column of <m>B</m> is the coordinate vector relative to <m>\basisfont{B}_P</m> of the result of transforming the corresponding column of <m>P</m> by <m>A</m>,
+	where <m>\basisfont{B}_P</m> is the basis of <m>\R^n</m> formed by the columns of <m>P</m>. In symbols, we can write this condition as
+	<me> \uvec{b}_j = \matrixOfplain{A\uvec{p}_j}{\basisfont{B}_P} </me>
+	for each column <m>\uvec{b}_j</m> of <m>B</m> and each corresponding column <m>\uvec{p}_j</m> of <m>P</m>.
+	</p>
+</convention>
+
+<p>
+This pattern will guide our exploration of matrix forms in most of the remainder of
+<xref ref="part-matrix-forms" /> of this book.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-similarity-concepts-classes">
+<title>Similarity classes</title>
+
+<p>
+In <xref ref="activity-similarity-equiv-rel" />,
+we demonstrated that the similarity relation is
+<dl>
+	<li><title><term>symmetric</term>,</title><p>
+		<ie/> a matrix is not just similar to another matrix,
+		a pair of matrices must be similar to <em>each other</em>,
+	</p></li>
+	<li><title><term>reflexive</term>,</title><p>
+		<ie /> every matrix is similar to itself,
+		and
+	</p></li>
+	<li><title><term>transitive</term>,</title><p>
+		<ie /> similarity can be transferred from first to third in a chain of similarities
+		<m>A \similar B \similar C</m>.
+	</p></li>
+</dl>
+These three properties together demonstrate that similarity is an <term>equivalence relation</term>.
+</p><p>
+A consequence of this fact is that similarity partitions <m>\matrixring_n(\C)</m> into <term>similarity classes</term> <mdash />
+subsets of matrices that are all similar to each other but not to other matrices.
+<!-- TODO Diagram of this partition -->
+To see why this is so, consider a particular square matrix <m>A</m>.
+The similarity class of <m>A</m> is defined to be the collection of all matrices that are similar to <m>A</m>.
+By the reflexive property,
+this class contains <m>A</m> itself,
+so is always nonempty.
+Suppose the class also contains matrices <m>B</m> and <m>C</m>,
+so that both <m>B \similar A</m> and <m>C \similar A</m> are true.
+Then the symmetric property lets us turn this into a chain <m>B \similar A \similar C</m>,
+which in turn lets us conclude <m>B \similar C</m> by the transitive property.
+So matrices in a particular similarity class are all equivalent to each other.
+Furthermore, a matrix in the similarity class of <m>A</m> cannot be similar to a matrix <em>outside</em> of that class,
+for if <m>B \similar D</m> is true then again we can form a chain <m>A \similar B \similar D</m>,
+so that <m>D</m> must be in the class.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-similarity-concepts-similarities">
+<title>The similarities of similar matrices</title>
+
+<p>
+The remaining activities in
+<xref ref="worksheet-similarity" />
+provided justification for using the adjective <term>similar</term> in the terminology <term>similar matrices</term>.
+Just as we were able to use the transition matrices <m>P</m> and <m>\inv{P}</m> to relate
+the geometric action of <m>A</m> on <m>\R^n</m> relative to one set of coordinates to
+the geometric action of <m>B</m> on <m>\R^n</m> relative to another set of coordinates in
+<xref ref="subsection-similarity-concepts-geometry" />,
+those same transition matrices allow us to relate algebraic properties of the similar matrices.
+</p><p>
+We will formally state and prove many of the statements from those remaining discovery activities in
+<xref ref="subsection-similarity-theory-props" />.
+</p>
+
+</subsection>
+
+</section>

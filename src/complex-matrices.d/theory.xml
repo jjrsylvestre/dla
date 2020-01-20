@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-complex-matrices-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-matrices-theory-systems" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-matrices-theory-systems" /></em></li>
+<li><xref ref="subsection-complex-matrices-theory-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-matrices-theory-matrices" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-complex-matrices-theory-systems">
+<title>Complex linear systems</title>
+
+<p>
+There is nothing new to add to our theoretical knowledge of linear systems when considering complex ones <mdash />
+the following is still all true:
+<ul>
+	<li> a complex linear system has either no solution, one unique solution, or an infinite number of solutions; </li>
+	<li> a complex matrix is row equivalent to one unique RREF matrix; and </li>
+	<li>
+		the number of parameters required to describe the general solution of a system that has an infinite number of solutions is equal to the number of variables minus the number of leading ones in the RREF of the matrix for the system.
+	</li>
+</ul>
+The above is only a partial list <mdash />
+everything we learned about linear systems and reducing matrices in
+<xref ref="chapter-systems" />
+and
+<xref ref="chapter-row-red" />
+remains true in the complex context.
+</p>
+
+</subsection>
+
+
+<subsection xml:id="subsection-complex-matrices-theory-matrices">
+<title>Complex matrices</title>
+
+<subsubsection>
+<title>Basic algebra</title>
+<p>
+The rules of matrix algebra contained in
+<xref ref="proposition-matrix-ops-algebra-rules" />
+all remain true for complex matrices,
+but we have a few rules to add for our new operations of
+<term>matrix conjugate</term>
+and
+<term>complex adjoint</term>.
+</p>
+
+<proposition xml:id="proposition-complex-matrices-algebra-rules">
+	<title> Matrix algebra </title>
+	<statement>
+		<p>
+		The following are valid rules of matrix algebra. In each statement, assume that <m>A</m> and <m>B</m> are arbitrary complex matrices, <m>\zerovec</m> is a zero matrix, and <m>I</m> is an identity matrix, all of appropriate sizes so that the matrix operations can be carried out. In particular, in any rule involving a matrix power, the matrices involved are assumed to be square.  Also assume that <m>z</m> is a complex scalar and that <m>p</m> is a positive integer.
+		<ol cols="2">
+
+			<li xml:id="proposition-complex-matrices-algebra-rules-conjugate"><paragraphs>
+				<title>Basic rules of matrix conjugation</title>
+				<p><ol>
+					<li> <m> \cconj{\zerovec} = \zerovec </m> </li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-conjugate-identity">
+						<m> \cconj{I} = I </m>
+					</li>
+					<li> <m> \lcconj{\cconj{A}} = A </m> </li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-conjugate-add">
+						<m> \lcconj{A+B} = \cconj{A} + \cconj{B} </m>
+					</li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-conjugate-identity-smul">
+						<m> \lcconj{zA} = \cconj{z} \cconj{A} </m>
+					</li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-conjugate-product">
+						<m> \lcconj{AB} = \cconj{A} \cconj{B} </m>
+					</li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-conjugate-power">
+						<m> \lcconj{A^p} = \cconj{A}^p </m>
+					</li>
+					<li> <m> \lcconj{\utrans{A}} = \utrans{\cconj{A}} </m> </li>
+				</ol></p>
+			</paragraphs></li>
+
+			<li xml:id="proposition-complex-matrices-algebra-rules-adjoint"><paragraphs>
+				<title>Basic rules of the complex adjoint</title>
+				<p><ol>
+					<li> <m> \adjoint{\zerovec} = \zerovec </m> </li>
+					<li> <m> \adjoint{I} = I </m> </li>
+					<li> <m>\adjoint{\bigl(\adjoint{A}\bigr)} = A </m> </li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-adjoint-add">
+						<m> \adjoint{(A+B)} = \adjoint{A} + \adjoint{B} </m>
+					</li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-adjoint-smul">
+						<m> \adjoint{(zA)} = \cconj{z} \adjoint{A} </m>
+					</li>
+					<li> <m> \adjoint{(AB)} = \adjoint{B} \adjoint{A} </m> </li>
+					<li xml:id="proposition-complex-matrices-algebra-rules-adjoint-power">
+						<m> \adjoint{\bigl(A^p\bigr)} = \bigl(\adjoint{A}\bigr)^p </m>
+					</li>
+					<li> <m> \adjoint{\bigl(\utrans{A}\bigr)} = \utrans{\bigl(\adjoint{A}\bigr)} = \cconj{A} </m> </li>
+				</ol></p>
+			</paragraphs></li>
+
+		</ol>
+		</p>
+	</statement>
+
+</proposition>
+
+</subsubsection>
+
+<subsubsection>
+<title>Inverses</title>
+
+<p>
+As we saw in
+<xref ref="example-complex-matrices-examples-3x3-conjugate" />
+and
+<xref ref="example-complex-matrices-examples-3x3-adjoint" />,
+our new complex operations play nicely with inverses as well.
+</p>
+
+<proposition xml:id="proposition-complex-matrices-conj-adj-inverse">
+
+	<title>Inverse of a complex conjugate or adjoint</title>
+	<statement><p>
+		If <m>A</m> is invertible,
+		then so are <m>\cconj{A}</m> and <m>\adjoint{A}</m>,
+		with
+		<md><mrow>
+			\inv{\cconj{A}} \amp = \lcconj{\inv{A}},
+			\amp
+			\inv{\bigl(\adjoint{A}\bigr)} \amp = \adjoint{\bigl(\inv{A}\bigr)}.
+		</mrow></md>
+	</p></statement>
+
+	<proof><title>Proof idea</title>
+		<p>
+		Suppose <m>A</m> is an invertible, square, complex matrix.
+		To verify that <m>\lcconj{\inv{A}}</m> is the inverse of <m>\cconj{A}</m>,
+		by definition all that is required is to check the equalities
+		<md><mrow>
+			\cconj{A} \lcconj{\inv{A}} \amp = I,
+			\amp
+			\lcconj{\inv{A}} \cconj{A} \amp = I.
+		</mrow></md>
+		(By
+		<xref ref="proposition-elem-matrices-check-only-left-inverse" />
+		and
+		<xref ref="proposition-elem-matrices-check-only-right-inverse" />,
+		it is only really necessary to check one of these two equalities.)
+		And these two equalities are easily verified using
+		<xref ref="proposition-complex-matrices-algebra-rules-conjugate-identity">Rule</xref>
+		and
+		<xref ref="proposition-complex-matrices-algebra-rules-conjugate-product">Rule</xref>
+		of
+		<xref ref="proposition-complex-matrices-algebra-rules" />.
+		</p><p>
+		Then, formula
+		<m>\inv{\bigl(\adjoint{A}\bigr)} = \adjoint{\bigl(\inv{A}\bigr)}</m>
+		can be verified
+		using formula
+		<m>\inv{\cconj{A}} = \lcconj{\inv{A}}</m>
+		along with
+		<xref ref="proposition-inverses-transpose" />.
+		</p>
+	</proof>
+
+</proposition>
+
+<p>
+All of the other theory we developed around inverses and elementary matrices in
+<xref ref="chapter-inverses" />
+and
+<xref ref="chapter-elem-matrices" />
+remains true for complex matrices.
+In particular,
+<xref ref="proposition-complex-matrices-algebra-rules-conjugate-power">Rule</xref>
+and
+<xref ref="proposition-complex-matrices-algebra-rules-adjoint-power">Rule</xref>
+of
+<xref ref="proposition-complex-matrices-algebra-rules" />
+remain true for negative exponents in the complex context,
+and also the major result
+<xref ref="theorem-elem-matrices-equiv-to-invertible" />
+is true for complex invertible matrices.
+</p>
+
+</subsubsection>
+
+<subsubsection>
+<title>Determinants</title>
+
+<p>
+When you unravel a determinant-by-cofactors calculation,
+ultimately it is a complicated computation involving only the entries of the matrix
+and the operations of multiplication, addition, and subtraction.
+Since the complex conjugate plays nicely with those operations
+(<xref ref="proposition-appendix-complex-field-conjugate-properties"/>),
+and since the determinant of a transpose is the same as the determinant of the original matrix
+(<xref ref="lemma-det-by-row-red-det-transpose" />),
+we immediately obtain the following facts.
+</p>
+
+<proposition xml:id="proposition-complex-matrices-conj-adj-det">
+	<title>Determinant of a complex conjugate or adjoint</title>
+	<statement><p>
+		If <m>A</m> is a square matrix,
+		then
+		<md><mrow>
+			\det \cconj{A} \amp = \lcconj{\det A},
+			\amp
+			\det \adjoint{A} \amp = \lcconj{\det A}.
+		</mrow></md>
+	</p></statement>
+</proposition>
+
+<p>
+Finally, all the theory we developed about determinants and their connection to row reduction and to invertibility in
+<xref ref="chapter-det" />,
+<xref ref="chapter-det-by-row-red" />, and
+<xref ref="chapter-more-det" />
+are all still true for complex matrices.
+In particular,
+<xref ref="theorem-more-det-equiv-to-invertible" />
+remains true for complex matrices.
+</p>
+
+</subsubsection>
+
+<subsubsection>
+<title>Self-adjoint matrices</title>
+
+<p>
+Here we'll record the pattern of
+<xref ref="example-complex-matrices-examples-self-adjoint" />,
+then apply the second formula of
+<xref ref="proposition-complex-matrices-conj-adj-det" />
+to the case of self-adjoint matrices.
+</p>
+
+<proposition><title>Pattern of entries in self-adjoint matrices</title><statement><p>
+	A complex matrix <m>A</m> is self-adjoint precisely when each entry <m>a_{ij}</m> is equal to the complex conjugate of the corresponding symmetric entry <m>a_{ji}</m>.
+	In particular, the entries along the main diagonal in a self-adjoint matrix must be purely real.
+</p></statement></proposition>
+
+<proposition><title>Determinant of a self-adjoint matrix</title>
+	<statement><p> The determinant of a self-adjoint matrix must be a purely real number. </p></statement>
+	<proof><p>
+		Suppose <m>A</m> is a complex, square, self-adjoint matrix.
+		From
+		<xref ref="proposition-complex-matrices-conj-adj-det" />,
+		we have <me>\det \adjoint{A} = \lcconj{\det A}</me>.
+		But if <m>A</m> is self-adjoint,
+		then by definition we have <m>\adjoint{A} = A</m>,
+		and so <me>\det \adjoint{A} = \det A</me>.
+		Combining these two determinant formulas says that <me> \lcconj{\det A} = \det A </me>.
+		But only a real number is equal to its own complex conjugate
+		(<xref ref="proposition-appendix-complex-field-conjugate-relative-properties-real-iff">Statement</xref>
+		of
+		<xref ref="proposition-appendix-complex-field-conjugate-relative-properties" />),
+		and so we can conclude that the complex number <m>\det A</m> must actually be purely real.
+	</p></proof>
+</proposition>
+
+</subsubsection>
+
+</subsection>
+
+</section>

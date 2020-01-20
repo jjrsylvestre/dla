@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-eigen-values-vectors">
+
+<title>Discovery guide</title>
+
+<introduction><p>
+	In <xref ref="chapter-col-row-null-space" />,
+	we began to see how the interaction between a matrix and column vectors can be used to understand the matrix.
+	Here we will find that for each square matrix there are certain column vectors that are particularly well-suited to the task.
+</p></introduction>
+
+<activity xml:id="activity-eigen-values-vectors-eigen-motivation">
+	<introduction><p>
+		Consider the matrix and column vectors
+		<md><mrow>
+			A \amp = \left[\begin{array}{rr} 7 \amp 8 \\ -4 \amp -5 \end{array}\right],
+			\amp\amp\amp
+			\uvec{u} \amp = \left[\begin{array}{r} -1 \\ 1 \end{array}\right],
+			\amp
+			\uvec{v} = \left[\begin{array}{r} -2 \\ 1 \end{array}\right].
+		</mrow></md>
+	</p></introduction>
+	<task xml:id="activity-eigen-values-vectors-eigen-motivation-calculate-compare"><p>
+		Compute <m>A\uvec{u}</m>.
+		Carefully compare vectors <m>\uvec{u}</m> and <m>A\uvec{u}</m> <mdash />
+		what do you notice?
+		Now repeat for <m>\uvec{v}</m> and <m>A\uvec{v}</m>.
+	</p></task>
+	<task>
+		<statement><p> Verify that <m>\{\uvec{u},\uvec{v}\}</m> is a basis for <m>\R^2</m>. </p></statement>
+		<hint><p> <xref ref="corollary-dimension-basis-right-num-just-one-check" />. </p></hint>
+	</task>
+	<task><p>
+		Because these vectors form a basis for <m>\R^2</m>,
+		every vector in <m>\R^2</m> can be expressed in one unique way as a linear combination of these basis vectors.
+		We can use this fact,
+		along with some matrix algebra and the patterns you noticed in
+		<xref ref="activity-eigen-values-vectors-eigen-motivation-calculate-compare"/>,
+		to develop a simple way to compute products <m>A\uvec{x}</m> without actually performing matrix multiplication:
+		<md><mrow>
+			\uvec{x} \amp= a\uvec{u} + b\uvec{v} \amp\amp\implies \amp
+			A\uvec{x}
+			\amp = <fillin characters="15" />.
+			<!-- Here's an option with a little more guidance
+			\amp = <fillin characters="3" /> \uvec{u} + <fillin characters="3" /> \uvec{v}.
+			-->
+		</mrow></md>
+	</p></task>
+	<postlude>
+		<p>
+		From <xref ref="activity-eigen-values-vectors-eigen-motivation" />,
+		it seems that pairs consisting of a scalar <m>\lambda</m> and (nonzero) vector <m>\uvec{x}</m> such that
+		<m>A\uvec{x} = \lambda \uvec{x}</m>
+		are important to understanding how matrix <m>A</m> <q>operates</q> on <em>all</em> vectors by multiplication.
+		For such a pair,
+		the scalar <m>\lambda</m> is called an <term>eigenvalue</term> of <m>A</m>,
+		and the corresponding vector <m>\uvec{x}</m> is called an
+		<term>eigenvector</term>
+		<idx><h>eigenvector</h></idx>
+		for <m>A</m>.
+		</p>
+		<aside><title>Notation and terminology</title><p>
+			The symbol <m>\lambda</m> is the Greek letter <foreign>lambda</foreign>.
+			The prefix <foreign xml:lang="german">eigen</foreign> is German for specific/particular/<q>one's own.</q>
+		</p></aside>
+	</postlude>
+</activity>
+
+<activity xml:id="activity-eigen-values-vectors-eigenval-char-poly">
+	<prelude><p>
+		It turns out that it is easier to determine potential eigenvalues for a matrix first,
+		and to look for corresponding eigenvectors afterwards.
+		In the next discovery activity we will develop a method to determine all eigenvalues of a matrix,
+		independently of determining eigenvectors.
+	</p></prelude>
+	<introduction><p>
+		For <m>\lambda</m> to be an eigenvalue for <m>A</m>,
+		there must be at least one <em>nontrivial</em> solution <m>\uvec{x}</m> to the matrix equation
+		<m>A\uvec{x} = \lambda\uvec{x}</m>.
+	</p></introduction>
+	<task xml:id="activity-eigen-values-vectors-eigenval-char-poly-homogeneous">
+		<p>
+		Use matrix algebra to turn the equation
+		<m>A\uvec{x} = \lambda\uvec{x}</m>
+		into a homogeneous condition:
+		<m>\bbrac{\;<fillin characters="4" />\;}\;\uvec{x} = \zerovec</m>.
+		</p>
+		<aside><title>Careful</title><p>
+			Make sure what you have in the brackets represents a <em>matrix</em>!
+		</p></aside>
+	</task>
+	<task xml:id="activity-eigen-values-vectors-eigenval-char-poly-develop-char-poly"><statement>
+		<p>
+		We want <em>nontrivial</em> solutions to exist.
+		Combine some knowledge from
+		<xref ref="chapter-elem-matrices" />
+		and
+		<xref ref="chapter-more-det" /> to complete the statement below.
+		</p><p>
+		The homogeneous system from
+		<xref ref="activity-eigen-values-vectors-eigenval-char-poly-homogeneous" text="type-local" />
+		has nontrivial solutions if and only if
+		<m>\det\bbrac{\;<fillin characters="4" />\;}</m>
+		is <fillin characters="3" />.
+		</p>
+		</statement>
+		<hint><p> <xref ref="theorem-more-det-equiv-to-invertible" />. </p></hint>
+	</task>
+</activity>
+
+<activity xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples">
+	<prelude><p>
+		We will see that the computation of the determinant you identified in
+		<xref ref="activity-eigen-values-vectors-eigenval-char-poly-develop-char-poly">Discovery</xref>
+		always results in a degree <m>n</m> polynomial in the variable <m>\lambda</m>,
+		where <m>n</m> is the size of the matrix.
+		We will call this polynomial the
+		<term>characteristic polynomial</term>
+		<idx><h>characteristic</h><h>polynomial</h></idx>
+		of <m>A</m>.
+		The eigenvalues of <m>A</m> are then precisely the roots its characteristic polynomial.
+	</p></prelude>
+	<introduction>
+		<p>
+		For each of the following matrices,
+		compute its characteristic polynomial,
+		and then use it to determine the eigenvalues of each matrix.
+		Make sure to write your eigenvalue answers down,
+		you will need them in
+		<xref ref="activity-eigen-values-vectors-compute-eigenspace-examples" />.
+		</p>
+		<paragraphs><title>Algebra help</title><p>
+			When we solve for the roots of a polynomial by hand,
+			our main method is factoring.
+			So when computing a characteristic polynomial,
+			keep it in factored form as much as possible <mdash />
+			do not expand brackets unless you need to in order to be able to collect like terms and then factor further.
+		</p></paragraphs>
+	</introduction>
+	<task xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-2x2">
+		<p><m> \left[\begin{array}{rr} 7 \amp 8 \\ -4 \amp -5 \end{array}\right] </m></p>
+		<aside><title>Compare</title><p>
+			your answer for the eigenvalues of the first matrix with your observations in
+			<xref ref="activity-eigen-values-vectors-eigen-motivation" />.
+		</p></aside>
+	</task>
+	<task xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-3x3"><p>
+		<m> \left[\begin{array}{rrr} 2 \amp -4 \amp 4 \\ 0 \amp -6 \amp 8 \\ 0 \amp -6 \amp 8 \end{array}\right] </m>
+	</p></task>
+	<task xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-diag"><p>
+		<m> \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix} </m>
+	</p></task>
+	<task xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples-upper-tri"><p>
+		<m> \left[\begin{array}{rrr} 2 \amp 1 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right] </m>
+	</p></task>
+</activity>
+
+<activity xml:id="activity-eigen-values-vectors-eigenvalues-special-matrices">
+	<statement><p>
+		Complete each statement for the special type of matrix involved.
+		<ul>
+			<li> The eigenvalues of a diagonal matrix are <fillin characters="20" />. </li>
+			<li> The eigenvalues of an upper triangular matrix are <fillin characters="20" />. </li>
+			<li> The eigenvalues of a lower triangular matrix are <fillin characters="20" />. </li>
+		</ul>
+	</p></statement>
+	<hint><p>
+		<xref ref="proposition-special-forms-combinations" />,
+		and
+		<xref ref="proposition-det-special-forms-triangular">Statement</xref>
+		of
+		<xref ref="proposition-det-special-forms" />.
+	</p></hint>
+</activity>
+
+<activity>
+	<prelude><p>
+		Once we have determined the eigenvalues of a matrix,
+		the next step is to determine corresponding eigenvectors.
+		We do this for one eigenvalue at a time.
+		Fortunately, we will ultimately find ourselves in familiar territory when we go looking for eigenvectors.
+	</p></prelude>
+	<statement><p>
+		For an eigenvalue <m>\lambda</m> of a matrix <m>A</m>,
+		the corresponding eigenvectors are the nonzero solutions to the homogeneous system
+		<fillin characters="8" />.
+		Therefore, if we include the zero vector in with the collection of all eigenvectors for <m>A</m> that correspond to a particular eigenvalue <m>\lambda</m>,
+		this collection is a subspace of <m>\R^n</m> because it is equal to the
+		<fillin characters="5" />
+		space of matrix
+		<fillin characters="10" />.
+	</p></statement>
+	<hint><p><xref ref="activity-eigen-values-vectors-eigenval-char-poly-homogeneous"/>.</p></hint>
+	<postlude><p>
+		For an eigenvalue <m>\lambda</m> of a matrix <m>A</m>,
+		the subspace of <m>\R^n</m> consisting of all eigenvectors of <m>A</m> that correspond to <m>\lambda</m>
+		(along with the zero vector)
+		is called the <term>eigenspace of <m>A</m> corresponding to <m>\lambda</m></term><idx><h>eigenspace</h></idx>.
+	</p></postlude>
+</activity>
+
+<activity xml:id="activity-eigen-values-vectors-compute-eigenspace-examples">
+	<p>
+	For each of the matrices in
+	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples" />,
+	determine a basis for each eigenspace by row reducing the matrix
+	<m>\lambda I - A</m>,
+	assigning parameters,
+	and extracting null space basis vectors from the general parametric solution as usual.
+	</p>
+	<aside><title>Note</title><p>
+		Substitute the actual eigenvalue in for variable <m>\lambda</m> <em>before</em> row reducing <mdash />
+		do not row reduce with the variable <m>\lambda</m> still in there.
+	</p></aside>
+</activity>
+
+<activity xml:id="activity-eigen-values-vectors-eigenvalue-zero">
+	<statement>
+		<p>
+		From the initial definition of eigenvalue/eigenvector in the paragraph following
+		<xref ref="activity-eigen-values-vectors-eigen-motivation" />,
+		a matrix <m>A</m> has <m>\lambda=0</m> as an eigenvalue if and only if there are nonzero solutions to
+		<m>A\uvec{x} = <fillin characters="2" /></m>.
+		</p>
+		<p>
+		So from our previous study of matrices, we can conclude that <m>A</m> has <m>\lambda=0</m> as an eigenvalue precisely when <m>A</m> is <fillin characters="10" />.
+		</p>
+	</statement>
+	<hint><p> <xref ref="theorem-elem-matrices-equiv-to-invertible" />. </p></hint>
+</activity>
+
+</worksheet>

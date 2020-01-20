@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-triang-nilpotent-theory">
+
+<title>Theory</title>
+
+<p> Here we'll formally state some of the patterns we've encountered in this chapter. </p>
+
+<p> First, let's note that a nilpotent matrix can always be put into triangular-block nilpotent form. </p>
+
+<theorem xml:id="theorem-triang-nilpotent-cyclic-decomp">
+	<statement><p>
+		If <m>A</m> is a nilpotent matrix,
+		then there exists an invertible matrix <m>P</m> such that <m>\inv{P} A P</m> is in triangular-block nilpotent form.
+	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		Essentially, the existence of <m>P</m> is implied by the fact that we can write down a procedure for finding <m>P</m>
+		(<xref ref="procedure-triang-nilpotent-concepts-form-proc" />).
+		However, it might take some convincing that the procedure we have written down does what it claims to do.
+		</p><p>
+		For a different perspective, see the topic of <em>cyclic decomposition</em> in
+		<xref ref="reference-hoff-kunze,reference-roman-adv-linear-alg" />.
+		</p>
+	</proof>
+</theorem>
+
+<p>
+Once we know the form <m>N = \inv{P}AP</m> exists,
+it is possible to use the properties of <m>N</m> to identify properties of <m>A</m> that will help us find <m>P</m>.
+</p>
+
+<theorem xml:id="theorem-triang-nilp-block-props">
+	<statement><p>
+		Suppose that <m>A</m> is an <m>n \times n</m> nilpotent matrix that is similar to the triangular-block nilpotent form <m>N</m>.
+		Then the following hold.
+		<ol>
+			<li>
+				The number of blocks in <m>N</m> is equal to <m>\nullity A</m>,
+				the dimension of the null space of <m>A</m>.
+			</li>
+			<li>
+				The largest (<ie /> first) block in <m>N</m> has size <m>k \times k</m>,
+				where <m>k</m> is the degree of nilpotency of <m>A</m>,
+				and <m>N</m> has <m>\rank (A^{k-1})</m> blocks of this size.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><p><ol>
+		<li>
+			For this statement,
+			consider that <m>N</m> is <em>almost</em> in RREF;
+			we would only need to swap some rows to put it in RREF.
+			Therefore, the rank of <m>N</m> is equal to the number of ones that appear in it.
+			Each elementary block of <m>N</m> is just a single one away from having full rank.
+			That is, if <m>N</m> has a block of size <m>m \times m</m>,
+			that block contributes exactly <m>(m-1)</m> to the rank of <m>N</m>.
+			Thus, the number of blocks in <m>N</m> is equal to how far <m>N</m> is from having full rank <m>n</m>:
+			<me> \rank N = n - (\text{ # of blocks in } N) </me>.
+			We now have that the number of blocks in <m>N</m> is equal to <m>n - \rank N</m>,
+			which is equal to <m>\nullity N</m> by
+			<xref ref="theorem-col-row-null-space-rank-nullity" text="title"/>.
+			Finally, since <m>A</m> and <m>N</m> are similar,
+			they have the same nullity (<xref ref="corollary-similarity-rank-nullity" />),
+			and so we could say that the number of blocks in <m>N</m> is equal to <m>\nullity A</m>.
+		</li>
+		<li>
+			<p>
+			For this statement, first recall that similar nilpotent matrices have the same degree of nilpotency
+			(<xref ref="proposition-cayley-hamilton-similar-to-nilpotent" />),
+			so <m>N</m> first becomes zero when <m>A</m> does.
+			Powers of <m>N</m> can be computed by taking powers of its blocks
+			(<xref ref="proposition-block-diag-props-products-powers">Statement</xref>
+			of <xref ref="proposition-block-diag-props" />),
+			and we know that powers of each elementary block will become zero precisely at the block's size
+			(see <xref ref="activity-elem-nilpotent-first-encounter" />).
+			Since a power of <m>N</m> will be zero precisely when each of its blocks is zero at that power,
+			we can conclude that degree of nilpotency of <m>N</m>
+			(and hence of <m>A</m>)
+			is equal to the size of the largest block in <m>N</m>.
+			</p><p>
+			It still remains to determine the number of blocks of largest size <m>k \times k</m>,
+			where <m>k</m> is the common degree of nilpotency of <m>N</m> and <m>A</m>.
+			For this, consider the matrix <m>N^{k-1}</m>.
+			At this power, all blocks of smaller size will still become zero.
+			But each block of size <m>k \times k</m>,
+			raised to the power <m>k-1</m>,
+			will consist of all zeros <em>except</em> for a single one in the lower left entry
+			(again see <xref ref="activity-elem-nilpotent-first-encounter" />).
+			Therefore, each block of size <m>k \times k</m> contributes a single one to the rank of <m>N^{k-1}</m>,
+			and each block of smaller size contributes nothing.
+			Thus, <m>\rank(N^{k-1})</m> counts the number of blocks of <m>N</m> of size <m>k \times k</m>.
+			Finally, since <m>A</m> is similar to <m>N</m>,
+			so also <m>A^{k-1}</m> is similar to <m>N^{k-1}</m>
+			(<xref ref="proposition-similarity-powers" />).
+			Therefore, <m>\rank(A^{k-1}) = \rank(N^{k-1})</m>,
+			and so we could also say that <m>\rank(A^{k-1})</m> counts the number of blocks of <m>N</m> of size <m>k \times k</m>.
+			</p>
+		</li>
+	</ol></p></proof>
+</theorem>
+
+<remark><p>
+	As we have seen in <xref ref="subsection-triang-nilpotent-concepts-indirect" />
+	and <xref ref="subsection-triang-nilpotent-examples-indirect" />,
+	it is possible to expand the above list of properties:
+	the ranks of the powers of <m>A</m> tell us exactly the form of <m>N</m>.
+</p></remark>
+
+<p>
+The following final fact makes it easier to check whether our <m>A</m>-cyclic spaces are independent.
+We used this as part of our strategy in <xref ref="example-triang-nilpotent-proc-9x9" />.
+Note that the statement is true even in the case that <m>A</m> is not nilpotent.
+</p>
+
+<proposition xml:id="proposition-triang-nilpotent-indep-cyclic-with-last-vector-null">
+	<statement><p>
+		Suppose that <m>A</m> is an <m>n \times n</m> matrix
+		and <m>W_1, W_2, \dotsc, W_\ell</m> is a collection of <m>A</m>-cyclic subspaces of <m>\R^n</m>
+		(or <m>\C^n</m>, as appropriate)
+		each of which has a cyclic basis whose last element lies in the null space of <m>A</m>.
+		Then the collection <m>W_1,W_2,\dotsc,W_\ell</m> is independent if and only if the collection of final vectors in each of these cyclic bases forms a linearly independent set in the null space <m>A</m>.
+	</p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		If the spaces <m>W_1,W_2,\dotsc,W_\ell</m> are independent,
+		then by definition their bases taken all together remain linearly independent.
+		Since a subcollection of an independent set is still independent
+		(<xref ref="proposition-linear-indep-sub-super-sets-subset-indep">Statement</xref>
+		of <xref ref="proposition-linear-indep-sub-super-sets" />),
+		it follows that the collection of final null space vectors taken from each cyclic basis will remain independent.
+		</p><p>
+		Now consider the reverse implication.
+		We will prove this statement in the case of two cyclic spaces,
+		<m>W_1</m> and <m>W_2</m>.
+		(The proof in the case of more than two spaces is similar, but much more tedious.)
+		The proof we give is similar to the independence argument in the proof of
+		<xref ref="theorem-elem-nilpotent-cyclic-basis-terminating-in-zero" />.
+		</p><p>
+		Suppose
+		<me> \{ \uvec{u}, A\uvec{u}, \dotsc, A^{k-1} \uvec{u} \} </me>
+		is a cylic basis for <m>W_1</m> and
+		<me> \{ \uvec{v}, A\uvec{v}, \dotsc, A^{m-1} \uvec{v} \} </me>
+		is a cylic basis for <m>W_2</m>.
+		Further assume that
+		<me> \{ A^{k-1} \uvec{u}, A^{m-1} \uvec{v} \} </me>
+		is a linearly independent set contained in the null space of <m>A</m>.
+		Note that these vectors being in the null space means that
+		<me> A^k \uvec{u} = \zerovec, \qquad A^m \uvec{v} = \zerovec. </me>
+		</p>
+
+		<case><title>Case <m>m=k</m></title><p>
+			We wish to show that the union of the two cyclic bases forms a linearly independent set.
+			Using the <xref ref="proposition-linear-indep-test" text="title" />,
+			assume that
+			<me>
+				a_0 \uvec{u} + a_1 A \uvec{u} + \dotsb + a_{k-1} A^{k-1} \uvec{u}
+				+ b_0 \uvec{v} + b_1 A \uvec{v} + \dotsb + b_{k-1} A^{k-1} \uvec{v}
+				= \zerovec
+			</me>.
+			We wish to show that all of the scalars in the above linear combination are zero.
+			First, multiply each side of the equation by <m>A^{k-1}</m>.
+			Since <me>A^k \uvec{u} = A^k \uvec{v} = \zerovec</me>,
+			this eliminates all of the terms except the <m>a_0</m> and <m>b_0</m> terms,
+			leaving
+			<me> a_0 A^{k-1} \uvec{u} + b_0 A^{k-1} \uvec{v} = \zerovec </me>.
+			However, we have assumed that <m>A^{k-1} \uvec{u}</m> and <m>A^{k-1} \uvec{v}</m> are linearly independent.
+			Therefore, we must have <m>a_0 = b_0 = 0</m>,
+			leaving
+			<me>
+				a_1 A \uvec{u} + \dotsb + a_{k-1} A^{k-1} \uvec{u}
+				+ b_1 A \uvec{v} + \dotsb + b_{k-1} A^{k-1} \uvec{v}
+				= \zerovec
+			</me>
+			in the original homogeneous vector equation.
+			Multiplying both sides of this new equation by <m>A^{k-2}</m>,
+			we can use the same argument to conclude that <m>a_1 = b_1 = 0</m>.
+			Continuing in this fashion, we can argue that all the coefficients are zero.
+		</p></case>
+
+		<case><title>Case <m>m \gt k</m></title><p>
+			Again, assume that
+			<me>
+				a_0 \uvec{u} + a_1 A \uvec{u} + \dotsb + a_{k-1} A^{k-1} \uvec{u}
+				+ b_0 \uvec{v} + b_1 A \uvec{v} + \dotsb + b_{m-1} A^{m-1} \uvec{v}
+				= \zerovec
+			</me>.
+			Multiply both sides of this equation by <m>A^{m-1}</m>.
+			Since <m>m \gt k</m>,
+			this will eliminate <em>all</em> of the <m>\uvec{u}</m> terms,
+			and just leave <m>b_0 A^{m-1} \uvec{v} = \zerovec</m>.
+			Since <m>A^{m-1} \uvec{v}</m> is part of a basis, it cannot be zero, hence <m>b_0 = 0</m>.
+			We are then left with
+			<me>
+				a_0 \uvec{u} + a_1 A \uvec{u} + \dotsb + a_{k-1} A^{k-1} \uvec{u}
+				+ b_1 A \uvec{v} + \dotsb + b_{m-1} A^{m-1} \uvec{v}
+				= \zerovec
+			</me>
+			in the original homogeneous vector equation.
+			Continuing in this fashion,
+			we can argue that <m>b_0 = b_1 = \dotsb = b_{m-k-1} = 0</m>,
+			leaving
+			<md>
+				<mrow>
+					a_0 \uvec{u} \amp + a_1 A \uvec{u} + \dotsb + a_{k-1} A^{k-1} \uvec{u}
+				</mrow><mrow>
+					\amp + b_{m-k} A^{m-k} \uvec{v} + b_{m-k+1} A^{m-k+1} \uvec{v} + \dotsb + b_{m-1} A^{m-1} \uvec{v}
+					= \zerovec
+				</mrow>
+			</md>.
+			If we set <m>\uvec{v}' = A^{m-k}\uvec{v}</m>,
+			we then have
+			<md>
+				<mrow>
+					a_0 \uvec{u} \amp + a_1 A \uvec{u} + \dotsb + a_{k-1} A^{k-1} \uvec{u}
+				</mrow><mrow>
+					\amp + b_{m-k} \uvec{v}' + b_{m-k+1} A \uvec{v}' + \dotsb + b_{m-1} A^{k-1} \uvec{v}
+					= \zerovec
+				</mrow>
+			</md>,
+			and from here we can repeat the argument of the <m>m=k</m> case.
+		</p></case>
+
+		<case><title>Case <m>m \lt k</m></title><p>
+			Argue exactly as in the <m>m \gt k</m> case with the roles of <m>m</m> and <m>k</m> reversed.
+		</p></case>
+
+	</proof>
+</proposition>
+
+
+</section>

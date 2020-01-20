@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-matrix-adjoints-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-matrix-adjoints-concepts-idea" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-matrix-adjoints-concepts-idea" /></em></li>
+<li><xref ref="subsection-matrix-adjoints-concepts-self-adjoint" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-matrix-adjoints-concepts-self-adjoint" /></em></li>
+<li><xref ref="subsection-matrix-adjoints-concepts-orthog-unitary" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-matrix-adjoints-concepts-orthog-unitary" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-matrix-adjoints-concepts-idea">
+<title>Adjoint matrices</title>
+
+<p>
+Let <m>V</m> represent either real or complex <m>n</m>-dimensional space,
+and let <m>\inprod{\blank}{\blank}</m> represent either the real or complex dot product accordingly.
+</p><p>
+Thinking geometrically, for an <m>n \times n</m> matrix <m>A</m> and column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>,
+the expression
+<me> \inprod{\uvec{u}}{A \uvec{v}} </me>
+could be considered to be a pairing not of two vectors in <m>V</m>,
+but rather a pairing of a vector in <m>V</m> with a vector in a <q>transformed</q> version of <m>V</m>,
+with the transformation achieved through multiplication by <m>A</m>.
+</p>
+
+<question>
+	<p>
+	How would we need to transform <m>V</m> in order to flip this around,
+	so that it is the <em>first</em> vector in the pairing that is from a <q>transformed</q> version of <m>V</m> and the second vector is left un-transformed,
+	but so that the result is always the same as when it was the <em>second</em> vector that was transformed?
+	</p><p>
+	That is, for what <m>n \times n</m> matrix <m>B</m> would we have
+	<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{B \uvec{u}}{\uvec{v}} </me>
+	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>?
+	</p>
+</question>
+
+<p>
+In <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />
+and <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" />
+of <xref ref="activity-matrix-adjoints-first-principles" />,
+we found that the answer to this question is that <m>B</m> should be equal to the transpose <m>\utrans{A}</m> in the real context,
+and should be equal to the conjugate-transpose <m>\adjoint{A}</m> in the complex context.
+Since the <q>conjugate</q> part of <q>conjugate-transpose</q> has no effect in the case that <m>A</m> is a real matrix,
+we will write <m>B = \adjoint{A}</m> and refer to <m>\adjoint{A}</m> as the <term>adjoint</term> of <m>A</m> in <em>both</em> contexts.
+</p><p>
+This means that for every pair of column vectors <m>\uvec{u},\uvec{v}</m>,
+it is always true that
+<md><mrow xml:id="equation-matrix-adjoints-concepts-adjoint-def" tag="star">
+	\inprod{\uvec{u}}{A \uvec{v}} = \inprod{\adjoint{A} \uvec{u}}{\uvec{v}}
+</mrow></md>.
+And since both the conjugate and transpose operations are self-inverse,
+we have <m>\adjoint{(\adjoint{A})} = A</m> in both the real and complex contexts.
+To state this property relative to the inner product,
+for every pair of column vectors <m>\uvec{u},\uvec{v}</m>
+it is also always true that
+<me> \inprod{\uvec{u}}{\adjoint{A} \uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </me>.
+</p><p>
+In <xref ref="activity-matrix-adjoints-invariant-subspaces-vs-adjoints" />,
+we found another geometric interpretation of the adjoint:
+if <m>A</m> is a complex <m>n \times n</m> matrix and <m>W</m> is an <m>A</m>-invariant subspace of <m>\C^n</m>,
+the orthogonal complement <m>\orthogcmp{W}</m> will be <m>\adjoint{A}</m>-invariant.
+Since the process of taking an orthogonal complement is also self-inverse
+(<ie /> <m>\orthogcmp{(\orthogcmp{W})} = W</m>),
+we can mix and match matrices and subspaces:
+if subspace <m>U</m> is <m>\adjoint{A}</m>-invariant,
+then <m>\orthogcmp{U}</m> will be <m>A</m>-invariant.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-matrix-adjoints-concepts-self-adjoint">
+<title>Self-adjoint matrices</title>
+
+<p>
+A matrix that is equal to its own adjoint is, fittingly, called <term>self-adjoint</term>.
+In the real context, we have seen that this occurs precisely when the matrix is symmetric,
+and in the complex context it occurs when the matrix is Hermitian.
+</p><p>
+We will have occasion to study the properties of self-adjoint matrices further
+in <xref ref="chapter-orthog-unitary-diag" />,
+but for now we will note how it relates to invariance of subspaces.
+We noted above that an <m>A</m>-invariant subspace <m>W</m> corresponds to an <m>\adjoint{A}</m>-invariant orthogonal complement <m>\orthogcmp{W}</m>.
+But when <m>A</m> is self-adjoint, <em>both</em> of these subspaces are <m>A</m>-invariant.
+And since a subspace and its orthogonal complement in a finite-dimensional inner product space always form a complete set of independent subspaces
+(<xref ref="corollary-inprod-orthog-complete-indep" />),
+having a single subspace that is invariant under a self-adjoint matrix automatically sets up the ingredients for the block-diagonalization procedure,
+as the orthogonal complement of the subspace will always be invariant as well.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-matrix-adjoints-concepts-orthog-unitary">
+<title>Orthogonal and unitary matrices</title>
+
+<paragraphs><title>Product-preserving matrices</title>
+<p>
+Here we have two different words,
+<term>orthogonal</term> in the real context and <term>unitary</term> in the complex context,
+for the same concept:
+an <m>n \times n</m> matrix <m>A</m> so that
+<md><mrow xml:id="equation-matrix-adjoints-concepts-orthog-unitary-def" tag="dstar">
+	\inprod{A \uvec{u}}{A \uvec{v}} = \inprod{\uvec{u}}{\uvec{v}}
+</mrow></md>
+is true for every pair of column vectors <m>\uvec{u},\uvec{v}</m>.
+In other words,
+<alert>an orthogonal matrix preserves the standard inner product on <m>\R^n</m></alert>,
+and <alert>a unitary matrix preserves the standard inner product on <m>\C^n</m></alert>.
+For the purposes of unifying the real and complex contexts into one discussion,
+<em>for the remainder of this subsection, we will say <em>product-preserving</em> to mean either a real matrix that is orthogonal or a complex matrix that is unitary</em>.
+</p>
+</paragraphs>
+
+<paragraphs><title>Matrix properties</title>
+<p>
+We can manipulate <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-def" />
+using the adjoint <m>\adjoint{A}</m>:
+<me> \inprod{\uvec{u}}{\adjoint{A} A \uvec{v}} = \inprod{\uvec{u}}{\uvec{v}} </me>.
+But now this exhibits an adjoint pattern again, not for <m>A</m> but for <m>\adjoint{A} A</m>:
+<me> \inprod{\uvec{u}}{\adjoint{A} A \uvec{v}} = \inprod{I \uvec{u}}{\uvec{v}} </me>.
+Since this is true for all pairs <m>\uvec{u},\uvec{v}</m>,
+this says that
+<me> \adjoint{(\adjoint{A} A)} = I </me>.
+But since the identity matrix is clearly self-adjoint,
+we can take the adjoint of both sides of this equality to obtain a characterization of the concept of <term>product-preserving</term> in matrix algebra terms:
+<md><mrow xml:id="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" tag="dagger">
+	\adjoint{A} A = I
+</mrow></md>.
+</p><p>
+Further note that <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" />
+implies that a product-preserving matrix <m>A</m> must be invertible,
+with
+<md><mrow xml:id="equation-matrix-adjoints-concepts-orthog-unitary-adjoint-eq-inv" tag="ddagger">
+	\adjoint{A} = \inv{A}
+</mrow></md>.
+Related to invertibility,
+we also considered the determinant of a product-preserving matrix
+in <xref ref="activity-matrix-adjoints-orthogonal-initial" />
+and <xref ref="activity-matrix-adjoints-unitary" />.
+Applying the determinant to both sides of equality <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" />,
+we can then use <xref ref="lemma-det-by-row-red-det-transpose" />
+to conclude that
+<me> (\det A)^2 = 1 </me>
+in the real context,
+and can use <xref ref="proposition-complex-matrices-conj-adj-det" />
+to conclude that
+<me> \lcconj{(\det A)} (\det A) = 1 </me>
+in the complex context.
+We can unify both contexts by writing
+<me> \abs{\det A} = 1 </me>,
+meaning absolute value on the left in the real context and meaning complex modulus on the left in the complex context.
+</p><p>
+Finally, consider the matrix multiplication pattern on the left-hand side of equality
+<xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" />.
+If we write <m>\uvec{a}_1,\uvec{a}_2,\dotsc,\uvec{a}_n</m> for the columns of <m>A</m>,
+then the <m>(i,j)</m> entry in the product <m>\adjoint{A} A</m> is
+<me> \adjoint{\uvec{a}}_i \uvec{a}_j </me>.
+Recall that <m>\adjoint{\uvec{a}}_i</m> will just be <m>\utrans{\uvec{a}}_i</m> in the real context.
+So in <em>both</em> real and complex contexts,
+we can say that the <m>(i,j)</m> entry in the product <m>\adjoint{A} A</m> is
+<me> \inprod{\uvec{a}_j}{\uvec{a}_i} </me>.
+But if <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" /> holds,
+then we must have
+<me>
+	\inprod{\uvec{a}_j}{\uvec{a}_i}
+	= \begin{cases}
+		1 \text{,} \amp i = j \text{,} \\
+		0 \text{,} \amp i \neq j \text{.}
+	\end{cases}
+</me>
+In other words,
+a matrix is product-preserving precisely when its columns are an orthonormal set.
+And since orthogonality implies independence
+(<xref ref="proposition-inprod-orthog-indep" />),
+we can in fact say that
+<alert>a product-preserving matrix must have columns that form an orthonormal basis</alert>
+for <m>\R^n</m> or <m>\C^n</m>,
+depending on the context.
+</p>
+</paragraphs>
+
+<paragraphs><title>Geometric properties</title>
+<p>
+As discussed above, a product-preserving matrix does just that <mdash />
+it preserves inner product values,
+as in <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-def" />.
+But every geometric concept we have
+<ndash /> norm, angle, orthogonality <ndash />
+can be defined in terms of the inner product.
+So, as we found for orthogonal matrices in <xref ref="activity-matrix-adjoints-orthogonal-geometry" />,
+<alert>a product-preserving matrix also preserves norm, distance, angle, and orthogonality</alert>.
+</p><p>
+In particular, a product-preserving matrix with preserve both orthogonal and orthonormal sets.
+That is, if
+<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </me>
+is an orthogonal set of column vectors, then so is
+<me> S' = \{ A \uvec{v}_1, A \uvec{v}_2, \dotsc, A\uvec{v}_\ell \} </me>.
+And if <m>S</m> is in fact ortho<em>normal</em>, then so is <m>S'</m>.
+We can go even further and say that
+<alert>transforming an orthogonal basis through multiplication by a product-preserving matrix will result in another orthogonal basis</alert>,
+and the same can be said with <q>orthogonal basis</q> replaced by <q>ortho<em>normal</em> basis</q>.
+</p>
+</paragraphs>
+
+<paragraphs><title>As transition matrices</title>
+<p>
+Consider again <xref ref="activity-matrix-adjoints-cob-matrix-unitary" />.
+The columns of a transition matrix are coordinate vectors for expanding each <q>old</q> basis vector relative to the <q>new</q> basis.
+If we are working in a finite-dimensional inner product space <m>V</m>,
+and the <q>new</q> basis
+<me> \basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>
+for <m>V</m> is orthonormal,
+then we can use <xref ref="theorem-inprod-orthog-expansion" text="title" />
+to express each vector in the <q>old</q> basis
+<me> \basisfont{B}' = \{ \uvec{v}_1', \uvec{v}_2', \dotsc, \uvec{v}_n' \} </me>
+as
+<me> \uvec{v}_j' = \inprod{\uvec{v}_j'}{\uvec{v}_1} \uvec{v}_1 + \inprod{\uvec{v}_j'}{\uvec{v}_2} \uvec{v}_2 + \dotsb + \inprod{\uvec{v}_j'}{\uvec{v}_n} \uvec{v}_n </me>.
+The <m>\nth[j]</m> column of <m>\ucobmtrx{B'}{B}</m> contains the coefficients in the expression above,
+and so we have <m>(i,j)</m> entry
+<me> p_{ij} =  \inprod{\uvec{v}_j'}{\uvec{v}_i} </me>.
+By the same reasoning,
+the <m>(i,j)</m> entry of <m>\ucobmtrx{B}{B'}</m> is
+<me> p_{ij}' =  \inprod{\uvec{v}_j}{\uvec{v}_i'} </me>.
+If we instead say that the <m>(j,i)</m> entry of <m>\ucobmtrx{B}{B'}</m> is
+<me> p_{ji}' =  \inprod{\uvec{v}_i}{\uvec{v}_j'} </me>,
+we immediately see that
+<me> \uadjcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</me>.
+Since we also know
+<me> \uinvcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</me>
+(<xref ref="proposition-change-of-basis-cob-props-reverse-is-inverse">Rule</xref>
+of <xref ref="proposition-change-of-basis-cob-props" />),
+we can use the characterization <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-adjoint-eq-inv" />
+to conclude that <alert>a transition matrix between orthonormal bases of an inner product space must be a product-preserving matrix</alert>.
+That is, such a matrix must be orthogonal if <m>V</m> is a real inner product space and unitary if <m>V</m> is a complex inner product space.
+</p><p>
+Every invertible matrix can be considered as a transition matrix <m>\ucobmtrx{B}{S}</m>,
+where <m>\basisfont{S}</m> is the standard basis and <m>\basisfont{B}</m> is the basis formed by the columns of the invertible matrix.
+(See <xref ref="proposition-change-of-basis-invertible-is-transition" />,
+which remains true about invertible complex matrices and bases of <m>\C^n</m>.)
+But the standard basis is clearly orthonormal,
+and a product-preserving matrix has orthonormal columns.
+So <alert>a product-preserving matrix is always somehow a transition matrix between orthonormal bases</alert>
+for <m>\R^n</m> or <m>\C^n</m>,
+depending on the context.
+</p>
+</paragraphs>
+
+</subsection>
+
+</section>

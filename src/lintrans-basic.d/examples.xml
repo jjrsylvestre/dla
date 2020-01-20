@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-basic-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-basic-examples-axioms" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-examples-axioms" /></em></li>
+<li><xref ref="subsection-lintrans-basic-examples-std-matrix" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-examples-std-matrix" /></em></li>
+<li><xref ref="subsection-lintrans-basic-examples-via-spanning" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-examples-via-spanning" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-basic-examples-axioms">
+<title>Verifying the axioms</title>
+
+<example xml:id="example-lintrans-basic-linear-formulas">
+	<title>Linear formulas create linear transformations</title>
+	<p>
+	Define <m>\funcdef{T}{\matrixring_{2 \times 2}(\R)}{\poly_2(\R)}</m> by
+	<me>
+		T\left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
+		= (a + b) + (c - 2d) x + (3b - c + d) x^2
+	</me>.
+	To verify that <m>T</m> is linear, check the linearity properties.
+	</p>
+	<case><title>Additivity</title><p>
+		We have
+		<md>
+			<mrow>
+				\amp
+				T\left(
+					\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+					+
+					\begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}
+				\right)
+			</mrow><mrow>
+				\amp \phantom{T} =
+				T\left( \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix} \right)
+			</mrow><mrow>
+				\amp \phantom{T}
+				= \bigl( (a + e) + (b + f) \bigr)
+				+ \bigl( (c + g) - 2(d + h) \bigr) x
+				+ \bigl( 3(b + f) - (c + g) + (d + h) \bigr) x^2
+				\text{,}
+			</mrow><mrow></mrow><mrow>
+				\amp
+				T\left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
+				+ T\left( \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix} \right)
+			</mrow><mrow>
+				\amp \phantom{T}
+				= (a + b) + (c - 2d) x + (3b - c + d) x^2
+				+ (e + f) + (g - 2h) x + (3f - g + h) x^2
+			</mrow><mrow>
+				\amp \phantom{T}
+				= \bigl( (a + b) + (e + f) \bigr)
+				+ \bigl( (c - 2d) + (g - 2h) \bigr) x
+				+ \bigl( (3b - c + d) + (3f - g + h) \bigr) x^2
+			</mrow>
+		</md>.
+		Comparing the results of the two calculations,
+		we see they are the same.
+	</p></case>
+	<case><title>Homogeneity</title><p>
+		We have
+		<md>
+			<mrow>
+				T\left( k \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
+				\amp =
+				T\left( \begin{bmatrix} k a \amp k b \\ k c \amp k d \end{bmatrix} \right)
+			</mrow><mrow>
+				\amp = (k a + k b) + \bigl(k c - 2 (k d)\bigr) x + \bigl(3(k b) - k c + k d\bigr) x^2
+				\text{,}
+			</mrow><mrow></mrow><mrow>
+				k \; T\left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
+				\amp = k \bigl( (a + b) + (c - 2d) x + (3b - c + d) x^2 \bigr)
+			</mrow><mrow>
+				\amp = k (a + b) + k (c - 2d) x + k (3b - c + d) x^2
+			</mrow>
+		</md>.
+		By distributing the scalar <m>k</m> a second time into each set of brackets in the last line above,
+		we can make the two results identical.
+	</p></case>
+</example>
+
+<example>
+	<title>Nonhomogeneous linear formulas do not create linear transformations</title>
+	<p>
+	Let's modify <xref ref="example-lintrans-basic-linear-formulas" /> slightly:
+	define <m>\funcdef{S}{\matrixring_{2 \times 2}(\R)}{\poly_2(\R)}</m> by
+	<me>
+		S\left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
+		= (a + b + 4) + (c - 2d) x + (3b - c + d - 2) x^2
+	</me>.
+	The definition of <m>S</m> still involves using linear formulas in the entries of the input matrix to specify coefficients of the output polynomial,
+	except that the constant and quadratic terms have extra constant parts to the coefficient formulas.
+	Comparing with the linear transformation <m>T</m> from <xref ref="example-lintrans-basic-linear-formulas" />,
+	we could write
+	<me> S(A) = T(A) + (4 - 2 x^2) </me>.
+	We saw in <xref ref="activity-lintrans-basic-exmps-translate">Discovery</xref> that the process of translation by a fixed vector is <em>not</em> a linear transformation,
+	so we expect that combining the linear transformation <m>T</m> with a translation will not be linear.
+	</p><p>
+	Instead of working directly with the formula-based definition of <m>S</m>,
+	we can instead relate it to <m>T</m> to check the linearity properties.
+	</p>
+	<case><title>Additivity</title><p>
+		We have
+		<md>
+			<mrow> S(A_1 + A_2) \amp = T(A_1 + A_2) + (4 - 2 x^2) </mrow>
+			<mrow> \amp = T(A_1) + T(A_2) + (4 - 2 x^2) \text{,} </mrow>
+			<mrow></mrow>
+			<mrow> S(A_1) + S(A_2) \amp = \bigl(T(A_1) + (4 - 2 x^2)\bigr) + \bigl(T(A_2) + (4 - 2 x^2)\bigr) </mrow>
+			<mrow> \amp = T(A_1) + T(A_2) + 2 (4 - 2 x^2) </mrow>
+		</md>,
+		where in the calculation on the left we use the linearity of <m>T</m> that was verified in <xref ref="example-lintrans-basic-linear-formulas" />.
+		We can see that these results will not be equal in general, so <m>S</m> is not a linear transformation.
+	</p></case>
+</example>
+
+<p>
+As we've already seen in <xref ref="subsection-lintrans-basic-concepts-special" />,
+many of our familiar processes will be linear,
+but others will not.
+</p>
+
+<example><title>Transpose is linear</title><p>
+	Consider <m>\funcdef{T}{\matrixring_{m \times n}(\R)}{\matrixring_{n \times m}(\R)}</m> defined by
+	<me> T(A) = \utrans{A} </me>.
+	To verify that <m>T</m> is a linear transformation,
+	we want to verify the formulas
+	<md><mrow>
+		\utrans{(A_1 + A_2)} \amp = \utrans{A}_1 + \utrans{A}_2 \text{,} \amp
+		\utrans{(k A)} \amp = k \utrans{A}
+	</mrow></md>.
+	But there is no need to get down to the level of the individual entries of matrices here,
+	we already know that these formulas are valid from
+	<xref ref="proposition-matrix-ops-algebra-rules-transpose-add">Rule</xref>
+	and <xref ref="proposition-matrix-ops-algebra-rules-transpose-smul">Rule</xref>
+	of <xref ref="proposition-matrix-ops-algebra-rules" />.
+</p></example>
+
+<example><title>Complex adjoint is not linear</title>
+	<p>
+	Consider <m>\funcdef{T}{\matrixring_{m \times n}(\C)}{\matrixring_{n \times m}(\C)}</m> defined by
+	<me> T(A) = \adjoint{A} </me>.
+	To verify that <m>T</m> is a linear transformation,
+	we want to verify the formulas
+	<md><mrow>
+		\adjoint{(A_1 + A_2)} \amp = \adjoint{A}_1 + \adjoint{A}_2 \text{,} \amp
+		\adjoint{(k A)} \amp = k \adjoint{A}
+	</mrow></md>.
+	However, this time only the first formula is valid
+	(<xref ref="proposition-complex-matrices-algebra-rules-adjoint-add">Rule</xref>
+	of <xref ref="proposition-complex-matrices-algebra-rules" />).
+	The correct version of the second formula would require a conjugate on the scalar <m>k</m>
+	(<xref ref="proposition-complex-matrices-algebra-rules-adjoint-smul">Rule</xref>
+	of <xref ref="proposition-complex-matrices-algebra-rules" />).
+	So the adjoint process does not create a linear transformation.
+	</p>
+	<aside><title>Terminology</title><p>
+		Being <em>almost</em> linear in this way,
+		where the only obstacle is an extra conjugate in scalar multiplication,
+		is called <term>skew linear</term>.
+	</p></aside>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-examples-std-matrix">
+<title>The standard matrix of a transformation <m>\R^n \to \R^m</m></title>
+
+<example><title>From linear formulas</title>
+	<p>
+	Consider the system of linear input-output formulas in <xref ref="activity-lintrans-basic-matrix-from-formulas">Discovery</xref>:
+	<me>
+		\left\{\begin{array}{rcrcr}
+			w_1 \amp = \amp 3 x_1 \amp - \amp x_2 \\
+			w_2 \amp = \amp 5 x_1 \amp + \amp 5 x_2 \\
+			w_3 \amp = \amp  \amp + \amp 7 x_2 \\
+			w_4 \amp = \amp - x_1 \amp + \amp x_2
+		\end{array}\right.
+	</me>.
+	These formulas define a linear transformation <m>\funcdef{T}{\R^2}{\R^4}</m>.
+	If we set
+	<me>
+		A = \left[\begin{array}{rr}
+			 3 \amp -1 \\
+			 5 \amp  5 \\
+			 0 \amp  7 \\
+			-1 \amp  1
+		\end{array}\right]
+	</me>,
+	then we will have
+	<me> T(\uvec{x}) = A \uvec{x} </me>
+	for all <m>\uvec{x}</m> in <m>\R^2</m>,
+	so that <m>T = T_A</m>.
+	</p><p>
+	Following the notation introduced in <xref ref="section-lintrans-basic-terminology" />,
+	we write <m>\stdmatrixOf{T}</m> instead of just <m>A</m> for the matrix above,
+	so that
+	<me> T(\uvec{x}) = \stdmatrixOf{T} \uvec{x} </me>
+	for all <m>\uvec{x}</m> in <m>\R^2</m>.
+	</p>
+</example>
+
+<example><title>From images of standard basis vectors</title>
+	<p>
+	Consider the vectors
+	<md><mrow>
+		\uvec{a}_1 \amp = \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix}, \amp
+		\uvec{a}_2 \amp = \left[\begin{array}{r} 0 \\ -1 \\ 5 \end{array}\right]
+	</mrow></md>
+	in <m>\R^3</m>.
+	Define <m>\funcdef{T}{\R^3}{\R^2}</m> by
+	<me> T(\uvec{x}) = \begin{bmatrix} \dotprod{\uvec{x}}{\uvec{a}_1} \\ \dotprod{\uvec{x}}{\uvec{a}_2} \end{bmatrix} </me>.
+	Since dot product is linear, this creates a linear transformation. (Check!)
+	We could fairly easily determine linear formulas for each component of the output vector expression for <m>T</m>,
+	but let's use the pattern
+	of <xref ref="equation-lintrans-basic-concepts-std-matrix" />
+	in <xref ref="subsection-lintrans-basic-concepts-std-matrix" />.
+	</p><p>
+	Compute
+	<md>
+		<mrow>
+			T(\uvec{e}_1) \amp = \begin{bmatrix} \dotprod{\uvec{e}_1}{\uvec{a}_1} \\ \dotprod{\uvec{e}_1}{\uvec{a}_2} \end{bmatrix}
+			\amp
+			T(\uvec{e}_2) \amp = \begin{bmatrix} \dotprod{\uvec{e}_2}{\uvec{a}_1} \\ \dotprod{\uvec{e}_2}{\uvec{a}_2} \end{bmatrix}
+			\amp
+			T(\uvec{e}_3) \amp = \begin{bmatrix} \dotprod{\uvec{e}_3}{\uvec{a}_1} \\ \dotprod{\uvec{e}_3}{\uvec{a}_2} \end{bmatrix}
+		</mrow><mrow>
+			\amp = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \text{,} \amp
+			\amp = \left[\begin{array}{r} 1 \\ -1 \end{array}\right] \text{,} \amp
+			\amp = \begin{bmatrix} 2 \\ 5 \end{bmatrix}
+		</mrow>
+	</md>.
+	Each of these results corresponds to a column of the standard matrix <m>\stdmatrixOf{T}</m>:
+	<me>
+		\stdmatrixOf{T} =
+		\left[\begin{array}{crc}
+			1 \amp  1 \amp 2 \\
+			0 \amp -1 \amp 5
+		\end{array}\right]
+	</me>.
+	Notice how the vectors <m>\uvec{a}_1,\uvec{a}_2</m> ended up as rows in <m>\stdmatrixOf{T}</m>,
+	so that multiplying a vector in <m>\R^3</m> by this matrix effectively computes the two dot products against <m>\uvec{a}_1,\uvec{a}_2</m>,
+	as in the definition of <m>T</m>.
+	For example,
+	<me>
+		T\left( \left[\begin{array}{r} 7 \\ -3 \\ 5 \end{array}\right] \right)
+		=  \left[\begin{array}{crc}
+			1 \amp  1 \amp 2 \\
+			0 \amp -1 \amp 5
+		\end{array}\right]
+		\left[\begin{array}{r} 7 \\ -3 \\ 5 \end{array}\right]
+		= \begin{bmatrix} 14 \\ 28 \end{bmatrix}
+	</me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-examples-via-spanning">
+<title>Linear transformations via spanning image vectors</title>
+
+<p>
+In <xref ref="activity-lintrans-basic-basis-images" />
+and <xref ref="subsection-lintrans-basic-concepts-basis" />,
+we found that a linear transformation can be completely determined by how it transforms a spanning set for the domain space.
+Here is an example of using this fact.
+</p>
+
+<example xml:id="example-lintrans-basic-via-spanning">
+	<p>
+	Suppose <m>\funcdef{T}{\poly_2(\R)}{\R^2}</m> is a linear transformation,
+	and it's known that
+	<md><mrow>
+		T(x^2 - x) \amp = (1,1) \text{,} \amp
+		T(x - 1) \amp = (0,-1) \text{,} \amp
+		T(1) \amp = (3,6)
+	</mrow></md>.
+	Then, for example, we can use an expansion like
+	<me> 4 x^2 + 2 x - 1 = 4 (x^2 - x) + 6 (x - 1) + 5 \cdot 1 </me>,
+	along with the linearity properties of <m>T</m>,
+	to compute
+	<md>
+		<mrow> T(4 x^2 + 2 x - 1) \amp = T \bigl( 4 (x^2 - x) + 6 (x - 1) + 5 \cdot 1 \bigr) </mrow>
+		<mrow> \amp = 4 T(x^2 - x) + 6 T(x - 1) + 5 T(1) </mrow>
+		<mrow> \amp = 4 (1,1) + 6 (0,-1) + 5 (3,6) </mrow>
+		<mrow> \amp = (19,28) </mrow>
+	</md>.
+	</p><p>
+	More generally,
+	<me> \poly_2(\R) = \Span \{ x^2 - x, x - 1, 1 \} </me>,
+	as every polynomial can be decomposed as a linear combination of these spanning vectors:
+	for
+	<me> p(x) = a x^2 + b x + c </me>,
+	we have
+	<me> p(x) = a (x^ - x) + (a + b) (x - 1) + (a + b + c) \cdot 1 </me>.
+	Then, similar to the example calculation above, we have
+	<md>
+		<mrow> T(a x^2 + b x + c) \amp = T \bigl( a (x^2 - x) + (a + b) (x - 1) + (a + b + c) \cdot 1 \bigr) </mrow>
+		<mrow> \amp = a T(x^2 - x) + (a + b) T(x - 1) + (a + b + c) T(1) </mrow>
+		<mrow> \amp = a (1,1) + (a + b) (0,-1) + (a + b + c) (3,6) </mrow>
+		<mrow> \amp = (4 a + 3 b + 3 c, 6 a + 5 b + 6 c) </mrow>
+	</md>.
+	So, from knowledge of the image vectors on a spanning set of the domain space,
+	along with the pattern of how vectors in the domain space decompose into linear combinations,
+	we can recover a description of the linear transformation as a set of linear input-output formulas.
+	</p>
+</example>
+
+<p>
+As per <xref ref="procedure-lintrans-basic-concepts-basis-to-transformation" />,
+we can also <em>define</em> a linear transformation in this way.
+In <xref ref="example-lintrans-basic-via-spanning" />,
+the spanning set
+<me> \{ x^2 - x, x - 1, 1 \} </me>
+is actually a basis for <m>\poly_2(\R)</m>.
+So we could start with the image vectors
+<md><mrow>
+	T(x^2 - x) \amp = (1,1) \text{,} \amp
+	T(x - 1) \amp = (0,-1) \text{,} \amp
+	T(1) \amp = (3,6)
+</mrow></md>
+and then use the linearity properties of <m>T</m> to extend <m>T</m> to all linear combinations of these domain space basis vectors.
+The fact that only explicitly specifying <m>T</m> on these basis vectors fully defines <m>T</m> on the whole domain is backed up by the fact that were able to recover general input-output linear formulas for <m>T</m> from these three image vectors.
+</p><p>
+But as noted in <xref ref="remark-lintrans-basic-concepts-use-basis-image-vectors" />,
+it's important to use a <em>basis</em> in this method of defining a linear transformation.
+Here is an example illustrating this fact.
+</p>
+
+<example xml:id="example-lintrans-basic-via-nonbasis">
+	<title>Defining a transformation via dependent spanning vectors could fail</title>
+	<p>
+	Suppose we attempt to define <m>\funcdef{T}{\R^2}{\R^2}</m> by setting
+	<md><mrow>
+		T\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) \amp = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \text{,} \amp
+		T\left(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\right) \amp = \begin{bmatrix} 2 \\ 3 \end{bmatrix} \text{,} \amp
+		T\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right) \amp = \begin{bmatrix} 3 \\ 4 \end{bmatrix}
+	</mrow></md>.
+	If <m>T</m> is linear,
+	we can determine its standard matrix from the first two image vectors above:
+	<me> \stdmatrixOf{T} = \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} </me>.
+	But then we should have
+	<me>
+		T\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)
+		= \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+		= \begin{bmatrix} 3 \\ 5 \end{bmatrix}
+	</me>,
+	which does not agree with our specified image vector for input <m>(1,1)</m>.
+	</p><p>
+	What went wrong?
+	Our collection of three input vectors is a spanning set,
+	but it is a dependent one:
+	<me>
+		  \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+		+ \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+		= \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+	</me>.
+	The only way to make a definition of a linear transformation <m>T</m> on these three spanning vectors is to also have
+	<me>
+		  T\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right)
+		+ T\left(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\right)
+		= T\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)
+	</me>,
+	which our initial definition did not.
+	</p>
+</example>
+
+</subsection>
+
+</section>

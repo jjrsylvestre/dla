@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-vectors">
+
+<title>Discovery guide</title>
+
+<activity xml:id="activity-vectors-directed-line-segments">
+	<task><p>
+		Plot points <m>P(1,2)</m> and <m>Q(3,-1)</m> in the <m>xy</m>-plane. Draw an arrow from <m>P</m> to <m>Q</m>. This arrow is called the
+		<term>directed line segment</term>
+		<idx><h>directed line segment</h></idx>
+		<m>\abray{PQ}</m>.
+	</p></task>
+	<task xml:id="activity-vectors-directed-line-segments-components">
+		<p>
+		Fill in the
+		<term>components</term>
+		<idx><h>components</h></idx>
+		<idx><h>vector</h><h>components</h></idx>
+		for this directed line segment:
+		<m>\abray{PQ} = (\Delta x, \Delta y) = (<fillin characters="5" />,<fillin characters="5" />)</m>.
+		</p>
+	</task>
+	<task><p>
+		On the same axes you've been working on, plot the point <m>R</m> that has the same coordinates as the components of <m>\abray{PQ}</m>, and draw the directed line segment <m>\abray{OR}</m> where <m>O</m> is the origin. What do you notice about this arrow?
+	</p></task>
+	<task><p>
+		This <q>common</q> arrow for <m>\abray{PQ}</m> and <m>\abray{OR}</m> (and all arrows in the <m>xy</m>-plane just like it) is called a
+		<term>vector</term><idx><h>vector</h></idx>.
+		Let's label this vector <m>\uvec{v}</m>. Draw another <q>copy</q> of <m>\uvec{v}</m> so that its
+		<term>initial point</term>
+		<idx><h>initial point</h></idx>
+		<idx><h>vector</h><h>initial point</h></idx>
+		is <m>S(-2,1)</m>.  What will be the
+		<term>terminal point</term>
+		<idx><h>terminal point</h></idx>
+		<idx><h>vector</h><h>terminal point</h></idx>
+		for this copy of <m>\uvec{v}</m>?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-vectors-geom-vec-add">
+	<task><p>
+		Draw the vector <m>\uvec{u} = (2,3)</m> with its initial point at <m>P(1,1)</m>. Label this vector on your diagram, and label its terminal point as <m>Q</m>. Now draw the vector <m>\uvec{v} = (3,-1)</m> with its initial point at <m>Q</m>. Label this vector on your diagram, and label this second terminal point as <m>R</m>. Draw in vector <m>\uvec{w}</m> corresponding to <m>\abray{PR}</m>.
+	</p></task>
+	<task>
+		<p>
+		Compute the components of <m>\uvec{w}</m> using a <m>(\Delta x, \Delta y)</m> calculation between its initial and terminal points in your diagram,
+		similarly to
+		<xref ref="activity-vectors-directed-line-segments-components" />.
+		</p><p>
+		Looking at the components of <m>\uvec{u}</m> and <m>\uvec{v}</m>, what do you notice about the components of <m>\uvec{w}</m>? Based on this, we should call <m>\uvec{w}</m> the <fillin characters="3" /> of <m>\uvec{u}</m> and <m>\uvec{v}</m>, and write <m>\uvec{w} = \uvec{u}<fillin characters="2" />\uvec{v}</m>.
+		</p>
+	</task>
+	<task>
+		<statement><p>
+		Now work in the reverse order: on the same diagram you've been working on, draw <m>\uvec{v}</m> starting at <m>P</m>, then draw <m>\uvec{u}</m> starting at that terminal point. Where did the second terminal point end up? Turn this into a rule for vector algebra: <fillin characters="12" />.
+		</p></statement>
+		<hint><p>
+		Your rule should be about the different ways to combine <m>\uvec{u}</m> and <m>\uvec{v}</m> that you've explored so far in this activity.
+		</p></hint>
+	</task>
+	<task><p>
+		What shape do the four vectors on the outside make? And what is <m>\abray{PR}</m> relative to that shape (geometrically)?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-vectors-zero-vec">
+	<task><p> How should you draw the vector <m>\zerovec = (0,0)</m>? </p></task>
+	<task><p>
+		What happens if you draw <m>\zerovec</m> tail-to-head or head-to-tail with another vector
+		(as in <xref ref="activity-vectors-geom-vec-add" />)?
+		Turn this into a rule for vector algebra: <fillin characters="12" />.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-vectors-neg-vec">
+	<introduction><p> We would reasonably expect <m>\uvec{v} + (-\uvec{v}) = \zerovec</m> in vector algebra. </p></introduction>
+	<task><p>
+		Draw a geometric representation of this rule on a set of axes for <m>\uvec{v} = (1,2)</m> (use the origin as the initial point for <m>\uvec{v}</m>).
+	</p></task>
+	<task><p> What should the components of <m>-\uvec{v}</m> be? </p></task>
+	<task><p> On the same set of axes as before, draw <m>-\uvec{v}</m> with its initial point at the origin. </p></task>
+</activity>
+
+<activity xml:id="activity-vectors-diff-vec-between-heads">
+	<introduction><p>
+		Draw an arbitrary vector in the plane, and label it <m>\uvec{u}</m>. Then draw another arbitrary vector with its initial point at the terminal point of <m>\uvec{u}</m> (but maybe have this new vector head off in a new direction). Label this second vector <m>\uvec{v}</m>. Now draw in the sum vector <m>\uvec{w} = \uvec{u} + \uvec{v}</m>, similarly to
+		<xref ref="activity-vectors-geom-vec-add" />.
+	</p></introduction>
+	<task><p> Which of your three vectors represents <m>\uvec{w} - \uvec{u}</m>? </p></task>
+	<task><p> Draw in another vector for <m>\uvec{u} - \uvec{w}</m>. </p></task>
+	<task><p> What is the point of this activity? </p></task>
+</activity>
+
+<activity xml:id="activity-vectors-scalar-mul">
+	<task><p>
+		Draw a representative diagram for the vector sum <m>\uvec{v} + \uvec{v}</m> using <m>\uvec{v} = (1,2)</m> (start with the first initial point at the origin). What are the components of this sum vector? Do you think it is reasonable to write <m>2\uvec{v}</m> to mean <m>\uvec{v} + \uvec{v}</m>?
+	</p></task>
+	<task><p>
+		Now draw each of the following, and determine their components: <m>3\uvec{v}</m>, <m>-2\uvec{v}</m>, <m>\frac{1}{2}\uvec{v}</m>, <m>-\frac{5}{4}\uvec{v}</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-vectors-scalar-mul-distrib"><p>
+	Draw an arbitrary representative diagram for <m>\uvec{w} = \uvec{u} + \uvec{v}</m> (similarly to how you started <xref ref="activity-vectors-diff-vec-between-heads" />). On the same set of axes, draw a diagram for <m>2\uvec{u} + 2\uvec{v}</m>, and compare with <m>2\uvec{w}</m>. Express what you've discovered as a rule of vector algebra, with <m>2</m> replaced by variable <m>k</m>: <fillin characters="12" />.
+</p></activity>
+
+<activity xml:id="activity-vectors-standard-basis"><p>
+	On a set of <m>xy</m>-axes, draw the
+	<term>standard basis vectors</term><idx><h>standard</h><h>basis</h></idx><idx><h>basis</h><h>standard</h></idx><idx><h>vector</h><h>standard basis</h></idx>:
+	<m>\uvec{e}_1 = (1,0)</m> and <m>\uvec{e}_2 = (0,1)</m>, along with the vector <m>\uvec{v} = (5,2)</m>. Then draw a geometric representation of <m>\uvec{v}</m> as a
+	<term>linear combination</term><idx><h>linear</h><h>combination</h></idx> <m>\uvec{v} = 5\uvec{e}_1 + 2\uvec{e}_2</m>.
+</p></activity>
+
+<activity xml:id="activity-vectors-intro-3dim">
+	<introduction><p>
+		All the vectors we've encountered so far are <term>two-dimensional vectors</term>. Let's bump everything up a dimension.
+	</p></introduction>
+	<task xml:id="activity-vectors-intro-3dim-draw"><p>
+		Using <m>\uvec{u} = (1,1,0)</m> and <m>\uvec{v} = (1,-1,2)</m>, draw the following on a set of <m>xyz</m>-axes:
+		<m>\uvec{u}</m>, <m>\uvec{v}</m>, <m>\uvec{u}+\uvec{v}</m>, <m>-\uvec{u}</m>, <m>\uvec{v}-\uvec{u}</m>, <m>2\uvec{v}</m>.
+	</p></task>
+	<task><p> Now compute the components of each of the vectors from the previous part of this activity. </p></task>
+</activity>
+
+<activity>
+	<prelude><p>
+		We can't draw pictures of <m>n</m>-dimensional vectors if <m>n>3</m>, but we can do all the same algebra.
+	</p></prelude>
+	<statement><p>
+		Complete the following vector algebra formulas.
+		<ul>
+			<li><m>(u_1,u_2,\dotsc,u_n) + (v_1,v_2,\dotsc,v_n) = <fillin characters="15" /></m></li>
+			<li><m>(u_1,u_2,\dotsc,u_n) - (v_1,v_2,\dotsc,v_n) = <fillin characters="15" /></m></li>
+			<li><m>-(v_1,v_2,\dotsc,v_n) = <fillin characters="15" /></m></li>
+			<li><m> k(v_1,v_2,\dotsc,v_n) = <fillin characters="15" /></m></li>
+			<li><m>\uvec{0} = <fillin characters="15" /></m></li>
+		</ul>
+	</p></statement>
+</activity>
+
+<activity xml:id="activity-vectors-other-displacements">
+	<prelude><p>
+		We can use vectors to represent other kinds of <q>displacements</q> besides position displacements.
+		Vectors can be used to represent change between states of any collection of related variables.
+	</p></prelude>
+	<statement>
+		<p>
+		An investor sinks $10,000 into stock in each of companies A, B, C, and D.
+		After a year,
+		the various items in her portfolio have the following values:
+		company A, $10,475;
+		company B, $11,240;
+		company C, $9,756;
+		company D, $10,054.
+		</p><p>
+		Represent the <q>displacement</q> in the collection of values of the investor's holdings,
+		from initial state
+		<me> (A,B,C,D) = (10000, 10000, 10000, 10000) </me>
+		to terminal state
+		<me> (A,B,C,D) = (10475, 11240, 9756, 10054) </me>
+		as a four-dimensional vector.
+		</p>
+	</statement>
+</activity>
+
+<activity xml:id="activity-vectors-col-vecs">
+	<introduction><p>
+		If we write two-dimensional vectors in the form
+		<m>\uvec{u} = \left[\begin{smallmatrix} u_1 \\ u_2 \end{smallmatrix}\right]</m>,
+		instead of the form <m>\uvec{u} = (u_1,u_2)</m>,
+		then we can use matrix algebra to do computations with vectors.
+	</p></introduction>
+	<task><p> Does each rule of vector algebra that we've discovered today have a counterpart rule in matrix algebra? </p></task>
+	<task><p>
+		Will the same be true for the algebra of higher-dimensional vectors?
+		(That is, if we consider using <m>n\times 1</m> column matrices to represent <m>n</m>-dimensional vectors?)
+	</p></task>
+</activity>
+
+</worksheet>

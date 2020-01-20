@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-orthog-unitary-diag-motivation" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Motivation</title>
+
+<p>
+Recall that we can use a square matrix <m>A</m> to transform column vectors by multiplication.
+But if we have a transition matrix <m>P</m> that puts <m>A</m> in diagonal form,
+we can consider <me>P = \ucobmtrx{B}{S}</me>,
+where <m>\basisfont{S}</m> is the standard basis
+(of either <m>\R^n</m> or <m>\C^n</m>, as appropriate)
+and <m>\basisfont{B}</m> is the basis formed by the columns of <m>P</m>.
+And then also <me>\inv{P} = \ucobmtrx{S}{B}</me>.
+</p><p>
+So if we have
+<me> A = P D \inv{P} </me>
+for some diagonal matrix <m>D</m>,
+and we consider how <m>A</m> transforms column vectors by multiplication,
+we can instead think of <m>\inv{P}</m> as first converting standard coordinates to <m>\basisfont{B}</m>-coordinates,
+the diagonal matrix <m>D</m> transforming those converted <m>\basisfont{B}</m>-column vectors by simply scaling each coordinate by the corresponding diagonal entry,
+and then <m>P</m> converting the result back to standard coordinates.
+</p><p>
+We explored this in detail for real <m>2 \times 2</m> matrix in <xref ref="activity-similarity-geometric" />,
+where we used the columns of <m>P</m> to represent a new set of <m>wz</m>-axes
+(just as standard vectors in <m>\R^2</m> represent the <m>xy</m>-axes).
+</p>
+<figure>
+	<caption>
+		A transition matrix as change-of-variables.
+		For each vector <m>\uvec{x}</m> on the <m>xy</m>-axes,
+		the corresponding vector <m>\widetilde{\uvec{x}}</m> on the <m>wz</m>-axes indicates the converted vector <m>\inv{P} \uvec{x}</m>.
+	</caption>
+	<image width="100%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of a change of variables via transition matrix.</description>
+		<latex-image><xi:include href="motivation.d/cob-1.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+One problem with this geometric analysis is that,
+while the geometric effect of multiplication by the diagonal matrix <m>D</m> is much simpler to analyze,
+the transition matrix <m>P</m> and its inverse might have complicated geometric effects in the conversion between standard and <m>\basisfont{B}</m>-coordinates.
+The axes that the columns of <m>P</m> represent might not even be perpendicular!
+</p>
+<figure>
+	<caption>
+		A transition matrix as geometry-skewing change-of-variables.
+		For each vector <m>\uvec{x}</m> on the <m>xy</m>-axes,
+		the corresponding vector <m>\widetilde{\uvec{x}}</m> on the <m>wz</m>-axes indicates the converted vector <m>\inv{P} \uvec{x}</m>.
+	</caption>
+	<image width="100%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of a change of variables via transition matrix that skews geometry.</description>
+		<latex-image><xi:include href="motivation.d/cob-2.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+But if <m>P</m> is a <em>product-preserving</em> matrix
+(<ie /> orthogonal in the real case or unitary in the complex case),
+then <m>P</m> does <em>not</em> skew geometry in moving from standard coordinates to <m>\basisfont{B}</m>-coordinates
+(<xref ref="proposition-matrix-adjoints-prod-preserv-props" />).
+And since the columns of <m>P</m> will form an <em>orthonormal</em> basis
+(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />),
+the system of axes these columns represent will be an orthogonal system,
+with each basis vector representing displacement by exactly one unit along its corresponding axis,
+just as the standard basis vectors do.
+</p><p>
+With the advantages of a orthogonal/unitary transition matrix in mind, in the remainder of this chapter we attempt to answer the following.
+</p>
+
+<question><p>
+	When is a real square matrix <term>orthogonally diagonalizable</term>?
+	When is a real complex matrix <term>unitarily diagonalizable</term>?
+</p></question>
+
+</section>

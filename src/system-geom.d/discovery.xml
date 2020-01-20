@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-system-geom">
+
+<title>Discovery guide</title>
+
+<activity xml:id="activity-system-geom-R2-line-parametric">
+	<introduction><p>
+		Begin with a set of <m>xy</m>-axes. Draw the vector <m>\uvec{x}_0 = (3,0)</m> with its tail at the origin, and then draw the vector <m>\uvec{p} = (2,1)</m> with its tail at the head of <m>\uvec{x}_0</m>.
+	</p></introduction>
+	<task>
+		<p>
+		Consider the expression <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> in the <term>parameter</term> t. Think of <m>\uvec{x}</m> as a variable vector <mdash /> using different values of <m>t</m>, <m>\uvec{x}</m> evaluates to different vectors. Draw the vector <m>\uvec{x}</m> for <m>t=1</m> on your diagram with its tail at the origin and using a dashed line for the shaft of the arrow. Then do the same for <m>t=2</m>, <m>t=-1</m>, <m>t=1/2</m>, <m>t=-3</m>.
+		</p>
+		<aside><title>Note</title><p>
+		You shouldn't have to compute any coordinates to be able to draw these vectors, you should be able to just use your initial diagram of <m>\uvec{x}_0</m> and <m>\uvec{p}</m> to know where <m>\uvec{x}</m> ends up for these various values of <m>t</m>.
+		</p></aside>
+	</task>
+	<task><p>
+		Suppose you continued sketching in the different possible <m>\uvec{x}</m> vectors forever, using every possible value for the parameter <m>t</m>. What shape would be traced out by all of the <em>points</em> at the heads of the different versions of <m>\uvec{x}</m>?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-system-geom-R2-line-eq2parametric">
+	<introduction><p>
+		The equation <m>x - 2y = 3</m> defines a line <m>\ell</m> in <m>\R^2</m>. We can also view this equation as a system of linear equations. Its solution requires one parameter.
+	</p></introduction>
+	<task><p>
+		Set <m>y = t</m> and then compute the parametric equation for <m>x</m>. Set <m>\uvec{x}</m> to be the variable vector <m>\uvec{x} = \left[\begin{smallmatrix}x\\y\end{smallmatrix}\right]</m>. Fill in the vectors at below. Then compare with <xref ref="activity-system-geom-R2-line-parametric" />.
+		<me>
+				\uvec{x}
+				\;\;=\;\;\begin{bmatrix}x\\y\end{bmatrix}
+				\;\;=\;\;\begin{bmatrix}\hphantom{3+2t}\\t\end{bmatrix}
+				\;\;=\;\;\begin{bmatrix}\hphantom{3}\\\hphantom{0}\end{bmatrix}
+				\;\;+\;\; t\begin{bmatrix}\hphantom{2}\\\hphantom{1}\end{bmatrix}
+		</me>
+	</p></task>
+	<task><p>
+		Verify that the point <m>(4,1/2)</m> lies on <m>\ell</m>. Then determine the value of the parameter <m>t</m> so that <m>\uvec{x} = (4,1/2)</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-system-geom-R3-line-parametric">
+	<introduction><p>
+		Consider the two planes
+		<md><mrow>\Pi_1\amp\colon\;\; 2x - y + z = 3, \amp \Pi_2\amp\colon\;\; x + 3y - 2z = -1</mrow></md>
+		in <m>\R^3</m>.
+	</p></introduction>
+	<task>
+		<statement><p> Verify that <m>\Pi_1</m> and <m>\Pi_2</m> are not parallel. </p></statement>
+		<hint><p>Compare their normal vectors.</p></hint>
+	</task>
+	<task>
+		<statement><p>
+			Two nonparallel planes must intersect in a line. Describe the line of intersection of <m>\Pi_1</m> and <m>\Pi_2</m> in the form <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m>.
+		</p></statement>
+		<hint><p>
+			Any point in the intersection must lie on both planes at once. That is, any point in the intersection must be a solution to the system of equations formed by the two plane equations.
+		</p></hint>
+	</task>
+</activity>
+
+<activity xml:id="activity-system-geom-R3-plane-parametric">
+	<introduction><p>
+		The equation <m>x - y + 2z = -3</m> defines a plane in <m>\R^3</m>. We can also view this equation as a system of linear equations.
+	</p></introduction>
+	<task><p>
+		Similarly to <xref ref="activity-system-geom-R2-line-eq2parametric" />, determine vectors <m>\uvec{x}_0</m>, <m>\uvec{p}_1</m>, and <m>\uvec{p}_2</m> so that
+		<me>
+			\uvec{x} = \left[\begin{smallmatrix}x\\y\\z\end{smallmatrix}\right]
+			= \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2
+		</me>
+		describes all solutions to the equation (and hence all points on the plane).
+	</p></task>
+	<task>
+		<p> Verify that the point <m>(-1,4,1)</m> lies on this plane. </p>
+		<p> Then determine the values of the parameters <m>s</m> and <m>t</m> so that <m>\uvec{x} = (-1,4,1)</m>. </p>
+	</task>
+</activity>
+
+<activity xml:id="activity-system-geom-grid-xy-1">
+	<p>
+	Draw a grid over the <m>xy</m>-plane, with a vertical line at each integer value of <m>x</m> and a horizontal line at each integer value of <m>y</m>. Then draw <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> on your diagram.
+	</p><p>
+	What does the decomposition <m>(3,2) = 3\uvec{e}_1 + 2\uvec{e_2}</m> look like on your grid?
+	</p><p>
+	How about <m>(-1,2) = (-1)\uvec{e}_1 + 2\uvec{e}_2</m>?
+	</p><p>
+	How about <m>(3/2,-2) = (3/2)\uvec{e}_1 + (-2)\uvec{e}_2</m>?
+	</p>
+</activity>
+
+<activity xml:id="activity-system-geom-grid-xy-2">
+	<p>
+	Draw a <q>grid</q> over the <m>xy</m>-plane as follows: at each integer value along the <m>x</m>-axis, draw both a vertical line and a slant line parallel to the line <m>y=x</m>. Then draw <m>\uvec{u} = (1,1)</m> and <m>\uvec{e}_2</m> on your diagram.
+	</p><p>
+	What does the decomposition <m>(3,2) = 3\uvec{u} + (-1)\uvec{e}_2</m> look like on your grid?
+	</p><p>
+	How about <m>(-1,2) = (-1)\uvec{u} + 3\uvec{e}_2</m>?
+	</p><p>
+	How about <m>(3/2,-2) = (3/2)\uvec{u} + (-7/2)\uvec{e}_2</m>?
+	</p>
+</activity>
+
+<activity xml:id="activity-system-geom-grid-plane-R3-homog">
+	<p>
+	The set of all solutions to the homogeneous equation <m>x - 2y + 3z = 0</m> forms a plane in <m>\R^3</m>. We can solve this equation by assigning parameters <m>y=s</m> and <m>z=t</m>, so that all solutions can be described parametrically by
+	<me> (x,y,z) = s(2,1,0) + t(-3,0,1). </me>
+	Discuss how the vectors <m>\uvec{p}_1 = (2,1,0)</m> and <m>\uvec{p}_2 = (-3,0,1)</m> create a <q>grid</q> on the plane defined by <m>x - 2y + 3z = 0</m>, similarly to the grids you worked with in
+	<xref ref="activity-system-geom-grid-xy-1" />
+	and
+	<xref ref="activity-system-geom-grid-xy-2" />.
+	</p>
+	<aside><title>Note</title>
+		<p>
+		Since the plane equation <me>x - 2y + 3z = 0</me> is homogeneous, this plane passes through the origin.
+		</p>
+	</aside>
+</activity>
+
+<activity xml:id="activity-system-geom-intersect-line-plane-1">
+	<statement><p>
+		Determine the point of intersection of the line <m>\ell</m>, described parametrically below left, and the plane <m>\Pi</m>, described algebraically below right.
+		<md><mrow>
+			\ell\amp\colon\;\; \uvec{x} = (2,0,3) + t(-1,1,1) \amp
+			\Pi\amp\colon\;\; 2x+y-3z=7
+		</mrow></md>
+	</p></statement>
+	<hint><p> The point of intersection is simultaneously on the line and on the plane. </p></hint>
+</activity>
+
+<activity xml:id="activity-system-geom-intersect-line-plane-2">
+	<statement><p>
+		Set up a system of equations whose solution is the point of intersection of the line <m>\ell</m> and the plane <m>\Pi</m>, described parametrically below.
+		<md><mrow>
+			\ell\amp\colon\;\; \uvec{x} = (2,0,3) + t(-1,1,1) \amp
+			\Pi\amp\colon\;\; \uvec{x} = (3,1,0) + r(1,1,1) + s(3,0,2)
+		</mrow></md>
+	</p></statement>
+	<hint><p> The point of intersection is simultaneously on the line and on the plane. </p></hint>
+</activity>
+
+</worksheet>

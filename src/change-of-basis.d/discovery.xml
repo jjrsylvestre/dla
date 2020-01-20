@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-change-of-basis">
+<title>Discovery guide</title>
+
+<introduction><p>
+	Our goal in this set of discovery activities is to figure out how to convert from describing vectors in terms of one basis to describing vectors in terms of another basis.
+</p></introduction>
+
+<activity xml:id="activity-change-of-basis-recall-coord-vecs">
+	<prelude><p> First, let's remind ourselves of the concept of <term>coordinate vector</term>. </p></prelude>
+	<introduction><p>
+		Suppose <m>V</m> is a three-dimensional vector space,
+		and <m>\basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \uvec{u}_3 \}</m> is a basis for <m>V</m>.
+	</p></introduction>
+	<task xml:id="activity-change-of-basis-recall-coord-vecs-from-lincomb"><p>
+		If <m> \uvec{v} = 5 \uvec{u}_1 + 3 \uvec{u}_2 + (-1)\uvec{u}_3 </m>,
+		then
+		<me>
+			\matrixOf{\uvec{v}}{B}
+			= \begin{bmatrix} <fillin characters="2" /> \\ <fillin characters="2" /> \\ <fillin characters="2" /> \end{bmatrix}
+		</me>.
+	</p></task>
+	<task xml:id="activity-change-of-basis-recall-coord-vecs-to-lincomb"><p>
+		If <m> \matrixOf{\uvec{v}}{B} = \left[\begin{smallmatrix} 9 \\ -2 \\ 4 \end{smallmatrix}\right] </m>,
+		then
+		<m> \uvec{v} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-change-of-basis-coord-vecs-vs-ops">
+	<prelude><p> Now let's revisit how the concept of <term>coordinate vector</term> interacts with the vector operations. </p></prelude>
+	<introduction><p>
+		Again, suppose <m>V</m> is a three-dimensional vector space,
+		and <m>\basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \uvec{u}_3 \}</m> is a basis for <m>V</m>.
+	</p></introduction>
+	<task xml:id="activity-change-of-basis-coord-vecs-vs-ops-sum-example"><p>
+		If <m> \matrixOf{\uvec{v}}{B} = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right] </m>
+		and <m> \matrixOf{\uvec{w}}{B} = \left[\begin{smallmatrix} -2 \\ 1 \\ 2 \end{smallmatrix}\right] </m>,
+		then
+		<me> \uvec{v} + \uvec{w} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>,
+		and so
+		<me>
+			\matrixOf{\uvec{v} + \uvec{w}}{B}
+			= \begin{bmatrix} <fillin characters="2" /> \\ <fillin characters="2" /> \\ <fillin characters="2" /> \end{bmatrix}
+		</me>.
+	</p></task>
+	<task xml:id="activity-change-of-basis-coord-vecs-vs-ops-sum-pattern">
+		<p><em>
+		Describe the pattern from
+		<xref ref="activity-change-of-basis-coord-vecs-vs-ops-sum-example"  text="type-local" />.
+		</em></p>
+		<p>
+		First, in symbols:
+		<m>\matrixOf{\uvec{v} + \uvec{w}}{B} = <fillin characters="10" /></m>.
+		</p><p>
+		And again in words: the coordinate vector of a sum is
+		<fillin characters="30" />.
+		</p>
+	</task>
+	<task xml:id="activity-change-of-basis-coord-vecs-vs-ops-smul-example"><p>
+		If <m> \matrixOf{\uvec{v}}{B} = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right] </m>,
+		then
+		<me> 7\uvec{v} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>,
+		and so
+		<me>
+			\matrixOf{7 \uvec{v}}{B}
+			= \begin{bmatrix} <fillin characters="2" /> \\ <fillin characters="2" /> \\ <fillin characters="2" /> \end{bmatrix}
+		</me>.
+	</p></task>
+	<task xml:id="activity-change-of-basis-coord-vecs-vs-ops-smul-pattern">
+		<p><em>
+		Describe the pattern from
+		<xref ref="activity-change-of-basis-coord-vecs-vs-ops-smul-example" text="type-local" />.
+		</em></p>
+		<p>
+		First, in symbols:
+		<m>\matrixOf{k \uvec{v}}{B} = <fillin characters="10" /></m>.
+		</p><p>
+		And again in words: the coordinate vector of a scalar multiple is
+		<fillin characters="30" />.
+		</p>
+	</task>
+	<task xml:id="activity-change-of-basis-coord-vecs-vs-ops-lincomb-pattern">
+		<p>
+		Let's combine the patterns from
+		<xref ref="activity-change-of-basis-coord-vecs-vs-ops-sum-example" text="type-local" />
+		and
+		<xref ref="activity-change-of-basis-coord-vecs-vs-ops-smul-example" text="type-local" />,
+		without bothering with an explicit example.
+		</p><p>
+		In words first this time:
+		the coordinate vector of a linear combination is
+		<fillin characters="30" />.
+		</p><p>
+		And again in symbols:
+		<m>\matrixOf{k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_n \uvec{v}_n}{B} = <fillin characters="10" /></m>.
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-change-of-basis-matrix-times-col">
+	<prelude><p>
+		Before we continue our investigation of coordinate vectors,
+		let's revisit
+		<xref ref="activity-col-row-null-space-colspan-motivation" />
+		to expose a new pattern of matrix multiplication.
+	</p></prelude>
+	<introduction><p>
+		Think of an <m>m\times 3</m> matrix <m>A</m> as being made out of three column vectors from <m>\R^m</m>:
+		<me>
+			A = \begin{bmatrix}
+				| \amp | \amp | \\
+				\uvec{c}_1 \amp \uvec{c}_2 \amp \uvec{c}_3 \\
+				| \amp | \amp |
+			\end{bmatrix}
+		</me>.
+	</p></introduction>
+	<task xml:id="activity-change-of-basis-matrix-times-col-stdvec">
+		<statement>
+			<p>
+			Do you remember what happens when we compute
+			<m>A\uvec{e}_1</m>?
+			<m>A\uvec{e}_2</m>?
+			<m>A\uvec{e}_3</m>?
+			</p>
+			<aside><title>Recall</title><p>
+				Vector <m>\uvec{e}_i</m> represents the <m>\nth[i]</m> standard basis vector in <m>\R^n</m>.
+				In this instance, we are considering it as a <em>column</em> vector.
+			</p></aside>
+		</statement>
+		<hint><p> Recall <xref ref="activity-col-row-null-space-matrix-times-stdvec" />. </p></hint>
+	</task>
+	<task xml:id="activity-change-of-basis-matrix-times-col-eq-colcomb">
+		<p>
+		Suppose we want to compute <m>A\uvec{x}</m>,
+		where <m>\uvec{x} = (5,3,-1)</m>
+		(but as a column vector).
+		Use what you remembered in
+		<xref ref="activity-change-of-basis-matrix-times-col-stdvec" text="type-local" />
+		to fill in the following.
+		</p><p>
+		Since
+		<me>
+			\left[\begin{array}{r} 5 \\ 3 \\ -1 \end{array}\right]
+			= 5 \uvec{e}_1 + 3 \uvec{e}_2 + (-1) \uvec{e}_3
+		</me>,
+		then
+		<me>
+			A \left[\begin{array}{r} 5 \\ 3 \\ -1 \end{array}\right]
+			= A (5\uvec{e}_1 + 3\uvec{e}_2 + (-1)\uvec{e}_3)
+			= 5 <fillin characters="2" /> + 3 <fillin characters="2" /> + (-1) <fillin characters="2" />
+		</me>.
+		</p>
+	</task>
+	<task xml:id="activity-change-of-basis-matrix-times-col-pattern">
+		<p><em>
+		Describe the pattern from
+		<xref ref="activity-change-of-basis-matrix-times-col-eq-colcomb" text="type-local" />:
+		</em></p>
+		<p>
+		Matrix <m>A</m> times column vector <m>\uvec{x}</m> can be expressed as a linear combination of
+		<fillin characters="30" />,
+		where the coefficients in the linear combination are
+		<fillin characters="30" />.
+		</p><p>
+		In particular,
+		<me>
+			A = \begin{bmatrix}
+				| \amp | \amp | \\
+				\uvec{c}_1 \amp \uvec{c}_2 \amp \uvec{c}_3 \\
+				| \amp | \amp |
+			\end{bmatrix},
+			\quad
+			\uvec{x} = \begin{bmatrix} k_1 \\ k_2 \\ k_3 \end{bmatrix}
+			\qquad \implies \qquad
+			A\uvec{x} = <fillin characters="5" /> + <fillin characters="5" /> + <fillin characters="5" />
+		</me>.
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-change-of-basis-cob-matrix">
+	<prelude><p>
+		Now we will combine
+		<xref ref="activity-change-of-basis-coord-vecs-vs-ops" />
+		and
+		<xref ref="activity-change-of-basis-matrix-times-col" />.
+	</p></prelude>
+	<introduction>
+		<p>
+		Once again, suppose <m>V</m> is a three-dimensional vector space,
+		we have a basis
+		<me> \basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \uvec{u}_3 \} </me>
+		for <m>V</m>,
+		and <m>\uvec{w}</m> is a vector in <m>V</m> for which we know the coordinate vector relative to <m>\basisfont{B}</m>,
+		<me> \matrixOf{\uvec{w}}{B} = \left[\begin{array}{r} 5 \\ 3 \\ -1 \end{array}\right] </me>.
+		</p><p>
+		But this time,
+		suppose we have a second basis <m>\basisfont{B}'</m> for <m>V</m>,
+		and we <em>don't</em> know the coordinate vector of <m>\uvec{w}</m> relative to <m>\basisfont{B}'</m>.
+		</p><p>
+		Our goal is to figure out how to obtain <m>\matrixOf{\uvec{w}}{B'}</m> from <m>\matrixOf{\uvec{w}}{B}</m>.
+		</p>
+	</introduction>
+	<task><p>
+		Repeat
+		<xref ref="activity-change-of-basis-recall-coord-vecs-to-lincomb" />:
+		<m> \matrixOf{\uvec{w}}{B} = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right] </m> means
+		<md><mrow xml:id="equation-change-of-basis-discovery-coord-vec-to-lincomb" tag="star">
+			\uvec{w} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3
+		</mrow></md>.
+	</p></task>
+	<task xml:id="activity-change-of-basis-cob-matrix-lin-comb"><p>
+		Use <xref ref="equation-change-of-basis-discovery-coord-vec-to-lincomb" />
+		and the pattern from
+		<xref ref="activity-change-of-basis-coord-vecs-vs-ops-lincomb-pattern" />
+		to obtain an expression for <m>\matrixOf{\uvec{w}}{B'}</m> as a linear combination of certain other coordinate vectors.
+	</p></task>
+	<task xml:id="activity-change-of-basis-cob-matrix-create">
+		<p>
+		Remember that the coordinate vectors in your linear combination from
+		<xref ref="activity-change-of-basis-cob-matrix-lin-comb" text="type-local" />
+		are vectors in <m>\R^n</m>,
+		so they can be thought of as column vectors (as we have been doing in this worksheet).
+		</p><p>
+		In <xref ref="activity-change-of-basis-matrix-times-col-pattern" />,
+		we established a new pattern for matrix-times-column-vector.
+		Using this pattern <em>backwards</em>,
+		what matrix <m>P</m> and what column vector <m>\uvec{x}</m> could be used to turn your linear combination for <m>\matrixOf{\uvec{w}}{B'}</m> from
+		<xref ref="activity-change-of-basis-cob-matrix-lin-comb" text="type-local" />
+		into the matrix equation
+		<me> \matrixOf{\uvec{w}}{B'} = P \uvec{x} \;\text{?} </me>
+		(Recognize the numbers in the vector <m>\uvec{x}</m> from earlier in this activity?)
+		</p>
+	</task>
+	<postlude>
+		<p>
+		The matrix in
+		<xref ref="activity-change-of-basis-cob-matrix" />
+		that allows us to convert from coordinate vectors relative to one basis to coordinate vectors relative to another basis is called the
+		<term>transition matrix</term> from basis <m>\basisfont{B}</m> to <m>\basisfont{B}'</m>,
+		and is denoted <m>\ucobmtrx{B}{B'}</m>.
+		</p><p>
+		Notationally, the conversion process can be written
+		<md><mrow xml:id="equation-change-of-basis-discovery-cob-matrix-convert" tag="dstar">
+			\ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B'}
+		</mrow></md>.
+		</p>
+	</postlude>
+</activity>
+
+<activity xml:id="activity-change-of-basis-cobmatrix-pattern"><statement><p>
+	Summarize the pattern discovered in <xref ref="activity-change-of-basis-cob-matrix" />:
+	the columns of a transition matrix <m>\ucobmtrx{B}{B'}</m> are
+	<fillin characters="30" />.
+</p></statement></activity>
+
+<activity xml:id="activity-change-of-basis-cobmatrix-example">
+	<introduction>
+		<p> Let's work out a transition matrix in a simple example. </p>
+		<p>
+		Here are two bases of <m>\matrixring_2(\R)</m>, the standard basis
+		<me>
+			\basisfont{S} = \left\{
+				\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+			\right\}
+		</me>,
+		and another basis
+		<me>
+			\basisfont{B} = \left\{
+				\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 2 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 3 \amp 2 \\ 1 \amp 0 \end{bmatrix},
+				\begin{bmatrix} 4 \amp 3 \\ 2 \amp 1 \end{bmatrix}
+			\right\}
+		</me>.
+		</p>
+	</introduction>
+	<task><p>
+		This vector space is four-dimensional,
+		not three-dimensional like the abstract vector space used in our development through examples in the previous activities of this discovery guide.
+		What size of matrix should <m> \ucobmtrx{S}{B} </m> here?
+	</p></task>
+	<task><p>
+		Use the pattern you described in
+		<xref ref="activity-change-of-basis-cobmatrix-pattern" />
+		to compute <m> \ucobmtrx{S}{B} </m>.
+		(You can probably compute the columns of <m> \ucobmtrx{S}{B} </m> by inspection, without any lengthy calculations.)
+	</p></task>
+	<task>
+		<p>
+		As a test that you have the right transition matrix, write down <m>\matrixOf{\uvec{v}}{S}</m> for vector
+		<me> \uvec{v} = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix} </me>.
+		(Again, this can by done by inspection.)
+		</p><p>
+		Then compute <m>\ucobmtrx{S}{B}\matrixOf{\uvec{v}}{S}</m>, which by
+		<xref ref="equation-change-of-basis-discovery-cob-matrix-convert" />
+		should be equal to <m>\matrixOf{\uvec{v}}{B}</m>.
+		</p><p>
+		Finally, check that
+		<m>\ucobmtrx{S}{B}\matrixOf{\uvec{v}}{S} = \matrixOf{\uvec{v}}{B}</m>
+		is correct by using the components of this column vector as coefficients in a linear combination
+		(similarly to <xref ref="activity-change-of-basis-recall-coord-vecs-to-lincomb" />),
+		which, if your calculations have been carried out correctly,
+		should return you full circle to the <m>2 \times 2</m> matrix <m>\uvec{v}</m>.
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-change-of-basis-properties">
+	<introduction><p>
+		In each task below,
+		use <xref ref="equation-change-of-basis-discovery-cob-matrix-convert" />
+		to guide your thinking,
+		instead of using the pattern from
+		<xref ref="activity-change-of-basis-cobmatrix-pattern" />.
+	</p></introduction>
+	<task xml:id="activity-change-of-basis-properties-identity"><p>
+		For a single basis <m>\basisfont{B}</m>,
+		what form do you think the transition matrix <m>\ucobmtrx{B}{B}</m> will take?
+	</p></task>
+	<task xml:id="activity-change-of-basis-properties-product"><p>
+		Suppose you have <em>three</em> bases,
+		<m>\basisfont{B}</m>, <m>\basisfont{B}'</m>, and <m>\basisfont{B}''</m>,
+		of a particular space <m>V</m>.
+		What is the relationship between the three transition matrices
+		<m>\ucobmtrx{B}{B'}</m>, <m>\ucobmtrx{B'}{B''}</m>, and <m>\ucobmtrx{B}{B''}</m>?
+	</p></task>
+	<task><p>
+		For bases <m>\basisfont{B}</m> and <m>\basisfont{B}'</m>,
+		what is the relationship between transition matrices
+		<m>\ucobmtrx{B}{B'}</m> and <m>\ucobmtrx{B'}{B}</m>?
+		Does your answer make sense both in terms of
+		<xref ref="equation-change-of-basis-discovery-cob-matrix-convert" />
+		and in terms of your answers to
+		<xref ref="activity-change-of-basis-properties-identity" text="type-local" />
+		and
+		<xref ref="activity-change-of-basis-properties-product" text="type-local" />?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-change-of-basis-Rn">
+	<introduction><p>
+		In this discovery activity,
+		we'll consider transition matrices involving the standard basis of <m>\R^n</m>,
+		<me> \basisfont{S} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>.
+	</p></introduction>
+	<task xml:id="activity-change-of-basis-Rn-coord-vec-relative-to-standard">
+		<p>
+		Temporarily suppose that <m>n = 3</m>.
+		</p><p>
+		How do you write the vector <m>\uvec{v} = (5, 3, -1)</m> as a linear combination of the standard basis vectors of <m>\R^3</m>?
+		</p><p>
+		And so, what is <m>\matrixOf{\uvec{v}}{S}</m>?
+		</p>
+	</task>
+	<task xml:id="activity-change-of-basis-Rn-to-standard"><p>
+		Suppose <m>\basisfont{B}</m> is another basis of <m>\R^n</m>.
+		Considering what you learned in
+		<xref ref="activity-change-of-basis-Rn-coord-vec-relative-to-standard" text="type-local" />,
+		what do the columns of the transition matrix <m>\ucobmtrx{B}{S}</m> look like?
+	</p></task>
+	<task>
+		<statement><p>
+			Use <xref ref="activity-change-of-basis-Rn-to-standard" text="type-local" />,
+			to justify the statement: <em> every invertible <m>n \times n</m> matrix is somehow a transition matrix between bases of <m>\R^n</m></em>.
+		</p></statement>
+		<hint><p>
+			Use the equivalence of
+			<xref ref="theorem-col-row-null-space-equiv-to-invertible-invertible">Statement</xref>
+			and
+			<xref ref="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">Statement</xref>
+			of
+			<xref ref="theorem-col-row-null-space-equiv-to-invertible">Statement</xref>,
+			in combination with
+			<xref ref="corollary-dimension-basis-right-num-just-one-check" />.
+		</p></hint>
+	</task>
+	<task>
+		<p>
+		The takeaway from
+		<xref ref="activity-change-of-basis-Rn-to-standard" text="type-local" />
+		is that computing a transition matrix where the second basis is the standard basis <m>\basisfont{S}</m> of <m>\R^n</m> is pretty simple.
+		</p><p>
+		Combine the pattern of
+		<xref ref="activity-change-of-basis-Rn-to-standard" text="type-local" />
+		with what you learned in
+		<xref ref="activity-change-of-basis-properties" />
+		to develop a simpler process to compute a transition matrix <m>\ucobmtrx{B}{B'}</m> for bases of <m>\R^n</m>.
+		</p>
+	</task>
+</activity>
+
+</worksheet>

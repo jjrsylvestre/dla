@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-quadratic-forms-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-quadratic-forms-examples-matrices" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-quadratic-forms-examples-matrices" /></em></li>
+<li><xref ref="subsection-quadratic-forms-examples-level-sets-R2" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-quadratic-forms-examples-level-sets-R2" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-quadratic-forms-examples-matrices">
+<title>Quadratic forms represented by matrices</title>
+
+<example><title>Determining the quadratic polynomial associated to a symmetric matrix</title><p>
+	The symmetric matrix
+	<me> A = \left[\begin{array}{rrr} 1 \amp 2 \amp 0 \\ 2 \amp -7 \amp -5 \\ 0 \amp -5 \amp 3 \end{array}\right] </me>
+	creates a quadratic form
+	<me> q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>.
+	We can use the correspondence between matrix entries and polynomial coefficients discussed in
+	<xref ref="subsection-quadratic-forms-concepts-forms" />
+	to obtain
+	<me> q(x_1,x_2,x_3) = x_1^2 + 4 x_1 x_2 - 7 x_2^2 - 10 x_2 x_3 + 3 x_3^2 </me>
+	without having to calculate out the matrix multiplication of <m> \utrans{\uvec{x}} A \uvec{x} </m>.
+</p></example>
+
+<example><title>Determining the symmetric matrix associated to a quadratic form</title>
+	<p>
+	The quadratic form
+	<me> q(x_1,x_2,x_3) = 5 x_1^2 + 3 x_1 x_2 - 4 x_1 x_3 + 9 x_2^2 + 6 x_2 x_3 - 11 x_3^2 </me>
+	can be represented by matrix multiplication
+	<me> q(\uvec{x}) = q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>
+	for a symmetric matrix <m>A</m>.
+	</p><p>
+	To do create the matrix <m>A</m>,
+	each diagonal entry should be the coefficient on the corresponding squared term in the quadratic polynomial,
+	and each off-diagonal entry should be <em>one-half</em> of the coefficient of the corresponding cross term in the quadratic polynomial:
+	<me> A = \left[\begin{array}{rrr} 5 \amp \frac{3}{2} \amp -2 \\ \frac{3}{2} \amp 9 \amp 3 \\ -2 \amp 3 \amp -11 \end{array}\right] </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-quadratic-forms-examples-level-sets-R2">
+<title>Level curves of two-variable quadratic forms</title>
+
+<example><title>An ellipse in the <m>xy</m>-plane</title>
+	<p>
+	Let's work through the example of
+	<xref ref="activity-quadratic-forms-rotate" />.
+	The symmetric matrix
+	<me> A = \left[\begin{array}{rr} 13 \amp -5 \\ -5 \amp 13 \end{array}\right] </me>.
+	creates quadratic form
+	<me> q_A(\uvec{x}) = 13 x^2 - 10 x y + 13 y^2 </me>,
+	using variables <m>x,y</m> instead of <m>x_1,x_2</m>.
+	It's not clear from this polynomial expression what shape a level curve <m>q_A(\uvec{x}) = k</m> will take.
+	But since <m>A</m> is symmetric,
+	we can diagonalize it to remove the cross term in the polynomial for <m>q_A</m>.
+	</p><p>
+	The eigenvalues of <m>A</m> are <m>\lambda_1 = 8</m> and <m>\lambda_2 = 18</m>.
+	Calculate bases for the eigenspaces.
+	First <m>\lambda_1 = 8</m>:
+	<md alignment="gather">
+		<mrow>
+			8 I - A
+			= \left[\begin{array}{rr}
+				-5 \amp  5 \\
+				 5 \amp -5
+			\end{array}\right]
+			\quad \rowredarrow \quad
+			= \left[\begin{array}{rr}
+				1 \amp -1 \\
+				0 \amp  0
+			\end{array}\right]
+		</mrow><mrow></mrow><mrow>
+			\implies E_8(A) = \Span\left\{ \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right\}
+		</mrow>
+	</md>.
+	Now <m>\lambda_2 = 18</m>:
+	<md alignment="gather">
+		<mrow>
+			18 I - A
+			= \left[\begin{array}{rr}
+				5 \amp 5 \\
+				5 \amp 5
+			\end{array}\right]
+			\quad \rowredarrow \quad
+			= \left[\begin{array}{rr}
+				1 \amp 1 \\
+				0 \amp 0
+			\end{array}\right]
+		</mrow><mrow></mrow><mrow>
+			\implies E_{18}(A) = \Span\left\{ \left[\begin{array}{r} -1 \\ 1 \end{array}\right] \right\}
+		</mrow>
+	</md>.
+	These two eigenvectors are orthogonal as expected
+	(<xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props-orthog-eigenvecs">Statement</xref>
+	of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props" />),
+	but they need to be normalized:
+	<md><mrow>
+		E_8(A) \amp = \Span\left\{ \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} \right\} \text{,}
+		\amp
+		E_{18}(A) \amp = \Span\left\{ \left[\begin{array}{r} -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{array}\right] \right\}
+	</mrow></md>.
+	Use the normalized eigenvectors to create an orthogonal transition matrix
+	<me>
+		P = \left[\begin{array}{cr}
+			\frac{1}{\sqrt{2}} \amp - \frac{1}{\sqrt{2}} \\
+			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{2}}
+		\end{array}\right]
+	</me>
+	which diagonalizes <m>A</m>:
+	<me> \utrans{P} A P = \begin{bmatrix} 8 \\ \amp 18 \end{bmatrix} </me>.
+	Using the change of variables
+	<md><mrow>
+		\uvec{w} \amp = \begin{bmatrix} w \\ z \end{bmatrix}, \amp
+		\uvec{x} \amp = P \uvec{w}
+	</mrow></md>,
+	the transformed quadratic form is
+	<me> q_A(\uvec{x}) = q_{\inv{P} A P}(\uvec{w}) = 8 w^2 + 18 z^2 </me>.
+	A level curve <m>q_{\inv{P} A P}(\uvec{w}) = k</m> (<m>k \gt 0</m>) is clearly an ellipse.
+	For example, the curve
+	<me> 8 w^2 + 18 z^2 = 72 </me>
+	is an ellipse with <m>w</m>-intercepts at <m>w = \pm 3</m> and <m>z</m>-intercepts at <m>z = \pm 2</m>.
+	</p>
+	<sidebyside width="50%"><image>
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>
+			Ellipse representing level set of a diagonalized quadratic form,
+			plotted on a set of principal axes
+		</description>
+		<latex-image><xi:include href="examples.d/wz-ellipse.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+	<p>
+	Just as the orthonormal basis formed by the standard vectors
+	<m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>
+	represent the <m>x</m>- and <m>y</m>-axes respectively,
+	the orthonormal basis formed by the columns of <m>P</m> represent the <m>w</m>- and <m>z</m>-axes,
+	and give us a way to plot the ellipse <m>q_A(\uvec{x}) = 72</m> on the <m>xy</m>-axes.
+	</p>
+	<sidebyside width="33%"><image>
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>
+			Ellipse representing level set of a diagonalized quadratic form,
+			plotted on standard axes but relative to a set of principal axes
+		</description>
+		<latex-image><xi:include href="examples.d/xy-ellipse.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+	<p>
+	Relative to how it appears on the <m>wz</m>-axes,
+	the ellipse has clearly been rotated by <m>\pi/4</m> counter-clockwise.
+	This is consistent with viewing <m>P</m> as a rotation matrix:
+	<me>
+		P = \left[\begin{array}{cr}
+			\frac{1}{\sqrt{2}} \amp - \frac{1}{\sqrt{2}} \\
+			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{2}}
+		\end{array}\right]
+		= \left[\begin{array}{cr}
+			\cos \frac{\pi}{4} \amp - \sin \frac{\pi}{4} \\
+		 	\sin \frac{\pi}{4} \amp \cos \frac{\pi}{4}
+		\end{array}\right]
+	</me>.
+	Also notice how the fact that the columns of <m>P</m> are ortho<em>normal</em> allow use to use multiples of those vectors to determine distances and positions along each of the <m>w</m>- and <m>z</m>-axes.
+	</p><p>
+	As our change of variables was
+	<md><mrow>
+		\uvec{x} \amp = P \uvec{w} \text{,} \amp
+		\uvec{w} \amp = \inv{P} \uvec{x}
+	</mrow></md>,
+	points in <m>wz</m>-coordinates must be rotated by <m>\pi/4</m> to be converted into <m>xy</m>-coordinates.
+	</p>
+	<sidebyside width="70%"><image>
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>
+			Transition matrix <m>P</m> as a rotation between
+			<m>wz</m>-coordinates and <m>xy</m>-coordinates
+	  </description>
+	  <latex-image><xi:include href="examples.d/ellipse.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+</example>
+
+<example><title>A hyperbola in the <m>xy</m>-plane</title>
+	<p>
+	Consider the quadratic form
+	<me> q(x,y) = 3 x^2 + 26 \sqrt{3} x y - 23 y^2 </me>.
+	This form corresponds to the symmetric matrix
+	<me>
+		A = \begin{bmatrix}
+			3 \amp 13 \sqrt{3} \\
+			13 \sqrt{3} \amp -23
+		\end{bmatrix}
+	</me>.
+	The eigenvalues of <m>A</m> are <m>\lambda_1 = 16</m> and <m>\lambda_2 = -36</m>,
+	so even without computing the transition matrix we know that the decoupled quadratic form is
+	<me> q(w,z) = 16 w^2 - 36 z^2 </me>,
+	so the level curves of <m>q</m> will be hyperbolas.
+	For example,
+	the hyperbola
+	<me> 16 w^2 - 36 z^2 = 4 </me>
+	has <m>w</m>-intercepts <m>w = \pm \frac{1}{2}</m> and asymptotes <m>z = \pm \frac{2}{3} w</m>.
+	</p>
+	<sidebyside width="40%"><image>
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>
+			Hyperbola representing level set of a diagonalized quadratic form,
+			plotted on a set of principal axes
+	  </description>
+	  <latex-image><xi:include href="examples.d/wz-hyperbola.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+	<p>
+	But to determine how to plot this hyperbola on a set of <m>xy</m>-axes,
+	we need the transition matrix,
+	so calculate bases for the eigenspaces.
+	First <m>\lambda_1 = 16</m>:
+	<md alignment="gather">
+		<mrow>
+			16 I - A
+			= \begin{bmatrix}
+				13 \amp - 13 \sqrt{3} \\
+				- 13 \sqrt{3} \amp 39
+			\end{bmatrix}
+			\quad \rowredarrow \quad
+			= \begin{bmatrix}
+				1 \amp -\sqrt{3} \\
+				0 \amp  0
+			\end{bmatrix}
+		</mrow><mrow></mrow><mrow>
+			\implies E_{16}(A) = \Span\left\{ \begin{bmatrix} \sqrt{3} \\ 1 \end{bmatrix} \right\}
+		</mrow>
+	</md>.
+	Now <m>\lambda_2 = 36</m>:
+	<md alignment="gather">
+		<mrow>
+			(-36) I - A
+			= \begin{bmatrix}
+				-39 \amp -13 \sqrt{3} \\
+				-13 \sqrt{3} \amp -13
+			\end{bmatrix}
+			\quad \rowredarrow \quad
+			= \begin{bmatrix}
+				\sqrt{3} \amp 1 \\
+				0 \amp 0
+			\end{bmatrix}
+		</mrow><mrow></mrow><mrow>
+			\implies E_{-36}(A) = \Span\left\{ \begin{bmatrix} 1 \\ -\sqrt{3} \end{bmatrix} \right\}
+		</mrow>
+	</md>.
+	Again, these eigenvectors should be normalized in order to create orthogonal transition matrix
+	<me>
+		P = \begin{bmatrix}
+			\frac{\sqrt{3}}{2} \amp     \frac{1}{2}       \\
+			    \frac{1}{2}    \amp - \frac{\sqrt{3}}{2}
+		\end{bmatrix}
+	</me>.
+	This transition matrix is of the form
+	<me>
+		P=
+		\left[\begin{array}{cr}
+			\cos \frac{\pi}{6} \amp \sin \frac{\pi}{6} \\
+		 	\sin \frac{\pi}{6} \amp - \cos \frac{\pi}{6}
+		\end{array}\right]
+	</me>,
+	which represents a rotation followed by a reflection.
+	</p>
+	<sidebyside width="45%"><image>
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>
+			Hyperbola representing level set of a diagonalized quadratic form,
+			plotted on standard axes but relative to a set of principal axes
+	  </description>
+	  <latex-image><xi:include href="examples.d/xy-hyperbola.tex" parse="text" /></latex-image>
+	</image></sidebyside>
+	<p>
+	Notice how the <m>wz</m>-axes are rotated <m>\pi/6</m> counter-clockwise,
+	but then the <m>z</m>-axis has been reflected to the other side of the <m>w</m>-axis.
+	<em>However</em>, we could have chosen our eigenvectors so that <m>P</m> represented <em>only</em> a rotation,
+	if we had used
+	<me> E_{-36}(A) = \Span\left\{ \left[\begin{array}{r} -\frac{1}{2} \\ \frac{\sqrt{3}}{2} \end{array}\right] \right\} </me>
+	instead
+	(see <xref ref="theorem-quadratic-forms-2D-principal-axes" />).
+	</p>
+</example>
+
+<remark xml:id="remark-quadratic-forms-examples-2x2-choosing-second-evector"><p>
+	Note that in both examples in this subsection,
+	it was not actually necessary to compute the second eigenspace.
+	Since we are working in two dimensions,
+	and we know that symmetric matrices have orthogonal eigenspaces
+	(<xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props-orthog-eigenvecs">Statement</xref>
+	of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props" />),
+	once we had a basis vector for one eigenspace we could easily obtain a basis vector for the other eigenspace using our pattern of orthogonality in the plane from
+	<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Discovery</xref>
+	(also discussed in <xref ref="subsection-orthog-concepts-orthog" />).
+</p></remark>
+
+</subsection>
+
+</section>

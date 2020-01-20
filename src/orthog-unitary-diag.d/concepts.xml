@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-orthog-unitary-diag-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-orthog-unitary-diag-concepts-hermitian" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-concepts-hermitian" /></em></li>
+<li><xref ref="subsection-orthog-unitary-diag-concepts-normal" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-concepts-normal" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-orthog-unitary-diag-concepts-hermitian">
+<title>Diagonalization of Hermitian and symmetric matrices</title>
+
+<p>
+Our first test case,
+explored in <xref ref="activity-orthog-unitary-diag-hermitian-exmp" />,
+was of a Hermitian matrix.
+In that discovery activity,
+with a full slate of linearly independent eigenvectors provided,
+we were easily able to produce a transition matrix <m>P</m> so that <m>\inv{P} H P</m> was diagonal.
+And, since the provided eigenvectors were already orthogonal,
+to convert <m>P</m> into a unitary matrix <m>U</m> so that <m>\adjoint{U} H U</m> was diagonal,
+all that was required was to normalize the eigenvectors to unit vectors.
+</p>
+<aside><title>Note</title><p>
+	Since <m>\adjoint{U} = \inv{U}</m> for a unitary matrix <m>U</m>,
+	the similarity-like formula <m>\adjoint{U} H U</m> really is a similarity formula.
+</p></aside>
+<p>
+As considered in <xref ref="activity-orthog-unitary-diag-hermitian-exmp-what-if-not-orthog">Discovery</xref>,
+the crucial fact to make this work was that the eigenvectors were orthogonal,
+since unit vectors are then easy to produce by normalization.
+</p><p>
+Now, it may seem that lack of orthogonality is also easy to <q>fix</q> using the Gram-Schmidt process,
+and indeed we could use that process to convert an eigenspace basis into an orthogonal one.
+But as we found in the non-Hermitian example of <xref ref="activity-orthog-unitary-diag-non-exmp" />,
+it won't work to fix eigenvectors from <em>different</em> eigenspaces that are not orthogonal to each other.
+In trying to correct a lack of one crucial property (orthogonality of basis vectors),
+Gram-Schmidt may affect the other crucial property for diagonalization: basis vectors must be eigenvectors.
+</p>
+<figure>
+	<caption> Applying the Gram-Schmidt process to eigenvectors from different eigenspaces may result in non-eigenvectors. </caption>
+	<image width="65%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of a change of variables via transition matrix.</description>
+		<latex-image><xi:include href="concepts.d/gs-evecs.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+Just as the fact that eigenvectors from different eigenspaces are automatically linearly independent
+(<xref ref="proposition-diagonalization-indep-e-vectors" />)
+was crucial to the process for diagonalization,
+eigenvectors from different eigenspaces being orthogonal is crucial to the prospect of being able to orthogonally/unitarily diagonalize a given matrix.
+Not every matrix has this property,
+but in <xref ref="activity-orthog-unitary-diag-hermitian-orthog-evecs" /> we discovered that self-adjoint matrices do have this property.
+And, in fact,
+we will prove in <xref ref="subsection-orthog-unitary-diag-theory-diag" /> that
+<alert>every self-adjoint matrix is orthogonally/unitarily diagonalizable</alert>.
+</p><p>
+It turns out that this is the end of the story in the real case <mdash />
+a real matrix is orthogonally diagonalizable if and only if it is symmetric
+(<xref ref="theorem-orthog-unitary-diag-symmetric-is-orthog-diag" />).
+So we will give a procedure for the real case now.
+(And essentially the same procedure will work for Hermitian matrices in the complex case.)
+</p>
+
+<algorithm xml:id="procedure-orthog-unitary-diag-symmetric">
+	<title>Orthogonal diagonalization of a symmetric matrix</title>
+	<p>
+	Given a real, <m>n \times n</m>, symmetric matrix <m>S</m>,
+	we can construct an orthogonal transition matrix <m>P</m> so that <m>\inv{P} S P = \utrans{P} S P</m> is diagonal follows.
+	<ol>
+		<li>
+			Compute the eigenvalues of <m>S</m>.
+			For each eigenvalue, compute a basis for the corresponding eigenspace.
+		</li>
+		<li>
+			To each eigenspace basis from the first step,
+			apply the Gram-Schmidt orthogonalization process to produce an orthogonal basis for that eigenspace.
+		</li>
+		<li> Normalize each eigenspace basis vector from the previous step to produce an orthonormal basis for each eigenspace. </li>
+		<li> Form the <m>n\times n</m> matrix <m>P</m> whose columns are the orthonormal eigenspace vectors from the third step collected all together. </li>
+	</ol>
+	Since the columns of <m>P</m> are constructed to be an orthonormal basis of <m>\R^n</m>,
+	this transition matrix will be orthogonal
+	(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+	of <xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />).
+	And since the columns of <m>P</m> also form a basis of <m>\R^n</m> consisting of eigenvectors for <m>S</m>,
+	we will have <m>\inv{P} S P = \utrans{P} S P = D</m>,
+	a diagonal matrix with the eigenvalues of <m>S</m> down the diagonal
+	(<xref ref="theorem-diagonalization-diag" />).
+	</p>
+</algorithm>
+
+<p>
+See <xref ref="example-orthog-unitary-diag-symmetric" />
+for an example of carrying out this procedure on a real symmetric matrix,
+and see <xref ref="example-orthog-unitary-diag-hermitian" />
+for an example of carrying out this procedure on a complex Hermitian matrix.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-unitary-diag-concepts-normal">
+<title>Diagonalization of normal matrices</title>
+
+<p>
+As <xref ref="activity-orthog-unitary-diag-non-hermitian-exmp" /> demonstrated,
+not every unitarily diagonalizable complex matrix is Hermitian.
+One property that unitarily diagonalizable matrices possess that does not seem to be exclusive to Hermitian matrices is commutativity with its own inverse
+(see <xref ref="activity-orthog-unitary-diag-explore-normal" />).
+A complex matrix with this property is called a <xref ref="definition-orthog-unitary-diag-normal" text="title" />.
+And we will prove that normal matrices have the crucial property of orthogonal eigenspaces
+(see <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-orthog-evecs">Statement</xref>
+of <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-orthog-evecs" />),
+so that <alert>every normal matrix is unitarily diagonalizable</alert>
+(see <xref ref="theorem-orthog-unitary-diag-iff-normal" />).
+</p><p>
+Since each self-adjoint matrix obviously commutes with itself,
+every Hermitian matrix is normal,
+and it seems like we have now completely characterized the class of unitarily diagonalizable matrices.
+And the procedure to unitarily diagonalize a complex normal matrix is essentially identical to the procedure to orthogonally diagonalize a real symmetric matrix.
+</p>
+
+<algorithm xml:id="procedure-orthog-unitary-diag-normal">
+	<title>Unitary diagonalization of a normal matrix</title>
+	<p>
+	Given a complex, <m>n \times n</m>, normal matrix <m>N</m>,
+	we can construct a unitary transition matrix <m>U</m> so that <m>\inv{U} N U = \utrans{U} N U</m> is diagonal follows.
+	<ol>
+		<li>
+			Compute the eigenvalues of <m>N</m>.
+			For each eigenvalue, compute a basis for the corresponding eigenspace.
+		</li>
+		<li>
+			To each eigenspace basis from the first step,
+			apply the Gram-Schmidt orthogonalization process to produce an orthogonal basis for that eigenspace.
+		</li>
+		<li> Normalize each eigenspace basis vector from the previous step to produce an orthonormal basis for each eigenspace. </li>
+		<li> Form the <m>n\times n</m> matrix <m>U</m> whose columns are the orthonormal eigenspace vectors from the third step collected all together. </li>
+	</ol>
+	Since the columns of <m>U</m> are constructed to be an orthonormal basis of <m>\C^n</m>,
+	this transition matrix will be unitary
+	(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+	of <xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />).
+	And since the columns of <m>U</m> also form a basis for <m>\C^n</m> consisting of eigenvectors for <m>N</m>,
+	we will have <m>\inv{U} N U = \utrans{U} N U = D</m>,
+	a diagonal matrix with the eigenvalues of <m>N</m> down the diagonal
+	(using the complex version of <xref ref="theorem-diagonalization-diag" />).
+	</p>
+</algorithm>
+
+<p> See <xref ref="example-orthog-unitary-diag-normal" /> for an example of carrying out this procedure. </p>
+
+</subsection>
+
+</section>

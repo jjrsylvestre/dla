@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-inner-prod" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Discovery guide</title>
+
+<introduction>
+	<p> A pairing of vectors is called a <term>(real) inner product</term> if it satisfies the four axioms below. </p>
+	<sidebyside><xi:include href="./discovery.d/real-ip-axioms.xml" /></sidebyside>
+</introduction>
+
+<activity xml:id="activity-inner-prod-verify-dot">
+	<statement><p>
+		Convince yourself that the pairing <m>\uvecinprod{v}{w} = \udotprod{v}{w}</m> satisfies the inner product axioms.
+	</p></statement>
+	<hint><p> <xref ref="proposition-vector-geom-dot-prod-algebra" />. </p></hint>
+</activity>
+
+<activity xml:id="activity-inner-prod-P2">
+	<introduction><p>
+		Consider the pairing
+		<me> \inprod{p}{q} = p(-1)q(-1) + p(0)q(0) + p(1)q(1) </me>
+		on <m>\poly_2(\R)</m>,
+		the space of all polynomials of degree <m>2</m> or less.
+	</p></introduction>
+	<task>
+		<p>
+		For each of
+		<xref ref="list-inner-prod-discovery-axioms-symmetric" text="local">Axiom RIP</xref>,
+		<xref ref="list-inner-prod-discovery-axioms-additive" text="local">Axiom RIP</xref>, and
+		<xref ref="list-inner-prod-discovery-axioms-homogeneous" text="local">Axiom RIP</xref>,
+		rewrite the left- and right-hand sides of the axiom equality using definition of the given pairing.
+		</p><p>
+		By comparing left- and right-hand sides,
+		convince yourself that the pairing will satisfy each of those axioms.
+		</p>
+	</task>
+	<task>
+		<statement><p> Will the given pairing satisfy <xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref>? </p></statement>
+		<hint><p><xref ref="theorem-complex-fund-thm-alg-reals" text="title" />.</p></hint>
+	</task>
+	<task>
+		<p>
+		Would <xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref> hold if we used this pairing on
+		<m>\poly_3(\R)</m>, the space of all polynomials of degree <m>3</m> or less?
+		</p><p>
+		If not, how would you <q>fix</q> it?
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-inner-prod-doubly-linear"><p>
+	Combining
+	<xref ref="list-inner-prod-discovery-axioms-additive" text="local">Axiom RIP</xref>, and
+	<xref ref="list-inner-prod-discovery-axioms-homogeneous" text="local">Axiom RIP</xref>,
+	we can say that an inner product is <term>linear in the first term</term>:
+	<me> \inprod{a \uvec{u} + b \uvec{v}}{\uvec{w}} = a \uvecinprod{u}{w} + b \uvecinprod{v}{w} </me>.
+	Must an inner product also be <term>linear in the second term</term>?
+</p></activity>
+
+<activity xml:id="activity-inner-prod-zero">
+	<p>
+	Use <xref ref="list-inner-prod-discovery-axioms-homogeneous" text="local">Axiom RIP</xref>
+	for a special choice of <m>k</m> to determine that an inner product must satisfy
+	<me> \inprod{\zerovec}{\uvec{v}} = 0 </me>
+	for every vector <m>\uvec{v}</m> in the vector space.
+	</p><p>
+	What about <m> \inprod{\uvec{v}}{\zerovec} </m>?
+</p></activity>
+
+<activity xml:id="activity-inner-prod-why-positive"><p>
+	Recall that eventually we would like an inner product to allow us to do geometry in vector spaces besides <m>\R^n</m>.
+	As discussed in <xref ref="section-inner-prod-motivation" />,
+	the connection between the dot product and geometry in <m>\R^n</m> is
+	<md><mrow>
+		\unorm{v} \amp = \sqrt{\udotprod{v}{v}} \text{,} \amp
+		\theta \amp = \inv{\cos} \left(
+			\frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}
+		\right) \text{.}
+	</mrow></md>
+	Based on this, what is the point of including
+	<xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref>
+	in our list of axioms?
+</p></activity>
+
+<activity xml:id="activity-inner-prod-complex-dot-product">
+	<task><p>
+		Compute the <q>dot product</q> <m>\udotprod{w}{w}</m> for the <m>\C^2</m> vector <m>\uvec{w} = (\ci,\ci)</m>.
+		Is this going to work out for us,
+		given the geometric reason for including <xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref>
+		in our list axioms that we explored in <xref ref="activity-inner-prod-why-positive" />?
+	</p></task>
+	<task xml:id="activity-inner-prod-complex-dot-product-C1">
+		<statement><p>
+			Let's back up a dimension.
+			We already know how to compute length in <m>\C^1</m>,
+			by regarding complex numbers as vectors in the complex plane.
+			Use this point of view to propose a pairing on <m>\C^1</m> that will satisfy
+			<xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref>.
+			(Make sure to define your pairing as a pairing of <em>two possibly different</em> <m>\C^1</m> vectors.)
+		</p></statement>
+		<hint><p>
+			<xref ref="proposition-appendix-complex-field-modulus-properties-modulus-squared">Rule</xref>
+			in <xref ref="proposition-appendix-complex-field-modulus-properties" />.
+		</p></hint>
+	</task>
+	<task xml:id="activity-inner-prod-complex-dot-product-C2"><p>
+		Use the pattern of your pairing for <m>\C^1</m> from
+		<xref ref="activity-inner-prod-complex-dot-product-C1" text="type-local" />
+		to propose a pairing on <m>\C^2</m> that will satisfy
+		<xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref>.
+		(Again, make sure to define your pairing as a pairing of <em>two possibly different</em> <m>\C^2</m> vectors.)
+	</p></task>
+	<task>
+		<p>
+		Which of the other three inner product axioms does your proposed pairing for <m>\C^2</m> from
+		<xref ref="activity-inner-prod-complex-dot-product-C2" text="type-local" />
+		satisfy?
+		</p><p>
+		Will your pairing still be linear in <em>both</em> terms?
+		(See <xref ref="activity-inner-prod-doubly-linear" />.)
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-inner-prod-Rn-others">
+	<prelude><p> The dot product is not the only inner product on <m>\R^n</m>. </p></prelude>
+	<introduction>
+		<p>
+		Recall that the dot product on <m>\R^n</m> can be realized using matrix multiplication:
+		<me> \udotprod{v}{w} = \utrans{\uvec{w}} \uvec{v} </me>.
+		(See <xref ref="subsection-vector-geom-concepts-dot-prod-vs-matrix-mult" />.)
+		</p><p>
+		If we want to generalize in order to look for other, similar inner products,
+		the first step is to look for an underlying pattern that can be changed.
+		Notice that we can sneak an identity matrix in there:
+		<me> \udotprod{v}{w} = \utrans{\uvec{w}} I \uvec{v} </me>.
+		What if we change <m>I</m> to some other matrix <m>A</m>?
+		Is
+		<md><mrow xml:id="equation-inner-prod-discovery-modified-euclidean" tag="star">
+			\uvecinprod{v}{w} = \utrans{\uvec{w}} A \uvec{v}
+		</mrow></md>
+		still an inner product?
+		</p><p>
+		Let's investigate using vectors in <m>\R^2</m> and a <m>2 \times 2</m> matrix
+		<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>.
+		Recall that <m>\uvec{e}_1,\uvec{e}_2</m> represent the standard basis vectors in <m>\R^2</m>.
+		</p>
+	</introduction>
+	<task><p>
+		What does using <m>\uvec{e}_1,\uvec{e}_2</m> in <xref ref="list-inner-prod-discovery-axioms-symmetric" text="local">Axiom RIP</xref>
+		tell you about <m>b</m> and <m>c</m>, if the axiom is going to be true for pairing
+		<xref ref="equation-inner-prod-discovery-modified-euclidean" />?
+		What does this say about <m>A</m>?
+	</p></task>
+	<task><p>
+		What does using <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> (separately) in <xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref>
+		say about <m>a</m> and <m>d</m>, if the axiom is going to be true for pairing
+		<xref ref="equation-inner-prod-discovery-modified-euclidean" />?
+	</p></task>
+	<task>
+		<p>
+		Calculate <m>\uvecinprod{x}{x}</m> for <m>\uvec{x} = (d,-b)</m>.
+		After simplifying, you should find <m>\det A</m> hiding in the result.
+		</p><p>
+		If <xref ref="list-inner-prod-discovery-axioms-positive" text="local">Axiom RIP</xref> is to be true,
+		what does <m>\uvecinprod{x}{x}</m> for this <m>\uvec{x}</m> tell you about <m>\det A</m>?
+		</p>
+	</task>
+</activity>
+
+
+
+</worksheet>

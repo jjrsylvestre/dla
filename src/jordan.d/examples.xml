@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-jordan-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-jordan-examples-indirect" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-jordan-examples-indirect" /></em></li>
+<li><xref ref="subsection-jordan-examples-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-jordan-examples-proc" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-jordan-examples-indirect">
+<title>Determining the form indirectly</title>
+
+<p>
+Here we will carry out the indirect analysis method described in
+<xref ref="subsection-jordan-concepts-indirect" />
+in a fairly simple case.
+</p>
+
+<example xml:id="example-jordan-indirect">
+	<title>Determining Jordan normal form</title>
+	<p>
+	Consider the matrix
+	<me>
+		A = \left[\begin{array}{rrrrrrr}
+			3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
+			0 \amp 3 \amp -4 \amp  0 \amp  4 \amp  0 \amp  0 \\
+			0 \amp 0 \amp  5 \amp -1 \amp -1 \amp  0 \amp  0 \\
+			0 \amp 0 \amp -2 \amp  2 \amp  3 \amp  0 \amp  0 \\
+			0 \amp 0 \amp  6 \amp -1 \amp -2 \amp  0 \amp  0 \\
+			0 \amp 4 \amp -5 \amp  0 \amp  5 \amp -1 \amp  0 \\
+			4 \amp 3 \amp  1 \amp -1 \amp  0 \amp -3 \amp -1
+		\end{array}\right]
+	</me>
+	from <xref ref="example-triang-block-form-7x7" />.
+	This matrix has two eigenvalues:
+	<m>\lambda_1 = 3</m> of multiplicity <m>m_1 = 4</m>, and
+	<m>\lambda_2 = -1</m> of multiplicity <m>m_2 = 3</m>.
+	So we expect the Jordan normal form of <m>A</m> to have <q>macro</q> blocks
+	<me> J = \begin{bmatrix} 3 I + N_1 \\ \amp (-1) I + N_2 \end{bmatrix} </me>,
+	where the first block <m>3 I + N_1</m> is a <m>4 \times 4</m> block-diagonal matrix of Jordan blocks for <m>\lambda_1 = 3</m>,
+	and the second block <m>(-1) I + N_2</m> is a <m>3 \times 3</m> block-diagonal matrix of Jordan blocks for <m>\lambda_2 = -1</m>.
+	</p><p>
+	Analyze <m>A - \lambda_1 I</m> first.
+	We calculate the ranks of powers of <m>A - \lambda_1 I</m>,
+	subtracting off the multiplicity of the other eigenvalue <m>\lambda_2</m>:
+	<md>
+		<mrow> \rank (A - 3 I) - m_2 \amp = 1, </mrow>
+		<mrow> \rank (A - 3 I)^2 - m_2 \amp = 0. </mrow>
+	</md>
+	We can stop here, since only the zero matrix has rank zero.
+	So we know the <m>4 \times 4</m> nilpotent part of the <m>\lambda_1</m> block has already become zero at the second power.
+	(In general, we know it will at worst become zero at exponent equal to the algebraic multiplicity for that eigenvalue.)
+	From the first rank, we know that there are <m>m_1 - 1 = 3</m> Jordan blocks for <m>\lambda_1 = 3</m>,
+	and from the second rank, we know that the largest is of size <m>2 \times 2</m>.
+	From the first rank again, we can conclude that there is only one <m>2 \times 2</m> block,
+	so there must be two more <m>1 \times 1</m> blocks,
+	from which we get the partial Jordan form
+	<me>
+		J = \begin{bmatrix}
+			\boxed{
+				\begin{matrix}
+					3 \\
+					1 \amp 3 \\
+					 \amp \amp 3 \\
+					 \amp \amp \amp 3
+				\end{matrix}
+			} \\
+			\amp
+			\boxed{\begin{matrix} \phantom{X} \\ \amp (-1)I + N_2 \\ \amp \amp \phantom{X} \end{matrix}}
+		\end{bmatrix}
+	</me>.
+	</p><p>
+	Now analyze <m>A - \lambda_2 I</m>.
+	Again, we calculate the ranks of powers of <m>A - \lambda_2 I</m>,
+	subtracting off the multiplicity of the other eigenvalue <m>\lambda_1</m>:
+	<md>
+		<mrow> \rank (A + I) - m_1 \amp = 2, </mrow>
+		<mrow> \rank (A + I)^2 - m_1 \amp = 1, </mrow>
+		<mrow> \rank (A + I)^3 - m_1 \amp = 0. </mrow>
+	</md>
+	From the first rank, we know that there is only <m>m_2 - 2 = 1</m> Jordan block for <m>\lambda_2 = -1</m>.
+	The third rank corroborates this, since it tells us that the largest block has size <m>3 \times 3</m>
+	(which is equal to the overall size <m>m_2 = 3</m> of the blocks for <m>\lambda_2 = -1</m>).
+	And the second rank corroborates this as well, since it tells us that there is only one block of that largest size <m>3 \times 3</m>.
+	With this information,
+	we now have the exact Jordan form for <m>A</m>:
+	<me>
+		J = \begin{bmatrix}
+			\boxed{\begin{matrix}
+				3 \\
+				1 \amp 3 \\
+				 \amp \amp 3 \\
+				 \amp \amp \amp 3
+			\end{matrix}} \\
+			\amp
+			\boxed{\begin{array}{rrr}
+				-1 \\
+				1 \amp -1 \\
+				 \amp 1 \amp -1
+			\end{array}}
+		\end{bmatrix}
+	</me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-jordan-examples-proc">
+<title>Using the procedure</title>
+
+<p>
+Now a simple example of using <xref ref="procedure-jordan-concepts-form-proc" />
+to calculate a transition matrix to put a given matrix into Jordan normal form.
+Notice that the matrix we analyze is the same as in
+<xref ref="example-jordan-indirect" />.
+</p>
+
+<example xml:id="example-jordan-proc">
+	<title>Calculating a transition matrix for Jordan form</title>
+	<p>
+	In <xref ref="example-triang-block-form-7x7" />,
+	we determined a matrix <m>Q</m> that puts the following <m>7 \times 7</m> matrix <m>A</m> in triangular-block form:
+	<md alignment="gather">
+		<mrow>
+			A = \left[\begin{array}{rrrrrrr}
+				3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
+				0 \amp 3 \amp -4 \amp  0 \amp  4 \amp  0 \amp  0 \\
+				0 \amp 0 \amp  5 \amp -1 \amp -1 \amp  0 \amp  0 \\
+				0 \amp 0 \amp -2 \amp  2 \amp  3 \amp  0 \amp  0 \\
+				0 \amp 0 \amp  6 \amp -1 \amp -2 \amp  0 \amp  0 \\
+				0 \amp 4 \amp -5 \amp  0 \amp  5 \amp -1 \amp  0 \\
+				4 \amp 3 \amp  1 \amp -1 \amp  0 \amp -3 \amp -1
+			\end{array}\right] \text{,}
+			\quad
+			Q = \left[\begin{array}{rrrrrrr}
+				1  \amp  0  \amp  0  \amp  0  \amp  0  \amp  1  \amp  1 \\
+				0  \amp  1  \amp  0  \amp  0  \amp  0  \amp  0  \amp  -1 \\
+				0  \amp  0  \amp  1  \amp  0  \amp  0  \amp  0  \amp  0 \\
+				0  \amp  0  \amp  1  \amp  1  \amp  0  \amp  0  \amp  -1 \\
+				0  \amp  0  \amp  1  \amp  0  \amp  0  \amp  0  \amp  1 \\
+				0  \amp  1  \amp  0  \amp  0  \amp  0  \amp  1  \amp  0 \\
+				1  \amp  0  \amp  0  \amp  0  \amp  1  \amp  0  \amp  0
+			\end{array}\right]
+		</mrow><mrow>
+			\implies
+			\inv{Q} A Q =
+			\begin{bmatrix}
+				\boxed{
+					\begin{array}{rrrr}
+						3 \amp 0 \amp 0 \amp -1 \\
+						 \amp 3 \amp 0 \amp 0 \\
+						 \amp \amp 3 \amp -1 \\
+						 \amp \amp \amp 3
+					\end{array}
+				} \\
+				\amp
+				\boxed{
+					\begin{array}{rrr}
+						-1 \amp 1 \amp 2 \\
+						 \amp -1 \amp 1 \\
+						 \amp \amp -1
+					\end{array}
+				}
+			\end{bmatrix} \text{.}
+		</mrow>
+	</md>
+	(Note that we called the transition matrix <m>P</m> in that example).
+	</p><p>
+	Now, let's use <xref ref="procedure-triang-nilpotent-concepts-form-proc" />
+	to put the nilpotent part of each block of <m>\inv{Q} A Q</m> into nilpotent triangular form.
+	Break each of the two blocks of <m>\inv{Q} A Q</m> into its scalar and nilpotent parts:
+	<md alignment="gather">
+		<mrow>
+			A_1 = \left[\begin{array}{cccr}
+				3 \amp 0 \amp 0 \amp -1 \\
+				 \amp 3 \amp 0 \amp 0 \\
+				 \amp \amp 3 \amp -1 \\
+				 \amp \amp \amp 3
+			\end{array}\right] \text{,}
+			\;\;
+			N_1 = \left[\begin{array}{cccr}
+				0 \amp 0 \amp 0 \amp -1 \\
+				 \amp 0 \amp 0 \amp 0 \\
+				 \amp \amp 0 \amp -1 \\
+				 \amp \amp \amp 0
+		 	\end{array}\right]
+			\quad \implies \quad
+			A_1 = 3I_4 + N_1 \text{;}
+		</mrow><mrow>
+			A_2 = \left[\begin{array}{rrr}
+				-1 \amp 1 \amp 2\\
+				 \amp -1 \amp 1\\
+				 \amp \amp -1
+			\end{array}\right] \text{,}
+			\;\;
+			N_2 = \begin{bmatrix}
+				 0 \amp 1 \amp 2\\
+				 \amp 0 \amp 1\\
+				 \amp \amp 0
+			\end{bmatrix}
+			\quad \implies \quad
+			A_2 \amp = (-1)I_3 + N_2 \text{.}
+		</mrow>
+	</md>
+	</p>
+	<aside><title>Recall</title><p>
+		A subscript on an identity matrix indicates its size.
+		That is, <m>I_m</m> represents the <m>m \times m</m> identity matrix.
+	</p></aside>
+	<p>
+	Start with <m>N_1</m>.
+	Let <m>N_1'</m> represent the nilpotent triangular form for <m>N_1</m>.
+	Since <m>N_1^2 = \zerovec</m>,
+	the largest block in <m>N_1'</m> has size <m>2 \times 2</m>.
+	We have <m>\rank N_1 = 1</m>,
+	so there is only one <m>2\times 2</m> block,
+	and from <m>\nullity N_1 = 3</m> (nullity is size minus rank),
+	we see that <m>N_1'</m> will have three blocks.
+	Therefore, we need one two-dimensional <m>N_1</m>-cyclic subspace of <m>\R^4</m>,
+	and two one-dimensional subspaces.
+	Since the fourth column of <m>N_1</m> is nonzero,
+	we can use <m>\uvec{e}_4</m> to generate the two-dimensional space.
+	We can use any vectors in the null space of <m>N_1</m> that are linearly independent with that fourth column to generate the one-dimensional spaces.
+	For example, one can easily see by inspection that <m>\uvec{e}_1,\uvec{e}_2</m> both lie in the null space of <m>N_1</m>.
+	Thus, set
+	<md><mrow>
+		W_1 \amp = \Span \{ \uvec{e}_4, N_1 \uvec{e}_4 \}, \amp
+		W_2 \amp = \Span \{ \uvec{e}_1 \}, \amp
+		W_3 \amp = \Span \{ \uvec{e}_2 \}.
+	</mrow></md>
+	Using these cyclic bases, we get
+	<md><mrow>
+		R_1 \amp = \left[\begin{array}{crcc}
+			0 \amp -1 \amp 1 \amp 0 \\
+			0 \amp  0 \amp 0 \amp 1 \\
+			0 \amp -1 \amp 0 \amp 0 \\
+			1 \amp  0 \amp 0 \amp 0
+		\end{array}\right]
+		\amp \amp \implies \amp
+		N_1' = \inv{R_1} N_1 R_1
+		\amp = \begin{bmatrix}
+			0  \\
+			1 \amp 0 \\
+			 \amp \amp 0 \\
+			 \amp \amp \amp 0
+		\end{bmatrix}
+	</mrow></md>.
+	</p><p>
+	For <m>N_2</m>, we have
+	<md><mrow>
+		N_2 \amp = \begin{bmatrix}
+			0 \amp 1 \amp 2\\
+			 \amp 0 \amp 1\\
+			 \amp \amp 0
+		\end{bmatrix} \text{,}
+		\amp
+		N_2^2 \amp = \begin{bmatrix}
+			0 \amp 0 \amp 1\\
+			 \amp 0 \amp 0\\
+			 \amp \amp 0
+		\end{bmatrix} \text{,}
+		\amp
+		N_2^3 \amp = \zerovec \text{.}
+	</mrow></md>
+	Since <m>N_2</m> is <m>3\times 3</m> and the first power of <m>N_2</m> that is zero is the <m>\ird[3]</m> power,
+	<m>N_2</m> should be similar to a matrix in elementary nilpotent form.
+	The third column of <m>N_2^2</m> is nonzero,
+	so we can set
+	<me> U = \Span \{ \uvec{e}_3, N_2 \uvec{e}_3, N_2^2 \uvec{e}_3 \} </me>,
+	and use this cyclic basis to get
+	<md><mrow>
+		R_2 \amp = \begin{bmatrix}
+			0 \amp 2 \amp 1 \\
+			0 \amp 1 \amp 0 \\
+			1 \amp 0 \amp 0
+		\end{bmatrix}
+		\amp \implies  \amp
+		N_2' = \inv{R_2} N_2 R_2 \amp
+		= \begin{bmatrix}
+			0 \\
+			1 \amp 0 \\
+			 \amp 1 \amp 0
+		\end{bmatrix}
+	</mrow></md>.
+	</p><p>
+	We can also apply <m>R_1,R_2</m> to <m>A_1,A_2</m>:
+	<md>
+		<mrow>
+			\amp \inv{R_1} A_1 R_1 \amp
+			\amp \inv{R_2} A_2 R_2
+		</mrow><mrow>
+			\amp = \inv{R_1} (3I  + N_1) R_1  \amp
+			\amp = \inv{R_2} \bigl((-1)I  + N_2\bigr) R_2
+		</mrow><mrow>
+			\amp = 3 \inv{R_1} I R_1 + \inv{R_1} N_1 R_1 \amp
+			\amp = (-1) \inv{R_2} I R_2 + \inv{R_2} N_2 R_2 = 3 I + N_2'
+		</mrow><mrow>
+			 \amp = 3 I + N_1' \amp
+			 \amp = (-1) I + N_2'
+		</mrow><mrow>
+			\amp = \begin{bmatrix}
+				3 \\
+				1 \amp 3 \\
+				 \amp \amp 3 \\
+				 \amp \amp \amp 3
+			\end{bmatrix} \text{,}
+			\amp
+			\amp = \left[\begin{array}{rrr}
+				-1 \\
+				 1 \amp -1 \\
+				   \amp  1 \amp -1
+			\end{array}\right] \text{.}
+		</mrow>
+	</md>
+	</p><p>
+	Recall that the matrix <m>Q</m> puts <m>A</m> into triangular-block form.
+	We see above that the matrices <m>R_1,R_2</m> break each block of <m>\inv{Q} A Q</m> into Jordan blocks.
+	We can combine these by forming the block-diagonal matrix
+	<me> R = \begin{bmatrix} R_1 \\ \amp R_2 \end{bmatrix} </me>
+	and setting <m>P = Q R</m>.
+	Then,
+	<md>
+		<mrow> \inv{P} A P \amp = \inv{R} \inv{Q} A Q R </mrow>
+		<mrow>
+			\amp =
+			\begin{bmatrix} \inv{R_1} \\ \amp \inv{R_2} \end{bmatrix}
+			\begin{bmatrix} A_1 \\ \amp A_2 \end{bmatrix}
+			\begin{bmatrix} R_1 \\ \amp R_2 \end{bmatrix}
+		</mrow>
+		<mrow> \amp = \begin{bmatrix} \inv{R_1} A_1 R_1 \\ \amp \inv{R_2} A_2 R_2 \end{bmatrix} </mrow>
+		<mrow> \amp = \begin{bmatrix} 3I + N_1' \\ \amp (-1)I + N_2' \end{bmatrix} </mrow>
+		<mrow>
+			\amp =
+			\begin{bmatrix}
+				\boxed{\begin{matrix}
+					3 \\
+					1 \amp 3 \\
+					 \amp \amp 3 \\
+					 \amp \amp \amp 3
+				\end{matrix}} \\
+				\amp
+				\boxed{\begin{matrix}
+					-1 \\
+					 1 \amp -1 \\
+					   \amp  1 \amp -1
+				\end{matrix}}
+			\end{bmatrix}
+		</mrow>
+	</md>,
+	the Jordan normal form of <m>A</m> as desired.
+	</p>
+</example>
+
+</subsection>
+
+</section>

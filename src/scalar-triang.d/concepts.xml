@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-scalar-triang-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-scalar-triang-concepts-form" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-scalar-triang-concepts-form" /></em></li>
+<li><xref ref="subsection-scalar-triang-concepts-gen-eigvecs" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-scalar-triang-concepts-gen-eigvecs" /></em></li>
+<li><xref ref="subsection-scalar-triang-concepts-similarity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-scalar-triang-concepts-similarity" /></em></li>
+<li><xref ref="subsection-scalar-triang-concepts-proc" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-scalar-triang-concepts-proc" /></em></li>
+</ul></p></assemblage>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-scalar-triang-concepts-form">
+<title>Scalar-triangular form</title>
+
+<p>
+A matrix in scalar-triangular form is reasonably simple:
+its rank, determinant, characteristic polynomial, and eigenvalues are immediately evident,
+and it is halfway to being row reduced.
+</p><p>
+The name of the form is significant beyond just describing the shape of the entries.
+A scalar-triangular matrix can be decomposed into a scalar matrix and a <q>purely</q> triangular matrix,
+both additively and multiplicatively.
+</p><p>
+First, an additive example:
+<me>
+	\left[\begin{array}{ccccr}
+		3 \amp 4 \amp 1 \amp 4 \amp 1 \\
+		0 \amp 3 \amp 5 \amp 11 \amp 1 \\
+		0 \amp 0 \amp 3 \amp 6 \amp -10 \\
+		0 \amp 0 \amp 0 \amp 3 \amp 7 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 3
+	\end{array}\right]
+	= 3I +
+	\left[\begin{array}{ccccr}
+		0 \amp 4 \amp 1 \amp 4 \amp 1 \\
+		0 \amp 0 \amp 5 \amp 11 \amp 1 \\
+		0 \amp 0 \amp 0 \amp 6 \amp -10 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 7 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 0
+	\end{array}\right]
+</me>.
+The second matrix in the decomposition on the right is called <term>nilpotent</term>.
+We will need this kind of decomposition later in our study of matrix forms.
+<!-- TODO proper xref -->
+</p><p>
+Now, a multiplicative example:
+<me>
+	\left[\begin{array}{ccccr}
+		3 \amp 4 \amp 1 \amp 4 \amp 1 \\
+		0 \amp 3 \amp 5 \amp 11 \amp 1 \\
+		0 \amp 0 \amp 3 \amp 6 \amp -10 \\
+		0 \amp 0 \amp 0 \amp 3 \amp 7 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 3
+	\end{array}\right]
+	= (3I) \cdot
+	\begin{bmatrix}
+		1 \amp 4/3 \amp 1/3 \amp 4/3 \amp 1/3 \\
+		0 \amp 1 \amp 5/3 \amp 11/3 \amp 1/3 \\
+		0 \amp 0 \amp 1 \amp 2 \amp -10/3 \\
+		0 \amp 0 \amp 0 \amp 1 \amp 7/3 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 1
+	\end{bmatrix}
+</me>.
+The second matrix in the decomposition on the right is called <term>unipotent</term>.
+Note that this multiplicative decomposition is not possible when the scalar-triangular matrix has scalar <m>0</m> down the main diagonal <mdash />
+this observation just says that a nilpotent matrix does not have a unipotent part.
+</p><p>
+In this chapter, we have been (and will continue) concentrating on scalar-triangular form where the <q>triangular part</q> is <em>upper</em> triangular.
+There is no particular reason to prefer upper triangular over lower triangular <mdash />
+it is basically a technical preference to make the analysis cleaner.
+However, in a future chapter
+<!-- TODO proper xref -->
+we will have reason to switch to lower triangular forms,
+again to make the subsequent analysis work out more naturally.
+And <xref ref="activity-scalar-triang-upper-vs-lower" />
+demonstrates that the choice of upper or lower triangular form is ultimately irrelevant,
+as it is easy to switch between the two using a particular transition matrix.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-scalar-triang-concepts-gen-eigvecs">
+<title>Generalized eigenvectors</title>
+
+<p>
+Suppose <m>\lambda</m> is an eigenvalue of an <m>n \times n</m> matrix <m>A</m>,
+and <m>\uvec{x}</m> is a corresponding eigenvector in <m>\R^n</m>.
+By definition, this means that <me>A \uvec{x} = \lambda \uvec{x}</me>.
+As in our analysis of eigenvalues and eigenvectors in <xref ref="chapter-eigen-values-vectors" />,
+it is more convenient to rearrange this vector equation into the homogeneous condition
+<me>(\lambda I - A) \uvec{x} = \zerovec</me>,
+so that once we have determined the eigenvalues from the characteristic equation,
+we can determine eigenvectors by row reducing.
+Furthermore, this homogeneous point of view immediately tells us that the collection of eigenvectors for a particular eigenvalue
+(along with the zero vector)
+forms a subspace of <m>\R^n</m>,
+since the eigenspace of <m>A</m> corresponding to <m>\lambda</m> is the same as the null space of the matrix <m>\lambda I - A</m>.
+</p><p>
+We saw in <xref ref="activity-scalar-triang-pattern" />
+(and will see again in our re-analysis of that discovery activity in
+<xref ref="subsection-scalar-triang-concepts-similarity" />
+below),
+that the scalar-triangular similarity pattern leads to consideration of the null spaces of <em>powers</em> of the matrix <m>\lambda I - A</m>.
+We have named each new null space of <m>(\lambda I - A)^k</m>
+the <term><xref ref="definition-scalar-triang-eigensubspace" text="title" /></term> for <m>A</m>,
+where the usual eigenspace of <m>A</m> is the same as the generalized eigensubspace of <m>A</m> of degree <m>1</m>.
+</p><p>
+These subspaces form a nested sequence
+<me> E_\lambda^1(A) \subseteq E_\lambda^2(A) \subseteq E_\lambda^3(A) \subseteq \dotsb </me>,
+since a vector in the null space of <m>(\lambda I - A)^k</m> must also lie in the null space of <m>(\lambda I - A)^{k+1}</m>.
+These eigensubspaces cannot keep growing in dimension indefinitely, though,
+since they are all contained in <m>\R^n</m>, so at some point we will have
+<me> E_\lambda^K(A) = E_\lambda^{K+1}(A) = E_\lambda^{K+2}(A) = \dotsb </me>.
+This largest eigensubspace is called the
+<term><xref ref="definition-scalar-triang-gen-eigenspace" text="title" /></term>
+for <m>A</m> corresponding to <m>\lambda</m>.
+</p>
+<aside><title>Note</title><p>
+	In <xref ref="section-scalar-triang-terminology" />,
+	we have stated the definition of
+	<term><xref ref="definition-scalar-triang-gen-eigenspace" text="title" /></term>
+	in terms of the concept of
+	<term><xref ref="definition-scalar-triang-gen-eigenvec" text="title" /></term>
+	in order to avoid having to refer to the existence of a <q>largest</q> generalized eigensubspace right in the definition.
+</p></aside>
+<p>
+We have seen in <xref ref="chapter-diagonalization" /> that the
+<term><xref ref="definition-diagonalization-alg-mult" text="title" /></term> of an eigenvalue
+acts as an upper bound for the
+<term><xref ref="definition-diagonalization-geom-mult" text="title" /></term>
+(<xref ref="theorem-diagonalization-geom-alg-multiplicity" />).
+We will see that the dimension of the <em>generalized</em> eigenspace of an eigenvalue realizes this upper bound
+(<xref ref="theorem-scalar-triang-gen-espace-facts" />
+in <xref ref="section-scalar-triang-theory" />),
+so that the generalized eigensubspaces somehow measure by how much an eigenvalue is <q>defective</q> from the ideal of having equal algebraic and geometric multiplicities.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-scalar-triang-concepts-similarity">
+<title>The similarity pattern of scalar-triangular form</title>
+
+<p>
+Rather than work in the abstract,
+let's go back over <xref ref="activity-scalar-triang-pattern" />,
+in which we were considering a matrix <m>A</m> in the same similarity class as a scalar-triangular matrix
+<me>
+	B = \begin{bmatrix}
+		3 \amp \ast \amp \ast \amp \ast \amp \ast \\
+		0 \amp 3 \amp \ast \amp \ast \amp \ast \\
+		0 \amp 0 \amp 3 \amp \ast \amp \ast \\
+		0 \amp 0 \amp 0 \amp 3 \amp \ast \\
+		0 \amp 0 \amp 0 \amp 0 \amp 3
+	\end{bmatrix}
+</me>,
+where the <m>\ast</m> entries are irrelevant to the form.
+Our first observation is that, like <m>B</m>,
+matrix <m>A</m> must also have the single eigenvalue <m>\lambda = 3</m>,
+of algebraic multiplicity <m>5</m>.
+</p><p>
+As usual, write <m>\uvec{p}_j</m> for the columns of the required transition matrix <m>P</m>.
+In this case, <m>P</m> must be <m>5 \times 5</m>.
+Using the general similarity pattern described in
+<xref ref="subsection-similarity-concepts-algebra" />,
+the first column of <m>B</m> tells us that
+<me> A \uvec{p}_1 = 3 \uvec{p}_1 </me>,
+which is the eigenvalue-eigenvector pattern.
+This should not be surprising,
+since the first column of <m>B</m> has the same form as the first column of a diagonal matrix,
+and we also encountered the eigenvalue-eigenvector pattern in our study of diagonal form.
+</p><p>
+After row reducing <m>3 I - A</m> as part of <xref ref="activity-scalar-triang-pattern-evec" />,
+we found that the dimension of the eigenspace <m>E_3(A)</m> was <m>2</m>,
+so in fact two linearly independent eigenvectors were available.
+Could we take <em>both</em> <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to be eigenvectors?
+The second column of <m>B</m> says that we need
+<me> A\uvec{p}_2 = \ast \uvec{p}_1 + 3 \uvec{p}_2 </me>,
+but since we don't care what that <m>\ast</m> value ends up as,
+taking it to be zero so that the condition becomes the
+<me> A \uvec{p}_2 = 3 \uvec{p}_2 </me>
+eigenvalue-eigenvector pattern is fine.
+</p>
+<aside><title>In general</title><p>
+	It won't always be possible to also take <m>\uvec{p}_2</m> to be an eigenvector,
+	as some matrices with a single eigenvalue will have eigenspace of dimension only <m>1</m>.
+</p></aside>
+<p>
+Now, it is definitely not possible in this example to take <m>\uvec{p}_3</m> to be an eigenvector,
+because we need <m>P</m> to be invertible,
+hence we need its columns to be linearly independent
+(<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+And with dimension <m>2</m>,
+the eigenspace <m>E_3(A)</m> can only provide two linearly independent eigenvectors.
+</p><p>
+So we go back to the form matrix <m>B</m>.
+The third column of <m>B</m> gives us the condition
+<me> A \uvec{p}_3 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + 3 \uvec{p}_3. </me>
+As in <xref ref="activity-scalar-triang-pattern-gen-evec-rearrange" />,
+in analogy with how we solve for eigenvectors we can rearrange this condition on <m>\uvec{p}_3</m> to
+<me> (3 I - A) \uvec{p}_3 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </me>.
+We would much rather have a homogeneous system to solve instead of this nonhomogeneous one.
+But remember where we obtained <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> <mdash />
+they form a basis for the eigenspace <m>E_3(A)</m>!
+And the rearranged condition above says that <m>(3 I - A) \uvec{p}_3</m> must be in the span of those two eigenvectors.
+In other words,
+while <m>\uvec{p}_3</m> cannot be taken to be an eigenvector,
+<m>(3 I - A) \uvec{p}_3</m> must be an eigenvector.
+In other words, we must have
+<me> (3 I - A) \bigl( (3 I - A) \uvec{p}_3 \bigr) = \zerovec </me>,
+a homogeneous condition we can solve by row reducing <m>(3 I - A)^2</m>.
+In the new language of <term>generalized eigenvectors</term>,
+we need <m>\uvec{p}_3</m> to be in <m>E_3^2(A)</m>,
+the generalized eigensubspace of degree <m>2</m> for <m>A</m> corresponding to <m>\lambda = 3</m>.
+</p><p>
+Some care must be taken in choosing <m>\uvec{p}_3</m> though,
+as we need it to be linearly independent from <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
+As the eigenspace <m>E_3(A)</m> is nested inside the generalized eigensubspace <m>E_3^2(A)</m>
+(see <xref ref="subsection-scalar-triang-concepts-gen-eigvecs" />),
+when solving <m>(3I - A)^2 \uvec{x} = \zerovec</m> some of our null space basis vectors may end up being regular old eigenvectors instead of <em>generalized</em> eigenvectors.
+So we should make sure to construct the basis of this new null space as beginning with our two already chosen eigenvectors,
+and then extend that <m>E_3(A)</m> basis to a full basis for <m>E_3^2(A)</m>.
+</p><p>
+Now onto <m>\uvec{p}_4</m>.
+Just as we also took <m>\uvec{p}_2</m> to be an eigenvector,
+can we take <m>\uvec{p}_4</m> to be a generalized eigenvector of the second degree
+(<ie /> from <m>E_3^2(A)</m>)?
+When we solved for <m>\uvec{p}_3</m> in <xref ref="activity-scalar-triang-pattern-gen-evec-compute" />,
+we found that the dimension of <m>E_3^2(A)</m> was <m>4</m>,
+so there was room for one more linearly independent vector beyond the three we already had
+(<m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>).
+The condition from the fourth column of <m>B</m> is
+<me> A \uvec{p}_4 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + 3 \uvec{p}_4 </me>.
+Choosing <m>\uvec{p}_4</m> from <m>E_3^2(A)</m> just forces the <m>\ast</m> coefficient on the <m>\uvec{p}_3</m> term to be zero,
+allowing us to rearrange to
+<me> (3I - A) \uvec{p}_4 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </me>,
+the same sort of condition that led us to take <m>\uvec{p}_3</m> from <m>E_3^2(A)</m>.
+</p><p>
+Finally, we turn to <m>\uvec{p}_5</m>.
+In this example,
+since the dimension of <m>E_3^2(A)</m> was only <m>4</m>,
+we will need to look elsewhere for our fifth vector.
+It is reasonable at this point to guess that we will need to take <m>\uvec{p}_5</m> from the null space of <m>(3 I - A)^3</m>,
+<ie /> from the next generalized eigensubspace <m>E_3^3(A)</m>.
+And that is exactly the thing we will need to do.
+</p><p>
+The fifth column of <m>B</m> gives us condition
+<me> A \uvec{p}_5 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + \ast \uvec{p}_4 + 3 \uvec{p}_5 </me>.
+If we rearrange to
+<me> (3 I - A) \uvec{p}_5 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) - (\ast \uvec{p}_3) - (\ast \uvec{p}_4) </me>,
+we see that <m>(3 I - A) \uvec{p}_5</m> needs to be in the span of <m>\{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3,\uvec{p}_4\}</m>,
+which is precisely <m>E_3^2(A)</m> in this example.
+That is, <m>(3 I - A) \uvec{p}_5</m> must be in the null space of <m>(3 I - A)^2</m>,
+which is the same as saying that <m>\uvec{p}_5</m> must be in the null space of <m>(3 I - A)^3</m>.
+</p><p>
+Just as we need to be careful about how we chose <m>\uvec{p}_3</m> from <m>E_3^2(A)</m> to avoid dependence with <m>E_3^1(A)</m>,
+we also need to be careful about how we choose <m>\uvec{p}_5</m> from <m>E_3^3(A)</m> to avoid dependence with <m>E_3^2(A)</m>.
+So when we solve the homogeneous system <m>(3 I - A)^3 \uvec{x} = \zerovec</m>,
+we should make sure to take our existing basis for the null space of <m>(3 I - A)^2</m> as a starting point,
+and extend from there.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-scalar-triang-concepts-proc">
+<title>Scalar-triangularization procedure</title>
+
+<p>
+We'll now use the pattern of the example from
+<xref ref="activity-scalar-triang-pattern" />
+analyzed in the previous subsection to create a scalar-triangularization procedure.
+</p>
+
+<algorithm xml:id="procedure-scalar-triang-concepts-proc">
+	<title>To scalar-triangularize an <m>n \times n</m> matrix <m>A</m>, if possible</title>
+	<statement><p><ol>
+		<li> <!-- \label{PROC::scalar.triang::char.poly} -->
+			Compute the characteristic polynomial <m>c_A(\lambda)</m> of <m>A</m> by computing <m>\det (\lambda I - A)</m>,
+			then determine the eigenvalues of <m>A</m> by solving the characteristic equation <m>c_A(\lambda) = 0</m>.
+			If <m>A</m> has <em>more than one eigenvalue</em>,
+			<alert>stop</alert> <mdash />
+			<m>A</m> <em>cannot</em> be put into scalar-triangular form.
+			If <m>A</m> has <em>one and only one eigenvalue</em>,
+			write <m>\lambda_0</m> for this eigenvalue, and continue.
+		</li>
+		<li>
+			Determine a basis for the eigenspace <m>E_{\lambda_0}(A)</m> by solving the homogeneous linear system
+			<m>(\lambda_0 I - A) \uvec{x} = \zerovec</m>.
+			If the basis in this step has <m>n</m> vectors in it,
+			<alert>go to the last step</alert>.
+			Otherwise, continue.
+		</li>
+		<li>
+			Extend the basis for <m>E_{\lambda_0}(A)</m> computed in the previous step to a basis for the generalized eigensubspace of degree <m>2</m>,
+			<m>E_{\lambda_0}^2(A)</m>.
+			Do this by solving the homogeneous linear system
+			<m>(\lambda_0 I - A)^2 \uvec{x} = \zerovec</m>,
+			and using the already obtained basis for
+			<m>E_{\lambda_0}(A) = E_{\lambda_0}^1(A)</m>
+			as the first part of the solution.
+			If the basis in this step has <m>n</m> vectors in it,
+			<alert>go to the last step</alert>.
+			Otherwise, continue.
+		</li>
+		<li>
+			<p>
+			Continue in this fashion,
+			extending to a basis of <m>E_{\lambda_0}^3(A)</m>
+			(<ie /> the null space of <m>(\lambda_0 I - A)^3</m>),
+			and then to a basis for <m>E_{\lambda_0}^4(A)</m>
+			(<ie /> the null space <m>(\lambda_0 I - A)^4</m>),
+			and so on, until you reach a point where your basis has <m>n</m> vectors.
+			</p>
+			<aside><title>Worst case</title><p>
+				You will reach <m>n</m> vectors for the basis of the null space of <m>(\lambda_0 I - A)^n</m>.
+			</p></aside>
+		</li>
+		<li>
+			Once your collection of independent generalized eigenvectors has grown to <m>n</m> vectors,
+			place these vectors,
+			<em>in the order you obtained them</em>
+			(<ie /> first the vectors from <m>E_{\lambda_0}^1(A)</m>,
+			then the vectors from <m>E_{\lambda_0}^2(A)</m>,
+			<etc />),
+			as the columns of <m>P</m>.
+		</li>
+	</ol></p></statement>
+</algorithm>
+
+<remark><p><ol>
+	<li>
+		<xref ref="procedure-scalar-triang-concepts-proc" /> is actually a little more prescriptive than it needs to be.
+		To ensure a scalar-triangular form,
+		all that is really required is that the first column of <m>P</m> come from <m>E_{\lambda_0}^1(A)</m>,
+		the second column come from <m>E_{\lambda_0}^2(A)</m>,
+		and so on.
+		(And still requiring linear independence of the final set of columns.)
+		But since each generalized eigensubspace is contained in the next,
+		taking two vectors from one generalized eigensubspace could be viewed as taking one from the current eigensubspace and one from the next.
+		So in practice we might as well take as many new linearly independent generalized eigenvectors as possible from each new null space computation.
+	</li>
+	<li>
+		<p>
+		Once again, it is not necessary to compute <m>\inv{P}</m> to determine the block-diagonal form matrix <m>\inv{P} A P</m>.
+		One could use row reduction to compute <m>\inv{P} A P</m>,
+		as in <xref ref="subsection-similarity-examples-compute-invpap" />.
+		But also one could go back to the pattern of similarity from
+		<xref ref="subsection-similarity-concepts-algebra" />.
+		</p><p>
+		We know that the eigenvalue <m>\lambda_0</m> will appear repeated down the diagonal of the form matrix.
+		So the <m>\nth[j]</m> column of <m>\inv{P}AP</m> will look like
+		<me> \begin{bmatrix} c_1 \\ \vdots \\ c_{j-1} \\ \lambda_0 \\ 0 \\ \vdots \\ 0 \end{bmatrix} </me>,
+		where the <m>c_i</m> are unknown entries above the diagonal that we'd like to determine.
+		From our general similarity pattern,
+		we must have
+		<me> A\uvec{p}_j = c_1 \uvec{p}_1 + \dotsb + c_{j-1} \uvec{p}_{j-1} + \lambda_0 \uvec{p}_k </me>.
+		Rearranging this a little differently than usual, we get
+		<me> (A - \lambda_0 I) \uvec{p}_j = c_1 \uvec{p}_1 + \dotsb + c_{j-1} \uvec{p}_{j-1} </me>.
+		Therefore,
+		<em>
+			the entries above the diagonal in the <m>\nth[j]</m> column of a scalar-triangular form matrix <m>\inv{P}AP</m> are precisely the coefficients needed to express
+			<m>(A - \lambda_0 I) \uvec{p}_j</m>
+			as a linear combination of the previous columns
+			<m>\uvec{p}_1,\dotsc,\uvec{p}_{j-1}</m>
+		</em>.
+		These coefficients can be determined by row reducing
+		<me> \left[\begin{array}{cccc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_{j-1} \amp (A - \lambda_0 I) \uvec{p}_j \end{array}\right] </me>.
+		Though if you're going to do this much row reducting,
+		it might easier to just reduce
+		<me>
+			\left[\begin{array}{c|c} P \amp AP \end{array}\right]
+			\quad\rowredarrow\quad
+			\left[\begin{array}{c|c} I \amp \inv{P}AP \end{array}\right]
+		</me>.
+		</p>
+	</li>
+</ol></p></remark>
+
+</subsection>
+
+</section>

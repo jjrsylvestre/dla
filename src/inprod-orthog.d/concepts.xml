@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-inprod-orthog-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-inprod-orthog-concepts-complement" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-concepts-complement" /></em></li>
+<li><xref ref="subsection-inprod-orthog-concepts-expansion" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-concepts-expansion" /></em></li>
+<li><xref ref="subsection-inprod-orthog-concepts-gram-schmidt" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-concepts-gram-schmidt" /></em></li>
+<li><xref ref="subsection-inprod-orthog-concepts-complement-basis" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-concepts-complement-basis" /></em></li>
+</ul></p></assemblage>
+
+<introduction><p>
+	Right angles are particularly important in geometry.
+	In the geometry of <m>\R^n</m>,
+	a right angle indicates two vectors that <q>point</q> in completely independent directions.
+	In <xref ref="chapter-orthog" />,
+	we found that a right angle between vectors corresponded to a dot product of zero.
+	Algebraically, this zero value has many conveniences,
+	so we will borrow the concept of <term><xref ref="definition-inprod-orthog" text="title" /></term>
+	for use in every inner product space <mdash />
+	even in complex ones, where we have declined to define what a general angle between vectors should be.
+</p></introduction>
+
+<subsection xml:id="subsection-inprod-orthog-concepts-complement">
+<title>Orthogonal complements</title>
+
+<p>
+We have already encountered the concept of <term>complement</term> subspace in
+<xref ref="subsection-block-diag-theory-independent" />
+(see <xref ref="proposition-block-diag-complement" />).
+In our first explorations of <xref ref="worksheet-inprod-orthog" />,
+we considered a very specific kind of complement <m>\orthogcmp{U}</m>,
+made up of all vectors orthogonal to a given subspace <m>U</m>,
+called the <term>orthogonal complement</term> of <m>U</m>.
+</p><p>
+And we have already considered this concept geometrically in the cases of <m>\R^2</m> and <m>\R^3</m> in <xref ref="chapter-orthog" />.
+As we reminded ourselves in <xref ref="activity-inprod-orthog-geom-complement" />,
+the orthogonal complement of a plane (through the origin) in space is just the normal line to the plane,
+and symmetrically the orthogonal complement of a line (through the origin) in space is just the plane to which the line is normal.
+This symmetric relationship between planes and their normal lines suggests a general pattern of <m>\orthogcmp{(\orthogcmp{U})} = U</m>,
+which we will confirm in <xref ref="corollary-inprod-orthog-inverse" />.
+</p><p>
+An orthogonal complement is always a subspace of the inner product space.
+Note that this fact does not depend on the initial collection <m>U</m> of vectors actually being a subspace <mdash />
+for every collection <m>X</m> of vectors in an inner product space,
+the collection <m>\orthogcmp{X}</m> of all vectors that are orthogonal to every vector in <m>X</m> will form a subspace as well.
+(See <xref ref="proposition-inprod-orthog-complement-is-subsp" />.)
+But in the case that <m>U</m> <em>is</em> a subspace,
+then the <term>complement</term> part of <term>orthogonal complement</term> is intentional:
+the pair of subspaces <m>U, \orthogcmp{U}</m> will always form a complete set of independent subspaces in a finite-dimensional inner product space.
+(See <xref ref="corollary-inprod-orthog-complete-indep" />.)
+</p><p>
+As we explored in <xref ref="activity-inprod-orthog-in-complement-if-orthog-to-basis" />,
+the <xref ref="proposition-inner-prod-linearity" text="title" />
+implies that when <m>U</m> is a subspace,
+it is enough to check inclusion in <m>\orthogcmp{U}</m> by checking orthogonality against each vector in some basis for <m>U</m>.
+We saw in <xref ref="activity-inprod-orthog-complement-example-M22" /> how this fact can be used to set up a homogeneous system that will lead from a basis for <m>U</m> to a basis for <m>\orthogcmp{U}</m>.
+(Also see the examples in <xref ref="subsection-inprod-orthog-examples-complement" />.)
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-concepts-expansion">
+<title>Expansion relative to an orthogonal basis</title>
+
+<p>
+An orthogonal basis for an inner product space is one where each vector in the basis is orthogonal to every other vector in the basis.
+We are already well-familiar with the concept of orthogonal basis from our experience in <m>\R^n</m> <mdash />
+the standard basis is always an orthogonal basis (actually, an <term>orthonormal</term> basis) when using the standard inner product.
+</p><p>
+A basis affords a unique expression (or <q>expansion</q>) for each vector in a vector space as a linear combination of basis vectors
+(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />).
+In <xref ref="activity-inprod-orthog-expansion" />,
+we found that the zero result of an inner product for orthogonal vectors,
+along with the the <xref ref="proposition-inner-prod-linearity" text="title" />,
+leads to a pattern for the coefficients in the expansion for a vector relative to an <em>orthogonal</em> basis
+<me> \basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>
+in a finite-dimensional inner product space:
+<me>
+	\uvec{v}
+	= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+	+ \frac{\inprod{\uvec{v}}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
+	+ \dotsb
+	+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
+</me>.
+</p>
+<warning><p>
+	Because of the conjugate-symmetry of complex inner products
+	(<xref ref="list-inner-prod-concepts-complex-axioms-symmetric" text="local">Axiom CIP</xref>),
+	the order <m>\inprod{\uvec{v}}{\uvec{e}_j}</m> in each scalar numerator in the general expansion above is important in order to maintain consistency between both the real and complex contexts.
+</p></warning>
+<p>
+If <m>\basisfont{B}</m> is an ortho<em>normal</em> basis for an inner product space, then each scalar denominator <m>\norm{\uvec{e}_j}</m> in the expansion above is equal to <m>1</m>,
+so an expansion becomes even simpler:
+<me>
+	\uvec{v}
+	= \inprod{\uvec{v}}{\uvec{e}_1} \, \uvec{e}_1
+	+ \inprod{\uvec{v}}{\uvec{e}_2} \, \uvec{e}_2
+	+ \dotsb
+	+ \inprod{\uvec{v}}{\uvec{e}_n} \, \uvec{e}_n
+</me>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-concepts-gram-schmidt">
+<title>The Gram-Schmidt orthogonalization process</title>
+
+<p>
+The point of a basis for a vector space is to have a means to uniquely describe all infinity of vectors in the space as linear combinations of a finite number of basis vectors.
+We just saw in <xref ref="subsection-inprod-orthog-concepts-expansion" />
+that, relative to an orthogonal basis for a finite-dimensional inner product space,
+determining that linear combination for a given vector is particularly easy <mdash />
+no row reducing necessary, just compute some inner products and norms.
+So being able to produce an orthogonal basis for an inner product space is of particular value.
+</p><p>
+In <xref ref="activity-inprod-orthog-gram-schmidt" />,
+we attempted to reinvent a procedure by which we can convert a basis into an orthogonal one.
+(And then, if desired, into an orthonormal one by normalizing each orthogonal basis vector.)
+</p>
+
+<algorithm xml:id="procedure-inprod-orthog-gram-schmidt">
+	<title>Gram-Schmidt orthogonalization</title>
+	<p>
+	Given a basis
+	<me>\basisfont{B}_0 = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>
+	of a finite-dimensional inner product space,
+	to construct an <em>orthogonal</em> basis
+	<me>\basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>
+	for that space, calculate
+ 	<md>
+		<mrow> \uvec{e}_1 \amp = \uvec{v}_1 \text{,} </mrow>
+		<mrow> \uvec{e}_2 \amp = \uvec{v}_2 -  \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 \text{,} </mrow>
+		<mrow>
+			\uvec{e}_3 \amp = \uvec{v}_3 - \left(
+				\frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+				+ \frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
+			\right)
+			\text{,}
+		</mrow>
+		<mrow> \amp \vdots </mrow>
+		<mrow>
+			\uvec{e}_n \amp = \uvec{v}_n - \left(
+				\frac{\inprod{\uvec{v}_n}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+				+ \dotsb
+				+ \frac{\inprod{\uvec{v}_n}{\uvec{e}_{n-1}}}{\norm{\uvec{e}_{n-1}}^2} \, \uvec{e}_{n-1}
+			\right)
+		</mrow>
+	</md>.
+	If an ortho<em>normal</em> basis is desired,
+	each of the <m>\uvec{e}_j</m> can be normalized to unit vectors.
+	</p>
+</algorithm>
+
+<remark><p>
+	If aiming to produce an orthogonormal basis,
+	the <m>\uvec{e}_j</m> can be normalized at any point in the process <mdash />
+	either all at the end, or one at a time as they are produced.
+	Both choices have pros and cons.
+</p></remark>
+
+<p>
+We will verify that the procedure creates an orthogonal basis in
+<xref ref="subsection-inprod-orthog-theory-basis" />.
+For now, consider how each step in the procedure follows from the previous.
+We will use diagrams as if these were vectors in <m>\R^n</m>,
+as we did in <xref ref="activity-inprod-orthog-gram-schmidt-second-vector-diagram">Discovery</xref>,
+to see the geometric pattern in the steps.
+</p><p>
+We set <m>\uvec{e}_1</m> to be <m>\uvec{v}_1</m> because there aren't yet any other vectors to be orthogonal with,
+because we haven't yet specified any of the other <m>\uvec{e}_j</m> vectors.
+Next, we know from the discussion in <xref ref="subsection-inprod-orthog-concepts-expansion" />
+that <em>if</em> we are able to succeed in creating the orthogonal basis <m>\basisfont{B}</m>,
+then the coefficient on <m>\uvec{e}_1</m> in the expansion of <m>\uvec{v}_2</m> relative to <m>\basisfont{B}</m> is
+<me> \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} </me>.
+In other words,
+the portion of <m>\uvec{v}_2</m> parallel to <m>\uvec{e}_1</m> is
+<me> \widetilde{\uvec{v}}_2 = \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>.
+</p>
+<sidebyside width="30%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating second step in Gram-Schmidt process.</description>
+	<latex-image><xi:include href="concepts.d/gram-schmidt-1.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+This diagram should look familiar <mdash /> it is essentially the same diagram that we used to illustrate orthogonal projection in <m>\R^2</m>.
+The formula for orthogonal projection even appears to be the same:
+<me> \proj_{\uvec{a}} \uvec{u} = \frac{\udotprod{u}{a}}{\unorm{a}^2} \, \uvec{a} </me>.
+And from our experience with orthogonal projection onto a line,
+the vector running from the head of <m> \widetilde{\uvec{v}}_2 </m> to the head of <m>\uvec{v}_2</m> should be both a difference vector
+<me> \uvec{v}_2 - \widetilde{\uvec{v}}_2 </me>
+and a normal vector to the line spanned by <m>\uvec{e}_1</m>.
+</p>
+<sidebyside width="50%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating second step in Gram-Schmidt process.</description>
+	<latex-image><xi:include href="concepts.d/gram-schmidt-2.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p> We can also visualize this normal vector stemming from the origin. </p>
+<sidebyside width="60%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating second step in Gram-Schmidt process.</description>
+	<latex-image><xi:include href="concepts.d/gram-schmidt-2b.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+This normal vector is exactly what we have set <m>\uvec{e}_2</m> to be.
+Since we wanted <m>\uvec{e}_2</m> to be orthogonal to <m>\uvec{e}_1</m>,
+it would appear from the diagram that we have succeeded in that goal.
+</p><p>
+The next step follows the same pattern,
+but now the pair <m>\uvec{e}_1,\uvec{e}_2</m> span a plane.
+Similarly to the last step,
+the vector
+<me>
+	\widetilde{\uvec{v}}_3
+	= \frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+	+ \frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
+</me>
+represents the portion of <m>\uvec{v}_3</m> that lies parallel to that plane.
+</p>
+<sidebyside width="65%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating third step in Gram-Schmidt process.</description>
+	<latex-image><xi:include href="concepts.d/gram-schmidt-3.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+The vector <m>\widetilde{\uvec{v}}_3</m> also appears to be some sort of <q>orthogonal projection</q>,
+but this time onto a plane instead of a line.
+(While we have only studied orthogonal projection onto a line in <m>\R^n</m> up to this point,
+we will study orthogonal projection more generally in the next chapter.)
+And the difference vector <m>\uvec{e}_3 = \uvec{v}_3 - \widetilde{\uvec{v}}_3</m> appears to normal to the plane,
+hence orthogonal to <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>, as desired.
+</p><p>
+Once again, we can also visualize this normal vector as stemming from the origin.
+</p>
+<sidebyside width="65%"><image>
+	<!-- description gets inserted as alt text in html img tag -->
+	<description>Diagram illustrating third step in Gram-Schmidt process.</description>
+	<latex-image><xi:include href="concepts.d/gram-schmidt-3b.tex" parse="text" /></latex-image>
+</image></sidebyside>
+<p>
+We of course cannot draw a picture of the next step in the Gram-Schmidt process,
+since that picture would need to be in four dimensions.
+But we can imagine that the pattern continues,
+with each new <m>\uvec{e}_j</m> equal to the difference between the corresponding <m>\uvec{v}_j</m>
+and the <q>orthogonal projection</q> of <m>\uvec{v}_j</m> and the subspace spanned by
+<m>\uvec{e}_1,\dotsc,\uvec{e}_{j-1}</m>.
+That difference vector will be <q>normal</q> to that subspace,
+hence orthogonal to each of <m>\uvec{e}_1,\dotsc,\uvec{e}_{j-1}</m>.
+</p><p>
+There is one last issue to address.
+The Gram-Schmidt process is supposed to create a <em>basis</em> for the inner product space,
+but all we are confident of at this point is that it creates an <em>orthogonal</em> set of <m>n</m> vectors,
+where <m>n</m> is the dimension of the space.
+However, in <xref ref="activity-inprod-orthog-independent" />
+we verified that orthogonal vectors are always independent,
+and having the <q>right number</q> of independent vectors is enough to conclude that we have a basis
+(<xref ref="corollary-dimension-basis-right-num-just-one-check" />).
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-concepts-complement-basis">
+<title>Orthogonal complements from an orthogonal basis</title>
+
+<p>
+In <xref ref="activity-inprod-orthog-gs-subspace-result">Discovery</xref>,
+we explored applying the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
+using the basis of a <em>subspace</em> as the starting point,
+instead of a basis for the whole inner product space.
+</p><p>
+Suppose <m>U</m> is a subspace of an inner product space,
+with basis <m> \basisfont{B}_U = \{ \uvec{u}_1, \dotsc, \uvec{u}_m \} </m>.
+When we apply the orthogonalization process to just this basis,
+we start by setting
+<me> \uvec{e}_1 = \uvec{u}_1 </me>,
+so <m>\uvec{e}_1</m> is in <m>U</m>.
+Then we set
+<me> \uvec{e}_2 = \uvec{v}_2 -  \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>,
+a linear combination of vectors in <m>U</m>.
+So <m>\uvec{e}_2</m> is also in <m>U</m>.
+And so on: at each step the next vector <m>\uvec{e}_j</m> is a linear combination of a vector from <m>\basisfont{B}_U</m> and the previous vectors <m>\uvec{e}_1,\dotsc,\uvec{e}_{j-1}</m>.
+If each of those previous vectors is in <m>U</m>, then so will the next be.
+</p><p>
+So the end result will be an orthogonal set of vectors in <m>U</m> which contains the same number of vectors as <m>\basisfont{B}_U</m>.
+Since orthogonal vectors are independent,
+this is enough to conclude that
+<alert>the Gram-Schmidt process, applied to a basis for a subspace, will produce an orthogonal basis for that subspace</alert>.
+</p><p>
+As in <xref ref="activity-inprod-orthog-gs-subspace-complement">Discovery</xref>,
+let's take this one step further.
+The basis <m>\basisfont{B}_U</m> for <m>U</m> can be enlarged to a basis
+<me> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_m, \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
+for <m>V</m>
+(<xref ref="proposition-dimension-subspace-dim-props-enlarge">Statement</xref>
+of <xref ref="proposition-dimension-subspace-dim-props" />).
+As we apply the Gram-Schmidt process to <m>\basisfont{B}_V</m>,
+the first <m>m</m> steps will not involve the <m>\uvec{v}_j</m>,
+and we will effectively be applying the process to <m>\uvec{B}_U</m>
+to obtain an orthogonal basis
+<me> \basisfont{B}_U' = \{ \uvec{e}_1, \dotsc, \uvec{e}_m \} </me>
+of <m>U</m>.
+We then continue the process to obtain an orthogonal basis
+<me> \basisfont{B}_V' = \{ \uvec{e}_1, \dotsc, \uvec{e}_m, \uvec{f}_1, \dotsc, \uvec{f}_\ell \} </me>
+for <m>V</m>.
+But then each of these new <m>\uvec{f}_j</m> vectors is orthogonal to each of the previous <m>\uvec{e}_i</m>.
+Using our thinking from <xref ref="activity-inprod-orthog-in-complement-if-orthog-to-basis" />,
+this means that each <m>\uvec{f}_j</m> is in <m>\orthogcmp{U}</m>.
+And in fact,
+<alert>the collection of <m>\uvec{f}_j</m> will form an orthogonal basis for <m>\orthogcmp{U}</m></alert>.
+</p><p>
+We can say that <em>every</em> orthogonal complement pair <m>U,\orthogcmp{U}</m> in a finite-dimensional inner product space occur this way.
+That is, we can create an orthogonal complement pair <m>U,\orthogcmp{U}</m> by taking an orthogonal basis
+<me> \basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>
+for the whole space <m>V</m> and choosing an index <m>\ell</m> at which to split it in two:
+<md><mrow>
+	\basisfont{B}_U \amp = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} \text{,} \amp
+	\basisfont{B}_{\orthogcmp{U}} \amp = \{ \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_\ell \} \text{.}
+</mrow></md>
+As indicated by the subscripts,
+the second <q>half</q> of the original set of basis vectors will form an orthogonal basis for the orthogonal complement of the subspace that the first <q>half</q> of original basis vectors span:
+<md><mrow>
+	U \amp = \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} \text{,} \amp
+	\orthogcmp{U} \amp = \Span \{ \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_\ell \} \text{.}
+</mrow></md>
+<!-- TODO 
+	If block-diagonal chapter is edited to include discussion of splitting a basis up to create complementary subspaces,
+	come back and edit/simplify the above relative to that discussion.
+ -->
+</p>
+
+</subsection>
+
+</section>

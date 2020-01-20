@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-inprod-orthog-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-inprod-orthog-theory-sets" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-theory-sets" /></em></li>
+<li><xref ref="subsection-inprod-orthog-theory-basis" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-theory-basis" /></em></li>
+<li><xref ref="subsection-inprod-orthog-theory-complements" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-theory-complements" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-inprod-orthog-theory-sets">
+<title>Orthogonal sets</title>
+
+<p>
+As mentioned, we expect there to be no dependence amongst a set of orthogonal vectors.
+The idea of the proof was outlined in <xref ref="activity-inprod-orthog-independent" />,
+so we will not provide a proof here.
+Note that the proposition below remains true for even for an infinite collection of orthogonal vectors.
+</p>
+
+<proposition xml:id="proposition-inprod-orthog-indep"><title>Orthogonal is independent</title><p>
+	An orthogonal set of vectors is always linearly independent.
+</p></proposition>
+
+<corollary xml:id="corollary-inprod-orthog-number"><title>Orthogonality versus dimension</title>
+	<statement><p>
+		Suppose <m>V</m> is an inner product space with <m>\dim V = n</m>.
+		<ol>
+			<li> An orthogonal set in <m>V</m> contains at most <m>n</m> vectors. </li>
+			<li xml:id="corollary-inprod-orthog-number-basis">
+				An orthogonal set in <m>V</m> containing <m>n</m> vectors must be a basis for <m>V</m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		These statements follow from combining <xref ref="proposition-inprod-orthog-indep" />
+		with <xref ref="lemma-linear-indep-more-than-spanning-is-dep" />
+		and <xref ref="corollary-dimension-basis-right-num-just-one-check" />.
+	</p></proof>
+</corollary>
+
+<p>
+Orthogonality is not affected by scalar multiples <mdash />
+we have already taken advantage of this fact to clear fractions when carrying out examples of the Gram-Schmidt orthogonalization process in
+<xref ref="section-inprod-orthog-examples" />.
+</p>
+
+<proposition xml:id="proposition-inprod-orthog-scaling">
+	<title>Orthogonality versus scalar multiplication</title>
+	<statement><p>
+		Suppose <m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m>
+		is an orthogonal set in an inner product space.
+		<ol>
+			<li>
+				The set of scaled vectors
+				<m> \{ a_1 \uvec{v}_1, a_2 \uvec{v}_2, \dotsc, a_\ell \uvec{v}_\ell \} </m>
+				is also orthogonal, as long as the scalars are all nonzero.
+			</li>
+			<li>
+				The set of normalized vectors
+				<m> \left\{
+					\frac{1}{\norm{\uvec{v}_1}} \, \uvec{v}_1,
+					\frac{1}{\norm{\uvec{v}_2}} \, \uvec{v}_2,
+					\dotsc,
+					\frac{1}{\norm{\uvec{v}_\ell}} \, \uvec{v}_\ell \right\}
+				</m>
+				is orthonormal.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		The first statement follows immediately from the
+		<xref ref="proposition-inner-prod-linearity" text="title" />.
+		And the second statement follows immediately from the first using <m> a_j = \frac{1}{\norm{\uvec{v}_j}} </m>.
+		(Note that dividing by each norm can be done because <xref ref="proposition-inprod-orthog-indep" /> implies that none of the vectors in the orthogonal set can be zero.)
+	</p></proof>
+</proposition>
+
+<p> Orthogonal sets satisfy a Pythagorean formula. </p>
+
+<theorem xml:id="theorem-inprod-orthog-pythag">
+	<creator>Pythagoras</creator>
+	<statement><p>
+		If <m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m> is an orthogonal set in an inner product space,
+		then
+		<me>
+			\norm{\uvec{v}_1 + \uvec{v}_2 + \dotsb + \uvec{v}_\ell}^2
+			= \norm{\uvec{v}_1}^2 + \norm{\uvec{v}_2}^2 + \dotsb + \norm{\uvec{v}_\ell}^2
+		</me>.
+	</p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		When <m>\ell = 2</m>, we have the familiar Pythagorean formula,
+		but we provide a proof based on the inner product:
+		<md>
+			<mrow>
+				\norm{\uvec{v}_1 + \uvec{v}_2}^2 \amp
+				= \inprod{\uvec{v}_1 + \uvec{v}_2}{\uvec{v}_1 + \uvec{v}_2}
+			</mrow>
+			<mrow>
+				\amp
+				= \inprod{\uvec{v}_1}{\uvec{v}_1} + \cancelto{0}{\inprod{\uvec{v}_1}{\uvec{v}_2}}
+				+ \cancelto{0}{\inprod{\uvec{v}_2}{\uvec{v}_1}} + \inprod{\uvec{v}_2}{\uvec{v}_2}
+			</mrow>
+			<mrow> \amp = \norm{\uvec{v}_1}^2 + \norm{\uvec{v}_2}^2 </mrow>
+		</md>,
+		where the mixed inner product terms are zero using the orthogonality assumption.
+		</p><p>
+		For <m>\ell \gt 2</m>, the proof can proceed inductively,
+		where the <m>\ell = 2</m> case will be required in the induction step.
+		</p>
+	</proof>
+</theorem>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-theory-basis">
+<title>Orthogonal bases</title>
+
+<p>
+We've seen that an inner product allows us to directly compute individual coordinates of a vector in an inner product space relative to an orthogonal basis.
+Once again, we've already seen an outline of the proof in <xref ref="activity-inprod-orthog-expansion" />,
+so we will not provide a proof here.
+</p>
+
+<theorem xml:id="theorem-inprod-orthog-expansion">
+	<title>The expansion theorem</title>
+	<p>
+	Suppose <m>\basisfont{B} = \{ \uvec{e}_1, \dotsc, \uvec{e}_n \}</m> is an orthogonal basis of a finite-dimensional inner product space, and <m>\uvec{v}</m> is some vector in the space.
+	<ol>
+		<li>
+			The expansion of <m>\uvec{v}</m> as a linear combination of the vectors in <m>\basisfont{B}</m> is
+			<me>
+				\uvec{v}
+				= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+				+ \dotsb
+				+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
+			</me>.
+		</li>
+		<li>
+			If <m>\basisfont{B}</m> is orthonormal,
+			then the expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m> is
+			<me>
+				\uvec{v}
+				= \inprod{\uvec{v}}{\uvec{e}_1} \, \uvec{e}_1
+				+ \dotsb
+				+ \inprod{\uvec{v}}{\uvec{e}_n} \, \uvec{e}_n
+			</me>.
+		</li>
+	</ol>
+	</p>
+</theorem>
+
+<p>
+If two vectors are expanded relative to an orthonormal basis,
+their inner product becomes a dot product between their coordinates.
+</p>
+
+<proposition xml:id="proposition-inprod-orthog-vs-dot">
+	<title>Inner products are dot products</title>
+	<statement><p>
+		Suppose <m>\basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>
+		is an <em>orthonormal</em> basis for a finite-dimensional inner product space <m>V</m>,
+		and <m>\uvec{v},\uvec{w}</m> are vectors in <m>V</m> with
+		<md>
+			<mrow>
+				\uvec{v} \amp = a_1 \uvec{e}_1 + a_2 \uvec{e}_2 + \dotsb + a_n \uvec{e}_n \text{,} \amp
+				\uvec{w} \amp = b_1 \uvec{e}_1 + b_2 \uvec{e}_2 + \dotsb + b_n \uvec{e}_n
+			</mrow>
+		</md>.
+		<ol>
+			<li>
+				We have
+				<me> \uvecinprod{v}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>
+				in a real inner product space and
+				<me> \uvecinprod{v}{w} = a_1 \cconj{b}_1 + a_2 \cconj{b}_2 + \dotsb + a_n \cconj{b}_n </me>
+				in a complex inner product space.
+			</li>
+			<li xml:id="proposition-inprod-orthog-vs-dot-norm">
+				We have
+				<me> \unorm{v} = \sqrt{\abs{a_1}^2 + \dotsb + \abs{a_n}^2} </me>,
+				where the absolute values are redundant in the real context,
+				but indicate modulus in the complex context.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof idea</title><p><ol>
+		<li>
+			This is straightforward computation using
+			<xref ref="proposition-inner-prod-linearity" text="title" />,
+			along with the orthonormal conditions:
+			<md><mrow>
+				\inprod{\uvec{e}_i}{\uvec{e}_i} \amp = 1 \text{,} \amp
+				\inprod{\uvec{e}_i}{\uvec{e}_j} \amp = 0 \qquad (j \neq i)
+			</mrow></md>.
+		</li>
+		<li>
+			Apply <xref ref="theorem-inprod-orthog-pythag" /> to the expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m>,
+			first noting <xref ref="proposition-inprod-orthog-scaling" />.
+		</li>
+	</ol></p></proof>
+</proposition>
+
+<warning><p>
+	The above proposition is only true relative to an <em>orthonormal</em> basis,
+	not an arbitrary basis.
+	A version of the proposition could be obtained for an orthogonal basis,
+	but the expression for the inner product value would also involve the norms of the basis vectors.
+</p></warning>
+
+<p>
+Now we'll verify that the
+<xref ref="procedure-inprod-orthog-gram-schmidt" text="title"/> process
+produces an orthogonal basis.
+</p>
+
+<theorem xml:id="theorem-inprod-orthog-gram-schmidt">
+	<title>Gram-Schmidt orthogonalization</title>
+	<statement><p>
+		If <m>\{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \}</m>
+		is a basis for a finite-dimensional inner product space,
+		then the inductively defined set
+		<m>\{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>,
+		where
+		<me>
+			\uvec{e}_j = \uvec{v}_j - \left(
+				\frac{\inprod{\uvec{v}_j}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+				+ \dotsb
+				+ \frac{\inprod{\uvec{v}_j}{\uvec{e}_{j-1}}}{\norm{\uvec{e}_{j-1}}^2} \, \uvec{e}_{j-1}
+			\right)
+		</me>,
+		is an orthogonal basis for the space.
+	</p></statement>
+	<proof>
+		<p>
+		First, note that there <m>n</m> vectors in the original basis of <m>\uvec{v}_j</m> vectors,
+		so that the dimension of the inner product space is <m>n</m>.
+		And there are just as many of the <m>\uvec{e}_j</m> vectors,
+		so if we can prove orthogonality then the <m>\uvec{e}_j</m> vectors will also form a basis
+		by <xref ref="corollary-inprod-orthog-number-basis">Statement</xref>
+		of <xref ref="corollary-inprod-orthog-number" />.
+		</p><p>
+		The proof of orthogonality is by induction.
+		First we prove that <m>\uvec{e}_2</m> is orthogonal to <m>\uvec{e}_1</m>:
+		<md>
+			<mrow>
+				\inprod{\uvec{e}_2}{\uvec{e}_1}
+				\amp =
+				\inprod{
+					\uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+				}{\uvec{e}_1}
+			</mrow><mrow>
+				\amp =
+				\inprod{\uvec{v}_2}{\uvec{e}_1}
+				-
+				\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2}
+				\, \inprod{\uvec{e}_1}{\uvec{e}_1}
+			</mrow><mrow>
+				\amp =
+				\inprod{\uvec{v}_2}{\uvec{e}_1}
+				-
+				\frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\cancel{\norm{\uvec{e}_1}^2}}
+				\, \cancel{\norm{\uvec{e}_1}^2}
+			</mrow><mrow>
+				\amp = \inprod{\uvec{v}_2}{\uvec{e}_1} - \inprod{\uvec{v}_2}{\uvec{e}_1}
+			</mrow><mrow>
+				\amp = 0
+			</mrow>
+		</md>.
+		</p><p>
+		Next, we inductively assume that <m>S_\ell = \{\uvec{e}_1,\dotsc,\uvec{e}_\ell\}</m>
+		is an orthogonal set for some fixed <m>\ell</m>,
+		with <m>2 \le \ell \lt n</m>.
+		Based on this assumption, we will show that <m>\uvec{e}_{\ell + 1}</m>
+		is orthogonal to each of the vectors in <m>S_\ell</m>.
+		</p><p>
+		For every index <m>j</m>, <m>1 \le j \le \ell</m>, we have
+		<md>
+			<mrow>
+				\inprod{\uvec{e}_{\ell + 1}}{\uvec{e}_j}
+				\amp =
+				\left\langle \,
+					\uvec{v}_{\ell + 1} - \left(
+						\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+						+
+					\right.
+				\right.
+			</mrow><mrow>
+				\amp
+				\phantom{= \langle \uvec{v}_{\ell + 1} - (}
+				\qquad
+				\left.
+					\left.
+						\dotsb
+						+ \frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2} \, \uvec{e}_{\ell}
+					\right)
+					, \, \uvec{e}_j
+				\, \right\rangle
+			</mrow><mrow>
+				\amp =
+				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
+				-
+				\left\langle \,
+					\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+					+
+				\right.
+			</mrow><mrow>
+				\amp
+				\phantom{= \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j} - \langle}
+				\qquad
+				\left.
+					\dotsb
+					+ \frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2} \, \uvec{e}_{\ell}
+					, \, \uvec{e}_j
+				\, \right\rangle
+			</mrow><mrow>
+				\amp =
+				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
+				- \left(
+					\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \,
+					\inprod{\uvec{e}_1}{\uvec{e}_j}
+					+
+				\right.
+			</mrow><mrow>
+				\amp
+				\phantom{= \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j} -}
+				\qquad \left.
+					\dotsb
+					+ \frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_{\ell}}}{\norm{\uvec{e}_{\ell}}^2} \, \inprod{\uvec{e}_{\ell}}{\uvec{e}_j}
+				\right)
+			</mrow>
+		</md>.
+		By our assumption that <m>S_\ell</m> is an orthogonal set,
+		each of the inner products <m>\inprod{\uvec{e}_i}{\uvec{e}_j}</m> in the brackets is zero except for the <m>\nth[j]</m> one:
+		<md>
+			<mrow>
+				\inprod{\uvec{e}_{\ell + 1}}{\uvec{e}_j}
+				\amp =
+				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
+				-
+				\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}}{\norm{\uvec{e}_j}^2} \,
+				\inprod{\uvec{e}_j}{\uvec{e}_j}
+			</mrow><mrow>
+				\amp =
+				\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
+				-
+				\frac{\inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}}{\cancel{\norm{\uvec{e}_j}^2}} \,
+				\cancel{\norm{\uvec{e}_j}^2}
+			</mrow><mrow>
+				\amp = \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j} - \inprod{\uvec{v}_{\ell + 1}}{\uvec{e}_j}
+			</mrow><mrow>
+				\amp = 0
+			</mrow>
+		</md>.
+		This shows that each new <m>\uvec{e}_{\ell + 1}</m> vector is always orthogonal to each of the previous ones.
+		</p>
+	</proof>
+</theorem>
+
+<p>
+The following corollary is immediate,
+as every finite-dimensional inner product space has a basis that can be used in the Gram-Schmidt process.
+</p>
+
+<corollary xml:id="corollary-inprod-orthog-basis-exists">
+	<title>Orthogonal bases exist</title>
+	<p> Every finite-dimensional inner produce space has an orthogonal basis. </p>
+</corollary>
+
+<p> We can also extend orthogonal sets into bases. </p>
+
+<corollary xml:id="corollary-inprod-orthog-enlarge-to-basis">
+	<title>Enlarging an orthogonal set</title>
+	<statement><p> An orthogonal set in a finite-dimensional inner product space can always be enlarged to an orthogonal basis for the whole space. </p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		An orthogonal set is linearly independent
+		(<xref ref="proposition-inprod-orthog-indep" />),
+		and every linearly independent set in a finite-dimensional space can be enlarged to a basis
+		(<xref ref="proposition-dimension-increase-indep-to-basis" />).
+		But can it be enlarged to an <em>orthogonal</em> basis?
+		</p><p>
+		Suppose <m>\{\uvec{e}_1,\dotsc,\uvec{e}_\ell\}</m> is an orthogonal set in a finite-dimensional inner product space.
+		Enlarge the orthogonal set to a (possibly non-orthogonal) basis
+		<me> \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{u}_1, \dotsc, \uvec{u}_m \} </me>.
+		We could then apply the Gram-Schmidt process to obtain an orthogonal basis.
+		But since the <m>\uvec{e}_j</m> are orthogonal,
+		the first <m>\ell</m> steps will just result in the original <m>\{\uvec{e}_1,\dotsc,\uvec{e}_\ell\}</m>
+		(see <xref ref="activity-inprod-orthog-gs-orthog-start" />).
+		So the result of the Gram-Schmidt process will be an orthogonal basis that contains the <m>\uvec{e}_j</m> as its first <m>\ell</m> vectors.
+		</p>
+	</proof>
+</corollary>
+
+<p> Finally, we verify that the Gram-Schmidt process can be applied to the basis of a subspace. </p>
+
+<proposition xml:id="proposition-inprod-orthog-gram-schmidt">
+	<title>Gram-Schmidt preserves subspaces</title>
+	<statement><p>
+		Suppose <m>\{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \}</m>
+		is a basis for a finite-dimensional inner product space,
+		and <m>\{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>
+		is the orthogonal basis described in <xref ref="theorem-inprod-orthog-gram-schmidt" />.
+		Then for each index <m>\ell</m>, <m>1 \le \ell \le n</m>, we have
+		<me> \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} = \Span \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>.
+	</p></statement>
+	<proof>
+		<p>
+		If we were to <q>unravel</q> the inductive definition of each <m>\uvec{e}_j</m>,
+		we would find that it is ultimately a linear combination of the vectors
+		<m>\uvec{v}_1, \dotsc, \uvec{v}_j</m>,
+		and so we can conclude that
+		<me> \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </me>
+		is always a subspace of
+		<me> \Span \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
+		(<xref ref="proposition-subspaces-eq-span-test-first-step">Statement</xref>
+		of <xref ref="proposition-subspaces-eq-span-test" />).
+		</p><p>
+		But we also know that each spanning set above is linearly independent,
+		so these two subspaces have the same dimension.
+		Therefore, since one is contained in the other, they must be the same subspace
+		(<xref ref="proposition-dimension-subspace-dim-props-same-dim">Statement</xref>
+		of <xref ref="proposition-dimension-subspace-dim-props" />).
+		</p>
+	</proof>
+</proposition>
+
+<corollary><title>Gram-Schmidt applied to a subspace</title><p>
+	If the Gram-Schmidt process is applied to a basis of a subspace of a finite-dimensional inner product space,
+	the result will be an orthogonal basis for that subspace.
+</p></corollary>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-theory-complements">
+<title>Orthogonal complements</title>
+
+<p>
+Here we will record the properties of orthogonal complements explored
+in <xref ref="worksheet-inprod-orthog" />
+and <xref ref="subsection-inprod-orthog-concepts-complement" />,
+as well as some others.
+</p>
+
+<proposition xml:id="proposition-inprod-orthog-complement-is-subsp">
+	<title>Orthogonal complements are subspaces</title>
+	<statement><p>
+		If <m>X</m> is a nonempty collection of vectors in an inner product space <m>V</m>,
+		then <m>\orthogcmp{X}</m>,
+		the collection of all vectors in <m>V</m> that are orthogonal to every vector in <m>X</m>,
+		is a subspace of <m>V</m>.
+	</p></statement>
+	<proof>
+		<p> Apply the Subspace Test. <!-- TODO proper xref once subspace test is made an algorithgm --> </p>
+		<case><title>Nonempty</title><p>
+			Since <m>\inprod{\zerovec}{\uvec{x}} = 0</m> for all <m>\uvec{x}</m> in <m>X</m>,
+			clearly <m>\orthogcmp{X}</m> contains the zero vector.
+		</p></case>
+		<case><title>Closed under vector addition</title><p>
+			Suppose <m>\uvec{u},\uvec{v}</m> are both in <m>\orthogcmp{X}</m>,
+			so that
+			<md><mrow>
+				\uvecinprod{u}{x} \amp = 0, \amp \uvecinprod{v}{x} \amp = 0
+			</mrow></md>
+			are both true for every <m>\uvec{x}</m> in <m>X</m>.
+			Then also
+			<me>
+				\inprod{\uvec{u}+\uvec{v}}{\uvec{x}}
+				= \uvecinprod{u}{x} + \uvecinprod{v}{x}
+				= 0 + 0
+				= 0
+			</me>
+			for every <m>\uvec{x}</m> in <m>X</m>,
+			so <m>\uvec{u} + \uvec{v}</m> is again in <m>\orthogcmp{X}</m>.
+		</p></case>
+		<case><title>Closed under scalar multiplication</title><p>
+			Suppose <m>\uvec{v}</m> is in <m>\orthogcmp{X}</m>,
+			so that
+			<me> \uvecinprod{v}{x} = 0 </me>
+			for every <m>\uvec{x}</m> in <m>X</m>.
+			Then also
+			<me> \inprod{k\uvec{v}}{\uvec{x}} = k \uvecinprod{v}{x} = k \cdot 0 = 0 </me>
+			for every <m>\uvec{x}</m> in <m>X</m>,
+			so <m>k \uvec{v}</m> is again in <m>\orthogcmp{X}</m>.
+		</p></case>
+	</proof>
+</proposition>
+
+<remark><p>
+	Since a subspace is always nonempty,
+	the proposition can be applied to <m>X = U</m>,
+	a subspace of an inner product space.
+</p></remark>
+
+<proposition xml:id="proposition-inprod-orthog-trivial-complements"><title>Trivial orthogonal complements</title>
+	<statement><p>
+		Suppose <m>V</m> is an inner product space.
+		Then,
+		<ol>
+			<li> <m> \orthogcmp{\{\zerovec\}} = V </m> </li>, and
+			<li> <m> \orthogcmp{V} = \{\zerovec\} </m> </li>.
+		</ol>
+	</p></statement>
+	<proof>
+		<p> The first statement is obvious because every vector <m>\uvec{v}</m> in <m>V</m> satisfies <m> \inprod{\zerovec}{\uvec{v}} = 0 </m>. </p>
+		<p>
+		The second statement is also straightforward,
+		as a vector in <m>\orthogcmp{V}</m> must be orthogonal to <em>every</em> vector in <m>V</m>,
+		even itself.
+		But <xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref> (real case)
+		and <xref ref="list-inner-prod-concepts-complex-axioms-positive" text="local">Axiom CIP</xref> (complex case)
+		both forbid nonzero vectors to satisfy <m>\uvecinprod{x}{x} = 0</m>.
+		</p>
+	</proof>
+</proposition>
+
+<p>
+In <xref ref="activity-inprod-orthog-geom-complement" />,
+we saw that the orthogonal complement of a plane in <m>\R^3</m> is a line,
+and the orthogonal complement of a line in <m>\R^3</m> is a plane.
+The fact that the dimensions add up to <m>\dim \R^3</m> in each case is not a coincidence.
+</p>
+
+<theorem xml:id="theorem-inprod-orthog-complement-indep">
+	<title>Orthogonal complement is independent</title>
+	<statement><p>
+		In a finite-dimensional inner product space,
+		a subspace and its orthogonal complement are independent subspaces.
+	</p></statement>
+	<proof><p>
+		Suppose <m>U</m> is a subspace of a finite-dimensional inner product space.
+		Rather than use the definition of <term>independent subspaces</term>,
+		we will appeal to <xref ref="theorem-block-diag-pair-indep-subsp-iff-zero-intersect" />,
+		which says that it is sufficient to check that <m>U</m> and <m>\orthogcmp{U}</m> share only the zero vector in common.
+		But this is immediate,
+		since if a vector is in <em>both</em> <m>U</m> and <m>\orthogcmp{U}</m>,
+		then it must be orthogonal to itself.
+		However, <xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref> (real case)
+		and <xref ref="list-inner-prod-concepts-complex-axioms-positive" text="local">Axiom CIP</xref> (complex case)
+		imply that the zero vector is orthogonal to itself.
+	</p></proof>
+</theorem>
+
+<p>
+As we learned in <xref ref="activity-inprod-orthog-in-complement-if-orthog-to-basis" />,
+being orthogonal to a spanning set is enough to check inclusion in the orthogonal complement of a subspace.
+</p>
+
+<proposition xml:id="proposition-inprod-orthog-complement-vs-span"><title>Complements versus spanning sets</title>
+	<statement><p>
+		Suppose <m>S</m> is a set of vectors in an inner produce space.
+		For <m>U = \Span S</m>, we have
+		<me> \orthogcmp{U} = \orthogcmp{S} </me>.
+		In other words, a vector is in <m>\orthogcmp{U}</m> if and only if it is orthogonal to every vector in the spanning set <m>S</m>.
+	</p></statement>
+	<proof>
+		<case>
+			<title>
+				Assume <m>\uvec{x}</m> is in <m>\orthogcmp{U}</m>;
+				show <m>\uvec{x}</m> is in <m>\orthogcmp{S}</m>
+			</title>
+			<p>
+			The subspace <m>U</m> must contain every vector in the spanning set <m>S</m>,
+			so if <m>\uvec{x}</m> is orthogonal to every vector in <m>U</m>,
+			logically it must be orthogonal to every vector in <m>S</m>.
+			</p>
+		</case>
+		<case>
+			<title>
+				Assume <m>\uvec{x}</m> is in <m>\orthogcmp{S}</m>;
+				show <m>\uvec{x}</m> is in <m>\orthogcmp{U}</m>
+			</title>
+			<p>
+			We want to verify that <m>\uvec{x}</m> is orthogonal to every vector in <m>U</m>.
+			So suppose <m>\uvec{u}</m> is in <m>U</m>.
+			Express <m>\uvec{u}</m> in terms of spanning vectors from <m>S</m>:
+			<me> \uvec{u} = k_1 \uvec{s}_1 + k_2 \uvec{s}_2 + \dotsc + k_\ell \uvec{s}_\ell </me>.
+			Then we can use this linear combination to check orthogonality against <m>\uvec{x}</m>:
+			<md>
+				<mrow>
+					\uvecinprod{u}{x}
+					\amp = \inprod{k_1 \uvec{s}_1 + k_2 \uvec{s}_2 + \dotsc + k_\ell \uvec{s}_\ell}{\uvec{x}}
+				</mrow><mrow>
+					\amp = k_1 \inprod{\uvec{s}_1}{\uvec{x}} + k_2 \inprod{\uvec{s}_2}{\uvec{x}} + \dotsc + k_\ell \inprod{\uvec{s}_\ell}{\uvec{x}}
+				</mrow>
+			</md>.
+			But we have assumed <m>\uvec{x}</m> in <m>\orthogcmp{S}</m>,
+			which means that each <m>\inprod{\uvec{s}_j}{\uvec{x}}</m> is zero,
+			and so
+			<me> \uvecinprod{u}{x} = k_1 \cdot 0 + k_2 \cdot 0 + \dotsc + k_\ell \cdot 0 = 0 </me>,
+			as desired.
+			</p>
+		</case>
+		<p>
+		We have now shown that every vector in the collection <m>\orthogcmp{U}</m> is also in the collection <m>\orthogcmp{S}</m>,
+		and vice versa,
+		which means that they must be the same collection of vectors.
+		</p>
+	</proof>
+</proposition>
+
+<p> We can use orthogonal bases to characterize orthogonal complements. </p>
+
+<proposition xml:id="proposition-inprod-orthog-complement-split-basis">
+	<title>Orthogonal complement by splitting an orthogonal basis</title>
+	<statement><p>
+		Suppose <m>\{\uvec{e}_1,\dotsc,\uvec{e}_n\}</m> is an orthogonal basis for a finite-dimensional inner product space.
+		If <m>U</m> is the subspace
+		<me> U = \Span \{\uvec{e}_1,\dotsc,\uvec{e}_\ell\} </me>,
+		for fixed choice of <m>\ell \le n</m>,
+		then
+		<me> \orthogcmp{U} = \Span \{\uvec{e}_{\ell + 1},\dotsc,\uvec{e}_n\} </me>.
+	</p></statement>
+	<proof>
+		<p>
+		For convenience, write
+		<md><mrow> S \amp = \{\uvec{e}_1,\dotsc,\uvec{e}_\ell\}, \amp S' = \{\uvec{e}_{\ell + 1},\dotsc,\uvec{e}_n\} </mrow></md>.
+		From <xref ref="proposition-inprod-orthog-complement-vs-span" />,
+		we know that <m>\orthogcmp{U} = \orthogcmp{S}</m>,
+		the collection of vectors that are orthogonal to every vector in <m>S</m>.
+		Since the entire set
+		<me> \{\uvec{e}_1,\dotsc,\uvec{e}_n\} </me>
+		is orthogonal,
+		we know that each vector in <m>S'</m> is in <m>\orthogcmp{U}</m>.
+		And since <m>\orthogcmp{U}</m> is a subspace
+		(<xref ref="proposition-inprod-orthog-complement-is-subsp" />),
+		it must then contain all of <m> \Span S' </m>
+		(<xref ref="proposition-subspaces-span-subspace" />).
+		However, any basis for <m>\orthogcmp{U}</m> cannot be larger in size than <m>S'</m>,
+		since otherwise it wouldn't remain independent with <m>S</m>
+		(see <xref ref="theorem-inprod-orthog-complement-indep" />).
+		Since <m>S'</m> is an orthogonal set,
+		it is a linearly independent set
+		(<xref ref="proposition-inprod-orthog-indep" />),
+		and it contains the right number of vectors to be a basis for <m>\orthogcmp{U}</m>.
+		Therefore, <m>\orthogcmp{U} = \Span S'</m>, as desired.
+	</p></proof>
+</proposition>
+
+<corollary xml:id="corollary-inprod-orthog-complete-indep"><title>Orthogonal complement is an independent complement</title>
+	<statement><p>
+		In a finite-dimensional inner product space,
+		a subspace and its orthogonal complement always form a <em>complete</em> set of independent subspaces.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		We already know from
+		<xref ref="theorem-inprod-orthog-complement-indep" />
+		that in a finite-dimensional inner product space,
+		a subspace and its orthogonal complement are independent subspaces.
+		Then <xref ref="corollary-inprod-orthog-enlarge-to-basis" />
+		can be combined with <xref ref="proposition-inprod-orthog-complement-split-basis" />
+		to conclude that the dimensions of a subspace and its orthogonal complement must add to the dimension of the whole space,
+		from which we can conclude that they form a <em>complete</em> set of subspaces.
+	</p></proof>
+</corollary>
+
+<p> Finally, we can confirm the pattern in <xref ref="activity-inprod-orthog-geom-complement-pattern">Discovery</xref>. </p>
+
+<corollary xml:id="corollary-inprod-orthog-inverse"><title>Orthogonal complement is self-inverse</title>
+	<statement><p>
+		If <m>U</m> is a subspace of a finite-dimensional inner product space,
+		then <m>\orthogcmp{(\orthogcmp{U})} = U</m>.
+	</p></statement>
+	<proof><title>Proof outline</title><p>
+		Suppose <m>U</m> is a subspace of a finite-dimensional inner product space <m>V</m>.
+		Choose a basis for <m>U</m>, and then extend into a basis for <m>V</m>.
+		Applying the Gram-Schmidt process,
+		we obtain an orthogonal basis for <m>V</m>,
+		which can be split in two parts:
+		the first part will be a basis for <m>U</m>
+		and the second part will be a basis for <m>\orthogcmp{U}</m>,
+		as in <xref ref="proposition-inprod-orthog-complement-split-basis" />.
+		(Also see <xref ref="proposition-inprod-orthog-gram-schmidt" />.)
+		But then we could apply <xref ref="proposition-inprod-orthog-complement-split-basis" /> again,
+		reversing our point of view:
+		the second part will still be a basis for <m>\orthogcmp{U}</m>,
+		but we could view the first part as a basis for <m>\orthogcmp{(\orthogcmp{U})}</m>.
+		Matching the two points of view confirms that <m>\orthogcmp{(\orthogcmp{U})} = U</m>.
+	</p></proof>
+</corollary>
+
+</subsection>
+
+</section>

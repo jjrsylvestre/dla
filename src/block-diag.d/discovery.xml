@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-block-diag">
+<title>Discovery guide</title>
+
+<introduction>
+	<p>
+	If <m>P</m> is a square matrix,
+	write <m>\uvec{p}_1, \uvec{p}_2, \dotsc, \uvec{p}_n</m> for the columns of <m>P</m>,
+	so that
+	<m> P = \begin{bmatrix} \uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_n \end{bmatrix} </m>.
+	</p><p>
+	For this set of guided discovery activities,
+	we will need to recall a few important things.
+	<ul>
+		<li>
+			An <m>n \times n</m> matrix is invertible if and only if its columns form a basis of <m>\R^n</m>
+			(<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+		</li>
+		<li>
+			Similarity relation <m>\inv{P} A P = B</m> holds if and only if each column of <m>B</m> consists of coefficients for expressing the corresponding transformed vector <m>A \uvec{p}_j</m> as a linear combination of the columns of <m>P</m>
+			(<xref ref="subsection-similarity-concepts-algebra" />).
+		</li>
+	</ul>
+</p></introduction>
+
+<activity xml:id="activity-block-diag-pattern">
+	<introduction><p>
+		Suppose <m>A</m> is a <m>4 \times 4</m> matrix that is similar to
+		<me>
+			B = \left[\begin{array}{rrrr}
+				1 \amp -1 \amp 0 \amp 0 \\
+				3 \amp 7 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 4 \amp -2 \\
+				0 \amp 0 \amp -2 \amp 1
+			\end{array}\right]
+		</me>.
+	</p></introduction>
+	<task xml:id="activity-block-diag-pattern-columns"><p>
+		Use the characterization of similarity in the introduction of this discovery guide to write down conditions on
+		<m>\uvec{p}_1, \uvec{p}_2, \uvec{p}_3, \uvec{p}_4</m>
+		for <m>\inv{P}AP = B</m> to be true.
+	</p></task>
+	<task xml:id="activity-block-diag-pattern-basis-invariance">
+		<p>
+		We want to turn the conditions from
+		<xref ref="activity-block-diag-pattern-columns" text="type-local" />
+		into a general pattern for achieving block-diagonal form.
+		So the actual numbers in your conditions are irrelevant;
+		what's important is the pattern.
+		</p><p>
+		With that in mind,
+		finish the following statement with as high-level linear algebra language as possible:
+		<m>A\uvec{p}_1</m> must be <fillin characters="30" />.
+		</p><p>
+		Repeat for <m>A\uvec{p}_2</m>, <m>A\uvec{p}_3</m>, and <m>A\uvec{p}_4</m>.
+		</p>
+	</task>
+	<task>
+		<p>
+		Columns <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> must satisfy a similar condition relative to <m>A</m>.
+		Assuming they do,
+		do you think <em>combinations</em> of these two columns will satisfy a similar condition?
+		Test it with combination <m>2 \uvec{p}_1 - 3 \uvec{p}_2</m>.
+		</p><p>
+		Will combinations of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m> work similarly?
+		</p>
+	</task>
+</activity>
+
+<p>
+Given an <m>n \times n</m> matrix <m>A</m>,
+a subspace of <m>\R^n</m> (or <m>\C^n</m>) is called <term><m>A</m>-invariant</term> if the following is true:
+<em>
+	for each vector <m>\uvec{u}</m> in the subspace,
+	the transformed vector <m>A\uvec{u}</m> is back in the subspace
+</em>.
+</p>
+
+<activity xml:id="activity-block-diag-invariant-geom"><p>
+	Suppose that <m>A</m> is a <m>3 \times 3</m> matrix.
+	Recall that multiplication by <m>A</m> can be regarded as geometrically <term>transforming</term> vectors in <m>\R^3</m>.
+	</p><p>
+	In each of the following,
+	decide whether any proper, nontrivial subspaces of <m>\R^3</m> are invariant under the described geometric transformation.
+	That is, determine whether any subspaces have the property that the described transformation returns vectors from the subspace back into the subspace.
+	</p><p>
+	(Recall that the only proper, nontrivial subspaces of <m>\R^3</m> are lines through the origin and planes through the origin.)
+	</p><p><ol>
+		<li> Rotation around some arbitrary line (assume the line passes through the origin). </li>
+		<li> Reflection in some arbitrary plane (assume the plane pass through the origin). </li>
+		<li>
+			Projection onto some arbitrary plane
+			(assume the plane passes through the origin);
+			<ie /> given a vector <m>\uvec{u}</m> in <m>\R^3</m>,
+			drop a perpendicular from the head of <m>\uvec{u}</m> onto the plane,
+			and where that perpendicular lands on the plane will be considered the <q>transformed image</q> of <m>\uvec{u}</m>.
+		</li>
+	</ol>
+</p></activity>
+
+<activity xml:id="activity-block-diag-abstract-invariant-examples"><p>
+	Prove that for every <m>n \times n</m> matrix <m>A</m>,
+	the following subspaces of <m>\R^n</m> are always <m>A</m>-invariant.
+	<ol>
+		<li> The trivial space <m>\{\zerovec\}</m>. </li>
+		<li> The full space <m>\R^n</m>. </li>
+		<li> The null space of <m>A</m>. </li>
+		<li> Each eigenspace of <m>A</m>. </li>
+		<li>
+			<m>\Span \{\uvec{v}_0, A\uvec{v}_0, A^2\uvec{v}_0, A^3\uvec{v}_0, \dotsc \}</m>,
+			where <m>\uvec{v}_0</m> is some arbitrary vector in <m>\R^n</m>.
+		</li>
+	</ol>
+</p></activity>
+
+<activity>
+	<p>
+	Hopefully by now you've discovered that for <m>\inv{P}AP</m> to be in block-diagonal form,
+	it must be possible to partition the columns of <m>P</m> into subcollections,
+	where the columns in a particular subcollection come from a particular <m>A</m>-invariant subspace of <m>\R^n</m>.
+	But when we try to put a matrix into block-diagonal form,
+	we won't know the transition matrix ahead of time,
+	so we'll be looking for <m>A</m>-invariant subspaces from which to take vectors to form the columns of <m>P</m>.
+	</p><p>
+	But what about the additional requirement that the columns of <m>P</m> form a basis of <m>\R^n</m>?
+	When we find <m>A</m>-invariant subspaces,
+	what relationship to each other will they need to satisfy for this extra condition on the columns of <m>P</m> to be satisfied?
+</p></activity>
+
+<p>
+In the remaining discovery activities,
+we will explore the properties of block-diagonal matrices.
+</p>
+
+<activity xml:id="activity-block-diag-null-space">
+	<introduction><p>
+		Consider again the matrix <m>B</m> from
+		<xref ref="activity-block-diag-pattern" />:
+		<me>
+			B = \left[\begin{array}{rrrr}
+				1 \amp -1 \amp 0 \amp 0 \\
+				3 \amp 7 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 4 \amp -2 \\
+				0 \amp 0 \amp -2 \amp 1
+			\end{array}\right]
+		</me>.
+	</p></introduction>
+	<task xml:id="activity-block-diag-null-space-one-block"><p>
+		Verify that the vector
+		<m>\left[\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right]</m>
+		is in the null space of the lower-right <m>2 \times 2</m> block
+		<me>
+			\left[\begin{array}{rr}
+				4 \amp -2 \\
+				-2 \amp 1
+			\end{array}\right]
+		</me>.
+		Can you use this knowledge to build a null space vector for <m>B</m>?
+	</p></task>
+	<task><p>
+		Use the pattern from
+		<xref ref="activity-block-diag-null-space-one-block" text="type-local" />
+		to justify the following statement.
+		<blockquote><p>
+			Every null space vector of <m>B</m> can be split into a sum of
+			a null space vector
+			(suitably embedded from <m>\R^2</m> into <m>\R^4</m>)
+			of the upper-left block
+			and
+			a null space vector
+			(suitably embedded from <m>\R^2</m> into <m>\R^4</m>)
+			of the lower-right block.
+		</p></blockquote>
+	</p></task>
+</activity>
+
+<activity xml:id="activity-block-diag-eigen-space">
+	<introduction><p>
+		Consider again the matrix <m>B</m> from
+		<xref ref="activity-block-diag-pattern" />:
+		<me>
+			B = \left[\begin{array}{rrrr}
+				1 \amp -1 \amp 0 \amp 0 \\
+				3 \amp 7 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 4 \amp -2 \\
+				0 \amp 0 \amp -2 \amp 1
+			\end{array}\right]
+		</me>.
+	</p></introduction>
+	<task xml:id="activity-block-diag-eigen-space-one-block">
+		<p>
+		Verify that the vector
+		<m>\left[\begin{smallmatrix} -2 \\ 1 \end{smallmatrix}\right]</m>
+		is in the eigenspace of the lower-right <m>2 \times 2</m> block
+		<me>
+			\left[\begin{array}{rr}
+				4 \amp -2 \\
+				-2 \amp 1
+			\end{array}\right]
+		</me>
+		corresponding to the eigenvalue <m>\lambda = 5</m>.
+		(Verify this using the <em>definitions</em> of <term>eigenvector</term> and <term>eigenvalue</term> from
+		<xref ref="section-eigen-values-vectors-terminology" />,
+		not our calculation techniques from
+		<xref ref="subsection-eigen-values-vectors-concepts-compute-evalues" />
+		and
+		<xref ref="subsection-eigen-values-vectors-concepts-compute-evectors" />.)
+		</p><p>
+		Can you use this knowledge to build a eigenvector for <m>B</m>,
+		and thereby verify that <m>\lambda = 5</m> is also an eigenvalue for <m>B</m>?
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-block-diag-product">
+	<task xml:id="activity-block-diag-product-example"><p>
+		Recall that <em>matrix-times-matrix</em> can be thought of as <em>matrix-times-collection-of-columns</em>.
+		(See pattern <xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
+		from <xref ref="subsection-matrix-ops-concepts-matrix-mult" />.)
+		</p><p>
+		Consider how you created column vectors in
+		<xref ref="activity-block-diag-null-space-one-block" />
+		and
+		<xref ref="activity-block-diag-eigen-space-one-block" />,
+		and the pattern of how multiplying block-diagonal <m>B</m> against your constructed column vectors worked.
+		Use this experience to compute the product <m>MN</m> for the following two block-diagonal <m>3 \times 3</m> matrices.
+		<md><mrow>
+			M \amp = \left[\begin{array}{rrr}
+				2 \\
+				 \amp -1 \amp 3 \\
+				 \amp 2 \amp 2
+			\end{array}\right]
+			\amp
+			N \amp = \left[\begin{array}{rrr}
+				-3 \\
+				 \amp 5 \amp 0 \\
+				 \amp 1 \amp 2
+			\end{array}\right]
+		</mrow></md>
+		(Remember that unspecified entries are assumed to be zero.)
+	</p></task>
+	<task xml:id="activity-block-diag-product-pattern"><p>
+		Describe the pattern of
+		<xref ref="activity-block-diag-product-example" />:
+		if <m>M</m> and <m>N</m> are block-diagonal matrices
+		<md><mrow>
+			M \amp = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} \text{,} \amp
+			N \amp = \begin{bmatrix} N_1 \\ \amp N_2 \\ \amp \amp \ddots \\ \amp \amp \amp N_\ell \end{bmatrix} \text{,}
+		</mrow></md>
+		where each pair of corresponding blocks <m>A_j, B_j</m> are the same size,
+		then their product is
+		<me>
+			MN = \begin{bmatrix}
+				\phantom{M_1 N_1} \\
+				 \amp \phantom{M_2 N_2} \\
+				 \amp \amp \phantom{\ddots} \\
+				 \amp \amp \amp \phantom{M_\ell N_\ell}
+			 \end{bmatrix}
+		</me>.
+	</p></task>
+	<task><p>
+		Apply the pattern of
+		<xref ref="activity-block-diag-product-pattern" text="type-local" />
+		to inverses and powers:
+		using the same matrix <m>M</m> as in
+		<xref ref="activity-block-diag-product-pattern" text="type-local" />,
+		<md><mrow>
+			\inv{M} \amp = \begin{bmatrix}
+				\phantom{\inv{M}_1} \\
+				 \amp \phantom{\inv{M}_2} \\
+				 \amp \amp \phantom{\ddots} \\
+				 \amp \amp \amp \phantom{\inv{M}_\ell}
+			 \end{bmatrix}
+			 \text{,}
+			 \amp
+			 M^k \amp = \begin{bmatrix}
+ 				\phantom{M_1^k} \\
+ 				 \amp \phantom{M_2^k} \\
+ 				 \amp \amp \phantom{\ddots} \\
+ 				 \amp \amp \amp \phantom{M_\ell^k}
+ 			 \end{bmatrix}
+ 			 \text{.}
+		</mrow></md>
+	</p></task>
+</activity>
+
+<activity xml:id="activity-block-diag-det">
+	<task xml:id="activity-block-diag-det-example"><p>
+		Compute the determinant of the block-diagonal matrix
+		<me>
+			A = \left[\begin{array}{rrrrr}
+				1 \amp 1 \\
+				-1 \amp 1 \\
+				 \amp \amp -3 \\
+				 \amp \amp \amp 2 \amp 1 \\
+				 \amp \amp \amp 1 \amp 3
+			\end{array}\right]
+		</me>.
+		Then compute the determinant of each individual block separately.
+		What is the relationship between all these determinant calculations?
+	</p></task>
+	<task xml:id="activity-block-diag-det-pattern"><p>
+		Describe the pattern of
+		<xref ref="activity-block-diag-det-example" text="type-local" />:
+		if <m>M</m> is a block-diagonal matrix
+		<me> M = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} </me>,
+		then its determinant is
+		<me> \det M = <fillin characters="30" /> </me>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-block-diag-eigenvalues">
+	<task xml:id="activity-block-diag-eigenvalues-lambda-I-minus-pattern"><p>
+		Fill in the pattern:
+		if <m>M</m> is a block-diagonal matrix
+		<me> M = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} </me>,
+		then <m>\lambda I - M</m> is also block-diagonal, with
+		<me>
+			\lambda I - M
+			= \begin{bmatrix}
+			   \phantom{\lambda I -M_1} \\
+				\amp \phantom{\lambda I -M_2} \\
+				\amp \amp \phantom{\ddots} \\
+				\amp \amp \amp \phantom{\lambda I - M_\ell}
+			\end{bmatrix}
+		</me>.
+	</p></task>
+	<task xml:id="activity-block-diag-eigenvalues-char-poly"><p>
+		Combine
+		<xref ref="activity-block-diag-eigenvalues-lambda-I-minus-pattern" text="type-local" />
+		with
+		<xref ref="activity-block-diag-det-pattern" />
+		to determine the relationship between the characteristic polynomial of a block-diagonal matrix
+		and the characteristic polynomials of its blocks.
+	</p></task>
+	<task><p>
+		Use
+		<xref ref="activity-block-diag-eigenvalues-char-poly" text="type-local" />
+		to determine the relationship between the eigenvalues of a block-diagonal matrix
+		and the eigenvalues of its blocks.
+		What about the algebraic multiplicities of eigenvalues?
+	</p></task>
+</activity>
+
+</worksheet>

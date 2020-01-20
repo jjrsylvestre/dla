@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-triang-nilpotent">
+<title>Discovery guide</title>
+
+<activity xml:id="activity-triang-nilpotent-rank-info">
+	<introduction>
+		<p>
+		Consider <m>18 \times 18</m> matrix
+		<me> N = \begin{bmatrix} N_1 \\ \amp N_2 \\ \amp\amp N_3 \\ \amp\amp\amp N_4 \\ \amp\amp\amp\amp N_5 \end{bmatrix} </me>
+		in triangular-block nilpotent form,
+		where the elementary nilpotent blocks <m>N_1</m> and <m>N_2</m> are each <m>5 \times 5</m>,
+		blocks <m>N_3</m> and <m>N_4</m> are each <m>3 \times 3</m>,
+		and block <m>N_5</m> is <m>2 \times 2</m>.
+		</p><p>
+		Suppose <m>A</m> is another <m>18 \times 18</m> matrix that is similar to <m>N</m>.
+		</p>
+	</introduction>
+	<task>
+		<statement>
+			<p> What is the rank of <m>A</m>? </p>
+			<p> What is nullity of <m>A</m> (<ie /> the dimension of the null space of <m>A</m>)? </p>
+			<p> Describe how and why this number determines the number of blocks in <m>N</m>. </p>
+		</statement>
+		<hint>
+			<p> For the rank, consider <xref ref="corollary-similarity-rank-nullity" />. </p>
+			<p> For the nullity, see <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />. </p>
+		</hint>
+	</task>
+	<task xml:id="activity-triang-nilpotent-rank-info-degree-nilpotency">
+		<statement><p>
+			What is the first power of <m>A</m> that is zero?
+			Describe how and why this number determines the size of the largest block in <m>N</m>.
+		</p></statement>
+		<hint><p>
+			Consider <xref ref="proposition-cayley-hamilton-similar-to-nilpotent" />,
+			and recall that powers of <m>N</m> can be computed by taking powers of the blocks.
+		</p></hint>
+	</task>
+	<task>
+		<p>
+		Let <m>k</m> represent the
+		<term><xref ref="definition-elem-nilpotent-degree-nilpotency" text="title" /></term>
+		of <m>A</m> from <xref ref="activity-triang-nilpotent-rank-info-degree-nilpotency" text="type-local" />.
+		</p><p>
+		What is the rank of <m>A^{k-1}</m>?
+		Describe how and why this number determines the number of blocks in <m>N</m> of the largest size.
+		</p>
+	</task>
+	<task><p>
+		Continue working backwards,
+		computing <m>\rank A^{k-2}</m>, <m>\rank A^{k-3}</m>, <etc />.
+		Describe how and why the jumps in these numbers determine the size and number of blocks in <m>N</m> of second largest size, then of third largest size, <etc />.
+	</p></task>
+</activity>
+
+</worksheet>

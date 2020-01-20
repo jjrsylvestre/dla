@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-block-diag-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-block-diag-theory-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-theory-props" /></em></li>
+<li><xref ref="subsection-block-diag-theory-invariant" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-theory-invariant" /></em></li>
+<li><xref ref="subsection-block-diag-theory-independent" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-theory-independent" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-block-diag-theory-props">
+<title>Properties of block-diagonal form</title>
+
+<p>
+First, we'll record some of the properties of block-diagonal matrices explored in the latter part of
+<xref ref="worksheet-block-diag" />.
+As we have sufficiently explored these patterns in <xref ref="worksheet-block-diag" />,
+we state these properties without proof.
+</p>
+
+<proposition xml:id="proposition-block-diag-props">  <!-- old label: PROP::block.diag.props -->
+	<statement><p>
+		Suppose <m>A</m> and <m>B</m> are <m>n \times n</m> matrices in block-diagonal form such that each has the same number of blocks and corresponding blocks are the same size. That is, assume
+		<md><mrow>
+			A \amp= \begin{bmatrix} A_1 \\ \amp A_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_\ell \end{bmatrix}, \amp
+			B \amp= \begin{bmatrix} B_1 \\ \amp B_2 \\ \amp \amp \ddots \\ \amp \amp \amp B_\ell \end{bmatrix},
+		</mrow></md>
+		where <m>A_1</m> and <m>B_1</m> are both <m>n_1 \times n_1</m>,
+		<m>A_2</m> and <m>B_2</m> are both <m>n_2 \times n_2</m>,
+		<etc />.
+		<ol>
+			<li xml:id="proposition-block-diag-props-products-powers"> <!-- \label{PROP::block.diag.props::block.products.powers} -->
+				The product <m>A B</m> can be computed by taking the product of corresponding blocks,
+				and powers (including the inverse) of <m>A</m> can be computed by taking powers of blocks.
+				That is,
+				<md><mrow>
+					A B \amp= \begin{bmatrix} A_1 B_1 \\ \amp A_2 B_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_\ell B_\ell \end{bmatrix} \text{,} \amp
+					A^k \amp= \begin{bmatrix} A_1^k \\ \amp A_2^k \\ \amp \amp \ddots \\ \amp \amp \amp A_\ell^k \end{bmatrix} \text{,}
+				</mrow></md>
+				where the second pattern is valid for all integer powers
+				(assuming <m>A</m> is invertible in the case <m> k \le 0</m>).
+			</li>
+			<li xml:id="proposition-block-diag-props-vector-product"> <!-- \label{PROP::block.diag.props::block.vector.product} -->
+				If <m>\uvec{x}_1</m> is a vector in <m>\R^{n_1}</m>,
+				<m>\uvec{x}_2</m> is a vector in <m>\R^{n_2}</m>,
+				<etc />,
+				and <m>\uvec{x}</m> is the vector in <m>\R^n</m> formed by concatenating the vectors
+				<m>\uvec{x}_1,\uvec{x}_2,\dotsc,\uvec{x}_\ell</m>
+				together,
+				then the product <m>A \uvec{x}</m> is similarly the vector in <m>\R^n</m> formed by concatenating the vectors
+				<m>A_1\uvec{x}_1,A_2\uvec{x}_2,\dotsc,A_\ell\uvec{x}_\ell</m>
+				together.
+				That is,
+				<me>
+					A \uvec{x}
+					= \begin{bmatrix} A_1 \\ \amp A_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_\ell \end{bmatrix}
+					\begin{bmatrix} \uvec{x}_1 \\ \uvec{x}_2 \\ \vdots \\ \uvec{x}_\ell \end{bmatrix}
+					= \begin{bmatrix} A_1 \uvec{x}_1 \\ A_2 \uvec{x}_2 \\ \vdots \\ A_\ell \uvec{x}_\ell \end{bmatrix}
+				</me>.
+			</li>
+			<li xml:id="proposition-block-diag-props-det"> <!-- \label{PROP::block.diag.props::det} -->
+				The determinant of <m>A</m> is the product of the determinants of the blocks in <m>A</m>.
+				That is, <me> \det A = (\det A_1) (\det A_2) \dotsm (\det A_\ell) </me>.
+			</li>
+			<li xml:id="proposition-block-diag-props-char-poly"> <!-- \label{PROP::block.diag.props::char.poly} -->
+				The characteristic polynomial of <m>A</m> is the product of the characteristic polynomials of the blocks in <m>A</m>.
+				That is, <me> c_A(\lambda) = c_{A_1}(\lambda) c_{A_2}(\lambda) \dotsm c_{A_\ell}(\lambda) </me>.
+			</li>
+			<li xml:id="proposition-block-diag-props-evalues"> <!-- \label{PROP::block.diag.props::e.values} -->
+				The eigenvalues of <m>A</m> are precisely the collection of eigenvalues of the blocks of <m>A</m>.
+				If <m>\uvec{x} \in \R^{n_j}</m> is an eigenvector of block <m>A_j</m> corresponding to eigenvalue <m>\lambda</m>,
+				then the vector
+				<me> \left[\begin{array}{l} \zerovec_{n_1} \\ \zerovec_{n_2} \\ \vdots \\ \uvec{x} \\ \vdots \\ \zerovec_{n_\ell} \end{array}\right] </me>
+				is an eigenvector of <m>A</m> corresponding to <m>\lambda</m>,
+				where each zero vector <m>\zerovec_{n_k}</m> has size corresponding to the size <m>n_k</m> of the block <m>A_k</m>,
+				and vector <m>\uvec{x}</m> appears in the <m>\nth[j]</m> block.
+			</li>
+		</ol>
+	</p></statement>
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-theory-invariant">
+<title>Invariant subspaces</title>
+
+<p>
+As usual, to understand a subspace it is enough to understand a spanning set for the subspace,
+and this is true for invariant subspaces as well.
+</p>
+
+<proposition xml:id="proposition-block-diag-invariant-by-spanning-set">
+	<statement><p>
+		Suppose <m>A</m> is an <m>n \times n</m> matrix, and
+		<m>\{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_\ell \}</m>
+		is a spanning set for a subspace <m>W</m> of <m>\R^n</m>.
+		Then <m>W</m> is <m>A</m>-invariant if and only if each of the vectors <m>A\uvec{w}_1, A\uvec{w}_2, \dotsc, A\uvec{w}_\ell</m> is again in <m>W</m>.
+	</p></statement>
+	<proof>
+		<p> Recall that with an <q>if and only if</q> statement, there are two things to prove. </p>
+		<case><title>(<m>\Rightarrow</m>)</title><p>
+			Assume that <m>W</m> is <m>A</m>-invariant.
+			Then, by definition,
+			for <em>every</em> vector <m>\uvec{w}</m> in <m>W</m>
+			the vector <m>A\uvec{w}</m> is again in <m>W</m>.
+			Since each of the spanning vectors <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_\ell</m> lies in <m>W</m>,
+			then clearly each of the vectors <m>A\uvec{w}_1,A\uvec{w}_2,\dotsc,\uvec{w}_\ell</m> lies again in <m>W</m>.
+		</p></case>
+		<case><title>(<m>\Leftarrow</m>)</title><p>
+			Assume that each of the vectors <m>A\uvec{w}_1,A\uvec{w}_2,\dotsc,\uvec{w}_\ell</m> lies in <m>W</m>.
+			We must prove that for <em>every</em> vector <m>\uvec{w}</m> in <m>W</m>,
+			the vector <m>A\uvec{w}</m> will again lie in <m>W</m>.
+			Since <m>\{\uvec{w}_1,\dotsc,\uvec{w}_\ell\}</m>
+			is a spanning set for <m>W</m>,
+			a vector <m>\uvec{w}</m> in <m>W</m> can be expressed as a linear combination of these spanning vectors,
+			say
+			<me> \uvec{w} = c_1 \uvec{w}_1 + c_2 \uvec{w}_2 + \dotsb + c_\ell \uvec{w}_\ell </me>.
+			Then,
+			<md>
+				<mrow> A \uvec{w} \amp = A (c_1\uvec{w}_1 + c_2\uvec{w}_2 + \dotsb + c_\ell\uvec{w}_\ell) </mrow>
+				<mrow> \amp = c_1 A \uvec{w}_1 + c_2 A \uvec{w}_2 + \dotsb + c_\ell A \uvec{w}_\ell </mrow>
+			</md>.
+			Above we have expressed <m>A \uvec{w}</m> as a linear combination of the vectors
+			<m>A \uvec{w}_1, A \uvec{w}_2, \dotsc, A \uvec{w}_\ell</m>,
+			each of which, by assumption, lies in <m>W</m>.
+			Therefore, since <m>W</m> is a subspace,
+			it is closed under vector operations,
+			and so we also have <m>A\uvec{w}</m> in <m>W</m>.
+		</p></case>
+	</proof>
+</proposition>
+
+<p>
+Here is a special example of an invariant subspace that will become important in our further study of matrix forms.
+It also helps explain diagonal form as a special case of block-diagonal form.
+</p>
+
+<proposition xml:id="proposition-block-diag-eigenspace-invariant">
+	<statement><p>
+		Suppose <m>\lambda</m> is an eigenvalue of the <m>n \times n</m> matrix <m>A</m>.
+		Then the eigenspace <m>E_\lambda (A)</m> is an <m>A</m>-invariant subspace of <m>\R^n</m>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		The point that must be verified is that if <m>\uvec{w}</m> is a vector in the eigenspace <m>E_\lambda (A)</m>,
+		then the transformed vector <m>\uvec{u} = A \uvec{w}</m> is also in that eigenspace.
+		Use the definition of eigenvector
+		(<ie /> <m>A \uvec{x} = \lambda \uvec{x}</m>),
+		both applied to <m>\uvec{x} = \uvec{w}</m>,
+		and as the condition to be verified in the case <m>\uvec{x} = \uvec{u}</m>.
+	</p></proof>
+</proposition>
+
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-theory-independent">
+<title>Independent subspaces</title>
+
+<p>
+Here is a special case of testing independence of subspaces,
+in the case of two subspaces.
+</p>
+
+<theorem xml:id="theorem-block-diag-pair-indep-subsp-iff-zero-intersect">
+
+	<statement><p>
+		Subspaces <m>W_1,W_2</m> of a finite dimensional vector space are independent if and only if <m>W_1 \cap W_2 = \{\zerovec\}</m>.
+	</p></statement>
+
+	<proof>
+		<p> Again, with an <q>if and only if</q> statement, there are two things to prove. </p>
+		<case><title>(<m>\Rightarrow</m>)</title>
+			<p>
+			Assume that <m>W_1</m> and <m>W_2</m> are independent.
+			We must prove that <m>W_1 \cap W_2 = \{\zerovec\}</m>.
+			So suppose <m>\uvec{v}</m> lies in the intersection <m>W_1 \cap W_2</m>.
+			If we are to prove that <m>W_1\cap W_2</m> consists of <em>only</em> the zero vector,
+			then we must prove that <m>\uvec{v} = \zerovec</m>.
+			</p><p>
+			Let <m>\basisfont{B}_1 = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_{d_1} \}</m> be a basis for <m>W_1</m>,
+			where <m>d_1 = \dim W_1</m>,
+			and let <m>\basisfont{B}_2 = \{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_{d_2} \}</m>
+			be a basis for <m>W_2</m>,
+			where <m>d_2 = \dim W_2</m>.
+			Then by definition our assumption that <m>W_1,W_2</m> are independent says that the combined set
+			<m>\{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \}</m>
+			is linearly independent.
+			</p><p>
+			Now consider <m>\uvec{v}</m>,
+			which we have assumed lies in the intersection <m>W_1 \cap W_2</m>.
+			Since <m>\uvec{v}</m> is in <m>W_1</m>,
+			there exist scalars
+			<m>a_1, a_2, \dotsc,a_{d_1}</m>
+			such that <m>\uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}</m>.
+			But <m>\uvec{v}</m> also lies in <m>W_2</m>,
+			and so there exist scalars
+			<m>b_1, b_2, \dotsc, b_{d_2}</m>
+			such that <m>\uvec{v} = b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2}</m>.
+			Now, from the vector space identity <m>\uvec{v} - \uvec{v} = \zerovec</m>,
+			we can subtract these two linear combination expressions for <m>\uvec{v}</m> to get
+			<me>
+				a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}
+				+ (-b_1) \uvec{w}_1 + (-b_2) \uvec{w}_2 + \dotsb + (-b_{d_2}) \uvec{w}_{d_2}
+				= \zerovec
+			</me>.
+			Linear independence of
+			<m>\{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \}</m>
+			now says that all of the scalars above are zero, so that
+			<me>
+				\uvec{v} = 0 \uvec{u}_1 + 0 \uvec{u}_2 + \dotsb + 0 \uvec{u}_{d_1}
+				= 0 \uvec{w}_1 + 0 \uvec{w}_2 + \dotsb + 0 \uvec{w}_{d_2}
+				= \zerovec
+			</me>,
+			as desired.
+		</p></case>
+		<case><title>(<m>\Leftarrow</m>)</title><p>
+			Assume that <m>W_1 \cap W_2 = \{\zerovec\}</m>.
+			We must prove that <m>W_1,W_2</m> are independent.
+			By contradiction, suppose they are not.
+			That is, suppose there exist basis
+			<m>\basisfont{B}_1 = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_{d_1} \}</m>
+			for <m>W_1</m> (where <m>d_1 = \dim W_1</m>)
+			and basis <m>\basisfont{B}_2 = \{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_{d_2} \}</m>
+			for <m>W_2</m> (where <m>d_2 = \dim W_2</m>)
+			such that the set
+			<m>\{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \}</m>
+			is <em>not</em> linearly independent.
+			</p><p>
+			Then there exists a nontrivial linear combination of these basis vectors that equals the zero vector.
+			That is, there exist scalars <m> a_1, a_2, \dotsc, a_{d_1} </m> and <m> b_1, b_2, \dotsc, b_{d_2} </m>
+			that are not all zero and such that
+			<me>
+				a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}
+				+ b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2}
+				= \zerovec
+			</me>
+			Let <m>\uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}</m>.
+			Then <m>\uvec{v}</m> is in <m>W_1</m>. But the above equation says that
+			<me>
+				\uvec{v}
+				= a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}
+				= - b_1 \uvec{w}_1 - b_2 \uvec{w}_2 - \dotsb - b_{d_2} \uvec{w}_{d_2},
+			</me>
+			so that <m>\uvec{v}</m> is also in <m>W_2</m>.
+			Therefore, <m>\uvec{v} \in W_1 \cap W_2</m>.
+			By assumption, this intersection contains <em>only</em> the zero vector,
+			so we must have <m>\uvec{v} = \zerovec</m>.
+			However, since the bases <m>\basisfont{B}_1</m> and <m>\basisfont{B}_2</m> are, individually, linearly independent sets,
+			the conclusion <m>\uvec{v} = \zerovec</m> contradicts the statement that not all of the scalars
+			<m>a_1,a_2,\dotsc,a_{d_1}</m> and <m>b_1,b_2,\dotsc,b_{d_2}</m> are zero.
+		</p></case>
+	</proof>
+
+</theorem>
+
+<warning><p>
+	The condition <m>W_1 \cap W_2 = \{\zerovec\}</m> is <em>not</em> saying that the intersection of <m>W_1</m> and <m>W_2</m> is empty!
+	In fact, it is impossible for two subspaces of any vector space to be disjoint
+	(<ie /> have empty intersection),
+	since <em>every</em> subspace of a vector space contains the zero vector.
+	The condition <m>W_1 \cap W_2 = \{\zerovec\}</m> is saying that the intersection of <m>W_1</m> and <m>W_2</m> contains <em>only</em> the zero vector.
+</p></warning>
+
+<p>
+Can independent subsets always be <q>completed</q> to a complete set of independent subspaces?
+In the finite-dimensional case, the answer is yes,
+for essentially the same reason that
+<xref ref="proposition-dimension-increase-indep-to-basis" />
+is true.
+</p>
+
+<proposition xml:id="proposition-block-diag-complement">
+	<title>Complement spaces</title>
+	<statement><p>
+		For every subspace <m>W</m> of a vector space <m>V</m>,
+		there exists a
+		<term>complement</term><idx><h>complement</h><h>subspace</h></idx>
+		subspace <m>W'</m> of <m>V</m>
+		so that <m>W,W'</m> form a complete set of independent subsets.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		Choose a basis for <m>W</m>,
+		and use
+		<xref ref="proposition-dimension-increase-indep-to-basis" />
+		to enlarge it to a basis for all of <m>V</m>.
+		Take <m>W'</m> to be the span of the new vectors that were used to enlarge the initial basis for <m>W</m>,
+		and verify that the pair <m>W,W'</m> satisfies the definition of
+		<term><xref ref="definition-block-diag-complete-indep" text="title" /></term>.
+		It might be convenient to use
+		<xref ref="theorem-block-diag-pair-indep-subsp-iff-zero-intersect" />
+		to check independence of the pair.
+	</p></proof>
+</proposition>
+
+<corollary>
+	<statement><p>
+		If <m>W_1,W_2,\dotsc,W_m</m> form a collection of independent subspaces of a vector space <m>V</m>,
+		then there exists a subspace <m>W'</m> of <m>V</m> so that the enlarged collection
+		<m>W_1,W_2,\dotsc,W_m,W'</m>
+		is a <em>complete</em> set of independent subspaces.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		Apply <xref ref="proposition-block-diag-complement" />,
+		taking <m>W</m> to be the span of the initial collection of subspaces
+		<m>W_1,W_2,\dotsc,W_m</m> all together.
+	</p></proof>
+</corollary>
+
+<p>
+Similar to how a matrix can be broken into blocks,
+a complete set of independent subspaces lets us break up a vector in the space into constituent parts.
+</p>
+
+<proposition xml:id="proposition-block-diag-complete-indep-decomp">
+	<statement><p>
+		Suppose <m>W_1,W_2,\dotsc,W_m</m> form a complete set of independent subspaces of a vector space <m>V</m>.
+		Then for every vector <m>\uvec{w}</m> in <m>V</m>
+		there exists a unique collection of vectors
+		<m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>,
+		with each <m>\uvec{w}_j</m> in the corresponding space <m>W_j</m>,
+		so that
+		<me> \uvec{w} = \uvec{w}_1 + \uvec{w}_2 + \dotsb + \uvec{w}_m </me>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		Choose a collection of bases <m>\basisfont{B}_1,\basisfont{B}_2,\dotsc,\basisfont{B}_m</m> for the subspaces <m>W_1,W_2,\dotsc,W_m</m>,
+		and express <m>\uvec{w}</m> as a linear combination of these basis vectors taken all together.
+	</p></proof>
+</proposition>
+
+<p>
+As mention in <xref ref="subsubsection-block-diag-concepts-independent-basic" />
+the concept of
+<term><xref ref="definition-block-diag-indep" text="title" /></term>
+is in fact a generalization of the concept of
+<term><xref ref="definition-linear-indep" text="title" /></term>.
+We'll formally state this fact now.
+</p>
+
+<proposition xml:id="proposition-block-diag-vecs-indep-iff-spans-independent">
+	<statement><p>
+		A collection of vectors
+		<m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>
+		is linearly independent if and only if the collection of subspaces
+		<md><mrow>
+			W_1 \amp = \Span \{\uvec{w}_1\} \text{,} \amp
+			W_2 \amp = \Span \{\uvec{w}_2\} \text{,} \amp
+			\amp \dotsc, \amp
+			W_m \amp = \Span \{\uvec{w}_m\}
+		</mrow></md>
+		is independent.
+	</p></statement>
+	<proof><p> We leave this proof to you, the reader. </p></proof>
+</proposition>
+
+<p>
+Finally, here is a special example of collection of independent subspaces that will become important in our further study of matrix forms.
+Along with <xref ref="proposition-block-diag-eigenspace-invariant" />,
+it helps explain diagonal form as a special case of block-diagonal form.
+</p>
+
+<theorem xml:id="theorem-block-diag-eigenspace-independent">
+	<statement><p>
+		The various eigenspaces of an <m>n \times n</m> matrix always form an independent set of subspaces of <m>\R^n</m>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		Combine <xref ref="proposition-block-diag-vecs-indep-iff-spans-independent" />
+		with <xref ref="proposition-diagonalization-indep-e-vectors" />.
+	</p></proof>
+</theorem>
+
+</subsection>
+
+</section>

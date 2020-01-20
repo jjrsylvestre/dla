@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-forms-summary-nilp-tri">
+
+<title>Triangular-block nilpotent form</title>
+
+<paragraphs><title>What</title><p>
+	A block-diagonal matrix
+	<me>
+		\inv{P}AP
+		= \begin{bmatrix}
+			N_1 \\ \amp N_2 \\ \amp \amp \ddots \\ \amp \amp \amp N_s
+		\end{bmatrix}
+	</me>,
+	where each block <m>N_i</m> is in elementary nilpotent form,
+	and the blocks are arranged in order of size,
+	<m>N_1</m> largest to <m>N_s</m> smallest.
+</p></paragraphs>
+
+<paragraphs><title>When</title><p> Matrix <m>A</m> is nilpotent. </p></paragraphs>
+
+<paragraphs><title>How</title>
+	<p>
+	Determine a complete set of independent subspaces of <m>\R^n</m>
+	(or <m>\C^n</m>, as appropriate)
+	that satisfy the following.
+	Each subspace is a cyclic space for <m>A</m>,
+	and has an <m>A</m>-cyclic basis whose last element lies in the null space of <m>A</m>.
+	Order these subspaces by dimension, from largest to smallest.
+	Take the first however many columns of <m>P</m> to be the cyclic basis vectors for the first (largest dimension) cyclic subspace,
+	the next however many columns of <m>P</m> to be the cyclic basis vectors from the next subspace,
+	and so on.
+	</p>
+	<aside><title>Note</title><p>
+		The details of how to determine such cyclic subspaces are quite involved,
+		and beyond the scope of this book.
+	</p></aside>
+</paragraphs>
+
+<paragraphs><title>Result</title><p>
+	The number of blocks, <m>s</m>, is equal to the nullity of <m>A</m>.
+	The largest block, <m>N_1</m>,
+	has dimensions <m>k\times k</m>,
+	where <m>k</m> is the degree of nilpotency of the nilpotent matrix <m>A</m>.
+	The sizes of the remaining blocks can be deduced from the ranks of the powers
+	<m>A^{k-1}, A^{k-2}, \dotsc, A</m>,
+	as described in <xref ref="subsection-triang-nilpotent-concepts-indirect" />.
+</p></paragraphs>
+
+</section>

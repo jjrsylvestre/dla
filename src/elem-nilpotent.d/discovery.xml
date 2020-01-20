@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-elem-nilpotent">
+<title>Discovery guide</title>
+
+<activity xml:id="activity-elem-nilpotent-moving-past-triang-block">
+	<title>Moving past triangular block form</title>
+	<introduction><p>
+		Suppose <m>A</m> is a square matrix.
+		Recall that <m>A</m> is similar over <m>\C</m> to a matrix <m>T</m> in triangular block form.
+	</p></introduction>
+	<task>
+		<statement>
+			<p>
+			Suppose <m>T</m> is similar to some <q>simpler</q> matrix <m>J</m>.
+			What then is the relationship between <m>A</m> and this new matrix <m>J</m>?
+			</p><p>
+			Relative to the title of this discovery activity,
+			what is the point of this particular task?
+			</p>
+		</statement>
+		<hint><p> <xref ref="theorem-similarity-equiv-rel" />. </p></hint>
+	</task>
+	<task>
+		<p>
+		Recall that a triangular block matrix <m>T</m> is a block-diagonal matrix
+		<me> T = \begin{bmatrix} T_1 \\ \amp T_2 \\ \amp \amp \ddots \\ \amp \amp \amp T_\ell \end{bmatrix} </me>,
+		where each block <m>T_j</m> is in a particular form.
+		</p><p>
+		Suppose <m>Q</m> is a transition matrix that is also in block-diagonal form
+		<me> Q = \begin{bmatrix} Q_1 \\ \amp Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp Q_\ell \end{bmatrix} </me>,
+		where each block <m>Q_j</m> has the same size as the corresponding block <m>T_j</m> in <m>T</m>.
+		</p><p>
+		Express <m>\inv{Q} T Q</m> in block form.
+		</p><p>
+		Relative to the title of this discovery activity,
+		what is the point of this particular task?
+		</p>
+	</task>
+	<task>
+		<p>
+		Recall that each block <m>T_j</m> in a triangular block matrix <m>T</m> is in scalar-triangular form,
+		and so can be decomposed as a sum of a scalar matrix <m>\lambda_j I</m> and a nilpotent matrix <m>N_j</m>:
+		<me> T_j = \lambda_j I + N_j </me>.
+		(See <xref ref="equation-cayley-hamilton-scalar-triang-decomp" />
+		in <xref ref="subsection-cayley-hamilton-concepts-nilpotent" />.)
+		</p><p>
+		Simplify expression <m>\inv{Q}_j (\lambda_j I + N_j) Q_j</m>.
+		</p><p>
+		Relative to the title of this discovery activity,
+		what is the point of this particular task?
+		</p>
+	</task>
+</activity>
+
+<activity xml:id="activity-elem-nilpotent-similar-to-nilpotent">
+	<statement><p>
+		Verify that a matrix that is similar to a
+		<xref ref="definition-cayley-hamilton-nilpotent" text="title" />
+		must be nilpotent itself.
+	</p></statement>
+	<hint><p> <xref ref="proposition-similarity-powers" />. </p></hint>
+</activity>
+
+<p>
+We now turn to the task suggested by <xref ref="activity-elem-nilpotent-moving-past-triang-block" />:
+determining the pattern of similarity to a nilpotent matrix.
+As usual,
+we start with a special case.
+</p>
+
+<activity xml:id="activity-elem-nilpotent-first-encounter">
+	<introduction>
+		<p> A matrix that is all zeros except for a line of ones down the first sub-diagonal is called <term>elementary nilpotent form</term>. </p>
+		<p>
+			Suppose <m>4 \times 4</m> matrix <m>A</m> is similar to the elementary nilpotent matrix
+			<me> N = \begin{bmatrix} 0 \amp 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \end{bmatrix} </me>.
+		</p>
+	</introduction>
+	<task><p>
+		Compute the powers <m>N^2, N^3, N^4, \dotsc</m> of <m>N</m>.
+		As you do this, what happens to the diagonal of ones as the exponent increases?
+	</p></task>
+	<task xml:id="activity-elem-nilpotent-first-encounter-first-power"><p>
+		<xref ref="activity-elem-nilpotent-similar-to-nilpotent" /> says that <m>A</m> must also be nilpotent.
+		What is the first power of <m>A</m> that is equal to the zero matrix?
+	</p></task>
+	<task>
+		<statement><p>
+			What is the rank of <m>A</m>?
+			What is the rank of <m>A^2</m>?
+			Continue with ranks of higher powers of <m>A</m>.
+		</p></statement>
+		<hint><p> <xref ref="corollary-similarity-rank-nullity" />. </p></hint>
+	</task>
+	<task><p>
+		Repeat all tasks of this activity for <m>5 \times 5</m> matrix <m>A</m> similar to the elementary nilpotent matrix
+		<me>
+			N = \begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1 \amp 0
+			\end{bmatrix}
+		</me>.
+		See if you can obtain the requested properties of <m>A</m> without calculations,
+		just from the patterns of your previous results for <m>4 \times 4</m> matrices <m>A</m> and <m>N</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-elem-nilpotent-transition-col-pattern"> <!-- old label \label{EXER::nilpotent.P.column.pattern} -->
+	<introduction><p>
+		Suppose <m>A</m> is similar to the elementary nilpotent matrix
+		<me> N = \begin{bmatrix} 0 \amp 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \end{bmatrix} </me>
+		via similarity relation <m>\inv{P} A P = N</m>.
+	</p></introduction>
+	<task xml:id="activity-elem-nilpotent-transition-col-pattern-A-times-cols"><p>
+		Use <xref ref="pattern-similarity-concepts-similarity-by-columns" />
+		to determine the similarity pattern in the relation <m>\inv{P} A P = N</m>:
+		<md><mrow>
+			A \uvec{p}_1 \amp = <fillin characters="5" />,
+			\amp
+			A \uvec{p}_2 \amp = <fillin characters="5" />,
+			\amp
+			A \uvec{p}_3 \amp = <fillin characters="5" />,
+			\amp
+			A \uvec{p}_4 \amp = <fillin characters="5" />
+		</mrow></md>.
+	</p></task>
+	<task xml:id="activity-elem-nilpotent-transition-col-pattern-Apow-times-cols"><p>
+		Reinterpret the pattern you described in <xref ref="activity-elem-nilpotent-transition-col-pattern-A-times-cols" text="type-local" />:
+		<md><mrow>
+			A \uvec{p}_1 \amp = <fillin characters="5" />,
+			\amp
+			A^2 \uvec{p}_1 \amp = <fillin characters="5" />,
+			\amp
+			A^3 \uvec{p}_1 \amp = <fillin characters="5" />,
+			\amp
+			A^4 \uvec{p}_1 \amp = <fillin characters="5" />
+		</mrow></md>.
+	</p></task>
+	<task><p>
+		Summarize the pattern of <xref ref="activity-elem-nilpotent-transition-col-pattern-Apow-times-cols" text="type-local" />:
+		if <m>A</m> is a nilpotent matrix that we suspect is similar to an elementary nilpotent matrix,
+		to determine a suitable transition matrix <m>P</m> we just need to find a suitable first column <m>\uvec{p}_1</m>,
+		and then set
+		<me>
+			P = \begin{bmatrix}
+				| \amp | \amp | \amp | \\
+				\uvec{p}_1 \amp \boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \amp \boxed{\phantom{XX}} \\
+				| \amp | \amp | \amp |
+			\end{bmatrix}
+		</me>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-elem-nilpotent-pattern-example">
+	<introduction>
+		<p>
+		Let's try out the similarity patterns we discovered in
+		<xref ref="activity-elem-nilpotent-transition-col-pattern" />.
+		</p><p>
+		The following <m>3 \times 3</m> matrix <m>A</m> satisfies <m>A^3 = 0</m> but <m>A^2 \neq 0</m>:
+		<me> A = \left[\begin{array}{rrr} 0 \amp 2 \amp 1\\ -1 \amp 2 \amp 1\\ 2 \amp -4 \amp -2 \end{array}\right] </me>.
+		</p>
+	</introduction>
+	<task xml:id="activity-elem-nilpotent-pattern-example-no-good"><p>
+		Verify that <m>\uvec{p}_1 = \uvec{e}_1 = (1,0,0)</m> is <em>not</em> a suitable choice,
+		with <q>suitable</q> as determined from the patterns in
+		<xref ref="activity-elem-nilpotent-transition-col-pattern" />.
+	</p></task>
+	<task xml:id="activity-elem-nilpotent-pattern-example-yes-good"><p>
+		Verify that <m>\uvec{p}_1 = \uvec{e}_2 = (0,1,0)</m> <em>is</em> a suitable choice.
+	</p></task>
+	<task><p>
+		Now suppose <m>A</m> is some <m>n \times n</m> nilpotent matrix with <m>A^n = 0</m> but <m>A^{n-1} \neq 0</m>.
+		Use your experience from <xref ref="activity-elem-nilpotent-pattern-example-no-good" text="type-local" />
+		and <xref ref="activity-elem-nilpotent-pattern-example-yes-good" text="type-local" />
+		to devise a strategy for choosing a suitable first column <m>\uvec{p}_1</m> for transition matrix <m>P</m> from amongst
+		the standard basis vectors <m> \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n </m>.
+	</p></task>
+</activity>
+
+</worksheet>

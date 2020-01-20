@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-block-diag-motivation">
+
+<title>Motivation</title>
+
+<subsection>
+<title>Looking back to look forward</title>
+
+<p>
+We have discussed how the similarity relation <term>partitions</term> <m>\matrixring_n(\C)</m> into <term>similarity classes</term>
+(<xref ref="subsection-similarity-concepts-classes" />).
+This fact lets us view our study of diagonalization
+(<xref ref="chapter-diagonalization" />)
+in a new context:
+a matrix is diagonalizable precisely when its similarity class contains a diagonal matrix.
+</p><p>
+We focused on diagonal matrices because it is a very simple form.
+From <xref ref="subsection-similarity-theory-props" />,
+we know that similar matrices share many properties.
+If a matrix is diagonalizable,
+we can determine a lot of its properties indirectly by just considering a diagonal matrix to which it is similar.
+</p><p>
+What if a matrix not diagonalizable?
+What is the next simplest form we can look for in the similarity class of that matrix?
+</p>
+
+<question xml:id="question-block-diag-motivation-similarity-class-reps"><statement><p>
+	Is there some sort of special form of matrix that is reasonably simple and of which every similarity class contains at least one example?
+	In other words, can <em>every</em> square matrix be made similar to some particularly simple form of matrix?
+</p></statement></question>
+
+<p>
+We will pursue two separate threads of the answer to this question in this chapter and the next,
+and then unify them into a preliminary answer in the chapter after that.
+<!-- TODO replace <q>the chapter after that</q> with an xref -->
+And it will take us a few more chapters after <em>that</em> to get to the final, simplest form that answers the question above.
+</p>
+
+<remark><p>
+	You might now be wondering why we started with diagonal matrices when they are not the simplest form of matrix.
+	Scalar matrices are an even simpler form than diagonal,
+	but each scalar matrix lives in its own similarity class by itself
+	(<xref ref="proposition-similarity-scalar-sim-classes" />),
+	so there was no point in attempting to study <q>scalarizable</q> matrices.
+</p></remark>
+
+</subsection>
+
+<subsection>
+<title>Generalizing the diagonalizable case</title>
+
+<paragraphs><title>Philosophy of inquiry: generalize</title><p>
+	A frequently-used strategy for incrementally furthering a program of study in mathematics is to try to <em>generalize</em> a previous result:
+	to make the specifications or boundaries of the problem a little less precise or restrictive,
+	and to try to adapt the old solution techniques to the new, less-constrained situation.
+</p></paragraphs>
+
+<p>
+In the spirit of the philosophy above,
+the next form we study in this chapter is a generalization of diagonal form called
+<term>block-diagonal form</term>.
+A matrix of this form can be split into a pattern of <term>submatrices</term>
+so that each submatrix that is not on the main diagonal of blocks is a zero matrix.
+</p><p>
+Here is an example.
+The matrix
+<me>
+	\left[\begin{array}{@{}ccc|r|cc@{}}
+		1 \amp 2 \amp 3 \amp 0 \amp 0 \amp 0 \\
+		4 \amp 5 \amp 6 \amp 0 \amp 0 \amp 0 \\
+		7 \amp 8 \amp 9 \amp 0 \amp 0 \amp 0 \\ \hline
+		0 \amp 0 \amp 0 \amp -1 \amp 0 \amp 0 \\ \hline
+		0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 2 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 4 \\
+	\end{array}\right]
+</me>
+is in block-diagonal form,
+where the diagonal blocks, in order,
+have dimensions <m>3 \times 3</m>, <m>1 \times 1</m>, and <m>2 \times 2</m>.
+(Grid lines have been added to emphasize the block pattern of the matrix.)
+</p><p>
+Usually, we do not bother to write all the zeros <mdash />
+you should assume that any blank entries in a matrix are zero.
+For example, the block-diagonal form of the example matrix above is more clear if we write it as
+<me>
+	\begin{bmatrix}
+		1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \\ 7 \amp 8 \amp 9 \\
+		\amp \amp \amp -1 \\
+		\amp \amp \amp \amp 1 \amp 2 \\ \amp \amp \amp \amp 3 \amp 4
+	\end{bmatrix}
+</me>.
+</p><p>
+How is this form a <em>generalization</em> of diagonal form?
+Every diagonal matrix could be considered a block-diagonal matrix in which the blocks all happen to be size <m>1 \times 1</m>.
+And as we carry out our study of block-diagonal form,
+we will find that the <em>eigenvector-eigenvalue</em> method of solution of the diagonalizable case has something in common with the block-diagonal case.
+</p>
+
+</subsection>
+
+</section>

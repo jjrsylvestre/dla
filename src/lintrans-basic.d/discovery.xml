@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-lintrans-basic">
+<title>Discovery guide</title>
+
+<activity xml:id="activity-lintrans-basic-matrix">
+	<introduction>
+		<p>
+		An <m>m \times n</m> real matrix <m>A</m> creates a function
+		<m>\funcdef{T_A}{\R^n}{\R^m}</m> by matrix multiplication:
+		<me> T_A(\uvec{x}) = A \uvec{x} </me>.
+		We will call such a function a <term>matrix transformation</term> <m>\R^n \to \R^m</m>.
+		</p>
+		<aside><title>Note</title><p>
+			In the case <m>m = n</m>,
+			we have already been informally considering transition matrices as geometric transformations of <m>\R^n</m>.
+		</p></aside>
+	</introduction>
+	<task><p>
+		Write out linear input-output component formulas for function <m>T_A</m> associated to matrix
+		<me> A = \left[\begin{array}{rrr} 1 \amp 2 \amp -3 \\ 2 \amp -1 \amp 5 \end{array}\right] </me>,
+		so that <m>\uvec{w} = T_A(\uvec{x})</m>.
+		<me>
+			\left\{\begin{array}{rcrcrcr}
+				w_1 \amp = \amp <fillin characters="2" /> x_1 \amp + \amp <fillin characters="2" /> x_2 \amp + \amp <fillin characters="2" /> x_3 \text{,} \\
+				w_2 \amp = \amp <fillin characters="2" /> x_1 \amp + \amp <fillin characters="2" /> x_2 \amp + \amp <fillin characters="2" /> x_3 \text{.}
+			\end{array}\right.
+		</me>
+	</p></task>
+	<task xml:id="activity-lintrans-basic-matrix-from-formulas"><p>
+		Determine the matrix <m>B</m> so that the linear input-ouput component formulas below correspond to a matrix transformation <m>\uvec{w} = T_B(\uvec{x})</m>.
+		<me>
+			\left\{\begin{array}{rcrcr}
+				w_1 \amp = \amp 3 x_1 \amp - \amp x_2 \\
+				w_2 \amp = \amp 5 x_1 \amp + \amp 5 x_2 \\
+				w_3 \amp = \amp  \amp + \amp 7 x_2 \\
+				w_4 \amp = \amp - x_1 \amp + \amp x_2
+			\end{array}\right.
+		</me>
+	</p></task>
+	<task xml:id="activity-lintrans-basic-matrix-against-std-vecs"><p>
+		Suppose you know that matrix transformation <m>\funcdef{T_C}{\R^3}{\R^3}</m> satisfies
+		<md><mrow>
+			T_C(\uvec{e}_1) \amp = \left[\begin{array}{r} 2 \\ -3 \\ 5 \end{array}\right] \text{,} \amp
+			T_C(\uvec{e}_2) \amp = \left[\begin{array}{r} -7 \\ 11 \\ 13 \end{array}\right] \text{,} \amp
+			T_C(\uvec{e}_3) \amp = \left[\begin{array}{r} 17 \\ 19 \\ -23 \end{array}\right] \text{.}
+		</mrow></md>
+		Do you have enough information to determine matrix <m>C</m>?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-basic-axioms">
+	<prelude><p>
+		A function between two <q>spaces</q> of the same kind is often referred to as a <term>morphism</term>.
+		Just as we used <m>\R^n</m> as the model for the ten vector space axioms,
+		and used the dot products on <m>\R^n</m> and <m>\C^n</m> as the models for the four inner product space axioms,
+		we will use matrix transformations <m>\R^n \to \R^m</m> as the model for the desired properties of <term>vector space morphisms</term>.
+	</p></prelude>
+	<introduction><p>
+		Suppose <m>\funcdef{T_A}{\R^n}{\R^m}</m> is the matrix transformation associated to <m>m \times n</m> matrix <m>A</m>,
+		so that <me> T_A(\uvec{x}) = A \uvec{x} </me>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-basic-axioms-patterns">
+		<introduction>
+			<p>
+			How does <m>T_A</m> interact with the vector operations of
+			the <term>domain space</term> <m>\R^n</m>
+			and the <term>codomain space</term> <m>\R^m</m>?
+			</p><p>
+			That is, how does <m>T_A</m> interact with
+			</p>
+		</introduction>
+		<task><p> vector addition? </p></task>
+		<task><p> scalar multiplication? </p></task>
+		<task><p> linear combinations? </p></task>
+		<task><p> negatives? </p></task>
+		<task><p> the zero vector? </p></task>
+	</task>
+	<task xml:id="activity-lintrans-basic-axioms-axioms">
+		<p>
+		Which of the patterns from
+		<xref ref="activity-lintrans-basic-axioms-patterns" text="type-local" />
+		can be deduced from others of the patterns?
+		</p><p>
+		Based on this, which of these patterns should be designated as the basic <term>axioms</term> of <term>vector space morphisms</term>?
+	</p></task>
+	<postlude><p>
+		A function <m>\funcdef{T}{V}{W}</m> between abstract vector spaces <m>V,W</m> that satisfies the axioms we have identified in
+		<xref ref="activity-lintrans-basic-axioms-axioms">Discovery</xref>
+		will be called a
+		<term>linear transformation</term>
+		(or a <term>vector space homomorphism</term>).
+	</p></postlude>
+</activity>
+
+<activity xml:id="activity-lintrans-basic-exmps">
+	<introduction><p>
+		In each of the following,
+		determine whether the provided vector space function is a linear transformation.
+	</p></introduction>
+	<task>
+		<p> Left-multiplication by <m>m \times n</m> matrix <m>A</m>: </p>
+		<p>
+		<m>\funcdef{L_A}{\matrixring_{n \times \ell}(\R)}{\matrixring_{m \times \ell}(\R)}</m>
+		by <m>L_A(X) = A X</m>.
+		</p>
+	</task>
+	<task>
+		<p> Right-multiplication by <m>m \times n</m> matrix <m>A</m>: </p>
+		<p>
+		<m>\funcdef{R_A}{\matrixring_{\ell \times m}(\R)}{\matrixring_{\ell \times n}(\R)}</m>
+		by <m>R_A(X) = X A</m>.
+		</p>
+	</task>
+	<task xml:id="activity-lintrans-basic-exmps-translate">
+		<p> Translation by a fixed nonzero vector <m>\uvec{a}</m> in vector space <m>V</m>: </p>
+		<p> <m>\funcdef{t_{\uvec{a}}}{V}{V}</m> by <m>t_{\uvec{a}}(\uvec{v}) = \uvec{v} + \uvec{a} </m>. </p>
+	</task>
+	<task xml:id="activity-lintrans-basic-exmps-scalar">
+		<p> Multiplication by a fixed scalar <m>a</m> in vector space <m>V</m>: </p>
+		<p> <m>\funcdef{m_a}{V}{V}</m> by <m>m_a(\uvec{v}) = a \uvec{v} </m>. </p>
+	</task>
+	<task>
+		<p> Evaluation of polynomials at fixed <m>x</m>-value <m>x = a</m>: </p>
+		<p> <m>\funcdef{E_a}{\poly(\R)}{\R^1}</m> by <m>E_a(p) = p(a) </m>. </p>
+	</task>
+	<task>
+		<p> Determinant of square matrices: <m>\funcdef{\det}{\matrixring_n(\R)}{\R^1}</m>. </p>
+	</task>
+	<task>
+		<p>
+		Differentiation: let <m>F(a,b)</m> represent the space of functions defined on the interval <m>a \lt x \lt b</m>,
+		and let <m>D(a,b)</m> represent the subspace of <m>F(a,b)</m> consisting of <em>differentiable</em> functions.
+		</p>
+		<p> Consider <m>\funcdef{\ddx}{D(a,b)}{F(a,b)}</m> by <m>\ddx(f) = f'</m>. </p>
+	</task>
+	<task>
+		<p> Integration: let <m>C[a,b]</m> represent the space of <em>continuous</em> functions defined on the interval <m>a \le x \le b</m>. </p>
+		<p> Consider <m>\funcdef{I_{a,b}}{C[a,b]}{\R^1}</m> by <m>I_{a,b}(f) = \integral{a}{b}{f(x)}{x}</m>. </p>
+	</task>
+</activity>
+
+<activity xml:id="activity-lintrans-basic-basis-images">
+	<introduction><p>
+		Suppose <m>V</m> is a finite-dimensional vector space with
+		<me> V = \Span \{ \uvec{v}_1, \uvec{v}_2, \uvec{v}_3 \} </me>,
+		and <m>\funcdef{T}{V}{\R^2}</m> is a linear transformation such that
+		<md><mrow>
+			T(\uvec{v}_1) \amp = (1,2) \text{,} \amp
+			T(\uvec{v}_2) \amp = (3,-5) \text{,} \amp
+			T(\uvec{v}_3) \amp = (0,4)
+		</mrow></md>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-basic-basis-images-lincomb-exmp"><p>
+		Based on this information,
+		can you determine <m>T(3 \uvec{v}_1 - \uvec{v}_2 + 5 \uvec{v}_3)</m>?
+	</p></task>
+	<task><p>
+		Would you be able to answer
+		<xref ref="activity-lintrans-basic-basis-images-lincomb-exmp" text="type-local" />
+		for other linear combinations of <m>\uvec{v}_1,\uvec{v}_2,\uvec{v}_3</m>?
+	</p></task>
+	<task xml:id="activity-lintrans-basic-basis-images-pattern"><p>
+		<em>Describe the pattern:</em>
+		in order to be able to compute <em>every</em> output of a linear transformation,
+		the only output information required is
+		<fillin characters="30" />.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-basic-std-matrix">
+	<introduction><p>
+		Suppose <m>\funcdef{T}{\R^3}{\R^3}</m> is a linear transformation such that
+		<md><mrow>
+			T(\uvec{e}_1) \amp = \left[\begin{array}{r} 2 \\ -3 \\ 5 \end{array}\right] \text{,} \amp
+			T(\uvec{e}_2) \amp = \left[\begin{array}{r} -7 \\ 11 \\ 13 \end{array}\right] \text{,} \amp
+			T(\uvec{e}_3) \amp = \left[\begin{array}{r} 17 \\ 19 \\ -23 \end{array}\right] \text{.}
+		</mrow></md>
+	</p></introduction>
+	<task xml:id="activity-lintrans-basic-std-matrix-compare">
+		<statement><p>
+			Do you know any other linear transformation <m>\R^3 \to \R^3</m> that has the same outputs for the standard basis vectors as inputs?
+		</p></statement>
+		<hint><p>
+			Look back at <xref ref="activity-lintrans-basic-matrix-against-std-vecs">Discovery</xref>.
+		</p></hint>
+	</task>
+	<task><p>
+		Based on <xref ref="activity-lintrans-basic-std-matrix-compare" text="type-local" />,
+		and in light of <xref ref="activity-lintrans-basic-basis-images-pattern">Discovery</xref>,
+		what can you say about <m>T</m>?
+	</p></task>
+	<task><p>
+		<em>Describe the pattern:</em>
+		every linear transformation <m>\R^n \to \R^m</m> is effectively
+		<fillin characters="30" />.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-basic-linfunc-Rn-is-dot-prod">
+	<task>
+		<p>
+		Suppose <m>\funcdef{T}{\R^n}{\R^1}</m> is a linear transformation.
+		What size of matrix would represent this linear transformation?
+		</p><p>
+		What word would we normally use to describe a matrix of those dimensions,
+		instead of <q>matrix</q>?
+		</p>
+	</task>
+	<task><p>
+		<em>Describe the pattern:</em>
+		every linear transformation <m>\R^n \to \R^1</m> corresponds to a
+		<fillin characters="30" />.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-basic-hom-space">
+	<introduction><p>
+		For vector spaces <m>V,W</m>,
+		let <m>L(V,W)</m> represent the collection of all linear transformations <m>V \to W</m>.
+	</p></introduction>
+	<task>
+		<p> How could transformations in <m>L(V,W)</m> be added? </p>
+		<p>
+		That is, if <m>\funcdef{T_1,T_2}{V}{W}</m> are objects in <m>L(V,W)</m>,
+		what transformation should <m>T_1 + T_2</m> represent?
+		<me> (T_1 + T_2)(\uvec{v}) = <fillin characters="20" /> </me>
+		Is the sum transformation <m>T_1 + T_2</m> still in <m>L(V,W)</m>?
+		(<ie /> Is it still linear?)
+		</p>
+	</task>
+	<task>
+		<p> How could transformations in <m>L(V,W)</m> be scalar multiplied? </p>
+		<p>
+		That is, if <m>\funcdef{T}{V}{W}</m> is an object in <m>L(V,W)</m>,
+		what transformation should <m>k T</m> represent for scalar <m>k</m>?
+		<me> (k T)(\uvec{v}) = <fillin characters="20" /> </me>
+		Is the scaled transformation <m>T</m> still in <m>L(V,W)</m>?
+		(<ie /> Is it still linear?)
+		</p>
+	</task>
+	<task>
+		<p>
+		Is <m>L(V,W)</m> a vector space under the operations of addition and scalar multiplication of linear transformations?
+		</p><p>
+		That is, do your operations satisfy
+		the ten <xref ref="definition-abstract-vec-spaces-concepts-abstract-vec-space" text="title" />?
+		</p>
+	</task>
+</activity>
+
+</worksheet>

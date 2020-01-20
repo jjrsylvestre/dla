@@ -1,0 +1,32 @@
+% *********************************************************************
+% © 2016–2019 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+\begin{tikzpicture}[
+	scale=2,
+	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
+]
+	\draw[->] (-1,0) to (3,0) node[below right] {$\Re$};
+	\draw[->] (0,-1) to (0,2.5) node[above right] {$\Im$};
+
+	%\node[point] at (1,0) [label=below:{$1$}] {};
+	%\node[point] at (0,1) [label=left:{$\ci$}] {};
+
+	\node[point] at (2,1.5) (z) [label=above right:{$z = a + b\ci$}] {};
+
+	\draw[dashed] (z) to node[right] {$b$} (2,0);
+	\draw[dashed] (z) to node[above] {$a$} (0,1.5);
+	\draw[dashed] (0,0) to node[above] {$\cmodulus{z}$} (z);
+
+	\draw (0.25,0) arc (0:37:0.25cm) node[midway,xshift=0.25cm,yshift=0.1cm] {$\theta$};
+
+\end{tikzpicture}

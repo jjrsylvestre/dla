@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-inprod-orthog-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-inprod-orthog-examples-complement" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-examples-complement" /></em></li>
+<li><xref ref="subsection-inprod-orthog-examples-expansion" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-examples-expansion" /></em></li>
+<li><xref ref="subsection-inprod-orthog-examples-gram-schmidt" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-examples-gram-schmidt" /></em></li>
+<li><xref ref="subsection-inprod-orthog-examples-complement-by-gs" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-examples-complement-by-gs" /></em></li>
+<li><xref ref="subsection-inprod-orthog-examples-infinite-orthog" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inprod-orthog-examples-infinite-orthog" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-inprod-orthog-examples-complement">
+<title>Orthogonal complements</title>
+
+<example xml:id="example-inprod-orthog-complement-in-real-matrix-space">
+	<title>Determining a basis for an orthogonal complement</title>
+	<p>
+	Let's carry out the example explored in <xref ref="activity-inprod-orthog-complement-example-M22" />,
+	where we considered the space <m>V = \matrixring_{2 \times 2}(\R)</m> equipped with the inner product
+	<m> \inprod{A}{B} = \trace(\utrans{B} A) </m>,
+	and the subspace <m>U</m> of all upper triangular matrices whose upper-right entry is equal to its trace.
+	</p><p>
+	A typical element of <m>U</m> can be described parametrically as
+	<me> \begin{bmatrix} x \amp x + y \\ 0 \amp y \end{bmatrix} </me>.
+	The parameters <m>x,y</m> have no further dependence relation between them,
+	so they each have an associated basis vector:
+	<me>
+		U = \Span\left\{
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 1 \end{bmatrix}
+		\right\}
+	</me>.
+	</p><p>
+	To be an element of <m>\orthogcmp{U}</m>,
+	an arbitrary element
+	<me> B = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+	of <m>\matrixring_{2 \times 2} (\R)</m> must be orthogonal to each of the basis vectors <m>A_1,A_2</m> for <m>U</m> above.
+	We have
+	<md>
+		<mrow>
+			\inprod{B}{A_1} \amp = \trace(\utrans{A}_1 B) \amp
+			\inprod{B}{A_2} \amp = \trace(\utrans{A}_2 B)
+		</mrow><mrow>
+			\amp = \trace\left(
+				\begin{bmatrix} 1 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+				\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+			\right)
+			\amp
+			\amp = \trace\left(
+				\begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix}
+				\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+			\right)
+		</mrow><mrow>
+			\amp = \trace \begin{bmatrix} a \amp b \\ a \amp b \end{bmatrix}
+			\amp
+			\amp = \trace \begin{bmatrix} 0 \amp 0 \\ a + c \amp b + d \end{bmatrix}
+		</mrow><mrow>
+			\amp = a + b \text{,}
+			\amp
+			\amp = b + d \text{.}
+		</mrow>
+	</md>
+	For orthogonality, we need both of these results to be zero,
+	leading to homogeneous system
+	<me>
+		\left\{
+			\begin{array}{cc}
+				a + b \amp = 0, \\
+				b + d \amp = 0.
+			\end{array}
+		\right.
+	</me>
+	Since parameter <m>b</m> appears in both equations,
+	we choose to leave that free, and then have <me> a = d = -b </me>.
+	Parameter <m>c</m> does not appear in the system,
+	hence must be free as well.
+	So a typical element of <m>\orthogcmp{U}</m> can be described parametrically as
+	<me> \left[\begin{array}{rr} -b \amp b \\ c \amp -b \end{array}\right] </me>,
+	leading to
+	<me>
+		\orthogcmp{U} = \Span\left\{
+			\left[\begin{array}{rr} -1 \amp 1 \\ 0 \amp -1 \end{array}\right],
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		\right\}
+	</me>.
+	</p>
+</example>
+
+<example xml:id="example-inprod-orthog-complement-in-complex-space">
+	<title>Determining a basis for an orthogonal complement in a complex space</title>
+	<p>
+	Consider space <m>\C^4</m> with the complex dot product,
+	and subspace
+	<me> W = \Span \bigl\{ (1,1,\ci,\ci), (1,-1,\ci,\ci) \bigr\} </me>.
+	Let <m>\uvec{w}_1,\uvec{w}_2</m> represent the two spanning vectors above.
+	</p><p>
+	To be in <m>\orthogcmp{W}</m>,
+	an arbitrary vector <m>\uvec{z} = (z_1,z_2,z_3,z_4)</m> in <m>\C^4</m> must be orthogonal to each of <m>\uvec{w}_1,\uvec{w}_2</m>.
+	So compute
+	<md>
+		<mrow> \dotprod{\uvec{z}}{\uvec{w}_1} \amp = z_1 + z_2 - z_3 \ci - z_4 \ci \text{,} </mrow>
+		<mrow> \dotprod{\uvec{z}}{\uvec{w}_2} \amp = z_1 - z_2 - z_3 \ci - z_4 \ci </mrow>
+	</md>.
+	</p>
+	<aside><title>Remember</title><p>
+		The complex dot product involves taking the complex conjugate of the second vector.
+	</p></aside>
+	<p>
+	Setting the above expressions to be equal to zero for orthogonality leads to homogeneous system
+	<me>
+		\left[\begin{array}{rrrr}
+			1 \amp 1 \amp -\ci \amp -\ci \\
+			1 \amp -1 \amp -\ci \amp -\ci
+		\end{array}\right]
+		\qquad\rowredarrow\qquad
+		\left[\begin{array}{rrrr}
+			1 \amp 0 \amp -\ci \amp -\ci \\
+			0 \amp 1 \amp 0 \amp 0
+		\end{array}\right]
+	</me>.
+	So <m>z_3,z_4</m> are free, <m>z_2 = 0</m>, and <me> z_1 = z_3 \ci + z_4 \ci </me>,
+	so that a typical vector in <m>\orthogcmp{W}</m> can be described parametrically as
+	<me> \uvec{z} = (s \ci + t \ci, 0, s, t) </me>.
+	</p>
+	<aside><title>Note</title><p> Parameters <m>s,t</m> represent arbitrary <em>complex</em> values. </p></aside>
+	<p>
+	Finally, the above parametric expression for elements of <m>\orthogcmp{W}</m> leads to
+	<me> \orthogcmp{W} = \Span \bigl\{ (\ci, 0, 1, 0), (\ci, 0, 0, 1) \bigr\} </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-examples-expansion">
+<title>Expansion relative to an orthogonal basis</title>
+
+<p>
+Here we will provide an example of using the pattern of <xref ref="activity-inprod-orthog-expansion" />
+(discussed in <xref ref="subsection-inprod-orthog-concepts-expansion" />)
+to express a vector as a linear combination of orthogonal basis vectors.
+</p>
+
+<example>
+	<p>
+	Consider <m>V = \poly_2(\R)</m> equipped with inner product
+	<me> \inprod{p}{q} = \integral{-1}{1}{p(x) q(x)}{x} </me>.
+	The collection
+	<md><mrow>
+		p_1(x) \amp = x + 1, \amp
+		p_2(x) \amp = x^2 - x, \amp
+		p_3(x) \amp = 5 x^2 + x - 2
+	</mrow></md>
+	forms an orthogonal basis <m>\basisfont{B}</m> for <m>V</m>.
+	</p>
+	<aside><title>Check your understanding</title><p>
+		Compute the three variations of <m>\inprod{p_i}{p_j}</m> necessary to verify the claim that these vectors are orthogonal.
+	</p></aside>
+	<p>
+	What is the coordinate vector <m>\rmatrixOf{q}{B}</m> for <m> q(x) = 3 x^2 + 3 x + 3 </m>?
+	</p><p>
+	Compute
+	<md>
+		<mrow> \inprod{q}{p_1} \amp = \integral{-1}{1}{(3 x^2 + 3 x + 3)(x + 1)}{x} = 10 \text{,} </mrow>
+		<mrow> \inprod{q}{p_2} \amp = \integral{-1}{1}{(3 x^2 + 3 x + 3)(x^2 - x)}{x} = \frac{6}{5} \text{,} </mrow>
+		<mrow> \inprod{q}{p_3} \amp = \integral{-1}{1}{(3 x^2 + 3 x + 3)(5 x^2 + x - 2)}{x} = 2 \text{.} </mrow>
+	</md>
+	We also need the norms
+	<md>
+		<mrow> \norm{p_1}^2 \amp = \inprod{p_1}{p_1} = \integral{-1}{1}{(x + 1)^2}{x} = \frac{8}{3} \text{,} </mrow>
+		<mrow> \norm{p_2}^2 \amp = \inprod{p_2}{p_2} = \integral{-1}{1}{(x^2 - x)^2}{x} = \frac{16}{15} \text{,} </mrow>
+		<mrow> \norm{p_3}^2 \amp = \inprod{p_3}{p_3} = \integral{-1}{1}{(5 x^2 + x - 2)^2}{x} = \frac{16}{3} \text{.} </mrow>
+	</md>
+	Putting these together, we have
+	<md>
+		<mrow>
+			q(x) \amp
+			= \frac{\inprod{q}{p_1}}{\norm{p_1}^2} \, p_1(x)
+			+ \frac{\inprod{q}{p_2}}{\norm{p_2}^2} \, p_2(x)
+			+ \frac{\inprod{q}{p_3}}{\norm{p_3}^2} \, p_3(x)
+		</mrow><mrow>
+			\amp
+			= \frac{10}{8/3} \cdot p_1(x)
+			+ \frac{6/5}{16/15} \cdot p_2(x)
+			+ \frac{2}{16/3} \cdot p_3(x)
+		</mrow><mrow>
+			\amp
+			= \frac{15}{4} \cdot p_1(x)
+			+ \frac{9}{8} \cdot p_2(x)
+			+ \frac{3}{8} \cdot p_3(x)
+		</mrow>
+	</md>,
+	so that
+	<me> \rmatrixOf{q}{B} = \left( \frac{15}{4}, \frac{9}{8}, \frac{3}{8} \right) </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-examples-gram-schmidt">
+<title>Using the Gram-Schmidt orthogonalization process</title>
+
+<example xml:id="example-inprod-orthog-apply-gs-P2">
+	<title>Producing an orthogonal basis</title>
+	<p>
+	Consider <m>V = \poly_2(\R)</m> equipped with inner product
+	<me> \inprod{p}{q} = \integral{0}{1}{p(x) q(x)}{x} </me>.
+	Begin with the standard basis <me> \basisfont{S} = \{ 1, x, x^2 \} </me>.
+	Following the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process,
+	set <me> e_1(x) = 1 </me>.
+	In order to compute <m>e_2(x)</m>, first compute
+	<md>
+		<mrow> \inprod{x}{e_1} = \integral{0}{1}{x \cdot 1}{x} = \frac{1}{2} \text{,} </mrow>
+		<mrow> \norm{e_1}^2 = \inprod{e_1}{e_1} = \integral{0}{1}{1^2}{x} = 1 \text{.} </mrow>
+	</md>
+	Then we set
+	<me>
+		e_2(x) = x - \frac{\inprod{x}{e_1}}{\norm{e_1}^2} \, e_1(x)
+		= x - \frac{1/2}{1} \cdot 1
+		= x - \frac{1}{2}
+	</me>.
+	Computing <m>e_3(x)</m> will require quite a few more calculations:
+	<md>
+		<mrow> \inprod{x^2}{e_1} = \integral{0}{1}{x^2 \cdot 1}{x} = \frac{1}{3} \text{,} </mrow>
+		<mrow> \inprod{x^2}{e_2} = \integral{0}{1}{x^2 \left(x - \frac{1}{2}\right)}{x} = \frac{1}{12} \text{,} </mrow>
+		<mrow> \norm{e_2}^2 = \inprod{e_1}{e_1} = \integral{0}{1}{\left(x - \frac{1}{2}\right)^2}{x} = \frac{1}{12} \text{.} </mrow>
+	</md>
+	Using these results, compute
+	<md>
+		<mrow>
+			e_3(x) \amp
+			= x^2 - \left(
+				\frac{\inprod{x^2}{e_1}}{\norm{e_1}^2} \, e_1(x) +
+				\frac{\inprod{x^2}{e_2}}{\norm{e_2}^2} \, e_2(x)
+			\right)
+		</mrow><mrow>
+			\amp
+			= x^2 - \left(
+				\frac{1/3}{1} \cdot 1 +
+				\frac{1/12}{1/12} \cdot \left(x - \frac{1}{2}\right)
+			\right)
+		</mrow><mrow>
+			\amp = x^2 - x + \frac{1}{6}
+		</mrow>
+	</md>.
+	We know have orthogonal basis
+	<me> \basisfont{B} = \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </me>.
+	If we would like an orthonormal basis,
+	we need one further calculation:
+	<me>
+		\norm{e_3}^2
+		= \inprod{e_3}{e_3}
+		= \integral{0}{1}{\left(x^2 - x + \frac{1}{6}\right)^2}{x} = \frac{1}{180}
+	</me>.
+	Using <m>\sqrt{12} = 2\sqrt{3}</m> and <m>\sqrt{180} = 6\sqrt{5}</m>,
+	we can normalize to
+	<me>
+		\basisfont{B}'
+		= \left\{
+			\frac{e_1(x)}{\norm{e_1}},
+			\frac{e_2(x)}{\norm{e_2}},
+			\frac{e_3(x)}{\norm{e_3}}
+		\right\}
+		= \{ 1, 2 \sqrt{3} \, x - \sqrt{3}, 6\sqrt{5} \, x^2 - 6\sqrt{5} \, x + \sqrt{5} \}
+	</me>.
+	</p>
+</example>
+
+<example xml:id="example-inprod-orthog-complex-gs">
+	<title>Producing an orthogonal basis for a complex inner product space</title>
+	<p>
+	Let's apply the
+	<xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
+	to <m>\C^4</m>,
+	but starting with the basis
+	<me> \basisfont{B}_0 = \bigl\{ (1,1,\ci,\ci), (1,-1,\ci,\ci), (\ci, 0, 1, 0), (\ci, 0, 0, 1) \bigr\} </me>,
+	which is made up of the basis vectors for <m>W</m> and <m>\orthogcmp{W}</m> from
+	<xref ref="example-inprod-orthog-complement-in-complex-space" />.
+	</p><p>
+	Let <m>\uvec{w}_1,\uvec{w}_2,\uvec{w}_3,\uvec{w}_4</m> represent the four initial basis vectors above.
+	Set <m>\uvec{e}_1 = \uvec{w}_1</m>,
+	and compute
+	<md>
+		<mrow>
+			\inprod{\uvec{w}_2}{\uvec{e}_1}
+			= \dotprod{\uvec{w}_2}{\uvec{e}_1}
+			= 1 - 1 - \ci^2 - \ci^2
+			= 2 \text{,}
+		</mrow>
+		<mrow>
+			\norm{\uvec{e}_1}^2
+			= \dotprod{\uvec{e}_1}{\uvec{e}_1}
+			= 1 + 1 - \ci^2 - \ci^2
+			= 4
+		</mrow>
+	</md>.
+	</p>
+	<aside><title>Remember</title><p>
+		The complex dot product involves taking the complex conjugate of the second vector.
+	</p></aside>
+	<p>
+	Normally, we would now set <m>\uvec{e}_2</m> to be
+	<me>
+		\uvec{w}_2 - \frac{\inprod{\uvec{w}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+		= (1,-1,\ci,\ci) - \frac{2}{4} (1,1,\ci,\ci)
+		= \left(\frac{1}{2}, -\frac{3}{2}, \frac{\ci}{2}, \frac{\ci}{2} \right)
+	</me>.
+	However, scalar multiples do not affect orthogonality,
+	so let's clear the fractions by multiplying by <m>2</m>,
+	giving
+	<me> \uvec{e}_2 = ( 1, -3, \ci, \ci ) </me>.
+	</p><p>
+	From here, we already know from
+	<xref ref="example-inprod-orthog-complement-in-complex-space" />
+	that <m>\uvec{w}_3,\uvec{w}_4</m> are in <m>\orthogcmp{W}</m>
+	so they will produce inner products of <m>0</m> against both <m>\uvec{e}_1,\uvec{e}_2</m>.
+	This means the formulas for <m>\uvec{e}_3,\uvec{e}_4</m> in the
+	<xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
+	will reduce to
+	<md><mrow>
+		\uvec{e}_3 \amp = \uvec{w}_3 - (\zerovec + \zerovec) \text{,} \amp
+		\uvec{e}_4 \amp =
+		\uvec{w}_4 - \left(
+			\zerovec + \zerovec
+			+ \frac{\inprod{\uvec{w}_4}{\uvec{e}_3}}{\norm{\uvec{e}_3}^2} \, \uvec{e}_3
+		\right)
+	</mrow></md>
+	So using <m>\uvec{e}_3 = \uvec{w}_3</m>, calculate
+	<md>
+		<mrow>
+			\inprod{\uvec{w}_4}{\uvec{e}_3}
+			= \dotprod{\uvec{w}_4}{\uvec{e}_3}
+			= -\ci^2 + 0 + 0 + 0
+			= 1 \text{,}
+		</mrow>
+		<mrow>
+			\norm{\uvec{e}_3}^2
+			= \dotprod{\uvec{e}_3}{\uvec{e}_3}
+			= -\ci^2 + 1
+			= 2
+		</mrow>
+	</md>,
+	from which we would normally set <m>\uvec{e}_4</m> to be
+	<md>
+		<mrow>
+			\uvec{e}_4
+			\amp = \uvec{w}_4 - \frac{\inprod{\uvec{w}_4}{\uvec{e}_3}}{\norm{\uvec{e}_3}^2} \, \uvec{e}_3
+		</mrow><mrow>
+			\amp = (\ci, 0, 0, 1) - \frac{1}{2} \, (\ci, 0, 1, 0)
+		</mrow><mrow>
+			\amp = \left( \frac{\ci}{2}, 0, - \frac{1}{2}, 1 \right)
+		</mrow>
+	</md>,
+	but again we will clear fractions to obtain
+	<me> \uvec{e}_4 = (\ci, 0, -1, 2) </me>.
+	Putting all four vectors together gives us orthogonal basis
+	<me> \basisfont{B} = \bigl\{ (1,1,\ci,\ci), ( 1, -3, \ci, \ci ), (\ci, 0, 1, 0), (\ci, 0, -1, 2) \bigr\} </me>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-examples-complement-by-gs">
+<title>Obtaining an orthogonal complement using the Gram-Schmidt process</title>
+
+<p>
+As discussed in <xref ref="subsection-inprod-orthog-concepts-complement-basis" />,
+orthogonal bases tell us about subspaces and their complements.
+Since the Gram-Schmidt process is our main tool for obtaining orthogonal bases,
+we can use the process to determine orthogonal complements.
+</p>
+
+<example xml:id="example-inprod-orthog-orthog-comp-from-gs-M22">
+	<p>
+	Let's revisit <xref ref="example-inprod-orthog-complement-in-real-matrix-space" />,
+	where we considered subspace
+	<me>
+		U = \Span\left\{
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 1 \end{bmatrix}
+		\right\}
+	</me>
+	of <m>V = \matrixring_{2 \times 2}(\R)</m>.
+	(We equip <m>V</m> with the standard inner product <m>\inprod{A}{B} = \trace (\utrans{B} A)</m>.)
+	</p><p>
+	The basis for <m>U</m> can be enlarged into a basis for <m>V</m> by including a couple of standard basis vectors:
+	<me>
+		\basisfont{B}_0 = \left\{
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 1 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		\right\}
+	</me>.
+	We won't go through all the calculations this time,
+	but applying the
+	<xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
+	to <m>\basisfont{B}_0</m>
+	(and clearing fractions along the way)
+	results in orthogonal basis
+	<me>
+		\basisfont{B} = \left\{
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\left[\begin{array}{rc} -1 \amp 1 \\ 0 \amp 2 \end{array}\right],
+			\left[\begin{array}{rc} -1 \amp 1 \\ 0 \amp -1 \end{array}\right],
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		\right\}
+	</me>.
+	We can split this basis in two to obtain an orthogonal basis for each of <m>U,\orthogcmp{U}</m>:
+	<md><mrow>
+		\basisfont{B}_U \amp = \left\{
+			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+			\left[\begin{array}{rc} -1 \amp 1 \\ 0 \amp 2 \end{array}\right]
+		\right\} \text{,}
+		\amp
+		\basisfont{B}_{\orthogcmp{U}} \amp = \left\{
+			\left[\begin{array}{rc} -1 \amp 1 \\ 0 \amp -1 \end{array}\right],
+			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		\right\}
+	</mrow></md>.
+	</p>
+</example>
+
+<example xml:id="example-inprod-orthog-orthog-comp-from-gs-C4">
+	<p>
+	Now we'll revisit <xref ref="example-inprod-orthog-complement-in-complex-space" />,
+	where we considered the subspace
+	<me> W = \Span \bigl\{ (1,1,\ci,\ci), (1,-1,\ci,\ci) \bigr\} </me>
+	of <m>\C^4</m>.
+	</p><p>
+	In <xref ref="example-inprod-orthog-complex-gs" />,
+	we created an orthogonal basis for <m>\C^4</m> by applying the Gram-Schmidt process to an initial basis formed by joining a basis for <m>W</m> with a basis for <m>\orthogcmp{W}</m>.
+	So we could obtain orthogonal bases for both <m>W,\orthogcmp{W}</m> by splitting that orthogonal <m>\C^4</m> basis apart.
+	However, in this example we will proceed as if we did not initially know any basis for <m>\orthogcmp{W}</m>.
+	</p><p>
+	The above basis for <m>W</m> can be enlarged into a basis for <m>\C^4</m> by including two of the standard basis vectors:
+	<me>
+		\basisfont{B}_0 = \bigl\{
+			(1,1,\ci,\ci), (1,-1,\ci,\ci),
+			(0,0,1,0), (0,0,0,1)
+		\bigr\}
+	</me>.
+	Applying the
+	<xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
+	to <m>\basisfont{B}_0</m>
+	(and clearing fractions along the way)
+	results in orthogonal basis
+	<me>
+		\basisfont{B} = \bigl\{
+			(1,1,\ci,\ci), ( 1, -3, \ci, \ci ),
+			(\ci, 0, 2, -1), (\ci, 0, 0, 1)
+		\bigr\}
+	</me>.
+	We can split this basis in two to obtain an orthogonal basis for each of <m>W,\orthogcmp{W}</m>:
+	<md><mrow>
+		\basisfont{B}_W \amp = \bigl\{
+			(1,1,\ci,\ci), ( 1, -3, \ci, \ci )
+		\bigr\} \text{,}
+		\amp
+		\basisfont{B}_{\orthogcmp{W}} \amp = \bigl\{
+			(\ci, 0, 2, -1), (\ci, 0, 0, 1)
+		\bigr\}
+	</mrow></md>.
+	</p>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsection-inprod-orthog-examples-infinite-orthog">
+<title>An infinite orthgonal set</title>
+
+<p>
+In <xref ref="example-inner-prod-examples-orthog-funcs" />,
+we showed that the sine and cosine functions are orthogonal with respect to a certain inner product on a space of continuous functions.
+We can extend that orthogonal pair into an infinite orthogonal set by varying the frequency of the sine and cosine functions.
+</p>
+
+<example>
+	<title>An infinite orthogonal set of sines and cosines</title>
+	<p>
+	Consider the space <m>V = C[0,1]</m> of all continuous functions defined on the interval <m>0 \le x \le 1</m>,
+	equipped with the inner product
+	<me> \inprod{f}{g} = \integral{0}{1}{f(x) g(x)}{x} </me>.
+	Then the infinite set
+	<me>
+		S = \bigl\{
+			\sin (2 \pi x), \cos (2 \pi x),
+			\sin (4 \pi x), \cos (4 \pi x),
+			\dotsc,
+			\sin (2 \pi n x), \cos (2 \pi n x),
+			\dotsc
+		\bigr\}
+	</me>
+	is an infinite orthogonal set in <m>V</m>.
+	</p><p>
+	To verify this,
+	assume <m>m,n</m> are integers with <m>m \neq n</m>.
+	Setting <m>k = m - n</m> and <m>K = m + n</m> for convenience,
+	we could calculate
+	<md>
+		<mrow>
+			\inprod{\sin (2 \pi m x)}{\sin (2 \pi n x)}
+			= \frac{K \sin (2 \pi k) - k \sin (2 \pi K)}
+			  {4 \pi k K}
+			  \text{,}
+		</mrow>
+		<mrow>
+			\inprod{\cos (2 \pi m x)}{\cos (2 \pi n x)}
+			= \frac{K \sin (2 \pi k) + k \sin (2 \pi K)}
+			  {4 \pi k K}
+			  \text{,}
+		</mrow>
+		<mrow>
+			\inprod{\sin (2 \pi m x)}{\cos (2 \pi n x)}
+			= \frac{2 m - K \cos (2 \pi k) - k \cos (2 \pi K)}
+			  {4 \pi k K}
+			  \text{,}
+		</mrow>
+		<mrow>
+			\inprod{\sin (2 \pi n x)}{\cos (2 \pi n x)}
+			= \frac{1 - \cos^2 (2 \pi n)}{4 \pi n}
+			  \text{.}
+		</mrow>
+	</md>
+	The first two expressions evaluate to zero because sine evaluates to zero at every integer multiple of <m>2 \pi</m>.
+	On the other hand, cosine evaluates to one at every integer multiple of <m>2 \pi</m>,
+	so the numerator of the third expression becomes
+	<me> 2 m - K - k = 2 m - (m + n) - (m - n)  = 0 </me>,
+	and the numerator of the fourth expression also obviously evaluates to zero.
+	</p><p>
+	Since all possible combinations of <em>different</em> functions from <m>S</m> evaluate to zero in the inner product,
+	<m>S</m> is an orthogonal set.
+	</p>
+</example>
+
+</subsection>
+
+</section>

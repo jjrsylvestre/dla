@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-basic-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-basic-concepts-matrix" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-matrix" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-lintrans" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-lintrans" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-basis" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-basis" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-std-matrix" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-std-matrix" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-special" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-special" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-hom-space" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-hom-space" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-linear-functionals" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-linear-functionals" /></em></li>
+<li><xref ref="subsection-lintrans-basic-concepts-complex" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-basic-concepts-complex" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-matrix">
+<title>Matrix transformations</title>
+
+<p>
+We have previously considered the <em>matrix-times-vector</em> pattern with a geometric perspective,
+especially in the context of a transition matrix that achieves a similarity relation,
+as a way to <em>transform</em> vectors in <m>\R^n</m>.
+We can think of this as an input-output process,
+where an input vector <m>\uvec{x}</m> is transformed into an output vector <m>A \uvec{x}</m>.
+In those past explorations,
+we focused on the case that <m>A</m> is square,
+so that input vectors and transformed output vectors are the same dimension,
+but there is no reason to restrict to just the square case.
+</p><p>
+Such an input-output process creates a <term>function</term>
+<me> \funcdef{T}{\R^n}{\R^m} </me>,
+where both inputs and outputs are vectors:
+<me> T(x_1,x_2,\dotsc,x_n) = (w_1,w_2,\dotsc,w_m) </me>.
+If the input-output process is achieved by matrix multiplication by a matrix <m>A</m>,
+then it resembles a linear system of equations
+<md><mrow>
+	T(\uvec{x}) \amp = A \uvec{x} = \uvec{w} \text{,}
+	\amp
+	\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}, \quad
+	\uvec{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_m \end{bmatrix}
+</mrow></md>.
+Breaking out into individual components,
+we get a linear-system-like set of input-output formulas
+<me>
+	\left\{\begin{array}{ccccccccc}
+		w_1 \amp = \amp a_{11} x_1 \amp + \amp a_{12} x_2 \amp + \amp \dotsb \amp + \amp a_{1n} x_n \text{,} \\
+		w_2 \amp = \amp a_{21} x_1 \amp + \amp a_{22} x_2 \amp + \amp \dotsb \amp + \amp a_{2n} x_n \text{,} \\
+		 \amp \vdots \\
+		w_m \amp = \amp a_{m1} x_1 \amp + \amp a_{m2} x_2 \amp + \amp \dotsb \amp + \amp a_{mn} x_n \text{,}
+	\end{array}\right.
+</me>
+where the <m>a_{ij}</m> are the entries of <m>A</m>.
+So <alert>a matrix transformation <m>\R^n \to \R^m</m> is equivalent to a system of linear input-output formulas</alert>.
+</p><p>
+We will write <m>T_A</m> to mean the matrix transformation <m>\R^n \to \R^m</m> corresponding to <m>m \times n</m> matrix <m>A</m>.
+As we found in <xref ref="activity-lintrans-basic-matrix-against-std-vecs">Discovery</xref>,
+the output results of
+<me> T_A(\uvec{e}_1), \quad T_A(\uvec{e}_2), \quad \dotsc, \quad T_A(\uvec{e}_n) </me>
+correspond to the columns of <m>A</m>,
+where the <m>\uvec{e}_j</m> are the standard basis vectors in <m>\R^n</m>,
+because we know that
+<me> A \uvec{e}_j = \uvec{a}_j </me>,
+the <m>\nth[j]</m> column of <m>A</m>.
+This pattern will be important below.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-lintrans">
+<title>Linear transformations</title>
+
+<p>
+As described in the prelude to <xref ref="activity-lintrans-basic-axioms" />,
+we once again use the patterns of <m>\R^n</m> as a guide to create axioms for abstract vector spaces.
+A vector space is defined by the operations on its objects,
+vector addition and scalar multiplication,
+so we used the interactions of a matrix transformation
+<m>\funcdef{T_A}{\R^n}{\R^m}</m>
+with vector addition and scalar multiplication as a model for the abstract idea of a <term>linear transformation</term> between vector spaces.
+We know matrix multiplication satisfies algebra rules
+<md><mrow>
+	A(\uvec{x}_1 + \uvec{x}_2) \amp = A \uvec{x}_1 + A \uvec{x}_2 \text{,} \amp
+	A(k \uvec{x}) \amp = k A \uvec{x}
+</mrow></md>
+(<xref ref="proposition-matrix-ops-algebra-rules-basic-left-distrib">Rule</xref>
+and <xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-2">Rule</xref>
+of <xref ref="proposition-matrix-ops-algebra-rules" />).
+Note that in each of these two algebra rules,
+the type of addition or scalar multiplication on the left-hand side of the equals sign is different from the type of addition or scalar multiplication on the right-hand side.
+On the left, the operation is being performed between <m>n</m>-dimensional vectors,
+<em>before</em> multiplication by <m>A</m>.
+On the right, the operation is being performed between <m>m</m>-dimensional vectors,
+<em>after</em> multiplication by <m>A</m>.
+</p><p>
+Writing these in a matrix-transformation point of view,
+we have
+<md><mrow>
+	T_A(\uvec{x}_1 + \uvec{x}_2) \amp = T_A(\uvec{x}_1) + T_A(\uvec{x}_2) \text{,} \amp
+	T_A(k \uvec{x}) \amp = k T_A(\uvec{x})
+</mrow></md>.
+Accordingly, we require that a <term>morphism</term>
+<m>\funcdef{T}{V}{W}</m> between vector spaces <m>V</m> and <m>W</m>
+<term>respect</term> the vector operations of <m>V</m> and <m>W</m>:
+<md><mrow xml:id="equation-lintrans-basic-concepts-linearity-props" tag="star">
+	T(\uvec{u} + \uvec{v}) \amp = T(\uvec{u}) + T(\uvec{v}) \text{,} \amp
+	T(k \uvec{v}) \amp = k T(\uvec{v})
+</mrow></md>,
+for all vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m> and all scalars <m>k</m>,
+and these two properties are the foundation for the definition of the concept of
+<term><xref ref="definition-lintrans-basic-lintrans" text="title" /></term>.
+And just as for the matrix-transformation version of these properties,
+the type of addition or scalar multiplication on the left-hand side is different from the type of addition or scalar multiplication on the right-hand side.
+On the left, the operation is being performed between vectors in <m>V</m>,
+<em>before</em> being input into the transformation <m>T</m>,
+according to how the operation is defined in <m>V</m>.
+On the right, the operation is being performed between vectors in <m>W</m>,
+<em>after</em> being input into the transformation <m>T</m>,
+according to how the operation is defined in <m>W</m>.
+</p><p>
+In <xref ref="activity-lintrans-basic-axioms" />,
+we also considered the interaction of matrix transformations with other vector concepts,
+such as <term>linear combinations</term>, <term>negatives</term>, and the <term>zero vector</term>.
+However, in an abstract vector space,
+each of these concepts is defined in terms of or relative to the operations of addition and scalar multiplication,
+so we expect that the two linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />
+of an abstract linear transformation will also cause it to satisfy similar properties relative to these other concepts.
+(See <xref ref="proposition-lintrans-basic-additional-props" />
+in <xref ref="subsection-lintrans-basic-theory-props" />.)
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-basis">
+<title>Spanning set and basis image vectors</title>
+
+<p>
+In <xref ref="activity-lintrans-basic-basis-images" />,
+we found that knowing the image vectors for each vector in a spanning set for the domain space of a linear transformation
+<m>\funcdef{T}{V}{W}</m> is enough to recover the image vectors for <em>all</em> input vectors in the domain space.
+</p><p>
+If
+<me> V = \Span \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>,
+and the image vectors
+<md><mrow>
+	T(\uvec{v}_1) \amp = \uvec{w}_1, \amp
+	T(\uvec{v}_2) \amp = \uvec{w}_2, \amp
+	\amp \dotsc, \amp
+	T(\uvec{v}_n) \amp = \uvec{w}_n
+</mrow></md>
+are known,
+then the image of every <em>linear combination</em> of the <m>\uvec{v}_j</m> can be determined from the corresponding linear combination of the <m>\uvec{w}_j</m>.
+As these vectors form a spanning set for <m>V</m>,
+the output for each domain vector can be determined in this way.
+See <xref ref="example-lintrans-basic-via-spanning" /> for an example of using a domain space spanning set to analyze a linear transformation.
+</p><p>
+This pattern suggests a way to <em>define</em> a linear transformation with desired outputs.
+</p>
+
+<algorithm xml:id="procedure-lintrans-basic-concepts-basis-to-transformation">
+	<title>Using a domain basis to define a linear transformation</title>
+	<p>
+	To create a linear transformation <m>\funcdef{T}{V}{W}</m>,
+	with <m>V</m> finite-dimensional.
+	<ol>
+		<li> Choose a basis <m>\basisfont{B} = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n\}</m> for <m>V</m>. </li>
+		<li>
+			Choose arbitrary vectors <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_n</m> in <m>W</m>
+			(with duplicates allowed).
+		</li>
+		<li> Set <m>T(\uvec{v}_j) = \uvec{w}_j</m>. </li>
+	</ol>
+	Then every other image vector for <m>T</m> can be computed by
+	<me>
+		T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n)
+		= a_1 \uvec{w}_1 + a_2 \uvec{w}_2 + \dotsb + a_n \uvec{w}_n
+	</me>.
+	</p>
+</algorithm>
+
+<remark xml:id="remark-lintrans-basic-concepts-use-basis-image-vectors"><p>
+Even though a linear transformation is completely determined by its image vectors for a <em>spanning set</em> of the domain space <m>V</m>,
+it's important to use a <em>basis</em> for <m>V</m> when using these patterns to <em>define</em> a linear combination.
+The redundancy created by a <em>dependent</em> spanning set
+(see <xref ref="activity-basis-coords-lin-dep-coords" />)
+will also create ambiguity in defining <m>T(\uvec{v}_j) = \uvec{w}_j</m>,
+since if one of the <m>\uvec{v}_j</m> is a linear combination of the others and the <m>\uvec{w}_j</m> are truly arbitrarily chosen,
+the <m>\uvec{w}_j</m> won't necessarily exhibit the same dependence relationship as the <m>\uvec{v}_j</m>.
+See <xref ref="example-lintrans-basic-via-nonbasis" /> for an example of how this could go wrong if we use a dependent spanning set for the domain space to define a linear transformation.
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-std-matrix">
+<title>The standard matrix of a transformation <m>\R^n \to \R^m</m></title>
+
+<p>
+Suppose we apply <xref ref="procedure-lintrans-basic-concepts-basis-to-transformation" />
+to the task of creating a linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>
+by choosing the standard basis of the domain space <m>\R^n</m>,
+and then setting
+<md><mrow>
+	T(\uvec{e}_1) \amp = \uvec{w}_1, \amp
+	T(\uvec{e}_2) \amp = \uvec{w}_2, \amp
+	\amp \dotsc, \amp
+	T(\uvec{e}_n) \amp = \uvec{w}_n
+</mrow></md>
+for some collection of image vectors <m>\uvec{w}_j</m> in <m>\R^m</m>.
+As in <xref ref="activity-lintrans-basic-std-matrix" />,
+we already know a matrix transformation <m>\funcdef{T_A}{\R^n}{\R^m}</m>
+that satisfies
+<md><mrow>
+	T_A(\uvec{e}_1) \amp = \uvec{w}_1, \amp
+	T_A(\uvec{e}_2) \amp = \uvec{w}_2, \amp
+	\amp \dotsc, \amp
+	T_A(\uvec{e}_n) \amp = \uvec{w}_n
+</mrow></md>;
+namely, the matrix transformation associated to the <m>m \times n</m> matrix
+<me>
+	A = \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\uvec{w}_1 \amp \uvec{w}_2 \amp \cdots \amp \uvec{w}_n \\
+		| \amp | \amp \amp |
+	\end{bmatrix}
+</me>.
+And in light of <xref ref="activity-lintrans-basic-basis-images" />,
+since the outputs of <m>T</m> and <m>T_A</m> agree on the standard basis vectors for the domain space <m>\R^n</m>,
+they will also agree on every linear combination of those standard basis vectors,
+<ie /> they will also agree on every vector in the domain space <m>\R^n</m>.
+That is, <m>T = T_A</m>.
+</p>
+<aside><title>A look ahead</title><p>
+	In <xref ref="subsection-lintrans-basic-theory-props" />,
+	we will see that every linear transformation is uniquely determined by the image vectors for a spanning set of the domain space.
+	See <xref ref="theorem-lintrans-basis-unique-spanning-image" /> in particular.
+</p></aside>
+<p>
+In effect, <alert>every linear transformation <m>\R^n \to \R^m</m> is a matrix transformation</alert>.
+(See <xref ref="corollary-lintrans-basic-euclidean-trans-is-matrix-trans" />
+in <xref ref="subsection-lintrans-basic-theory-props" />.)
+For a given linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>,
+the matrix
+<md><mrow xml:id="equation-lintrans-basic-concepts-std-matrix" tag="dagger">
+	\stdmatrixOf{T}
+	= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		T(\uvec{e}_1) \amp T(\uvec{e}_2) \amp \cdots \amp T(\uvec{e}_n) \\
+		| \amp | \amp \amp |
+	\end{bmatrix}
+</mrow></md>,
+so that <m>T = T_A</m> for <m>A = \stdmatrixOf{T}</m>,
+is called the <term>standard matrix of <m>T</m></term>.
+Expressing the above pattern in words,
+<alert>the standard matrix of a transformation is the matrix whose columns are the image vectors for the standard basis vectors under the transformation</alert>.
+</p>
+
+<algorithm xml:id="procedure-lintrans-basic-concepts-std-matrix">
+	<title>The standard matrix of a linear transformation <m>\R^n \to \R^m</m></title>
+	<p>
+	To compute <m>\stdmatrixOf{T}</m> for a linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>.
+	<ol>
+		<li> Compute image vector <m>T(\uvec{e}_j)</m> for each standard basis vector in the domain space <m>\R^n</m>. </li>
+		<li> Use the computed image vectors as the columns in <m>\stdmatrixOf{T}</m>. </li>
+	</ol>
+	</p>
+</algorithm>
+
+<p>
+See <xref ref="subsection-lintrans-basic-examples-std-matrix" /> for examples of determining standard matrices.
+</p>
+<aside><title>A look ahead</title><p>
+	One of our goals over the chapters in this part of the book is to establish that <em>every</em> linear transformation between finite-dimensional vector spaces is somehow just matrix multiplication.
+</p></aside>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-special">
+<title>Important examples</title>
+
+<paragraphs><title>The zero transformation</title>
+<p>
+Given a pair of vector spaces <m>V,W</m>,
+we can create a <em>trivial</em> linear transformation <m>\funcdef{\zerovec}{V}{W}</m> by defining
+<me> \zerovec(\uvec{v}) = \zerovec_W </me>
+for all <m>\uvec{v}</m> in <m>V</m>,
+where <m>\zerovec_W</m> is the zero vector in <m>W</m>.
+If we want to distinguish the zero <em>transformation</em> from the zero <em>vector</em> or the zero <em>matrix</em> or <etc />,
+we could write <m>\funcdef{\zerovec_{V,W}}{V}{W}</m>,
+though this notation is cumbersome and usually context alone is sufficient to determine what <m>\zerovec</m> means.
+</p><p>
+The fact that <m>\zerovec_{V,W}</m> satisfies the linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />
+is obvious from the vector identities
+<md><mrow>
+	\zerovec_W + \zerovec_W \amp = \zerovec_W \text{,} \amp
+	k \zerovec_W \amp = \zerovec_W
+</mrow></md>.
+</p><p>
+And clearly the standard matrix of <m>\funcdef{\zerovec}{\R^n}{\R^m}</m> will be the <m>m \times n</m> zero matrix.
+</p>
+</paragraphs>
+
+<paragraphs><title>The identity operator</title>
+<p>
+Given a vector space <m>V</m>,
+we can create an <em>identity</em> linear transformation <m>\funcdef{I_V}{V}{V}</m> by sending each vector in <m>V</m> to itself:
+<me> I_V(\uvec{v}) = \uvec{v} </me>
+for all <m>\uvec{v}</m> in <m>V</m>.
+It should be obvious that <m>I_V</m> satisfies the linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />.
+</p><p>
+And clearly the standard matrix of <m>\funcdef{I}{\R^n}{\R^n}</m> will be the <m>n \times n</m> identity matrix.
+</p>
+</paragraphs>
+
+<paragraphs><title>The negative operator</title>
+<p>
+Given a vector space <m>V</m>,
+we can create an <em>negative</em> linear transformation <m>\funcdef{\neg_V}{V}{V}</m> by sending each vector in <m>V</m> to its negative:
+<me> \neg_V(\uvec{v}) = - \uvec{v} </me>
+for all <m>\uvec{v}</m> in <m>V</m>.
+The fact that <m>\neg_V</m> satisfies the linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />
+is obvious from
+<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-add">Rule</xref>
+and <xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>
+of <xref ref="proposition-abstract-vec-spaces-basic-vec-props" />.
+</p><p>
+And clearly the standard matrix of <m>\funcdef{\neg}{\R^n}{\R^n}</m> will be the negative of the <m>n \times n</m> identity matrix.
+</p>
+</paragraphs>
+
+<paragraphs><title>Scalar operators</title>
+<p>
+Given a vector space <m>V</m> and a scalar <m>a</m>,
+we can create a <em>scalar multiplication</em> linear transformation <m>\funcdef{m_a}{V}{V}</m> by scaling each vector in <m>V</m> by scale factor <m>a</m>:
+<me> m_a(\uvec{v}) = a \uvec{v} </me>
+for all <m>\uvec{v}</m> in <m>V</m>.
+</p><p>
+We considered this operator in <xref ref="activity-lintrans-basic-exmps-scalar" />,
+where it should have been obvious that <m>m_a</m> satisfies the linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />
+from vector
+<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1" text="local">Axiom S</xref>
+and vector <xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc" text="local">Axiom S</xref>.
+Note that the scalar values <m>a=-1,0,1</m> create other special operators already discussed above:
+<md><mrow>
+	m_{-1} \amp = \neg_V \text{,} \amp m_0 \amp = \zerovec_{V,V} \text{,} \amp m_1 \amp = I_V
+</mrow></md>.
+</p><p>
+And clearly the standard matrix of <m>\funcdef{m_a}{\R^n}{\R^m}</m> will be the <m>n \times n</m> scalar matrix <m>a I</m>.
+</p>
+</paragraphs>
+
+<paragraphs><title>The coordinate map relative to a basis</title>
+<p>
+Suppose <m>\basisfont{B}</m> is a basis for an <m>n</m>-dimensional vector space <m>V</m>.
+We have already seen that the process of determining coordinate vectors relative to <m>\basisfont{B}</m> is linear:
+<md><mrow>
+	\matrixOf{\uvec{u} + \uvec{v}}{B} \amp = \matrixOf{\uvec{u}}{B} + \matrixOf{\uvec{v}}{B} \text{,}
+	\amp
+	\matrixOf{k \uvec{v}}{B} \amp = k \matrixOf{\uvec{v}}{B}
+</mrow></md>
+for all vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m> and all scalars <m>k</m>.
+(See <xref ref="activity-change-of-basis-coord-vecs-vs-ops" />
+and <xref ref="subsection-change-of-basis-concepts-coord-vecs-linearity" />.)
+So the <term>coordinate transformation</term>
+<md><mrow>
+	\amp\funcdef{\coordmap{B}}{V}{\R^n} \text{,} \amp
+	\coordmap{B}(\uvec{v}) \amp = \matrixOf{\uvec{v}}{B}
+</mrow></md>
+is linear.
+</p><p>
+If <m>V = \R^n</m>,
+then the standard matrix for <m>\coordmap{B}</m> is
+<me>
+	\stdmatrixOf{\coordmap{B}}
+	= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\coordmap{B}(\uvec{e}_1) \amp \coordmap{B}(\uvec{e}_2) \amp \cdots \amp \coordmap{B}(\uvec{e}_n) \\
+		| \amp | \amp \amp |
+	\end{bmatrix}
+	= \begin{bmatrix}
+		| \amp | \amp \amp | \\
+		\matrixOf{\uvec{e}_1}{B} \amp \matrixOf{\uvec{e}_2}{B} \amp \cdots \amp \matrixOf{\uvec{e}_n}{B} \\
+		| \amp | \amp \amp |
+	\end{bmatrix}
+</me>,
+which is precisely the transition matrix <m>\ucobmtrx{S}{B}</m>,
+where <m>\basisfont{S}</m> is the standard basis for <m>\R^n</m>
+(see <xref ref="subsection-change-of-basis-concepts-coord-vecs-convert" />).
+</p>
+</paragraphs>
+
+<paragraphs><title>Pairing with a fixed vector in a real inner product space</title>
+<p>
+The <xref ref="proposition-inner-prod-linearity" text="title" />
+implies that by choosing a fixed vector <m>\uvec{v}_0</m> in an inner product space <m>V</m>,
+we can create a transformation <m>\funcdef{T_{\uvec{v}_0}}{V}{\R^1}</m> by pairing with <m>\uvec{v}_0</m>:
+<me> T_{\uvec{v}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{v}_0} </me>
+for all <m>\uvec{x}</m> in <m>V</m>.
+</p>
+</paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-hom-space">
+<title>The space of transformations <m>V \to W</m></title>
+
+<p>
+In <xref ref="subsection-abstract-vec-spaces-concepts-examples" />,
+we created a vector space out of a collection of functions <m>\funcdef{f}{D}{\R}</m>
+defined on some domain <m>D</m> of real numbers by defining vector addition and scalar multiplication via addition and scaling of output values.
+Linear transformations are first and foremost functions,
+so we can attempt to do the same with the collection <m>L(V,W)</m> of all linear transformations <m>V \to W</m> for vector spaces <m>V,W</m>.
+As the codomain space <m>W</m> is equipped with vector addition and scalar multiplication operations,
+we can indeed use the pattern of adding and scaling transformations by adding and scaling outputs:
+<md><mrow>
+	(T_1 + T_2)(\uvec{v}) \amp = T_1(\uvec{v}) + T_2(\uvec{v}) \text{,} \amp
+	(k T)(\uvec{v}) \amp = k \, T(\uvec{v})
+</mrow></md>
+for all <m>T,T_1,T_2</m> in <m>L(V,W)</m> and all <m>\uvec{v}</m> in <m>V</m>.
+</p><p>
+<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
+and <xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>
+require that a vector space be <em>closed</em> under the addition and scalar multiplication operations,
+but we leave it to you, the reader, to verify that a sum of linear transformations is also linear,
+and that a scalar multiple of a linear transformation is also linear.
+And, in fact, all ten <xref ref="definition-abstract-vec-spaces-concepts-abstract-vec-space" text="title"/>
+will be satisfied by the above definitions of addition and scalar multiplication of linear transformations,
+making <m>L(V,W)</m> into a vector space.
+</p>
+<aside><title>More generally</title><p>
+	The pattern of <em>add and scalar multiply functions by adding and scalar multiplying outputs</em> really only depends on the <em>codomain</em> of the function being a vector space.
+	So given a set <m>X</m> and a vector space <m>W</m>,
+	this pattern can be used to turn the collection of all functions <m>X \to W</m> into a vector space.
+</p></aside>
+<p>
+In the case of <m>L(\R^n,\R^m)</m>,
+we saw in <xref ref="subsection-lintrans-basic-concepts-std-matrix" />
+that each linear transformation <m>\R^n \to \R^m</m> corresponds to multiplication by some <m>m \times n</m> matrix.
+It turns out that adding and scalar multiplying linear transformations in <m>L(\R^n,\R^m)</m> is equivalent to adding and scalar multiplying the corresponding matrices,
+so that, as a vector space, <m>L(\R^n,\R^m)</m> can be considered as the <q>same</q> space as <m>\matrixring_{m \times n}(\R)</m>.
+</p>
+
+<paragraphs><title>A look ahead</title><p>
+	In a future chapter,
+	<!-- TODO change to a proper xref -->
+	we will use linear transformations to make the idea of two vector spaces appearing to be the <q>same</q> space technically precise.
+</p></paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-linear-functionals">
+<title>Linear functionals</title>
+
+<paragraphs><title>Linear functionals on <m>\R^n</m></title><p>
+In <xref ref="activity-lintrans-basic-linfunc-Rn-is-dot-prod" />,
+we considered transformations <m>\R^n \to \R^1</m>.
+Such a transformation is special for two reasons.
+First, the output is more naturally considered as a <em>number</em> rather than a vector,
+which is why we refer to such a transformation as a linear <em>function</em>al.
+Second, the standard matrix of such a linear transformation will be a <m>1 \times m</m> matrix,
+which itself <em>can be considered as a (row) vector in <m>\R^n</m></em>.
+And multiplication of column vectors in <m>\R^n</m> by some fixed row vector is effectively a dot product.
+That is,
+<alert>every linear functional <m>\R^n \to \R</m> corresponds to dot product against a fixed <m>n</m>-dimensional vector</alert>.
+This creates a correspondence between the dual space <m>\vecdual{(\R^n)} = L(\R^n,\R^1)</m> and the original space <m>\R^n</m>,
+where each transformation in <m>\vecdual{(\R^n)}</m> is matched with the row vector in <m>\R^n</m> which describes the transformation in terms of the dot product.
+</p></paragraphs>
+
+<paragraphs><title>Generalizing</title>
+<p>
+To try to generalize the pattern of linear functionals on <m>\R^n</m>,
+we expect that if <m>V</m> is a finite dimensional vector space,
+then there should be a connection between vectors in <m>V</m> and transformations in the dual space
+<m>\vecdual{V} = L(V,\R^1)</m>.
+We saw in <xref ref="subsection-lintrans-basic-concepts-special" /> that such a connection exists if <m>V</m> is an inner product space,
+but we can do this even if <m>V</m> is not an inner product space by simply choosing a basis for <m>V</m>.
+</p><p>
+Suppose <m>\basisfont{B} = \{\uvec{v}_1,\dotsc,\uvec{v}_n\}</m> is a basis
+for finite-dimensional, real vector space <m>V</m>.
+Using the pattern of <xref ref="proposition-inprod-orthog-vs-dot" /> as inspiration,
+we can create an inner product on <m>V</m> just by pretending <m>\basisfont{B}</m> is an <em>orthonormal</em> basis of <m>V</m>,
+and using the unique expansions
+<md>
+	<mrow>
+		\uvec{u} \amp = a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n \text{,} \amp
+		\uvec{w} \amp = b_1 \uvec{v}_1 + b_2 \uvec{v}_2 + \dotsb + b_n \uvec{v}_n
+	</mrow>
+</md>
+relative to <m>\basisfont{B}</m> to define a pairing
+<me> \uvecinprod{u}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>.
+This pairing will be an inner product,
+and <m>\basisfont{B}</m> will indeed by orthonormal with respect to it.
+Then we can use a fixed vector <m>\uvec{w}_0</m> in <m>V</m> to create a linear functional <m>T_{\uvec{w}_0}</m> by
+<me> T_{\uvec{w}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{w}_0} </me>,
+as before.
+</p><p>
+But the correspondence can be worked the other way as well, associating to a fixed linear functional
+<m>\funcdef{f}{V}{\R^1}</m> some vector <m>\uvec{w}_0</m> in <m>V</m> so that <m>f = T_{\uvec{w}_0}</m>.
+Indeed, as in <xref ref="activity-lintrans-basic-basis-images" />,
+the functional <m>f</m> is completely determined by its outputs on the basis <m>\basisfont{B}</m>.
+Applying <m>f</m> to the basis vectors <m>\uvec{v}_j</m>, we obtain scalars
+<md><mrow>
+	a_1 \amp = f(\uvec{v}_1), \amp
+	a_2 \amp = f(\uvec{v}_2), \amp
+	\amp \dotsc, \amp
+	a_n \amp = f(\uvec{v}_n)
+</mrow></md>
+that can be used to create a vector
+<me> \uvec{w}_0 = a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsc + a_n \uvec{v}_n </me>.
+If
+<me> \uvec{u} = b_1 \uvec{v}_1 + b_2 \uvec{v}_2 + \dotsc + b_n \uvec{v}_n </me>
+is any other vector in <m>V</m>,
+then the linearity of <m>f</m> gives us
+<md>
+	<mrow> f(\uvec{u}) \amp = b_1 f(\uvec{v}_1) + b_2 f(\uvec{v}_2) + \dotsc + b_n f(\uvec{v}_n) </mrow>
+	<mrow> \amp = b_1 a_1 + b_2 a_2 + \dotsc + b_n a_n </mrow>
+	<mrow> \amp = \inprod{\uvec{u}}{\uvec{w}_0} </mrow>
+	<mrow> \amp = T_{\uvec{w}_0}(\uvec{u}) </mrow>
+</md>,
+as desired.
+</p>
+</paragraphs>
+
+<paragraphs><title>The double dual space</title>
+<p>
+Above we saw that a choosing a basis for a finite-dimensional vector space <m>V</m> creates a correspondence between vectors in <m>V</m> and linear functionals in the dual space <m>\vecdual{V} = L(V,\R^1)</m>.
+But <m>\vecdual{V}</m> is also a finite-dimensional vector space,
+and so choosing a basis for <m>\vecdual{V}</m> creates a correspondence between vectors in <m>\vecdual{V}</m> (<ie /> linear functionals on <m>V</m>) and linear functionals in the
+<term>double dual space</term><idx><h>dual</h><h>double</h></idx>
+<m>\vecddual{V} = L(\vecdual{V},\R^1)</m>.
+We can bridge these two correspondences to create a direct correspondence between vectors in <m>V</m> and vectors in the double dual <m>\vecddual{V}</m>.
+</p><p>
+Since the individual correspondences
+<m>V \leftrightarrow \vecdual{V}</m>
+and <m>\vecdual{V} \leftrightarrow \vecddual{V}</m>
+depend on choosing bases for the spaces,
+they are <term>coordinate-dependent</term>.
+However, in more advanced study of linear algebra,
+you might learn that there is actually a <term>coordinate-free</term> correspondence directly between <m>V</m> and its double dual space <m>\vecddual{V}</m>.
+This correspondence is easy to describe:
+for <m>\uvec{v}</m> in <m>V</m>, define linear functional <m>\vecdual{T}_\uvec{v}</m> on <m>\vecdual{V}</m> by
+<me> \vecdual{T}_\uvec{v} (f) = f(\uvec{v}) </me>.
+To make sense of this definition, keep in mind that a linear functional on <m>\vecdual{V}</m> should take as inputs linear functionals on <m>V</m>.
+We will leave further analysis of this correspondence to your future studies in linear algebra.
+</p>
+<aside><title>Notation</title><p>
+	Note that the asterisk in the notation <m>\vecdual{T}_\uvec{v}</m> does <em>not</em> mean adjoint.
+	(Though there is a connection, as we saw above that all linear functionals are essentially dot products against a fixed vector.)
+</p></aside>
+</paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-basic-concepts-complex">
+<title>Linear transformations of complex vector spaces</title>
+
+<p>
+While we focused on the real case in this section so far,
+everything works the same for complex vector spaces.
+Linear transformations <m>\C^n \to \C^m</m> are still matrix transformations,
+but by complex matrices.
+We still have zero and identity operators on complex vector spaces,
+and linear functionals,
+and so on.
+</p>
+
+</subsection>
+
+</section>

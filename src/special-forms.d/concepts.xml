@@ -64,16 +64,20 @@ In <xref ref="activity-special-forms-exploring" />, you might have noticed how c
 (rules \brefpropsubrange[MatrixOps]{matrix.algebra.rules}{scalar.distrib}{subtract.conv.add} and \brefpropsub[MatrixOps]{matrix.algebra.rules}{power.of.scalar.mul} of \Nrefprop[MatrixOps]{matrix.algebra.rules} and rule \brefpropsub[Inverses]{props.of.inverses}{inverse.scalar.mult} of \Nrefprop[Inverses]{props.of.inverses}, along with rules \brefpropsub[Inverses]{identity.matrix}{power} and \brefpropsub[Inverses]{identity.matrix}{inverse} of \Nrefprop[Inverses]{identity.matrix})
 -->
 apply to scalar matrices:
+<!-- TODO 
+	The m split in the first two is to allow a line break in the dl title display in html output.
+	Not sure how this is going to look in LaTeX output.
+ -->
 <dl>
 	<li>
-		<title><m>kI + mI = (k+m)I</m></title>
+		<title><m>kI + mI =</m><m>(k+m)I</m></title>
 		<p>
 			(<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-distrib">Rule</xref>
 			of <xref ref="proposition-matrix-ops-algebra-rules" />);
 		</p>
 	</li>
 	<li>
-		<title><m>kI - mI = (k-m)I</m></title>
+		<title><m>kI - mI =</m><m>(k-m)I</m></title>
 		<p>
 			(<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-distrib">Rule</xref>
 			and
@@ -132,9 +136,9 @@ So for scalar matrices there seems to be a pattern: <em>the matrix operation can
 
 <p>
 In
-<xref ref="activity-special-forms-exploring-invertible-criterion">Activity</xref>,
+<xref ref="activity-special-forms-exploring-invertible-criterion">Discovery</xref>,
 we examined the invertibility of these various forms of matrices. In <xref ref="theorem-elem-matrices-equiv-to-invertible" /> we learned that a matrix is invertible only if it can be reduced to the identity. Now, scalar matrices, diagonal matrices, and upper triangular matrices are already pretty close to being reduced, but we can see that if any of the diagonal entries of these forms of matrix is zero, then there will be no hope of getting a leading one in that column, and so we won't be able to reduce to the identity. Thus, <em>a scalar, diagonal, or upper triangular matrix is only invertible if its diagonal entries are all nonzero</em>. And, since the transpose of a lower triangular is upper triangular, and since taking a transpose does not affect invertibility (<xref ref="proposition-inverses-transpose" />), then the same is true about lower triangular matrices. Analyzing the invertibility of symmetric matrices is a little more complicated, but in
-<xref ref="activity-special-forms-exploring-inverse">Activity</xref>,
+<xref ref="activity-special-forms-exploring-inverse">Discovery</xref>,
 we discovered that for each of these special forms (including symmetric matrices), the inverse of a matrix of that form is also of that form.
 </p>
 
@@ -144,7 +148,9 @@ we discovered that for each of these special forms (including symmetric matrices
 <title>Decompositions using special forms</title>
 
 <p>
-In <xref ref="activity-special-forms-upper-tri-decomp" /> we discovered that an upper triangular matrix can be decomposed into a sum or a product of a diagonal matrix with a special kind of upper triangular matrix. Using the matrix from that activity as an example, we have
+In <xref ref="activity-special-forms-upper-tri-decomp" />
+we discovered that an upper triangular matrix can be decomposed into a sum or a product of a diagonal matrix with a special kind of upper triangular matrix.
+Using the matrix from that discovery activity as an example, we have
 <md>
 	<mrow tag="star" xml:id="equation-special-forms-concepts-upper-tri-add-decomp">
 		\begin{bmatrix} 2 \amp 1 \amp 1 \\ 0 \amp 3 \amp 1 \\ 0 \amp 0 \amp 5 \end{bmatrix}

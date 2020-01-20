@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-inner-prod-terminology">
+
+<title>Terminology and notation</title>
+
+<p><dl>
+
+	<li>
+	<title><term>pairing</term></title>
+	<idx>pairing</idx>
+	<p>a function that takes two inputs of the same type and outputs a number</p>
+	</li>
+
+</dl></p>
+
+<remark><p>
+	We might say
+	<term>real pairing</term><idx><h>pairing</h><h>real</h></idx><idx><h>real</h><h>pairing</h></idx>
+	if we want to specify a pairing that outputs real numbers, or
+	<term>complex pairing</term><idx><h>pairing</h><h>complex</h></idx><idx><h>complex</h><h>pairing</h></idx>
+	if we want to specify a pairing that outputs complex numbers.
+</p></remark>
+
+<p><dl>
+
+	<li>
+	<title><term>real inner product</term></title>
+	<idx><h>inner product</h><h>real</h></idx>
+	<idx><h>real</h><h>inner product</h></idx>
+	<p>a real pairing that satisfies the four <xref ref="definition-inner-prod-concepts-real-inner-prod" text="title" /></p>
+	</li>
+
+	<li>
+	<title><term>real inner product space</term></title>
+	<idx><h>inner product</h><h>space (real)</h></idx>
+	<idx><h>real</h><h>inner product space</h></idx>
+	<p>a real vector space endowed with a specific real inner product</p>
+	</li>
+
+	<li>
+	<title><term>complex inner product</term></title>
+	<idx><h>inner product</h><h>complex</h></idx>
+	<idx><h>complex</h><h>inner product</h></idx>
+	<p>a complex pairing that satisfies the four <xref ref="definition-inner-prod-concepts-complex-inner-prod" text="title" /></p>
+	</li>
+
+	<li>
+	<title><term>complex inner product space</term></title>
+	<idx><h>inner product</h><h>space (complex)</h></idx>
+	<idx><h>complex</h><h>inner product space</h></idx>
+	<p>a complex vector space endowed with a specific complex inner product</p>
+	</li>
+
+	<li><title><term>complex dot product (of two vectors <m>\uvec{w}</m> and <m>\uvec{z}</m> in <m>\C^n</m>)</term></title>
+	<idx><h>dot product</h><h>complex</h></idx>
+	<p> the quantity <me>\udotprod{w}{z} = w_1 \cconj{z}_1 + w_2 \cconj{z}_2 + \dotsb + w_n \cconj{z}_n; </me>
+	also referred to as the
+	<term>standard inner product</term>
+	<idx><h>standard</h><h>inner product (on <m>\C^n</m>)</h></idx>
+	<idx><h>inner product</h><h>standard</h></idx>
+	of <m>\uvec{w}</m> and <m>\uvec{z}</m> </p>
+	</li>
+
+</dl></p>
+
+<p>
+As we will discuss in <xref ref="section-inner-prod-concepts" />,
+an inner product will allow us to transplant geometric notions of vectors from <m>\R^n</m> into other spaces.
+</p>
+
+<p><dl>
+
+	<li>
+	<title><term>norm (of a vector <m>\uvec{v}</m> in an inner product space)</term></title>
+	<idx><h>norm</h><h>in an inner product space</h></idx>
+	<idx><h>vector</h><h>norm (in an inner product space)</h></idx>
+	<p>the quantity <m>\unorm{v} = \sqrt{\uvecinprod{v}{v}}</m></p>
+	</li>
+
+	<li><title><term>unit vector</term></title>
+	<idx><h>unit vector</h><h>in an inner product space</h></idx>
+	<idx><h>vector</h><h>unit (in an inner product space)</h></idx>
+	<p>a vector whose norm is equal to <m>1</m></p>
+	</li>
+
+	<li>
+	<title><term>angle (between two vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in a <em>real</em> inner product space)</term></title>
+	<idx><h>vector</h><h>angle (in a real inner product space)</h></idx>
+	<p>
+	the angle <m>\theta</m> satisfying both
+	<md><mrow>
+		0\amp\le\theta\le\pi \amp \amp\text{and} \amp \cos \theta \amp= \frac{\uvecinprod{u}{v}}{\unorm{u}\unorm{v}}
+	</mrow></md>
+	</p>
+	</li>
+
+</dl></p>
+
+<p> Finally, here are some definitions related to constructing alternative inner products on <m>\R^n</m> and <m>\C^n</m>. </p>
+
+<p><dl>
+
+	<li xml:id="definition-inner-product-pos-def-real">
+	<title><term>positive definite real matrix</term></title>
+	<idx><h>positive definite matrix</h><h>real</h></idx>
+	<idx><h>matrix</h><h>positive definite (real)</h></idx>
+	<p>a symmetric real matrix <m>A</m> that satisfies <m>\utrans{\uvec{x}} A \uvec{x} \gt 0</m> for all nonzero column vectors <m>\uvec{x}</m> in <m>\R^n</m></p>
+	</li>
+
+	<li>
+	<title><term>positive definite complex matrix</term></title>
+	<idx><h>positive definite matrix</h><h>complex</h></idx>
+	<idx><h>matrix</h><h>positive definite (complex)</h></idx>
+	<p>a self-adjoint complex matrix <m>A</m> that satisfies <m>\adjoint{\uvec{z}} A \uvec{z} \gt 0</m> for all nonzero column vectors <m>\uvec{z}</m> in <m>\C^n</m></p>
+	</li>
+
+</dl></p>
+
+</section>

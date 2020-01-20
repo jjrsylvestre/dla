@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-block-diag-examples">
+
+<title>Examples</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-block-diag-examples-ops" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-examples-ops" /></em></li>
+<li><xref ref="subsection-block-diag-examples-form" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-block-diag-examples-form" /></em></li>
+</ul></p></assemblage>
+
+<introduction>
+
+
+</introduction>
+
+<subsection xml:id="subsection-block-diag-examples-ops">
+<title>Operations with block matrices</title>
+
+<p>
+Addition and scalar multiplication of block matrices should be clear,
+so we will only carry out an example of multiplication of block matrices.
+</p>
+
+<example><title>Multiplying block matrices</title><p>
+	Consider matrices
+	<md><mrow>
+		A \amp= \left[\begin{array}{@{}crc|cc@{}}
+			1 \amp 0 \amp 1 \amp 1 \amp 1 \\
+			4 \amp -1 \amp 1 \amp 1 \amp 1 \\
+			2 \amp 2 \amp 0 \amp 1 \amp 1 \\
+			\hline
+			0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\text{,}
+		\amp
+		B \amp= \left[\begin{array}{@{}rrr|rc@{}}
+			1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+			\hline
+			-1 \amp -1 \amp -1 \amp 1 \amp 0 \\
+			-1 \amp -1 \amp -1 \amp -4 \amp 9
+		\end{array}\right]
+		\text{,}
+	</mrow></md>
+	subdivided into blocks
+	<md>
+		<mrow>
+			A_1 \amp= \left[\begin{array}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{array}\right] \text{,} \amp
+			A_2 \amp= \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \\ 1 \amp 1 \end{bmatrix} \text{,} \amp
+			B_1 \amp= I_3 \text{,} \amp
+			B_2 \amp= \zerovec \text{,}
+		</mrow><mrow>
+			A_3 \amp= \zerovec \text{,} \amp
+			A_4 \amp= I_2 \text{,} \amp
+			B_3 \amp= \begin{bmatrix} -1 \amp -1 \amp -1 \\ -1 \amp -1 \amp -1 \end{bmatrix} \text{,} \amp
+			B_4 \amp= \left[\begin{array}{rc} 1 \amp 0 \\ -4 \amp 9 \end{array}\right]  \text{,}
+		</mrow>
+	</md>
+	where <m>I_2</m> is the <m>2 \times 2</m> identity matrix,
+	<m>I_3</m> is the <m>3 \times 3</m> identity matrix,
+	and <m>\zerovec</m> represents a zero matrix of the appropriate size as usual.
+	Then we can compute <m>AB</m> by first computing
+	<md>
+		<mrow>
+			A_1 B_1 + A_2 B_3
+			\amp = A_1 +
+			\left[\begin{array}{rrr}
+				-2 \amp -2 \amp -2 \\
+				-2 \amp -2 \amp -2 \\
+				-2 \amp -2 \amp -2
+			\end{array}\right]
+			= \left[\begin{array}{rrr}
+				-1 \amp -2 \amp -1 \\
+				2 \amp -3 \amp -1 \\
+				0 \amp 0 \amp -2
+			\end{array}\right]
+			\text{,}
+		</mrow><mrow>
+			A_1 B_2 + A_2 B_4
+			\amp = \zerovec
+			+ \left[\begin{array}{rc} -3 \amp 9 \\ -3 \amp 9 \\ -3 \amp 9 \end{array}\right]
+			= \left[\begin{array}{rc} -3 \amp 9 \\ -3 \amp 9 \\ -3 \amp 9 \end{array}\right]
+			\text{,}
+		</mrow>
+		<mrow> A_3 B_1 + A_4 B_3 \amp= \zerovec + B_3 = B_3 \text{,} </mrow>
+		<mrow> A_3 B_2 + A_4 B_4 \amp= \zerovec + B_4 = B_4 \text{.} </mrow>
+	</md>
+	Putting these results together as blocks in the product matrix,
+	we get
+	<md>
+		<mrow>
+			A B
+			\amp =
+			\begin{bmatrix} A_1 \amp A_2 \\ A_3 \amp A_4 \end{bmatrix}
+			\begin{bmatrix} B_1 \amp B_2 \\ B_3 \amp B_4 \end{bmatrix}
+		</mrow><mrow>
+			\amp = \begin{bmatrix}
+				A_1 B_1 + A_2 B_3 \amp A_1 B_2 + A_2 B_4 \\
+				A_3 B_1 + A_4 B_3 \amp A_3 B_2 + A_4 B_4
+			\end{bmatrix}
+		</mrow><mrow>
+			\amp = \left[\begin{array}{@{}rrr|rc@{}}
+				-1 \amp -2 \amp -1 \amp -3 \amp 9 \\
+				2 \amp -3 \amp -1 \amp -3 \amp 9 \\
+				0 \amp 0 \amp -2 \amp -3 \amp 9 \\
+				\hline
+				-1 \amp -1 \amp -1 \amp 1 \amp 0 \\
+				-1 \amp -1 \amp -1 \amp -4 \amp 9
+			\end{array}\right]
+		</mrow>
+	</md>.
+</p></example>
+
+<p> And here is an example with block-diagonal matrices. </p>
+
+<example><title>Multiplying block-diagonal matrices</title><p>
+	Consider the block-diagonal matrices
+	<md><mrow>
+		A \amp = \begin{bmatrix}
+			0 \amp 0 \amp 1 \\
+			1 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \\
+			 \amp \amp \amp -2 \\
+			 \amp \amp \amp \amp 1 \amp 1 \\
+			 \amp \amp \amp \amp 0 \amp 4
+		\end{bmatrix}
+		\amp
+		B \amp = \begin{bmatrix}
+			0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 1 \\
+			0 \amp 0 \amp 0 \\
+			 \amp \amp \amp 0 \\
+			 \amp \amp \amp \amp 0 \amp 0 \\
+			 \amp \amp \amp \amp 1 \amp 0
+		\end{bmatrix}
+	</mrow></md>.
+	We can compute the product <m>AB</m> by computing the products of the blocks.
+	From preliminary calculations
+	<md><mrow>
+		A_1 B_1
+		\amp= \begin{bmatrix}
+			0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 1
+		\end{bmatrix}
+		\text{,}
+		\amp
+		A_2 B_2 \amp= \begin{bmatrix} 0 \end{bmatrix} \text{,}
+		\amp
+		A_3 B_3 \amp= \begin{bmatrix} 1 \amp 0 \\ 4 \amp 0 \end{bmatrix} \text{,}
+	</mrow></md>
+	we get product
+	<me>
+		AB = \begin{bmatrix}
+			0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 1 \\
+			 \amp \amp \amp 0 \\
+			 \amp \amp \amp \amp 1 \amp 0 \\
+			 \amp \amp \amp \amp 4 \amp 0
+		\end{bmatrix}
+	</me>.
+</p></example>
+
+</subsection>
+
+<subsection xml:id="subsection-block-diag-examples-form">
+<title>Putting a matrix in block-diagonal form</title>
+
+<p>
+Here is an example of using geometric intuition to determine invariant subspaces
+(similarly to <xref ref="activity-block-diag-invariant-geom" />),
+and then using those invariant subspaces to put a matrix into block-diagonal form.
+</p>
+
+<example xml:id="example-block-diag-examples-rotation">
+	<title>Block-diagonal form for rotation around an axis in space</title>
+	<p>
+	It is far from obvious,
+	but the effect of multiplication by matrix
+	<me>
+		A
+		= \frac{1}{2}
+		\left[\begin{array}{rrr}
+			1 \amp 1 \amp \sqrt{2} \\
+			1 \amp 1 \amp -\sqrt{2} \\
+			-\sqrt{2} \amp \sqrt{2} \amp 0
+		\end{array}\right]
+	</me>
+	on vectors in <m>\R^3</m> is to rotate around the line through the origin spanned by the vector
+	<m>\uvec{n} = (1, 1, 0)</m>.
+	While we are not yet prepared to understand the connection between the matrix and the geometric effect,
+	<!-- TODO xref into linear transformation chapter -->
+	we can at least carry out some simple computations to demonstrate the connection in this example.
+	</p><p>
+	If <m>A</m> is a rotation,
+	vectors parallel to the axis of rotation should be fixed by the transformation.
+	In particular, vector <m>\uvec{n}</m> should be fixed by <m>A</m>:
+	<me>
+		A \uvec{n}
+		= \frac{1}{2}
+		\left[\begin{array}{rrr}
+			1 \amp 1 \amp \sqrt{2} \\
+			1 \amp 1 \amp -\sqrt{2} \\
+			-\sqrt{2} \amp \sqrt{2} \amp 0
+		\end{array}\right]
+		\left[\begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right]
+		= \frac{1}{2}
+		\left[\begin{array}{r} 2 \\ 2 \\ 0 \end{array}\right]
+		= \left[\begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right]
+	</me>,
+	as expected.
+	</p><p>
+	This fixed vector <m>\uvec{n}</m> representing the axis of rotation can be taken as the normal vector for the plane through the origin that is perpendicular to this axis.
+	Using the normal vector as coefficients,
+	the plane equation is <m>x + y = 0</m>.
+	We would expect a vector parallel to this plane to be rotated to another vector in the plane of the same length.
+	<!-- TODO attempt a digram? -->
+	Let's test this with vector <m>\uvec{w}_1 = (0,0,1)</m>,
+	which we know is parallel to the plane because its components satisfy the plane equation.
+	Computing the transformed vector, we get
+	<me>
+		A \uvec{w}_1
+		= \frac{1}{2}
+		\left[\begin{array}{rrr}
+			1 \amp 1 \amp \sqrt{2} \\
+			1 \amp 1 \amp -\sqrt{2} \\
+			-\sqrt{2} \amp \sqrt{2} \amp 0
+		\end{array}\right]
+		\left[\begin{array}{r} 0 \\ 0 \\ 1 \end{array}\right]
+		= \frac{1}{2}
+		\left[\begin{array}{r} \sqrt{2} \\ -\sqrt{2} \\ 0 \end{array}\right]
+		= \left[\begin{array}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{array}\right]
+	</me>.
+	The components of this transformed vector do indeed satisfy the plane equation <m>x + y = 0</m>.
+	Even better, then length of this vector is <m>1</m>,
+	which is the same as the length of the original vector <m>\uvec{w}_1</m>.
+	A rotation would not change the length of a vector,
+	so this is a good sign.
+	We can even see the angle of rotation in this result:
+	the dot product of <m>\uvec{w}_1</m> and <m>A\uvec{w}_1</m> is <m>0</m>,
+	so these vectors are orthogonal.
+	It appears that the angle of rotation is <m>\pi/2</m>.
+	</p><p>
+	As one more test, write <m>\uvec{w}_2</m> for the transformed vector <m>A \uvec{w}_1</m>.
+	This vector lies in the same plane orthogonal to the axis of rotation,
+	so we expect <m>A</m> to also transform it to another vector in that plane:
+	<me>
+		A \uvec{w}_2
+		= \frac{1}{2}
+		\left[\begin{array}{rrr}
+			1 \amp 1 \amp \sqrt{2} \\
+			1 \amp 1 \amp -\sqrt{2} \\
+			-\sqrt{2} \amp \sqrt{2} \amp 0
+		\end{array}\right]
+		\left[\begin{array}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{array}\right]
+		= \frac{1}{2}
+		\left[\begin{array}{r} 0 \\ 0 \\ -2 \end{array}\right]
+		= \left[\begin{array}{r} 0 \\ 0 \\ -1 \end{array}\right]
+	</me>.
+	So <m>A</m> transforms <m>\uvec{w}_2</m> into <m>-\uvec{w}_1</m>.
+	From our guess at the angle of rotation,
+	this result should also be expected:
+	since <m>\uvec{w}_2 = A \uvec{w}_1</m>,
+	then <m>A \uvec{w}_2</m> is like transforming <m>\uvec{w}_1</m> twice,
+	first by <m>\pi/2</m> to <m>\uvec{w}_2</m>,
+	and then another <m>\pi/2</m> from there so that it comes all the way around to point oppositely to its original position.
+	</p><p>
+	These test calculations were not only to see transformation by <m>A</m> as a rotation.
+	They also provided us with a couple of <m>A</m>-invariant subspaces.
+	Since <m>\uvec{n}</m> is fixed by <m>A</m>,
+	the same will be true for every scalar multiple of <m>\uvec{n}</m>:
+	<me> A (k\uvec{n}) = k A \uvec{n} = k \uvec{n} </me>.
+	This demonstrates that <m>U = \Span \{\uvec{n}\}</m> is an <m>A</m>-invariant subspace.
+	</p><p>
+	Similarly, since <m>A</m> transforms <m>\uvec{w}_1</m> into <m>\uvec{w}_2</m> and transforms <m>\uvec{w}_2</m> into <m>-\uvec{w}_1</m>,
+	it follows that <m>A</m> transforms every linear combination of these two vectors into another linear combination of them:
+	<me> A (k_1 \uvec{w}_1 + k_2 \uvec{w}_2) = k_1 (A \uvec{w}_1) + k_2 (A \uvec{w}_2) = k_1 \uvec{w}_2 + k_2 (-\uvec{w}_1) </me>.
+	This demonstrates that <m>W = \Span \{\uvec{w}_1, \uvec{w}_2\}</m> is also an <m>A</m>-invariant subspace.
+	</p>
+	<aside><title>A look ahead</title><p>
+		The pattern of how we demonstrated that <m>U</m> and <m>W</m> are <m>A</m>-invariant,
+		by considering the effect of <m>A</m> on spanning vectors,
+		is captured in
+		<xref ref="proposition-block-diag-invariant-by-spanning-set" />.
+	</p></aside>
+	<p>
+	The pair of spaces <m>U,W</m> are independent,
+	because if we take their bases together,
+	the set <m>\{\uvec{n}, \uvec{w}_1, \uvec{w}_2\}</m> remains independent.
+	And their dimensions add up to the dimension of <m>\R^3</m>,
+	so this pair of <m>A</m>-invariant spaces is a <em>complete</em> set of independent subspaces.
+	This is exactly what we need to form an appropriate transition matrix:
+	<me>
+		P = \begin{bmatrix}
+			| \amp | \amp | \\
+			\uvec{n} \amp \uvec{w}_1 \amp \uvec{w}_2 \\
+			| \amp | \amp |
+		\end{bmatrix}
+		= \left[\begin{array}{rrr}
+			1 \amp 0 \amp \frac{1}{\sqrt{2}} \\
+			1 \amp 0 \amp -\frac{1}{\sqrt{2}} \\
+			0 \amp 1 \amp 0
+		\end{array}\right]
+	</me>
+	</p><p>
+	There is no need to compute <m>\inv{P}</m> in order to know the form matrix <m>\inv{P} A P</m>.
+	Instead, we can use the pattern of similarity from <xref ref="subsection-similarity-concepts-algebra" /> <mdash />
+	the columns of <m>\inv{P} A P</m> should be coefficients for expressing the transformed vectors
+	<m>A \uvec{n}</m>, <m>A \uvec{w}_1</m>, and <m>A \uvec{w}_2</m> as linear combinations.
+	However, since we know our subspaces are invariant,
+	we know that <m>\uvec{w}_1</m> and <m>\uvec{w}_2</m> will not be needed in the expression for <m>A\uvec{n}</m>,
+	and <m>\uvec{n}</m> will not be needed in the expressions for <m>A \uvec{w}_1</m> and <m>A \uvec{w}_2</m>.
+	We also know that we will need a <m>1 \times 1</m> block
+	(since <m>\dim U = 1</m>)
+	and a <m>2 \times 2</m> block
+	(since <m>\dim W = 2</m>).
+	So from
+	<md><mrow>
+		A \uvec{n} \amp = 1 \uvec{n} \text{,}
+		\amp
+		\amp
+		\begin{array}{lcrcrcr}
+			A \uvec{w}_1 \amp = \amp   \uvec{w}_2 \amp = \amp   0  \uvec{w}_1 \amp + \amp 1 \uvec{w}_2 \text{,} \\
+			A \uvec{w}_2 \amp = \amp - \uvec{w}_1 \amp = \amp (-1) \uvec{w}_1 \amp + \amp 0 \uvec{w}_2 \text{,}
+		\end{array}
+	</mrow></md>
+	we obtain
+	<me>
+		\inv{P} A P =
+		\left[\begin{array}{@{}r|rr@{}}
+			1 \amp 0 \amp  0 \\
+			\hline
+			0 \amp 0 \amp -1 \\
+			0 \amp 1 \amp  0
+		\end{array}\right]
+	</me>,
+	where the <m>1 \times 1</m> block in the upper left represents the trivial action of <m>A</m> on vectors in the axis <m>U</m>,
+	and the <m>2 \times 2</m> block in the lower right represents the rotation action of <m>A</m> on the vectors in the perpendicular plane <m>W</m>.
+	</p>
+</example>
+
+<p> The following example demonstrates how diagonal form is just a special case of block-diagonal form. </p>
+<aside><title>A look ahead</title><p>
+	This fact will also be reflected in
+	<xref ref="proposition-block-diag-eigenspace-invariant" />
+	and
+	<xref ref="theorem-block-diag-eigenspace-independent" />.
+</p></aside>
+
+<example xml:id="example-block-diag-examples-diag-block">
+	<!-- TODO It would be nice to use two eigenvalues where one has multiplicity 2 so that there is a 2x2 diagonal block inside the diagonal matrix -->
+	<title>Diagonal form as block-diagonal form</title>
+	<p>
+	Consider the matrix
+	<me> A = \left[\begin{array}{rrr} 2 \amp 1 \amp -2 \\ 3 \amp 0 \amp 0 \\ -1 \amp 1 \amp -2 \end{array}\right] </me>.
+	If you take the time to compute them,
+	you will find that <m>A</m> has three eigenvalues:
+	<m>\lambda_1 = 3</m>, <m>\lambda_2 = 0</m>, and <m>\lambda_3 = -3</m>.
+	Each of the eigenspaces of <m>A</m> is one-dimensional,
+	and by row reducing a spanning vector can be obtained for each of them:
+	<md>
+		<mrow> E_{\lambda_1}(A) \amp= \Span \{ (1,1,0) \} \text{,} </mrow>
+		<mrow> E_{\lambda_2}(A) \amp= \Span \{ (0,2,1) \} \text{,} </mrow>
+		<mrow> E_{\lambda_3}(A) \amp= \Span \{ (1,-1,2) \} \text{.} </mrow>
+	</md>
+	</p><p>
+	As part of <xref ref="activity-block-diag-abstract-invariant-examples" />,
+	you were asked to verify that an eigenspace is always invariant.
+	Furthermore, it follows from
+	<xref ref="proposition-diagonalization-indep-e-vectors" />
+	that eigenspaces are always independent.
+	And since we have three one-dimensional eigenspaces in <m>\R^3</m>,
+	there are a <em>complete</em> set of independent, invariant spaces,
+	precisely what we need for the block-diagonalization procedure.
+	</p><p>
+	So we may form a suitable transition matrix <m>P</m> by taking the eigenvectors above as columns:
+	<me> P = \left[\begin{array}{rrr} 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp -1 \\ 0 \amp 1 \amp 2 \end{array}\right] </me>.
+	Each of our eigenspaces is one-dimensional,
+	so we need three <m>1 \times 1</m> blocks in our form matrix,
+	which agrees with our expectation that it be diagonal.
+	If we label the eigenvectors in the columns of <m>P</m> as <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>,
+	then the eigenvalue conditions
+	<md><mrow>
+			A \uvec{p}_1 \amp =  3 \uvec{p}_1 \text{,} \amp
+			A \uvec{p}_2 \amp =  0 \uvec{p}_2 \text{,} \amp
+			A \uvec{p}_3 \amp = -3 \uvec{p}_3 \text{,}
+	</mrow></md>
+	tells us the form matrix
+	<me>
+		\inv{P} A P =
+		\left[\begin{array}{@{}r|r|r@{}}
+			3 \amp 0 \amp  0 \\
+			\hline
+			0 \amp 0 \amp 0 \\
+			\hline
+			0 \amp 0 \amp  -3
+		\end{array}\right]
+	</me>,
+	where the blocks along the diagonal are each <m>1 \times 1</m> (including the <m>1 \times 1</m> zero block in the middle).
+	</p><p>
+	This form matrix matches up with our knowledge of diagonal forms,
+	where the eigenvalues of the original matrix should appear down the diagonal of the form matrix,
+	in the same order that the eigenvectors were placed as columns of <m>P</m>.
+	</p>
+</example>
+
+</subsection>
+
+</section>

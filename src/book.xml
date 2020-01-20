@@ -14,15 +14,16 @@ respective owners.
 *********************************************************************-->
 
 
-<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
 
 <xi:include href="./bookinfo.xml" />
 
 <book xml:id="discover-linear-algebra-book">
 <title>Discover Linear Algebra</title>
-<subtitle>A first course in linear algebra</subtitle>
+<!--<subtitle>A first course in linear algebra</subtitle>-->
 
 <xi:include href="./frontmatter.xml" />
+
 <part xml:id="part-systems">
 	<title>Systems of Equations and Matrices</title>
 	<xi:include href="./systems.xml" />
@@ -36,12 +37,13 @@ respective owners.
 	<xi:include href="./det-by-row-red.xml" />
 	<xi:include href="./more-det.xml" />
 	<!--
-		TODO complex matrices and systems,
-		but make sure it's independent of other 1st-year sections.
+		This next section should be independent of other 1st-year sections.
 		(Ie. it can reference stuff, but nothing should reference it except
 		other complex-focussed sections.)
 	-->
+	<xi:include href="./complex-matrices.xml" />
 </part>
+
 <part xml:id="part-vectors">
 	<title>Vector Spaces</title>
 	<xi:include href="./vectors.xml" />
@@ -54,23 +56,52 @@ respective owners.
 	<xi:include href="./basis-coords.xml" />
 	<xi:include href="./dimension.xml" />
 	<xi:include href="./col-row-null-space.xml" />
+	<xi:include href="./change-of-basis.xml" />
+	<!--
+		This next section should be independent of other 1st-year sections.
+		(Ie. it can reference stuff, but nothing should reference it except
+		other complex-focussed sections.)
+	-->
+	<xi:include href="./complex-vspaces.xml" />
 </part>
+
 <part xml:id="part-matrix-forms">
 	<title>Introduction to Matrix Forms</title>
 	<xi:include href="./eigen-values-vectors.xml" />
 	<xi:include href="./diagonalization.xml" />
-	<!-- WORK IN PROGRESS for a future commit
+	<xi:include href="./similarity.xml" />
 	<xi:include href="./sys-diff-eq.xml" />
-	-->
-	<!--
-		PLAN: next do:
-		* change of basis and similarity redux
-		* then carry on with block-diagonal form, etc.
-	-->
+	<xi:include href="./block-diag.xml" />
+	<xi:include href="./scalar-triang.xml" />
+	<xi:include href="./triang-block.xml" />
+	<xi:include href="./cayley-hamilton.xml" />
+	<xi:include href="./elem-nilpotent.xml" />
+	<xi:include href="./triang-nilpotent.xml" />
+	<xi:include href="./jordan.xml" />
+	<xi:include href="./forms-summary.xml" />
+</part>
+
+<part xml:id="part-inner-prod">
+	<title>Inner Product Spaces</title>
+	<xi:include href="./inner-prod.xml" />
+	<xi:include href="./inprod-orthog.xml" />
+	<xi:include href="./projection.xml" />
+	<xi:include href="./matrix-adjoints.xml" />
+	<xi:include href="./orthog-unitary-diag.xml" />
+	<xi:include href="./quadratic-forms.xml" />
+</part>
+
+<part xml:id="part-linear-transformations">
+	<title>Linear Transformations</title>
+	<xi:include href="./lintrans-basic.xml" />
+	<xi:include href="./lintrans-ker-im.xml" />
+	<xi:include href="./lintrans-iso.xml" />
+	<xi:include href="./lintrans-matrix.xml" />
+	<xi:include href="./lintrans-similarity.xml" />
 </part>
 
 <xi:include href="./backmatter.xml" />
 
 </book>
 
-</mathbook>
+</pretext>

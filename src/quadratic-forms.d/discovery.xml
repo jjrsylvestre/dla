@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-quadratic-forms">
+<title>Discovery guide</title>
+
+<activity xml:id="activity-quadratic-forms-from-matrix">
+	<introduction>
+		<p>
+		In each of the following,
+		you are given an <m>n \times n</m> matrix <m>A</m>.
+		Using the matrix to create a pairing
+		<me> \inprod{\uvec{u}}{\uvec{v}} = \utrans{\uvec{v}} A \uvec{u} </me>
+		between column vectors in <m>\R^n</m>,
+		obtain a description for the multivariable function
+		<me> q(x_1,x_2,\dotsc,x_n) = q(\uvec{x}) = \inprod{\uvec{x}}{\uvec{x}} </me>
+		as a formula in the input coordinate variables <m>x_1,x_2,\dotsc,x_n</m>.
+		</p>
+		<aside><title>Warning</title><p>
+			These pairings are not necessarily inner products on <m>\R^n</m> <mdash />
+			see <xref ref="proposition-inner-prod-pos-def-dot-product-on-Rn-Cn" />
+			and <xref ref="theorem-inner-prod-on-Rn-Cn-is-pos-def-dot-product" />.
+		</p></aside>
+	</introduction>
+	<task><p>
+		<m>\displaystyle A = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} </m>,
+		<m>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} = <fillin characters="20" /> </m>.
+	</p></task>
+	<task><p>
+		<m>\displaystyle A = \left[\begin{array}{cr} 2 \amp 0 \\ 0 \amp -3 \end{array}\right] </m>
+		<m>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} = <fillin characters="20" /> </m>.
+	</p></task>
+	<task><p>
+		<m>\displaystyle A = \left[\begin{array}{rrr} 1 \amp -2 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp -3 \end{array}\right] </m>.
+		<m>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} = <fillin characters="30" /> </m>.
+	</p></task>
+	<task><p>
+		<m>\displaystyle A = \left[\begin{array}{rrr} 1 \amp -1 \amp 0 \\ -1 \amp 2 \amp 0 \\ 4 \amp 0 \amp -3 \end{array}\right] </m>.
+		<m>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} = <fillin characters="30" /> </m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-quadratic-forms-to-matrix">
+	<title>Patterns</title>
+	<introduction><p> Let's analyze the patterns of <xref ref="activity-quadratic-forms-from-matrix" />. </p></introduction>
+	<task>
+		<p>
+		A multivariable function <m> q(x_1,x_2,\dotsc,x_n) </m> of the kind explored
+		in <xref ref="activity-quadratic-forms-from-matrix" />
+		is called a <term>quadratic form</term>.
+		</p><p>
+		Can you see why from the example formulas you computed?
+		</p>
+	</task>
+	<task><p>
+		What is the pattern of how the coefficients in each formula from
+		<xref ref="activity-quadratic-forms-from-matrix" />
+		relate to the entries in the corresponding matrix?
+	</p></task>
+	<task>
+		<p>
+		Make some example quadratic polynomials for yourself,
+		and then for each example determine a matrix <m>A</m> so that <m>\utrans{\uvec{x}} A \uvec{x}</m> gives you back your quadratic polynomial.
+		Can you determine a <em>symmetric</em> matrix <m>A</m> that represents your quadratic polynomial?
+		</p><p>
+		Make sure to mix it up!
+		(Don't just use <q>diagonal</q> quadratic polynomials.)
+		</p>
+	</task>
+</activity>
+
+<activity>
+	<title>Shapes</title>
+	<introduction>
+		<p> A <term>level set</term> <m>q(\uvec{x}) = c</m> of a quadratic form creates a <term>quadric curve/surface/hypersurface</term> in <m>\R^n</m>. </p>
+		<p> In each of the following, determine the type of curve in <m>\R^2</m> or the surface in <m>\R^3</m> defined by setting <m>q(\uvec{x}) = 1</m>. </p>
+	</introduction>
+	<task><p> <m> q(x_1,x_2) = x_1^2 + x_2^2 </m>. </p></task>
+	<task><p> <m> q(x_1,x_2) = x_1^2 + 2 x_2^2 </m>. </p></task>
+	<task><p> <m> q(x_1,x_2) = x_1^2 - x_2^2 </m>. </p></task>
+	<task><p> <m> q(x_1,x_2,x_3) = x_1^2 + x_2^2 + x_3^2 </m>. </p></task>
+	<task><p> <m> q(x_1,x_2,x_3) = x_1^2 + 2 x_2^2 + x_3^2 </m>. </p></task>
+</activity>
+
+<activity xml:id="activity-quadratic-forms-decouple">
+	<title>Change of variables</title>
+	<introduction>
+		<p> Suppose <m>A</m> is a symmetric real matrix and <m>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x}</m> is the associated quadratic form. </p>
+		<p>
+		Symmetric matrices are orthogonally diagonalizable,
+		so there exists orthogonal <m>P</m> so that <m>D = \utrans{P} A P</m> is diagonal,
+		with the eigenvalues <m>\lambda_1,\lambda_2,\dotsc,\lambda_n</m> of <m>A</m> down the diagonal.
+		</p>
+	</introduction>
+	<task xml:id="activity-quadratic-forms-decouple-vector-formula"><p>
+		Using the change of variables <m>\uvec{x} = P \uvec{w}</m>,
+		express <m>q_A(\uvec{x})</m> in terms of <m>\uvec{w}</m>:
+		<me> q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} = \utrans{\uvec{w}} \boxed{\phantom{D}} \uvec{w} </me>.
+	</p></task>
+	<task><p>
+		Based on your answer to <xref ref="activity-quadratic-forms-decouple-vector-formula" text="type-local" />,
+		write out a quadratic polynomial for <m>q_A(\uvec{x})</m> in terms of the new variables <m>w_1,w_2,\dotsc,w_n</m> instead of in terms of <m>x_1,x_2,\dotsc,x_n</m>.
+	</p></task>
+	<task><p> What is the point of this activity? </p></task>
+</activity>
+
+<activity xml:id="activity-quadratic-forms-rotate">
+	<title>Put it all together</title>
+	<introduction><p>
+		Consider the quadratic form <m>q_A(\uvec{x})</m> for symmetric matrix
+		<me> A = \left[\begin{array}{rr} 13 \amp -5 \\ -5 \amp 13 \end{array}\right] </me>.
+	</p></introduction>
+	<task><p> Write out the quadratic polynomial for <m>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x}</m>. </p></task>
+	<task><p>
+		The eigenvalues of <m>A</m> are <m>\lambda_1 = 8</m> and <m>\lambda_2 = 18</m>.
+		Determine an orthogonal transition matrix <m>P</m> so that <m>D = \utrans{P} A P</m> is diagonal.
+	</p></task>
+	<task xml:id="activity-quadratic-forms-rotate-change-vars"><p>
+		As in <xref ref="activity-quadratic-forms-decouple-vector-formula">Discovery</xref>,
+		use change of variables <m>\uvec{x} = P \uvec{w}</m> to express <m>q_A(\uvec{x})</m> as a quadratic polynomial in terms of new variables <m>w,z</m>
+		(where <m>\uvec{w} = (w,z)</m>).
+	</p></task>
+	<task>
+		<p>
+		Let <m>q_D(\uvec{w})</m> represent the new quadratic polynomial in <m>w,z</m> from <xref ref="activity-quadratic-forms-rotate-change-vars" text="type-local" />.
+		</p><p>
+		Sketch the level curve <m>q_D(w,z) = 72</m> on a set of <m>wz</m>-axes.
+		</p>
+	</task>
+	<task>
+		<statement>
+			<p>
+			On a set of <m>xy</m>-axes, overlay a set of <term>principal axes</term> for <m>A</m>:
+			use the orthonormal columns of your transition matrix <m>P</m> to determine a new set of orthogonal <m>wz</m>-axes overlaid on top of a set of <m>xy</m>-axes.
+			</p><p>
+			Sketch the level curve <m>q_A(x,y) = 72</m> on these axes by transferring your previous sketch of <m>q_D(w,z)</m> from your standalone set of <m>wz</m>-axes to your new <m>wz</m>-axes superimposed on the set of <m>xy</m>-axes.
+			</p>
+		</statement>
+		<hint><p>
+			When transferring your sketch from one set of <m>wz</m>-axes to the other,
+			remember that the columns of <m>P</m> are an ortho<em>normal</em> set.
+			So each column vector in <m>P</m> represents one unit along its corresponding axis.
+		</p></hint>
+	</task>
+</activity>
+
+</worksheet>

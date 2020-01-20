@@ -168,9 +168,9 @@ in
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>,
 as these can be deduced from the axioms we have,
 as we did in
-<xref ref="activity-abstract-vec-spaces-deducing-props-zero-reverse">Activity</xref>
+<xref ref="activity-abstract-vec-spaces-deducing-props-zero-reverse">Discovery</xref>
 and
-<xref ref="activity-abstract-vec-spaces-deducing-props-neg-reverse">Activity</xref>.
+<xref ref="activity-abstract-vec-spaces-deducing-props-neg-reverse">Discovery</xref>.
 Let's record these properties,
 and some others that can be deduced from the axioms.
 </p>
@@ -192,34 +192,53 @@ and some others that can be deduced from the axioms.
 	and that <m>k</m> is a scalar.
 	Then the following are always true.
 	<ol cols="2">
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-reverse">
-			<m>\zerovec + \uvec{v} = \uvec{v}</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-reverse">
-			<m>-\uvec{v} + \uvec{v} = \zerovec</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul">
-			<m>0\uvec{v} = \zerovec</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-zero">
-			<m>-\zerovec = \zerovec</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-zero">
-			<m>k\zerovec = \zerovec</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-eq-zero">
-			If <m>k\uvec{v} = \zerovec</m>, then either <m>k=0</m> or <m>\uvec{v} = \zerovec</m> (or both).
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-neg">
-			<m>-(-\uvec{v}) = \uvec{v}</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">
-			<m>(-1)\uvec{v} = -\uvec{v}</m>.
-		</li>
-		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-cancel"><p>
-			<em>(Cancellation)</em>
-			If <m>\uvec{u} + \uvec{w} = \uvec{v} + \uvec{w}</m>, then <m>\uvec{u} = \uvec{v}</m>.
-		</p></li>
+
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero"><paragraphs>
+			<title>Additional rules of the zero vector</title>
+			<p><ol>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-reverse">
+					<m>\zerovec + \uvec{v} = \uvec{v}</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul">
+					<m>0\uvec{v} = \zerovec</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-neg">
+					<m>-\zerovec = \zerovec</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-vec-scalar-mul">
+					<m>k\zerovec = \zerovec</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">
+					If <m>k\uvec{v} = \zerovec</m>, then either <m>k=0</m> or <m>\uvec{v} = \zerovec</m> (or both).
+				</li>
+			</ol></p>
+		</paragraphs></li>
+
+		<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg"><paragraphs>
+			<title>Additional rules of vector negatives</title>
+			<p><ol>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-reverse">
+					<m>-\uvec{v} + \uvec{v} = \zerovec</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-add">
+					<m>-(\uvec{u} + \uvec{v}) = (-\uvec{u}) + (-\uvec{v})</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-neg">
+					<m>-(-\uvec{v}) = \uvec{v}</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">
+					<m>-(k \uvec{v}) = k (-\uvec{v})</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-eq-scalar-mul">
+					<m>(-1)\uvec{v} = -\uvec{v}</m>.
+				</li>
+				<li xml:id="proposition-abstract-vec-spaces-basic-vec-props-neg-cancel"><p>
+					<em>(Cancellation)</em>
+					If <m>\uvec{u} + \uvec{w} = \uvec{v} + \uvec{w}</m>, then <m>\uvec{u} = \uvec{v}</m>.
+				</p></li>
+			</ol></p>
+		</paragraphs></li>
+
 	</ol>
 	</p></statement>
 
@@ -232,12 +251,12 @@ and some others that can be deduced from the axioms.
 			>Rules</xref>,
 			<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-neg">Rule</xref>,
 			and
-			<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>
+			<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-eq-scalar-mul">Rule</xref>
 		</title>
 		<p> We have already considered these rules in <xref ref="activity-abstract-vec-spaces-deducing-props" />. </p>
 	</proof>
 
-	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-zero">Rule</xref></title><p>
+	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-neg">Rule</xref></title><p>
 		The zero vector is a special vector,
 		but it's still a vector so it must have a negative because of
 		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>.
@@ -254,7 +273,7 @@ and some others that can be deduced from the axioms.
 		Therefore, we must have <m>\zerovec = -\zerovec</m>, as desired.
 	</p></proof>
 
-	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-zero">Rule</xref></title><p>
+	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-vec-scalar-mul">Rule</xref></title><p>
 		We need to verify the equality <m>k\zerovec = \zerovec</m>:
 		<md>
 			<mrow> \text{LHS} \amp= k\zerovec </mrow>
@@ -289,7 +308,7 @@ and some others that can be deduced from the axioms.
 			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>
 			with <m>\uvec{v}=\zerovec</m>;
 			</li>
-			<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>;</li>
+			<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-eq-scalar-mul">Rule</xref>;</li>
 			<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib1" text="local">Axiom S</xref>;</li>
 			<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc" text="local">Axiom S</xref>;</li>
 			<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-distrib2" text="local">Axiom S</xref>;</li>
@@ -298,7 +317,7 @@ and some others that can be deduced from the axioms.
 		</ol>
 	</p></proof>
 
-	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-eq-zero">Rule</xref></title><p>
+	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">Rule</xref></title><p>
 		Suppose <m>k\uvec{v} = \zerovec</m>.
 		Regardless of this starting assumption,
 		either <m>k</m> is equal to <m>0</m> or it is not.
@@ -333,12 +352,12 @@ and some others that can be deduced from the axioms.
 			<li>algebra of numbers;</li>
 			<li><xref ref="list-abstract-vec-spaces-concepts-smul-axioms-assoc" text="local">Axiom S</xref>;</li>
 			<li>assumption <m>k\uvec{v}=\zerovec</m>; and</li>
-			<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-scalar-mul-zero">Rule</xref>.</li>
+			<li><xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-vec-scalar-mul">Rule</xref>.</li>
 		</ol>
 		In this case, the desired conclusion <q>either <m>k=0</m> or <m>\uvec{v}=\zerovec</m></q> is true again.
 	</p></proof>
 
-	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-cancel">Rule</xref></title><p>
+	<proof><title>Proof of <xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-cancel">Rule</xref></title><p>
 		Suppose <m>\uvec{u} + \uvec{w} = \uvec{v} + \uvec{w}</m>.
 		<!-- We would like to conclude that <m>\uvec{u} = \uvec{v}</m> from this assumption. -->
 		Starting with <m>\uvec{u}</m>, we can use the axioms to work in a <m>\uvec{w}</m> and then convert to <m>\uvec{v}</m>:
@@ -383,7 +402,7 @@ and some others that can be deduced from the axioms.
 
 <remark><p>
 	Again, keep in mind the difference between the left- and right-hand sides in
-	<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-scalar-mul">Rule</xref>
+	<xref ref="proposition-abstract-vec-spaces-basic-vec-props-neg-eq-scalar-mul">Rule</xref>
 	in the proposition above.
 	The left-hand side is the scalar multiple of <m>\uvec{v}</m> by the scalar <m>-1</m>,
 	while the right-hand side is the special negative vector that adds with <m>\uvec{v}</m> to the zero vector.

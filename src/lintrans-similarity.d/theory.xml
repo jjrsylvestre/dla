@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-similarity-theory">
+
+<title>Theory</title>
+
+<p>
+Here we will only make the connection between eigenvalues and eigenvectors of a operator versus of a matrix for that operator,
+and then characterize diagonalizable operators.
+The remainder of the story of canonical forms for linear operators is precisely the same as for matrices,
+as in <xref ref="part-matrix-forms" />.
+</p>
+
+<theorem xml:id="theorem-lintrans-similarity-eigenstuff">
+	<title>Eigenvalue/eigenvector pairs of operator and matrix coincide</title>
+	<statement><p>
+		Suppose that <m>\funcdef{T}{V}{V}</m> is a linear operator on a finite-dimensional vector space,
+		<m>\lambda</m> is a scalar value, and <m>\uvec{v}</m> is a vector in the domain space <m>V</m>.
+		Then the following are equivalent.
+		<ol>
+			<li xml:id="theorem-lintrans-similarity-eigenstuff-operator">
+				Operator <m>T</m> has eigenvalue/eigenvector pair <m>\lambda, \uvec{v}</m>.
+			</li>
+			<li xml:id="theorem-lintrans-similarity-eigenstuff-every">
+				For every choice of basis <m>\basisfont{B}</m> for <m>V</m>,
+				the matrix <m>\matrixOf{T}{B}</m> has eigenvalue/eigenvector pair <m>\lambda, \matrixOf{\uvec{v}}{B}</m>.
+			</li>
+			<li xml:id="theorem-lintrans-similarity-eigenstuff-one">
+				For at least one choice of basis <m>\basisfont{B}</m> for <m>V</m>,
+				the matrix <m>\matrixOf{T}{B}</m> has eigenvalue/eigenvector pair <m>\lambda, \matrixOf{\uvec{v}}{B}</m>.
+			</li>
+		</ol>
+	</p></statement>
+	<proof>
+		<case>
+			<title>
+				<xref ref="theorem-lintrans-similarity-eigenstuff-operator">Statement</xref>
+				implies <xref ref="theorem-lintrans-similarity-eigenstuff-every">Statement</xref>
+			</title>
+			<p>
+			Suppose <m>\lambda,\uvec{v}</m> is an eigenvalue/eigenvector pair for <m>T</m>,
+			so that <me> T(\uvec{v}) = \lambda \uvec{v} </me>.
+			Given a choice of basis <m>\basisfont{B}</m> for the domain space <m>V</m>,
+			we have both
+			<md><mrow>
+				\matrixOf{T(\uvec{v})}{B} \amp = \matrixOf{T}{B} \matrixOf{\uvec{v}}{B} \text{,} \amp
+				\matrixOf{\lambda \uvec{v}}{B} \amp = \lambda \matrixOf{\uvec{v}}{B}
+			</mrow></md>,
+			where on the one hand we apply the relationship of <m>\matrixOf{T}{B}</m> to the input-output process for <m>T</m>,
+			and on the other we apply the linearity of the coordinate map relative to <m>\basisfont{B}</m>.
+			Equating these two results,
+			we have <me> \matrixOf{T}{B} \matrixOf{\uvec{v}}{B} = \lambda \matrixOf{\uvec{v}}{B} </me>,
+			so that <m>\lambda, \matrixOf{\uvec{v}}{B}</m> is an eigenvalue/eigenvector pair of <m>\matrixOf{T}{B}</m>.
+			</p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-lintrans-similarity-eigenstuff-every">Statement</xref>
+				implies <xref ref="theorem-lintrans-similarity-eigenstuff-one">Statement</xref>
+			</title>
+			<p> This is obvious. </p>
+		</case>
+		<case>
+			<title>
+				<xref ref="theorem-lintrans-similarity-eigenstuff-one">Statement</xref>
+				implies <xref ref="theorem-lintrans-similarity-eigenstuff-operator">Statement</xref>
+			</title>
+			<p>
+			Suppose <m>\basisfont{B}</m> is a basis of <m>V</m> for which <m>\lambda, \matrixOf{\uvec{v}}{B}</m> is an eigenvalue/eigenvector pair of <m>\matrixOf{T}{B}</m>.
+			Then,
+			<md>
+				<mrow> \matrixOf{T(\uvec{v})}{B} \amp = \matrixOf{T}{B} \matrixOf{\uvec{v}}{B} \amp \amp \text{(i)} </mrow>
+				<mrow> \amp = \lambda \matrixOf{\uvec{v}}{B} \amp \amp \text{(ii)} </mrow>
+				<mrow> \amp = \matrixOf{\lambda \uvec{v}}{B} \amp \amp \text{(iii)} </mrow>
+			</md>,
+			with justifications
+			<ol label="(i)">
+				<li> the definition of <m>\matrixOf{T}{B}</m>; </li>
+				<li> our assumption that <m>\lambda, \matrixOf{\uvec{v}}{B}</m> is an eigenvalue/eigenvector pair of <m>\matrixOf{T}{B}</m>; and </li>
+				<li> the linearity of the coordinate map (<xref ref="theorem-change-of-basis-coord-vec-linearity" />). </li>
+			</ol>
+			Now, coordinate maps are isomorphisms (<xref ref="corollary-lintrans-iso-coord-map-is-iso" />),
+			so from <me> \coordmap{B}\bigl(T(\uvec{v})\bigr) = \matrixOf{T(\uvec{v})}{B} = \matrixOf{\lambda \uvec{v}}{B} = \coordmap{B}(\lambda \uvec{v}) </me>
+			we can conclude that
+			<me> T(\uvec{v}) = \lambda \uvec{v} </me>.
+			In other words, <m>\lambda,\uvec{v}</m> is an eigenvalue/eigenvector pair for the operator <m>T</m>.
+			</p>
+		</case>
+	</proof>
+</theorem>
+
+<corollary><title>Diagonalizable operator requires eigenvector basis</title>
+	<statement><p>
+		An operator <m>\funcdef{T}{V}{V}</m> on a finite-dimensional space <m>V</m> is diagonalizable if and only if there exists a basis for <m>V</m> consisting of eigenvectors for <m>T</m>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		For <m>T</m> to be diagonalizable,
+		there must exist a basis for <m>V</m> for which <m>\matrixOf{T}{B}</m> is diagonal.
+		The eigenvectors of a diagonal matrix are precisely the standard basis vectors of <m>\R^n</m> (or <m>\C^n</m>, as appropriate),
+		and the standard basis vectors are precisely the coordinate vectors of the basis vectors in <m>\basisfont{B}</m> relative to that basis.
+		Therefore, we may apply <xref ref="theorem-lintrans-similarity-eigenstuff" />
+		to see that the vectors in the basis <m>\basisfont{B}</m> must be eigenvectors for <m>T</m> in order for <m>\matrixOf{T}{B}</m> to be diagonal.
+	</p></proof>
+</corollary>
+
+</section>

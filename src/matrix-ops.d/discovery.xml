@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-matrix-ops">
+
+<title>Discovery guide</title>
+
+<activity><p>
+	Consider matrices
+	<md><mrow>
+		A \amp = \left[\begin{array}{rcc}
+			1 \amp 2 \amp 3 \\
+			-1 \amp 3 \amp 2
+		\end{array}\right],
+		\amp
+		B \amp = \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 4 \\ 1 \amp 0 \end{array}\right],
+		\amp
+		C \amp = \left[\begin{array}{rc} -6 \amp 1 \\ 1 \amp 2 \end{array}\right].
+	</mrow></md>
+	For each matrix, how would you describe its <term>size</term> (or <term>dimensions</term>)?
+	<idx><h>matrix</h><h>size</h></idx>
+	<idx><h>matrix</h><h>dimensions</h></idx>
+</p></activity>
+
+<activity xml:id="activity-matrix-ops-matrix-equality">
+	<introduction><p>
+	Consider matrices
+	<md>
+		<mrow>
+			A \amp = \left[\begin{array}{rcc}
+				1 \amp 2 \amp 3 \\ -1 \amp 3 \amp 2
+			\end{array}\right],
+			\amp
+			B \amp = \left[\begin{array}{rcc}
+				x^2 \amp 2 \amp 3 \\
+				-1 \amp 3 \amp 2
+			\end{array}\right],
+		</mrow>
+		<mrow>
+			C \amp = \begin{bmatrix}1 \amp 2 \amp 3\\ x^2 \amp 3 \amp 2 \end{bmatrix},
+			\amp
+			D \amp = \begin{bmatrix} x^2 \amp 2 \\ -1 \amp 3 \end{bmatrix}.
+		</mrow>
+	</md>
+	</p></introduction>
+	<task><p>
+		For what value(s) of <m>x</m> is <m>B</m> equal to <m>A</m>? <m>C</m> equal to <m>A</m>? <m>D</m> equal to <m>A</m>?
+	</p></task>
+	<task><p> Discuss what it means for two matrices to be equal. </p></task>
+</activity>
+
+<activity xml:id="activity-matrix-ops-basic-matrix-ops">
+	<introduction><p>
+	Consider matrices
+	<md><mrow>
+		A \amp = \left[\begin{array}{rcc}
+			1 \amp 2 \amp 3\\
+			-1 \amp 3 \amp 2
+		\end{array}\right],
+		\amp
+		B \amp = \left[\begin{array}{rcc}
+			0 \amp 2 \amp 1\\
+			-1 \amp 0 \amp 4
+		\end{array}\right],
+		\amp
+		C \amp = \left[\begin{array}{rc} -6 \amp 1\\1 \amp 2 \end{array}\right].
+	</mrow></md>
+	</p></introduction>
+	<task><p> What should <m>A+B</m> mean? What should <m>A-B</m> mean? </p></task>
+	<task><p>
+		How do you feel about <m>A+C</m>? It is tempting to replace <m>C</m> by an <q>equivalent</q> matrix to make things work out. But then what should <m>A+C-A</m> work out to? Does this agree with your answer to what it means for two matrices to be equal from <xref ref="activity-matrix-ops-matrix-equality" />?
+	</p></task>
+	<task><p> What should <m>3A</m> mean? </p></task>
+</activity>
+
+<activity xml:id="activity-matrix-ops-zero-matrix">
+	<introduction><p>
+	The number zero is important in algebra, it lets us do things like the following (where the critical step is the last).
+	<md>
+		<mrow>a+5 \amp = 7</mrow>
+		<mrow>a+5-5 \amp = 7-5</mrow>
+		<mrow>a+0 \amp = 2</mrow>
+		<mrow>a \amp = 2.</mrow>
+	</md>
+	</p></introduction>
+	<task><p>
+		What matrix do you think will act like zero in matrix algebra? Is the answer different for different dimensions?
+	</p></task>
+	<task><p>
+		Write down some algebra rules for this <term>zero matrix</term> with respect to each of matrix addition and scalar multiplication.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-matrix-ops-system-to-matrix-mult">
+	<introduction><p>
+	The simplest system of equations is one equation in one unknown, <eg /> <m>3x=5</m> (or more generally <m>ax=b</m>). Here <m>a=3</m> is the coefficient, <m>x</m> is the unknown, and <m>b=5</m> is a constant. Let's try to express a system of equations in a similarly simple form: <m>A\uvec{x} = \uvec{b}</m>, where <m>A</m> is the
+	<term>coefficient matrix</term>,<idx><h>coefficient matrix</h></idx><idx><h>matrix</h><h>coefficient</h></idx>
+	<m>\uvec{x}</m> is the
+	<term>vector of unknowns</term>,<idx><h>vector</h><h>of unknowns</h></idx>
+	and <m>\uvec{b}</m> is the <term>vector of constants</term>.<idx><h>vector</h><h>of constants</h></idx>
+	</p><p>
+	Consider system
+	<me>
+		\left\{\begin{array}{rcrcrcr}
+			2x \amp - \amp 5y \amp - \amp z \amp = \amp 7,\\
+			x \amp - \amp 2y \amp + \amp 3z \amp = \amp -2.
+		\end{array}\right.
+	</me>
+	For this system, we have
+	<md><mrow>
+		A \amp = \left[\begin{array}{rrr}
+			2 \amp -5 \amp -1 \\
+			1 \amp -2 \amp 3
+		\end{array}\right],
+		\amp
+		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
+		\amp
+		\uvec{b} \amp = \left[\begin{array}{r} 7 \\ -2 \end{array}\right].
+	</mrow></md>
+	</p>
+	<aside>
+		<title> Notice </title>
+		<p>
+		<m>\uvec{x}</m> and <m>\uvec{b}</m> are both <em>column</em> matrices (<ie /> matrices consisting of a single column.)
+		</p>
+	</aside>
+	</introduction>
+	<task><p> Are you clear on how the matrices <m>A,\uvec{x},\uvec{b}</m> were formed from the system? </p></task>
+	<task><p>
+		What are the dimensions of <m>A</m>, <m>\uvec{x}</m>, and <m>\uvec{b}</m>? Do you notice any patterns in the dimensions when written out in that order?
+	</p></task>
+	<task>
+		<statement><p>
+		If we want to represent the above system as a single matrix equation <m>A\uvec{x} = \uvec{b}</m>, then the result of matrix <m>A</m> times matrix <m>\uvec{x}</m> on the left should be another matrix. What must be the dimensions of this resulting <q>product</q> matrix?
+		</p></statement>
+		<hint><p>
+			We have a third matrix that we are supposing the product <m>A\uvec{x}</m> is equal to.
+		</p></hint>
+	</task>
+	<task><p>
+		Keeping in mind the dimensions for product matrix <m>A\uvec{x}</m> determined in the previous step, what must the <em>entries</em> of the product <m>A\uvec{x}</m> be so that the single <em>matrix</em> equation <m>A\uvec{x}=\uvec{b}</m> <em>represents all of the information from our original equations.</em>
+	</p></task>
+	<task><p>
+		Now work backwards: how should calculating <q><m>A</m> times <m>\uvec{x}</m></q> actually be carried out so that the result is your result from the previous step?
+	</p></task>
+	<task><p>
+		The values <m>x=10</m>, <m>y=3</m>, <m>z=-2</m> form a solution to the above system. Verify this by multiplying <m>A</m> against <m>\uvec{x}</m> with these values substitued in, and comparing the result with <m>\uvec{b}</m>.
+	</p></task>
+</activity>
+
+<activity><p>
+	Consider
+	<md><mrow>
+		A \amp = \left[\begin{array}{rrr}
+			2 \amp 5 \amp -1 \\
+			1 \amp -2 \amp 3
+		\end{array}\right],
+		\amp
+		B \amp = \left[\begin{array}{rrr}
+			1 \amp 0 \amp 2 \\
+			3 \amp 3 \amp 0 \\
+			-1 \amp 1 \amp -2
+		\end{array}\right].
+	</mrow></md>
+	Compute the product <m>AB</m> by considering <m>B</m> as a collection of columns and using the procedure for <q>matrix times column</q> that you developed in <xref ref="activity-matrix-ops-system-to-matrix-mult" />.
+</p></activity>
+
+<activity xml:id="activity-matrix-ops-matrix-mult-order-matters"><p>
+	We all know that <m>3</m> times <m>5</m> and <m>5</m> times <m>3</m> have the same result. Algebraically, we write that <m>ab=ba</m> is true for all numbers <m>a,b</m>. What about matrices? Try it with matrices
+	<md><mrow>
+		A \amp = \left[\begin{array}{rr}
+			1 \amp 0 \\
+			1 \amp -1
+		\end{array}\right],
+		\amp
+		B \amp = \left[\begin{array}{rr}
+			3 \amp 2 \\
+			1 \amp -1
+		\end{array}\right].
+	</mrow></md>
+</p></activity>
+
+<activity xml:id="activity-matrix-ops-matrix-powers">
+	<introduction><p> In the following, assume <m>A,B</m> are square matrices. </p></introduction>
+	<task xml:id="activity-matrix-ops-matrix-powers-def"><p>
+		What do you think <m>A^2</m> means? <m>A^3</m>?
+	</p></task>
+	<task xml:id="activity-matrix-ops-matrix-powers-order-matters">
+		<statement><p>
+		Explain why the formula <m>(AB)^2 = A^2 B^2</m> is <em>wrong</em>. What is the correct formula?
+		</p></statement>
+		<hint><p>
+			What does <m>(AB)^2</m> <em>mean</em>? Then consider
+			<xref ref="activity-matrix-ops-matrix-mult-order-matters" />.
+		</p></hint>
+	</task>
+	<task xml:id="activity-matrix-ops-matrix-powers-foil-binomial">
+		<statement><p>
+		Explain why the formula <m>(A+B)^2 = A^2 + 2AB + B^2</m> is <em>wrong</em>. What is the correct formula?
+		</p></statement>
+		<hint><p>FOIL.</p></hint>
+	</task>
+</activity>
+
+</worksheet>
+
+<!--
+
+% TODO: extra stuff, add back in if there seems there might be time for them
+
+%	%TODO: if using this, might need <m>m \times n</m> explained, or maybe replace by just words (but also see first activity...)
+%	\item In general, for <m>m\times n</m> matrix <m>A</m> and <m>k\times \ell</m> matrix <m>B</m>, what pattern must exist between numbers <m>m,n,k,\ell</m> for the product <m>AB</m> to make sense using the ``matrix times column'' procedure you developed in the previous two activities? What dimensions will the product matrix <m>AB</m> have?
+
+%	\item If <m>\zerovec</m> represents the zero matrix, what do you think the algebra rules for <m>\zerovec A</m> and <m>A\zerovec</m> are? Justify your answers.\\
+%	\begin{inlinenotenb}Assume <m>\zerovec</m> and <m>A</m> are of compatible sizes for matrix multiplication in each case.\end{inlinenotenb}
+
+\end{lecexercises}
+
+-->

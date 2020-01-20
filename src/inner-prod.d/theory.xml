@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-inner-prod-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-inner-prod-theory-prod-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inner-prod-theory-prod-props" /></em></li>
+<li><xref ref="subsection-inner-prod-theory-Rn-Cn" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-inner-prod-theory-Rn-Cn" /></em></li>
+</ul></p></assemblage>
+
+
+<subsection xml:id="subsection-inner-prod-theory-prod-props">
+<title>Properties of inner products</title>
+
+<p>
+Here we list algebraic properties of inner products,
+including those prescribed by the inner product axioms.
+</p>
+
+<proposition xml:id="proposition-inner-prod-real-algebra">
+
+	<title> Algebra rules of real inner products </title>
+
+	<statement><p>
+		Suppose <m>\inprod{\blank}{\blank}</m> is a real inner product.
+		Then the following are true for all vectors <m>\uvec{u}</m>, <m>\uvec{v}</m>, and <m>\uvec{w}</m> in the associated inner product space,
+		and all scalars <m>k</m>.
+		<ol cols="2">
+			<li xml:id="proposition-inner-prod-real-algebra-symmetric">
+				<m>\uvecinprod{v}{u} = \uvecinprod{u}{v}</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-real-algebra-distrib-left-over-right">
+				<m>\inprod{\uvec{u}}{\uvec{v} + \uvec{w}} = \uvecinprod{u}{v} + \uvecinprod{u}{w}</m>.
+			</li>
+			<li> <m>\inprod{\uvec{u}}{\uvec{v} - \uvec{w}} = \uvecinprod{u}{v} - \uvecinprod{u}{w}</m>. </li>
+			<li xml:id="proposition-inner-prod-real-algebra-distrib-right-over-left">
+				<m>\inprod{\uvec{u} + \uvec{v}}{\uvec{w}} = \uvecinprod{u}{w} + \uvecinprod{v}{w}</m>.
+			</li>
+			<li> <m>\inprod{\uvec{u} - \uvec{v}}{\uvec{w}} = \uvecinprod{u}{w} - \uvecinprod{v}{w}</m>. </li>
+			<li xml:id="proposition-inner-prod-real-algebra-scalar-left">
+				<m>\inprod{k \uvec{u}}{\uvec{v}} = k \uvecinprod{u}{v}</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-real-algebra-scalar-right">
+				<m>\inprod{\uvec{u}}{k \uvec{v}} = k \uvecinprod{u}{v}</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-real-algebra-vs-norm">
+				<m>\uvecinprod{v}{v} = \unorm{v}^2</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-real-algebra-zero">
+				Both <m>\inprod{\zerovec}{\uvec{v}} = 0</m> and <m>\inprod{\uvec{v}}{\zerovec} = 0</m>.
+			</li>
+		</ol>
+	</p></statement>
+
+	<proof><!-- TODO more ? -->
+		<p>
+		We will prove only <xref ref="proposition-inner-prod-real-algebra-zero">Rule</xref>
+		and leave the rest up to you, the reader.
+		(Though some of these are just restatements of the inner product axioms.)
+		</p><p>
+		Following the advice of <xref ref="activity-inner-prod-zero" />,
+		consider
+		<me> \inprod{\zerovec}{\uvec{v}} = \inprod{k \zerovec}{\uvec{v}} = k \inprod{\zerovec}{\uvec{v}} </me>,
+		which holds for every scalar <m>k</m> by <xref ref="proposition-inner-prod-real-algebra-scalar-left">Rule</xref>
+		(or, really, by <xref ref="list-inner-prod-concepts-real-axioms-homogeneous" text="local">Axiom RIP</xref>).
+		If we take scalar <m>k = 0</m>, then we get
+		<me> \inprod{\zerovec}{\uvec{v}} = 0 \inprod{\zerovec}{\uvec{v}} = 0 </me>,
+		as desired.
+		</p><p>
+		The symmetric formula <m>\inprod{\uvec{v}}{\zerovec} = 0</m>
+		then follows by <xref ref="proposition-inner-prod-real-algebra-symmetric">Rule</xref>
+		(or, really, by <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>).
+		</p>
+	</proof>
+
+</proposition>
+
+<p>
+Most of the rules above also hold for complex inner products,
+but there are some wrinkles due to the complex conjugate.
+</p>
+
+<proposition xml:id="proposition-inner-prod-complex-algebra">
+
+	<title> Algebra rules of complex inner products </title>
+
+	<statement><p>
+		Suppose <m>\inprod{\blank}{\blank}</m> is a complex inner product.
+		Then the following are true for all vectors <m>\uvec{u}</m>, <m>\uvec{v}</m>, and <m>\uvec{w}</m> in the associated inner product space,
+		and all scalars <m>a</m>.
+		<ol cols="2">
+			<li xml:id="proposition-inner-prod-complex-algebra-symmetric">
+				<m>\uvecinprod{v}{u} = \lcconj{\uvecinprod{u}{v}}</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-complex-algebra-distrib-left-over-right">
+				<m>\inprod{\uvec{u}}{\uvec{v} + \uvec{w}} = \uvecinprod{u}{v} + \uvecinprod{u}{w}</m>.
+			</li>
+			<li> <m>\inprod{\uvec{u}}{\uvec{v} - \uvec{w}} = \uvecinprod{u}{v} - \uvecinprod{u}{w}</m>. </li>
+			<li xml:id="proposition-inner-prod-complex-algebra-distrib-right-over-left">
+				<m>\inprod{\uvec{u} + \uvec{v}}{\uvec{w}} = \uvecinprod{u}{w} + \uvecinprod{v}{w}</m>.
+			</li>
+			<li> <m>\inprod{\uvec{u} - \uvec{v}}{\uvec{w}} = \uvecinprod{u}{w} - \uvecinprod{v}{w}</m>. </li>
+			<li xml:id="proposition-inner-prod-complex-algebra-scalar-left">
+				<m>\inprod{a \uvec{u}}{\uvec{v}} = a \uvecinprod{u}{v}</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-complex-algebra-scalar-right">
+				<m>\inprod{\uvec{u}}{a \uvec{v}} = \cconj{a} \uvecinprod{u}{v}</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-complex-algebra-vs-norm">
+				<m>\uvecinprod{v}{v} = \unorm{v}^2</m>.
+			</li>
+			<li xml:id="proposition-inner-prod-complex-algebra-zero">
+				Both <m>\inprod{\zerovec}{\uvec{v}} = 0</m> and <m>\inprod{\uvec{v}}{\zerovec} = 0</m>.
+			</li>
+		</ol>
+	</p></statement>
+
+	<proof><!-- TODO more ? -->
+		<p>
+		We will prove only <xref ref="proposition-inner-prod-complex-algebra-scalar-right">Rule</xref>
+		and leave the rest up to you, the reader.
+		(Though some of these are just restatements of the inner product axioms.)
+		</p><p>
+		Calculate
+		<md>
+			<mrow>
+				\inprod{\uvec{u}}{a \uvec{v}}
+				\amp = \lcconj{\inprod{a \uvec{v}}{\uvec{u}}}
+				\amp \amp\text{(i)}
+			</mrow>
+			<mrow> \amp = \lcconj{a \inprod{\uvec{v}}{\uvec{u}}} \amp \amp\text{(ii)} </mrow>
+			<mrow> \amp = \cconj{a} \lcconj{\inprod{\uvec{v}}{\uvec{u}}} \amp \amp\text{(iii)} </mrow>
+			<mrow> \amp = \cconj{a} \uvecinprod{u}{v} \amp \amp\text{(iv)} </mrow>
+		</md>,
+		with justifications
+		<ol label="(i)">
+			<li>
+				<xref ref="proposition-inner-prod-complex-algebra-symmetric">Rule</xref>
+				(or, really, <xref ref="list-inner-prod-concepts-complex-axioms-symmetric" text="local">Axiom CIP</xref>);
+			</li>
+			<li>
+				<xref ref="proposition-inner-prod-complex-algebra-scalar-left">Rule</xref>
+				(or, really, <xref ref="list-inner-prod-concepts-complex-axioms-homogeneous" text="local">Axiom CIP</xref>);
+			</li>
+			<li>
+				<xref ref="proposition-appendix-complex-field-conjugate-properties-product">Rule</xref>
+				of <xref ref="proposition-appendix-complex-field-conjugate-properties" />; and
+			</li>
+			<li>
+				<xref ref="proposition-inner-prod-complex-algebra-symmetric">Rule</xref>
+				(or, really, <xref ref="list-inner-prod-concepts-complex-axioms-symmetric" text="local">Axiom CIP</xref>).
+			</li>
+		</ol>
+		</p>
+	</proof>
+
+</proposition>
+
+<p>
+The addition and scalar multiple rules for inner products can be combined to demonstrate that a real inner product is <term>bilinear</term>
+(<ie /> linear in both terms),
+while a complex inner product is <term>sesquilinear</term>
+(<ie /> linear in the first term but conjugate-linear in the second).
+</p>
+<aside><title>Terminology</title><p> The prefix <term>sesqui-</term> means <q>one-and-a-half</q>.</p></aside>
+
+<proposition xml:id="proposition-inner-prod-linearity">
+	<title>Linearity of inner products</title>
+	<statement><p><ol>
+		<li>
+			A real inner product is <term>bilinear</term>.
+			That is, for all vectors <m>\uvec{u}</m>, <m>\uvec{v}</m>, <m>\uvec{w}</m> in a real inner product space,
+			and all scalars <m>a</m> and <m>b</m>,
+			we have
+			<md>
+				<mrow>
+					\inprod{a \uvec{u} + b \uvec{v}}{\uvec{w}} \amp = a \uvecinprod{u}{w} + b \uvecinprod{v}{w},
+				</mrow><mrow>
+					\inprod{\uvec{u}}{a \uvec{v} + b \uvec{w}} \amp = a \uvecinprod{u}{v} + b \uvecinprod{u}{w}.
+				</mrow>
+			</md>
+		</li>
+		<li>
+			A complex inner product is <term>sesquilinear</term>.
+			That is, for all vectors <m>\uvec{u}</m>, <m>\uvec{v}</m>, <m>\uvec{w}</m> in a complex inner product space,
+			and all scalars <m>a</m> and <m>b</m>,
+			we have
+			<md>
+				<mrow>
+					\inprod{a \uvec{u} + b \uvec{v}}{\uvec{w}} \amp = a \uvecinprod{u}{w} + b \uvecinprod{v}{w},
+				</mrow><mrow>
+					\inprod{\uvec{u}}{a \uvec{v} + b \uvec{w}} \amp = \cconj{a} \uvecinprod{u}{v} + \cconj{b} \uvecinprod{u}{w}.
+				</mrow>
+			</md>
+		</li>
+	</ol></p></statement>
+</proposition>
+
+<p>
+The properties of norm that we encountered using the dot product in <m>\R^n</m> remain true in every inner product space.
+</p>
+
+<proposition xml:id="proposition-inner-prod-norm-algebra">
+
+	<title> Properties of the norm </title>
+
+	<statement><p>
+		The following are true for all vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in an inner product space
+		(real or complex) and all scalars <m>k</m>.
+		<ol>
+			<li xml:id="proposition-inner-prod-norm-algebra-nonneg">
+				<m>\unorm{v} \ge 0</m>, and <m>\unorm{v} = 0</m> only for <m>\uvec{v} = 0</m>.
+			</li>
+			<li> <m>\norm{-\uvec{v}} = \unorm{v}</m>. </li>
+			<li xml:id="proposition-inner-prod-norm-algebra-scalar-mul">
+				<m>\norm{k\uvec{v}} = \abs{k}\unorm{v}</m>,
+				where <m>\abs{k}</m> indicates the ordinary absolute value of <m>k</m> in the context of a real inner product space,
+				but indicates the complex modulus of <m>k</m> in the context of a complex inner product space.
+			</li>
+			<li> <m>\norm{\uvec{v}-\uvec{u}} = \norm{\uvec{u}-\uvec{v}}</m>. </li>
+		</ol>
+	</p></statement>
+
+	<!-- TODO proofs? -->
+
+</proposition>
+
+<p>
+Both <xref ref="theorem-vector-geom-cauchy-schwarz" text="title" />
+and the <xref ref="theorem-vector-geom-triangle-ineq" text="title" />
+remain true in every inner product space, real or complex.
+</p>
+
+<theorem xml:id="theorem-inner-prod-cauchy-schwarz">
+	<idx><h>Cauchy-Schwarz inequality</h></idx>
+	<idx><h>inequality</h><h>Cauchy-Schwarz</h></idx>
+	<title>The Cauchy-Schwarz inequality</title>
+
+	<statement><p>
+		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in an inner product space,
+		we have <m>\abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v}</m>,
+		where <m>\abs{\udotprod{u}{v}}</m> indicates the ordinary absolute value in the real context and the complex modulus in the complex context.
+	</p></statement>
+
+</theorem>
+
+<theorem xml:id="theorem-vector-geom-triangle-ineq">
+	<idx><h>triangle inequality</h></idx>
+	<idx><h>inequality</h><h>triangle</h></idx>
+	<title>Triangle inequality</title>
+	<statement><p>
+		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in an inner product space,
+		we have <m>\norm{\uvec{u}+\uvec{v}} \le \unorm{u} + \unorm{v}</m>.
+	</p></statement>
+</theorem>
+
+<p> A vector can always be normalized to a <term>unit vector</term>. </p>
+
+<proposition xml:id="proposition-inner-prod-unit-vectors">
+	<statement><p>
+		For nonzero vector <m>\uvec{v}</m> in an inner product space,
+		the unit vectors in <m>\Span \{\uvec{v}\}</m> are
+		<me>
+			\frac{k}{\unorm{v}} \uvec{v} \text{,}
+			\qquad \text{for} \qquad
+			\abs{k} = 1
+		</me>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		Just calculate
+		<me> \norm{\frac{k}{\unorm{v}} \uvec{v}} </me>
+		using <xref ref="proposition-inner-prod-norm-algebra-scalar-mul">Rule</xref>
+		of <xref ref="proposition-inner-prod-norm-algebra" />,
+		and simplify to get <m>1</m>.
+	</p></proof>
+</proposition>
+
+<remark xml:id="remark-inner-prod-theory-unit-vectors"><p>
+	As usual, in the above proposition <m>\abs{k}</m> indicates the ordinary absolute value in the real context and the complex modulus in the complex context.
+	The only two real scalars that satisfy <m>\abs{k} = 1</m> are <m>k = \pm 1</m>.
+	But in the complex context, there are an infinite number of scalars that satisfy this condition:
+	the entire unit circle in the complex plane.
+</p></remark>
+
+</subsection>
+
+
+<subsection xml:id="subsection-inner-prod-theory-Rn-Cn">
+<title>Inner products of <m>\R^n</m> and <m>\C^n</m></title>
+
+<p>
+Finally we'll address what we learned about alternative inner products in
+<xref ref="activity-inner-prod-Rn-others" />
+and
+<xref ref="subsection-inner-prod-concepts-modified-dot-product" />.
+</p>
+
+<proposition xml:id="proposition-inner-prod-pos-def-dot-product-on-Rn-Cn">
+	<title>Modified dot products are inner products</title>
+	<statement><p><ol>
+		<li>
+			If <m>A</m> is a positive definite real matrix,
+			then the pairing
+			<me> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </me>
+			defines an inner product on <m>\R^n</m>.
+		</li>
+		<li>
+			If <m>A</m> is a positive definite complex matrix,
+			then the pairing
+			<me> \uvecinprod{u}{v} = \adjoint{\uvec{v}} A \uvec{u} </me>
+			defines an inner product on <m>\C^n</m>.
+		</li>
+	</ol></p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		In the real case, assuming <m>A</m> is positive definite means, by definition,
+		that <m>A</m> is symmetric and that the pairing defined in the statement satisfies
+		<xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>.
+		The symmetry of <m>A</m> addresses <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+		which leaves only
+		<xref ref="list-inner-prod-concepts-real-axioms-additive" text="local">Axiom RIP</xref>
+		and <xref ref="list-inner-prod-concepts-real-axioms-homogeneous" text="local">Axiom RIP</xref>,
+		which are easily confirmed using the properties of matrix algebra
+		(<xref ref="proposition-matrix-ops-algebra-rules" />).
+		</p><p>
+		The complex case is similar, with self-adjointness taking the place of symmetry.
+		</p>
+	</proof>
+</proposition>
+
+<p> The converse of the above proposition is true as well. </p>
+
+<theorem xml:id="theorem-inner-prod-on-Rn-Cn-is-pos-def-dot-product">
+	<title>Inner products are modified dot products</title>
+	<statement><p><ol>
+		<li>
+			If <m>\inprod{\blank}{\blank}</m> is an inner product on <m>\R^n</m>,
+			then there exists a positive definite real matrix <m>A</m> such that
+			<me> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </me>
+			for all <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>.
+		</li>
+		<li>
+			If <m>\inprod{\blank}{\blank}</m> is an inner product on <m>\C^n</m>,
+			then there exists a positive definite complex matrix <m>A</m> such that
+			<me> \uvecinprod{w}{z} = \adjoint{\uvec{z}} A \uvec{w} </me>
+			for all <m>\uvec{w},\uvec{z}</m> in <m>\C^n</m>.
+		</li>
+	</ol></p></statement>
+	<proof>
+		<p>
+		We will prove only the real case;
+		the complex case is similar.
+		</p><p>
+		First, notice that for <em>every</em> matrix <m>A</m>,
+		<me> \utrans{\uvec{e}}_i A \uvec{e}_j = a_{ij} </me>,
+		where <m>a_{ij}</m> is the <m>(i,j)</m> entry of <m>A</m>
+		and <m>\uvec{e}_i,\uvec{e}_j</m> are standard basis vectors, as usual.
+		So if we set <m>A</m> to be the matrix with entries
+		<me> a_{ij} = \inprod{\uvec{e}_j}{\uvec{e}_i} </me>,
+		then we have
+		<me> \inprod{\uvec{e}_i}{\uvec{e}_j} = a_{ji} = \utrans{\uvec{e}}_j A \uvec{e}_i </me>,
+		which is a start.
+		And, as usually is the case, what is true for basis vectors will be true for all vectors.
+		</p>
+		<aside><title>Notice</title><p>
+			Because of <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+			we actually have <m>a_{ij} = \inprod{\uvec{e}_i}{\uvec{e}_j}</m>,
+			which is a more pleasing way to state the relationship between entries of <m>A</m> and inner product values of the standard basis vectors.
+		</p></aside>
+		<p>
+		Let's check: given <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>, we have
+		<md>
+			<mrow>
+				\utrans{\uvec{v}} A \uvec{u}
+				\amp = \utrans{(v_1 \uvec{e}_1 + \dotsb + v_n \uvec{e}_n)} A (u_1 \uvec{e}_1 + \dotsb + u_n \uvec{e}_n)
+			</mrow><mrow>
+				\amp = (v_1 \utrans{\uvec{e}}_1 + \dotsb + v_n \utrans{\uvec{e}}_n) (u_1 A \uvec{e}_1 + \dotsb + u_n A \uvec{e}_n)
+			</mrow><mrow>
+				\amp = \sum_{i=1}^n \sum_{j=1}^n v_j u_i \utrans{\uvec{e}}_j A \uvec{e}_i
+			</mrow><mrow>
+				\amp = \sum_{i=1}^n \sum_{j=1}^n u_i v_j \inprod{\uvec{e}_i}{\uvec{e}_j}
+			</mrow><mrow>
+				\amp = \inprod{u_1 \uvec{e}_1 + \dotsb + u_n \uvec{e}_n}{v_1 \uvec{e}_1 + \dotsb + v_n \uvec{e}_n}
+			</mrow><mrow>
+				\amp = \uvecinprod{u}{v}
+			</mrow>
+		</md>,
+		as desired.
+		</p><p>
+		It only remains to verify that <m>A</m> is positive definite.
+		Using <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
+		we have
+		<me>
+			a_{ij} = \inprod{\uvec{e}_j}{\uvec{e}_i}
+			 = \inprod{\uvec{e}_i}{\uvec{e}_j}
+			 = a_{ji}
+		</me>,
+		so <m>A</m> is symmetric.
+		And the fact that
+		<me> \utrans{\uvec{v}} A \uvec{u} = \uvecinprod{u}{v} </me>,
+		that we have verified above,
+		guarantees that
+		<me> \utrans{\uvec{v}} A \uvec{v} \gt 0 </me>
+		for all nonzero <m>\uvec{v}</m>,
+		by <xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>.
+		</p>
+	</proof>
+</theorem>
+
+<p>
+Finally, we verify the method of constructing positive definite matrices discussed in
+<xref ref="subsection-inner-prod-concepts-modified-dot-product" />.
+</p>
+
+<proposition>
+	<title>Constructing positive definite matrices</title>
+	<statement><p><ol>
+		<li>
+			If <m>P</m> is an invertible real matrix,
+			then <m>A = \utrans{P} P</m> is a positive definite real matrix.
+		</li>
+		<li>
+			If <m>P</m> is an invertible complex matrix,
+			then <m>A = \adjoint{P} P</m> is positive definite complex matrix.
+		</li>
+	</ol></p></statement>
+	<proof>
+		<p>
+		Again, we will provide the proof only in the real context;
+		the complex context is similar.
+		</p><p>
+		It is straightfoward to verify that <m>A = \utrans{P} P</m> is symmetric by showing <m>\utrans{A} = A</m>.
+		So we will focus on the positive part of the definition of
+		<term><xref ref="definition-inner-product-pos-def-real" text="title" /></term>.
+		Suppose <m>\uvec{x}</m> is a nonzero column vector in <m>\R^n</m>.
+		Then,
+		<md>
+			<mrow> \utrans{\uvec{x}} A \uvec{x} \amp = \utrans{\uvec{x}} \utrans{P} P \uvec{x} </mrow>
+			<mrow> \amp = \utrans{(P \uvec{x})} (P \uvec{x}) </mrow>
+			<mrow> \amp = \dotprod{(P \uvec{x})}{(P \uvec{x})} </mrow>
+			<mrow> \amp = \norm{P \uvec{x}}^2 </mrow>
+		</md>.
+		We assumed both <m>P</m> invertible and <m>\uvec{x} \neq \zerovec</m>,
+		so <m>P \uvec{x} \neq \zerovec</m> must be true as well
+		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+		Which also means <m>\norm{P \uvec{x}} \neq 0</m>
+		(<xref ref="proposition-inner-prod-norm-algebra-nonneg">Rule</xref>
+		of <xref ref="proposition-inner-prod-norm-algebra" />).
+		And therefore
+		<me> \utrans{\uvec{x}} A \uvec{x} = \norm{P \uvec{x}}^2 > 0 </me>,
+		as desired.
+	</p>
+	</proof>
+</proposition>
+
+</subsection>
+
+</section>

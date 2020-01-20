@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-similarity-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-similarity-theory-equiv-rel" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-theory-equiv-rel" /></em></li>
+<li><xref ref="subsection-similarity-theory-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-theory-props" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-similarity-theory-equiv-rel">
+<title>Similarity is an equivalence relation</title>
+
+<p>
+We will record here the result of
+<xref ref="activity-similarity-equiv-rel" />
+without proof,
+as we have already justified it in that activity.
+</p>
+
+<theorem xml:id="theorem-similarity-equiv-rel"><statement><p>
+	Similarity is an equivalence relation on square matrices of a particular size.
+	That is, similarity is reflexive, symmetric, and transitive.
+</p></statement></theorem>
+
+<p>
+As discussed in
+<xref ref="subsection-similarity-concepts-classes" />,
+<xref ref="theorem-similarity-equiv-rel" />
+implies that similarity partitions <m>\matrixring_n(\C)</m> into <term>similarity classes</term>.
+There are some special similarity classes,
+which explains our initial focus on diagonal form
+(<xref ref="chapter-diagonalization" />)
+as the first <q>simple</q> form of interest.
+</p>
+
+<proposition xml:id="proposition-similarity-scalar-sim-classes">
+	<title>Scalar similarity classes</title>
+	<statement><p> The similarity class of a scalar matrix contains only that matrix. </p></statement>
+	<proof><title>Proof idea</title><p>
+		All that is required is to prove that a scalar matrix <m>k I</m> can <em>only</em> be similar to itself.
+		That is, if <m>B \similar k I</m> is true, then it must in fact be that <m>B = kI</m>.
+		We leave the details to you, the reader.
+	</p></proof>
+</proposition>
+
+<remark><p> Note that this proposition applies to both the zero matrix <m>\zerovec = 0 I</m> and the identity matrix <m>I = 1 I</m>. </p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-similarity-theory-props">
+<title>Properties of similar matrices</title>
+
+<p> Now we'll state and prove the properties of similar matrices that can be transferred from one to the other via a transition matrix that realizes the similarity. </p>
+
+<proposition xml:id="proposition-similarity-powers">
+	<title>Powers of similar are similar</title>
+	<statement><p>
+		If <m>A</m> and <m>B</m> are similar,
+		then so are <m>A^k</m> and <m>B^k</m> for every positive integer <m>k</m>.
+		If, in addition, we assume that one of <m>A,B</m> is invertible,
+		then the other must be as well,
+		and we may expand our first claim to include <em>every</em> integer <m>k</m>.
+	</p></statement>
+	<proof>
+		<p> Assume <m>B = \inv{P} A P</m>. </p>
+		<case><title>Case of positive <m>k</m></title><p>
+			We have
+			<me> B^k = (\inv{P} A P)^k = (\inv{P} A P) (\inv{P} A P) (\inv{P} A P) \dotsm (\inv{P} A P), </me>
+			where the expression on the right has <m>k</m> factors of <m>(\inv{P} A P)</m>.
+			By associativity, rearrange the brackets:
+			<me> B^k = \inv{P} A (P \inv{P}) A (P \inv{P}) A (P \dotsm \inv{P}) A P </me>.
+			Each factor of <m>P \inv{P}</m> is equal to the identity matrix,
+			and the identity matrix has no effect in matrix multiplication.
+			Thus,
+			<me> B^k = \inv{P} A A A \dotsm A P, </me>
+			where there are <m>k</m> factors of <m>A</m>,
+			since we started with <m>k</m> factors of <m>(\inv{P} A P)</m>.
+			We now have <m>B^k = \inv{P} A^k P</m>,
+			showing that <m>A^k</m> and <m>B^k</m> are similar, as desired.
+		</p></case>
+		<p>
+		If we assume that <m>A</m> is invertible,
+		then so is <m>B</m> since it is equal to the product of invertible matrices <m>\inv{P}</m>, <m>A</m>, and <m>P</m>
+		(<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" />).
+		If we instead assume that <m>B</m> is invertible,
+		then we can make the same argument using expression <m>A = P B \inv{P}</m> to conclude that <m>A</m> is invertible as well.
+		</p><p>
+		For the remainder of the cases of showing similarity of powers of <m>A</m> and <m>B</m>,
+		assume that <m>A</m> and <m>B</m> are both invertible.
+		</p>
+		<case><title>Case of <m>k = 0</m></title><p>
+			By convention, both <m>A^0 = I</m> and <m>B^0 = I</m>,
+			and the identity matrix is similar to itself.
+		</p></case>
+		<case><title>Case of <m>k = -1</m></title><p>
+			Demonstrating similarity of <m>\inv{A}</m> and <m>\inv{B}</m> is straightforward,
+			and we leave it to you, the reader.
+		</p></case>
+		<case><title>Case of <m>k <lt /> -1</m></title><p>
+			Write <m>k = - m</m> for <m>m</m> a positive integer.
+			If <m>A</m> and <m>B</m> are similar,
+			then so are <m>\inv{A}</m> and <m>\inv{B}</m> by a previous case.
+			But then so are positive powers of <m>\inv{A}</m> and <m>\inv{B}</m>,
+			also by a previous case.
+			In particular, the matrices
+			<md><mrow>
+				\bigl(\inv{A}\bigr)^m \amp = A^{-m} = A^k \text{,} \amp
+				\bigl(\inv{B}\bigr)^m \amp = B^{-m} = B^k
+			</mrow></md>
+			are similar.
+		</p></case>
+	</proof>
+</proposition>
+
+<proposition>
+	<statement><p>
+		Assume <m>B = \inv{P} A P</m>.
+		Then
+		<ol>
+			<li> The transition matrix <m>P</m> transforms null space vectors of <m>B</m> into null space vectors of <m>A</m>. </li>
+			<li> The transition matrix <m>P</m> transforms column space vectors of <m>B</m> into column space vectors of <m>A</m>. </li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof idea</title><p><ol>
+		<li>
+			Assume <m>B \uvec{x} = \zerovec</m>.
+			Substitute the similarity relation <m>B = \inv{P} A P</m> into this equality and rearrange to demonstrate that <m>A (P \uvec{x}) = \zerovec</m>.
+		</li>
+		<li>
+			If vector <m>\uvec{b}</m> is in the column space of <m>B</m>, then the system <m>B \uvec{x} = \uvec{b}</m> is consistent.
+			(See the discussion in <xref ref="subsection-col-row-null-space-concepts-colspace"/>.)
+			Substitute the similarity relation <m>B = \inv{P} A P</m> in <m>B \uvec{x} = \uvec{b}</m> and rearrange to demonstrate that the system
+			<m>A (P \uvec{x}) = P \uvec{b}</m> is consistent,
+			which means that <m>P \uvec{b}</m> is in the column space of <m>A</m>.
+		</li>
+	</ol></p></proof>
+</proposition>
+
+<p>
+The following corollary follows from the proposition due to the fact that the transition matrix <m>P</m> is invertible.
+We will just state this corollary without proof.
+</p>
+
+<corollary xml:id="corollary-similarity-rank-nullity">
+	<title>Rank and nullity of similar matrices</title>
+	<statement><p>
+		If <m>A</m> and <m>B</m> are similar matrices then the dimensions of the null spaces of the two matrices are equal,
+		and also the dimensions of the column spaces of the two matrices are equal.
+		In other words, similar matrices have the same nullity and rank.
+	</p></statement>
+</corollary>
+
+<p> Now we work toward relating eigenvalues and eigenvectors between similar matrices. </p>
+
+<proposition xml:id="proposition-similarity-similar-same-det">
+	<!-- TODO add same trace? -->
+	<statement><p> Similar matrices have the same determinant. </p></statement>
+	<proof><title>Proof idea</title><p>
+		Assuming <m>B = \inv{P} A P</m>, begin with <m>\det B = \det (\inv{P} A P)</m>, and use
+		<xref ref="proposition-more-det-product-many-matrices">Statement</xref>
+		of
+		<xref ref="proposition-more-det-product" />
+		and
+		<xref ref="proposition-more-det-inverse" />
+		to simplify.
+	</p></proof>
+</proposition>
+
+<theorem xml:id="theorem-similarity-similar-same-char-poly-evals-transformed-evecs">
+	<statement><p>
+		Similar matrices have the same characteristic polynomial,
+		hence also the same eigenvalues with the same algebraic multiplicities.
+		Moreover,
+		if <m>B = \inv{P} A P</m>,
+		then for each shared eigenvalue the transition matrix <m>P</m> transforms eigenvectors of <m>B</m> into eigenvectors of <m>A</m>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		Assume <m>B = \inv{P} A P</m>.
+		Then using this similarity relation and the identity <m>\inv{P} P = I</m>,
+		one can show that <m>\lambda I - B = \inv{P} (\lambda I - A) P</m> as well.
+		Thus the matrices <m>\lambda I - B</m> and <m>\lambda I - A</m> are also similar,
+		and hence have the same determinant
+		(<xref ref="proposition-similarity-similar-same-det" />).
+		Therefore, the characteristic polynomial of <m>B</m> is the same as that of <m>A</m>.
+		And since the eigenvalues of a matrix are precisely the roots of its characteristic polynomial,
+		these similar matrices must also have the same eigenvalues.
+		</p><p>
+		Finally, suppose <m>\uvec{x}_0</m> is an eigenvector of <m>B</m> corresponding to eigenvalue <m>\lambda</m>.
+		By definition, this means <me>B \uvec{x}_0 = \lambda \uvec{x}_0</me>.
+		Substitute the similarity relation for <m>A</m> and <m>B</m> and rearrange to <me>A (P \uvec{x}_0) = \lambda (P \uvec{x}_0)</me>,
+		which says that <m>P \uvec{x}_0</m> is an eigenvector of <m>A</m> corresponding to eigenvalue <m>\lambda</m>.
+	</p></proof>
+</theorem>
+
+<p>
+Similarly to null spaces and column spaces of similar matrices above,
+the following corollary follows from the theorem due to the fact that the transition matrix <m>P</m> is invertible.
+We will also just state this corollary without proof.
+</p>
+
+<corollary><statement><p>
+	If <m>A</m> and <m>B</m> are similar matrices and <m>\lambda</m> is a shared eigenvalue of these two matrices,
+	then the eigenspace of <m>A</m> corresponding to <m>\lambda</m> has the same dimension as the eigenspace of <m>B</m> corresponding to <m>\lambda</m>.
+	In other words,
+	the geometric multiplicity of <m>\lambda</m> as an eigenvalue of <m>A</m> is the same as the geometric multiplicity of <m>\lambda</m> as an eigenvalue of <m>B</m>.
+</p></statement></corollary>
+
+</subsection>
+
+</section>

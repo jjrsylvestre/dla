@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-matrix-adjoints-examples">
+
+<title>Examples</title>
+
+<p> Here we will provide two examples of constructing product-preserving matrices. </p>
+
+<example><title>An orthogonal matrix</title>
+	<p>
+	The vectors
+	<md><mrow>
+		\uvec{v}_1 \amp = \begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix} \text{,} \amp
+		\uvec{v}_2 \amp = \left[\begin{array}{r} -1 \\ 1 \\ 0 \\ 2 \end{array}\right] \text{,} \amp
+		\uvec{v}_3 \amp = \left[\begin{array}{r} -1 \\ 1 \\ 0 \\ -1 \end{array}\right] \text{,} \amp
+		\uvec{v}_4 \amp = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}
+	</mrow></md>
+	form an orthogonal basis of <m>\R^4</m>.
+	</p>
+	<aside><title>Notice</title><p>
+		These are essentially just the final vectors from <xref ref="example-inprod-orthog-orthog-comp-from-gs-M22" />,
+		but as <m>\R^4</m> vectors instead of as <m>\matrixring_{2 \times 2}(\R)</m> vectors.
+	</p></aside>
+	<p>
+	We can normalize these vectors into an orthonormal basis:
+	<md><mrow>
+		\uvec{v}_1' \amp = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \\ 0 \\ 0 \end{bmatrix} \text{,} \amp
+		\uvec{v}_2' \amp = \begin{bmatrix} -\frac{1}{\sqrt{6}} \\ \frac{1}{\sqrt{6}} \\ 0 \\ \frac{2}{\sqrt{6}} \end{bmatrix} \text{,} \amp
+		\uvec{v}_3' \amp = \begin{bmatrix} -\frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}} \\ 0 \\ -\frac{1}{\sqrt{3}} \end{bmatrix} \text{,} \amp
+		\uvec{v}_4' \amp = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} \text{.}
+	</mrow></md>
+	Placing these four vectors as columns in a <m>4 \times 4</m> matrix results in an orthogonal matrix:
+	<me>
+		A = \begin{bmatrix}
+			\frac{1}{\sqrt{2}} \amp -\frac{1}{\sqrt{6}} \amp -\frac{1}{\sqrt{3}} \amp 0 \\
+			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{6}} \amp \frac{1}{\sqrt{3}} \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1 \\
+			0 \amp \frac{2}{\sqrt{6}} \amp -\frac{1}{\sqrt{3}} \amp 0
+		\end{bmatrix}
+	</me>.
+	</p>
+</example>
+
+<example><title>A unitary matrix</title>
+	<p>
+	The vectors
+	<md><mrow>
+		\uvec{v}_1 \amp = \begin{bmatrix} 1 \\ 1 \\ \ci \\ \ci \end{bmatrix} \text{,} \amp
+		\uvec{v}_2 \amp = \left[\begin{array}{r} 1 \\ -3 \\ \ci \\ \ci \end{array}\right] \text{,} \amp
+		\uvec{v}_3 \amp = \begin{bmatrix} \ci \\ 0 \\ 1 \\ 0 \end{bmatrix} \text{,} \amp
+		\uvec{v}_4 \amp = \left[\begin{array}{r} \ci \\ 0 \\ -1 \\ 2 \end{array}\right]
+	</mrow></md>
+	form an orthogonal basis of <m>\C^4</m>.
+	</p>
+	<aside><title>Notice</title><p>
+		This is the orthogonal basis obtained through the Gram-Schmidt process
+		in <xref ref="example-inprod-orthog-complex-gs" />.
+	</p></aside>
+	<p>
+	We can normalize these vectors into an orthonormal basis:
+	<md><mrow>
+		\uvec{v}_1' \amp = \begin{bmatrix} \frac{1}{2} \\ \frac{1}{2} \\ \frac{\ci}{2} \\ \frac{\ci}{2} \end{bmatrix} \text{,} \amp
+		\uvec{v}_2' \amp = \begin{bmatrix} \frac{1}{2\sqrt{3}} \\ -\frac{\sqrt{3}}{2} \\ \frac{\ci}{2\sqrt{3}} \\ \frac{\ci}{2\sqrt{3}} \end{bmatrix} \text{,} \amp
+		\uvec{v}_3' \amp = \begin{bmatrix} \frac{\ci}{\sqrt{2}} \\ 0 \\ \frac{1}{\sqrt{2}} \\ 0 \end{bmatrix} \text{,} \amp
+		\uvec{v}_4' \amp = \begin{bmatrix} \frac{\ci}{\sqrt{6}} \\ 0 \\ -\frac{1}{\sqrt{6}} \\ \frac{2}{\sqrt{6}} \end{bmatrix} \text{.}
+	</mrow></md>
+	Placing these four vectors as columns in a <m>4 \times 4</m> matrix results in a unitary matrix:
+	<me>
+		A = \begin{bmatrix}
+			\frac{1}{2} \amp \frac{1}{2\sqrt{3}} \amp \frac{\ci}{\sqrt{2}} \amp \frac{\ci}{\sqrt{6}} \\
+			\frac{1}{2} \amp -\frac{\sqrt{3}}{2} \amp 0 \amp  0 \\
+			\frac{\ci}{2} \amp \frac{\ci}{2\sqrt{3}} \amp \frac{1}{\sqrt{2}} \amp -\frac{1}{\sqrt{6}} \\
+			\frac{\ci}{2} \amp \frac{\ci}{2\sqrt{3}} \amp 0 \amp \frac{2}{\sqrt{6}}
+		\end{bmatrix}
+	</me>.
+	</p>
+</example>
+
+</section>

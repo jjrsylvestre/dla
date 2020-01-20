@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-projection-theory" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-projection-theory-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-projection-theory-props" /></em></li>
+<li><xref ref="subsection-projection-theory-best-approx" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-projection-theory-best-approx" /></em></li>
+<li><xref ref="subsection-projection-theory-normal-sys" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-projection-theory-normal-sys" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-projection-theory-props">
+<title>Properties of orthogonal projection</title>
+
+<p>
+First, we formally state the existence of projection vectors.
+As discussed in <xref ref="subsection-projection-concepts-orthog-proj" />,
+this fact follows immediately from combining
+<xref ref="proposition-block-diag-complete-indep-decomp" />
+with
+<xref ref="corollary-inprod-orthog-complete-indep" />.
+</p>
+
+<theorem xml:id="proposition-projection-exist-unique"><p>
+	Suppose <m>U</m> is a subspace in an inner product space <m>V</m>.
+	Then every vector in <m>V</m> can be decomposed <em>uniquely</em> into a sum
+	<me> \uvec{v} = \uvec{u} + \uvec{u}' </me>,
+	where <m>\uvec{u}</m> is in <m>U</m>
+	and <m>\uvec{u}'</m> is in <m>\orthogcmp{U}</m>.
+</p></theorem>
+
+<p>
+Next, we'll formally record our formulas for projection onto <m>U</m> and onto <m>\orthogcmp{U}</m> from <xref ref="subsection-projection-concepts-orthog-proj" />,
+again without proof.
+</p>
+
+<theorem xml:id="proposition-projection-expansion"><p>
+	Suppose <m>U</m> is a subspace of a finite-dimensional inner product space <m>V</m>,
+	<me> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </me>
+	is an orthogonal basis for <m>U</m>,
+	and
+	<me> \basisfont{B}_V = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </me>
+	is an enlargement to an orthogonal basis for <m>V</m>.
+	Then we have the following formulas.
+	<ol>
+		<li>
+			For <m>\uvec{v}</m> in <m>V</m>,
+			we have
+			<md>
+				<mrow>
+					\proj_U \uvec{v}
+					\amp
+					= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
+					+ \dotsb
+					+ \frac{\inprod{\uvec{v}}{\uvec{e}_\ell}}{\norm{\uvec{e}_\ell}^2} \, \uvec{e}_\ell
+					\text{,}
+				</mrow><mrow></mrow><mrow>
+					\proj_{\orthogcmp{U}} \uvec{v}
+					\amp
+					= \frac{\inprod{\uvec{v}}{\uvec{e}_{\ell + 1}}}{\norm{\uvec{e}_{\ell + 1}}^2} \, \uvec{e}_{\ell + 1}
+					+ \dotsb
+					+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
+				</mrow>
+			</md>.
+		</li>
+		<li>
+			If <m>\basisfont{B}_V</m> is ortho<em>normal</em>,
+			then
+			<md>
+				<mrow>
+					\proj_U \uvec{v}
+					\amp
+					= \inprod{\uvec{v}}{\uvec{e}_1} \, \uvec{e}_1
+					+ \dotsb
+					+ \inprod{\uvec{v}}{\uvec{e}_\ell} \, \uvec{e}_\ell
+					\text{,}
+				</mrow><mrow></mrow><mrow>
+					\proj_{\orthogcmp{U}} \uvec{v}
+					\amp
+					= \inprod{\uvec{v}}{\uvec{e}_{\ell + 1}} \, \uvec{e}_{\ell + 1}
+					+ \dotsb
+					+ \inprod{\uvec{v}}{\uvec{e}_n} \, \uvec{e}_n
+				</mrow>
+			</md>.
+		</li>
+	</ol>
+</p></theorem>
+
+<p> The following properties of orthogonal projection echo those from <xref ref="proposition-orthog-proj-props" />. </p>
+
+<proposition xml:id="proposition-projection-props">
+
+	<title> Properties of orthogonal projection </title>
+
+	<statement><p>
+		Suppose <m>U</m> is a subspace of an inner product space <m>V</m>,
+		<m>\uvec{v}</m> and <m>\uvec{w}</m> are vectors in <m>V</m>,
+		and <m>k</m> is a scalar.
+		Then the following hold.
+		<ol>
+			<li xml:id="proposition-projection-props-zero">
+				<m>\proj_U \zerovec = \zerovec</m>.
+			</li>
+			<li> <m>\proj_U (k\uvec{v}) = k (\proj_U \uvec{v})</m>. </li>
+			<li> <m>\proj_U (\uvec{v} + \uvec{w}) = \proj_U \uvec{v} + \proj_U \uvec{w}</m>. </li>
+			<li xml:id="proposition-projection-props-identity-on-U">
+				If <m>\uvec{v}</m> is in <m>U</m>, then <m>\proj_U \uvec{v} = \uvec{v}</m>.
+			</li>
+			<li> <m> \proj_U (\proj_U \uvec{v}) = \proj_U \uvec{v} </m>. </li>
+			<li xml:id="proposition-projection-props-trivial-on-U-perp">
+				If <m>\uvec{v}</m> is in <m>\orthogcmp{U}</m>, then <m>\proj_U \uvec{v} = \zerovec</m>.
+			</li>
+			<li> <m> \proj_{\orthogcmp{U}} (\proj_U \uvec{v}) = \zerovec </m>. </li>
+			<li> <m> \proj_U (\proj_{\orthogcmp{U}} \uvec{v}) = \zerovec </m>. </li>
+			<li xml:id="proposition-projection-props-norm">
+				If
+				<m> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </m>
+				is an orthogonal basis for <m>U</m>, then
+				<me>
+					\norm{\proj_U \uvec{v}} = \sqrt{
+						\frac{\abs{\inprod{\uvec{v}}{\uvec{e}_1}}^2}{\norm{\uvec{e}_1}^2}
+						+ \dotsb
+						+ \frac{\abs{\inprod{\uvec{v}}{\uvec{e}_\ell}}^2}{\norm{\uvec{e}_\ell}^2}
+					}
+				</me>,
+				where the absolute values are redundant in the real context,
+				but indicate modulus in the complex context.
+			</li>
+		</ol>
+	</p></statement>
+
+	<proof><title>Proof idea</title>
+		<p>
+		Most of these statements follow immediately from <xref ref="proposition-projection-exist-unique" />
+		or from previous statements in the present proposition.
+		We leave the details to you, the reader, but here are two hints.
+		</p>
+		<case><title><xref ref="proposition-projection-props-zero">Statement</xref></title><p>
+			First consider <xref ref="theorem-inprod-orthog-complement-indep" /> and <xref ref="theorem-block-diag-pair-indep-subsp-iff-zero-intersect" />.
+		</p></case>
+		<case><title><xref ref="proposition-projection-props-norm">Statement</xref></title><p>
+			Similarly to the proof of
+			<xref ref="proposition-inprod-orthog-vs-dot-norm">Statement</xref>
+			of <xref ref="proposition-inprod-orthog-vs-dot" />,
+			apply <xref ref="theorem-inprod-orthog-pythag" /> to an expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m>
+			(<xref ref="proposition-projection-expansion" />),
+			first noting <xref ref="proposition-inprod-orthog-scaling" />.
+		</p></case>
+	</proof>
+
+</proposition>
+
+</subsection>
+
+<subsection xml:id="subsection-projection-theory-best-approx">
+<title>Best approximation is best</title>
+
+<theorem xml:id="theorem-projection-best-approx">
+	<statement><p>
+		Suppose <m>U</m> is a subspace of a finite-dimensional inner product space <m>V</m>,
+		and <m>\uvec{v}</m> is a vector in <m>V</m>.
+		Then <m>\proj_U \uvec{v}</m> is the unique vector in <m>U</m> at minimum distance from <m>\uvec{v}</m>.
+		That is,
+		<me> \dist(\uvec{v}, \proj_U \uvec{v}) \lt \dist(\uvec{v}, \uvec{u}) </me>
+		for every <m>\uvec{u} \neq \proj_U \uvec{v}</m> in <m>U</m>.
+	</p></statement>
+	<proof>
+		<p>
+		First, if <m>\uvec{v}</m> is in <m>U</m>,
+		then using
+		<xref ref="proposition-projection-props-identity-on-U">Rule</xref>
+		of <xref ref="proposition-projection-props" />
+		it is obvious that <m>\proj_U \uvec{v} = \uvec{v}</m> is the unique vector in <m>U</m> that is closest to <m>\uvec{v}</m>.
+		</p><p>
+		So assume <m>\uvec{v}</m> is <em>not</em> in <m>U</m>,
+		and suppose <m>\uvec{u} \neq \proj_U \uvec{v}</m> in <m>U</m>.
+		Then the three vectors <m>\uvec{v}, \uvec{u}, \proj_U \uvec{v}</m> form a <q>right triangle</q> to which we can apply
+		the Pythagorean formula (<xref ref="theorem-inprod-orthog-pythag" />).
+		</p>
+		<sidebyside width="65%"><image>
+			<!-- description gets inserted as alt text in html img tag -->
+			<description>Diagram illustrating an orthogonal projection in <m>\R^3</m> as a best approximation.</description>
+			<latex-image><xi:include href="theory.d/min-dist.tex" parse="text" /></latex-image>
+		</image></sidebyside>
+		<p>
+		In this <q>right triangle</q>,
+		the vector <m>\uvec{v} - \uvec{u}</m> is the <q>hypotenuse</q>,
+		<m>\uvec{v} - \proj_U \uvec{v}</m> is the component of <m>\uvec{v}</m> orthogonal to <m>U</m>,
+		<m>\proj_U \uvec{v} - \uvec{u}</m> is parallel to <m>U</m>,
+		and we have
+		<me> \uvec{v} - \uvec{u} = (\uvec{v} - \proj_U \uvec{v}) + (\proj_U \uvec{v} - \uvec{u}) </me>.
+		The two vectors in the sum on the right,
+		being orthogonal and parallel to <m>U</m>, respectively, must be orthogonal to one another.
+		So we may apply <xref ref="theorem-inprod-orthog-pythag" /> to get
+		<md>
+			<mrow>
+				\bigl[\dist (\uvec{v}, \uvec{u})\bigr]^2
+				\amp = \norm{\uvec{v} - \uvec{u}}^2
+			</mrow><mrow>
+				\amp = \norm{\uvec{v} - \proj_U \uvec{v}}^2 + \norm{\proj_U \uvec{v} - \uvec{u}}^2
+			</mrow><mrow>
+				\amp = \bigl[\dist(\uvec{v},\proj_U \uvec{v})\bigr]^2 + \bigl[\dist(\proj_U \uvec{v},\uvec{u})\bigr]^2
+			</mrow>
+		</md>.
+		Since we have assumed <m>\uvec{u} \neq \proj_U \uvec{v}</m>,
+		we have
+		<me> \bigl[\dist(\proj_U \uvec{v},\uvec{u})\bigr]^2 \gt 0 </me>,
+		so
+		<me> \bigl[\dist (\uvec{v}, \uvec{u})\bigr]^2 \gt \bigl[\dist(\uvec{v},\proj_U \uvec{v})\bigr]^2 </me>.
+		But nonnegative numbers <m>x_1,x_2</m> satisfying <m>x_1^2 \gt x_2^2</m> must also satisfy <m>x_1 \gt x_2</m>,
+		hence
+		<me> \dist (\uvec{v}, \uvec{u}) \gt \dist(\uvec{v},\proj_U \uvec{v}) </me>,
+		as desired.
+		</p>
+	</proof>
+</theorem>
+
+</subsection>
+
+<subsection xml:id="subsection-projection-theory-normal-sys">
+<title>Normal system is consistent</title>
+
+<p>
+Finally, we record the fact that there are always solutions to the normal system associated to a linear system,
+even if the original system is inconsistent.
+</p>
+
+<theorem>
+	<statement><p>
+		For system <m>A \uvec{x} = \uvec{b}</m>, the associated normal system
+		<me> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </me>
+		is always consistent.
+	</p></statement>
+	<proof><title>Proof outline</title><p>
+		Let <m>U</m> represent the column space of <m>A</m>.
+		As discussed in <xref ref="subsection-projection-concepts-least-sq" />,
+		every vector in <m>U</m> is of the form <m>A \uvec{x}</m> for some column vector <m>\uvec{x}</m>.
+		So the system
+		<me> A \uvec{x} = \proj_U \uvec{b} </me>
+		is consistent, since <m>\proj_U \uvec{b}</m> lies in <m>U</m>.
+		But then any solution to this system will also solve the normal system
+		<me> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </me>,
+		as discussed in <xref ref="subsection-projection-concepts-least-sq" />.
+	</p></proof>
+</theorem>
+
+</subsection>
+
+</section>

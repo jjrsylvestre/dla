@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-ker-im-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-ker-im-concepts-matrix" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-concepts-matrix" /></em></li>
+<li><xref ref="subsection-lintrans-ker-im-concepts-bases" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-concepts-bases" /></em></li>
+<li><xref ref="subsection-lintrans-ker-im-concepts-dimensions" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-ker-im-concepts-dimensions" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-ker-im-concepts-matrix">
+<title>Kernel and image of matrix transformations</title>
+
+<p>
+As we identified in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker" />
+and <xref ref="activity-lintrans-ker-im-matrix-transformation-im" />,
+we already know what <term>kernel</term> and <term>image</term> mean for a matrix transformation
+<m>\funcdef{T_A}{\R^n}{\R^m}</m>,
+because we have studied them before,
+albeit with different terminology.
+</p><p>
+A vector <m>\uvec{x}</m> in <m>\R^n</m> is in <m>\ker T_A</m> precisely when <m>A \uvec{x} = \zerovec</m>,
+which is the same as saying that <m>\uvec{x}</m> is in the <term>null space</term> of <m>A</m>.
+And a vector <m>\uvec{b}</m> in <m>\R^m</m> is in <m>\im T_A</m> precisely when there exists at least one corresponding solution <m>\uvec{x}</m> to the matrix equation <m>A \uvec{x} = \uvec{b}</m>.
+Since a <em>matrix-times-vector</em> product can be considered as a linear combination of the columns of <m>A</m>
+(see <xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" />),
+we can say that <m>\uvec{b}</m> is in <m>\im T</m> precisely when it is in the <term>column space</term> of <m>A</m>.
+</p><p>
+Also in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker" />
+and <xref ref="activity-lintrans-ker-im-matrix-transformation-im" />,
+we reminded ourselves that the dimension of the column space
+(<ie /> the number of leading ones in the RREF of the matrix)
+and the dimension of the null space
+(<ie /> the number of parameters required to solve the homogeneous system)
+always add up to the number of columns in the matrix
+(<ie /> the number of variables involved in any system with that matrix as coefficient matrix).
+But we already knew this as <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
+As matrix transformations are our model,
+it shouldn't be too surprising that we shall soon see a similar pattern for the dimensions of the kernel, image, and domain space of a general linear transformations.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-ker-im-concepts-bases">
+<title>Bases for kernel and image</title>
+
+<p>
+For a matrix transformation,
+we already have procedures for determining bases for the null space and the column space of a linear transformation.
+(See <xref ref="chapter-col-row-null-space" />.)
+Determining a basis for a kernel will be very similar,
+but for an image we will need a new tactic.
+</p>
+
+<paragraphs><title>Basis for kernel</title><p>
+The kernel of a linear transformation <m>\funcdef{T}{V}{W}</m> is defined by a homogeneous condition:
+<md><mrow xml:id="equation-lintrans-ker-im-concepts-homog-ker-condition" tag="star">
+	T(\uvec{x}) = \zerovec_W
+</mrow></md>.
+Unravelling this condition in terms of the type of domain vector <m>\uvec{x}</m>,
+the definition of the transformation <m>T</m>,
+and the type of zero vector <m>\zerovec_W</m> in the codomain space
+should lead to a homogeneous linear system to solve.
+Similarly to determining a basis for a null space,
+solving the homogeneous system that arises from
+<xref ref="equation-lintrans-ker-im-concepts-homog-ker-condition" />
+can be carried out by simplifying the system (probably via row reducing some matrix),
+assigning parameters,
+and then extracting the basis vector attached to each parameter.
+See the portions of <xref ref="example-lintrans-ker-im-symm-skew-basis" />
+and <xref ref="example-lintrans-ker-im-left-matrix-mult-basis" />
+where a parametric description of kernel vectors was used to determine a basis for a transformation kernel.
+</p></paragraphs>
+
+<paragraphs><title>Spanning set for image</title><p>
+As we explored in <xref ref="activity-lintrans-ker-im-describe-im" />,
+a spanning set for the domain space of a linear transformation can be pushed forward to a spanning set for the image.
+That is, if <m>\funcdef{T}{V}{W}</m> is linear,
+and <m>V = \Span S</m>,
+then <m>\im T</m> is spanned by <m>T(S)</m>,
+the collection of image vectors <m>T(\uvec{v})</m> for all <m>S</m>-vectors <m>\uvec{v}</m>.
+This is because if
+<me> \uvec{u} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </me>
+is an expansion of vector <m>\uvec{u}</m> in <m>V</m> in terms of some collection of <m>S</m>-vectors
+<m>\uvec{v}_1,\dotsc,\uvec{v}_m</m>,
+then the linearity of <m>T</m> gives us
+<me> T(\uvec{u}) = a_1 T(\uvec{v}_1) + \dotsb + a_m T(\uvec{v}_m) </me>,
+a linear combination of the image vectors in <m>T(S)</m>.
+However, even if <m>S</m> is a <em>linearly independent</em> spanning set
+(<ie /> a basis for <m>V</m>),
+there is no guarantee that the image vectors <m>T(\uvec{v})</m> in <m>T(S)</m> will remain independent.
+So to get a <em>basis</em> for <m>\im T</m> in this way,
+we will need to choose domain spanning set <m>S</m> in a more deliberate way.
+</p></paragraphs>
+
+<paragraphs><title>Basis for image</title>
+
+<p>
+Suppose we have linear <m>\funcdef{T}{V}{W}</m>,
+and we know <m>V = \Span S</m> for
+<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m \} </me>.
+Then as in the discussion above, we will also have
+<me> \im T = \Span \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_m) \} </me>.
+But every finite spanning set can be reduced to a basis
+(<xref ref="proposition-basis-coords-reduce-span-to-basis" />),
+so there should be a way to reduce the collection of image vectors
+<me> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_m) \} </me>
+to a basis for <m>\im T</m>.
+In particular examples we could do this through calculation via
+the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>.
+But we can make the task of determining dependent vectors to discard from <m>T(S)</m>
+much simpler if we choose the original spanning set <m>S</m> more deliberately.
+</p>
+
+<p>
+In particular,
+suppose we have a basis
+<me> \basisfont{K} = \{ \uvec{u}_1, \dotsc, \uvec{u}_k \} </me>
+for <m>\ker T</m> in <m>V</m>.
+We can enlarge this to a basis
+<me> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_k, \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
+for <m>V</m>
+(<xref ref="proposition-dimension-increase-indep-to-basis" />).
+Then, as in previous discussion above,
+<me> T(\basisfont{B}_V) = \{ T(\uvec{u}_1), \dotsc, T(\uvec{u}_k), T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>
+will be a spanning set for <m>\im T</m>.
+But since the <m>\uvec{u}_j</m> came from the kernel, we really have
+<me> T(\basisfont{B}_V) = \{ \zerovec, \dotsc, \zerovec, T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>,
+and it is obvious that we can reduce this spanning set by discarding all those zero vectors:
+<me> S' = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>.
+We will still have <m>\im T = \Span S'</m>,
+and in fact we will see that building <m>\basisfont{B}_V</m> to have as many linearly independent vectors from <m>\ker T</m> as possible will ensure that <m>S'</m> is a <em>linearly independent</em> spanning set for <m>\im T</m>
+(<ie /> a basis).
+</p>
+
+<algorithm xml:id="procedure-lintrans-ker-im-concepts-im-basis">
+	<title>To construct a basis for <m>\im T</m> for linear <m>\funcdef{T}{V}{W}</m></title>
+	<p>
+	Assuming that the domain space <m>V</m> is finite-dimensional.
+	<ol>
+		<li> Compute a basis <m>\basisfont{K}</m> for <m>\ker T</m>. </li>
+		<li>
+			Determine a collection <m>\basisfont{K}'</m> of linearly independent vectors in <m>V</m>
+			that are <em>not</em> in <m>\ker T</m>,
+			and so that <m>\basisfont{K}</m> and <m>\basisfont{K}'</m> together form a basis of <m>V</m>.
+		</li>
+		<li>
+			Compute the collection <m>T(\basisfont{K}')</m> of image vectors <m>T(\uvec{v})</m> for all <m>\uvec{v}</m> in <m>\basisfont{K}'</m>.
+		</li>
+	</ol>
+	Then <m>T(\basisfont{K}')</m> will be a basis for <m>\im T</m>.
+	</p>
+</algorithm>
+
+<p>
+Again, see the examples in <xref ref="subsection-lintrans-ker-im-examples-general" />
+where the above procedure is carried out.
+</p>
+
+</paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-ker-im-concepts-dimensions">
+<title>Dimensions of the kernel and image of a transformation</title>
+
+<p>
+<xref ref="procedure-lintrans-ker-im-concepts-im-basis" /> tells us about the relationship between
+the dimensions of <m>\ker T</m> and <m>\im T</m> for linear <m>\funcdef{T}{V}{W}</m>,
+with <m>V</m> finite-dimensional.
+Using the notation in the procedure,
+the vectors in <m>\basisfont{K}</m> and <m>\basisfont{K}'</m> together create a basis for <m>V</m>,
+so the numbers of vectors in these collections add up to the dimension of <m>V</m>.
+Collection <m>\basisfont{K}</m> is a basis for <m>\ker T</m>,
+so the number of vectors in <m>\basisfont{K}</m> is the dimension of <m>\ker T</m>.
+The collection of image vectors <m>T(\basisfont{K}')</m> is a basis for <m>\im T</m>,
+and has the same number of vectors <m>\basisfont{K}'</m>.
+Putting these two facts together,
+we have the linear transformation version of
+<xref ref="theorem-col-row-null-space-rank-nullity" text="title" />:
+<alert>the nullity of <m>T</m> and the rank of <m>T</m> add to the dimension of the domain space <m>V</m></alert>.
+</p>
+
+</subsection>
+
+</section>

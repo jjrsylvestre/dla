@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-lintrans-matrix">
+<title>Discovery guide</title>
+
+
+<activity xml:id="activity-lintrans-matrix-coord-maps-and-inverses">
+	<prelude><p> First, let's revisit <xref ref="activity-lintrans-iso-findim-iso-to-Rn" />. </p></prelude>
+	<introduction><p>
+		In each of the following,
+		determine an input-output formula for the isomorphism <m>V \to W</m> that sends the standard basis for the domain space to the standard basis for the codomain space.
+		Then determine an input-output formula for the inverse isomorphism.
+	</p></introduction>
+	<task><p> <m>V = \matrixring_2(\R)</m>, <m>W = \R^4</m>. </p></task>
+	<task><p> <m>V = \uppermatring_2(\R)</m>, <m>W = \R^3</m>. </p></task>
+	<task><p> <m>V = \poly_3(\R)</m>, <m>W = \R^4</m>. </p></task>
+	<task xml:id="activity-lintrans-matrix-coord-maps-and-inverses-P2-R3"><p>
+		<m>V = \poly_2(\R)</m>, <m>W = \R^3</m>.
+	</p></task>
+	<task><p> <m>V = \Span \{ e^x \sin x, e^x \cos x \}</m> (as a subspace of <m>F(\R)</m>), <m>W = \R^2</m>. </p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-matrix-examples">
+	<introduction>
+		<p>
+		In each of the following,
+		you are given a transformation <m>\funcdef{T}{V}{W}</m>,
+		where <m>V,W</m> are spaces from various tasks in <xref ref="activity-lintrans-matrix-coord-maps-and-inverses" />.
+		</p><p>
+		For each, carry out the following.
+		<ol label="(i)">
+			<li>
+				Choose an appropriate isomorphism from <xref ref="activity-lintrans-matrix-coord-maps-and-inverses" />
+				<em>and</em> the <em>inverse</em> of an appropriate isomorphism from <xref ref="activity-lintrans-matrix-coord-maps-and-inverses" />
+				to chain together with <m>T</m> to create a transformation <m>\R^n \to V \to W \to \R^m</m>,
+				for appropriate values of <m>n</m> and <m>m</m>.
+			</li>
+			<li> Determine an input-output formula for the composite transformation <m>\funcdef{T'}{\R^n}{\R^m}</m> that you've created in the first step. </li>
+			<li>
+				Every transformation <m>\R^n \to \R^m</m> is a matrix transformation.
+				Determine the standard matrix <m>\stdmatrixOf{T'}</m> for your transformation from the second step.
+				(Recall that you can do this from your input output formulas,
+				or by determining the outputs for standard basis vectors.)
+			</li>
+		</ol>
+	</p></introduction>
+	<task xml:id="activity-lintrans-matrix-examples-M2-to-P2"><p>
+		<m>\funcdef{T_1}{\matrixring_2(\R)}{\poly_2(\R)}</m>
+		by
+		<m>\displaystyle T\left(\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\right) = (a + b) x^2 + (a + b + c) x - d</m>.
+	</p></task>
+	<task xml:id="activity-lintrans-matrix-examples-P2-to-U2"><p>
+		<m>\funcdef{T_2}{\poly_2(\R)}{\uppermatring_2(\R)}</m>
+		by
+		<m>\displaystyle T(a x^2 + b x + c) = \begin{bmatrix} a - b \amp b + c \\ 0 \amp c - a \end{bmatrix}</m>.
+	</p></task>
+	<task xml:id="activity-lintrans-matrix-examples-trig-exp-diff"><p>
+		For <m>V = \Span \{ e^x \sin x, e^x \cos x \}</m>,
+		let <m>T = D</m> be differentiation <m>\funcdef{D}{V}{V}</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-matrix-composition"><p>
+	The transformations <m>T_1,T_2</m>
+	from <xref ref="activity-lintrans-matrix-examples-M2-to-P2">Discovery</xref>
+	and <xref ref="activity-lintrans-matrix-examples-P2-to-U2">Discovery</xref>
+	can be composed to create a transformation <m>\funcdef{T_2 T_1}{\matrixring_2(\R)}{\uppermatring_2(\R)}</m>.
+	Repeat the tasks of <xref ref="activity-lintrans-matrix-examples" /> to create a matrix corresponding to <m>T_2 T_1</m>.
+	How do you think this matrix relates to the matrices for <m>T_1</m> and <m>T_2</m> that you already calculated in
+	<xref ref="activity-lintrans-matrix-examples" />?
+	Check whether you are correct.
+</p></activity>
+
+<activity xml:id="activity-lintrans-matrix-2nd-diff"><p>
+	Figure out how to use the pattern you discovered in <xref ref="activity-lintrans-matrix-composition" />,
+	applied using your matrix from <xref ref="activity-lintrans-matrix-examples-trig-exp-diff">Discovery</xref>,
+	to compute the <em>second</em> derivative of <m>f(x) = 3 e^x \sin x - e^x \cos x</m>.
+</p></activity>
+
+<activity xml:id="activity-lintrans-matrix-inverse">
+	<introduction><p>
+		Once again, consider differentiation <m>\funcdef{D}{V}{V}</m> as a linear operator on <m>V = \Span \{ e^x \sin x, e^x \cos x \}</m>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-matrix-inverse-ker">
+		<statement>
+			<p> What is <m>\ker D</m>? </p>
+			<p> What does this say about <m>D</m>? </p>
+		</statement>
+		<hint><p>
+			See <xref ref="theorem-lintrans-iso-injective-trivial-ker" />
+			and <xref ref="corollary-lintrans-iso-eq-dim-pick-inj-surj" />.
+		</p></hint>
+	</task>
+	<task><p>
+		Consider again your matrix for <m>D</m> from <xref ref="activity-lintrans-matrix-examples-trig-exp-diff">Discovery</xref>.
+		Do you think you could have come to the same conclusions about <m>D</m> as in <xref ref="activity-lintrans-matrix-inverse-ker" text="type-local" />
+		from some property of the corresponding matrix?
+	</p></task>
+	<task xml:id="activity-lintrans-matrix-inverse-antidiff"><p>
+		Figure out how to use your matrix for <m>D</m> to compute an <em>anti</em>derivative for <m>f(x) = 3 e^x \sin x - e^x \cos x</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-matrix-transition-matrices">
+	<prelude><p>
+		Let's carry out the tasks
+		of <xref ref="activity-lintrans-matrix-coord-maps-and-inverses" />
+		and <xref ref="activity-lintrans-matrix-examples" />
+		again, but with a couple of twists.
+	</p></prelude>
+	<task xml:id="activity-lintrans-matrix-transition-matrices-std"><p>
+		Remind yourself how your input-output formulas worked for <m>\poly_2(\R) \to \R^3</m> and its inverse
+		in <xref ref="activity-lintrans-matrix-coord-maps-and-inverses-P2-R3">Discovery</xref>.
+	</p></task>
+	<task xml:id="activity-lintrans-matrix-transition-matrices-nonstd"><p>
+		In the same way,
+		determine a <em>new</em> input-output formula for a transformation <m>\poly_2(\R) \to \R^3</m> that sends the basis
+		<me> \basisfont{B} = \{ x^2 - 1, x + 1, x \} </me> to the standard basis for <m>\R^3</m>,
+		along with an input-output formula for its inverse.
+	</p></task>
+	<task><p>
+		Similarly to <xref ref="activity-lintrans-matrix-examples" />,
+		create a matrix for the chain of transformations <m>\R^3 \to \poly_2(\R) \to \poly_2(\R) \to \R^3</m>,
+		where
+		<ul>
+			<li>
+				the first arrow is the <em>inverse</em> of your transformation <m>\poly_2(\R) \to \R^3</m>
+				from <xref ref="activity-lintrans-matrix-transition-matrices-nonstd" text="type-local" />
+				(<ie /> where you used the provided basis <m>\basisfont{B}</m> for <m>\poly_2(\R)</m>).
+			</li>
+			<li> the second arrow is the identity operator; and </li>
+			<li>
+				the third arrow is your transformation <m>\poly_2(\R) \to \R^3</m>
+				from <xref ref="activity-lintrans-matrix-transition-matrices-std" text="type-local" />
+				(<ie /> where you used a standard basis for <m>\poly_2(\R)</m>);
+			</li>
+		</ul>
+		Look at the columns of your matrix,
+		compared to the basis vectors in <m>\basisfont{B}</m>.
+		What matrix corresponding to a previous concept do you think you just calculated?
+	</p></task>
+	<task><p>
+		What if the roles of the first and third arrows in
+		<m>\R^3 \to \poly_2(\R) \to \poly_2(\R) \to \R^3</m>
+		are reversed?
+		What matrix are you calculating then?
+	</p></task>
+</activity>
+
+</worksheet>

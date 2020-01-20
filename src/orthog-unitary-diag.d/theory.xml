@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-orthog-unitary-diag-theory">
+
+<title>Theory</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-orthog-unitary-diag-theory-eigen" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-theory-eigen" /></em></li>
+<li><xref ref="subsection-orthog-unitary-diag-theory-diag" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-orthog-unitary-diag-theory-diag" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-orthog-unitary-diag-theory-eigen">
+<title>Eigenvalues and eigenvectors</title>
+
+<p>
+Since diagonalizability is dependent on eigenvalues and eigenvectors,
+we begin by relating those concepts to the inner product.
+Recall that for <em>orthogonal/unitary</em> diagonalization,
+we are most concerned with having eigenvectors that are orthogonal.
+</p>
+
+<theorem xml:id="theorem-orthog-unitary-diag-self-adjoint-eigen-props">
+	<title>Eigenvalues and eigenvectors of self-adjoint matrices</title>
+	<statement><p>
+		Suppose <m>H</m> is a self-adjoint matrix.
+		<ol>
+		<li xml:id="theorem-orthog-unitary-diag-self-adjoint-eigen-props-real-eigenvals">
+			Each eigenvalue of <m>H</m> is a real number.
+		</li>
+		<li xml:id="theorem-orthog-unitary-diag-self-adjoint-eigen-props-orthog-eigenvecs">
+			Eigenvectors of <m>H</m> corresponding to different eigenvalues are orthogonal.
+		</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof outline</title><p>
+		The proofs of these statements in the Hermitian complex case are outlined in
+		<xref ref="activity-orthog-unitary-diag-hermitian-eigenvalues" />
+		and
+		<xref ref="activity-orthog-unitary-diag-hermitian-orthog-evecs" />.
+		For the symmetric real case,
+		the results follow from the fact that every such matrix can also be considered as a complex Hermitian matrix
+		(as in <xref ref="activity-orthog-unitary-diag-symmetric-eigenvalues" />),
+		and the fact that the complex dot product applied to real vectors gives the same result as the real dot product.
+	</p></proof>
+</theorem>
+
+<remark><p>
+	Another way to read <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props-orthog-eigenvecs">Statement</xref>
+	of the theorem is to say that if <m>\lambda_1 \neq \lambda_2</m> are distinct eigenvalues of a self-adjoint matrix <m>H</m>,
+	then <m>E_{\lambda_1}(H)</m> is a subspace of <m>\orthogcmp{E_{\lambda_2}(H)}</m>
+	and <m>E_{\lambda_2}(H)</m> is a subspace of <m>\orthogcmp{E_{\lambda_1}(H)}</m>.
+</p></remark>
+
+<corollary>
+	<statement><p> A symmetric real matrix must have <m>n</m> real eigenvalues (including multiplicities). </p></statement>
+	<proof><p>
+		Using <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
+		as a complex matrix every real matrix has <m>n</m> eigenvalues (including multiplicities),
+		but some of those eigenvalues may be complex.
+		But since a symmetric real matrix can be considered as a Hermitian complex matrix,
+		using <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props-real-eigenvals">Statement</xref>
+		of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props" />
+		we can say that in that case each of the <m>n</m> eigenvalues must be real.
+	</p></proof>
+</corollary>
+
+<proposition>
+	<title>Eigenvalues of product-preserving matrices</title>
+	<statement><p><ol>
+		<li>
+			If <m>U</m> is a unitary complex matrix,
+			then every eigenvalue of <m>U</m> has complex modulus <m>1</m>.
+		</li>
+		<li>
+			If <m>P</m> is an orthogonal real matrix,
+			then the only possible real eigenvalues of <m>P</m> are <m>\lambda = \pm 1</m>.
+		</li>
+	</ol></p></statement>
+	<proof><title>Proof outline</title><p>
+		The proof of the statement for unitary complex matrices is outlined in
+		<xref ref="activity-orthog-unitary-diag-unitary-eigenvalues" />.
+		For the orthogonal real case,
+		the results follow from the fact that every such matrix can also be considered as a complex unitary matrix
+		(as in <xref ref="activity-orthog-unitary-diag-orthogonal-eigenvalues" />),
+		and the fact that the complex modulus applied to a real number gives the same result as the real absolute value.
+	</p></proof>
+</proposition>
+
+<remark>
+	<p>
+	Note that the statement for orthogonal matrices does <em>not</em> say that both <m>\pm 1</m> <em>must</em> be eigenvalues
+	For example, the identity matrix is orthogonal with only <m>\lambda = 1</m> as an eigenvalue,
+	and the negative of the identity matrix is also orthogonal with only <m>\lambda = -1</m> as an eigenvalue.
+	</p><p>
+	And an orthogonal real matrix may have no real eigenvalues at all.
+	For example, the rotation matrix
+	<me> \left[\begin{array}{cr} \cos \theta \amp -\sin \theta \\ \sin \theta \amp \cos \theta \end{array}\right] </me>
+	has no real eigenvalues.
+	But the complex eigenvalues of an orthogonal real matrix must have complex modulus <m>1</m>,
+	just as for the eigenvalues of a unitary complex matrix.
+	</p>
+</remark>
+
+<p>
+To investigate eigenvalues and eigenvectors of normal matrices,
+we'll first relate the property of normality back to the inner product.
+</p>
+
+<lemma xml:id="lemma-orthog-unitary-diag-normal-in-inprod">
+	<title>Adjoint of normal has same effect on inner product</title>
+	<statement><p>
+		Suppose <m>N</m> is a normal complex matrix.
+		For every pair <m>\uvec{u},\uvec{v}</m> of column vectors in <m>\C^n</m>,
+		we have
+		<me> {\inprod{\adjoint{N} \uvec{u}}{\adjoint{N} \uvec{v}}}_{\C} = {\inprod{N \uvec{u}}{N \uvec{v}}}_{\C} </me>.
+	</p></statement>
+	<proof><p>
+		Starting on the right in the proposed equality, we have
+		<md>
+			<mrow>
+				{\inprod{N \uvec{u}}{N \uvec{v}}}_{\C}
+				\amp = {\inprod{\adjoint{N} N \uvec{u}}{\uvec{v}}}_{\C}
+				\amp \amp\text{(i)}
+			</mrow><mrow>
+				\amp = {\inprod{N \adjoint{N} \uvec{u}}{\uvec{v}}}_{\C}
+				\amp \amp\text{(ii)}
+			</mrow><mrow>
+				\amp = {\inprod{\adjoint{N} \uvec{u}}{\adjoint{N} \uvec{v}}}_{\C}
+				\amp \amp\text{(iii)}
+			</mrow>
+		</md>,
+		with justifications
+		<ol label="(i)">
+			<li> definition of adjoint relative to the inner product; </li>
+			<li> definition of normal matrix; and </li>
+			<li> definition of adjoint relative to the inner product. </li>
+		</ol>
+	</p></proof>
+</lemma>
+
+<corollary xml:id="corollary-orthog-unitary-diag-normal-adj-norm">
+	<title>Adjoint of normal has same effect on norm</title>
+	<statement><p>
+		If <m>N</m> is a normal complex matrix,
+		then
+		<me> \norm{\adjoint{N} \uvec{v}} = \norm{N \uvec{v}} </me>
+		for every column vector <m>\uvec{v}</m> in <m>\C^n</m>.
+	</p></statement>
+	<proof><p>
+		This follows immediately from using <m>\uvec{u} = \uvec{v}</m>
+		in <xref ref="lemma-orthog-unitary-diag-normal-in-inprod" />,
+		and we leave verification of the details to you, the reader.
+	</p></proof>
+</corollary>
+
+<p>
+Next, we'll relate normality to the eigenvalue coefficient matrix pattern <m>\lambda I - N</m>.
+Note that the following lemma is true for <em>all</em> scalars <m>\lambda</m>,
+not just eigenvalues of the normal matrix <m>N</m>.
+</p>
+
+<lemma xml:id="lemma-orthog-unitary-diag-normal-eval-coeff">
+	<statement><p> If <m>N</m> is a normal complex matrix, then so is <m>\lambda I - N</m>. </p></statement>
+	<proof><title>Proof idea</title><p>
+		Assuming <m>\adjoint{N} N = N \adjoint{N}</m> is true,
+		use the <xref ref="proposition-complex-matrices-algebra-rules-adjoint" text="title">algebra rules of the adjoint</xref>
+		to verify that
+		<me> \adjoint{(\lambda I - N)} (\lambda I - N) = (\lambda I - N) \adjoint{(\lambda I - N)} </me>
+		is also true.
+	</p></proof>
+</lemma>
+
+<p> Finally, we can use what we've established about normal matrices so far to investigate properties of their eigenvalues and eigenvectors. </p>
+
+<theorem xml:id="theorem-orthog-unitary-diag-normal-eval-evec-props">
+	<statement><p>
+		Suppose <m>N</m> is a normal complex matrix.
+		<ol>
+			<li xml:id="theorem-orthog-unitary-diag-normal-eval-evec-props-adj">
+				If <m>\lambda</m> is an eigenvalue of <m>N</m>,
+				then <m>\cconj{\lambda}</m> is an eigenvalue of <m>\adjoint{N}</m>.
+				Furthermore, every eigenvector of <m>N</m> corresponding to <m>\lambda</m> is also an eigenvector of <m>\adjoint{N}</m> corresponding to <m>\cconj{\lambda}</m>,
+				and vice versa.
+				That is, <m>E_{\cconj{\lambda}}(\adjoint{N}) = E_\lambda(N)</m>.
+			</li>
+			<li xml:id="theorem-orthog-unitary-diag-normal-eval-evec-props-orthog-evecs">
+				Eigenvectors from different eigenvalues of <m>N</m> are orthogonal.
+			</li>
+		</ol>
+	</p></statement>
+	<proof><title>Proof outline</title><p><ol>
+		<li>
+			<p>
+			Suppose <m>\lambda</m> is an eigenvalue of normal matrix <m>N</m> and <m>\uvec{x}</m> is a corresponding eigenvector.
+			Then,
+			<me> (\lambda I - N) \uvec{x} = \zerovec </me>,
+			so that
+			<me> \norm{(\lambda I - N) \uvec{x}} = 0 </me>.
+			But since <m>N</m> is normal, so is <m>\lambda I - N</m>
+			(<xref ref="lemma-orthog-unitary-diag-normal-eval-coeff" />),
+			and so
+			<me> \norm{\adjoint{(\lambda I - N)} \uvec{x}} = \norm{(\lambda I - N) \uvec{x}} = 0 </me>
+			(<xref ref="corollary-orthog-unitary-diag-normal-adj-norm" />).
+			But the only vector with a norm of zero is the zero vector,
+			so we have
+			<me> \adjoint{(\lambda I - N)} \uvec{x} = \zerovec </me>.
+			Using the <xref ref="proposition-complex-matrices-algebra-rules-adjoint" text="title">algebra rules of the adjoint</xref>,
+			we can instead write
+			<me> (\cconj{\lambda} I - \adjoint{N}) \uvec{x} = \zerovec </me>,
+			so that <m>\uvec{x}</m> is also an eigenvector of <m>\adjoint{N}</m>,
+			but relative to the eigenvalue <m>\cconj{\lambda}</m>.
+			</p><p>
+			So far we have established that every vector in <m>E_\lambda(N)</m> is also in <m>E_{\cconj{\lambda}}(\adjoint{N})</m>.
+			But since <m>\adjoint{(\adjoint{N})} = N</m> and <m>\lcconj{\cconj{\lambda}} = \lambda</m>,
+			we can symmetrically say that every vector in <m>E_{\cconj{\lambda}}(\adjoint{N})</m> is also in <m>E_\lambda(N)</m>.
+			Putting both together establishes that
+			<me> E_{\cconj{\lambda}}(\adjoint{N}) = E_\lambda(N) </me>.
+			</p>
+		</li>
+		<li>
+			Suppose <m>\uvec{x}_1,\uvec{x}_2</m> are eigenvectors of <m>N</m> from different eigenspaces <m>E_{\lambda_1}(N),E_{\lambda_2}(N)</m>,
+			<m>\lambda_1 \neq \lambda_2</m>.
+			Similar to the proof
+			of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props-orthog-eigenvecs">Statement</xref>
+			of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props" />,
+			compare the two sides of the equality
+			<me> \inprod{N \uvec{x}_1}{\uvec{x}_2} = \inprod{\uvec{x}_1}{\adjoint{N} \uvec{x}_2} </me>
+			(applying <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-adj">Statement</xref> on the right)
+			to eventually conclude that <m>\inprod{\uvec{x}_1}{\uvec{x}_2} = 0</m>.
+		</li>
+	</ol></p></proof>
+</theorem>
+
+<remark><p>
+	As remarked for self-adjoint matrices,
+	<xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-orthog-evecs">Statement</xref>
+	of the theorem says that if <m>\lambda_1 \neq \lambda_2</m> are distinct eigenvalues of a normal matrix <m>N</m>,
+	then <m>E_{\lambda_1}(N)</m> is a subspace of <m>\orthogcmp{E_{\lambda_2}(N)}</m>
+	and <m>E_{\lambda_2}(N)</m> is a subspace of <m>\orthogcmp{E_{\lambda_1}(N)}</m>.
+</p></remark>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-unitary-diag-theory-diag">
+<title>Characterizations of orthogonal/unitary diagonalization</title>
+
+<p> We start with the basic requirement for diagonalizing a matrix with an orthogonal or unitary transition matrix. </p>
+
+<theorem>
+	<title> Basic characterization of orthogonal/unitary diagonalizability </title>
+	<statement><p><ol>
+		<li>
+			An <m>n \times n</m> real matrix <m>A</m> is orthogonally diagonalizable if and only if there exists an orthonormal basis of <m>\R^n</m> consisting of eigenvectors of <m>A</m>.
+		</li>
+		<li>
+			An <m>n \times n</m> complex matrix <m>A</m> is unitarily diagonalizable if and only if there exists an orthonormal basis of <m>\C^n</m> consisting of eigenvectors of <m>A</m>.
+		</li>
+	</ol></p></statement>
+	<proof><p>
+		We know from <xref ref="theorem-diagonalization-diag" /> (and its complex version)
+		that to diagonalize a matrix <m>A</m>,
+		the columns of the transition matrix must be a basis of <m>\R^n</m> (in the real case)
+		or <m>\C^n</m> (in the complex case)
+		consisting of eigenvectors of <m>A</m>.
+		If we also want the transition matrix to be product-preserving,
+		those eigenvector columns must be an orthonormal set
+		(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+		of <xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />).
+	</p></proof>
+</theorem>
+
+<p> And now we identify specific classes of orthogonally/unitarily diagonalizable matrices. </p>
+
+<proposition xml:id="proposotion-orthog-unitary-diag-hermitian-is-unit-diag">
+	<title>Hermitian is unitarily diagonlizable</title>
+	<statement><p> Every Hermitian matrix is unitarily diagonalizable. </p></statement>
+	<proof><title>Proof outline</title>
+		<p>
+		Suppose <m>H</m> is a Hermitian matrix.
+		By <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
+		the matrix <m>H</m> has at least one eigenvalue,
+		and so has a nonzero eigenvector, say <m>\uvec{x}</m>.
+		By normalizing, we may assume that <m>\uvec{x}</m> is a unit vector.
+		</p><p>
+		Let <m>W = \Span \{ \uvec{x} \}</m>.
+		Since <m>\uvec{x}</m> is an eigenvector,
+		<m>W</m> is an <m>H</m>-invariant subspace of <m>\C^n</m>.
+		Let <m>W^\perp</m> be the orthogonal complement of <m>W</m> inside <m>\C^n</m>.
+		Then the pair of subspaces <m>W, W^\perp</m> satisfy the properties required for the block-diagonalization procedure
+		(<xref ref="corollary-inprod-orthog-complete-indep" />).
+		Since <m>H</m> is self-adjoint,
+		<xref ref="proposition-matrix-adjoints-orthog-cmp-adj-invariant" />
+		states that <m>W^\perp</m> is <m>H</m>-invariant.
+		</p><p>
+		If
+		<me> \{ \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </me>
+		is an orthonormal basis for <m>W^\perp</m>,
+		then
+		<me> \basisfont{B} = \{ \uvec{x}, \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </me>
+		is an orthonormal basis for <m>\C^n</m>,
+		and so the matrix <m>U_1</m> formed by taking the vectors of <m>\basisfont{B}</m> as the columns in <m>U_1</m> is unitary
+		(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
+		of <xref ref="theorem-matrix-adjoints-prod-preserv-equiv" />).
+		The matrix <m>U_1</m> will put <m>H</m> into block-diagonal form,
+		and because the basis of <m>W</m> used in the block-diagonalization procedure consists of a single eigenvector of <m>H</m>,
+		the first block of <m>\adjoint{U}_1 H U_1</m>
+		(corresponding to <m>W</m>)
+		is a <m>1 \times 1</m> block with the corresponding eigenvalue of <m>H</m> as its entry.
+		Write
+		<me> \inv{U}_1 H U_1 = \begin{bmatrix} \lambda \amp \\ \amp H' \end{bmatrix} </me>,
+		where <m>\lambda</m> is the eigenvalue of <m>H</m> corresponding to <m>\uvec{x}</m>,
+		and <m>H'</m> is the <m>(n-1) \times (n-1)</m> block corresponding to <m>W^\perp</m>.
+		Since <m>H</m> is Hermitian,
+		so is <m>\adjoint{U}_1 H U_1</m>,
+		and therefore so is <m>H'</m>.
+		</p><p>
+		By mathematical induction,
+		we may assume that the smaller Hermitian matrix <m>H'</m> is unitarily diagonalizable by some <m>(n-1) \times (n-1)</m> unitary matrix <m>U'</m>.
+		Therefore, if we take
+		<md><mrow> U_2 \amp = \begin{bmatrix} 1 \\ \amp U' \end{bmatrix} \text{,} \amp U \amp = U_1 U_2 \text{,} </mrow></md>
+		then both <m>U_2</m> and <m>U</m> are also unitary, and <m>\inv{U} H U = \adjoint{U} H U</m> will be diagonal.
+		</p>
+		<aside><title>Note</title><p>
+			The base case in the induction process would be to assume that <m>H</m> is <m>1 \times 1</m>.
+			But in that case <m>H</m> would already be diagonal,
+			and so would be unitarily diagonalizable by <m>U = [1]</m>,
+			the <m>1 \times 1</m> identity matrix.
+		</p></aside>
+	</proof>
+</proposition>
+
+<p>
+As noted in <xref ref="subsection-orthog-unitary-diag-concepts-hermitian" />,
+this is the end of the story in the real case.
+</p>
+
+<theorem xml:id="theorem-orthog-unitary-diag-symmetric-is-orthog-diag">
+	<title>Orthogonally diagonlizable is symmetric</title>
+	<statement><p> A real square matrix is orthogonally diagonalizable if and only if it is symmetric. </p></statement>
+	<proof><title>Proof idea</title>
+		<case><title> Orthogonally diagonalizable <m>\implies</m> symmetric </title><p>
+			If real matrix <m>A</m> is orthogonally diagonalizable,
+			then there exists orthogonal <m>P</m> so that
+			<me> \utrans{P} A P = D </me>,
+			a diagonal matrix.
+			Every diagonal matrix is symmetric,
+			so we have
+			<me>
+				\utrans{A}
+				= \utrans{(P D \utrans{P})}
+				= P \utrans{D} \utrans{P}
+				= P D \utrans{P}
+				= A
+			</me>,
+			as desired.
+		</p></case>
+		<case><title> Symmetric <m>\implies</m> orthogonally diagonalizable </title><p>
+			The proof is essentially identical to the proof of <xref ref="proposotion-orthog-unitary-diag-hermitian-is-unit-diag" />.
+		</p></case>
+	</proof>
+</theorem>
+
+<p>
+But in the complex case,
+the class of unitarily diagonalizable matrices is larger than just the class of Hermitian matrices.
+</p>
+
+<theorem xml:id="theorem-orthog-unitary-diag-iff-normal">
+	<title>Unitarily diagonlizable is normal</title>
+	<statement><p> A complex square matrix is unitarily diagonalizable if and only if it is normal. </p></statement>
+	<proof><title>Proof outline</title>
+		<case><title> Unitarily diagonalizable <m>\implies</m> normal </title>
+			<p>
+			We considered this statement in <xref ref="activity-orthog-unitary-diag-explore-normal" />,
+			but we will provide the full proof here.
+			So suppose <m>N</m> is unitarily diagonalizable,
+			and <m>U</m> is a unitary matrix so that <m>\adjoint{U} N U = D</m>, a diagonal matrix.
+			Now, <m>\adjoint{D}</m> is also diagonal, and diagonal matrices commute.
+			So we have
+			<me> \adjoint{D} D = D \adjoint{D} </me>,
+			to begin.
+			</p><p>
+			Now check <m>N</m> against its adjoint:
+			<md>
+				<mrow>
+					\adjoint{N} N
+					\amp = \adjoint{(U D \adjoint{U})} (U D \adjoint{U})
+				</mrow><mrow>
+					\amp = U \adjoint{D} \cancelto{I}{\adjoint{U} U} D \adjoint{U}
+				</mrow><mrow>
+					\amp = U \adjoint{D} D \adjoint{U}
+				</mrow><mrow>
+					\amp = U D \adjoint{D} \adjoint{U}
+				</mrow><mrow>
+					\amp = U D \adjoint{U} U \adjoint{D} \adjoint{U}
+				</mrow><mrow>
+					\amp = N \adjoint{N}
+				</mrow>
+			</md>,
+			as desired.
+			</p>
+		</case>
+		<case><title> Normal <m>\implies</m> unitarily diagonalizable  </title>
+			<p>
+			Assume that <m>N</m> is a normal matrix.
+			We wish to prove that <m>N</m> is then unitarily diagonalizable.
+			The argument is essentially the same as in the proof of
+			<xref ref="proposotion-orthog-unitary-diag-hermitian-is-unit-diag" />.
+			</p><p>
+			By <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
+			the matrix <m>N</m> has at least one eigenvalue,
+			and so has a nonzero eigenvector,
+			say <m>\uvec{x}</m>.
+			By normalizing, we may assume that <m>\uvec{x}</m> is a unit vector.
+			</p><p>
+			By <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-adj">Statement</xref>
+			of <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props" />,
+			<m>\uvec{x}</m> is also an eigenvector of <m>\adjoint{N}</m>.
+			Therefore, the space <m>W = \Span \{ \uvec{x} \}</m> is both <m>N</m>-invariant and <m>\adjoint{N}</m>-invariant.
+			The same can then also be said about the space <m>W^\perp</m>
+			(<xref ref="proposition-matrix-adjoints-orthog-cmp-adj-invariant" />).
+			</p><p>
+			From this point, the remainder of the proof is identical to the proof of
+			<xref ref="proposotion-orthog-unitary-diag-hermitian-is-unit-diag" />,
+			replacing all occurrences of the word <q>Hermitian</q> by the word <q>normal</q>,
+			all occurrences of the matrix <m>H</m> by the matrix <m>N</m>,
+			and, if you like, using the notation <m>N'</m> in place of <m>H'</m>.
+			</p>
+		</case>
+	</proof>
+</theorem>
+
+</subsection>
+
+<subsection xml:id="subsection-orthog-unitary-diag-theory-normal">
+<title>Special instances of normal matrices</title>
+
+<p>Finally, two instances of normal matrices.</p>
+
+<proposition>
+	<title>Hermitian and unitary are normal</title>
+	<statement><p><ol>
+		<li> Every Heritian matrix is normal. </li>
+		<li> Every unitary matrix is normal. </li>
+	</ol></p></statement>
+	<proof>
+		<p> If <m>H</m> is Hermitian, then both of <m>\adjoint{H} H</m> and <m>H \adjoint{H}</m> are equal to <m>H^2</m>, hence are equal to each other. </p>
+		<p> If <m>U</m> is Hermitian, then both of <m>\adjoint{U} U</m> and <m>U \adjoint{U}</m> are equal to <m>I</m>, hence are equal to each other. </p>
+	</proof>
+</proposition>
+
+</subsection>
+
+</section>

@@ -1,0 +1,32 @@
+% *********************************************************************
+% © 2016–2019 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+\begin{tikzpicture}[xscale=3]
+
+	\draw[->] (-0.5,0) to (1.5,0) node[below right] {$x$};
+	\draw[->] (0,-0.75) -- (0,1.25) node[above right] {$y$};
+
+	\draw[domain=0:1] plot (\x,{sin (3.14159 * \x r)});
+	\draw[dashed,domain=-0.15:0] plot (\x,{sin (3.14159 * \x r)});
+	\draw[dashed,domain=1:1.15] plot (\x,{sin (3.14159 * \x r)});
+
+	\draw[red,domain=0:1] plot (\x,{4 * \x - 4 * \x * \x});
+	\draw[red,dashed,domain=-0.15:0] plot (\x,{4 * \x - 4 * \x * \x});
+	\draw[red,dashed,domain=1:1.15] plot (\x,{4 * \x - 4 * \x * \x});
+
+	\draw (1,0.1) to (1,-0.1) node[below] {$\scriptstyle 1$};
+	\draw (0.5,0.1) to (0.5,-0.1) node[below] {$\scriptstyle \frac{1}{2}$};
+
+	\draw (0.05,1) to (-0.05,1) node[left] {$\scriptstyle 1$};
+
+\end{tikzpicture}

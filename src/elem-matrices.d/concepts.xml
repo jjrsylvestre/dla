@@ -81,7 +81,7 @@ In
 <xref
 	first="activity-elem-matrices-intro"
 	last="activity-elem-matrices-intro-cont-more"
->Activities</xref>,
+>Discovery guide</xref>,
 we discovered that we can create special square matrices so that multiplying another matrix by that special matrix
 (on the left)
 has the same effect as performing an elementary row operation,
@@ -185,7 +185,7 @@ every elementary row operation has a <em>reverse</em> operation.
 </p>
 
 <table>
-	<caption>Reversing row swaps.</caption>
+	<title>Reversing row swaps.</title>
 	<tabular top="medium">
 		<row>
 			<cell right="medium"><alert>Operation</alert></cell>
@@ -214,7 +214,7 @@ every elementary row operation has a <em>reverse</em> operation.
 	</tabular>
 </table>
 <table>
-	<caption>Reversing row scales.</caption>
+	<title>Reversing row scales.</title>
 	<tabular top="medium">
 		<row>
 			<cell right="medium"><alert>Operation</alert></cell>
@@ -243,7 +243,7 @@ every elementary row operation has a <em>reverse</em> operation.
 	</tabular>
 </table>
 <table>
-	<caption>Reversing row combinations.</caption>
+	<title>Reversing row combinations.</title>
 	<tabular top="medium">
 		<row>
 			<cell right="medium"><alert>Operation</alert></cell>
@@ -413,6 +413,31 @@ See
 <xref ref="subsection-elem-matrices-examples-inversion-procedure" />
 for an example of carrying out this procedure.
 </p>
+
+<paragraphs><title>Pattern</title><p>
+Note that
+<xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />
+keeps track of the elementary matrices involved in row reducing a matrix <m>A</m> for us,
+and automatically applies them to the identity
+(effectively multiplying them together)
+to produce the inverse on the right:
+<md>
+	<mrow>
+		\left[\begin{array}{c|c} A \amp I \end{array}\right]
+		\amp \xrightarrow[\text{operation}]{\text{first}}
+		\left[\begin{array}{c|c} E_1 A \amp E_1 I \end{array}\right]
+	</mrow><mrow></mrow><mrow>
+		\amp \xrightarrow[\text{operation}]{\text{second}}
+		\left[\begin{array}{c|c} E_2 E_1 A \amp E_2 E_1 I \end{array}\right]
+	</mrow><mrow></mrow><mrow>
+		\amp \qquad \vdots
+	</mrow><mrow></mrow><mrow xml:id="equation-elem-matrices-concepts-inversion-by-row-red-pattern" tag="star">
+		\amp \xrightarrow[\text{operation}]{\text{last}}
+		\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{array}\right]
+		= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+	</mrow>
+</md>.
+</p></paragraphs>
 
 </subsection>
 

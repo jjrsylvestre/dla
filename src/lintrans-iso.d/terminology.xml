@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-iso-terminology">
+
+<title>Terminology and notation</title>
+
+<p><dl>
+
+	<li>
+	<title>
+		<term>composite function</term>
+		(for functions <m>\funcdef{f}{X}{Y}</m> and <m>\funcdef{g}{Y}{Z}</m>)
+	</title>
+	<idx>composite</idx>
+	<p>
+	the function <m>\funcdef{g \circ f}{X}{Z}</m> defined by
+	<m>(g \circ f)(x) = g\bigl(f(x)\bigr)</m>
+	</p>
+	</li>
+
+</dl></p>
+
+<paragraphs><title>Notation</title><p>
+	As in <xref ref="worksheet-lintrans-iso">Discovery set</xref>,
+	in analogy with the relationship between standard matrices of matrix transformations
+	and the standard matrix of their composition,
+	we will use multiplication notation <m>S T</m> in place of
+	composite function notation <m>S \circ T</m> for <em>all</em> linear transformations.
+</p></paragraphs>
+
+<p><dl>
+
+	<li>
+	<title><term>injective function</term></title>
+	<idx>injective</idx>
+	<p>
+	a function for which outputs are always distinct;
+	<ie /> for which <m>f(x_1) \neq f(x_2)</m> in the codomain whenever <m>x_1 \neq x_2</m> in the domain
+	</p>
+	</li>
+
+	<li>
+	<title><term>one-to-one</term></title>
+	<idx>one-to-one</idx>
+	<p> synonym for injective </p>
+	</li>
+
+	<li xml:id="definition-lintrans-iso-invertible">
+	<title><term>invertible transformation</term></title>
+	<idx><h>linear</h><h>transformation</h><h>invertible</h></idx>
+	<idx><h>transformation</h><h>invertible</h></idx>
+	<p>
+	a linear transformation <m>\funcdef{T}{V}{W}</m> for which there exists
+	linear <m>\funcdef{\inv{T}}{\im T}{V}</m>
+	so that both <m>\inv{T} T</m> and <m>T \inv{T}</m> are the identity transformation
+	(on <m>V</m> and <m>\im T</m>, respectively)
+	</p>
+	</li>
+
+	<li>
+	<title>
+		<term>inverse transformation</term>
+		(of an invertible transformation <m>\funcdef{T}{V}{W}</m>)
+	</title>
+	<idx><h>linear</h><h>transformation</h><h>inverse</h></idx>
+	<idx><h>transformation</h><h>inverse</h></idx>
+	<p>
+	the transformation <m>\funcdef{\inv{T}}{\im T}{V}</m> as in the definition of
+	<term><xref ref="definition-lintrans-iso-invertible" text="title" /></term>
+	</p>
+	</li>
+
+</dl></p>
+
+<remark>
+	<p>
+	Technically, for functions <m>f</m> and <m>g</m> the composite <m>g \circ f</m> is only defined in the case that the domain of <m>g</m> is the same as the codomain for <m>f</m>.
+	But as long as the domain for <m>g</m> <em>contains</em> the <em>image</em> of <m>f</m> as a subset,
+	then the definition <m>(g \circ f)(x) = g\bigl(f(x)\bigr)</m> still makes sense.
+	</p><p>
+	In particular,
+	a linear transformation <m>\funcdef{T}{V}{W}</m> can always be <q>redefined</q> by
+	<term>restricting the codomain</term> to <m>\funcdef{T}{V}{\im T}</m>.
+	This way, in the case that <m>T</m> is invertible,
+	the composition <m>\inv{T} T</m> makes sense even though <m>\inv{T}</m> is only defined on <m>\im T</m> rather than on all of the codomain space <m>W</m> for <m>T</m>.
+</p></remark>
+
+<p><dl>
+
+	<li>
+	<title><term>surjective function</term></title>
+	<idx>surjective</idx>
+	<p>
+	a function for which every codomain element is an image element;
+	<ie /> for which <m>\funcdef{f}{X}{Y}</m> with <m>\im f = Y</m>
+	</p>
+	</li>
+
+	<li>
+	<title><term>onto</term></title>
+	<idx>onto</idx>
+	<p> synonym for surjective </p>
+	</li>
+
+	<li>
+	<title><term>isomorphism</term></title>
+	<idx>isomorphism</idx>
+	<p> a surjective, invertible transformation <m>\funcdef{T}{V}{W}</m> </p>
+	</li>
+
+	<li>
+	<title><term>isomorphic spaces</term></title>
+	<idx>isomorphic</idx>
+	<p> vector spaces <m>V</m> and <m>W</m> for which there exists an isomorphism <m>V \to W</m> </p>
+	</li>
+
+	<li>
+	<title><m>V \iso W</m></title>
+	<p> notation to mean that spaces <m>V</m> and <m>W</m> are isomorphic </p>
+	</li>
+
+</dl></p>
+
+</section>

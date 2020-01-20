@@ -1,0 +1,188 @@
+*************** A lot of this likely should be in TODO-1.txt.
+
+* the way I use <question> is more RemarkLike than it is ExampleLike
+  --> maybe rename <insight> to question?
+* see EF/style.xsl for working html.css.extra
+  --> need the extra single quotes...
+* Numbering level is configurable
+  --> disable number of subsubsection and convert titled paragraphs
+* s/commutivity/commutativity/g
+* STOP putting <term> inside <title> of <dl> --- use custom css to get italics instead\
+  --> see ef.css from EF project
+* Reconsider all use of <table> --- see discussion on pretext-dev and pretext-support.
+* In lintrans-matrix.d/concepts.xml, rewrite part about inverses to just use a back-and-forth diagram instead of a composition diagram.
+  DECIDED NOT TO. But leaving this here in case I reconsider.
+* Look for tag="dstar" or tag="tstar", might be better to use dagger instead if the subsequent equations
+  are not related to the star equation. (And similarly for ddagger/tdagger vs dagger, etc.)
+* Go through lintrans-iso/concepts.xml,theory.xml and make sure injective/invertible are distinct enough and not conflated.
+* lintrans-*.d/examples.xml --- some complex examples?
+* In col-row-null-space.d, change all A = columns as \uvec{c}_j into columns as \uvec{a}_j.
+* In lintrans-basic.d, need some examples of add/scalar multiplying linear transformations?
+* Consider changing "multiplication by a scalar" notation in lintrans-*.d to a LaTeX math operator.
+* Add example descriptions of Span{one vector}, Span{two vector}, Span{three vector}
+  to subspace chapter
+* Not sure if this is a duplicate: Cayley-Hamilton theory has "similar to nilpotent is nilpotent"
+  but then elem. nilpotent form has an activity on this.... maybe should just drop the activity?
+* Consider going through terminology.xml files and moving parenthetical information outside of the <term>...</term> of the title
+* grep --color=always "xref ref=\"definition" src/**/*.xml | grep -v term
+* Add to inprod-orthog.d? U subspace W => W^\perp subspace U^\perp.
+* In orthog.d/concepts.xml, make a copy of concepts.d/proj.tex properly labelling the projection w as proj_a u,
+  and n as n = u - proj_a u. Then also combine the k formula into a proper proj_a u = formula display.
+* Gram-Schmidt process or procedure?
+* Add to matrix-adjoints chapter:
+  Make connection between S^T S = I, U^\ast U = I, and the way that alternative inner products on \R^n and \C^n are generated.
+  --> So essentially a matrix is orthog/unitary when positive definite A^\ast A induces the same inner product on \R^n or \C^n.
+* Add to matrix-adjoints chapter: If A is product-preserving and W is A-invariant, then so is W^\perp.
+* Add to matrix-adjoints chapter: If A is product-preserving, then so is \inv{A}.
+* Add to inprod-orthog chapter: relative to orthog basis, norm = sqrt{sum of squares of coeffs in expansion}.
+  Then use this to avoid having to prove "proposition-projection-props-norm" in projection.d/theory.xml.
+* Add to block-diagonal chapter: dimensions of complete set of independent subspaces add up to dim whole space.
+* Go through and try to make applications of the Subspace Test uniform using <cases>.
+* Turn each "In this section" assemblage contents into a table, otherwise long subsection titles wrap to underneath the subsection number,
+  which looks bad. (See output of inprod-orthog.d/examples.xml.)
+* In chapter-inprod-orthog discusses creating a U,U^\perp pair by breaking up an orthog basis.
+  This should be discussed more generally in block-diagonal chapter,
+  re creating a complete set of independent subspaces by breaking up a basis.
+* I think I have been forgetting to do <xref ref="activity-...">Discovery</xref> when referencing a *part* of an activity from "far".
+* Add the term "expansion" relative to a basis in somewhere in the basis chapter.
+* Really need to get trace and trace notation formally introduced in the book somewhere.
+* Subdivide src directory by part.
+* Go through Matrix Forms chapters and add text="title" to xrefs to procs...
+* In cayley-hamilton chapter, add rotation matrices to discussion a+bi ⟷ \begin{bmatrix} a & -b \\ b & a \end{bmatrix}.
+* Check if I should make more use of \boxed in block diagonal matrices
+  --- see the two \inv{P} A P matrices in src/triang-nilpotent.d/examples.xml.
+* In whichever det chapter: in the long theorem that lists row ops vs det, add an entry for
+  "If one row is equal to a combination of other rows, then det 0".
+* In elementary nilpotent form, make connection between "terminating in zero" and "eventually ends up in the nullspace".
+* Find a way to get guiding question out of block diagonal motivation section and into similar chapter somewhere.
+* In det activities, 1x1 det should ask more directly
+  [3] is invertible because __________
+  [0] is not invertible because ___________
+  [a] is invertible precisely when ___________
+  so we should define det [a] = __________.
+* <convention> has recently been hijacked to "Pattern".
+  --> Go through and look for <paragraphs><title>Pattern</title>...  and similar that can be converted.
+      (Then also look for xrefs to the division that contains that bit that could be changed to point directly to the pattern.)
+* In Discovery Guides for matrix forms chapters, be more explicit in asking them to determine the pattern of similarity,
+  using
+  <m>A \uvec{p}_1 = <fillin characters="10" /></m>
+  <m>A \uvec{p}_2 = <fillin characters="10" /></m>
+  etc.
+  (See elem-nilpotent discovery guide.)
+  And while we're at it, maybe redo general similarity pattern discussion (similarity.d/discovery.xml)
+  to go back to using standard basis vectors as in old activity sets and in PRIMUS article
+  ---> current activities have too many links to open to see relevant matrix mult patterns.
+* Cayley-Hamilton [Tt]heorem ? Cauchy-Schwarz [Ii]nequality ?
+  --> Also, turn references to Cauchy-Schwarz to text="title" type
+* <question> doesn't really need to have a <statement>
+* Redo change of basis, starting with activities:
+  --> Reverse order of generality! Should start with easy B->S case for R^n.
+  In this case B [x]_B = x is immediate from linear combination point of view for matrix mult.
+  Then talk about \inv{B} x = [x]_B.
+  Then introduce a second basis B'.
+  Last: generalize to abstract spaces.
+* There are already some facts about similar matrices proved in diagonalization
+  chapter, just reference from similarity chapter...!!
+  Also check for overlap of activities....
+* <md> containing matrices but no actual alignment \amp's will still be processed as \begin{align*}...\end{align*}
+  ---> use <md alignment="gather"> instead
+* grep for rowredarrow and amp on the same line, probably convert to a gather-style md with no alignment.
+* Add a "Patterns" section to each chapter to summarize the patterns found in the activity set in clear language.
+* Add det-trace pattern of 2x2 char poly.
+* <term><xref ref="definitin-" /></term> probably shouldn't have the encapsulating <term>,
+  and it doesn't work anyway. Figure out what's up.
+* Change language in change of basis chapter from "old/new" to "original/target" ---
+  the reverse designation of "old/new" from my preferred point of view is too entrenched
+  in existing sources to try to go against the tide.
+* DO THIS!!!
+  knowl-ize definitions? Would especially be nice to have terminology knowls in activity sets...
+  Could add an xml:id to <li>'s in terminology.xml, then
+  search for <term>...</term> to change to an <xref>...</xref>
+  ---> see how this is already done for the defintion of linear combination in the vectors chapter.
+  ---> would also need to do a bit of re-reading to find places
+	that are not currently <term>'s but would benefit from
+	having a knowl-ized definition reminder pop up.
+  ---> use text="title" where appropriate, but also need to wrap <xref> in <term>
+* Decide whether worksheets should be referred to as worksheets or as
+  activity sets, and try to make it consistent throughout document.
+  (Especially xrefs.)
+* Make more use of subsubsection instead of paragraphs ?
+* Basis/coords Examples section: add an example of determining coordinates
+  relative to a basis of polynomials.
+* Need to find another way to do dot product that works both in latex and mathjax
+* Look for "<xref .../> of <xref .../>" constructs and replace with text="phrase-global" or text="phrase-hybrid" in
+  the first <xref>.
+* Consider adding titles to remarks, warnings, etc.
+* Look back at old LaTeX book TODO list.
+* Go through and check all asides --- having an <aside> inside a <p>
+  causes an extra line break in the main text <p>.... which is annoying.
+* Go through and see if some sections don't really need to be broken up into
+  subsections.
+  --> Especially: look for sections that have only one subsection.
+  --> Especially: check out theory sections.
+* Go through and see where <md>'s need a blank <mrow></mrow> to improve readability
+  (OR figure the mathjax spacing thing).
+* Consider changing "A Look Ahead" and "A Look Behind" paragraphs to asides.
+* In the Concepts section of det-by-row-red, convert conclusion of each
+  "Corresponding elementary matrices" paragraph to an alert, to be in accord
+  with the other named paragraphs.
+* Look for <paragraphs> and see if <cases> would make more sense.
+  (PROBABLY NOT, don't think <cases> is supposed to go outside <proof>.)
+* Go through and make xref's to "theorem-*-equiv-to-invertible" point to the most recent
+  extended version?
+* Consider going through and changing "collection" to "set."
+* sed to change xml:id's example-*-examples- to remove redundant -examples-
+  (as is already done for theorems/lemmas/propositions that appear in theory sections).
+
+EVENTUALLY:
+* Go through and scrutinize aside placements --- they don't have to be inter-paragraph!
+* make macros out of more things, to ease change-of-notation for people who want to adopt.
+---> for example, get rid of all \left[\begin{array}...\end{array}\right] and similarly for smallmatrix,
+     so that matrices can be easily changed from [] to () notation.
+---> maybe take this even one step further and get rid of all bmatrix and replace with \left[\begin{matrix} and \end{matrix}\right]  ?
+* More liberal use of <sidebyside> to display small figures next to text...?
+  But this will be hard to manage good presentation for different size screens...
+
+QUESTIONS FOR rbeezer:
+* Can "nearby" references please lose their knowls? (sometimes....)
+* <xref ref="...">Rename</xref> does not have the renaming in the knowl.
+  This is most obvious in renaming list items --- then the knowl says "Item ???. ..."
+  instead of "Rename ???. ..."
+* How to start a list at a particular number ?
+* <aside> that are two close together interfere.
+* Sometimes asides have extra vertical space at the top?
+  (See the two asides in activity section for the inverses chapter...)
+* Why doesn't <cell> have a top= or left= attribute for borders?
+
+NEW QUESTIONS:
+* Capitalize i.e. at the beginning of a sentence
+* Pluralization: Remark vs Remarks
+* Table of contents stuff:
+  --> There is no table of contents in "Front Matter" ?
+      (But can go "Up" from Front Matter to a get a listing of parts....)
+  --> Collapse section listings and only list chapters in contents side bar?
+  --> Have mini table of contents at the top of each section, listing all the subsections?
+* <ol cols="2"> goes across first instead of down? (This is noted in the Author's Guide...)
+* Misbehaving asides...
+  --> see my message to the Support group, as well as the aside
+      in "Terminology..." for chapter 14.
+  --> Sometimes aside <p> starts inline with <title>, sometimes it starts on the next line.
+      (see ch14.activity and ch14.concepts).
+  --> Sometimes aside with no title has a blank line at top, sometimes it doesn't.
+  --> Sometimes with a long title, when window is made slightly too narrow,
+      the title moves onto a second line but the two title lines seem to overlap.
+      ---> see the aside in examples section of chapter 14.
+* Ragged right vs justify.
+* Serif vs non-serif font mismatch.
+* An aside inside the statement of a theorem has italicized text?
+  (See the first aside next to Proposition 18.5.1.)
+* BUG: manually specifying <ol label="alph"> and then having another <ol> nested in an
+  <li> of the "alph" list, *without* specifying label type for the sublist, leads to
+  sublist with alph labels...
+* Inconsistent spacing of <paragraphs>.
+* Sometimes extra lines at the end of in-set environments like <example>.
+  For example, see the last example in chapter 2.
+* BUG: pattern
+  (some note in parentheses that ends in <m>math</m>).
+  could end up with the ")." on a new line, separated from the math.
+  Example: near end of subsection-elem-matrices-examples-elem-matrices-and-inverses.

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-quadratic-forms-concepts" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-quadratic-forms-concepts-forms" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-quadratic-forms-concepts-forms" /></em></li>
+<li><xref ref="subsection-quadratic-forms-concepts-diag" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-quadratic-forms-concepts-diag" /></em></li>
+<li><xref ref="subsection-quadratic-forms-concepts-principle-axes" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-quadratic-forms-concepts-principle-axes" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-quadratic-forms-concepts-forms">
+<title>Quadratic forms</title>
+
+<p>
+A <xref ref="definition-quadratic-forms">level set</xref>
+of a <xref ref="definition-quadratic-forms" text="title" /> in two or three variables
+without cross terms (<ie /> consisting entirely of terms of the form <m>a_i x_i^2</m>)
+creates an easily-recognizable curve or surface <mdash />
+a circle, ellipse, or hyperbola in <m>\R^2</m>
+or a sphere, ellipsoid, hyperboloid, <etc /> in <m>\R^3</m>.
+When cross terms are present,
+the same geometric patterns are also present but are less evident because the curve or surface is aligned along some set of axes other than the standard <m>xy</m>-axes or <m>xyz</m>-axes.
+</p><p>
+As we saw in <xref ref="activity-quadratic-forms-from-matrix" />
+and <xref ref="activity-quadratic-forms-to-matrix" />,
+a quadratic form <m>q(x_1,x_2,\dotsc,x_n)</m> can be represented by a matrix <m>A</m> so that
+<me> q(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>,
+where the input point <m>(x_1,x_2,\dotsc,x_n)</m> is instead represented by an <m>n</m>-dimensional column vector <m>\uvec{x}</m>.
+The entries in the matrix <m>A</m> correspond to the coefficients in the quadratic polynomial,
+so that <alert>the coefficient on the term for <m>x_i x_j</m> is equal to the <m>(i,j)</m> entry in <m>A</m>.</alert>
+However, since <m>x_j x_i = x_i x_j</m>,
+when we collect like terms we need to add the <m>(i,j)</m> and <m>(j,i)</m> entries in <m>A</m> to get the coefficients for the cross terms:
+<me> q(\uvec{x}) = \sum_{1 \le i \le n} a_{ii} x_i^2 + \sum_{1 \le i \lt j \le n} (a_{ij} + a_{ji}) x_i x_j </me>.
+Even better is to use a <em>symmetric</em> matrix to represent the quadratic form,
+so that
+<me> q(\uvec{x}) = \sum_{1 \le i \le n} a_{ii} x_i^2 + \sum_{1 \le i \lt j \le n} 2 a_{ij} x_i x_j </me>.
+A quadratic form has the desirable property of lacking cross terms if and only if it can be represented by a <em>diagonal</em> matrix.
+But as we will see, being represented by an <em>orthogonally diagonalizable</em> matrix is just as good.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-quadratic-forms-concepts-diag">
+<title>Diagonalizing quadratic forms</title>
+
+<p>
+As explored in <xref ref="activity-quadratic-forms-decouple" />,
+we can eliminate cross terms in a quadratic form
+<me>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x}</me>
+by using a change of variables
+<me> \uvec{x} = P \uvec{w} </me>
+for an <em>orthogonal</em> transition matrix <m>P</m> that diagonalizes <m>A</m>.
+It should be obvious from the patterns
+of <xref ref="activity-quadratic-forms-from-matrix" />
+and <xref ref="activity-quadratic-forms-to-matrix" />
+that every quadratic form can be represented by a <em>symmetric</em> matrix <m>A</m>,
+and every symmetric matrix is orthogonally diagonalizable
+(<xref ref="theorem-orthog-unitary-diag-symmetric-is-orthog-diag" />).
+So every quadratic form can be <q>diagonalized</q> to eliminate cross terms.
+</p><p>
+In the new variables, the quadratic form becomes
+<me>
+	q_A(\uvec{x})
+	= \utrans{\uvec{x}} A \uvec{x}
+	= \utrans{\uvec{w}} \utrans{P} A P \uvec{w}
+	= q_{\utrans{P} A P}(\uvec{w})
+</me>.
+If <m>\lambda_1,\lambda_2,\dotsc,\lambda_n</m> are a complete list of the eigenvalues of symmetric <m>A</m>,
+with eigenvalues of multiplicity greater than <m>1</m> listed multiple times,
+and the columns of <m>P</m> are arranged in an order corresponding to this order of eigenvalues,
+then the diagonal entries of the diagonal matrix <m>\utrans{P} A P</m> are those eigenvalues in order.
+As a diagonal matrix represents a quadratic form without cross terms,
+we have
+<me>
+	q_A(\uvec{x})
+	= q_{\utrans{P} A P}(\uvec{w})
+	= \lambda_1 w_1^2 + \lambda_2 w_2^2 + \dotsc + \lambda_1 w_n^2
+</me>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-quadratic-forms-concepts-principle-axes">
+<title>Principal axes for a quadratic form</title>
+
+<p>
+As above,
+if quadratic form <m>q_A(\uvec{x})</m> is represented by a symmetric matrix <m>A</m>,
+then orthogonally diagonalizing <m>A</m> will provide a way to change variables in the form to eliminate cross terms.
+The fact that the transition matrix <m>P</m> used to achieve this is orthogonal has geometric implications,
+as we know that orthogonal matrices preserve geometry as they transform <m>\R^n</m>
+(<xref ref="proposition-matrix-adjoints-prod-preserv-props" />).
+So under an orthogonal change of variables <m> \uvec{x} = P \uvec{w}</m>,
+whatever geometric shape a level set <m>q_A(\uvec{x}) = k</m> has in <m>\uvec{x}</m>-coordinates,
+it has the same shape in <m>\uvec{w}</m>-coordinates,
+and vice versa.
+The shape may be rotated or reflected or <etc />,
+but it will not be stretched/compressed or sheared or <etc /> <!-- TODO bug? period after etc... -->
+And as the level set shapes for the <q>diagonalized</q> version in terms of <m>\uvec{w}</m>-variables
+(without cross terms)
+are easier to analyze,
+we can determine the shape in terms of <m>\uvec{w}</m>-variables and then use the transformation
+<me> \uvec{x} = P \uvec{w} </me>
+to obtain the shape in <m>\uvec{x}</m>-variables.
+</p><p>
+Just as discussed in <xref ref="section-orthog-unitary-diag-motivation" />,
+the orthonormal basis of <m>\R^n</m> formed by the columns of the orthogonal transition matrix <m>P</m> creates a new set of axes,
+called a set of <term>principal axes</term> for the quadratic form.
+</p>
+<figure>
+	<caption>
+		An orthogonal transition matrix as change-of-variables,
+		creating a new set of <term>principal axes</term> in <m>\R^2</m>.
+		For each vector <m>\uvec{x}</m> on the <m>xy</m>-axes,
+		the corresponding vector <m>\widetilde{\uvec{x}}</m> on the <m>wz</m>-axes indicates the converted vector <m>\inv{P} \uvec{x}</m>.
+	</caption>
+	<image width="100%">
+		<!-- description gets inserted as alt text in html img tag -->
+		<description>Diagram of an orthogonal change of variables via transition matrix.</description>
+		<latex-image><xi:include href="concepts.d/principal-axes.tex" parse="text" /></latex-image>
+	</image>
+</figure>
+<p>
+See <xref ref="subsection-quadratic-forms-examples-level-sets-R2" />
+for examples of visualizing a level set of a two-variable quadratic form first on a transformed set of axes,
+and then on the principal axes the transformed axes create,
+superimposed on the usual <m>xy</m>-axes.
+</p>
+
+</subsection>
+
+</section>

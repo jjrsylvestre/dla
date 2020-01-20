@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<worksheet xml:id="worksheet-lintrans-ker-im">
+<title>Discovery guide</title>
+
+<introduction>
+	<p>
+	Attached to every linear transformation <m>\funcdef{T}{V}{W}</m> is a pair of important subspaces,
+	one in the domain space and one in the codomain space.
+	<dl>
+		<li><title><term>kernel of <m>T</m></term></title><p>
+			the collection of all vectors <m>\uvec{v}</m> in the domain space <m>V</m> for which
+			<m>T(\uvec{v}) = \zerovec_W</m>
+		</p></li>
+		<li><title><m>\ker T</m></title><p> notation for the kernel of <m>T</m> </p></li>
+		<li><title><term>image of <m>T</m></term></title><p>
+			the collection of all image vectors <m>T(\uvec{v})</m> in the codomain space <m>W</m>
+		</p></li>
+		<li><title><m>\im T</m></title><p> notation for the image of <m>T</m> </p></li>
+	</dl>
+	Note that a vector <m>\uvec{w}</m> in <m>W</m> is in <m>\im T</m> precisely when there exists at least one <m>\uvec{v}</m> in <m>V</m> with <m>T(\uvec{v}) = \uvec{w}</m>.
+	</p>
+</introduction>
+
+<!-- TOO LONG TO INCLUDE THIS
+<activity><title>Kernel is a subspace</title><p>
+	For abstract linear transformation <m>\funcdef{T}{V}{W}</m>,
+	use the Subspace Test    (TODO proper xref)
+	to verify that <m>\ker T</m> is a subspace of the domain space <m>V</m>.
+</p></activity>
+-->
+
+<activity xml:id="activity-lintrans-ker-im-matrix-transformation-ker">
+	<title>Kernel of a matrix transformation</title>
+	<introduction><p>
+		Consider matrix transformation <m>\funcdef{T_A}{\R^n}{\R^m}</m> defined,
+		as usual,
+		by <m>T_A(\uvec{x}) = A \uvec{x}</m> for some <m>m \times n </m> matrix <m>A</m>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-ker-im-matrix-transformation-ker-matrix"><p>
+		Suppose <m>A</m> is a <m>4 \times 5</m> matrix whose RREF is
+		<me>
+			\left[\begin{array}{rrrrr}
+				1 \amp 0 \amp 2 \amp 0 \amp -1 \\
+				0 \amp 1 \amp 3 \amp 0 \amp  2 \\
+				0 \amp 0 \amp 0 \amp 1 \amp -3 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 0
+			\end{array}\right]
+		</me>.
+		Determine a basis for <m>\ker T_A</m> as a subspace of <m>\R^5</m>.
+	</p></task>
+	<task><p>
+		<em>Connect to previous concepts:</em>
+		<m>\ker T_A</m> is the same as the <fillin characters="10" /> of <m>A</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-ker-im-describe-ker">
+	<title>Kernel examples</title>
+	<introduction>
+		<p> In each of the following, describe the kernel vectors in words. </p>
+		<p> Try to use a more meaningful description than just <q>the vectors that evaluate to zero in the transformation</q>. </p>
+	</introduction>
+	<task xml:id="activity-lintrans-ker-im-describe-ker-symmetric"><p>
+		<m>\funcdef{T}{\matrixring_n(\R)}{\matrixring_n(\R)}</m> by <m>T(A) = A - \utrans{A}</m>.
+	</p></task>
+	<task>
+		<p> Evaluation of polynomials at fixed <m>x</m>-value <m>x = a</m>: </p>
+		<p> <m>\funcdef{E_a}{\poly(\R)}{\R^1}</m> by <m>E_a(p) = p(a) </m>. </p>
+	</task>
+	<task xml:id="activity-lintrans-ker-im-describe-ker-diff">
+		<p>
+		Differentiation: let <m>F(a,b)</m> represent the space of functions defined on the interval <m>a \lt x \lt b</m>,
+		and let <m>D(a,b)</m> represent the subspace of <m>F(a,b)</m> consisting of <em>differentiable</em> functions.
+		</p>
+		<p> Consider <m>\funcdef{\ddx}{D(a,b)}{F(a,b)}</m> by <m>\ddx(f) = f'</m>. </p>
+	</task>
+	<task>
+		<p> Integration: let <m>C[a,b]</m> represent the space of <em>continuous</em> functions defined on the interval <m>a \le x \le b</m>. </p>
+		<p> Consider <m>\funcdef{I_{a,b}}{C[a,b]}{\R^1}</m> by <m>I_{a,b}(f) = \integral{a}{b}{f(x)}{x}</m>. </p>
+	</task>
+</activity>
+
+<activity xml:id="activity-lintrans-ker-im-basis-ker">
+	<title>Determining kernel basis</title>
+	<introduction>
+		<p>
+		For each of the provided transformations of <m>\matrixring_{2}(\R)</m>,
+		determine a basis for <m>\ker T</m> by carrying out the following steps.
+		<ol label="(i)">
+			<li>
+				Starting with an arbitrary matrix
+				<me> X = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+				in <m>\matrixring_{2}(\R)</m>,
+				determine conditions on parameters <m>a,b,c,d</m> so that
+				<m> T(X) = \zerovec </m>.
+			</li>
+			<li> Use those conditions to reduce the number of parameters required to describe an arbitrary matrix in <m>\ker T</m>. </li>
+			<li> Determine the basis vector associated to each in the reduced collection of parameters. </li>
+		</ol>
+		</p>
+		<aside><title>Compare</title><p>
+			This discovery activity with <xref ref="activity-dimension-basis-via-parameters" />.
+		</p></aside>
+	</introduction>
+	<task><p> <m>\funcdef{T = \trace}{\matrixring_{2}(\R)}{\R^1}</m>. </p></task>
+	<task xml:id="activity-lintrans-ker-im-basis-ker-symmetric"><p>
+		<m>\funcdef{T}{\matrixring_{2}(\R)}{\matrixring_{2}(\R)}</m> by <m>T(A) = A - \utrans{A}</m>.
+	</p></task>
+	<task xml:id="activity-lintrans-ker-im-basis-ker-left-mult-M22"><p>
+		<m>\funcdef{T = L_B}{\matrixring_{2}(\R)}{\matrixring_{2}(\R)}</m> by <m>L_B(A) = B A</m>,
+		where
+		<me> B = \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>.
+	</p></task>
+</activity>
+
+<!-- TOO LONG TO INCLUDE THIS
+<activity><title>Image is a subspace</title>
+	<statement><p>
+		For abstract linear transformation <m>\funcdef{T}{V}{W}</m>,
+		use the Subspace Test   (TODO proper xref)
+		to verify that <m>\im T</m> is a subspace of the codomain space <m>W</m>.
+	</p></statement>
+	<hint><p>
+		Recall that a vector <m>\uvec{w}</m> in <m>W</m> is in <m>\im T</m> precisely when there is some domain vector <m>\uvec{v}</m> in <m>V</m> with <m>T(\uvec{v}) = \uvec{w}</m>.
+	</p></hint>
+</activity>
+-->
+
+<activity xml:id="activity-lintrans-ker-im-matrix-transformation-im">
+	<title>Image of a matrix transformation</title>
+	<introduction><p>
+		Consider matrix transformation <m>\funcdef{T_A}{\R^n}{\R^m}</m> defined,
+		as usual,
+		by <m>T_A(\uvec{x}) = A \uvec{x}</m> for some <m>m \times n </m> matrix <m>A</m>.
+	</p></introduction>
+	<task xml:id="activity-lintrans-ker-im-matrix-transformation-im-defn"><p>
+		<em>Apply the definition:</em>
+		An <m>m</m>-dimensional vector <m>\uvec{b}</m> is in <m>\im T_A</m> precisely when
+		<fillin characters="20" />.
+	</p></task>
+	<task xml:id="activity-lintrans-ker-im-matrix-transformation-im-colspace"><p>
+		<em>Connect to previous concepts:</em>
+		<m>\im T_A</m> is the same as the <fillin characters="10" /> of <m>A</m>.
+	</p></task>
+	<task xml:id="activity-lintrans-ker-im-matrix-transformation-im-matrix">
+		<p>
+		If you remembered the relevant previous concept in
+		<xref ref="activity-lintrans-ker-im-matrix-transformation-im-colspace" text="type-local" />,
+		then hopefully you also remember how to determine a basis for that special space attached to matrix <m>A</m>.
+		</p><p>
+		Suppose <m>A</m> is a <m>4 \times 5</m> matrix whose RREF is
+		<me>
+			\left[\begin{array}{rrrrr}
+				1 \amp 0 \amp 2 \amp 0 \amp -1 \\
+				0 \amp 1 \amp 3 \amp 0 \amp 2 \\
+				0 \amp 0 \amp 0 \amp 1 \amp -3 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 0
+			\end{array}\right]
+		</me>.
+		Determine a basis <m>\im T</m> as a subspace of <m>\R^4</m>.
+	</p></task>
+	<task><p>
+		The matrix in <xref ref="activity-lintrans-ker-im-matrix-transformation-im-matrix" text="type-local" />
+		is the same as the one in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker-matrix">Discovery</xref>.
+		How does <m>\dim (\ker T_A)</m> relate to <m>\dim (\im T_A)</m>?
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-ker-im-describe-im">
+	<title>Describing images</title>
+	<introduction>
+		<p>
+		Once again, for transformation <m>\funcdef{T}{V}{W}</m>,
+		a vector <m>\uvec{w}</m> in <m>W</m> is in <m>\im T</m> precisely when there exists a vector <m>\uvec{v}</m> in <m>V</m> so that <m>T(\uvec{v}) = \uvec{w}</m>.
+		</p><p>
+		Suppose the domain space <m>V</m> is finite-dimensional with spanning set <m>S = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>.
+		</p>
+	</introduction>
+	<task>
+		<p> Reword the above definition of <m>\im T</m> using these spanning vectors: </p>
+		<p>
+		a vector <m>\uvec{w}</m> in <m>W</m> is in <m>\im T</m> precisely when there exists a <fillin character="20" /> of <m>\uvec{v}_1,\uvec{v}_2,\uvec{v}_3</m> so that <fillin characters="20" />.
+		</p>
+	</task>
+	<task>
+		<p> Reword the definition again in terms of the spanning <em>image</em> vectors: </p>
+		<p>
+		a vector <m>\uvec{w}</m> in <m>W</m> is in <m>\im T</m> precisely when there exists a <fillin character="20" /> of <m>T(\uvec{v}_1),T(\uvec{v}_2),T(\uvec{v}_3)</m> so that <fillin characters="20" />.
+		</p>
+	</task>
+	<task xml:id="activity-lintrans-ker-im-describe-im-summary"><p>
+		<em>Summarize:</em>
+		If <m>\{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m\}</m> is spanning set for <m>V</m>,
+		then <m>\{T(\uvec{v}_1),T(\uvec{v}_2),\dotsc,T(\uvec{v}_m)\}</m> is
+		<fillin characters="30" /> for <m>\im T</m>.
+	</p></task>
+</activity>
+
+<activity xml:id="activity-lintrans-ker-im-obtain-im-basis">
+	<title>Image basis example</title>
+	<prelude><p> A spanning set is fine, but a basis is better. </p></prelude>
+	<introduction>
+		<p>
+		Consider again the transformation
+		<m>\funcdef{T = L_B}{\matrixring_{2}(\R)}{\matrixring_{2}(\R)}</m>
+		from <xref ref="activity-lintrans-ker-im-basis-ker-left-mult-M22">Discovery</xref>,
+		defined by <m>L_B(A) = B A</m>
+		for
+		<me> B = \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>.
+		</p><p>
+		Also recall the standard basis for <m>\matrixring_{2}(\R)</m>:
+		<md><mrow>
+			E_{11} \amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}, \amp
+			E_{12} \amp = \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}, \amp
+			E_{21} \amp = \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \amp
+			E_{22} \amp = \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+		</mrow></md>.
+		</p>
+	</introduction>
+	<task><p>
+		Compute the images of the standard basis vectors:
+		<me> T(E_{11}), \;\; T(E_{12}), \;\; T(E_{21}), \;\; T(E_{22}) </me>.
+		<xref ref="activity-lintrans-ker-im-describe-im-summary">Discovery</xref> says these image vectors should form a spanning set for <m>\im L_B</m>.
+		Do they form a basis for <m>\im L_B</m>?
+	</p></task>
+	<task>
+		<p>
+		Replace the first two standard basis vectors for <m>V = \matrixring_{2}(\R)</m> with your two basis vectors for <m>\ker L_B</m>
+		that you computed in <xref ref="activity-lintrans-ker-im-basis-ker-left-mult-M22">Discovery</xref>.
+		</p><p>
+		Write <m>A_1,A_2</m> for these kernel vectors.
+		Is <m>\{A_1,A_2,E_{21},E_{22}\}</m> still a basis for the domain space <m>V = \matrixring_{2}(\R)</m>?
+		</p><p>
+		If so, then <m>\{T(A_1),T(A_2),T(E_{21}),T(E_{22})\}</m> should again be a spanning set for <m>\im L_B</m>.
+		Is it a basis for <m>\im L_B</m>?
+		If not, can it easily be <em>reduced</em> to a basis for <m>\im L_B</m>?
+		</p>
+	</task>
+	<task><p>
+		<em>Summarize the pattern:</em>
+		To determine a basis for the image of transformation <m>\funcdef{T}{V}{W}</m>,
+		<fillin characters="30" />.
+	</p></task>
+</activity>
+
+<activity>
+	<statement><p>
+		Create a linear transformation
+		<m>\funcdef{T}{\poly_3(\R)}{\matrixring_2(\R)}</m>
+		that has kernel <em>precisely</em>
+		<m>\Span \{ 1 + x^2, 1 - x^3 \}</m>.
+	</p></statement>
+	<hint><p>
+		A transformation does not have to be specified by a formula;
+		see <xref ref="procedure-lintrans-basic-concepts-basis-to-transformation" />.
+	</p></hint>
+</activity>
+
+</worksheet>

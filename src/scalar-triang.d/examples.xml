@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-scalar-triang-examples">
+
+<title>Examples</title>
+
+<example>
+	<title>Carrying out the <xref ref="subsection-scalar-triang-concepts-proc" text="title" />: a small matrix</title>
+	<statement>
+		<p>
+		Is matrix
+		<me> A = \left[\begin{array}{rrr} -6 \amp -14 \amp 5\\ 1 \amp 2 \amp -1\\ -2 \amp -5 \amp 1 \end{array}\right] </me>
+		similar to some upper triangular matrix?
+		</p><p>
+		We begin by investigating the eigenvalues of <m>A</m>.
+		Compute the characteristic polynomial:
+		<me> \lambda I - A = \begin{bmatrix} \lambda+6 \amp 14 \amp -5 \\ -1 \amp \lambda-2 \amp 1 \\ 2 \amp 5 \amp \lambda-1 \end{bmatrix} </me>,
+		<md>
+			<mrow> c_A(\lambda) \amp= \det (\lambda I - A) </mrow>
+			<mrow> \amp= \lambda^3-3\lambda^2-3\lambda-1 </mrow>
+			<mrow> \amp = (\lambda+1)^3 </mrow>
+		</md>.
+		So <m>A</m> has eigenvalue <m>\lambda = -1</m>,
+		with algebraic multiplicity <m>3</m>.
+		From our analysis in <xref ref="subsection-scalar-triang-concepts-similarity" />,
+		since <m>A</m> has a single eigenvalue,
+		we are confident it can be made similar to a <em>scalar</em> triangular matrix.
+		</p><p>
+		Next, compute a basis for the eigenspace <m>E_{-1}(A)</m>.
+		<md alignment="gather">
+			<mrow>
+				(-1)I-A = \left[\begin{array}{rrr} 5 \amp 14 \amp -5 \\ -1 \amp -3 \amp 1 \\ 2 \amp 5 \amp -2 \end{array}\right]
+				\qquad \rowredarrow \qquad
+				\left[\begin{array}{ccr} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \qquad
+				E_{-1}(A) = \Span \left\{ \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \right\}
+			</mrow>
+		</md>.
+		As you can see,
+		the geometric multiplicity of the eigenvalue <m>\lambda=-1</m> is not equal to the algebraic multiplicity,
+		so <m>A</m> is not <em>diagonalizable</em>.
+		So we continue with the scalar-triangularization procedure
+		(<xref ref="procedure-scalar-triang-concepts-proc" />).
+		</p><p>
+		Now compute a basis for the generalized eigensubspace of degree <m>2</m>:
+		<md alignment="gather">
+			<mrow>
+				(-I-A)^2 = \left[\begin{array}{ccr} 1 \amp 3 \amp -1 \\ 0 \amp 0 \amp 0 \\ 1 \amp 3 \amp -1 \end{array}\right]
+				\qquad \rowredarrow \qquad
+				\left[\begin{array}{ccr} 1 \amp 3 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \qquad
+				E_{-1}^2(A) = \Span\left\{
+					\begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix},
+					\left[\begin{array}{r} -3 \\ 1 \\ 0 \end{array}\right]
+				\right\}
+			</mrow>
+		</md>.
+		Note that we have included our basis vector for <m>E_{-1}(A)</m> as the first vector in our basis for <m>E_{-1}^2(A)</m>.
+		</p><p>
+		We are only up to two linearly independent vectors,
+		so we need to keep going by computing a basis for <m>E_{-1}^3(A)</m>.
+		But if you compute <m>(-I-A)^3</m> you will find that it is the zero matrix.
+		What does this mean?
+		<em>Every</em> vector in <m>\R^3</m> is in the null space of the zero matrix,
+		so we have <m>E_{-1}^3(A) = \R^3</m>.
+		</p><p>
+		However, we don't want to choose just <em>any</em> basis for <m>\R^3</m>,
+		as we need to maintain independence from the basis vectors for <m>E_{-1}^2(A)</m> that we already have.
+		That is, we need to choose a vector in <m>\R^3</m> that is not already in the span of our existing two generalized eigenvectors
+		(<xref ref="proposition-linear-indep-expand-indep" />).
+		But since <m>\dim E_{-1}^2(A) = 2</m>,
+		we know that it is not possible for <em>all three</em> of the standard basis vectors for <m>\R^3</m> to be in <m>E_{-1}^2(A)</m>,
+		and so we can just choose any of them that is not.
+		We will choose the third standard basis vector.
+		</p><p>
+		We now have our column vectors for a suitable transition matrix <m>P</m>:
+		<md><mrow>
+			\uvec{p}_1 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}, \;
+			\uvec{p}_2 \amp = \left[\begin{array}{r} -3 \\ 1 \\ 0 \end{array}\right], \;
+			\uvec{p}_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix},
+			\amp \amp\implies \amp
+			P \amp= \left[\begin{array}{crc} 1 \amp -3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 1 \end{array}\right]
+		</mrow></md>.
+		</p><p>
+		Finally, let's determine the form matrix <m>\inv{P}AP</m>.
+		We already know that <m>A\uvec{p}_1 = -\uvec{p}_1</m>,
+		since <m>\uvec{p}_1</m> is an eigenvector of <m>A</m> corresponding to the eigenvalue <m>\lambda = -1</m>.
+		Next, compute <m>\bbrac{A-(-1)I}\uvec{p}_2</m> and you will find that it is equal to <m>\uvec{p}_1</m>.
+		Thus, the entry above the diagonal in the second column must be <m>1</m>. Lastly, compute
+		<me>
+			\left[\begin{array}{cc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \bigl( A - (-1) I \bigr) \uvec{p}_3 \end{array}\right]
+			= \left[\begin{array}{cr|r} 1 \amp -3 \amp 5 \\ 0 \amp 1 \amp -1 \\ 1 \amp 0 \amp 2 \end{array}\right]
+			\qquad \rowredarrow \qquad
+			\left[\begin{array}{cc|r} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{array}\right]
+		</me>.
+		Thus, the entries above the diagonal in the third column are <m>2</m>, <m>-1</m>. Putting all this together yields
+		<me> \inv{P}AP = \left[\begin{array}{rrr} -1 \amp 1 \amp 2 \\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp -1 \end{array}\right] </me>.
+		</p>
+	</statement>
+</example>
+
+
+<example>
+	<title>Carrying out the <xref ref="subsection-scalar-triang-concepts-proc" text="title" />: a larger matrix</title>
+	<statement>
+		<p>
+		Is matrix
+		<me>
+			A = \left[\begin{array}{rrrrr}
+				3 \amp 1 \amp -8 \amp 8 \amp -3 \\
+				-2 \amp -5 \amp 0 \amp -2 \amp -5 \\
+				2 \amp 7 \amp 3 \amp 2 \amp 4 \\
+				3 \amp 11 \amp 1 \amp 5 \amp 7 \\
+				2 \amp 8 \amp 2 \amp 0 \amp 9
+			\end{array}\right]
+		</me>
+		similar to some upper triangular matrix?
+		</p><p>
+		Again, we start by investigating eigenvalues.
+		If you compute the characteristic polynomial for <m>A</m>,
+		you will find that it factors as <m>c_A(\lambda) = (\lambda - 3)^5</m>,
+		so that <m>A</m> has a single eigenvalue <m>3</m> of multiplicity <m>5</m>.
+		So from our analysis in <xref ref="subsection-scalar-triang-concepts-similarity" />,
+		we are confident that <m>A</m> can be made similar to a <em>scalar</em> triangular matrix.
+		</p><p>
+		Next, compute a basis for the eigenspace <m>E_3(A)</m>.
+		<md alignment="gather">
+			<mrow>
+				3 I - A =
+				\left[\begin{array}{rrrrr}
+					0 \amp -1 \amp 8 \amp -8 \amp 3 \\
+					2 \amp 8 \amp 0 \amp 2 \amp 5 \\
+					-2 \amp -7 \amp 0 \amp -2 \amp -4 \\
+					-3 \amp -11 \amp -1 \amp -2 \amp -7 \\
+					-2 \amp -8 \amp -2 \amp 0 \amp -6
+				\end{array}\right]
+				\quad \rowredarrow \quad
+				\left[\begin{array}{rrrrr}
+					1 \amp 0 \amp 0 \amp 1 \amp -\frac{3}{2} \\
+					0 \amp 1 \amp 0 \amp 0 \amp 1 \\
+					0 \amp 0 \amp 1 \amp -1 \amp \frac{1}{2} \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \qquad
+				E_3(A) = \Span\left\{
+					\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{array}\right],
+					\left[\begin{array}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{array}\right]
+				\right\}
+			</mrow>
+		</md>
+		We need five vectors for the columns of the transition matrix <m>P</m>,
+		so this is not enough.
+		</p><p>
+		Next, compute a basis for <m>E_3^2(A)</m>.
+		<md alignment="gather">
+			<mrow>
+				(3 I - A)^2 =
+				\left[\begin{array}{rrrrr}
+					0 \amp 0 \amp 2 \amp -2 \amp 1 \\
+					0 \amp 0 \amp 4 \amp -4 \amp 2 \\
+					0 \amp 0 \amp -6 \amp 6 \amp -3 \\
+					0 \amp 0 \amp -8 \amp 8 \amp -4 \\
+					0 \amp 0 \amp -4 \amp 4 \amp -2
+				\end{array}\right]
+				\quad \rowredarrow \quad
+				\left[\begin{array}{rrrrr}
+					0 \amp 0 \amp 1 \amp -1 \amp \frac{1}{2} \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 0
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\implies \qquad
+				E_3^2(A) = \Span\left\{
+					\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 0 \end{bmatrix},
+					\left[\begin{array}{r} 0 \\ 0 \\ -1 \\ 0 \\ 2 \end{array}\right]
+				\right\}
+			</mrow>
+		</md>
+		The above spanning vectors are the ones arrived at from row reducing <m>(3 I - A)^2</m>.
+		But remember that we want to use our already obtained vectors from <m>E_3(A)</m>,
+		so we just need to choose two of these four that are independent from our eigenvectors.
+		Those first two standard basis vectors will work,
+		so take
+		<me>
+			E_3^2(A) = \Span\left\{
+				\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{array}\right],
+				\left[\begin{array}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{array}\right],
+				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+			\right\}
+		</me>.
+		</p><p>
+		Still not enough vectors,
+		but <m>(3 I - A)^3 = \zerovec</m>,
+		so we can choose any vector in <m>\R^5</m> that is not in the span of the four we already have.
+		The third standard basis vector for <m>\R^5</m> will work,
+		and we now have
+		<me>
+			E_3^3(A) = \Span\left\{
+				\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{array}\right],
+				\left[\begin{array}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{array}\right],
+				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+			\right\}
+		</me>.
+		</p><p>
+		Now place these matrices in the transition matrix
+		<me>
+			P = \left[\begin{array}{rrrrr}
+				-1 \amp 3 \amp 1 \amp 0 \amp 0 \\
+				0 \amp -2 \amp 0 \amp 1 \amp 0 \\
+				1 \amp -1 \amp 0 \amp 0 \amp 1 \\
+				1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 2 \amp 0 \amp 0 \amp 0
+			\end{array}\right]
+		</me>.
+		To determine the form matrix,
+		we can reduce <m>\left[\begin{array}{c|c} P \amp AP \end{array}\right]</m> as
+		<md alignment="gather">
+			<mrow>
+				\left[\begin{array}{rrrrr|rrrrr}
+					-1 \amp 3 \amp 1 \amp 0 \amp 0 \amp -3 \amp 9 \amp 3 \amp 1 \amp -8 \\
+					0 \amp -2 \amp 0 \amp 1 \amp 0 \amp 0 \amp -6 \amp -2 \amp -5 \amp 0\\
+					1 \amp -1 \amp 0 \amp 0 \amp 1 \amp 3 \amp -3 \amp 2 \amp 7 \amp 3\\
+					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 0 \amp 3 \amp 11 \amp 1\\
+					0 \amp 2 \amp 0 \amp 0 \amp 0 \amp 0 \amp 6 \amp 2 \amp 8 \amp 2
+				\end{array}\right]
+			</mrow><mrow></mrow><mrow>
+				\rowredarrow \qquad
+				\left[\begin{array}{rrrrr|rrrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 0 \amp 3 \amp 11 \amp 1 \\
+					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 1 \amp 4 \amp 1 \\
+					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 0 \amp -10 \\
+					0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 2 \\
+					0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3
+				\end{array}\right]
+			</mrow>
+		</md>,
+		obtaining
+		<me>
+			\inv{P} A P
+			= \left[\begin{array}{rrrrr}
+				3 \amp 0 \amp 3 \amp 11 \amp 1 \\
+				0 \amp 3 \amp 1 \amp 4 \amp 1 \\
+				0 \amp 0 \amp 3 \amp 0 \amp -10 \\
+				0 \amp 0 \amp 0 \amp 3 \amp 2 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 3
+			\end{array}\right]
+		</me>.
+		</p>
+	</statement>
+</example>
+
+</section>

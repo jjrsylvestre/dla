@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-triang-block-concepts">
+
+<title>Concepts</title>
+
+<p>
+The example explored in <xref ref="section-triang-block-examples" />
+is typical <mdash />
+generalized eigenspaces always form a complete set of independent, invariant subspaces,
+and so creating a transition matrix that consists of linearly independent generalized eigenvectors,
+grouped by eigenvalue and ordered by eigensubspace (as in the scalar-triangularization procedure)
+will take the matrix to a block-diagonal form where each block is in scalar-triangular form.
+We will call this form <term>triangular block form</term>.
+</p><p>
+In <xref ref="section-triang-block-theory" />,
+we will further explore the theory of generalized eigenvectors and how they are the precise tool needed to realize such a triangular block form,
+and below we will provide a procedure for putting a matrix in triangular block form.
+But first, an important point about working with real scalars versus working with complex scalars.
+To be able to put a matrix in triangular block form,
+we need all of its eigenvalues available.
+<xref ref="theorem-complex-fund-thm-alg-complex" text="title" />
+guarantees that every characteristic equation can be solved completely.
+But for real matrices,
+we sometimes may not want to allow complex solutions to the characteristic equation, or complex transition matrices.
+In which case, some real matrices will not be similar to a triangular block form.
+We'll restate this in the following remark.
+</p>
+
+<remark><p>
+	If one is willing to work with <em>complex</em> scalars,
+	then <em>every matrix is similar to one in triangular block form</em>.
+	Otherwise, if one is only willing to work with <em>real</em> scalars,
+	then matrices with complex eigenvalues will not be similar to any real matrix in triangular block form.
+</p></remark>
+
+<algorithm xml:id="procedure-triang-block"> <!-- algorithm is hijacked to "Procedure" -->
+	<title>To put a matrix in triangular block form</title>
+	<statement><p>
+		Suppose <m>A</m> is a square matrix whose characteristic polynomial factors completely into linear factors.
+		Write <m> \lambda_1, \lambda_2, \dotsc, \lambda_\ell </m> for the complete list of the eigenvalues of <m>A</m>,
+		with no duplicates,
+		and with corresponding multiplicities
+		<m> m_1, m_2, \dotsc, m_\ell </m>.
+		<ol>
+			<li>
+				For each eigenvalue <m>\lambda_j</m> in turn,
+				determine a basis for the generalized eigenspace <m>G_{\lambda_j}(A)</m> as in the scalar-triangularization procedure
+				(<xref ref="procedure-scalar-triang-concepts-proc" />):
+				determine a basis for the eigenspace <m>E_{\lambda_j}(A)</m>,
+				then extend to a basis for the generalized eigensubspace <m>E_{\lambda_j}^2(A)</m>,
+				and then to a basis for <m>E_{\lambda_j}^3(A)</m>, and so on,
+				until you have <m>m_j</m> generalized eigenvectors in your basis.
+			</li>
+			<li>
+				Take <m>P</m> to be the matrix whose first <m>m_1</m> columns are the basis vectors for <m>G_{\lambda_1}(A)</m> obtained in the first step,
+				in order,
+				and whose next <m>m_2</m> columns are the basis vectors for <m>G_{\lambda_2}(A)</m>, and so on.
+			</li>
+		</ol>
+		Then <m>\inv{P} A P</m> will be in triangular-block form.
+		Along the block-diagonal,
+		there will be one block for each eigenvalue <m>\lambda_j</m>,
+		of size equal to the algebraic multiplicity <m>m_j</m>,
+		and with <m>\lambda_j</m> repeated down the diagonal of that block.
+	</p></statement>
+</algorithm>
+
+</section>

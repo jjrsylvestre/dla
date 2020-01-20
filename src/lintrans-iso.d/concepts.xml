@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2016–2019 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-lintrans-iso-concepts">
+
+<title>Concepts</title>
+
+<assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-lintrans-iso-concepts-general-composite" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-general-composite" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-matrix-composite" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-matrix-composite" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-general-inverse" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-general-inverse" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-invert-condition" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-invert-condition" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-matrix-inverse" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-matrix-inverse" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-construct-invertible" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-construct-invertible" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-iso" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-iso" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-construct-iso" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-construct-iso" /></em></li>
+<li><xref ref="subsection-lintrans-iso-concepts-special" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-lintrans-iso-concepts-special" /></em></li>
+</ul></p></assemblage>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-general-composite">
+<title>Composition of linear transformations</title>
+
+<p>
+As linear transformations are functions between vector spaces,
+they can be composed just like functions.
+That is, for transformations <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m>,
+where the domain space of <m>S</m> is the same as the domain space of <m>T</m>,
+then we can define the composite <m>\funcdef{ST}{U}{W}</m> by
+<me> ST(\uvec{u}) = S\bigl(T(\uvec{u})\bigr) </me>.
+Now, if <m>T</m> turns sums and scalar multiples in <m>U</m> into sums and scalar multiples in <m>V</m>,
+and <m>S</m> in turn turns sums and scalar multiples in <m>V</m> into sums and scalar multiples in <m>W</m>,
+then it follows that the composition <m>ST</m> turns sums and scalar multiples in <m>U</m> into sums and scalar multiples in <m>W</m>.
+In other words, composition <m>ST</m> will be linear whenever <m>S</m> and <m>T</m> are both linear.
+</p>
+
+<warning><p>
+	Just as for linear transformations,
+	in general compositions <m>ST</m> and <m>TS</m> are not equal.
+	In fact, more often than not,
+	one of the two orders is not even defined as domains and codomains will not match up in both orders.
+</p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-matrix-composite">
+<title>Composition of matrix transformations</title>
+
+<p>
+If <m>\funcdef{T_A}{\R^n}{\R^m}</m> and <m>\funcdef{S_B}{\R^m}{\R^\ell}</m> are the matrix transformations corresponding to <m>m \times n</m> matrix <m>A</m> and <m>\ell \times m</m> matrix <m>B</m>,
+then chaining the input-output processes
+<md><mrow>
+	T_A(\uvec{x}) \amp = A \uvec{x} \text{,} \amp
+	S_B(\uvec{y}) \amp = B \uvec{y}
+</mrow></md>
+by setting
+<me> \uvec{y} = T_A(\uvec{x}) = A \uvec{x} </me>
+yields
+<me>
+	(S_B T_A)(\uvec{x})
+	= S_B\left(T_A(\uvec{x})\right)
+	= S_B(\uvec{y})
+	= B \uvec{y}
+	= B (A \uvec{x})
+	= B A \uvec{x}
+</me>.
+So clearly the composition <m>S_B T_A</m> is also a matrix transformation,
+with corresponding matrix <m>B A</m>.
+(And note that the sizes of <m>A</m> and <m>B</m> match up for this product:
+the composite has domain/codomain definition <m>\funcdef{S_B T_A}{\R^n}{\R^\ell}</m>,
+and for matrices we have
+<m>\ell \times m</m> times <m>m \times n</m> produces <m>\ell \times n</m>.)
+</p><p>
+In other words,
+<alert>the standard matrix of a composition of matrix transformations is the product of the standard matrices</alert>:
+<me> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </me>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-general-inverse">
+<title>Inverse transformations</title>
+
+<p>
+When a function is <term>one-to-one</term>,
+each output can be traced back to one particular input that produced it.
+So if <m>\funcdef{T}{V}{W}</m> is injective and <m>\uvec{w}</m> is a vector in <m>\im T</m>,
+there is <em>one unique</em> answer to the question:
+what vector <m>\uvec{v}</m> in the domain space <m>V</m> will have result
+<me> T(\uvec{v}) = \uvec{w} </me>?
+This <em>reverse</em> output-input process of tracing an output vector <m>\uvec{w}</m> in <m>\im T</m> back to the input <m>\uvec{v}</m> creates an <term>inverse function</term> <m>\funcdef{\inv{T}}{\im T}{V}</m>.
+While we did not consider it in <xref ref="worksheet-lintrans-iso">Discovery set</xref>,
+we will prove <!-- TODO xref -->
+that when <m>T</m> is linear,
+then so is <m>\inv{T}</m>.
+</p><p>
+Reversing the input-output process of an injective function to create an inverse function just gives us a different way to create pairs of vectors,
+one in the domain space paired with one in the codomain space,
+so that writing
+<me> T(\uvec{v}) = \uvec{w} </me>
+becomes the same thing as writing
+<me> \uvec{v} = \inv{T}(\uvec{w}) </me>
+for every <m>\uvec{w}</m> in <m>\im T</m>.
+And just as in <xref ref="activity-lintrans-iso-inverse-from-image" />,
+when we compose an injective transformation with its inverse,
+we obtain an identity transformation:
+if <m>T(\uvec{v}) = \uvec{w}</m>, then we have
+<md><mrow>
+	(\inv{T} T)(\uvec{v}) \amp = \inv{T}(\uvec{w}) = \uvec{v} \text{,}
+	\amp
+	(T \inv{T})(\uvec{w}) \amp = T(\uvec{v}) = \uvec{w}
+</mrow></md>.
+When composing functions,
+we usually require the domain of the second to match the codomain of the first,
+and this works out fine for the composition order <m>T \inv{T}</m>:
+<md><mrow>
+	\amp \funcdef{\inv{T}}{\im T}{V} \text{,} \amp
+	\amp \funcdef{T}{V}{W}
+</mrow></md>,
+where codomain <m>V</m> of <m>\inv{T}</m> matches domain <m>V</m> of <m>T</m>.
+But even though codomain and domain do not match up for the order <m>\inv{T} T</m>,
+there is no harm in effectively considering the definition of <m>T</m> to be
+<me> \funcdef{T}{V}{\im T} </me>,
+since by definition all of the outputs of <m>T</m> must be contained in its image.
+As we found in <xref ref="activity-lintrans-iso-inverse-from-image" />,
+it's important that we don't try to <q>fix</q> this the other way,
+by attempting to take the domain of <m>\inv{T}</m> to be all of the codomain <m>W</m> of <m>T</m> <mdash />
+we really must define the domain of <m>\inv{T}</m> to be just <m>\im T</m>.
+Even though <m>\inv{T}</m> represents the reverse process of <m>T</m>,
+it will not be possible to trace a vector in <m>W</m> that is not in <m>\im T</m> back to an input vector in <m>V</m>.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-invert-condition">
+<title>Invertibility conditions</title>
+
+<p>
+A function is invertible precisely when it is one-to-one,
+and by definition a function is one-to-one when pairs of distinct inputs always produce distinct outputs.
+If a linear transformation <m>\funcdef{T}{V}{W}</m> has a pair of distinct inputs <m>\uvec{v}_1,\uvec{v}_2</m> that produce the <em>same</em> output,
+then
+<me> T(\uvec{v}_1 - \uvec{v}_2) = T(\uvec{v}_1) - T(\uvec{v}_2) = \zerovec </me>.
+As <m>\uvec{v}_1,\uvec{v}_2</m> are assumed distinct,
+then <me> \uvec{v}_1 - \uvec{v}_2 \neq \zerovec </me>,
+and so our calculation above says that <em>when <m>T</m> is not one-to-one, the kernel of <m>T</m> contains nonzero vectors</em>.
+</p><p>
+In fact, we will prove <!-- TODO XREF -->
+that the kernel tells us precisely when a transformation is one-to-one:
+<alert>linear <m>T</m> is one-to-one precisely when <m>\ker T = \{\zerovec\}</m></alert>.
+</p><p>
+But requiring that <m>\ker T</m> be trivial also says something about <m>\im T</m>,
+as their dimensions are tied together by <xref ref="theorem-lintrans-ker-im-dimension" text="title" />:
+if <m>\ker T</m> is trivial, then <m>\rank T</m> must equal <m>\dim V</m>.
+In particular, the codomain <m>W</m> must have <q>room</q> for the subspace <m>\im T</m> to have dimension <m>\dim V</m>,
+so that <alert><m>\dim W \lt \dim V</m> implies that <m>T</m> cannot be one-to-one</alert>.
+</p>
+
+<warning><p>
+	While <m>\ker T = \{\zerovec\}</m> <em>is</em> a sufficient condition to conclude that <m>T</m> is one-to-one,
+	<m>\dim W \ge \dim V</m> is not.
+</p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-matrix-inverse">
+<title>Inverses of matrix transformations</title>
+
+<p>
+If <m>\funcdef{T_A}{\R^n}{\R^n}</m> is the matrix transformation corresponding to <m>n \times n</m> matrix <m>A</m>,
+then <m>\ker T_A</m> is precisely the null space of <m>A</m>.
+And we know that a matrix is invertible precisely when its null space is trivial
+(<xref ref="theorem-col-row-null-space-equiv-to-invertible-null-trivial">Statement</xref>
+of <xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
+Transformation <m>T_A</m> is defined by multiplication by <m>A</m>,
+and clearly we can reverse that input-output process through multiplication by <m>\inv{A}</m>.
+That is, <m>T_A</m> is invertible precisely when <m>A</m> is invertible,
+and <me>\inv{T}_A = T_{\inv{A}}</me>.
+</p><p>
+In terms of standard matrices,
+a matrix transformation with a square standard matrix is invertible precisely when its standard matrix is invertible,
+with <me> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </me>.
+</p><p>
+What about <m>\funcdef{T}{\R^n}{\R^m}</m> for <m>m \neq n</m>,
+so that the standard matrix <m>\stdmatrixOf{T}</m> is not square?
+When <m>m \gt n</m>,
+it is still possible for <m>T</m> to be invertible,
+but the invertibility of <m>\stdmatrixOf{T}</m> can no longer even be considered.
+And when <m>T</m> <em>is</em> invertible,
+its inverse <m>\funcdef{\inv{T}}{\im T}{\R^n}</m> is no longer a matrix transformation,
+as <m>\im T</m> cannot be all of <m>\R^m</m>.
+</p>
+
+<paragraphs><title>A look ahead</title><p>
+	In a future chapter, <!-- TODO xref -->
+	we will see that invertibility of <em>every</em> linear transformation with a finite-dimensional domain space can be reduced to invertibility of a square matrix,
+	but doing so will require choosing a basis for each of the domain space and the image.
+</p></paragraphs>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-construct-invertible">
+<title>Constructing invertible transformations</title>
+
+<p>
+We know that a linear transformation <m>V \to W</m> can be defined by choosing a basis for the domain space <m>V</m> and then choosing a corresponding output vector in the codomain space <m>W</m> for each domain basis vector
+(<xref ref="corollary-lintrans-basic-unique-basis-image" />).
+If we choose our output vectors to be <em>linearly independent</em> in <m>W</m>
+(assuming <m>W</m> has large enough dimension to do so)
+then those linearly independent vectors will span the image,
+and the rank of our transformation will be equal to <m>\dim V</m>.
+This forces the nullity to be zero by <xref ref="theorem-lintrans-ker-im-dimension" text="title" />,
+so, as in <xref ref="subsection-lintrans-iso-concepts-invert-condition" />,
+the constructed transformation will then be invertible.
+</p>
+
+<algorithm xml:id="procedure-lintrans-iso-basis-to-invertible-transformation">
+	<title>Using a domain basis to define an invertible linear transformation</title>
+	<p>
+	To create an invertible linear transformation <m>\funcdef{T}{V}{W}</m>,
+	with <m>V</m> finite-dimensional and <m>\dim W \ge \dim V = n</m>.
+	<ol>
+		<li> Choose a basis <m>\basisfont{B} = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n\}</m> for <m>V</m>. </li>
+		<li>
+			Choose <em>linearly independent</em> vectors <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_n</m> in <m>W</m>.
+		</li>
+		<li> Set <m>T(\uvec{v}_j) = \uvec{w}_j</m>. </li>
+	</ol>
+	Then every other image vector for <m>T</m> can be computed by
+	<me>
+		T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n)
+		= a_1 \uvec{w}_1 + a_2 \uvec{w}_2 + \dotsb + a_n \uvec{w}_n
+	</me>,
+	and we will have both <m>\rank T = \dim V</m> and <m>\nullity T = 0</m>,
+	as required for <m>T</m> to be invertible.
+	</p>
+</algorithm>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-iso">
+<title>Isomorphisms</title>
+
+<p>
+When a transformation <m>\funcdef{T}{V}{W}</m> is <em>both</em> one-to-one and onto
+(so that <m>\im T = W</m>),
+then <m>T</m> and <m>\inv{T}</m> create a one-for-one matching <em>in each direction</em>.
+And since both <m>T</m> and <m>\inv{T}</m> are linear,
+any calculation of the vector operations corresponds through <m>T</m> to a calculation in <m>W</m>,
+and vice versa through <m>\inv{T}</m>:
+<md>
+	<mrow> T (a_1 \uvec{v}_1 + a_2 \uvec{v}_2) \amp = a_1 T(\uvec{v}_1) + a_2 T(\uvec{v}_2) \text{,} </mrow>
+	<mrow> \inv{T} (b_1 \uvec{w}_1 + b_2 \uvec{w}_2) \amp = b_1 \inv{T}(\uvec{w}_1) + b_2 \inv{T}(\uvec{w}_2) </mrow>
+</md>.
+In this case, <m>T</m> is called an <term>isomorphism</term>,
+and we write <m>V \iso W</m>.
+The use of the equality-like symbol <m>\iso</m> reflects the correspondence between vector operations in the two spaces,
+where <m>T</m> and <m>\inv{T}</m> can be used to transfer operations from one space to the other.
+Effectively, <alert>an isomorphism identifies the two spaces as being essentially the same</alert>.
+In particular, isomorphic vector spaces must have the <em>same dimension</em>.
+</p>
+
+<paragraphs><title>A look ahead</title><p>
+We will see <!-- TODO xref -->
+that it also works the other way,
+so that finite-dimensional vector spaces with the same dimension are always isomorphic.
+</p></paragraphs>
+
+<p>
+We will prove <!-- TODO xref -->
+that the inverse of an isomorphism is an isomorphism,
+and that the composition of two isomorphisms is an isomorphism.
+Along with the identity isomorphism
+(see <xref ref="subsection-lintrans-iso-concepts-iso" /> below),
+these facts demonstrate that the relation of being <term>isomorphic</term> is an <em>equivalence relation</em>:
+that is,
+<dl>
+	<li><title>reflexive</title><p> a vector space is always isomorphic to itself; </p></li>
+	<li><title>symmetric</title><p>
+		if <m>V</m> is isomorphic to <m>W</m>, then <m>W</m> is isomorphic to <m>V</m>; and
+	</p></li>
+	<li><title>transitive</title><p>
+		if <m>U</m> is isomorphic to <m>V</m> and <m>V</m> is isomorphic to <m>W</m>,
+		then <m>U</m> is isomorphic to <m>W</m>.
+	</p></li>
+</dl>
+In fact, we will see <!-- TODO xref -->
+that in the collection of all finite-dimensional vector spaces,
+an <term>equivalence class</term> under the <term>isomorphic</term> relation is completely determined by the dimension of its member spaces.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-construct-iso">
+<title>Constructing isomorphisms</title>
+
+<p>
+In <xref ref="procedure-lintrans-iso-basis-to-invertible-transformation" />,
+we described how an invertible transformation can be defined by sending a basis for the domain space to a linearly independent set in the codomain space.
+If we would like to also have <em>surjectivity</em>,
+then we will need that independent image collection to also span the entire codomain space.
+In other words, <alert>to construct an isomorphism we should send a basis to a basis</alert>.
+</p>
+
+<algorithm xml:id="procedure-lintrans-iso-basis-to-basis">
+	<title>Using domain and codomain bases to define an isomorphism</title>
+	<p>
+	To create an isomorphism <m>\funcdef{T}{V}{W}</m>,
+	with both <m>V,W</m> finite-dimensional and <m>\dim W = \dim V = n</m>.
+	<ol>
+		<li> Choose a basis <m>\basisfont{B} = \{\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_n\}</m> for <m>V</m>. </li>
+		<li> Choose a basis <m>\basisfont{B}' = \{\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_n\}</m> for <m>W</m>. </li>
+		<li> Set <m>T(\uvec{v}_j) = \uvec{w}_j</m>. </li>
+	</ol>
+	Then every other image vector for <m>T</m> can be computed by
+	<me>
+		T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n)
+		= a_1 \uvec{w}_1 + a_2 \uvec{w}_2 + \dotsb + a_n \uvec{w}_n
+	</me>,
+	and we will have both <m>\rank T = \dim V</m> and <m>\nullity T = 0</m>,
+	as required for <m>T</m> to be invertible.
+	</p>
+</algorithm>
+
+</subsection>
+
+<subsection xml:id="subsection-lintrans-iso-concepts-special">
+<title>Important isomorphisms</title>
+
+<paragraphs><title>The identity operator</title><p>
+It should be clear that the identity operator
+<m>\funcdef{I_V}{V}{V}</m> defined by <m>I_V(\uvec{v}) = \uvec{v}</m>
+is always an isomorphism,
+as its kernel is trivial and the dimensions of the domain and codomain are equal.
+This is the isomorphism that sends every basis of <m>V</m> to that same basis.
+</p></paragraphs>
+
+<paragraphs><title>Scalar operators</title><p>
+Similar to the identity operator,
+every nonzero scalar operator <m>\funcdef{m_a}{V}{V}</m> defined by <m>m_a(\uvec{v}) = a \uvec{v}</m>
+is an isomorphism.
+In particular, the negative operator <m>\funcdef{\neg_V}{V}{V}</m> is an isomorphism.
+As nonzero scalar multiples do not affect independence,
+a scalar operator sends each basis of <m>V</m> to a scaled version of that same basis.
+</p></paragraphs>
+
+<paragraphs><title>A coordinate map relative to a basis</title>
+<p>
+As described in <xref ref="subsection-lintrans-basic-concepts-special" />,
+a choice of basis <m>\basisfont{B}</m> for a finite-dimensional vector space <m>V</m> creates a coordinate map
+<m> \funcdef{\coordmap{B}}{V}{\R^n}</m> or <m>\funcdef{\coordmap{B}}{V}{\C^n} </m>
+(depending on whether <m>V</m> is a real or complex space),
+defined by <m>\coordmap{B}(\uvec{v}) = \matrixOf{\uvec{v}}{B}</m> for each <m>\uvec{v}</m> in <m>V</m>.
+</p><p>
+In <xref ref="example-lintrans-ker-im-coord-map" />,
+we found that a coordinate map always has trivial kernel and full image.
+Therefore,
+<alert>every choice of basis for a finite-dimensional space creates an isomorphism to <m>\R^n</m> (real case) or <m>\C^n</m> (complex case)</alert>.
+In particular,
+once the <m>\basisfont{B}</m> for the domain space <m>V</m> is chosen,
+the coordinate map is the unique isomorphism that sends <m>\basisfont{B}</m> to the standard basis of <m>\R^n</m> or <m>\C^n</m>,
+as appropriate.
+</p>
+<remark><p>
+	You probably used coordinate maps relative to familiar bases to create the isomorphisms requested of you in
+	<xref ref="activity-lintrans-iso-findim-iso-to-Rn" />.
+</p></remark>
+</paragraphs>
+
+<paragraphs><title>A vector space and its dual space</title><p>
+Using <xref ref="theorem-lintrans-basic-dual-basis" />,
+to every basis <m>\basisfont{B}</m> of a vector space <m>V</m> we can associate a <term>dual basis</term> <m>\vecdual{\basisfont{B}}</m> of the dual space <m>\vecdual{V}</m>.
+So applying <xref ref="procedure-lintrans-iso-basis-to-basis" />,
+we can send each vector in <m>\basisfont{B}</m> to the corresponding dual linear functional in <m>\vecdual{\basisfont{B}}</m> to create an isomorphism <m>V \to \vecdual{V}</m>.
+We will record the fact that every vector space is isomorphic to its dual space
+in <xref ref="subsection-lintrans-iso-theory-iso" />
+as <xref ref="corollary-lintrans-iso-to-dual" />.
+</p></paragraphs>
+
+</subsection>
+
+</section>
