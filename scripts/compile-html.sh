@@ -24,10 +24,11 @@ fi
 
 xsltproc \
   --xinclude \
-  --stringparam html.css.extra "dla.css" \
+  --stringparam publisher html-out.xml \
   --output build/html/DELETEME.html \
   style-html.xsl src/book.xml
 rm -f build/html/DELETEME.html
+  # --stringparam html.css.extra "dla.css" \
 
 # local style overrides
 cp css/dla.css build/html/

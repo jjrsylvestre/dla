@@ -13,13 +13,16 @@
 
 <xsl:import href="./mathbook-xsl.d/mathbook-html.xsl" />
 
+<!-- publisher file -->
+<xsl:param name="publisher" select="'html-out.xml'" />
+
 <!-- customizations -->
-<xsl:param name="html.google-universal" select="'UA-132951299-1'" />
 <xsl:param name="html.knowl.example" select="'no'" />
 <xsl:param name="numbering.projects.level" select="2" />
 <!-- <xsl:param name="numbering.theorems.level" select="2" /> -->
 <!-- ^^^^ Don't like this: theorems share numbering with remarks, etc., so theorem numbering won't start at 1 in each Theory section. -->
 <!-- <xsl:param name="toc.level" select="2" />                -->
 <!-- ^^^^ In principle I like this, but in current incarnation it makes it difficult to navigate web book. Wish there was a toc.level=2.5. Have discussed with David Farmer. -->
+<xsl:param name="html.css.extra" select="'dla.css'" />
 
 </xsl:stylesheet>
