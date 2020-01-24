@@ -11,7 +11,7 @@
     extension-element-prefixes="exsl date str"
 >
 
-<xsl:import href="./mathbook-xsl.d/mathbook-html.xsl" />
+<xsl:import href="./mathbook/xsl/mathbook-html.xsl" />
 
 <!-- publisher file -->
 <xsl:param name="publisher" select="'html-out.xml'" />

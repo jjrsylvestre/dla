@@ -11,7 +11,7 @@
     extension-element-prefixes="exsl date str"
 >
 
-<xsl:import href="./mathbook-xsl.d/mathbook-latex.xsl" />
+<xsl:import href="./mathbook/xsl/mathbook-latex.xsl" />
 
 <!-- customizations -->
 <xsl:param name="numbering.projects.level" select="2" />
