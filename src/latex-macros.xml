@@ -21,23 +21,24 @@ respective owners.
 \DeclareMathOperator{\adj}{adj}% classical adjoint
 \DeclareMathOperator{\proj}{proj}% projection
 \DeclareMathOperator{\matrixring}{M}% $m\times n$ matrices
-\DeclareMathOperator{\uppermatring}{U}% $m\times n$ upper triangular matrices
 \DeclareMathOperator{\poly}{P}% polynomials
 \DeclareMathOperator{\Span}{Span}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\nullity}{nullity}
+<restrictversion excludefrom="onesemester">
+\DeclareMathOperator{\uppermatring}{U}% $m\times n$ upper triangular matrices
 \DeclareMathOperator{\trace}{trace} % trace, more explicitly than just tr
 \DeclareMathOperator{\dist}{dist}% distance
 \DeclareMathOperator{\neg}{neg}% negative operator
 \DeclareMathOperator{\Hom}{Hom}% hom space
 \DeclareMathOperator{\im}{im}% image of a function
+</restrictversion>
 
 % font aliases
 %\newcommand{\basisfont}[1]{\mathscr{#1}}% font for module basis
 \newcommand{\basisfont}[1]{\mathcal{#1}}% font for module basis
 
 % general constructs
-\newcommand{\iddots}{{\kern3mu\raise1mu{.}\kern3mu\raise6mu{.}\kern3mu \raise12mu{.}}}
 \newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
 \newcommand{\Bbrac}[1]{\Bigl(#1\Bigr)}% even larger enclosing brackets
 \newcommand{\irst}[1][1]{{#1}^{\mathrm{st}}}
@@ -48,8 +49,10 @@ respective owners.
 \newcommand{\inv}[2][1]{{#2}^{-{#1}}}% inverse
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
 \newcommand{\degree}[1]{{#1}^\circ} % makeshift degree symbol
+<restrictversion excludefrom="onesemester">
+\newcommand{\iddots}{{\kern3mu\raise1mu{.}\kern3mu\raise6mu{.}\kern3mu \raise12mu{.}}}
 \newcommand{\blank}{-}% dash for blank in maps
-\newcommand{\iso}{\simeq}% isomorphic objects
+</restrictversion>
 
 % number systems
 \newcommand{\R}{\mathbb{R}}% real numbers
@@ -59,7 +62,14 @@ respective owners.
 \newcommand{\ci}{\mathrm{i}}% the imaginary number (\ci instead of \i because of conflict with an existing \i in some package somewhere)
 \newcommand{\cconj}[1]{\bar{#1}}% complex conjugate
 \newcommand{\lcconj}[1]{\overline{#1}}% long complex conjugate
+<restrictversion excludefrom="onesemester">
 \newcommand{\cmodulus}[1]{\left\lvert #1 \right\rvert}% complex modulus
+</restrictversion>
+
+<restrictversion excludefrom="onesemester">
+% general math
+\newcommand{\iso}{\simeq}% isomorphic objects
+</restrictversion>
 
 % general geometry
 \newcommand{\abctriangle}[1]{\triangle #1}% triangle through points in arg
@@ -87,6 +97,7 @@ respective owners.
 \newcommand{\adjoint}[1]{{#1}^\ast}% adjoint
 \newcommand{\matrixOfplain}[2]{\left[#1\right]_{#2}}% matrix of, do not use basis font
 \newcommand{\rmatrixOfplain}[2]{\left(#1\right)_{#2}}% matrix of, round brackets, does not use basis font
+<restrictversion excludefrom="onesemester">
 \newcommand{\matrixOf}[2]{\matrixOfplain{#1}{\basisfont{#2}}}% matrix of
 \newcommand{\rmatrixOf}[2]{\rmatrixOfplain{#1}{\basisfont{#2}}}% matrix of, round brackets
 \newcommand{\invmatrixOfplain}[2]{\inv{\left[#1\right]}_{#2}}% inverse matrix of, do not use basis font
@@ -105,7 +116,9 @@ respective owners.
 \newcommand{\orthogcmp}[1]{{#1}^{\perp}}
 \newcommand{\vecdual}[1]{{#1}^\ast}% vector space dual
 \newcommand{\vecddual}[1]{{#1}^{\ast\ast}}% vector space double dua
+</restrictversion>
 
+<restrictversion excludefrom="onesemester">
 % analysis
 \newcommand{\dd}[2]{\frac{d{#1}}{d#2}}% Leibniz derivative
 \newcommand{\ddx}[1][x]{\dd{}{#1}}% Leibniz differential operator
@@ -116,5 +129,6 @@ respective owners.
 \newcommand{\intspace}{\;}
 \newcommand{\integral}[4]{\int^{#2}_{#1} #3 \intspace d{#4}}% spaced out integral
 \newcommand{\funcdef}[3]{#1\colon #2\to #3}
+</restrictversion>
 
 </macros>
