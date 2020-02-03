@@ -76,9 +76,13 @@ In <xref ref="activity-matrix-ops-matrix-equality" />, you explored what it mean
 <title>Basic matrix operations</title>
 
 <p>
-In <xref ref="activity-matrix-ops-basic-matrix-ops" />, you probably decided that addition and subtraction of matrices should be carried out in the obvious ways: we should just add or subtract corresponding entries. For matrices that have different sizes, it may be tempting to <q>fill out</q> the smaller matrix with zeros so that it can be added to the larger. <em>But this would add more information to the smaller matrix that it's not supposed to have</em>, creating a <em>different</em> matrix prior to the addition. So we should resist this temptation; we will only ever add or subtract matrices that have the same size, and addition/subtraction of matrices of different sizes will remain <term>undefined</term>.
+In <xref ref="activity-matrix-ops-basic-matrix-ops" />, you probably decided that addition and subtraction of matrices should be carried out in the obvious ways: we should just add or subtract corresponding entries.
+See <xref ref="example-matrix-ops-examples-add" /> and <xref ref="example-matrix-ops-examples-add" />.
+</p><p>
+For matrices that have different sizes, it may be tempting to <q>fill out</q> the smaller matrix with zeros so that it can be added to the larger. <em>But this would add more information to the smaller matrix that it's not supposed to have</em>, creating a <em>different</em> matrix prior to the addition. So we should resist this temptation; we will only ever add or subtract matrices that have the same size, and addition/subtraction of matrices of different sizes will remain <term>undefined</term>.
 </p><p>
 When we multiply a number <m>a</m> by <m>2</m> to get <m>2a</m>, we are doubling the value of <m>a</m>. In other words, we are <em>scaling</em> <m>a</m> by a scale factor (or <term>scalar</term>) of <m>2</m>. Similarly, we can use a scalar to <q>scale</q> a matrix by multiplying every entry in the matrix by that number. If <m>A</m> is a matrix and <m>k</m> is a scalar (<ie /> a number), then <m>kA</m> is the <term>scalar multiple</term> of <m>A</m> by <m>k</m>.
+See <xref ref="example-matrix-ops-examples-scalar-mul"/>.
 </p>
 
 </subsection>
@@ -104,15 +108,44 @@ in
 <title>Linear systems as matrix equations</title>
 
 <p>
-Consider the system in <xref ref="activity-matrix-ops-system-to-matrix-mult" />. The <term>coefficient matrix</term>, the <term>vector of unknowns</term>, and the <term>vector of constants</term> are
+Consider the system in
+<xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local"/> of
+<xref ref="activity-matrix-ops-system-to-matrix-mult" />:
+<md><mrow xml:id="equation-matrix-ops-concepts-system-convert-matrix-eqn" tag="star">
+	\left\{\begin{array}{rcrcrcr}
+		   x_1 \amp - \amp 3 x_2 \amp - \amp   x_3 \amp = \amp -4 \text{,} \\
+		-2 x_1 \amp + \amp 7 x_2 \amp + \amp 2 x_3 \amp = \amp  9 \text{.}
+	\end{array}\right.
+</mrow></md>
+We would like to replace these two equations by a single matrix equation,
+which is easy enough to do:
+<md><mrow xml:id="equation-matrix-ops-concepts-system-as-equal-cols" tag="dstar">
+	\left[\begin{array}{c}
+		x_1 - 3 x_2 - x_3 \\
+		-2 x_1 + 7 x_2 + 2 x_3
+	\end{array}\right]
+	=
+	\left[\begin{array}{r} -4 \\ 9 \end{array}\right]
+</mrow></md>.
+Note that both of these column matrices are <m>2 \times 1</m> matrices <mdash />
+even though the entries of the left-hand matrix seem to contain a lot of numbers,
+<em>each row has only a single entry</em>
+because these formulas are calculation recipes that compute a <em>single number</em> out of several numbers,
+some known and some unknown.
+</p><p>
+To make such a matrix equation more resemble the basic linear equation pattern of
+<me> \text{coefficient} \times \text{unknown} = \text{constant} </me>,
+we collect all the system coefficients into a <term>coefficient matrix</term>,
+all the variables into the <term>(column) vector of unknowns</term>,
+and all the right-hand constants into the <term>(column) vector of constants</term>:
 <md><mrow>
 	A  \amp = \left[\begin{array}{rrr}
-		2 \amp -5 \amp -1 \\
-		1 \amp -2 \amp 3
+		 1 \amp -3 \amp -1 \\
+		-2 \amp  7 \amp  2
 	\end{array}\right],
 	\amp
-	\uvec{x} \amp = \begin{bmatrix}x\\y\\z\end{bmatrix}, \amp
-	\uvec{b} \amp = \left[\begin{array}{r} 7 \\ -2 \end{array}\right],
+	\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}, \amp
+	\uvec{b} \amp = \left[\begin{array}{r} -4 \\ 9 \end{array}\right],
 </mrow></md>
 respectively.
 </p>
@@ -120,25 +153,42 @@ respectively.
 It may seem more natural to write the vector of unknowns as a row vector instead of a column vector, but it is preferable mathematically to have all of the vectors involved be (roughly) the same <em>kind</em> of vector (even though they are often not <em>exactly</em> the same kind of vector, since they might not have the same size).
 </p></remark>
 <p>
-We would like to express the system as one matrix equation <m>A\uvec{x}=\uvec{b}</m>, and to do this we need to decide what <m>A</m> times <m>\uvec{x}</m> should mean. Whatever it means, we would like this result to be equal to the <m>2\times 1</m> matrix <m>\uvec{b}</m>. So, recalling that for matrices to be equal we first need them to be equal sizes, <em>we need the product of the <m>2\times 3</m> matrix with the <m>3\times 1</m> matrix to be a <m>2\times 1</m> matrix</em>. (Do you see a pattern in the dimension numbers?)
+We would like to express the system in <xref ref="equation-matrix-ops-concepts-system-convert-matrix-eqn" />
+as one matrix equation <m>A \uvec{x} = \uvec{b}</m>,
+and to do this we need to decide how <m>A</m> times <m>\uvec{x}</m> should work.
+But we already know how to represent the system as a single matrix equation
+(see <xref ref="equation-matrix-ops-concepts-system-as-equal-cols" />),
+so we should have
 <me>
-	\left[\begin{array}{rrr} 2 \amp -5 \amp -1 \\ 1 \amp -2 \amp 3 \end{array}\right]
-	\begin{bmatrix} x \\ y \\ z \end{bmatrix}
-	=
-	\begin{bmatrix} ? \\ ? \end{bmatrix}
-	=
-	\left[\begin{array}{r} 7 \\ -2 \end{array}\right]
-</me>
-Recalling that the other part of equality of matrices is that corresponding entries are equal, we now want some combination of the entries of <m>A</m> and <m>\uvec{x}</m> to equal <m>7</m> and some other combination of the entries of <m>A</m> and <m>\uvec{x}</m> to equal <m>-2</m>. But we already have this from the original system of equations!
+	A \uvec{x} =
+	\left[\begin{array}{c}
+		x_1 - 3 x_2 - x_3 \\
+		-2 x_1 + 7 x_2 + 2 x_3
+	\end{array}\right]
+</me>,
+or
 <me>
-	\left[\begin{array}{rrr} 2 \amp -5 \amp -1\\1 \amp -2 \amp 3 \end{array}\right]
-	\begin{bmatrix}x\\y\\z\end{bmatrix}
+	\left[\begin{array}{rrr}
+		 1 \amp -3 \amp -1 \\
+		-2 \amp  7 \amp  2
+	\end{array}\right]
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
 	=
-	\begin{bmatrix}2x-5y-z\\x-2y+3z\end{bmatrix}
-	=
-	\left[\begin{array}{r} 7 \\ -2 \end{array}\right]
-</me>
-(Remember that the left-hand side of a linear equation represents <em>a single number</em>.) Hopefully it's now obvious how a matrix times a column should proceed. Take the products of the entries of the first row of the matrix with the corresponding entries in the column, add these products, and put the result in the first entry of the result column matrix. Then multiply the second row of the matrix by the column in the same fashion and put the result in the second entry of the result column matrix. And so on. Defined in this way, the single matrix equation <m>A\uvec{x}=\uvec{b}</m> now contains all the same information as the multiple linear equations of the original system.
+	\left[\begin{array}{c}
+		x_1 - 3 x_2 - x_3 \\
+		-2 x_1 + 7 x_2 + 2 x_3
+	\end{array}\right]
+</me>.
+We can now see how a matrix times a column should proceed:
+multiply the entries of the first row of the matrix against the corresponding entries in the column,
+add these products,
+and put the result in the first entry of the result column matrix.
+Then multiply the second row of the matrix against the column in the same fashion and put the result in the second entry of the result column matrix.
+And so on, if the matrix has more than two rows.
+See <xref ref="subsection-matrix-ops-concepts-matrix-mult" /> below for a more detailed description on this process.
+</p><p>
+With the matrix product <m>A \uvec{x}</m> defined in this way,
+the single matrix equation <m>A \uvec{x} = \uvec{b}</m> now contains all the same information as the multiple linear equations of the original system.
 </p>
 
 </subsection>
@@ -148,29 +198,33 @@ Recalling that the other part of equality of matrices is that corresponding entr
 
 <p>
 We can extend this <em>row-times-column</em> calculation procedure to define multiplication of two matrices (instead of just a matrix and a column vector) by thinking of the second matrix as a collection of columns,
-<md><mrow tag="star" xml:id="equation-matrix-ops-concepts-matrix-mult-by-cols">
-	B \amp = \begin{bmatrix}
+<md><mrow xml:id="equation-matrix-ops-concepts-matrix-mult-by-cols" tag="tstar">
+	B = \begin{bmatrix}
 		| \amp | \amp \amp |\\
 		\uvec{b}_1 \amp \uvec{b}_2 \amp \cdots \amp \uvec{b}_\ell\\
 		| \amp | \amp \amp |
 	\end{bmatrix}
-	\amp\amp\implies\amp
-	AB \amp = \begin{bmatrix}
+	\quad\implies\quad
+	AB = \begin{bmatrix}
 		| \amp | \amp \amp |\\
 		A\uvec{b}_1 \amp A\uvec{b}_2 \amp \cdots \amp A\uvec{b}_\ell\\
 		| \amp | \amp \amp |
 	\end{bmatrix}.
 </mrow></md>
-This <em>matrix-times-columns</em> way of defining matrix multiplication will be very useful later. But right now, let's drill down to individual entries of the result <m>AB</m>. For this purpose, let's first consider the case of a <m>1\times n</m> row vector <m>\uvec{a}</m> times an <m>n\times 1</m> column vector <m>\uvec{b}</m>. In this case,
-<me>
+This <em>matrix-times-columns</em> way of defining matrix multiplication will be very useful later. But right now, let's drill down to individual entries of the result <m>AB</m>.
+</p><p>
+Let's first consider the case of a <m>1\times n</m> row vector <m>\uvec{a}</m> times an <m>n\times 1</m> column vector <m>\uvec{b}</m>. In this case,
+<md><mrow xml:id="equation-matrix-ops-concepts-row-times-column" tag="dagger">
 	\uvec{a}\uvec{b}
 	= \begin{bmatrix}
 			a_1 \amp a_2 \amp \cdots \amp a_n
 	\end{bmatrix}
 	\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}
 	= \begin{bmatrix}a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n\end{bmatrix}.
-</me>
-Notice that the result is a <m>1\times 1</m> matrix, which contains just a single entry. Now let's consider a matrix <m>A</m> times a column <m>\uvec{b}</m>, where we consider <m>A</m> as being made of row vectors. Then,
+</mrow></md>
+Notice that the result is a <m>1\times 1</m> matrix containing just a single entry.
+</p><p>
+Now let's consider a matrix <m>A</m> times a column <m>\uvec{b}</m>, where we consider <m>A</m> as being made of row vectors. Then,
 <me>
 	A\uvec{b}
 	= \begin{bmatrix}
@@ -181,7 +235,12 @@ Notice that the result is a <m>1\times 1</m> matrix, which contains just a singl
 	\end{bmatrix}\uvec{b}
 	= \begin{bmatrix}\uvec{a}_1\uvec{b} \\ \uvec{a}_2\uvec{b} \\ \vdots \\ \uvec{a}_m\uvec{b}\end{bmatrix},
 </me>
-where we do not actually have <m>1\times 1</m> matrix in each entry, but instead place the <em>number</em> that would be the entry in the <m>1\times 1</m> matrix that is the result of the <em>row-times-column</em> computation <m>\uvec{a}_i\uvec{b}</m>. Finally, we can extend this to the case of matrix <m>A</m> times matrix <m>B</m>, by
+where each entry <m>\uvec{a}_i \uvec{b}</m> in the result on the right is calculated by the <em>row-times-column</em> pattern from
+<xref ref="equation-matrix-ops-concepts-row-times-column" />.
+However, we do not actually have a <m>1\times 1</m> matrix in each entry,
+but instead place the <em>number</em> that would be the sole entry in <m>\uvec{a}_i\uvec{b}</m>.
+</p><p>
+Finally, we can extend this to the case of matrix <m>A</m> times matrix <m>B</m>, by
 <me>
 	AB =
 	\begin{bmatrix}
@@ -205,7 +264,9 @@ where we do not actually have <m>1\times 1</m> matrix in each entry, but instead
 </me>
 </p>
 <paragraphs><title>Pattern</title><p>
-	The <m>\nth[(i,j)]</m> entry of matrix product <m>AB</m> is the result of the <em>row-times-column</em> calculation using the <m>\nth[i]</m> row of <m>A</m> and the <m>\nth[j]</m> column of <m>B</m>.
+	The <m>\nth[(i,j)]</m> entry of matrix product <m>AB</m> is the result of a <em>row-times-column</em> calculation,
+	as in <xref ref="equation-matrix-ops-concepts-row-times-column" />,
+	using the <m>\nth[i]</m> row of <m>A</m> and the <m>\nth[j]</m> column of <m>B</m>.
 </p></paragraphs>
 <p>
 In order for each <em>row-times-column</em> calculation to work, we need the number of entries in a row of <m>A</m> to match up with the number of entries in a column of <m>B</m>. (Just as in the definition of matrix addition, we do not <q>fill out</q> a matrix with extra entries if these numbers do not match.) But the number of entries in a row of <m>A</m> is the number of columns of <m>A</m>, and the number of entries in a column of <m>B</m> is the number of rows of <m>B</m>.
@@ -215,24 +276,42 @@ In order for each <em>row-times-column</em> calculation to work, we need the num
 	<p>An easy way to remember this is that if we want to multiply <me>m \times n \quad\text{ times }\quad k \times \ell</me>, it will only work if the <q>inside</q> dimensions <m>n</m> and <m>k</m> match, and result will be the <q>outside</q> dimensions <m>m \times \ell</m>.</p>
 </paragraphs>
 <p>
-In <xref ref="activity-matrix-ops-matrix-mult-order-matters" />, you discovered that one of the familiar rules of algebra is <em>not</em> true for matrix algebra: <em>matrices <em>cannot</em> be multiplied in any order</em>, because different orders of multiplication might yield different results.
+In <xref ref="activity-matrix-ops-matrix-mult-order-matters" />, you found that one of the familiar rules of algebra is <em>not</em> true for matrix algebra: <em>matrices <em>cannot</em> be multiplied in any order</em>, because different orders of multiplication might yield different results.
+In fact, for non-square matrices, often one of the two orders of multiplication is not even <em>defined</em>.
 </p>
 <warning><p>
-	When manipulating algebraic expressions where the letters represent matrices, be careful <em>not</em> to inadvertently use the algebra rule <m>BA=AB</m>, because it is <em>not</em> true for matrices.
+	When manipulating algebraic expressions where the letters represent matrices, be careful <em>not</em> to inadvertently use the algebra rule <m>B A = A B</m>, because it is <em>not</em> true for matrices.
 </p></warning>
+
+</subsection>
+
+<subsection xml:id="subsection-matrix-ops-concepts-powers">
+<title>Matrix powers</title>
+
 <p>
-A likely place to make this mistake is with powers of matrices. As you probably decided in <xref ref="activity-matrix-ops-matrix-powers" />, we define powers of matrices in the usual way: <m>A^2</m> means <q><m>A</m> times <m>A</m>,</q> <m>A^3</m> means <q><m>A</m> times <m>A</m> times <m>A</m>,</q> and so on. For these products to be defined, we need the number of columns of <m>A</m> to be the same as the number of rows of <m>A</m>. That is, <em>matrix powers are only defined for square matrices</em>.
+As you probably decided in <xref ref="activity-matrix-ops-matrix-powers" />, we define powers of matrices in the usual way:
+<m>A^2</m> means <q><m>A</m> times <m>A</m>,</q> <m>A^3</m> means <q><m>A</m> times <m>A</m> times <m>A</m>,</q> and so on.
 </p>
-<warning><p>
-	To compute <m>A^2</m> you need to carry out the computation <m>AA</m> using the <q>row times column</q> definition of matrix multiplication. Just squaring every entry of <m>A</m> will <em>not</em> give you the correct result! And similarly for <m>A^3</m>, <m>A^4</m>, <etc /> <mdash /> you need to carry out all the iterated multiplications. See
-	<xref ref="subsection-matrix-ops-examples-mult" /> for example calculations.
-</p></warning>
+<warning><ul>
+	<li>
+		To compute <m>A^2</m>, you need to carry out the computation <m>AA</m> using the <q>row times column</q> definition of matrix multiplication.
+		Just squaring every entry of <m>A</m> will <em>not</em> give you the correct result!
+		And similarly for <m>A^3</m>, <m>A^4</m>, <etc /> <mdash />
+		you need to carry out all the iterated multiplications.
+		See <xref ref="subsection-matrix-ops-examples-mult" /> for example calculations.
+	</li><li>
+		As in the second pattern discussed in <xref ref="subsection-matrix-ops-concepts-powers" />,
+		we can only compute the product <m>A^2 = AA</m> if the number of columns of <m>A</m> is equal to the number of rows of <m>A</m>.
+		That is, <alert>matrix powers are only defined for square matrices</alert>.
+	</li>
+</ul></warning>
 <p>
+The fact that reversing the order of matrix multiplication can produce a different result adds some extra wrinkles to the algebra of matrix powers.
 In
 <xref ref="activity-matrix-ops-matrix-powers-order-matters">Discovery</xref>
 and
 <xref ref="activity-matrix-ops-matrix-powers-foil-binomial">Discovery</xref>,
-we need to be careful about order of multiplication. By definition, <m>(AB)^2</m> means <m>(AB)(AB)</m>, but we cannot simplify this to <m>A^2B^2 = (AA)(BB)</m>, because order of multiplication matters, and we so we cannot in general change the order of multiplication of the inner <m>B</m> and <m>A</m>. Similarly, when using FOIL to expand <m>(A+B)^2 = (A+B)(A+B)</m> (which <em>is</em> valid matrix algebra, see
+we need to be careful about order of multiplication. By definition, <m>(AB)^2</m> means <m>(AB)(AB)</m>, but we cannot simplify this to <m>A^2 B^2 = (AA)(BB)</m>, because order of multiplication matters, and we so we cannot in general change the order of multiplication of the inner <m>B</m> and <m>A</m>. Similarly, when using FOIL to expand <m>(A+B)^2 = (A+B)(A+B)</m> (which <em>is</em> valid matrix algebra, see
 <xref ref="subsection-matrix-ops-theory-algebra" />),
 for the O part of FOIL we get <m>AB</m> and for the I part we get <m>BA</m>, but these cannot be combined into <m>2AB</m> in general because <em>order matters for matrix multiplication</em>.
 </p>

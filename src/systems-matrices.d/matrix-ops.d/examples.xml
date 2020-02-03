@@ -39,7 +39,7 @@ respective owners.
 Here are some basic examples of matrix addition, subtraction, and scalar multiplication. For subtraction, watch out for double negatives!
 </p>
 
-<example><title>Matrix addition</title>
+<example xml:id="example-matrix-ops-examples-add"><title>Matrix addition</title>
 	<statement><p><me>
 		\left[\begin{array}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{array}\right]
 		+ \left[\begin{array}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{array}\right]
@@ -48,7 +48,7 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 	</me></p></statement>
 </example>
 
-<example><title>Matrix subtraction</title>
+<example xml:id="example-matrix-ops-examples-subtr"><title>Matrix subtraction</title>
 	<statement><p>
 	<md>
 		<mrow>
@@ -62,7 +62,7 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 	</p></statement>
 </example>
 
-<example><title>Scalar multiplication of a matrix</title>
+<example xml:id="example-matrix-ops-examples-scalar-mul"><title>Scalar multiplication of a matrix</title>
 	<statement><p><me>
 		(-5)\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 		= \left[\begin{array}{rr} -5 \amp 10 \\ 15 \amp -20\end{array}\right]
@@ -75,7 +75,8 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 <subsection xml:id="subsection-matrix-ops-examples-mult">
 <title>Matrix multiplication</title>
 
-<example><title>A detailed multiplication example</title>
+<example xml:id="example-matrix-ops-examples-detailed-mult">
+	<title>A detailed multiplication example</title>
 	<statement><p>
 	Let's compute the matrix product <m>AB</m>, for
 	<md><mrow>
@@ -257,32 +258,38 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 
 <example><title>A first example</title>
 	<statement><p>
-	Let's again consider the system in <xref ref="activity-matrix-ops-system-to-matrix-mult" />. To solve, we row reduce the associated augmented matrix to RREF as usual.
+	Let's again consider the system from
+	<xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local"/> of
+	<xref ref="activity-matrix-ops-system-to-matrix-mult" />.
+	To solve, we row reduce the associated augmented matrix to RREF as usual.
 	<md><mrow>
 		\amp
 		\left[\begin{array}{rrr|r}
-			2 \amp -5 \amp -1 \amp 7 \\
-			1 \amp -2 \amp 3 \amp -2
+			 1 \amp -3 \amp -1 \amp -4 \\
+			-2 \amp  7 \amp  2 \amp  9 
 		\end{array}\right]
 		\amp\amp\rowredarrow\amp
 		\amp
 		\left[\begin{array}{rrr|r}
-			1 \amp 0 \amp 17 \amp -24 \\
-			0 \amp 1 \amp 7 \amp -11
+			1 \amp 0 \amp -1 \amp -1 \\
+			0 \amp 1 \amp  0 \amp  1
 		\end{array}\right]
 	</mrow></md>
-	Variable <m>z</m> is free, so assign a parameter <m>z=t</m>. Then we can solve to obtain the general solution is parametric form,
+	Variable <m>x_3</m> is free, so assign a parameter <m>x_3 = t</m>.
+	Then we can solve to obtain the general solution is parametric form,
 	<md><mrow>
-		x \amp= -24 - 17t, \amp y \amp= -11 - 7t, \amp z \amp= t.
+		x_1 \amp= -1 + t, \amp x_2 \amp= 1, \amp x_3 \amp= t.
 	</mrow></md>
-	Let's check a couple of particular solutions against the matrix <em>equation</em> <m>A\uvec{x}=\uvec{b}</m> that represents the system. Recall that for this system, <m>\uvec{x}</m> is the <m>3\times 1</m> column vector that contains the variables <m>x,y,z</m>, in that order. The particular solutions associated to parameter values <m>t=0</m> and <m>t=-2</m> are
+	Let's check a couple of particular solutions against the matrix <em>equation</em> <m>A\uvec{x}=\uvec{b}</m> that represents the system.
+	Recall that for this system, <m>\uvec{x}</m> is the <m>3\times 1</m> column vector that contains the variables <m>x_1,x_2,x_3</m>.
+	The particular solutions associated to parameter values <m>t=0</m> and <m>t=3</m> are
 	<md>
 		<mrow>
-			t = 0 \amp\colon  \amp x \amp= -24, \amp y \amp= -11, \amp z \amp=  0;
+			t = 0 \amp\colon  \amp x_1 \amp= -1, \amp x_2 \amp= 1, \amp x_3 \amp= 0;
 		</mrow>
 	<intertext>and</intertext>
 		<mrow>
-			t = -2 \amp\colon \amp x \amp=  10, \amp y \amp=   3, \amp z \amp= -2.
+			t = 3 \amp\colon \amp x_1 \amp=  2, \amp x_2 \amp=  1, \amp x_3 \amp= 3.
 		</mrow>
 	</md>
 	Let's collect the <m>t=0</m> solution values into the vector <m>\uvec{x}</m> and check <m>A\uvec{x}</m> versus <m>\uvec{b}</m>:
@@ -290,23 +297,29 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 		\text{LHS}
 		= A\uvec{x}
 		= \left[\begin{array}{rrr}
-			2 \amp -5 \amp -1 \\
-			1 \amp -2 \amp 3
+			 1 \amp -3 \amp -1 \\
+			-2 \amp  7 \amp  2 
 		\end{array}\right]
-		\left[\begin{array}{r} -24 \\ -11 \\ 0 \end{array}\right]
-		= \begin{bmatrix}-48+55+0\\-24+22+0\end{bmatrix}
-		= \left[\begin{array}{r} 7 \\ -2 \end{array}\right]
+		\left[\begin{array}{r} -1 \\ 1 \\ 0 \end{array}\right]
+		= \begin{bmatrix} -1 - 3 + 0 \\ 2 + 7 + 0 \end{bmatrix}
+		= \left[\begin{array}{r} -4 \\ 9 \end{array}\right]
 		= \uvec{b}
 		= \text{RHS}.
 	</me>
-	So the solution to the linear system we got by row reducing did indeed give us a vector <m>\uvec{x}</m> solution to the matrix equation <m>A\uvec{x}=\uvec{b}</m>. Let's similarly check the <m>t=-2</m> solution:
+	So the solution to the linear system we got by row reducing did indeed give us a vector solution <m>\uvec{x}</m> to the matrix equation <m> A \uvec{x} = \uvec{b}</m>.
+	Let's similarly check the <m>t=3</m> solution, as in
+	<xref ref="activity-matrix-ops-system-to-matrix-mult-check-sol" text="type-local" />
+	of <xref ref="activity-matrix-ops-system-to-matrix-mult"/>:
 	<me>
 		\text{LHS}
 		= A\uvec{x}
-		= \left[\begin{array}{rrr} 2 \amp -5 \amp -1 \\ 1 \amp -2 \amp 3 \end{array}\right]
-		\left[\begin{array}{r} 10 \\ 3 \\ -2 \end{array}\right]
-		= \begin{bmatrix}20-15+2\\10-6-6\end{bmatrix}
-		= \left[\begin{array}{r} 7 \\ -2 \end{array}\right]
+		= \left[\begin{array}{rrr}
+			 1 \amp -3 \amp -1 \\
+			-2 \amp  7 \amp  2 
+		\end{array}\right]
+		\left[\begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
+		= \begin{bmatrix} 2 - 3 - 3 \\ -4 + 7 + 6 \end{bmatrix}
+		= \left[\begin{array}{r} -4 \\ 9 \end{array}\right]
 		= \uvec{b}
 		= \text{RHS}.
 	</me>
@@ -314,7 +327,7 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 	</p>
 	<aside>
 		<title>Check your understanding</title>
-		<p>Carry out the same verification in this example for the general solution to the system, with the parameter <m>t</m> left variable.</p>
+		<p>Carry out the same verification as in this example for the <em>general</em> solution to the system, with the parameter <m>t</m> left variable.</p>
 	</aside>
 	</statement>
 </example>
@@ -433,8 +446,8 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 			\amp \amp\text{and}\amp
 			\amp t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right],
 		</mrow></md>
-		since there are two parameters. And there is <em>no</em> constant part to the general solution, because if we set both parameters to zero we obtain the trivial solution <m>\uvec{x} = \zerovec</m>. A homogeneous system will always work out this way. (So it would be more accurate to say that the general solution to the system in
-		<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-homog" />
+		since there are two parameters. And there is <em>no</em> constant part to the general solution, because if we set both parameters to zero we obtain the trivial solution <m>\uvec{x} = \zerovec</m>. A homogeneous system will always work out this way. (So it would be more accurate to say that the general solution to the system from
+		<xref ref="activity-row-red-system-homog-sol" />
 		has <em>trivial</em> constant part, instead of saying it has <em>no</em> constant part.)
 		</p>
 		</statement>
