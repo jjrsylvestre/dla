@@ -31,27 +31,48 @@ respective owners.
 
 <p>
 In <xref ref="worksheet-row-red" />,
-you were led through a strategy to simplify an augmented matrix. Below you will find a step-by-step description of the strategy. But first, it is important to stress that your goal is <em>not</em> to become an expert row reducer <mdash /> very few people ever need to know how to row reduce a matrix by hand outside of a linear algebra class. Computers are great at row reducing, and should be used to efficiently solve linear systems in the <q>real world.</q> Here, we are not interested in learning calculation tricks or shortcuts <mdash /> we can safely leave those to the experts that program computers to solve linear systems. (Prospective computational experts in the audience of this course can learn such calculation shortcuts in a <em>numerical methods</em> course.)
+you were led through a strategy to simplify an augmented matrix.
+Below you will find a step-by-step description of the strategy.
+But first, it is important to stress that your goal is <em>not</em> to become an expert row reducer <mdash />
+very few people ever need to know how to row reduce a matrix by hand outside of a linear algebra class.
+Computers are great at row reducing, and should be used to efficiently solve linear systems in the <q>real world.</q>
+Here, we are not interested in learning calculation tricks or short-cuts <mdash />
+we can safely leave those to the experts that program computers to solve linear systems.
+(Prospective computational experts in the audience of this course can learn such calculation short-cuts in a <em>numerical methods</em> course.)
 </p>
 
 <heuristic><statement><p> <!-- heuristic is hijacked to "Goal" -->
-	Learn, understand, and become reasonably proficient at a <em>simple</em>, systematic strategy to reduce a matrix to RREF, so that we can use this knowledge to understand the theory of linear systems and matrices.
+	Learn, understand, and become reasonably proficient at a <em>simple</em>, systematic strategy to reduce a matrix to RREF,
+	so that we can use this knowledge to understand the theory of linear systems and matrices.
 </p></statement></heuristic>
 
 <algorithm> <!-- algorithm is hijacked to "Procedure" -->
 	<title>Reduce a matrix to RREF</title>
 	<statement>
 		<p><ol>
-			<li>Obtain a leading one in a column as far to the left as possible, then move the row containing this leading one to the top row. Use this leading one to eliminate (<ie /> reduce to zero) all other entries in that column.</li>
-			<li>Ignoring the first row, obtain a leading one in a column as far to the left as possible, then move the row containing this new leading one to the second row. Use this new leading one to eliminate all other entries in that column (including in the first row now).</li>
-			<li>Ignoring the first and second rows, obtain a leading one in a column as far to the left as possible, then move the row containing this new leading one to the third row. Use this new leading one to eliminate all other entries in that column (including in the first and second rows now).</li>
-			<li>Continue in this fashion until all rows either have a leading one or contain all zeros.</li>
+			<li>
+				Obtain a leading one in a column as far to the left as possible,
+				then move the row containing this leading one to the top row.
+				Use this leading one to eliminate (<ie /> reduce to zero) all other entries in that column.
+			</li>
+			<li>
+				Ignoring the first row, obtain a leading one in a column as far to the left as possible, then move the row containing this new leading one to the second row.
+				Use this new leading one to eliminate all other entries in that column (including in the first row now).
+			</li>
+			<li>
+				Ignoring the first and second rows, obtain a leading one in a column as far to the left as possible,
+				then move the row containing this new leading one to the third row.
+				Use this new leading one to eliminate all other entries in that column
+				(including in the first and second rows now).
+			</li>
+			<li> Continue in this fashion until all rows either have a leading one or contain all zeros. </li>
 		</ol></p>
 	</statement>
 </algorithm>
 
 <p>
-The choice and order of row operations you use to implement this strategy depends on the augmented matrix you start with, and knowing how to proceed is a skill that you will develop through practise and experience.
+The choice and order of row operations you use to implement this strategy depends on the augmented matrix you start with,
+and knowing how to proceed is a skill that you will develop through practise and experience.
 </p>
 
 </subsection>
@@ -60,7 +81,18 @@ The choice and order of row operations you use to implement this strategy depend
 <title>Solving systems</title>
 
 <p>
-In the end, we will want to turn our simplified RREF matrix back into a system of equations. When we do this, every <term>leading one</term> corresponds to a <term>leading variable</term> that has a coefficient of <m>1</m>, and so is easy to isolate and solve for in terms of the other variables. Another way to think of this is that <em>a leading variable is <em>constrained</em> by the equation in which it appears</em>, and its value depends on the values of the other variables in that equation. On the other hand, every variable that does not have a leading one in its column of the RREF matrix <em>cannot</em> be solved for without going in circles: you cannot solve for variable <m>x</m> in terms of variables <m>y</m> and <m>z</m>, and then turn around and solve for variable <m>y</m> in terms of variables <m>x</m> and <m>z</m>. A variable without a leading one becomes a <term>free variable</term>: there are no constraints on its value, and <em>every</em> choice of value for that variable leads to one or more solutions (depending on choices of values for other free variables) for the system similarly to <xref ref="activity-systems-planes-intersect-line" />.
+In the end, we will want to turn our simplified RREF matrix back into a system of equations.
+When we do this, every <term>leading one</term> corresponds to a <term>leading variable</term> that has a coefficient of <m>1</m>, and so is easy to isolate and solve for in terms of the other variables.
+Another way to think of this is that <em>a leading variable is <em>constrained</em> by the equation in which it appears</em>,
+and its value depends on the values of the other variables in that equation.
+On the other hand, every variable that does not have a leading one in its column of the RREF matrix <em>cannot</em> be solved for without going in circles:
+you cannot solve for variable <m>x</m> in terms of variables <m>y</m> and <m>z</m>,
+and then turn around and solve for variable <m>y</m> in terms of variables <m>x</m> and <m>z</m>.
+A variable without a leading one becomes a <term>free variable</term>:
+there are no constraints on its value,
+and <em>every</em> choice of value for that variable leads to one or more solutions
+(depending on choices of values for other free variables)
+for the system similarly to <xref ref="activity-systems-planes-intersect-line" />.
 </p>
 
 <principle> <!-- principle is hijacked to "Procedure" -->
@@ -68,16 +100,32 @@ In the end, we will want to turn our simplified RREF matrix back into a system o
 		Describe the solution set of a linear system
 	</title>
 	<statement>
-		<p>To determine the solution set of a system of equations from the corresponding RREF matrix, expressed in terms of parametric equations if necessary (if there are free variables), carrying out the following steps.
+		<p>
+		To determine the solution set of a system of equations from the corresponding RREF matrix,
+		expressed in terms of parametric equations if necessary (if there are free variables),
+		carry out the following steps.
 		<ol>
-			<li>For each variable column that does not have a leading one, assign a parameter to that variable. Use different letters for different free variables.</li>
-			<li>For each nonzero row, turn the row back into an equation and isolate the leading variable. Substitute in the associated parameter for each free variable that appears in the equation.</li>
+			<li>
+				For each variable column that does not have a leading one,
+				assign a parameter to the corresponding variable.
+				Use different letters for different free variables.
+			</li>
+			<li>
+				For each nonzero row, turn the row back into an equation and isolate the leading variable.
+				Substitute in the associated parameter for each free variable that appears in the equation.
+			</li>
 		</ol>
 		</p>
 	</statement>
 </principle>
 
-<p>For a homogeneous system, as in <xref ref="activity-row-red-system-homog-sol" />, there is no need to work with the full augmented matrix, since no elementary row operation will ever change the column of zeros on the right. Instead, we reduce just the coefficient matrix, making sure to remember that we are dealing with a homogeneous system when it is time to convert back to equations and solve the simplified system.</p>
+<p>
+For a homogeneous system, as in <xref ref="activity-row-red-system-homog-sol" />,
+there is no need to work with the full augmented matrix,
+since no elementary row operation will ever change the column of zeros on the right.
+Instead, we reduce just the coefficient matrix,
+making sure to remember that we are dealing with a homogeneous system when it is time to convert back to equations and solve the simplified system.
+</p>
 
 </subsection>
 

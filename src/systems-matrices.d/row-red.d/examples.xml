@@ -24,18 +24,45 @@ respective owners.
 </ul></p></assemblage>
 
 <introduction><p>
-Here we use our procedures to use matrices to reduce and solve the systems from
-<xref ref="worksheet-row-red" />.
-Here are a few things to note about our method.
-<ul>
-	<li>We only use the three <em>elementary</em> row operations. It sometimes is possible to reduce a bit faster using non-elementary operations such as adding a multiple of a row to a multiple of another row, but remember we are not interested in shortcuts, and using non-elementary operations will get us into trouble in later topics.</li>
-	<li>We sometimes perform more than one operation at the same time. This is an acceptable shortcut, as long as we <alert>never simultaneously modify a row and also use that row to modify another row</alert>.</li>
-	<li>We write down the row operation(s) we are using in that reduction step to the right of the matrix, to keep track of what we are doing.</li>
-	<li>We don't always have to multiply a row by a fraction to get a leading one <mdash /> we can sometimes use a difference between entries in a column, and avoid fractions that way.</li>
-	<li>There are many different sequences of operations one could use to get from initial augmented matrix to an RREF matrix. The reductions in the examples below are not the only way, nor are they necessarily the <em>best</em> way to proceed. As long as we steadily progress toward RREF, that's all that matters.</li>
-	<!--<li>We sometimes deviate from the strategy a little bit to avoid fractions. In particular, we might eliminate entries using a leading <em>entry</em> before turning it into a leading <em>one</em>.</li>-->
-	<li>We never write an equals sign between matrices when row reducing. We will explore what it means for two matrices to be equal in a future discovery guide, and this is not it. When you perform a row operation, the result is a <em>different</em> matrix than the original, and the two matrices represent <em>different</em> systems of equations. However, the two matrices <em>are</em> related, and it is to express this relationship that we have the terminology <term>row equivalent</term>.</li>
-</ul>
+	Here we use our procedures to use matrices to reduce and solve the systems from
+	<xref ref="worksheet-row-red" />.
+	Here are a few things to note about our method.
+	<ul>
+		<li>
+			We only use the three <em>elementary</em> row operations.
+			It sometimes is possible to reduce a bit faster using non-elementary operations such as adding a multiple of a row to a multiple of another row,
+			but remember we are not interested in short-cuts,
+			and using non-elementary operations will get us into trouble in later topics.
+		</li>
+		<li>
+			We sometimes perform more than one operation at the same time.
+			This is an acceptable short-cut,
+			as long as we <alert>never simultaneously modify a row and also use that row to modify another row</alert>.
+		</li>
+		<li>
+			We write down the row operation(s) we are using in that reduction step to the right of the matrix, to keep track of what we are doing.
+		</li>
+		<li>
+			We don't always have to multiply a row by a fraction to get a leading one <mdash />
+			we can sometimes use a difference between entries in a column, and avoid fractions that way.
+		</li>
+		<li>
+			There are many different sequences of operations one could use to get from initial augmented matrix to an RREF matrix.
+			The reductions in the examples below are not the only way, nor are they necessarily the <em>best</em> way to proceed.
+			As long as we steadily progress toward RREF, that's all that matters.
+		</li>
+		<!--<li>We sometimes deviate from the strategy a little bit to avoid fractions. In particular, we might eliminate entries using a leading <em>entry</em> before turning it into a leading <em>one</em>.</li>-->
+		<li>
+			We never write an equals sign between matrices when row reducing.
+			We will explore what it means for two matrices to be equal in
+			<xref ref="worksheet-matrix-ops" />,
+			and this here is not it.
+			When you perform a row operation,
+			the result is a <em>different</em> matrix than the original,
+			and the two matrices represent <em>different</em> systems of equations.
+			However, the two matrices <em>are</em> related, and it is to express this relationship that we have the terminology <term>row equivalent</term>.
+		</li>
+	</ul>
 </p></introduction>
 
 <subsection xml:id="subsection-row-red-examples-solving">
@@ -43,7 +70,7 @@ Here are a few things to note about our method.
 
 <example xml:id="example-row-red-examples-solving-unique">
 	<title>A system with one unique solution</title>
-	<statement><p>
+	<p>
 	From <xref ref="activity-row-red-system-unique-sol" />, consider system
 	<me>
 		\left\{\begin{array}{rcrcrcr}
@@ -117,14 +144,19 @@ Here are a few things to note about our method.
 			\end{array}\right]
 		</mrow>
 	</md>
-	Every variable column has a leading one, so there are no free variables and no parameters are required. We can solve for each variable as a specific number, so the system has one unique solution: <m>x = 3/2</m>, <m>y= -1/2</m>, and <m>z=0</m>.
-	</p></statement>
+	Every variable column has a leading one,
+	so there are no free variables and no parameters are required.
+	We can solve for each variable as a specific number,
+	so the system has one unique solution:
+	<m>x = 3/2</m>, <m>y= -1/2</m>, and <m>z=0</m>.
+	</p>
 </example>
 
 <example xml:id="example-row-red-examples-solving-infinite">
 	<title>A system with an infinite number of solutions</title>
-	<statement><p>
-	From <xref ref="activity-row-red-system-infinite-sol" />, consider system
+	<p>
+	From <xref ref="activity-row-red-system-infinite-sol" />,
+	consider system
 	<me>
 		\left\{\begin{array}{rcrcrcr}
 			3x \amp + \amp 6y \amp + \amp 5z \amp = \amp -9,\\
@@ -179,7 +211,10 @@ Here are a few things to note about our method.
 			\end{array}\right]
 		</mrow>
 	</md>
-	The second column does not contain a leading one, so variable <m>y</m> is free and we assign to it a parameter: <m>y=t</m>. We can then use the simplified system
+	The second column does not contain a leading one,
+	so variable <m>y</m> is free and we assign to it a parameter:
+	<m>y=t</m>.
+	We can then use the simplified system
 	<me>
 		\left\{\begin{array}{rcrcrcr}
 			x \amp + \amp 2y \amp \amp  \amp = \amp 2,\\
@@ -187,24 +222,20 @@ Here are a few things to note about our method.
 			\amp  \amp  \amp  \amp 0 \amp = \amp 0.
 		\end{array}\right.
 	</me>
-	to solve for <m>x = 2 - 2t</m> and <m>z=-3</m>. In parametric form, the <term>general solution</term> of the system can be expressed parametrically as
-	<md><mrow>
-		x \amp= 2-2t, \amp y \amp= t, \amp z = -3,
-	</mrow></md>
-	and every <term>particular solution</term> to the system can be obtained by choosing a value for <m>t</m>. For example, the particular solution associated to <m>t=3</m> is
-	<md><mrow>
-		x \amp= -4, \amp y \amp= 3, \amp z = -3,
-	</mrow></md>
+	to solve for <m>x = 2 - 2t</m> and <m>z=-3</m>.
+	In parametric form, the <term>general solution</term> of the system can be expressed as
+	<md><mrow> x \amp= 2-2t, \amp y \amp= t, \amp z = -3, </mrow></md>
+	and every <term>particular solution</term> to the system can be obtained by choosing a value for <m>t</m>.
+	For example, the particular solution associated to <m>t=3</m> is
+	<md><mrow> x \amp= -4, \amp y \amp= 3, \amp z = -3, </mrow></md>
 	and the particular solution associated to <m>t=-\sqrt{2}</m> is
-	<md><mrow>
-		x \amp= 2+2\sqrt{2}, \amp y \amp= -\sqrt{2}, \amp z = -3.
-	</mrow></md>
-	</p></statement>
+	<md><mrow> x \amp= 2+2\sqrt{2}, \amp y \amp= -\sqrt{2}, \amp z = -3. </mrow></md>
+	</p>
 </example>
 
 <example xml:id="example-row-red-examples-solving-no-sol">
 	<title>A system with no solution</title>
-	<statement><p>
+	<p>
 	From <xref ref="activity-row-red-system-no-sol" />, consider system
 	<me>
 		\left\{\begin{array}{rcrcrcr}
@@ -251,13 +282,20 @@ Here are a few things to note about our method.
 			\end{array}\right]
 		</mrow>
 	</md>
-	Here we have a leading one in the <q>equals</q> column. If we turn that third row back into an equation, we have <me>0x+0y+0z=1,</me> but there are no possible values of <m>x,y,z</m> that satisfy this equation. Therefore, the system is <term>inconsistent</term>. (Of course, we could have seen that this would happen right from the second matrix, and could have stopped there. But we went all the way to RREF to have another example demonstrating the row reduction strategy. In practice, we should stop reducing as soon as we can see that the system will be inconsistent.)
-	</p></statement>
+	Here we have a leading one in the <q>equals</q> column.
+	If we turn that third row back into an equation,
+	we have <me>0x+0y+0z=1,</me> but there are no possible values of <m>x,y,z</m> that satisfy this equation.
+	Therefore, the system is <term>inconsistent</term>.
+	(Of course, we could have seen that this would happen right from the second matrix,
+	and could have stopped there.
+	But we went all the way to RREF to have another example demonstrating the row reduction strategy.
+	In practice, we should stop reducing as soon as we can see that the system will be inconsistent.)
+	</p>
 </example>
 
 <example xml:id="example-row-red-examples-solving-homog">
 	<title>A homogeneous system</title>
-	<statement><p>
+	<p>
 	From <xref ref="activity-row-red-system-homog-sol" />, consider system
 	<me>
 		\left\{\begin{array}{rcrcrcrcrcr}
@@ -266,7 +304,9 @@ Here are a few things to note about our method.
 			2x_1 \amp + \amp 4x_2 \amp - \amp 5x_3 \amp + \amp 8x_4 \amp = \amp 0.
 		\end{array}\right.
 	</me>
-	For a <term>homogeneous</term> system, we only reduce the <term>coefficient matrix</term>, since elementary row operations will never change an <q>equals</q> columns that contains all zeros.
+	For a <term>homogeneous</term> system,
+	we only reduce the <term>coefficient matrix</term>,
+	since elementary row operations will never change an <q>equals</q> columns that contains all zeros.
 	<md>
 		<mrow>
 			\amp
@@ -313,7 +353,12 @@ Here are a few things to note about our method.
 			\end{array}\right]
 		</mrow>
 	</md>
-	To solve, remember that this is just the <em>coefficient</em> matrix for the simplified system, so all columns correspond to a variable, and the <q>equals</q> column is still all zeros but does not appear. We have two free variables, corresponding to the lack of leading one in the second and fourth columns. So set parameters <m>x_2=s</m> and <m>x_4=t</m>. The first two rows turn into equations
+	To solve, remember that this is just the <em>coefficient</em> matrix for the simplified system,
+	so all columns correspond to a variable,
+	and the <q>equals</q> column is still all zeros but does not appear.
+	We have two free variables, corresponding to the lack of leading one in the second and fourth columns.
+	So set parameters <m>x_2=s</m> and <m>x_4=t</m>.
+	The first two rows turn into equations
 	<me>
 		\begin{array}{rcrcrcrcrcr}
 			x_1 \amp + \amp 2x_2 \amp  \amp  \amp - \amp x_4 \amp = \amp 0,\\
@@ -327,12 +372,12 @@ Here are a few things to note about our method.
 		</mrow>
 		<mrow>\amp= -2s + t, \amp \amp \amp \amp= 2t, \amp \amp</mrow>
 	</md>
-	</p></statement>
+	</p>
 </example>
 
 <example xml:id="example-row-red-examples-solving-corresponding-homog">
 	<title>Patterns in the solutions to homogeneous/nonhomogeneous systems</title>
-	<statement><p>
+	<p>
 	Consider the homogeneous system
 	<me>
 		\left\{\begin{array}{rcrcrcr}
@@ -349,7 +394,8 @@ Here are a few things to note about our method.
 			3 \amp 6 \amp 6
 		\end{array}\right].
 	</me>
-	But notice that <em>this is the same coefficient matrix as for the system in <xref ref="activity-row-red-system-infinite-sol" /></em>, and the same row reduction sequence we used to solve that system in <xref ref="example-row-red-examples-solving-infinite" /> would reduce this coefficient matrix to
+	But notice that <em>this is the same coefficient matrix as for the system in <xref ref="activity-row-red-system-infinite-sol" /></em>,
+	and the same row reduction sequence we used to solve that system in <xref ref="example-row-red-examples-solving-infinite" /> would reduce this coefficient matrix to
 	<me>
 		\left[\begin{array}{rrr}
 			1 \amp 2 \amp 0 \\
@@ -357,7 +403,9 @@ Here are a few things to note about our method.
 			0 \amp 0 \amp 0
 		\end{array}\right].
 	</me>
-	And from here we also take the same steps as in <xref ref="example-row-red-examples-solving-infinite" /> to solve this system. Assign parameter <m>t</m> to free variable <m>y</m>, and use the simplified homogeneous system
+	And from here we also take the same steps as in <xref ref="example-row-red-examples-solving-infinite" /> to solve this system.
+	Assign parameter <m>t</m> to free variable <m>y</m>,
+	and use the simplified homogeneous system
 	<me>
 		\left\{\begin{array}{rcrcrcr}
 			x \amp + \amp 2y \amp \amp  \amp = \amp 0,\\
@@ -365,7 +413,9 @@ Here are a few things to note about our method.
 			\amp  \amp  \amp  \amp 0 \amp = \amp 0.
 		\end{array}\right.
 	</me>
-	to solve for <m>x = -2t</m> and <m>z=0</m>. Let's compare the parametric forms of the solutions to the original nonhomogeneous system from <xref ref="activity-row-red-system-infinite-sol" /> and the corresponding homogeneous system solved here.
+	to solve for <m>x = -2t</m> and <m>z=0</m>.
+	Let's compare the parametric forms of the solutions to the original nonhomogeneous system from
+	<xref ref="activity-row-red-system-infinite-sol" /> and the corresponding homogeneous system solved here.
 	<sidebyside><tabular>
 		<row bottom="medium">
 			<cell><em>Nonhomogeneous</em></cell>
@@ -396,10 +446,14 @@ Here are a few things to note about our method.
 			<cell><nbsp /></cell>
 		</row>
 	</tabular></sidebyside>
-	We have added some zeros and <m>t</m>s to emphasize the similarity between the solutions. To interpret this similarity, remember that every value of <m>t</m> provides a particular solution to the systems. When <m>t=0</m>, the corresponding solutions are <m>\{x=2,y=0,z=-3\}</m> for the nonhomogeneous system and the trivial solution for the homogeneous system. For every other value of <m>t</m>, it seems that the corresponding solution for the nonhomogeneous system is equal to that <q>initial</q> particular solution <m>\{x=2,y=0,z=-3\}</m> plus the corresponding homogeneous solution values. In
+	We have added some zeros and <m>t</m>s to emphasize the similarity between the solutions.
+	To interpret this similarity, remember that every value of <m>t</m> provides a particular solution to the systems.
+	When <m>t=0</m>, the corresponding solutions are <m>\{x=2,y=0,z=-3\}</m> for the nonhomogeneous system and the trivial solution for the homogeneous system.
+	For every other value of <m>t</m>, it seems that the corresponding solution for the nonhomogeneous system is equal to that <q>initial</q> particular solution <m>\{x=2,y=0,z=-3\}</m> plus the corresponding homogeneous solution values.
+	In
 	<xref ref="chapter-matrix-ops" /> we will see that this pattern emerges in every nonhomogeneous system
 	(see <xref ref="lemma-matrix-ops-particular-sol-plus-homog-sol" />).
-	</p></statement>
+	</p>
 </example>
 
 </subsection>
