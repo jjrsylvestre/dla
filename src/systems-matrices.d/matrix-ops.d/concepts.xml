@@ -49,7 +49,11 @@ We usually use uppercase letters for matrices,
 as in <xref ref="worksheet-matrix-ops" />.
 (Though sometimes we use a boldface lowercase letter to represent a column or row vector,
 as in <xref ref="activity-matrix-ops-system-to-matrix-mult" />.)
-When we want to refer to a specific entry in a matrix, we identify it by two indices: its row number and its column number, in that order. For example, the <m>\nth[(2,1)]</m> entry of matrix <m>A</m> of <xref ref="activity-matrix-ops-matrix-equality" /> is <m>-1</m>. When we have a matrix represented by an uppercase letter and want to also use letters to represent its entries, we usually use the lowercase version of the same letter, with the row and column indices in subscript. For example, for the matrix <m>A</m> of <xref ref="activity-matrix-ops-matrix-equality" />, the <m>\nth[(2,1)]</m> entry is <m>a_{21} = -1</m>. Sometimes we might write <m>[A]_{ij}</m> to refer to the <m>\nth[(i,j)]</m> entry of matrix <m>A</m>, particularly when instead of a single letter inside the square brackets, we have a formula of letters.
+When we want to refer to a specific entry in a matrix, we identify it by two indices: its row number and its column number, in that order.
+For example, the <m>\nth[(2,1)]</m> entry of matrix <m>A</m> of <xref ref="activity-matrix-ops-matrix-equality" /> is <m>-1</m>.
+When we have a matrix represented by an uppercase letter and want to also use letters to represent its entries, we usually use the lowercase version of the same letter, with the row and column indices in subscript.
+For example, for the matrix <m>A</m> of <xref ref="activity-matrix-ops-matrix-equality" />, the <m>\nth[(2,1)]</m> entry is <m>a_{21} = -1</m>.
+Sometimes we might write <m>[A]_{ij}</m> to refer to the <m>\nth[(i,j)]</m> entry of matrix <m>A</m>, particularly when instead of a single letter inside the square brackets, we have a formula of letters.
 </p>
 
 </subsection>
@@ -58,7 +62,13 @@ When we want to refer to a specific entry in a matrix, we identify it by two ind
 <title>Matrix dimensions</title>
 
 <p>
-Matrices have an obvious notion of size, but we need two numbers to describe it: the number of rows and the number of columns. Again, by convention we always list number of rows first. For example, matrix <m>A</m> of <xref ref="activity-matrix-ops-matrix-equality" /> is size <m>2 \times 3</m>, meaning it has <m>2</m> rows and <m>3</m> columns. For a square matrix, the two numbers describing the size of <m>A</m> are equal, so we might just say that a square matrix <m>A</m> has size <m>n</m> to mean it is <m>n\times n</m>.
+Matrices have an obvious notion of size, but we need two numbers to describe it:
+the number of rows and the number of columns.
+Again, by convention we always list number of rows first.
+For example, matrix <m>A</m> of <xref ref="activity-matrix-ops-matrix-equality" /> is size <m>2 \times 3</m>,
+meaning it has <m>2</m> rows and <m>3</m> columns.
+For a square matrix, the two numbers describing the size of <m>A</m> are equal,
+so we might just say that a square matrix <m>A</m> has size <m>n</m> to mean it is <m>n\times n</m>.
 </p>
 
 </subsection>
@@ -67,7 +77,16 @@ Matrices have an obvious notion of size, but we need two numbers to describe it:
 <title>Matrix equality</title>
 
 <p>
-In <xref ref="activity-matrix-ops-matrix-equality" />, you explored what it means for two matrices to be equal. In algebra involving numbers, we write <m>a=b</m> when variables <m>a</m> and <m>b</m> represent the same number. That is, <m>a</m> and <m>b</m> are equal when they represent the same piece of information. Similarly, two <q>variable</q> matrices are equal when they represent the same information. In particular, two matrices are equal when they have the same numbers in corresponding entries. But size is also important here: in <xref ref="activity-matrix-ops-matrix-equality" />, matrix <m>D</m> can never be equal to matrix <m>A</m> no matter what value we choose for variable <m>x</m>, because <m>A</m> will always contain more information than <m>D</m> in its extra third column. So even before we compare entries, we require equal matrices to have the same size.
+In <xref ref="activity-matrix-ops-matrix-equality" />, you explored what it means for two matrices to be equal.
+In algebra involving numbers, we write <m>a=b</m> when variables <m>a</m> and <m>b</m> represent the same number.
+That is, <m>a</m> and <m>b</m> are equal when they represent the same piece of information.
+Similarly, two <q>variable</q> matrices are equal when they represent the same information.
+In particular, two matrices are equal when they have the same numbers in corresponding entries.
+But size is also important here:
+in <xref ref="activity-matrix-ops-matrix-equality" />,
+matrix <m>D</m> can never be equal to matrix <m>A</m> no matter what value we choose for variable <m>x</m>,
+because <m>A</m> will always contain more information than <m>D</m> in its extra third column.
+So even before we compare entries, we require equal matrices to have the same size.
 </p>
 
 </subsection>
@@ -76,12 +95,24 @@ In <xref ref="activity-matrix-ops-matrix-equality" />, you explored what it mean
 <title>Basic matrix operations</title>
 
 <p>
-In <xref ref="activity-matrix-ops-basic-matrix-ops" />, you probably decided that addition and subtraction of matrices should be carried out in the obvious ways: we should just add or subtract corresponding entries.
+In <xref ref="activity-matrix-ops-basic-matrix-ops" />,
+you probably decided that addition and subtraction of matrices should be carried out in the obvious ways:
+we should just add or subtract corresponding entries.
 See <xref ref="example-matrix-ops-examples-add" /> and <xref ref="example-matrix-ops-examples-add" />.
 </p><p>
-For matrices that have different sizes, it may be tempting to <q>fill out</q> the smaller matrix with zeros so that it can be added to the larger. <em>But this would add more information to the smaller matrix that it's not supposed to have</em>, creating a <em>different</em> matrix prior to the addition. So we should resist this temptation; we will only ever add or subtract matrices that have the same size, and addition/subtraction of matrices of different sizes will remain <term>undefined</term>.
+For matrices that have different sizes, it may be tempting to <q>fill out</q> the smaller matrix with zeros so that it can be added to the larger.
+<em>But this would add more information to the smaller matrix that it's not supposed to have</em>,
+creating a <em>different</em> matrix prior to the addition.
+So we should resist this temptation;
+we will only ever add or subtract matrices that have the same size,
+and addition/subtraction of matrices of different sizes will remain <term>undefined</term>.
 </p><p>
-When we multiply a number <m>a</m> by <m>2</m> to get <m>2a</m>, we are doubling the value of <m>a</m>. In other words, we are <em>scaling</em> <m>a</m> by a scale factor (or <term>scalar</term>) of <m>2</m>. Similarly, we can use a scalar to <q>scale</q> a matrix by multiplying every entry in the matrix by that number. If <m>A</m> is a matrix and <m>k</m> is a scalar (<ie /> a number), then <m>kA</m> is the <term>scalar multiple</term> of <m>A</m> by <m>k</m>.
+When we multiply a number <m>a</m> by <m>2</m> to get <m>2a</m>,
+we are doubling the value of <m>a</m>.
+In other words, we are <em>scaling</em> <m>a</m> by a scale factor (or <term>scalar</term>) of <m>2</m>.
+Similarly, we can use a scalar to <q>scale</q> a matrix by multiplying every entry in the matrix by that number.
+If <m>A</m> is a matrix and <m>k</m> is a scalar (<ie /> a number),
+then <m>kA</m> is the <term>scalar multiple</term> of <m>A</m> by <m>k</m>.
 See <xref ref="example-matrix-ops-examples-scalar-mul"/>.
 </p>
 
@@ -91,12 +122,19 @@ See <xref ref="example-matrix-ops-examples-scalar-mul"/>.
 <title>The zero matrix</title>
 
 <p>
-The number zero plays a special role with respect to addition of numbers: it is the only number that has no effect when it is added to another number. For addition of matrices of a particular size, there is only one kind of matrix that has the same effect: a matrix filled with all zeros. We call such a matrix the <term>zero matrix</term>, and write <m>\zerovec</m> to represent it.
+The number zero plays a special role with respect to addition of numbers:
+it is the only number that has no effect when it is added to another number.
+For addition of matrices of a particular size, there is only one kind of matrix that has the same effect:
+a matrix filled with all zeros.
+We call such a matrix the <term>zero matrix</term>, and write <m>\zerovec</m> to represent it.
 </p>
 <remark><p>
-There are many zero matrices, one of every possible size of matrix. However, we still often say <em>the</em> zero matrix, because we are usually referring to the zero matrix of a particular size.
+There are many zero matrices, one of every possible size of matrix.
+However, we still often say <em>the</em> zero matrix, because we are usually referring to the zero matrix of a particular size.
 </p></remark><p>
-The zero matrix will allow us to do the matrix version of the algebra in the preamble to <xref ref="activity-matrix-ops-zero-matrix" />, since subtracting a matrix from itself will obviously result in the zero matrix. For more properties of the zero matrix, see
+The zero matrix will allow us to do the matrix version of the algebra in the preamble to <xref ref="activity-matrix-ops-zero-matrix" />,
+since subtracting a matrix from itself will obviously result in the zero matrix.
+For more properties of the zero matrix, see
 <xref ref="proposition-matrix-ops-algebra-rules" />
 in
 <xref ref="subsection-matrix-ops-theory-algebra" />.
@@ -150,7 +188,10 @@ and all the right-hand constants into the <term>(column) vector of constants</te
 respectively.
 </p>
 <remark><p>
-It may seem more natural to write the vector of unknowns as a row vector instead of a column vector, but it is preferable mathematically to have all of the vectors involved be (roughly) the same <em>kind</em> of vector (even though they are often not <em>exactly</em> the same kind of vector, since they might not have the same size).
+It may seem more natural to write the vector of unknowns as a row vector instead of a column vector,
+but it is preferable mathematically to have all of the vectors involved be (roughly) the same <em>kind</em> of vector
+(even though they are often not <em>exactly</em> the same kind of vector,
+since they might not have the same size).
 </p></remark>
 <p>
 We would like to express the system in <xref ref="equation-matrix-ops-concepts-system-convert-matrix-eqn" />
@@ -197,7 +238,9 @@ the single matrix equation <m>A \uvec{x} = \uvec{b}</m> now contains all the sam
 <title>Matrix multiplication</title>
 
 <p>
-We can extend this <em>row-times-column</em> calculation procedure to define multiplication of two matrices (instead of just a matrix and a column vector) by thinking of the second matrix as a collection of columns,
+We can extend this <em>row-times-column</em> calculation procedure to define multiplication of two matrices
+(instead of just a matrix and a column vector)
+by thinking of the second matrix as a collection of columns,
 <md><mrow xml:id="equation-matrix-ops-concepts-matrix-mult-by-cols" tag="tstar">
 	B = \begin{bmatrix}
 		| \amp | \amp \amp |\\
@@ -211,9 +254,11 @@ We can extend this <em>row-times-column</em> calculation procedure to define mul
 		| \amp | \amp \amp |
 	\end{bmatrix}.
 </mrow></md>
-This <em>matrix-times-columns</em> way of defining matrix multiplication will be very useful later. But right now, let's drill down to individual entries of the result <m>AB</m>.
+This <em>matrix-times-columns</em> way of defining matrix multiplication will be very useful later.
+But right now, let's drill down to individual entries of the result <m>AB</m>.
 </p><p>
-Let's first consider the case of a <m>1\times n</m> row vector <m>\uvec{a}</m> times an <m>n\times 1</m> column vector <m>\uvec{b}</m>. In this case,
+Let's first consider the case of a <m>1\times n</m> row vector <m>\uvec{a}</m> times an <m>n\times 1</m> column vector <m>\uvec{b}</m>.
+In this case,
 <md><mrow xml:id="equation-matrix-ops-concepts-row-times-column" tag="dagger">
 	\uvec{a}\uvec{b}
 	= \begin{bmatrix}
@@ -224,7 +269,9 @@ Let's first consider the case of a <m>1\times n</m> row vector <m>\uvec{a}</m> t
 </mrow></md>
 Notice that the result is a <m>1\times 1</m> matrix containing just a single entry.
 </p><p>
-Now let's consider a matrix <m>A</m> times a column <m>\uvec{b}</m>, where we consider <m>A</m> as being made of row vectors. Then,
+Now let's consider a matrix <m>A</m> times a column <m>\uvec{b}</m>,
+where we consider <m>A</m> as being made of row vectors.
+Then,
 <me>
 	A\uvec{b}
 	= \begin{bmatrix}
@@ -269,18 +316,35 @@ Finally, we can extend this to the case of matrix <m>A</m> times matrix <m>B</m>
 	using the <m>\nth[i]</m> row of <m>A</m> and the <m>\nth[j]</m> column of <m>B</m>.
 </p></paragraphs>
 <p>
-In order for each <em>row-times-column</em> calculation to work, we need the number of entries in a row of <m>A</m> to match up with the number of entries in a column of <m>B</m>. (Just as in the definition of matrix addition, we do not <q>fill out</q> a matrix with extra entries if these numbers do not match.) But the number of entries in a row of <m>A</m> is the number of columns of <m>A</m>, and the number of entries in a column of <m>B</m> is the number of rows of <m>B</m>.
+In order for each <em>row-times-column</em> calculation to work,
+we need the number of entries in a row of <m>A</m> to match up with the number of entries in a column of <m>B</m>.
+(Just as in the definition of matrix addition, we do not <q>fill out</q> a matrix with extra entries if these numbers do not match.)
+But the number of entries in a row of <m>A</m> is the number of columns of <m>A</m>,
+and the number of entries in a column of <m>B</m> is the number of rows of <m>B</m>.
 </p>
 <paragraphs><title>Pattern</title>
-	<p>If <m>A</m> is <m>m \times n</m> and <m>B</m> is <m>k \times \ell</m>, we can only compute <m>AB</m> if <m>n</m> and <m>k</m> are the same; otherwise, we say that the product <m>AB</m> is <term>undefined</term>. In the case that <m>n</m> and <m>k</m> are the same, the product <m>AB</m> has size <m>m \times \ell</m>.</p>
-	<p>An easy way to remember this is that if we want to multiply <me>m \times n \quad\text{ times }\quad k \times \ell</me>, it will only work if the <q>inside</q> dimensions <m>n</m> and <m>k</m> match, and result will be the <q>outside</q> dimensions <m>m \times \ell</m>.</p>
+	<p>
+	If <m>A</m> is <m>m \times n</m> and <m>B</m> is <m>k \times \ell</m>,
+	we can only compute <m>A B</m> if <m>n</m> and <m>k</m> are the same;
+	otherwise, we say that the product <m>A B</m> is <term>undefined</term>.
+	In the case that <m>n</m> and <m>k</m> are the same, the product <m>AB</m> has size <m>m \times \ell</m>.
+	</p><p>
+	An easy way to remember this is that if we want to multiply <me>m \times n \quad\text{ times }\quad k \times \ell</me>,
+	it will only work if the <q>inside</q> dimensions <m>n</m> and <m>k</m> match,
+	and result will be the <q>outside</q> dimensions <m>m \times \ell</m>.
+	</p>
 </paragraphs>
 <p>
-In <xref ref="activity-matrix-ops-matrix-mult-order-matters" />, you found that one of the familiar rules of algebra is <em>not</em> true for matrix algebra: <em>matrices <em>cannot</em> be multiplied in any order</em>, because different orders of multiplication might yield different results.
+In <xref ref="activity-matrix-ops-matrix-mult-order-matters" />,
+you found that one of the familiar rules of algebra is <em>not</em> true for matrix algebra:
+<em>matrices <em>cannot</em> be multiplied in any order</em>,
+because different orders of multiplication might yield different results.
 In fact, for non-square matrices, often one of the two orders of multiplication is not even <em>defined</em>.
 </p>
 <warning><p>
-	When manipulating algebraic expressions where the letters represent matrices, be careful <em>not</em> to inadvertently use the algebra rule <m>B A = A B</m>, because it is <em>not</em> true for matrices.
+	When manipulating algebraic expressions where the letters represent matrices,
+	be careful <em>not</em> to inadvertently use the algebra rule <m>B A = A B</m>,
+	because it is <em>not</em> true for matrices.
 </p></warning>
 
 </subsection>
@@ -289,19 +353,20 @@ In fact, for non-square matrices, often one of the two orders of multiplication 
 <title>Matrix powers</title>
 
 <p>
-As you probably decided in <xref ref="activity-matrix-ops-matrix-powers" />, we define powers of matrices in the usual way:
+As you probably decided in <xref ref="activity-matrix-ops-matrix-powers" />,
+we define powers of matrices in the usual way:
 <m>A^2</m> means <q><m>A</m> times <m>A</m>,</q> <m>A^3</m> means <q><m>A</m> times <m>A</m> times <m>A</m>,</q> and so on.
 </p>
 <warning><ul>
 	<li>
-		To compute <m>A^2</m>, you need to carry out the computation <m>AA</m> using the <q>row times column</q> definition of matrix multiplication.
+		To compute <m>A^2</m>, you need to carry out the computation <m>A A</m> using the <q>row times column</q> definition of matrix multiplication.
 		Just squaring every entry of <m>A</m> will <em>not</em> give you the correct result!
 		And similarly for <m>A^3</m>, <m>A^4</m>, <etc /> <mdash />
 		you need to carry out all the iterated multiplications.
 		See <xref ref="subsection-matrix-ops-examples-mult" /> for example calculations.
 	</li><li>
 		As in the second pattern discussed in <xref ref="subsection-matrix-ops-concepts-powers" />,
-		we can only compute the product <m>A^2 = AA</m> if the number of columns of <m>A</m> is equal to the number of rows of <m>A</m>.
+		we can only compute the product <m>A^2 = A A</m> if the number of columns of <m>A</m> is equal to the number of rows of <m>A</m>.
 		That is, <alert>matrix powers are only defined for square matrices</alert>.
 	</li>
 </ul></warning>
@@ -311,9 +376,15 @@ In
 <xref ref="activity-matrix-ops-matrix-powers-order-matters">Discovery</xref>
 and
 <xref ref="activity-matrix-ops-matrix-powers-foil-binomial">Discovery</xref>,
-we need to be careful about order of multiplication. By definition, <m>(AB)^2</m> means <m>(AB)(AB)</m>, but we cannot simplify this to <m>A^2 B^2 = (AA)(BB)</m>, because order of multiplication matters, and we so we cannot in general change the order of multiplication of the inner <m>B</m> and <m>A</m>. Similarly, when using FOIL to expand <m>(A+B)^2 = (A+B)(A+B)</m> (which <em>is</em> valid matrix algebra, see
+we need to be careful about order of multiplication.
+By definition, <m>(A B)^2</m> means <m>(A B) (A B)</m>, but we cannot simplify this to <m>A^2 B^2 = (A A) (B B)</m>,
+because order of multiplication matters,
+and we so we cannot in general change the order of multiplication of the inner <m>B</m> and <m>A</m>.
+Similarly, when using FOIL to expand <m>(A + B)^2 = (A + B) (A + B)</m>
+(which <em>is</em> valid matrix algebra, see
 <xref ref="subsection-matrix-ops-theory-algebra" />),
-for the O part of FOIL we get <m>AB</m> and for the I part we get <m>BA</m>, but these cannot be combined into <m>2AB</m> in general because <em>order matters for matrix multiplication</em>.
+for the O part of FOIL we get <m>A B</m> and for the I part we get <m>B A</m>,
+but these cannot be combined into <m>2 A B</m> in general because <em>order matters for matrix multiplication</em>.
 </p>
 
 </subsection>
@@ -324,15 +395,34 @@ for the O part of FOIL we get <m>AB</m> and for the I part we get <m>BA</m>, but
 <p>
 There is one more matrix operation that we did not explore in
 <xref ref="worksheet-matrix-ops" />:
-the <term>transpose</term> of a matrix. To compute the transpose of a particular matrix <m>A</m>, take the entries of the first row of <m>A</m> and write them as the entries of the first <em>column</em> in a new matrix. Then take the entries of the second row of <m>A</m> and write them as the entries of the second column in the new matrix. And so on. The resulting new matrix is called the <term>transpose of <m>A</m></term>, and we write <m>\utrans{A}</m> to mean this new matrix obtained from the old matrix <m>A</m>. See
+the <term>transpose</term> of a matrix.
+To compute the transpose of a particular matrix <m>A</m>,
+take the entries of the first row of <m>A</m> and write them as the entries of the first <em>column</em> in a new matrix.
+Then take the entries of the second row of <m>A</m> and write them as the entries of the second column in the new matrix.
+And so on.
+The resulting new matrix is called the <term>transpose of <m>A</m></term>,
+and we write <m>\utrans{A}</m> to mean this new matrix obtained from the old matrix <m>A</m>.
+See
 <xref ref="subsection-matrix-ops-examples-transpose" />
 for examples of computing transposes.
 </p><p>
-It is not possible at this stage to explain why we might want to use such an operation. If we are thinking of matrices as coefficient or augmented matrices of linear systems, why would we want all the coefficients in a particular equation in a system to become the coefficients attached to a particular variable in a new system? However, the transpose is such a simple operation that it is useful to include its properties in our development at this early stage.
+It is not possible at this stage to explain why we might want to use such an operation.
+If we are thinking of matrices as coefficient or augmented matrices of linear systems,
+why would we want all the coefficients in a particular equation in a system to become the coefficients attached to a particular variable in a new system?
+However, the transpose is such a simple operation that it is useful to include its properties in our development at this early stage.
 </p><p>
 Here are some things to notice about the operation of transpose as you look at the examples in
 <xref ref="subsection-matrix-ops-examples-transpose" />.
-First, since we are taking rows of <m>A</m> and making them columns in <m>\utrans{A}</m>, the number of columns of <m>\utrans{A}</m> must be the number of rows of <m>A</m>. Also, the number of entries in a row of <m>A</m> becomes the number of entries in a column of <m>\utrans{A}</m>, so the same must be true about the number of rows of <m>\utrans{A}</m> versus the number of columns of <m>A</m>. That is, if <m>A</m> is size <m>m\times n</m>, then <m>\utrans{A}</m> is size <m>n\times m</m>. Second, instead of turning rows of <m>A</m> into columns of <m>\utrans{A}</m>, notice that we could take the <em>columns</em> of <m>A</m> and use them as <em>rows</em> in a new matrix, and the result would be the same as <m>\utrans{A}</m>. This symmetry means that if we compute the transpose of <m>\utrans{A}</m>, we will be back at <m>A</m>.
+First, since we are taking rows of <m>A</m> and making them columns in <m>\utrans{A}</m>,
+the number of columns of <m>\utrans{A}</m> must be the number of rows of <m>A</m>.
+Also, the number of entries in a row of <m>A</m> becomes the number of entries in a column of <m>\utrans{A}</m>,
+so the same must be true about the number of rows of <m>\utrans{A}</m> versus the number of columns of <m>A</m>.
+That is, if <m>A</m> is size <m>m\times n</m>, then <m>\utrans{A}</m> is size <m>n\times m</m>.
+Second, instead of turning rows of <m>A</m> into columns of <m>\utrans{A}</m>,
+notice that we could take the <em>columns</em> of <m>A</m> and use them as <em>rows</em> in a new matrix,
+and the result would be the same as <m>\utrans{A}</m>.
+This symmetry means that if we compute the transpose of <m>\utrans{A}</m>,
+we will be back at <m>A</m>.
 </p>
 
 </subsection>

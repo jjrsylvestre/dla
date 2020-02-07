@@ -30,14 +30,24 @@ respective owners.
 <title>Rules of matrix algebra</title>
 
 <p>
-When we want to work algebraically with letters that represent matrices, most of the familiar rules from the algebra of numbers still hold. We collect many of these rules of matrix algebra in the list below. We will not prove that <em>all</em> of these rules are valid, but we will verify some of the rules to demonstrate the general pattern of their proofs. For some of the proofs we will be more rigorous than others, but in all of the proofs we want to verify that the matrix on the left-hand side is equal to the one on the right-hand side.
+When we want to work algebraically with letters that represent matrices,
+most of the familiar rules from the algebra of numbers still hold.
+We collect many of these rules of matrix algebra in the list below.
+We will not prove that <em>all</em> of these rules are valid,
+but we will verify some of the rules to demonstrate the general pattern of their proofs.
+For some of the proofs we will be more rigorous than others,
+but in all of the proofs we want to verify that the matrix on the left-hand side is equal to the one on the right-hand side.
 </p>
 
 <proposition xml:id="proposition-matrix-ops-algebra-rules">
 	<title> Matrix algebra </title>
 	<statement>
 		<p>
-		The following are valid rules of matrix algebra. In each statement, assume that <m>A,B,C</m> are arbitrary matrices and <m>\zerovec</m> is a zero matrix, all of appropriate sizes so that the matrix operations can be carried out. In particular, in any rule involving a matrix power, the matrices involved are assumed to be square.  Also assume that <m>k</m> and <m>m</m> are scalars, and that <m>p</m> and <m>q</m> are positive integers.
+		The following are valid rules of matrix algebra.
+		In each statement, assume that <m>A,B,C</m> are arbitrary matrices and <m>\zerovec</m> is a zero matrix,
+		all of appropriate sizes so that the matrix operations can be carried out.
+		In particular, in any rule involving a matrix power, the matrices involved are assumed to be square.
+		Also assume that <m>k</m> and <m>m</m> are scalars, and that <m>p</m> and <m>q</m> are positive integers.
 		<ol cols="2">
 
 			<li xml:id="proposition-matrix-ops-algebra-rules-basic"><paragraphs>
@@ -145,11 +155,31 @@ When we want to work algebraically with letters that represent matrices, most of
 	</statement>
 
 	<proof>
-	<title>Proof of <xref ref="proposition-matrix-ops-algebra-rules-basic-add-assoc">Rule</xref></title>
+		<title>Proof of <xref ref="proposition-matrix-ops-algebra-rules-basic-add-assoc">Rule</xref></title>
 		<p>
-		First, it's important to remember what equality of matrices means, so that we know what we should be verifying: <em>two matrices are equal when they have the same size and the same entries</em>. And to be sure, while the formulas on the left- and right-hand sides of the rule under consideration each <em>involve</em> three matrices, the formulas themselves each represent a <em>single</em> matrix.
+		First, it's important to remember what equality of matrices means,
+		so that we know what we should be verifying:
+		<em>two matrices are equal when they have the same size and the same entries</em>.
+		And to be sure, while the formulas on the left- and right-hand sides of the rule under consideration each <em>involve</em> three matrices,
+		the formulas themselves each represent a <em>single</em> matrix.
 		</p><p>
-		Let's also make sure we understand the difference between the left- and right-hand sides. On the left, the brackets tell us that we should add <m>B</m> and <m>C</m> first, and then add <m>A</m> to that result. The brackets on the right tell us that we should add <m>A</m> and <m>B</m> first, and then add <m>C</m> to that result. Next, let's compare sizes. To be able to add <m>A,B,C</m>, they must be all the same size, and then the result of adding them (in any combination) will also be that common size. So the left- and right-hand results will be the same size of matrix. Finally, let's make sure each entry in the left-hand result is the same as the corresponding entry in the right-hand result. Since we don't actually know what the entries are or even how many entries there are, we cannot verify this entry by entry. So we work in general instead: consider what the <m>\nth[(i,j)]</m> entry of each side must be, where <m>i,j</m> is a pair of row and column indices, in terms of the entries of <m>A,B,C</m>. For this, you might want to review the conventions on referring to matrix entries described in
+		Let's also make sure we understand the difference between the left- and right-hand sides.
+		On the left, the brackets tell us that we should add <m>B</m> and <m>C</m> first,
+		and then add <m>A</m> to that result.
+		The brackets on the right tell us that we should add <m>A</m> and <m>B</m> first,
+		and then add <m>C</m> to that result.
+		Next, let's compare sizes.
+		To be able to add <m>A,B,C</m>, they must be all the same size,
+		and then the result of adding them (in any combination) will also be that common size.
+		So the left- and right-hand results will be the same size of matrix.
+		Finally, let's make sure each entry in the left-hand result is the same as the corresponding entry in the right-hand result.
+		Since we don't actually know what the entries are or even how many entries there are,
+		we cannot verify this entry by entry.
+		So we work in general instead:
+		consider what the <m>\nth[(i,j)]</m> entry of each side must be,
+		where <m>i,j</m> is a pair of row and column indices,
+		in terms of the entries of <m>A,B,C</m>.
+		For this, you might want to review the conventions on referring to matrix entries described in
 		<xref ref="subsection-matrix-ops-concepts-entries" />.
 		On the left, we have
 		<me> [B+C]_{ij} = b_{ij} + c_{ij}, </me>
@@ -157,24 +187,32 @@ When we want to work algebraically with letters that represent matrices, most of
 		<me> \bigl[A+(B+C)\bigr]_{ij} = [A]_{ij} + [B+C]_{ij} = a_{ij} + (b_{ij} + c_{ij}). </me>
 		A similar process on the right gives us
 		<me> \bigl[(A+B)+C\bigr]_{ij} = [A+B]_{ij} + [C]_{ij} = (a_{ij} + b_{ij}) + c_{ij}. </me>
-		Since we know from high-school algebra that addition of ordinary numbers satisfies the associativity rule <me>a+(b+c)=(a+b)+c,</me> we can see that the <m>\nth[(i,j)]</m> entries of the matrices represented by the formulas on the left- and right-hand sides of this rule will always match.
+		Since we know from high-school algebra that addition of ordinary numbers satisfies the associativity rule <me>a+(b+c)=(a+b)+c</me>,
+		we can see that the <m>\nth[(i,j)]</m> entries of the matrices represented by the formulas on the left- and right-hand sides of this rule will always match.
 		</p>
 	</proof>
 
 	<proof>
 	<title>
 		Proof of
-		<xref
-			ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1"
-		>Rule</xref>
+		<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
 	</title>
 		<p>
-		First, since scalar multiplication does not change the size of a matrix, if <m>A</m> and <m>B</m> are compatible sizes for multiplication, then so are <m>kA</m> and <m>B</m>, and the sizes of <m>(kA)B</m> and <m>k(AB)</m> will be the same. Next, consider the <m>\nth[(i,j)]</m> entry of each side. Write <m>\uvec{a}_i</m> for the <m>\nth[i]</m> row of <m>A</m> and <m>\uvec{b}_j</m> for the <m>\nth[j]</m> column of <m>B</m>. Using the <em>row-times-column</em> pattern of matrix multiplication, and noticing that the <m>\nth[i]</m> row of <m>kA</m> is just <m>k\uvec{a}_i</m>, we have
+		First, since scalar multiplication does not change the size of a matrix,
+		if <m>A</m> and <m>B</m> are compatible sizes for multiplication,
+		then so are <m>kA</m> and <m>B</m>,
+		and the sizes of <m>(kA)B</m> and <m>k(AB)</m> will be the same.
+		Next, consider the <m>\nth[(i,j)]</m> entry of each side.
+		Write <m>\uvec{a}_i</m> for the <m>\nth[i]</m> row of <m>A</m> and <m>\uvec{b}_j</m> for the <m>\nth[j]</m> column of <m>B</m>.
+		Using the <em>row-times-column</em> pattern of matrix multiplication,
+		and noticing that the <m>\nth[i]</m> row of <m>kA</m> is just <m>k\uvec{a}_i</m>,
+		we have
 		<md><mrow>
 			[\text{LHS}]_{ij} \amp= \bigl[(kA)B\bigr]_{ij} = (k\uvec{a}_i)\uvec{b}_j, \amp
 			[\text{RHS}]_{ij} \amp= \bigl[k(AB)\bigr]_{ij} = k(\uvec{a}_i\uvec{b}_j).
 		</mrow></md>
-		So these two entries will be equal if the rule <me>(k\uvec{a})\uvec{b} = k(\uvec{a}\uvec{b})</me> is always true for <m>1\times n</m> row vector <m>\uvec{a}</m> and <m>n\times 1</m> column vector <m>\uvec{b}</m>. In this new rule, both sides are size <m>1\times 1</m>, and indeed we have
+		So these two entries will be equal if the rule <me>(k\uvec{a})\uvec{b} = k(\uvec{a}\uvec{b})</me> is always true for <m>1\times n</m> row vector <m>\uvec{a}</m> and <m>n\times 1</m> column vector <m>\uvec{b}</m>.
+		In this new rule, both sides are size <m>1\times 1</m>, and indeed we have
 		<md>
 			<mrow>
 				\text{New LHS} \amp= (k\uvec{a})\uvec{b}
@@ -206,11 +244,15 @@ When we want to work algebraically with letters that represent matrices, most of
 	</proof>
 
 	<proof>
-	<title> Proof of <xref ref="proposition-matrix-ops-algebra-rules-powers-mult">Rule</xref></title>
+		<title> Proof of <xref ref="proposition-matrix-ops-algebra-rules-powers-mult">Rule</xref></title>
 		<p>
-		We can prove this rule in the same manner as the corresponding rule for powers of numbers from high-school algebra, without worrying about individual entries of the matrices on either side of the equality. On the left we are separately multiplying together <m>p</m> factors of <m>A</m> and <m>q</m> factors of <m>A</m>, and then multiplying those two results together.
+		We can prove this rule in the same manner as the corresponding rule for powers of numbers from high-school algebra,
+		without worrying about individual entries of the matrices on either side of the equality.
+		On the left we are separately multiplying together <m>p</m> factors of <m>A</m> and <m>q</m> factors of <m>A</m>,
+		and then multiplying those two results together.
 		<xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
-		says that we can multiply all of these factors of <m>A</m> together in any combinations and get the same result. Since there are <m>p+q</m> factors of <m>A</m> all together, the result will be the same as <m>A^{p+q}</m>.
+		says that we can multiply all of these factors of <m>A</m> together in any combinations and get the same result.
+		Since there are <m>p + q</m> factors of <m>A</m> all together, the result will be the same as <m>A^{p + q}</m>.
 		</p>
 	</proof>
 
@@ -219,26 +261,47 @@ When we want to work algebraically with letters that represent matrices, most of
 <remark><p><ul>
 
 	<li>
-	Algebra rules are not handed down from on high, they represent patterns where two different sequences of computations always produce the same result. For example, we can see that <me>2(3+5) = 2\cdot 3 + 2\cdot 5,</me> not from algebra but from computation:
+	Algebra rules are not handed down from on high,
+	they represent patterns where two different sequences of computations always produce the same result.
+	For example, we can see that <me>2 (3 + 5) = 2 \cdot 3 + 2 \cdot 5,</me> not from algebra but from computation:
 	<md><mrow>
-		\text{LHS} \amp= 2(3+5) = 2(8) = 16, \amp
-		\text{RHS} \amp= 2\cdot 3 + 2\cdot 5 = 6 + 10 = 16.
+		\text{LHS} \amp= 2 (3 + 5) = 2 (8) = 16, \amp
+		\text{RHS} \amp= 2 \cdot 3 + 2 \cdot 5 = 6 + 10 = 16.
 	</mrow></md>
-	This example of different computations yielding the same result did not depend on the numbers <m>2,3,5</m> but on the pattern of the sequences of computations, and we capture this pattern algebraically in terms of letters as the <em>distributive rule</em> <m>a(b+c) = ab + ac</m>. The algebra rules above capture similar universal patterns of different sequences of matrix operations that always produce the same result.
+	This example of different computations yielding the same result did not depend on the numbers <m>2,3,5</m> but on the pattern of the sequences of computations,
+	and we capture this pattern algebraically in terms of letters as the <term>distributive rule</term> <m>a (b + c) = a b + a c</m>.
+	The algebra rules above capture similar universal patterns of different sequences of matrix operations that always produce the same result.
 	</li>
 
 	<li>
-	In the rules, the letters <m>A,B,C</m> are <em>placeholders</em> for any arbitrary matrices. When we use these rules, we might need to apply them where a <em>whole formula</em> of letters that computes to a single matrix takes the place of one of <m>A,B,C</m>. For example, see the first step of the FOIL example below.
+	In the rules, the letters <m>A,B,C</m> are <em>placeholders</em> for any arbitrary matrices.
+	When we use these rules, we might need to apply them where a <em>whole formula</em> of letters that computes to a single matrix takes the place of one of <m>A,B,C</m>.
+	For example, see the first step of the FOIL example below.
 	</li>
 
 	<li>
-	In the preamble to the proposition, we stated that <em>most</em> of the familiar rules from the algebra of numbers still hold for matrices. But there is one important rule that <em>does not</em> hold! Remember that <alert>order of matrix multiplication matters</alert>: <m>AB</m> and <m>BA</m> are <em>not</em> equal in general.
+	In the preamble to the proposition, we stated that <em>most</em> of the familiar rules from the algebra of numbers still hold for matrices.
+	But there is one important rule that <em>does not</em> hold!
+	Remember that <alert>order of matrix multiplication matters</alert>:
+	<m>AB</m> and <m>BA</m> are <em>not</em> equal in general.
 	</li>
 
 	<li>
-	As you read the rules, think about the point of the rule. For example, consider
+	As you read the rules, think about the point of the rule.
+	For example, consider
 	<xref ref="proposition-matrix-ops-algebra-rules-basic-add-assoc">Rule</xref>.
-	Matrix addition is defined as an operation between <em>two</em> matrices. If we write something like <m>A+B+C</m>, it is ambiguous what is meant. Does it mean that <m>A+B</m> should be performed first, and then <m>C</m> added to that result? Or should <m>B+C</m> be performed first, and then <m>A</m> added to that result? Mathematical notation is about <em>communication</em> of mathematical ideas, patterns, and computations. <em>Ambiguity in communication is bad.</em> To resolve the ambiguity in writing <m>A+B+C</m>, we would require brackets to communicate which order of successive additions is meant. But the point of
+	Matrix addition is defined as an operation between <em>two</em> matrices.
+	If we write something like <m>A + B + C</m>,
+	it is ambiguous what is meant.
+	Does it mean that <m>A + B</m> should be performed first,
+	and then <m>C</m> added to that result?
+	Or should <m>B + C</m> be performed first,
+	and then <m>A</m> added to that result?
+	Mathematical notation is about <em>communication</em> of mathematical ideas, patterns, and computations.
+	<em>Ambiguity in communication is bad.</em>
+	To resolve the ambiguity in writing <m>A + B + C</m>,
+	we would require brackets to communicate which order of successive additions is meant.
+	But the point of
 	<xref ref="proposition-matrix-ops-algebra-rules-basic-add-assoc">Rule</xref>
 	is that <em>it doesn't matter</em> <mdash /> either meaning will yield the same end result.
 	<xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
@@ -246,7 +309,8 @@ When we want to work algebraically with letters that represent matrices, most of
 	</li>
 
 	<li>
-	Also, as you read the rules, try to think of the pattern each one is expressing <em>in words</em>. For example, for
+	Also, as you read the rules, try to think of the pattern each one is expressing <em>in words</em>.
+	For example, for
 	<xref ref="proposition-matrix-ops-algebra-rules-zero-add">Rule</xref>,
 	reading out <q>A plus zero equals A</q> is a lot less clear than interpreting the rule as <q>adding the zero matrix to any matrix has no effect.</q>
 	</li>
@@ -255,7 +319,12 @@ When we want to work algebraically with letters that represent matrices, most of
 	<xref ref="proposition-matrix-ops-algebra-rules-basic-left-distrib">Rule</xref>
 	and
 	<xref ref="proposition-matrix-ops-algebra-rules-basic-right-distrib">Rule</xref>
-	are not redundant because <em>order of matrix multiplication matters</em>. In particular, it's important to be careful when using these rules to factor a common multiple out of a sum. For example, <m>AX+BX</m> <em>cannot</em> be factored as <m>X(A+B)</m>, because then <m>X</m> is multiplying on the left when originally it was multiplying both <m>A</m> and <m>B</m> on the right. The correct factorization is <m>AX + BX = (A+B)X</m>. Even worse, <m>AX + XB</m> <em>cannot be factored at all</em>.
+	are not redundant because <em>order of matrix multiplication matters</em>.
+	In particular, it's important to be careful when using these rules to factor a common multiple out of a sum.
+	For example, <m>A X + B X</m> <em>cannot</em> be factored as <m>X (A + B)</m>,
+	because then <m>X</m> is multiplying on the left when originally it was multiplying both <m>A</m> and <m>B</m> on the right.
+	The correct factorization is <m>A X + B X = (A + B) X</m>.
+	Even worse, <m>A X + X B</m> <em>cannot be factored at all</em>.
 	</li>
 
 	<li>
@@ -263,22 +332,36 @@ When we want to work algebraically with letters that represent matrices, most of
 	<xref
 		ref="proposition-matrix-ops-algebra-rules-scalar-mul-subtract-conv-add"
 	>Rule</xref>,
-	all of the rules that involve addition are also valid for subtraction (with the obvious exception of commutivity
+	all of the rules that involve addition are also valid for subtraction
+	(with the obvious exception of commutivity
 	<xref ref="proposition-matrix-ops-algebra-rules-basic">Rule</xref>).
 	</li>
 
 	<li>
-	There are two things to note about the rules involving the transpose. First, in
+	There are two things to note about the rules involving the transpose.
+	First, in
 	<xref ref="proposition-matrix-ops-algebra-rules-transpose-zero">Rule</xref>,
-	the zero matrices on either side of the equality are not necessarily of the same size (unless they are both square). Second, notice how a transpose of a product reverses the order of multiplication in
+	the zero matrices on either side of the equality are not necessarily of the same size (unless they are both square).
+	Second, notice how a transpose of a product reverses the order of multiplication in
 	<xref ref="proposition-matrix-ops-algebra-rules-transpose-product">Rule</xref>.
-	This happens because in the product <m>AB</m> we are multiplying rows of <m>A</m> against columns of <m>B</m>. If we were to compute the product of transposes <m>\utrans{A}\utrans{B}</m>, we would be multiplying rows of <m>\utrans{A}</m> (<ie /> <em>columns</em> of <m>A</m>) against columns of <m>\utrans{B}</m> (<ie /> <em>rows</em> of <m>B</m>). Obviously these two computations won't compare, and we need to reverse the order to <m>\utrans{B}\utrans{A}</m> so that rows of <m>\utrans{B}</m> (<ie /> <em>columns</em> of <m>B</m>) multiply against columns of <m>\utrans{A}</m> (<ie /> <em>rows</em> of <m>A</m>), similarly to <m>AB</m>.
+	This happens because in the product <m>A B</m> we are multiplying rows of <m>A</m> against columns of <m>B</m>.
+	If we were to compute the product of transposes <m>\utrans{A} \utrans{B}</m>,
+	we would be multiplying rows of <m>\utrans{A}</m>
+	(<ie /> <em>columns</em> of <m>A</m>)
+	against columns of <m>\utrans{B}</m>
+	(<ie /> <em>rows</em> of <m>B</m>).
+	Obviously these two computations won't compare, and we need to reverse the order to <m>\utrans{B}\utrans{A}</m> so that rows of <m>\utrans{B}</m>
+	(<ie /> <em>columns</em> of <m>B</m>)
+	multiply against columns of <m>\utrans{A}</m>
+	(<ie /> <em>rows</em> of <m>A</m>),
+	similarly to <m>A B</m>.
 	</li>
 
 </ul></p></remark>
 
 <example><title>Using the rules</title><statement><p>
-	Here is an example of using some of the basic rules to justify a slightly more involved rule like FOIL. Assume <m>A,B,Y,Z</m> are square matrices of the same size.
+	Here is an example of using some of the basic rules to justify a slightly more involved rule like FOIL.
+	Assume <m>A,B,Y,Z</m> are square matrices of the same size.
 	<md>
 		<mrow>
 			(A+B)(Y+Z)
@@ -320,17 +403,25 @@ When we want to work algebraically with letters that represent matrices, most of
 <p>
 In the examples expressing system solutions in terms of column vectors in
 <xref ref="subsection-matrix-ops-examples-sys-matrix-eqns" />,
-we noticed a pattern: the general solution of a consistent system can always be expressed as a <em>constant part</em> plus a <em>variable part</em>, where the constant part is a particular solution to the system (corresponding to setting all parameters to <m>0</m>) and the variable part involves the parameters. This is true even for
+we noticed a pattern:
+the general solution of a consistent system can always be expressed as a <em>constant part</em> plus a <em>variable part</em>,
+where the constant part is a particular solution to the system
+(corresponding to setting all parameters to <m>0</m>)
+and the variable part involves the parameters.
+This is true even for
 <ul>
 	<li>
-	a system with one unique solution (as in
+	a system with one unique solution
+	(as in
 	<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-unique" />),
 	in which case we consider the variable part to be zero; and
 	</li>
 	<li>
-	a homogeneous system (as in
+	a homogeneous system
+	(as in
 	<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-homog" />),
-	in which case we consider the constant part to be zero (<ie /> the trivial solution).
+	in which case we consider the constant part to be zero
+	(<ie /> the trivial solution).
 	</li>
 </ul>
 </p><p>
@@ -338,18 +429,30 @@ We further saw that the pattern goes a bit deeper when we explored the pattern b
 <xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
 and
 <xref ref="example-matrix-ops-examples-sys-sol-vector-forms-corresponding-homog" />.
-These two systems had the <em>same coefficient matrix</em>, but one was nonhomogeneous and the other was homogeneous. We saw that the two solutions <em>have exactly the same variable part</em>. This pattern will always emerge for a consistent system.
+These two systems had the <em>same coefficient matrix</em>,
+but one was nonhomogeneous and the other was homogeneous.
+We saw that the two solutions <em>have exactly the same variable part</em>.
+This pattern will always emerge for a consistent system.
 </p>
 
 <lemma xml:id="lemma-matrix-ops-particular-sol-plus-homog-sol">
 	<title> Homogeneous/nonhomogeneous solution set patterns </title>
 
 	<statement><p>
-		If <m>\uvec{x}_1</m> is a particular solution to system <m>A\uvec{x} = \uvec{b}</m>, then every other solution to this system can be expressed as the sum of <m>\uvec{x}_1</m> and some solution to the corresponding homogeneous system <m>A\uvec{x} = \zerovec</m>.
+		If <m>\uvec{x}_1</m> is a particular solution to system <m>A\uvec{x} = \uvec{b}</m>,
+		then every other solution to this system can be expressed as the sum of <m>\uvec{x}_1</m> and some solution to the corresponding homogeneous system <m>A\uvec{x} = \zerovec</m>.
 	</p></statement>
 
 	<proof><p>
-		We have solution <m>\uvec{x}_1</m> to system <m>A\uvec{x}=\uvec{b}</m>. By definition, this means that the matrix equation defining the system is valid when we substitute <m>\uvec{x}=\uvec{x}_1</m>. That is, we know that <m>A\uvec{x}_1 = \uvec{b}</m>. Suppose we have another solution <m>\uvec{x}_2</m>. Again, this means that <m>A\uvec{x}_2=\uvec{b}</m> is also true. We would like to show that <m>\uvec{x}_2</m> is equal to the sum of <m>\uvec{x}_1</m> and some solution to the homogeneous system <m>A\uvec{x}=\zerovec</m>. Set <m>\uvec{x}_0 = \uvec{x}_2 - \uvec{x}_1</m>. We claim that <m>\uvec{x} = \uvec{x}_0</m> is a solution to <m>A\uvec{x}=\zerovec</m>. Let's verify:
+		We have solution <m>\uvec{x}_1</m> to system <m>A\uvec{x}=\uvec{b}</m>. 
+		By definition, this means that the matrix equation defining the system is valid when we substitute <m>\uvec{x}=\uvec{x}_1</m>.
+		That is, we know that <m>A\uvec{x}_1 = \uvec{b}</m>.
+		Suppose we have another solution <m>\uvec{x}_2</m>.
+		Again, this means that <m>A\uvec{x}_2=\uvec{b}</m> is also true.
+		We would like to show that <m>\uvec{x}_2</m> is equal to the sum of <m>\uvec{x}_1</m> and some solution to the homogeneous system <m>A\uvec{x}=\zerovec</m>.
+		Set <m>\uvec{x}_0 = \uvec{x}_2 - \uvec{x}_1</m>.
+		We claim that <m>\uvec{x} = \uvec{x}_0</m> is a solution to <m>A\uvec{x}=\zerovec</m>.
+		Let's verify:
 		<me>
 			\text{LHS}
 			= A\uvec{x}_0
@@ -359,7 +462,8 @@ These two systems had the <em>same coefficient matrix</em>, but one was nonhomog
 			= \zerovec
 			= \text{RHS}.
 		</me>
-		So <m>\uvec{x}_0</m> is a solution to the homogeneous system. Furthermore,
+		So <m>\uvec{x}_0</m> is a solution to the homogeneous system.
+		Furthermore,
 		<me>
 			\uvec{x}_1 + \uvec{x}_0
 			= \uvec{x}_1 + (\uvec{x}_2 - \uvec{x}_1)
@@ -367,42 +471,67 @@ These two systems had the <em>same coefficient matrix</em>, but one was nonhomog
 			= \zerovec + \uvec{x}_2
 			= \uvec{x}_2.
 		</me>
-		Thus, <m>\uvec{x}_2</m> is equal to the sum of <m>\uvec{x}_1</m> and a solution to the homogeneous system (<ie /> <m>\uvec{x}_0</m>), as desired.
+		Thus, <m>\uvec{x}_2</m> is equal to the sum of <m>\uvec{x}_1</m> and a solution to the homogeneous system
+		(<ie /> <m>\uvec{x}_0</m>), as desired.
 	</p></proof>
 
 </lemma>
 
-<p>We can also use the matrix algebra viewpoint of linear systems to definitively answer <xref ref="question-systems-concepts-solutions-how-many" />.</p>
+<p>
+We can also use the matrix algebra viewpoint of linear systems to definitively answer
+<xref ref="question-systems-concepts-solutions-how-many" />.
+</p>
 
 <theorem xml:id="theorem-matrix-ops-sys-num-solutions">
 
 	<title> None, one, or infinite solutions </title>
 
 	<statement><p>
-		There are exactly three possibilities for the number of solutions to a linear system: no solution, one unique solution, or an infinite number of solutions.
+		There are exactly three possibilities for the number of solutions to a linear system:
+		no solution, one unique solution, or an infinite number of solutions.
 	</p></statement>
 
 	<proof>
 		<p>
-		We have seen in examples that it is possible for a system to have no solution, and that it is also possible for a system to have one unique solution. We will argue that an infinite number of solutions is the only remaining possibility. If we are not in one of the first two cases, then our system must be consistent and must have more than one solution. That is, there must be at least two different solutions. Pick two different solutions, label them <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m>, and set <m>\uvec{x}_0 = \uvec{x}_2 - \uvec{x}_1</m>. The same algebra as in the proof of
+		We have seen in examples that it is possible for a system to have no solution,
+		and that it is also possible for a system to have one unique solution.
+		We will argue that an infinite number of solutions is the only remaining possibility.
+		If we are not in one of the first two cases,
+		then our system must be consistent and must have more than one solution.
+		That is, there must be at least two different solutions.
+		Pick two different solutions, label them <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m>,
+		and set <m>\uvec{x}_0 = \uvec{x}_2 - \uvec{x}_1</m>.
+		The same algebra as in the proof of
 		<xref ref="lemma-matrix-ops-particular-sol-plus-homog-sol" />
-		verifies that <m>\uvec{x}_0</m> is a solution to the homogeneous system <m>A\uvec{x}=\zerovec</m>. Let <m>t</m> be a parameter. We claim that for every possible value of the parameter <m>t</m>, <m>\uvec{x}_1 + t\uvec{x}_0</m> is a solution to <m>A\uvec{x}=\uvec{b}</m>. Let's verify:
+		verifies that <m>\uvec{x}_0</m> is a solution to the homogeneous system <m>A\uvec{x}=\zerovec</m>.
+		Let <m>t</m> be a parameter.
+		We claim that for every possible value of the parameter <m>t</m>,
+		<m>\uvec{x}_1 + t\uvec{x}_0</m> is a solution to <m>A\uvec{x}=\uvec{b}</m>.
+		Let's verify:
 		<me>
 			\text{LHS}
-			= A(\uvec{x}_1+t\uvec{x}_0)
-			= A\uvec{x}_1+tA\uvec{x}_0
-			= \uvec{b} + t\zerovec
+			= A (\uvec{x}_1 + t \uvec{x}_0)
+			= A \uvec{x}_1 + t A \uvec{x}_0
+			= \uvec{b} + t \zerovec
 			= \uvec{b} + \zerovec
 			= \uvec{b}
 			= \text{RHS}.
 		</me>
-		If <m>\uvec{x}_0</m> were secretly the zero vector, then <m>\uvec{x}_1+t\uvec{x}_0</m> would always equal <m>\uvec{x}_1</m> no matter the value of <m>t</m>. But since <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are <em>different</em> solutions to <m>A\uvec{x}=\uvec{b}</m>, we have <m>\uvec{x}_0=\uvec{x}_2-\uvec{x}_1\neq \zerovec</m>, and so different values of <m>t</m> produce different column vectors <m>\uvec{x}_1+t\uvec{x}_0</m>. Each of these column vectors is a solution to <m>A\uvec{x}=\uvec{b}</m>, as verified above, and so since there are infinity of possible values for <m>t</m>, there are infinite different possibilities for <m>\uvec{x}_1+t\uvec{x}_0</m>, and so infinite possible solutions to <m>A\uvec{x}=\uvec{b}</m>.
+		If <m>\uvec{x}_0</m> were secretly the zero vector,
+		then <m>\uvec{x}_1 + t \uvec{x}_0</m> would always equal <m>\uvec{x}_1</m> no matter the value of <m>t</m>.
+		But since <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are <em>different</em> solutions to <m>A \uvec{x} = \uvec{b}</m>,
+		we have <m>\uvec{x}_0 = \uvec{x}_2 - \uvec{x}_1 \neq \zerovec</m>,
+		and so different values of <m>t</m> produce different column vectors <m>\uvec{x}_1 + t \uvec{x}_0</m>.
+		Each of these column vectors is a solution to <m>A \uvec{x} = \uvec{b}</m>,
+		as verified above, and so since there are infinity of possible values for <m>t</m>,
+		there are infinite different possibilities for <m>\uvec{x}_1 + t \uvec{x}_0</m>,
+		and so infinite possible solutions to <m>A \uvec{x} = \uvec{b}</m>.
 		</p>
-		<aside><title>Note</title>
-			<p>
-			The expression <m>\uvec{x}_1 + t\uvec{x}_0</m> in the proof may not represent <em>all possible</em> solutions to the system, since the system may require more than one parameter to solve. But the need for <em>at least</em> one parameter in solving a system guarantees that there will be an infinite number of solutions.
-			</p>
-		</aside>
+		<aside><title>Note</title><p>
+			The expression <m>\uvec{x}_1 + t \uvec{x}_0</m> in the proof may not represent <em>all possible</em> solutions to the system,
+			since the system may require more than one parameter to solve.
+			But the need for <em>at least</em> one parameter in solving a system guarantees that there will be an infinite number of solutions.
+		</p></aside>
 	</proof>
 
 </theorem>

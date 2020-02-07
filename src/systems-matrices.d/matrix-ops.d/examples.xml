@@ -36,38 +36,29 @@ respective owners.
 <title>Basic matrix operations</title>
 
 <p>
-Here are some basic examples of matrix addition, subtraction, and scalar multiplication. For subtraction, watch out for double negatives!
+Here are some basic examples of matrix addition, subtraction, and scalar multiplication.
+For subtraction, watch out for double negatives!
 </p>
 
-<example xml:id="example-matrix-ops-examples-add"><title>Matrix addition</title>
-	<statement><p><me>
-		\left[\begin{array}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{array}\right]
-		+ \left[\begin{array}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{array}\right]
-		= \begin{bmatrix} 1+0 \amp -2+1 \\ 3+1 \amp 4+(-2) \\ -5+11 \amp 6+0 \end{bmatrix}
-		= \left[\begin{array}{rr} 1 \amp -1 \\ 4 \amp 2 \\ 6 \amp 6 \end{array}\right]
-	</me></p></statement>
-</example>
+<example xml:id="example-matrix-ops-examples-add"><title>Matrix addition</title><p><me>
+	\left[\begin{array}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{array}\right]
+	+ \left[\begin{array}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{array}\right]
+	= \begin{bmatrix} 1+0 \amp -2+1 \\ 3+1 \amp 4+(-2) \\ -5+11 \amp 6+0 \end{bmatrix}
+	= \left[\begin{array}{rr} 1 \amp -1 \\ 4 \amp 2 \\ 6 \amp 6 \end{array}\right]
+</me></p></example>
 
-<example xml:id="example-matrix-ops-examples-subtr"><title>Matrix subtraction</title>
-	<statement><p>
-	<md>
-		<mrow>
-		\left[\begin{array}{rrr} 1 \amp -2 \amp 3 \\ 0 \amp -4 \amp -5 \end{array}\right]
-		- \left[\begin{array}{rrr} 0 \amp 1 \amp 1 \\ -2 \amp 11 \amp -1 \end{array}\right]
-		\amp = \begin{bmatrix} 1-0 \amp -2-1 \amp 3-1 \\ 0-(-2) \amp -4-11 \amp -5-(-1) \end{bmatrix}
-		</mrow><mrow>
-		\amp = \left[\begin{array}{rrr} 1 \amp -3 \amp 2 \\ 2 \amp -15 \amp -4 \end{array}\right]
-		</mrow>
-	</md>
-	</p></statement>
-</example>
+<example xml:id="example-matrix-ops-examples-subtr"><title>Matrix subtraction</title><p><md><mrow>
+	\left[\begin{array}{rrr} 1 \amp -2 \amp 3 \\ 0 \amp -4 \amp -5 \end{array}\right]
+	- \left[\begin{array}{rrr} 0 \amp 1 \amp 1 \\ -2 \amp 11 \amp -1 \end{array}\right]
+	\amp = \begin{bmatrix} 1-0 \amp -2-1 \amp 3-1 \\ 0-(-2) \amp -4-11 \amp -5-(-1) \end{bmatrix}
+	</mrow><mrow>
+	\amp = \left[\begin{array}{rrr} 1 \amp -3 \amp 2 \\ 2 \amp -15 \amp -4 \end{array}\right]
+</mrow></md></p></example>
 
-<example xml:id="example-matrix-ops-examples-scalar-mul"><title>Scalar multiplication of a matrix</title>
-	<statement><p><me>
+<example xml:id="example-matrix-ops-examples-scalar-mul"><title>Scalar multiplication of a matrix</title><p><me>
 		(-5)\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 		= \left[\begin{array}{rr} -5 \amp 10 \\ 15 \amp -20\end{array}\right]
-	</me></p></statement>
-</example>
+</me></p></example>
 
 </subsection>
 
@@ -77,7 +68,7 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 
 <example xml:id="example-matrix-ops-examples-detailed-mult">
 	<title>A detailed multiplication example</title>
-	<statement><p>
+	<p>
 	Let's compute the matrix product <m>AB</m>, for
 	<md><mrow>
 		A \amp = \left[\begin{array}{rr}
@@ -88,7 +79,9 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 		\amp
 		B \amp = \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right].
 	</mrow></md>
-	Notice that the sizes of <m>A</m> (<m>3\times 2</m>) and <m>B</m> (<m>2\times 2</m>) are compatible for multiplication in the order <m>AB</m>, and that the result will be size <m>3\times 2</m>. First let's multiply <m>A</m> onto the columns of <m>B</m>.
+	Notice that the sizes of <m>A</m> (<m>3\times 2</m>) and <m>B</m> (<m>2\times 2</m>) are compatible for multiplication in the order <m>AB</m>,
+	and that the result will be size <m>3\times 2</m>.
+	First let's multiply <m>A</m> onto the columns of <m>B</m>.
 	<md>
 		<mrow>
 			\left[\begin{array}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{array}\right]
@@ -115,28 +108,35 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 	</md>
 	Combining these two computations, we get
 	<me>
-		AB =
+		A B =
 		\left[\begin{array}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{array}\right]
 		\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 		=
 		\left[\begin{array}{rr} 9 \amp -14 \\ 1 \amp -2 \\ -19 \amp 28 \end{array}\right].
 	</me>
-	With some practise at matrix multiplication, you should be able to compute a product <m>AB</m> directly without doing separate computations for each column of the second matrix.
+	With some practise at matrix multiplication,
+	you should be able to compute a product <m>A B</m> directly without doing separate computations for each column of the second matrix.
 	</p><p>
-	In this matrix multiplication example, notice that it does not make sense to even consider the possibility that <m>BA=AB</m> because the sizes of <m>B</m> and <m>A</m> are not compatible for multiplication in the order <m>BA</m>, and so <m>BA</m> is undefined!
+	In this matrix multiplication example,
+	notice that it does not make sense to even consider the possibility that <m>B A = A B</m> because the sizes of <m>B</m> and <m>A</m> are not compatible for multiplication in the order <m>B A</m>,
+	and so <m>B A</m> is undefined!
 	<aside>
 		<title>Check your understanding</title>
-		<p>	Is it <em>never</em> true that <m>BA=AB</m>? It should be obvious that it will be true if <m>A</m> is a square zero matrix and <m>B</m> is a square matrix of the same size. Can you come up with an example of <m>2\times 2</m> matrices <m>A</m> and <m>B</m> where neither is the zero matrix, and <m>BA=AB</m> is true?</p>
+		<p>	Is it <em>never</em> true that <m> B A = A B</m>?
+		It should be obvious that it will be true if <m>A</m> is a square zero matrix and <m>B</m> is a square matrix of the same size.
+		Can you come up with an example of <m>2\times 2</m> matrices <m>A</m> and <m>B</m> where neither is the zero matrix,
+		and <m>B A = A B</m> is true?</p>
 	</aside>
-	</p></statement>
+	</p>
 </example>
 
-<example><title>Matrix powers</title>
-	<statement><p>
-	Since powers of matrices only work for <em>square matrices</em>, the power <m>A^2</m> is undefined for the <m>3\times 2</m> matrix <m>A</m> in the previous matrix multiplication example. But we can compute <m>B^2</m> for the <m>2\times 2</m> matrix <m>B</m> from that example.
+<example><title>Matrix powers</title><p>
+	Since powers of matrices only work for <em>square matrices</em>,
+	the power <m>A^2</m> is undefined for the <m>3\times 2</m> matrix <m>A</m> in the previous matrix multiplication example.
+	But we can compute <m>B^2</m> for the <m>2\times 2</m> matrix <m>B</m> from that example.
 	<md>
 		<mrow>
-			B^2 = BB \amp =
+			B^2 = B B \amp =
 			\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 			\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 		</mrow>
@@ -152,8 +152,8 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 	To compute <m>B^3</m>, we can compute either of
 	<md>
 		<mrow>
-			B^3 = BBB = (BB)B
-			\amp= B^2B
+			B^3 = B B B = (B B) B
+			\amp= B^2 B
 		</mrow><mrow>
 			\amp= \left[\begin{array}{rr} 7 \amp -10 \\ -15 \amp 22 \end{array}\right]
 			\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
@@ -168,7 +168,7 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 		</mrow>
 	<intertext>or</intertext>
 		<mrow>
-			B^3 = BBB = B(BB)
+			B^3 = B B B = B (B B)
 			\amp= BB^2
 		</mrow><mrow>
 			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
@@ -184,27 +184,27 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 		</mrow>
 	</md>
 	and the result is the same.
-	</p></statement>
-</example>
+</p></example>
 
 </subsection>
 
 <subsection xml:id="subsection-matrix-ops-examples-combined">
 <title>Combining operations</title>
 
-<example><title>Computing matrix formulas involving a combination of operations</title>
-	<statement><p>
-	Let's compute both <m>A(B+kC)</m> and <m>AB + k(AC)</m>, for
+<example><title>Computing matrix formulas involving a combination of operations</title><p>
+	Let's compute both <m>A (B + k C)</m> and <m>A B + k (A C)</m>, for
 	<md><mrow>
 		A \amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right], \amp
 		B \amp= \left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right], \amp
 		C \amp= \left[\begin{array}{rr} 5 \amp 5 \\ -2 \amp -2 \end{array}\right], \amp
 		k \amp= 3.
 	</mrow></md>
-	Keep in mind that <em>operations inside brackets should be performed first</em>, and as usual multiplication (both matrix and scalar) should be performed before addition (unless there are brackets to tell us otherwise).
+	Keep in mind that <em>operations inside brackets should be performed first</em>,
+	and as usual multiplication (both matrix and scalar) should be performed before addition
+	(unless there are brackets to tell us otherwise).
 	<md>
 		<mrow>
-			A(B+kC)
+			A (B + k C)
 			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 			\left(
 				\left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right]
@@ -225,7 +225,7 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 	</md>
 	<md>
 		<mrow>
-			AB+k(AC)
+			A B + k (A C)
 			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 			\left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right]
 			+ 3\left(
@@ -242,13 +242,23 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 			\amp= \left[\begin{array}{rr} 25 \amp 31 \\ -65 \amp -79  \end{array}\right]
 		</mrow>
 	</md>
-	</p></statement>
-</example>
+</p></example>
 
 <p>
-Hopefully you're not surprised that we got the same final result for both the formulas <m>A(B+kC)</m> and <m>AB + k(AC)</m>. From our familiar rules of algebra, we expect to be able to multiply <m>A</m> inside the brackets in the first expression, and then rearrange the order of multiplication by <m>A</m> and by <m>k</m>. However, we need to be careful <mdash /> our <q>familiar</q> rules of algebra come from operations with <em>numbers</em>, and matrix algebra involves operations with <em>matrices</em>: addition, subtraction, and <em>two different</em> kinds of multiplication, scalar and matrix. We should not <em>blindly</em> expect all of our <q>familiar</q> rules of algebra to apply to matrix operations. We've already seen that the matrix version of the familiar rule <m>ba=ab</m> is <em>not</em> true for matrix multiplication! In
+Hopefully you're not surprised that we got the same final result for both the formulas <m>A (B + k C)</m> and <m>A B + k (A C)</m>.
+From our familiar rules of algebra, we expect to be able to multiply <m>A</m> inside the brackets in the first expression,
+and then rearrange the order of multiplication by <m>A</m> and by <m>k</m>.
+However, we need to be careful <mdash />
+our <q>familiar</q> rules of algebra come from operations with <em>numbers</em>,
+and matrix algebra involves operations with <em>matrices</em>:
+addition, subtraction, and <em>two different</em> kinds of multiplication, scalar and matrix.
+We should not <em>blindly</em> expect all of our <q>familiar</q> rules of algebra to apply to matrix operations.
+We've already seen that the matrix version of the familiar rule <m>b a = a b</m> is <em>not</em> true for matrix multiplication!
+In
 <xref ref="subsection-matrix-ops-theory-algebra" />,
-we list the rules of algebra that <em>are</em> valid for matrix operations (which is <em>most</em> of our familiar rules from the algebra of numbers), and for some of the rules, in that same subsection we verify that they are indeed valid for matrices.
+we list the rules of algebra that <em>are</em> valid for matrix operations
+(which is <em>most</em> of our familiar rules from the algebra of numbers),
+and for some of the rules, in that same subsection we verify that they are indeed valid for matrices.
 </p>
 
 </subsection>
@@ -256,8 +266,11 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 <subsection xml:id="subsection-matrix-ops-examples-sys-matrix-eqns">
 <title>Linear systems as matrix equations</title>
 
-<example><title>A first example</title>
-	<statement><p>
+<subsubsection>
+<title>A first example</title>
+
+<example><title>A system as a matrix equation</title>
+	<p>
 	Let's again consider the system from
 	<xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local"/> of
 	<xref ref="activity-matrix-ops-system-to-matrix-mult" />.
@@ -306,7 +319,8 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 		= \uvec{b}
 		= \text{RHS}.
 	</me>
-	So the solution to the linear system we got by row reducing did indeed give us a vector solution <m>\uvec{x}</m> to the matrix equation <m> A \uvec{x} = \uvec{b}</m>.
+	So the solution to the linear system we got by row reducing did indeed give us a vector solution <m>\uvec{x}</m> to the matrix equation
+	<m> A \uvec{x} = \uvec{b}</m>.
 	Let's similarly check the <m>t=3</m> solution, as in
 	<xref ref="activity-matrix-ops-system-to-matrix-mult-check-sol" text="type-local" />
 	of <xref ref="activity-matrix-ops-system-to-matrix-mult"/>:
@@ -325,175 +339,185 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 	</me>
 	Again, our system solution gives us a solution to the matrix equation.
 	</p>
-	<aside>
-		<title>Check your understanding</title>
-		<p>Carry out the same verification as in this example for the <em>general</em> solution to the system, with the parameter <m>t</m> left variable.</p>
-	</aside>
-	</statement>
+	<aside><title>Check your understanding</title><p>
+		Carry out the same verification as in this example for the <em>general</em> solution to the system,
+		with the parameter <m>t</m> left variable.
+	</p></aside>
 </example>
 
-<paragraphs xml:id="paragraphs-matrix-ops-examples-sys-sol-vector-forms">
-	<title>Expressing system solutions in vector form</title>
+</subsubsection>
+
+<subsubsection xml:id="subsubsection-matrix-ops-examples-sys-sol-vector-forms">
+<title>Expressing system solutions in vector form</title>
+
+<p>
+We may use matrices and matrix algebra to express the solutions to solutions as column vectors.
+In particular, we can expand solutions involving parameters into a
+<term>linear combination</term><idx><h>linear</h><h>combination</h></idx>
+of column vectors.
+Expressing solutions this way allows us to see the effect of each parameter on the system.
+</p><p>
+Let's re-examine the systems in the examples from <xref ref="section-row-red-examples" /> as matrix equations,
+and express their solutions in vector form.
+</p>
+
+<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-unique">
+	<title>Solutions in vector form: one unique solution</title>
 	<p>
-	We may use matrices and matrix algebra to express the solutions to solutions as column vectors. In particular, we can expand solutions involving parameters into a
-	<term>linear combination</term><idx><h>linear</h><h>combination</h></idx>
-	of column vectors. Expressing solutions this way allows us to see the effect of each parameter on the system.
+	The system from <xref ref="activity-row-red-system-unique-sol" /> can be expressed in the form <m>A\uvec{x} = \uvec{b}</m> for
+	<md><mrow>
+		A \amp =
+		\left[\begin{array}{rrr}
+			2 \amp 0 \amp -2 \\
+			1 \amp -1 \amp 0 \\
+			4 \amp -2 \amp -3
+		\end{array}\right],
+		\amp
+		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
+		\amp
+		\uvec{b} \amp = \begin{bmatrix} 3 \\ 2 \\ 7 \end{bmatrix}.
+	</mrow></md>
+	We solved this system in
+	<xref ref="example-row-red-examples-solving-unique" />
+	and determined that it had one unique solution, <m>x = 3/2</m>, <m>y= -1/2</m>, and <m>z=0</m>.
+	In vector form, we write this solution as
+	<me>
+		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+		= \left[\begin{array}{r} \frac{3}{2} \\ -\frac{1}{2} \\ 0 \end{array}\right].
+	</me>
 	</p>
+</example>
+
+<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-infinite">
+	<title>Solutions in vector form: an infinite number of solutions</title>
 	<p>
-	Let's re-examine the systems in the examples from <xref ref="section-row-red-examples" /> as matrix equations, and express their solutions in vector form.
+	The system from <xref ref="activity-row-red-system-infinite-sol" /> can be expressed in the form <m>A\uvec{x} = \uvec{b}</m> for
+	<md><mrow>
+		A \amp =
+		\left[\begin{array}{rrr}
+			3 \amp 6 \amp 5 \\
+			2 \amp 4 \amp 3 \\
+			3 \amp 6 \amp 6
+		\end{array}\right],
+		\amp
+		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
+		\amp
+		\uvec{b} \amp = \left[\begin{array}{r} -9 \\ -5 \\ -12 \end{array}\right].
+	</mrow></md>
+	We solved this system in
+	<xref ref="example-row-red-examples-solving-infinite" />,
+	and determined that it had an infinite number of solutions.
+	We expressed the general solution to the system using parametric equations
+	<md><mrow>
+		x \amp= 2-2t, \amp y \amp= t, \amp z = -3,
+	</mrow></md>
+	In vector form, we expand this solution as
+	<me>
+		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+		= \begin{bmatrix}2-2t\\t\\-3\end{bmatrix}
+		= \begin{bmatrix}2-2t\\0+t\\-3+0t\end{bmatrix}
+		= \left[\begin{array}{r}2\\0\\-3\end{array}\right]
+		+ \left[\begin{array}{r}-2t\\t\\0t\end{array}\right]
+		= \left[\begin{array}{r}2\\0\\-3\end{array}\right]
+		+ t\left[\begin{array}{r}-2\\1\\0\end{array}\right].
+	</me>
+	Notice how the solution is the sum of a <term>constant part</term>
+	<me> \left[\begin{array}{r}2\\0\\-3\end{array}\right] </me>
+	and a <term>variable part</term>
+	<me> t\left[\begin{array}{r}-2\\1\\0\end{array}\right]. </me>
+	Further notice how the constant part is a particular solution to the system <mdash />
+	it is the <q>initial</q> particular solution associated to the parameter value <m>t=0</m>.
 	</p>
+</example>
 
-	<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-unique">
-		<title>Solutions in vector form: one unique solution</title>
-		<statement><p>
-		The system from <xref ref="activity-row-red-system-unique-sol" /> can be expressed in the form <m>A\uvec{x} = \uvec{b}</m> for
-		<md><mrow>
-			A \amp =
-			\left[\begin{array}{rrr}
-				2 \amp 0 \amp -2 \\
-				1 \amp -1 \amp 0 \\
-				4 \amp -2 \amp -3
-			\end{array}\right],
-			\amp
-			\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
-			\amp
-			\uvec{b} \amp = \begin{bmatrix} 3 \\ 2 \\ 7 \end{bmatrix}.
-		</mrow></md>
-		We solved this system in
-		<xref ref="example-row-red-examples-solving-unique" />
-		and determined that it had one unique solution, <m>x = 3/2</m>, <m>y= -1/2</m>, and <m>z=0</m>. In vector form, we write this solution as
-		<me>
-			\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
-			= \left[\begin{array}{r} \frac{3}{2} \\ -\frac{1}{2} \\ 0 \end{array}\right].
-		</me>
-		</p></statement>
-	</example>
+<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-homog">
+	<title>Solutions in vector form: a homogenous system</title>
+	<p>
+	The system from <xref ref="activity-row-red-system-homog-sol" /> is homogeneous,
+	so it can be expressed in the form <m>A\uvec{x} = \zerovec</m> for
+	<md><mrow>
+		A \amp =
+		\left[\begin{array}{rrrr}
+			3 \amp 6 \amp -8 \amp 13 \\
+			1 \amp 2 \amp -2 \amp 3 \\
+			2 \amp 4 \amp -5 \amp 8
+		\end{array}\right],
+		\amp
+		\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix},
+	</mrow></md>
+	where <m>\zerovec</m> is the <m>3 \times 1</m> zero column vector. We solved this system in
+	<xref ref="example-row-red-examples-solving-homog" />,
+	and determined that it had an infinite number of solutions.
+	We expressed the general solution to the system using parametric equations
+	<md><mrow> x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t </mrow></md>.
+	In vector form, we expand this solution as
+	<me>
+		\uvec{x} = \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
+		= \begin{bmatrix}-2s+t\\s\\2t\\t\end{bmatrix}
+		= \begin{bmatrix}-2s+t\\s+0t\\0s+2t\\0s+t\end{bmatrix}
+		= \left[\begin{array}{r}-2s\\s\\0s\\0s\end{array}\right]
+		+ \left[\begin{array}{r}t\\0t\\2t\\t\end{array}\right]
+		= s\left[\begin{array}{r}-2\\1\\0\\0\end{array}\right]
+		+ t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right].
+	</me>
+	This time, the solution is a sum of <em>two</em> variables parts,
+	<md><mrow>
+		\amp s\left[\begin{array}{r}-2\\1\\0\\0\end{array}\right]
+		\amp \amp\text{and}\amp
+		\amp t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right]
+	</mrow></md>,
+	since there are two parameters.
+	And there is <em>no</em> constant part to the general solution,
+	because if we set both parameters to zero we obtain the trivial solution <m>\uvec{x} = \zerovec</m>.
+	A homogeneous system will always work out this way.
+	(So it would be more accurate to say that the general solution to the system from
+	<xref ref="activity-row-red-system-homog-sol" />
+	has <em>trivial</em> constant part, instead of saying it has <em>no</em> constant part.)
+	</p>
+</example>
 
-	<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-infinite">
-		<title>Solutions in vector form: an infinite number of solutions</title>
-		<statement><p>
-		The system from <xref ref="activity-row-red-system-infinite-sol" /> can be expressed in the form <m>A\uvec{x} = \uvec{b}</m> for
-		<md><mrow>
-			A \amp =
-			\left[\begin{array}{rrr}
-				3 \amp 6 \amp 5 \\
-				2 \amp 4 \amp 3 \\
-				3 \amp 6 \amp 6
-			\end{array}\right],
-			\amp
-			\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
-			\amp
-			\uvec{b} \amp = \left[\begin{array}{r} -9 \\ -5 \\ -12 \end{array}\right].
-		</mrow></md>
-		We solved this system in
-		<xref ref="example-row-red-examples-solving-infinite" />,
-		and determined that it had an infinite number of solutions. We expressed the general solution to the system using parametric equations
-		<md><mrow>
-			x \amp= 2-2t, \amp y \amp= t, \amp z = -3,
-		</mrow></md>
-		In vector form, we expand this solution as
-		<me>
-			\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
-			= \begin{bmatrix}2-2t\\t\\-3\end{bmatrix}
-			= \begin{bmatrix}2-2t\\0+t\\-3+0t\end{bmatrix}
-			= \left[\begin{array}{r}2\\0\\-3\end{array}\right]
-			+ \left[\begin{array}{r}-2t\\t\\0t\end{array}\right]
-			= \left[\begin{array}{r}2\\0\\-3\end{array}\right]
-			+ t\left[\begin{array}{r}-2\\1\\0\end{array}\right].
-		</me>
-		Notice how the solution is the sum of a <term>constant part</term>
-		<me> \left[\begin{array}{r}2\\0\\-3\end{array}\right] </me>
-		and a <term>variable part</term>
-		<me> t\left[\begin{array}{r}-2\\1\\0\end{array}\right]. </me>
-		Further notice how the constant part is a particular solution to the system <mdash /> it is the <q>initial</q> particular solution associated to the parameter value <m>t=0</m>.
-		</p></statement>
-	</example>
-
-	<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-homog">
-		<title>Solutions in vector form: a homogenous system</title>
-		<statement>
-		<p>
-		The system from <xref ref="activity-row-red-system-homog-sol" /> is homogeneous, so it can be expressed in the form <m>A\uvec{x} = \zerovec</m> for
-		<md><mrow>
-			A \amp =
-			\left[\begin{array}{rrrr}
-				3 \amp 6 \amp -8 \amp 13 \\
-				1 \amp 2 \amp -2 \amp 3 \\
-				2 \amp 4 \amp -5 \amp 8
-			\end{array}\right],
-			\amp
-			\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix},
-		</mrow></md>
-		where <m>\zerovec</m> is the <m>3 \times 1</m> zero column vector. We solved this system in
-		<xref ref="example-row-red-examples-solving-homog" />,
-		and determined that it had an infinite number of solutions. We expressed the general solution to the system using parametric equations
-		<md><mrow>
-				x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t.
-		</mrow></md>
-		In vector form, we expand this solution as
-		<me>
-			\uvec{x} = \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
-			= \begin{bmatrix}-2s+t\\s\\2t\\t\end{bmatrix}
-			= \begin{bmatrix}-2s+t\\s+0t\\0s+2t\\0s+t\end{bmatrix}
-			= \left[\begin{array}{r}-2s\\s\\0s\\0s\end{array}\right]
-			+ \left[\begin{array}{r}t\\0t\\2t\\t\end{array}\right]
-			= s\left[\begin{array}{r}-2\\1\\0\\0\end{array}\right]
-			+ t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right].
-		</me>
-		This time, the solution is a sum of <em>two</em> variables parts,
-		<md><mrow>
-			\amp s\left[\begin{array}{r}-2\\1\\0\\0\end{array}\right]
-			\amp \amp\text{and}\amp
-			\amp t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right],
-		</mrow></md>
-		since there are two parameters. And there is <em>no</em> constant part to the general solution, because if we set both parameters to zero we obtain the trivial solution <m>\uvec{x} = \zerovec</m>. A homogeneous system will always work out this way. (So it would be more accurate to say that the general solution to the system from
-		<xref ref="activity-row-red-system-homog-sol" />
-		has <em>trivial</em> constant part, instead of saying it has <em>no</em> constant part.)
+<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-corresponding-homog">
+	<title>Solutions in vector form: patterns in homogeneous/nonhomogeneous systems</title>
+	<p>
+	In
+	<xref ref="example-row-red-examples-solving-corresponding-homog" />,
+	we solved a homogenous system <m>A\uvec{x} = \zerovec</m> with
+	<md><mrow>
+		A \amp =
+		\left[\begin{array}{rrr}
+			3 \amp 6 \amp 5 \\
+			2 \amp 4 \amp 3 \\
+			3 \amp 6 \amp 6
+		\end{array}\right],
+		\amp
+		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
+	</mrow></md>
+	and found an infinite number of solutions,
+	with general solution expressed parametrically as
+	<md><mrow> x \amp = -2t, \amp y \amp = t, \amp z \amp = 0. </mrow></md>
+	In vector form, we express this as
+	<me>
+		\uvec{x} = \begin{bmatrix}x\\y\\z\end{bmatrix}
+		= \left[\begin{array}{r}-2t\\t\\0\end{array}\right]
+		= \left[\begin{array}{r}-2t\\t\\0t\end{array}\right]
+		= t\left[\begin{array}{r}-2\\1\\0\end{array}\right]
+	</me>.
+	This homogeneous system has the same coefficient matrix as in
+	<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
+	above, so it is not surprising that their general solutions are related.
+	In particular, notice that both systems <em>have the same variable part</em>,
+	but that the nonhomogeneous system from
+	<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
+	has a non-trivial constant part.
+	</p>
+	<aside><title>Compare</title><p>
+		with the discussion at the end of
+		<xref ref="example-row-red-examples-solving-corresponding-homog" />.
 		</p>
-		</statement>
-	</example>
+	</aside>
+</example>
 
-	<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-corresponding-homog">
-		<title>Solutions in vector form: patterns in homogeneous/nonhomogeneous systems</title>
-		<statement><p>
-		In
-		<xref ref="example-row-red-examples-solving-corresponding-homog" />,
-		we solved a homogenous system <m>A\uvec{x} = \zerovec</m> with
-		<md><mrow>
-			A \amp =
-			\left[\begin{array}{rrr}
-				3 \amp 6 \amp 5 \\
-				2 \amp 4 \amp 3 \\
-				3 \amp 6 \amp 6
-			\end{array}\right],
-			\amp
-			\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
-		</mrow></md>
-		and found an infinite number of solutions, with general solution expressed parametrically as
-		<md><mrow> x \amp = -2t, \amp y \amp = t, \amp z \amp = 0. </mrow></md>
-		In vector form, we express this as
-		<me>
-			\uvec{x} = \begin{bmatrix}x\\y\\z\end{bmatrix}
-			= \left[\begin{array}{r}-2t\\t\\0\end{array}\right]
-			= \left[\begin{array}{r}-2t\\t\\0t\end{array}\right]
-			= t\left[\begin{array}{r}-2\\1\\0\end{array}\right].
-		</me>
-		This homogeneous system has the same coefficient matrix as in
-		<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
-		above, so it is not surprising that their general solutions are related. In particular, notice that both systems <em>have the same variable part</em>, but that the nonhomogeneous system from
-		<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
-		has a non-trivial constant part.
-		</p>
-		<aside><title>Compare</title>
-			<p>
-			with the discussion at the end of
-			<xref ref="example-row-red-examples-solving-corresponding-homog" />.
-			</p>
-		</aside>
-		</statement>
-	</example>
-
-</paragraphs>
+</subsubsection>
 
 </subsection>
 
@@ -501,8 +525,7 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 <subsection xml:id="subsection-matrix-ops-examples-transpose">
 <title>Transpose</title>
 
-<example><title>Computing transposes</title>
-	<statement><p>
+<example><title>Computing transposes</title><p>
 	Let's compute some transposes.
 	<md>
 		<mrow>
@@ -521,8 +544,7 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 				1 \amp 0 \amp 3 \\
 				2 \amp 3 \amp 0
 			\end{bmatrix}
-		</mrow>
-		<mrow>
+		</mrow><mrow>
 			\utrans{A} \amp = \begin{bmatrix} 1 \amp 4\\2 \amp 5 \\ 3 \amp 6 \end{bmatrix} \amp
 			\utrans{B} \amp =\
 			\left[\begin{array}{rrr}
@@ -539,8 +561,22 @@ we list the rules of algebra that <em>are</em> valid for matrix operations (whic
 			\end{bmatrix}
 		</mrow>
 	</md>
-	The matrix <m>A</m> is size <m>2\times 3</m>, so when we turn rows into columns to compute <m>\utrans{A}</m>, we end up with a <m>3\times 2</m> result. Matrices <m>B</m> and <m>C</m> are square, so each of their transposes end up being the same size as the original matrix. But also, the numbers for the entries in <m>B</m> and <m>C</m> were chosen to emphasize some patterns in the transposes of square matrices. In interchanging rows and columns in <m>B</m>, notice how entries to the upper right of the main diagonal move to the <q>mirror image</q> position in the lower left of the main diagonal, and vice versa. So for square matrices, we might think of the transpose as <q>reflecting</q> entries in the main diagonal, while entries right on the main diagonal end up staying in place. Finally, we might consider this same <q>reflecting-in-the-diagonal</q> view of the transpose for <m>C</m>, except <m>C</m> has the <em>same</em> entries in corresponding <q>mirror image</q> entries on either side of the diagonal, and so we end up with <m>\utrans{C} = C</m>.
-	</p></statement>
+	The matrix <m>A</m> is size <m>2 \times 3</m>,
+	so when we turn rows into columns to compute <m>\utrans{A}</m>,
+	we end up with a <m>3\times 2</m> result.
+	Matrices <m>B</m> and <m>C</m> are square,
+	so each of their transposes end up being the same size as the original matrix.
+	But also, the numbers for the entries in <m>B</m> and <m>C</m> were chosen to emphasize some patterns in the transposes of square matrices.
+	In interchanging rows and columns in <m>B</m>,
+	notice how entries to the upper right of the main diagonal move to the <q>mirror image</q> position in the lower left of the main diagonal,
+	and vice versa.
+	So for square matrices,
+	we might think of the transpose as <q>reflecting</q> entries in the main diagonal,
+	while entries right on the main diagonal end up staying in place.
+	Finally, we might consider this same <q>reflecting-in-the-diagonal</q> view of the transpose for <m>C</m>,
+	except <m>C</m> has the <em>same</em> entries in corresponding <q>mirror image</q> entries on either side of the diagonal,
+	and so we end up with <m>\utrans{C} = C</m>.
+	</p>
 </example>
 
 </subsection>
