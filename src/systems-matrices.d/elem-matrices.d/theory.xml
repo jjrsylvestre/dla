@@ -415,35 +415,35 @@ we can expand our knowledge about inverses in general.
 	<title> Left inverse is inverse </title>
 
 	<statement><p>
-		Suppose <m>A</m> and <m>B</m> are square matrices of the same size such that <m>BA=I</m>.
+		Suppose <m>A</m> and <m>B</m> are square matrices of the same size such that <m>B A = I</m>.
 		Then <m>A</m> is invertible with <m>\inv{A} = B</m>.
 	</p></statement>
 
 	<proof>
 		<p>
-		We are assuming that we have square matrices <m>A</m> and <m>B</m> so that <m>BA=I</m>.
+		We are assuming that we have square matrices <m>A</m> and <m>B</m> so that <m>B A = I</m>.
 		We would first like to check that <m>A</m> is invertible.
 		By
 		<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
 		we can instead check that the homogeneous system
-		<m>A\uvec{x}=\zerovec</m>
+		<m>A \uvec{x} = \zerovec</m>
 		has only the trivial solution.
 		So suppose that <m>\uvec{x}_0</m> is a solution to this system,
 		so that
-		<m>A\uvec{x}_0 = \zerovec</m>.
+		<m>A \uvec{x}_0 = \zerovec</m>.
 		But then we can carry out two different simplifications of
-		<m>BA\uvec{x}_0</m>,
+		<m>B A \uvec{x}_0</m>,
 		one using the assumption
-		<m>BA=I</m>
+		<m>B A = I</m>
 		and one using the assumption
-		<m>A\uvec{x}_0 = \zerovec</m>:
+		<m>A \uvec{x}_0 = \zerovec</m>:
 		<md>
 			<mrow>
-				BA\uvec{x}_0 \amp= (BA)\uvec{x}_0 \amp
-				BA\uvec{x}_0 \amp= B(A\uvec{x}_0)
+				B A \uvec{x}_0 \amp= (B A) \uvec{x}_0 \amp
+				B A \uvec{x}_0 \amp= B (A \uvec{x}_0)
 			</mrow><mrow>
 				\amp= I\uvec{x}_0 \amp
-				\amp= B\zerovec
+				\amp= B \zerovec
 			</mrow><mrow>
 				\amp= \uvec{x}_0, \amp
 				\amp= \zerovec.
@@ -453,23 +453,23 @@ we can expand our knowledge about inverses in general.
 		we have
 		<m>\uvec{x}_0 = \zerovec</m>.
 		So what we have discovered is that because there exists a matrix <m>B</m> so that
-		<m>BA=I</m>,
+		<m>B A = I</m>,
 		then whenever we think we have a solution <m>\uvec{x}_0</m> to the system
-		<m>A\uvec{x}=\zerovec</m>,
+		<m>A \uvec{x} = \zerovec</m>,
 		that solution turns out to be the trivial solution.
 		Thus,
-		<m>A\uvec{x}=\zerovec</m>
+		<m>A \uvec{x} = \zerovec</m>
 		must have <em>only</em> the trivial solution,
 		and hence <m>A</m> is invertible
 		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
 		</p><p>
 		Now that we know that <m>A</m> is invertible,
-		we can use its inverse to manipulate the equality <m>BA=I</m>:
+		we can use its inverse to manipulate the equality <m> B A = I</m>:
 		<md>
-			<mrow>BA \amp= I</mrow>
-			<mrow>(BA)\inv{A} \amp= I\inv{A}</mrow>
-			<mrow>B(A\inv{A}) \amp= \inv{A}</mrow>
-			<mrow>BI \amp= \inv{A}</mrow>
+			<mrow>B A \amp= I</mrow>
+			<mrow>(B A) \inv{A} \amp= I \inv{A}</mrow>
+			<mrow>B (A \inv{A}) \amp= \inv{A}</mrow>
+			<mrow>B I \amp= \inv{A}</mrow>
 			<mrow>B \amp= \inv{A}.</mrow>
 		</md>
 		So, we have that <m>A</m> is invertible and <m>\inv{A} = B</m>,
@@ -567,79 +567,48 @@ and a power of a matrix can <em>only</em> be invertible if the base matrix is in
 		</li>
 	</ol></p></statement>
 
-	<proof><p><ol>
+	<proof>
+		<title>Proof of <xref ref="proposition-elem-matrices-converse-props-of-inverses-product" text="type-local">Statement</xref></title>
+		<p>
+		Suppose that <m>M N</m> is invertible.
+		Then it has an inverse; let's call it <m>X</m> instead of <m>\inv{(M N)}</m>.
+		By definition, this means that
+		<me> X (M N) = I </me>.
+		Using <xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
+		of <xref ref="proposition-matrix-ops-algebra-rules-basic" />,
+		we may rewrite
+		<me> (X M) N = I </me>.
+		Applying <xref ref="proposition-elem-matrices-check-only-left-inverse" />
+		with <m>B = X M</m> and <m>A = N</m>,
+		we may conclude that <m>N</m> is invertible with inverse
+		<me> \inv{N} = X M </me>.
+		Similarly, since <m>X</m> is the inverse of <m>M N</m>, we may write
+		<me> (M N) X = I </me>
+		and rewrite
+		<me> M (N X) = I </me>.
+		Applying <xref ref="proposition-elem-matrices-check-only-right-inverse" /> this time,
+		we may conclude that <m>M</m> is invertible with inverse
+		<me> \inv{M} = N X </me>.
+		</p>
+	</proof>
 
-		<li><p>
-			Suppose that <m>MN</m> is invertible.
-			First, let's check that <m>N</m> must also be invertible.
-			By <xref ref="theorem-elem-matrices-equiv-to-invertible" />,
-			we may instead check that the homogeneous system
-			<m>N\uvec{x}=\zerovec</m>
-			has only the trivial solution.
-			So suppose that <m>\uvec{x}_0</m> is a solution to this system,
-			so that
-			<m>N\uvec{x}_0 = \zerovec</m>.
-			But then,
-			<me> MN\uvec{x}_0 = M(N\uvec{x}_0) = M\zerovec = \zerovec, </me>
-			so that <m>\uvec{x}_0</m> is <em>also</em> a solution to the homogeneous system <m>MN\uvec{x}=\zerovec</m>.
-			But <m>MN</m> is invertible,
-			so that system has <em>only</em> the trivial solution
-			(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
-			Thus, <m>\uvec{x}_0</m> must be trivial,
-			and thus only the trivial solution is possible for the system <m>N\uvec{x}=\zerovec</m>.
-			</p><p>
-			Now let's check that <m>M</m> is invertible.
-			Again, we will instead check that the homogeneous system
-			<m>M\uvec{x}=\zerovec</m>
-			has only the trivial solution.
-			So suppose that <m>\uvec{x}_1</m> is a solution to this system,
-			so that
-			<m>M\uvec{x}_1 = \zerovec</m>.
-			But then consider the column vector
-			<m>\inv{N}\uvec{x}_1</m>.
-			(Remember, we have already argued that <m>N</m> is invertible.)
-			This column vector satisfies
-			<me> MN(\inv{N}\uvec{x}_1) = M(N\inv{N})\uvec{x}_1 = MI\uvec{x}_1 = M\uvec{x}_1 = \zerovec, </me>
-			and so
-			<m>\uvec{x}=\inv{N}\uvec{x}_1</m>
-			is a solution to the homogeneous system
-			<m>MN\uvec{x}=\zerovec</m>.
-			But again, this system has only the trivial solution by invertibility of <m>MN</m>,
-			so we must have
-			<m>\inv{N}\uvec{x}_1=\zerovec</m>.
-			This gives us two different ways to simplify
-			<m>N\inv{N}\uvec{x}_1</m>:
-			<md>
-				<mrow>
-					N\inv{N}\uvec{x}_1 \amp= (N\inv{N})\uvec{x}_1 \amp
-					N\inv{N}\uvec{x}_1 \amp= N(\inv{N}\uvec{x}_1)
-				</mrow><mrow>
-					\amp= I\uvec{x}_1 \amp
-					\amp= N\zerovec
-				</mrow><mrow>
-					\amp= \uvec{x}_1, \amp
-					\amp= \zerovec.
-				</mrow>
-			</md>
-			Since both simplifications are correct,
-			we have <m>\uvec{x}_1 = \zerovec</m>,
-			and thus only the trivial solution is possible for the system
-			<m>M\uvec{x}=\zerovec</m>.
-		</p></li>
+	<proof>
+		<title>Proof of <xref ref="proposition-elem-matrices-converse-props-of-inverses-extended-product" text="type-local">Statement</xref></title>
+		<p> We leave the proof of this statement to you, the reader. </p>
+	</proof>
 
-		<li> We leave the proof of this statement to you, the reader. </li>
-
-		<li>
-			This is the special case of
-			<xref
-				ref="proposition-elem-matrices-converse-props-of-inverses-extended-product"
-			>Statement</xref>
-			where each of
-			<m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m>
-			is equal to <m>M</m>.
-		</li>
-
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="proposition-elem-matrices-converse-props-of-inverses-power" text="type-local">Statement</xref></title>
+		<p>
+		This is the special case of
+		<xref
+			ref="proposition-elem-matrices-converse-props-of-inverses-extended-product"
+		>Statement</xref>
+		where each of
+		<m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m>
+		is equal to <m>M</m>.
+		</p>
+	</proof>
 
 </proposition>
 
@@ -686,38 +655,46 @@ related but <em>not</em> equivalent to the statements in
 		</li>
 	</ol></p></statement>
 
-	<proof><p><ol>
-		<li>
-			If the product <m>MN</m> were invertible, then
-			<xref ref="proposition-elem-matrices-converse-props-of-inverses-product">Statement</xref>
-			of
-			<xref ref="proposition-elem-matrices-converse-props-of-inverses" /> says that each of <m>M</m> and <m>N</m> would have to be invertible. But we are assuming that at least one of them is not,
-			so it is not possible for the product <m>MN</m> to be invertible.
-		</li>
-		<li>
-			The proof of this statement is similar to the one above for
-			<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>,
-			relying on
-			<xref ref="proposition-elem-matrices-converse-props-of-inverses-extended-product">Statement</xref>
-			of
-			<xref ref="proposition-elem-matrices-converse-props-of-inverses" />
-			instead. We leave the details to you, the reader.
-		</li>
-		<li>
-			This proof again is similar to that above for
-			<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>,
-			relying on
-			<xref ref="proposition-elem-matrices-converse-props-of-inverses-power">Statement</xref>
-			of
-			<xref ref="proposition-elem-matrices-converse-props-of-inverses" />
-			instead.
-			Alternatively, one could view this as the special case of
-			<xref ref="proposition-elem-matrices-converse-props-of-singular-extended-product">Statement</xref>
-			of the current proposition,
-			where each factor <m>M_i</m> is taken to be equal to <m>M</m>.
-		</li>
+	<proof>
+		<title>Proof of <xref ref="proposition-elem-matrices-converse-props-of-singular-product" text="type-local">Statement</xref></title>
+		<p>
+		If the product <m>MN</m> were invertible, then
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses-product">Statement</xref>
+		of
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses" /> says that each of <m>M</m> and <m>N</m> would have to be invertible. But we are assuming that at least one of them is not,
+		so it is not possible for the product <m>MN</m> to be invertible.
+		</p>
+	</proof>
 
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="proposition-elem-matrices-converse-props-of-singular-extended-product" text="type-local">Statement</xref></title>
+		<p>
+		The proof of this statement is similar to the one above for
+		<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses-extended-product">Statement</xref>
+		of
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses" />
+		instead. We leave the details to you, the reader.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-elem-matrices-converse-props-of-singular-power" text="type-local">Statement</xref></title>
+		<p>
+		This proof again is similar to that above for
+		<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses-power">Statement</xref>
+		of
+		<xref ref="proposition-elem-matrices-converse-props-of-inverses" />
+		instead.
+		Alternatively, one could view this as the special case of
+		<xref ref="proposition-elem-matrices-converse-props-of-singular-extended-product">Statement</xref>
+		of the current proposition,
+		where each factor <m>M_i</m> is taken to be equal to <m>M</m>.
+		</p>
+	</proof>
 
 </proposition>
 

@@ -22,28 +22,31 @@ respective owners.
 	<introduction><p>
 		Consider the matrices
 		<md><mrow>
-			E \amp = \begin{bmatrix} 1 \amp 0 \amp 0\\2 \amp 1 \amp 0\\0 \amp 0 \amp 1\end{bmatrix},
+			E \amp = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix},
 			\amp
 			A \amp = \left[\begin{array}{rrrr}
-				1 \amp 1 \amp -1 \amp 0 \\
-				-2 \amp 0 \amp 1 \amp 2 \\
+				1 \amp  0 \amp 1 \amp 0 \\
+				1 \amp  2 \amp 3 \amp 4 \\
 				0 \amp -1 \amp 0 \amp 3
 			\end{array}\right].
 		</mrow></md>
 	</p></introduction>
 	<task xml:id="activity-elem-matrices-intro-example">
 		<statement><p>
-			Compute <m>EA</m>.
-			What is happening to <m>A</m> when it is multiplied by <m>E</m>?
+			Compute <m>E A</m>.
+			Think of multiplication by <m>E</m> as <q>transforming</q> <m>A</m> into the result matrix <m>E A</m>.
+			How could you describe the transformation in this particular example?
 		</p></statement>
-		<hint><p> Think row operations. </p></hint>
+		<hint><p>
+			Think about how each row of <m>E</m> overlaps with and combines the entries of each column of <m>A</m> in the computation of <m>E A</m>.
+		</p></hint>
 	</task>
 	<task xml:id="activity-elem-matrices-intro-reflection"><p>
 		Do you think the same thing will happen when computing <m>E</m> times some other matrix?
 	</p></task>
 	<task xml:id="activity-elem-matrices-intro-pattern"><p>
-		We know that <m>EI = E</m>.
-		But then consider <m>EI</m> in terms of the first two parts of this discovery activity.
+		We know that <m>E I = E</m>.
+		But then consider <m>E I</m> in terms of the first two parts of this discovery activity.
 		So in terms of row operations,
 		what is the relationship between <m>E</m> and <m>I</m>?
 	</p></task>
@@ -51,7 +54,7 @@ respective owners.
 
 <activity xml:id="activity-elem-matrices-intro-cont">
 	<statement><p>
-		Create a <m>3\times 3</m> matrix <m>E'</m> so that for every <m>3\times n</m> matrix <m>A</m>,
+		Create a <m>3 \times 3</m> matrix <m>E'</m> so that for every <m>3\times n</m> matrix <m>A</m>,
 		the result of <m>E' A</m> is the same as applying the row operation <q>multiply row <m>3</m> by <m>-4</m>.</q>
 	</p></statement>
 	<hint><p>
@@ -98,16 +101,19 @@ every elementary row operation has a corresponding elementary matrix.
 	</task>
 	<task xml:id="activity-elem-matrices-invert-method-by-elem-matrices"><p>
 		The matrix <m>B</m> happens to be invertible.
-		Manipulate the formula <m>E_3 E_2 E_1 B = I</m> algebraically to obtain a formula for <m>\inv{B}</m> involving your elementary matrices and <m>I</m>.
-		(The <m>I</m> factor is not strictly necessary,
-		but is important for the next step.)
+		Manipulate the formula <m>E_3 E_2 E_1 B = I</m> algebraically to obtain a formula for <m>\inv{B}</m> involving your elementary matrices.
 	</p></task>
 	<task xml:id="activity-elem-matrices-invert-method-by-row-red">
-		<statement><p>
-			Using your formula from
-			<xref ref="activity-elem-matrices-invert-method-by-elem-matrices" text="type-local" />
-			as inspiration, come up with a procedure to use <em>only row reduction</em> (and not elementary matrices) to compute the inverse of a square matrix.
-		</p></statement>
+		<statement>
+			<p>
+			Tack an identity matrix <m>I</m> onto the right end of your formula from
+			<xref ref="activity-elem-matrices-invert-method-by-elem-matrices" text="type-local" />.
+			(Recall that multiplying by <m>I</m> has no effect.)
+			</p><p>
+			Using this new, modified formula for <m>\inv{B}</m> as inspiration,
+			come up with a procedure to use <em>only row operations</em> (and not elementary matrices) to compute the inverse of a square matrix.
+			</p>
+		</statement>
 		<hint><p>
 			Where did your elementary matrices <m>E_1,E_2,E_3</m> come from?
 			And what are they now <q>doing</q> to the identity matrix,
