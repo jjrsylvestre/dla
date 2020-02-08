@@ -222,101 +222,114 @@ We have changed some of the letters to avoid confusion with the <m>A</m> and <m>
 		</li>
 	</ol></p></statement>
 
-	<proof><p><ol>
-	 	<li>
-			We have a square matrix <m>A=\inv{M}</m> and would like to find an inverse <m>B</m> for it,
-			so that both <m>BA=I</m> and <m>AB=I</m> are true.
-			But we already know this is true for <m>B = M</m>,
-			since then
-			<md><mrow>
-				BA \amp= M\inv{M} = I,
-				\amp \amp\text{and} \amp AB \amp= \inv{M}M = I.
-			</mrow></md>
-		</li>
-		<li>
-			<p>
-			We have a square matrix <m>A = kM</m>,
-			with <m>k\neq 0</m>,
-			and would like to find an inverse <m>B</m> for it.
-			Let's try <m>B = \inv{k}\inv{M}</m>:
-			<md>
-				<mrow>
-					BA \amp= (\inv{k}\inv{M})(kM)
-					\amp
-					AB \amp= (kM)(\inv{k}\inv{M})
-				</mrow><mrow>
-					\amp = (\inv{k}k)(\inv{M}M)
-					\amp
-					\amp = (k\inv{k})(M\inv{M})
-				</mrow><mrow>
-					\amp = 1I
-					\amp
-					\amp = 1I
-				</mrow><mrow>
-					\amp = I,
-					\amp
-					\amp = I,
-				</mrow>
-			</md>
-			where in the first steps we have applied
-			<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
-			and
-			<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-2">Rule</xref>
-			of
+	<proof>
+		<title>Proof of <xref ref="proposition-inverses-props-of-inverses-inverse-inverse" text="type-local">Statement</xref></title>
+		<p>
+		We have a square matrix <m>A=\inv{M}</m> and would like to find an inverse <m>B</m> for it,
+		so that both <m>BA=I</m> and <m>AB=I</m> are true.
+		But we already know this is true for <m>B = M</m>,
+		since then
+		<md><mrow>
+			BA \amp= M\inv{M} = I,
+			\amp \amp\text{and} \amp AB \amp= \inv{M}M = I.
+		</mrow></md>
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-inverses-props-of-inverses-inverse-scalar-mult" text="type-local">Statement</xref></title>
+		<p>
+		We have a square matrix <m>A = kM</m>,
+		with <m>k\neq 0</m>,
+		and would like to find an inverse <m>B</m> for it.
+		Let's try <m>B = \inv{k}\inv{M}</m>:
+		<md>
+			<mrow>
+				BA \amp= (\inv{k}\inv{M})(kM)
+				\amp
+				AB \amp= (kM)(\inv{k}\inv{M})
+			</mrow><mrow>
+				\amp = (\inv{k}k)(\inv{M}M)
+				\amp
+				\amp = (k\inv{k})(M\inv{M})
+			</mrow><mrow>
+				\amp = 1I
+				\amp
+				\amp = 1I
+			</mrow><mrow>
+				\amp = I,
+				\amp
+				\amp = I,
+			</mrow>
+		</md>
+		where in the first steps we have applied
+		<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
+		and
+		<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-2">Rule</xref>
+		of
+		<xref ref="proposition-matrix-ops-algebra-rules" />.
+		</p><p>
+		Since both <m>BA=I</m> and <m>AB=I</m> are true,
+		then <m>B=\inv{k}\inv{M}</m> is the inverse of <m>A=kM</m>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-inverses-props-of-inverses-product" text="type-local">Statement</xref></title>
+		<p>
+		We have a square matrix <m>A = MN</m> and would like to find an inverse <m>B</m> for it.
+		Let's try <m>B = \inv{N}\inv{M}</m>:
+		<md>
+			<mrow>
+				BA \amp= (\inv{N}\inv{M})(MN)
+				\amp
+				AB \amp= (MN)(\inv{N}\inv{M})
+			</mrow><mrow>
+				\amp = \inv{N}(\inv{M}M)N
+				\amp
+				\amp = M(N\inv{N})\inv{M}
+			</mrow><mrow>
+				\amp = \inv{N}IN
+				\amp
+				\amp = MI\inv{M}
+			</mrow><mrow>
+				\amp = I,
+				\amp
+				\amp = I,
+			</mrow>
+		</md>
+		where in the first steps we have applied
+		<xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
+		of
+		<xref ref="proposition-matrix-ops-algebra-rules" />.
+		</p><p>
+		Since both <m>BA=I</m> and <m>AB=I</m> are true,
+		then <m>B=\inv{N}\inv{M}</m> is the inverse of <m>A=MN</m>.
+		</p>
+		<aside><title>Order matters</title><p>
+			In the proof of
+			<xref ref="proposition-inverses-props-of-inverses-inverse-scalar-mult">Statement</xref>,
+			we were able to interchange the order of scalar multiplication and matrix multiplication because of the rules for scalar multiplication in
 			<xref ref="proposition-matrix-ops-algebra-rules" />.
-			</p><p>
-			Since both <m>BA=I</m> and <m>AB=I</m> are true,
-			then <m>B=\inv{k}\inv{M}</m> is the inverse of <m>A=kM</m>.
-			</p>
-		</li>
-		<li>
-			<p>
-			We have a square matrix <m>A = MN</m> and would like to find an inverse <m>B</m> for it.
-			Let's try <m>B = \inv{N}\inv{M}</m>:
-			<md>
-				<mrow>
-					BA \amp= (\inv{N}\inv{M})(MN)
-					\amp
-					AB \amp= (MN)(\inv{N}\inv{M})
-				</mrow><mrow>
-					\amp = \inv{N}(\inv{M}M)N
-					\amp
-					\amp = M(N\inv{N})\inv{M}
-				</mrow><mrow>
-					\amp = \inv{N}IN
-					\amp
-					\amp = MI\inv{M}
-				</mrow><mrow>
-					\amp = I,
-					\amp
-					\amp = I,
-				</mrow>
-			</md>
-			where in the first steps we have applied
-			<xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
-			of
-			<xref ref="proposition-matrix-ops-algebra-rules" />.
-			</p><p>
-			Since both <m>BA=I</m> and <m>AB=I</m> are true,
-			then <m>B=\inv{N}\inv{M}</m> is the inverse of <m>A=MN</m>.
-			</p>
-			<aside><title>Order matters</title><p>
-				In the proof of
-				<xref ref="proposition-inverses-props-of-inverses-inverse-scalar-mult">Statement</xref>,
-				we were able to interchange the order of scalar multiplication and matrix multiplication because of the rules for scalar multiplication in
-				<xref ref="proposition-matrix-ops-algebra-rules" />.
-				However, it would have been <em>incorrect</em> to try to make similar manipulations in the proof of
-				<xref ref="proposition-inverses-props-of-inverses-product">Statement</xref>,
-				because <em>order of matrix multiplication matters</em>!
-			</p></aside>
-		</li>
-		<li> We leave this proof to you, the reader. </li>
-		<li>
-			This is the special case of
-			<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
-			where each of <m> M_1,M_2,\dotsc,M_{\ell-1},M_\ell </m> is equal to <m>M</m>.
-		</li>
-	</ol></p></proof>
+			However, it would have been <em>incorrect</em> to try to make similar manipulations in the proof of
+			<xref ref="proposition-inverses-props-of-inverses-product">Statement</xref>,
+			because <em>order of matrix multiplication matters</em>!
+		</p></aside>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-inverses-props-of-inverses-inverse-extended-product" text="type-local">Statement</xref></title>
+		<p> We leave this proof to you, the reader. </p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-inverses-props-of-inverses-power" text="type-local">Statement</xref></title>
+		<p>
+		This is the special case of
+		<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
+		where each of <m> M_1,M_2,\dotsc,M_{\ell-1},M_\ell </m> is equal to <m>M</m>.
+		</p>
+	</proof>
 
 </proposition>
 
@@ -358,39 +371,48 @@ around to create new facts about singular (<ie /> non-invertible) matrices.
 		</li>
 	</ol></p></statement>
 
-	<proof><title>Proof outline</title><p><ol>
-		<li>
-			If both <m>M</m> and <m>N</m> were invertible, then
-			<xref ref="proposition-inverses-props-of-inverses-product">Statement</xref>
-			of
-			<xref ref="proposition-inverses-props-of-inverses" />
-			says that the product <m>MN</m> would be invertible.
-			But we are assuming that the product <m>MN</m> is singular,
-			so it is not possible for <em>both</em> <m>M</m> and <m>N</m> to be invertible.
-		</li>
-		<li>
-			The proof of this statement is similar to the one above for
-			<xref ref="proposition-inverses-props-of-singular-product">Statement</xref>,
-			relying on
-			<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
-			of
-			<xref ref="proposition-inverses-props-of-inverses" />
-			instead.
-			We leave the details to you, the reader.
-		</li>
-		<li>
-			This proof again is similar to that above for
-			<xref ref="proposition-inverses-props-of-singular-product">Statement</xref>,
-			relying on
-			<xref ref="proposition-inverses-props-of-inverses-power">Statement</xref>
-			of
-			<xref ref="proposition-inverses-props-of-inverses" />
-			instead.
-			Alternatively, one could view this as the special case of
-			<xref ref="proposition-inverses-props-of-singular-extended-product">Statement</xref>
-			of the current proposition, where each factor <m>M_i</m> is taken to be equal to <m>M</m>.
-		</li>
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="proposition-inverses-props-of-singular-product" text="type-local">Statement</xref></title>
+		<p>
+		If both <m>M</m> and <m>N</m> were invertible, then
+		<xref ref="proposition-inverses-props-of-inverses-product">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" />
+		says that the product <m>MN</m> would be invertible.
+		But we are assuming that the product <m>MN</m> is singular,
+		so it is not possible for <em>both</em> <m>M</m> and <m>N</m> to be invertible.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Outline of proof for <xref ref="proposition-inverses-props-of-singular-extended-product" text="type-local">Statement</xref></title>
+		<p>
+		The proof of this statement is similar to the one above for
+		<xref ref="proposition-inverses-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" />
+		instead.
+		We leave the details to you, the reader.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Outline of proof for <xref ref="proposition-inverses-props-of-singular-power" text="type-local">Statement</xref></title>
+		<p>
+		This proof again is similar to that above for
+		<xref ref="proposition-inverses-props-of-singular-product">Statement</xref>,
+		relying on
+		<xref ref="proposition-inverses-props-of-inverses-power">Statement</xref>
+		of
+		<xref ref="proposition-inverses-props-of-inverses" />
+		instead.
+		Alternatively, one could view this as the special case of
+		<xref ref="proposition-inverses-props-of-singular-extended-product">Statement</xref>
+		of the current proposition, where each factor <m>M_i</m> is taken to be equal to <m>M</m>.
+		</p>
+	</proof>
 
 </proposition>
 
