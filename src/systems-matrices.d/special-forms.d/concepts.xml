@@ -32,13 +32,27 @@ respective owners.
 	<p>
 	After writing down examples of these special forms of square matrices in
 	<xref ref="activity-special-forms-exploring" />,
-	it should be obvious what these kinds of matrices <q>look</q> like. But we need to appreciate the difference between our conceptions and the technical definitions of these forms. For example, when we think of an example of an upper triangular matrix, we are likely to focus on the entries on and above the main diagonal, because those are what form the <q>upper triangular</q> shape, and all the other entries below the main diagonal are zero. But the technical definition of <term>upper triangular matrix</term> provided in
-	<xref ref="section-special-forms-terminology" />
-	focuses on those zero entries below the main diagonal, and <em>does not mention the entries on or above the main digaonal at all</em>.
+	it should be obvious what these kinds of matrices <q>look</q> like.
+	But we need to appreciate the difference between our conceptions and the technical definitions of these forms.
+	For example, when we think of an example of an upper triangular matrix,
+	we are likely to focus on the entries on and above the main diagonal,
+	because those are what form the <q>upper triangular</q> shape,
+	and all the other entries below the main diagonal are zero.
+	But the technical definition of <term><xref ref="definition-special-forms-upper-tri" text="title"/></term>
+	provided in <xref ref="section-special-forms-terminology" />
+	focuses on those zero entries below the main diagonal,
+	and <em>does not mention the entries on or above the main digaonal at all</em>.
 	</p><p>
-	Unlike a conception, a technical definition aims to capture the minimum information necessary to identify an instance of the concept. For the purposes of identifying an upper triangular matrix, the entries on or above the main diagonal are irrelevant and only the zeros below the main diagonal matter, because if any of those entries were nonzero the matrix in question would most certainly <em>not</em> be upper triangular. But this minimalism in making technical definitions can sometimes have surprising side effects, as we discovered in
+	Unlike a conception, a technical definition aims to capture the minimum information necessary to identify an instance of the concept.
+	For the purposes of identifying an upper triangular matrix,
+	the entries on or above the main diagonal are irrelevant and only the zeros below the main diagonal matter,
+	because if any of those entries were nonzero the matrix in question would most certainly <em>not</em> be upper triangular.
+	But this minimalism in making technical definitions can sometimes have surprising side effects,
+	as we discovered in
 	<xref ref="activity-special-forms-exploring" />.
-	For example, a diagonal matrix is, by definition, also <em>both</em> upper and lower triangular, because its entries below <em>and</em> above the main diagonal are all zero. As an extreme example, a square zero matrix is simultaneously <em>all three</em> of diagonal, upper triangular, and lower triangular.
+	For example, a diagonal matrix is, by definition, also <em>both</em> upper and lower triangular,
+	because its entries below <em>and</em> above the main diagonal are all zero.
+	As an extreme example, a square zero matrix is simultaneously <em>all three</em> of diagonal, upper triangular, and lower triangular.
 	</p>
 
 	<question><statement><p>Why are these special forms important?</p></statement></question>
@@ -46,10 +60,32 @@ respective owners.
 	<p>
 	At this stage, we can state a few reasons why we might be interested in identifying these matrix forms with special names.
 	<ul>
-		<li> For the diagonal and triangular forms, the fact that many of their entries are zero makes computing with them especially easy, whether with respect to matrix operations or with respect to solving systems. </li>
-		<li> With regards to solving systems, any square matrix in REF (or RREF) must be upper triangular. And lower triangular is just the transposed version of upper triangular, so it seems reasonable to identify it along with the upper triangular form. </li>
-		<li> Symmetric matrices play a special role in the geometry of the plane, of space, and of higher-dimensional <q>hyperspaces,</q> as you may discover in a second course in linear algebra. </li>
-		<li> Finally, for each of these forms (including symmetric), you discovered in <xref ref="activity-special-forms-exploring" /> that <em>adding or scalar multiplying matrices of the form resulted in another matrix of the same form</em>. For the diagonal and triangular forms, this was also true for products, and for all four forms it was true again for powers and inverses. The fact that matrix operations on these forms produce results of the same form is an important property in more advanced abstract algebra. </li>
+		<li>
+			For the diagonal and triangular forms, the fact that many of their entries are zero makes computing with them especially easy,
+			whether with respect to matrix operations or with respect to solving systems.
+		</li>
+		<li>
+			With regards to solving systems, any square matrix in REF (or RREF) must be upper triangular.
+			And lower triangular is just the transposed version of upper triangular,
+			so it seems reasonable to identify it along with the upper triangular form.
+		</li>
+		<li>
+			Symmetric matrices play a special role in the geometry of the plane, of space,
+			and of higher-dimensional <q>hyperspaces,</q>
+			<restrictversion onlyin="onesemester">
+				as you may discover in a second course in linear algebra.
+			</restrictversion>
+			<restrictversion excludefrom="onesemester">
+				as we will see in <xref ref="chapter-orthog-unitary-diag" /> and <xref ref="chapter-quadratic-forms" />.
+			</restrictversion>
+		</li>
+		<li>
+			Finally, for each of these forms (including symmetric),
+			you discovered in <xref ref="activity-special-forms-exploring" /> that
+			<em>adding or scalar multiplying matrices of the form resulted in another matrix of the same form</em>.
+			For the diagonal and triangular forms, this was also true for products, and for all four forms it was true again for powers and inverses.
+			The fact that matrix operations on these forms produce results of the same form is an important property in more advanced abstract algebra.
+		</li>
 	</ul>
 	</p>
 
@@ -59,11 +95,8 @@ respective owners.
 <title>Algebra with scalar matrices</title>
 
 <p>
-In <xref ref="activity-special-forms-exploring" />, you might have noticed how certain rules of matrix algebra
-<!--
-(rules \brefpropsubrange[MatrixOps]{matrix.algebra.rules}{scalar.distrib}{subtract.conv.add} and \brefpropsub[MatrixOps]{matrix.algebra.rules}{power.of.scalar.mul} of \Nrefprop[MatrixOps]{matrix.algebra.rules} and rule \brefpropsub[Inverses]{props.of.inverses}{inverse.scalar.mult} of \Nrefprop[Inverses]{props.of.inverses}, along with rules \brefpropsub[Inverses]{identity.matrix}{power} and \brefpropsub[Inverses]{identity.matrix}{inverse} of \Nrefprop[Inverses]{identity.matrix})
--->
-apply to scalar matrices:
+In <xref ref="activity-special-forms-exploring" />,
+you might have noticed how certain rules of matrix algebra apply to scalar matrices:
 <!-- TODO 
 	The m split in the first two is to allow a line break in the dl title display in html output.
 	Not sure how this is going to look in LaTeX output.
@@ -126,7 +159,10 @@ apply to scalar matrices:
 		</p>
 	</li>
 </dl>
-So for scalar matrices there seems to be a pattern: <em>the matrix operation can be achieved by just performing the corresponding scalar operation</em>. This essentially gives us a way to <q>inject</q> the algebra of numbers into the algebra of square matrices of any given size, an extremely important notion in more advanced abstract algebra that you may encounter a taste of in a second linear algebra course.
+So for scalar matrices there seems to be a pattern:
+<em>the matrix operation can be achieved by just performing the corresponding scalar operation</em>.
+This essentially gives us a way to <q>inject</q> the algebra of numbers into the algebra of square matrices of any given size,
+an extremely important notion in more advanced abstract algebra that you may encounter a taste of in a second linear algebra course.
 </p>
 
 </subsection>
@@ -137,9 +173,20 @@ So for scalar matrices there seems to be a pattern: <em>the matrix operation can
 <p>
 In
 <xref ref="activity-special-forms-exploring-invertible-criterion">Discovery</xref>,
-we examined the invertibility of these various forms of matrices. In <xref ref="theorem-elem-matrices-equiv-to-invertible" /> we learned that a matrix is invertible only if it can be reduced to the identity. Now, scalar matrices, diagonal matrices, and upper triangular matrices are already pretty close to being reduced, but we can see that if any of the diagonal entries of these forms of matrix is zero, then there will be no hope of getting a leading one in that column, and so we won't be able to reduce to the identity. Thus, <em>a scalar, diagonal, or upper triangular matrix is only invertible if its diagonal entries are all nonzero</em>. And, since the transpose of a lower triangular is upper triangular, and since taking a transpose does not affect invertibility (<xref ref="proposition-inverses-transpose" />), then the same is true about lower triangular matrices. Analyzing the invertibility of symmetric matrices is a little more complicated, but in
-<xref ref="activity-special-forms-exploring-inverse">Discovery</xref>,
-we discovered that for each of these special forms (including symmetric matrices), the inverse of a matrix of that form is also of that form.
+we examined the invertibility of these various forms of matrices.
+In <xref ref="theorem-elem-matrices-equiv-to-invertible" /> we learned that a matrix is invertible only if it can be reduced to the identity.
+Now, scalar matrices, diagonal matrices, and upper triangular matrices are already pretty close to being reduced,
+but we can see that if any of the diagonal entries of these forms of matrix is zero,
+then there will be no hope of getting a leading one in that column,
+and so we won't be able to reduce to the identity.
+Thus, <em>a scalar, diagonal, or upper triangular matrix is only invertible if its diagonal entries are all nonzero</em>.
+And, since the transpose of a lower triangular is upper triangular,
+and since taking a transpose does not affect invertibility (<xref ref="proposition-inverses-transpose" />),
+then the same is true about lower triangular matrices.
+Analyzing the invertibility of symmetric matrices is a little more complicated,
+but in <xref ref="activity-special-forms-exploring-inverse">Discovery</xref>,
+we discovered that for each of these special forms (including symmetric matrices),
+the inverse of a matrix of that form is also of that form.
 </p>
 
 </subsection>
@@ -182,7 +229,9 @@ because its powers will always have that line of zeros down the main diagonal, a
 </p>
 
 <aside><title>A look ahead</title><p>
-	Nilpotent matrices play an important role in more advanced theory of matrix forms, which you might encounter in a second linear algebra course.
+	Nilpotent matrices play an important role in more advanced theory of matrix forms,
+	<restrictversion onlyin="onesemester">which you might encounter in a second linear algebra course.</restrictversion>
+	<restrictversion excludefrom="onesemester">as we will see in <xref ref="part-matrix-forms" />.</restrictversion>
 </p></aside>
 
 </subsection>
