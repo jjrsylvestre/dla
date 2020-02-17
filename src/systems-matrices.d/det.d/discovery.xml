@@ -71,27 +71,41 @@ respective owners.
 
 <activity>
 	<prelude><p> We will actually start back at <m>1\times 1</m> matrices, and build up from there. </p></prelude>
-	<statement><p>
-		Consider the generic <m>1\times 1</m> matrix <m>A = \begin{bmatrix}a\end{bmatrix}</m>.
-		What formula should be called the <em>determinant</em> of <m>A</m>?
-		(<ie /> What <em>single number</em> related to the entries of <m>A</m> determines whether <m>A</m> is invertible or not?)
-	</p></statement>
+	<introduction><p> Consider the generic <m>1\times 1</m> matrix <m>A = \begin{bmatrix}a\end{bmatrix}</m>. </p></introduction>
+	<task><p>
+		The inverse of <m>A = \begin{bmatrix}a\end{bmatrix}</m> is <m>\inv{A} = \begin{bmatrix}<fillin characters="5" />\end{bmatrix}</m>,
+		but this only works if <fillin characters="15" />.
+	</p></task>
+	<task>
+		<p>
+		So the <em>single number</em> that <em>determines</em> whether <m>A = \begin{bmatrix}a\end{bmatrix}</m> is invertible is
+		<fillin characters="8" />.
+		</p><p>
+		(Make sure your response is always a number!)
+		</p>
+	</task>
 </activity>
 
-<activity xml:id="activity-det-matrix-minors"><p>
-		For a larger matrix, the
-		<term><m>\nth[(i,j)]</m> minor</term>
+<activity xml:id="activity-det-matrix-minors">
+	<prelude><p> To build up to larger matrices, we need to take it step-by-step. </p></prelude>
+	<statement>
+		<p>
+		For an <m>n \times n</m> matrix with <m>n \gt 1</m>,
+		the <term><m>\nth[(i,j)]</m> minor</term>
 		<idx><h>minor</h></idx>
 		<idx><h>matrix</h><h>minor</h></idx>
 		<idx><h>determinant</h><h>minor</h></idx>
 		(denoted <m>M_{ij}</m>)
 		is the determinant of the smaller submatrix obtained by removing the row and column that contain the <m>\nth[(i,j)]</m> entry.
+		</p><p>
 		Since you know how to compute <m>1\times 1</m> determinants,
 		you can now compute all four minors
 		(<m>M_{11},M_{12},M_{21},M_{22}</m>)
 		of the matrix
 		<me> \left[\begin{array}{rr} -1 \amp 3 \\ -4 \amp 2 \end{array}\right]. </me>
-</p></activity>
+		</p>
+	</statement>
+</activity>
 
 <activity><p>
 	The
