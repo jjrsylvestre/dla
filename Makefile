@@ -14,10 +14,11 @@ MBX=./mathbook/script/mbx
 
 PTX_TARGETS = twosemester-ptx onesemester-ptx
 HTML_TARGETS = twosemester-html onesemester-html
+LATEX_TARGETS = twosemester-latex onesemester-latex
 IMAGE_TARGETS = twosemester-html-images onesemester-html-images
 .PHONY: twosemester-html-all onesemester-html-all \
   clean ptx-clean html-clean html-images-clean \
-  $(PTX_TARGETS) $(HTML_TARGETS) $(IMAGE_TARGETS) \
+  $(PTX_TARGETS) $(HTML_TARGETS) $(LATEX_TARGETS) $(IMAGE_TARGETS) \
   html-fonts html-serve validate-xml \
   help list
 
@@ -33,6 +34,7 @@ help:
 	@echo "> onesemester-html-images: Create SVG image files to accompany the html output for chapters for a one-semester course."
 	@echo "> html-fonts             : Copy STIX2Text fonts into the HTML build directory."
 	@echo "> html-serve             : Fire up a simple Python web server to locally host the HTML output."
+	@echo "> onesemester-latex      : Output (only) LaTeX file containing chapters for a one-semester course."
 	@echo "> twosemester-ptx        : Only preprocess source to create a single XML file in PTX format containing all chapters."
 	@echo "> onesemester-ptx        : Only preprocess source to create a single XML file in PTX format containing chapters for a one-semester course."
 	@echo "> clean                  : Remove all output files."
@@ -76,7 +78,7 @@ html-images-clean:
 $(PTX_TARGETS): %-ptx: ${BUILDDIR}/ptx/.sentinal.%
 $(HTML_TARGETS): %-html: ${BUILDDIR}/html/.sentinal.%
 $(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/html/images/.sentinal.%
-
+$(LATEX_TARGETS): %-latex: ${BUILDDIR}/latex/book-%.tex
 ${BUILDDIR}/ptx/.sentinal.twosemester: $(SOURCES) | validate-xml; $(call preprocess,twosemester)
 ${BUILDDIR}/ptx/.sentinal.onesemester: $(SOURCES) | validate-xml; $(call preprocess,onesemester)
 
@@ -153,6 +155,19 @@ ${BUILDDIR}/html/%.woff: stixfonts/WOFF/%.woff
 ${BUILDDIR}/html/%.woff2: stixfonts/WOFF2/%.woff2
 	@mkdir -p ${BUILDDIR}/html
 	-cp $< ${BUILDDIR}/html/
+
+# the extra touch on the sentinal file is just in case xsltproc decides not to create the output file....
+${BUILDDIR}/latex/book-%.tex: ${BUILDDIR}/ptx/.sentinal.%
+ifeq ($(wildcard $(LATEXXSL)),)
+	$(error $(mathbookerrmsg))
+endif
+	@echo "Converting PTX to LATEX for version: ${*}..."
+	@mkdir -p ${BUILDDIR}/latex
+	@echo "...calling xsltproc to compile PreTeXt document"
+	@xsltproc \
+	  --output ${BUILDDIR}/latex/book-${*}.tex \
+	  style-latex.xsl ${BUILDDIR}/ptx/book.ptx
+	@echo "...DONE"
 
 html-serve:
 	@./scripts/serve.py ${BUILDDIR}/html $(SERVEPORT) 2>/dev/null
