@@ -34,8 +34,11 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 </introduction>
 
 <activity xml:id="activity-diagonalization-diag-analysis">
-	<introduction><p>
-		Suppose <m>3\times 3</m> matrices <m>A,P,D</m> are related by with <m>\inv{P}AP = D</m>.
+	<introduction>
+		<p>
+		Suppose <m>3\times 3</m> matrices <m>A,P,D</m> are related by <m>\inv{P}AP = D</m>.
+		(Remember, <em>order matters in matrix multiplication</em>, so in general <m>\inv{P}AP \neq A</m>.)
+		</p><p>
 		As an example,
 		consider
 		<me> D = \left[\begin{array}{rrr} 3 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right]. </me>
@@ -50,7 +53,8 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 		</me>
 		Multiplying both sides of <m>\inv{P}AP = D</m> on the left by <m>P</m>,
 		we could instead write <m>AP = PD</m>.
-	</p></introduction>
+		</p>
+	</introduction>
 	<task xml:id="activity-diagonalization-diag-analysis-matrix-mult">
 		<statement><p>
 			Do you remember how we defined matrix multiplication,
@@ -165,7 +169,7 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 	</p></introduction>
 	<task><p> The diagonal entries of <m>D</m> are precisely the <fillin characters="10" /> of <m>A</m>. </p></task>
 	<task><p>
-		The number of times a number is repeated down the diagonal of <m>D</m> corresponds to
+		The number of times a value is repeated down the diagonal of <m>D</m> corresponds to
 		<fillin characters="40" />.
 	</p></task>
 	<task><p>
@@ -268,14 +272,14 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 		these vectors are automatically linearly independent from each other
 		(since they form a basis for a subspace of <m>\R^n</m>).
 		However, unless <m>A</m> has only a single eigenvalue,
-		<em>you will need to include eigenvalues from <em>different</em> eigenvalues together in filling out the columns of <m>P</m></em>.
+		<em>you will need to include eigenvectors from <em>different</em> eigenvalues together in filling out the columns of <m>P</m></em>.
 		How can we be sure that the collection of <em>all</em> columns of <m>P</m> will satisfy the condition identified in
 		<xref ref="activity-diagonalization-diag-analysis-indep-columns">Discovery</xref>?
 		</p><p>
 		The next discovery activity will help you with this potential problem.
 		</p>
 	</prelude>
-	<introduction>><p>
+	<introduction><p>
 		Suppose
 		<m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>
 		is a linearly independent set of eigenvectors of <m>A</m>,
