@@ -1,4 +1,4 @@
-SOURCES = $(wildcard *.xsl) \
+SOURCES = \
   $(wildcard src/*.xml) $(wildcard src/*.tex) \
   $(wildcard src/*/*.xml) $(wildcard src/*/*.tex) \
   $(wildcard src/*/*/*.xml) $(wildcard src/*/*/*.tex) \
@@ -6,11 +6,10 @@ SOURCES = $(wildcard *.xsl) \
 # I think that's as deep as things go...
 
 BRANDLOGO=AUG-Colour.png
+ROOTDOCNAME=book
 SERVEPORT=8080
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
-HTMLXSL=./mathbook/xsl/mathbook-html.xsl
-LATEXXSL=./mathbook/xsl/mathbook-latex.xsl
-MBX=./mathbook/script/mbx
+PRETEXT=/opt/pretext/pretext/pretext
 
 PTX_TARGETS = twosemester-ptx onesemester-ptx
 HTML_TARGETS = twosemester-html onesemester-html
@@ -43,21 +42,9 @@ help:
 	@echo "> html-images-clean      : Remove all accomanying SVG files."
 	@echo "== PARAMETERS ============"
 	@echo "> BUILDDIR : Root directory for all output files. [Default: $(BUILDDIR)]"
-	@echo "> BRANDLOGO: Filename of institutional logo. Needs to exist in src/images/. [Default: $(BRANDLOGO)]"
-	@echo "> HTMLXSL  : Path to XSL file to use to process into HTML format. [Default: $(HTMLXSL)]"
-	@echo "> LATEXXSL : Path to XSL file to use to process into LaTeX format. (Note: LaTeX output not yet supported.) [Default: $(LATEXXSL)]"
-	@echo "> MBX      : Path to script to extract and convert TEX images to SVG. [Default: $(MBX)]"
+	@echo "> BRANDLOGO: Filename of institutional logo. Needs to exist in images/. [Default: $(BRANDLOGO)]"
+	@echo "> PRETEXT : Path to pretext compilation script [Default: $(PRETEXT)]"
 	@echo "> SERVEPORT: Local port on which to serve HTML output when using the html-serve target. [Default: $(SERVEPORT)]"
-
-define mathbookerrmsg
-ERROR
-Cannot file appropriate XSL file for conversion.
-If you are using the default HTMLXSL/LATEXXSL paths,
-you should first do
-ln -s /path/to/your/mathbook
-before compiling.
-(See "make help" for more info.)
-endef
 
 twosemester-html-all: twosemester-html twosemester-html-images html-fonts
 onesemester-html-all: onesemester-html onesemester-html-images html-fonts
@@ -66,7 +53,7 @@ clean: ptx-clean html-clean html-images-clean
 
 ptx-clean:
 	@-rm -f ${BUILDDIR}/ptx/.sentinal.*
-	@-rm -f ${BUILDDIR}/ptx/book.ptx
+	@-rm -f ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 html-clean:
 	@-rm -f ${BUILDDIR}/html/.sentinal.*
 	@-rm -f ${BUILDDIR}/html/*.html
@@ -75,41 +62,38 @@ html-images-clean:
 	@-rm -f ${BUILDDIR}/html/images/.sentinal.*
 	@-rm -f ${BUILDDIR}/html/images/*.svg
 
-$(PTX_TARGETS): %-ptx: ${BUILDDIR}/ptx/.sentinal.%
-$(HTML_TARGETS): %-html: ${BUILDDIR}/html/.sentinal.%
+$(PTX_TARGETS): %-ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx preprocess.xsl
+$(HTML_TARGETS): %-html: ${BUILDDIR}/html/.sentinal.% html-out.xml
 $(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/html/images/.sentinal.%
-$(LATEX_TARGETS): %-latex: ${BUILDDIR}/latex/book-%.tex
-${BUILDDIR}/ptx/.sentinal.twosemester: $(SOURCES) | validate-xml; $(call preprocess,twosemester)
-${BUILDDIR}/ptx/.sentinal.onesemester: $(SOURCES) | validate-xml; $(call preprocess,onesemester)
+$(LATEX_TARGETS): %-latex: ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
 
-define preprocess
-@echo "Preprocessing PTX*-->PTX for selected version ${1}, output will be placed in ${BUILDDIR}/ptx..."
-@mkdir -p ${BUILDDIR}/ptx
-@-rm -f ${BUILDDIR}/ptx/.sentinal.*
-@echo "...calling xsltproc with parameter version=${1} to create PreTeXt document"
-@xsltproc \
-  --xinclude \
-  --output ${BUILDDIR}/ptx/book.ptx \
-  --stringparam version $1 \
-  ./preprocess.xsl src/book.xml
-@echo "...copying publisher file(s)"
-@cp src/html-out.xml ${BUILDDIR}/ptx
-@touch ${BUILDDIR}/ptx/.sentinal.${1}
-@echo "...DONE"
-endef
+${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx: $(SOURCES) | validate-xml
+	@echo "Preprocessing PTX*-->PTX for selected version ${*}, output will be placed in ${BUILDDIR}/ptx..."
+	@mkdir -p ${BUILDDIR}/ptx
+	@echo "...calling xsltproc with parameter version=${*} to create PreTeXt document"
+	@xsltproc \
+	  --xinclude \
+	  --output ${BUILDDIR}/ptx/${ROOTDOCNAME}-${*}.ptx \
+	  --stringparam version ${*} \
+	  ./preprocess.xsl src/${ROOTDOCNAME}.xml
+	@echo "...DONE"
 
-# the extra touch on the sentinal file is just in case xsltproc decides not to create the output file....
-${BUILDDIR}/html/.sentinal.%: ${BUILDDIR}/ptx/.sentinal.%
-ifeq ($(wildcard $(HTMLXSL)),)
-	$(error $(mathbookerrmsg))
-endif
+${BUILDDIR}/html/.sentinal.%: ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx
 	@echo "Converting PTX to HTML for version: ${*}..."
 	@-rm -f ${BUILDDIR}/html/.sentinal.*
 	@mkdir -p ${BUILDDIR}/html/knowl
-	@echo "...calling xsltproc to compile PreTeXt document"
-	@xsltproc \
-	  --output ${BUILDDIR}/html/.sentinal.${*} \
-	  style-html.xsl ${BUILDDIR}/ptx/book.ptx
+	@echo "...calling pretext to compile PreTeXt document"
+	@$(PRETEXT) \
+	  --verbose \
+	  --component all \
+	  --format html \
+	  --publisher html-out.xml \
+	  --parameters \
+		html.css.extra dla.css \
+	    html.knowl.example no \
+	    numbering.projects.level 2 \
+	  --directory ${BUILDDIR}/html \
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-${*}.ptx
 	@echo "...copying css style customizations"
 	@cp css/dla.css ${BUILDDIR}/html/
 	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/*.html
@@ -119,21 +103,19 @@ endif
 	@echo "   make ${*}-html-images  (to build SVG images)"
 	@echo "   make html-serve               (to serve the output locally for previewing)"
 
-${BUILDDIR}/html/images/.sentinal.%: ${BUILDDIR}/ptx/.sentinal.%
-ifeq ($(wildcard $(MBX)),)
-	$(error $(mathbookerrmsg))
-endif
+${BUILDDIR}/html/images/.sentinal.%: ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx
 	@echo "Generating SVG files for HTML output for version: ${*}..."
 	@-rm -f ${BUILDDIR}/html/images/.sentinal.*
 	@mkdir -p ${BUILDDIR}/html/images
-	@echo "...calling mbx script"
-	@/opt/mathbook/script/mbx -v \
-	  -c latex-image \
-	  -f svg \
-	  -d ${BUILDDIR}/html/images \
-	${BUILDDIR}/ptx/book.ptx
+	@echo "...calling pretext to generate images"
+	@$(PRETEXT) \
+	  --verbose \
+	  --component latex-image \
+	  --format svg \
+	  --directory ${BUILDDIR}/html/images \
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-${*}.ptx
 	@echo "...copying institution logo"
-	@-cp src/images/${BRANDLOGO} ${BUILDDIR}/html/images
+	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/images
 	@touch ${BUILDDIR}/html/images/.sentinal.${*}
 	@echo "...DONE"
 
@@ -156,17 +138,17 @@ ${BUILDDIR}/html/%.woff2: stixfonts/WOFF2/%.woff2
 	@mkdir -p ${BUILDDIR}/html
 	-cp $< ${BUILDDIR}/html/
 
-# the extra touch on the sentinal file is just in case xsltproc decides not to create the output file....
-${BUILDDIR}/latex/book-%.tex: ${BUILDDIR}/ptx/.sentinal.%
-ifeq ($(wildcard $(LATEXXSL)),)
-	$(error $(mathbookerrmsg))
-endif
+${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx
 	@echo "Converting PTX to LATEX for version: ${*}..."
 	@mkdir -p ${BUILDDIR}/latex
-	@echo "...calling xsltproc to compile PreTeXt document"
-	@xsltproc \
-	  --output ${BUILDDIR}/latex/book-${*}.tex \
-	  style-latex.xsl ${BUILDDIR}/ptx/book.ptx
+	@echo "...calling pretext to compile PreTeXt document"
+	@${PRETEXT} \
+	  --component all \
+	  --format latex \
+	  --parameters \
+	    numbering.projects.level 2 \
+	  --directory ${BUILDDIR}/latex \
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...DONE"
 
 html-serve:
@@ -174,6 +156,6 @@ html-serve:
 
 validate-xml: $(SOURCES)
 	@echo "Validating xml..."
-	@xmllint --xinclude src/book.xml | xmllint --noout -
+	@xmllint --xinclude src/${ROOTDOCNAME}.xml | xmllint --noout -
 	@mkdir -p ${BUILDDIR}
 	@echo "...DONE"
