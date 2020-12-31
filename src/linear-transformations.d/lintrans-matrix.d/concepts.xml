@@ -49,11 +49,11 @@ so that the two vector spaces can be viewed as essentially the same space.
 So if we have a linear transformation <m>\funcdef{T}{V}{W}</m>,
 with <m>V \iso \R^n</m> and <m>W \iso \R^m</m>,
 then effectively we have a linear transformation <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>.
-<sidebyside width="18%"><image>
+<image width="18%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of transformations <m>\R^n \to V \to W \to \R^m</m></description>
 	<latex-image><xi:include href="concepts.d/square-diagram.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 </p>
 <p>
 How can we realize the <term>induced</term> transformation <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>?
@@ -67,11 +67,11 @@ through coordinate maps!
 So all we have to do is choose a basis <m>\basisfont{B}</m> for <m>V</m> and a basis <m>\basisfont{B}'</m> for <m>W</m>,
 and take
 <me> \widetilde{T} = \coordmap{B'} T \invcoordmap{B} </me>.
-<sidebyside width="22%"><image>
+<image width="22%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of using coordinate maps to extend a transformation <m>V \to W</m> to a transform <m>\R^n \to V \to W \to \R^m</m></description>
 	<latex-image><xi:include href="concepts.d/square-diagram-coord-maps.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 We know that every transformation <m>\R^n \to \R^m</m> is a matrix transformation by
 <me> \widetilde{T}(\uvec{x}) = \stdmatrixOf{\widetilde{T}} \uvec{x} </me>,
 where <m>\stdmatrixOf{\widetilde{T}}</m> is the standard matrix of <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>,
@@ -87,17 +87,17 @@ What use is this matrix?
 By reversing the relationship between <m>T</m> and <m>\widetilde{T}</m> to
 <me> T = \invcoordmap{B'} \widetilde{T} \coordmap{B} </me>,
 we can use matrix multiplication to compute outputs for <m>T</m>.
-<sidebyside width="22%"><image>
+<image width="22%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of realizing a transformation through its matrix</description>
 	<latex-image><xi:include href="concepts.d/square-diagram-coord-maps-reverse.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 Computationally, it is more instructive to split the four transformations into two pairs.
-<sidebyside width="22%"><image>
+<image width="22%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of tracing a transformation from domain space to coordinate space of its image</description>
 	<latex-image><xi:include href="concepts.d/square-diagram-coord-maps-split.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 Equating the two legs in this diagram, we have <me> \coordmap{B'} T = \widetilde{T} \coordmap{B} </me>.
 Consider the results of starting with a vector <m>\uvec{v}</m> in <m>V</m> and <q>chasing</q> it through each leg of the diagram:
 <md>
@@ -132,11 +132,11 @@ In this case we may (but do not <em>have</em> to) choose the same basis <m>\basi
 as these are the same space.
 With this choice we simply write <m>\matrixOf{T}{B}</m> for the matrix of <m>T</m>,
 instead of the redundant <m>\matrixOf{T}{BB}</m>.
-<sidebyside width="22%"><image>
+<image width="22%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of realizing an operator through its matrix</description>
 	<latex-image><xi:include href="concepts.d/square-diagram-operator.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 With this choice,
 our input-output relationship between coordinate vecors becomes
 <me> \matrixOf{T(\uvec{v})}{B} = \matrixOf{T}{B} \matrixOf{\uvec{v}}{B} </me>.
@@ -388,11 +388,11 @@ are linear,
 and we have chosen bases <m>\basisfont{B},\basisfont{B}',\basisfont{B}'''</m>
 for spaces <m>U,V,W</m>, respectively.
 Then we can create compositions both of <m>S,T</m> and of the induced transformations <m>\R^\ell \to \R^n</m>,  <m>\R^n \to \R^m</m>.
-<sidebyside width="40%"><image>
+<image width="40%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a composition of transformations and the corresponding composition of matrix transformations</description>
 	<latex-image><xi:include href="concepts.d/rect-diagram-composition.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 Recall that the matrices <m>\matrixOf{T}{B'B}</m> and <m>\matrixOf{S}{B''B'}</m> are the standard matrices of the induced transformations
 <md><mrow>
 	\amp\funcdef{\widetilde{T} = \coordmap{B'} T \invcoordmap{B}}{\R^\ell}{\R^n} \text{,} \amp
@@ -457,11 +457,11 @@ say <m>n</m>.
 Also suppose we have chosen bases <m>\basisfont{B},\basisfont{B}'</m>
 of spaces <m>V,W</m>, respectively.
 Then we can compose <m>T</m> with its inverse to get <m>\inv{T} T = I_V</m>, the identity operator on <m>V</m>.
-<sidebyside width="40%"><image>
+<image width="40%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a composition of an isomorphism and its inverse</description>
 	<latex-image><xi:include href="concepts.d/rect-diagram-compose-inverse.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 Using our pattern of compositions from above,
 we have
 <me> \matrixOf{I_V}{B} = \matrixOf{\inv{T} T}{BB} = \matrixOf{\inv{T}}{BB'} \matrixOf{T}{B'B} </me>.

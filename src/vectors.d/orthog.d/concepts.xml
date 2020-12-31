@@ -106,21 +106,21 @@ Any other point <m>P'</m> on <m>\ell</m> will form a right triangle with <m>P</m
 making it farther from <m>Q</m> than <m>P</m>,
 since the distance <m>P'Q</m> is the length of the hypotenuse in the right triangle.
 </p>
-<sidebyside width="50%"><image>
+<image width="50%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram illustrating the shortest distance from a point to a line in the plane.</description>
 	<latex-image><xi:include href="concepts.d/shortest-dist-to-line.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 <p>
 All we know about <m>P</m> is that it is on line <m>\ell</m> and it is at the vertex of a right angle with <m>\ell</m> and <m>Q</m>.
 But if we introduce some vectors to help tackle this problem,
 then maybe we can use what we know about the dot product and right angles to help determine <m>P</m>.
 </p>
-<sidebyside width="50%"><image>
+<image width="50%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram illustrating orthogonal projection onto a line through the origin.</description>
 	<latex-image><xi:include href="concepts.d/proj.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 <p>
 In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m>, and <m>\uvec{w}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m>, where <m>P</m> is our unknown closest point. Since <m>\uvec{w}</m> is placed with its tail at the origin, the components of <m>\uvec{w}</m> are precisely the coordinates of <m>P</m>. So determining <m>\uvec{w}</m> will solve the problem.
 </p><p>
@@ -168,11 +168,11 @@ The left-hand side of this calculation looks a lot like a dot product <mdash /> 
 <me> \dotprod{(2,3)}{(3,-2)} = 0. </me>
 So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checking that the corresponding vector <m>\uvec{v} = (3,-2)</m> (with its tail at the origin) is orthogonal to the vector <m>\uvec{n} = (2,3)</m> whose components are the <em>coefficients</em> from our line equation.
 </p>
-<sidebyside width="75%"><image>
+<image width="75%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a normal vector to a line in the plane (homogeneous case).</description>
 	<latex-image><xi:include href="concepts.d/normal-vec-line-homog.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 <p>
 Every other point <m>\uvec{x} = (x,y)</m> on the line satisfies the same relationship, as the equation for the line could be rewritten in a vector form as
 <md><mrow tag="tstar" xml:id="equation-orthog-concepts-point-normal-lines-1-normal-form">
@@ -184,11 +184,11 @@ The vector <m>\uvec{n}</m> is called a <em>normal</em> vector for the line. Note
 <p>
 In <xref ref="activity-orthog-point-normal-lines-2" /> we considered a line defined by a <em>non</em>homogeneous equation <m>2x+3y=8</m>. This line has the same slope as the line defined by <m>2x+3y=0</m> that we investigate above, and so the vector <m>\uvec{n} = (2,3)</m> obtained from the coefficients on <m>x</m> and <m>y</m> in the equation must still be normal. The constant <m>8</m> just changes the <m>y</m>-intercept.
 </p>
-<sidebyside width="80%"><image>
+<image width="80%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a normal vector to a line in the plane (nonhomogeneous case).</description>
 	<latex-image><xi:include href="concepts.d/normal-vec-line-nonhomog-1.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 <p>
 In the homogeneous case, vectors from the origin determined by a point on the line were also <em>parallel</em> to the line. Since things have shifted away from the origin in the nonhomogeneous case, to get a vector parallel to the line we need to consider <em>two</em> vectors from the origin to points on the line. Two convenient points for this the line are <m>Q(1,2)</m> and <m>R(4,0)</m>, with corresponding vectors <m>\uvec{x}_0 = (1,2)</m> and <m>\uvec{x}_1 = (4,0)</m>. Then the difference vector
 <me> \uvec{v} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </me>
@@ -197,11 +197,11 @@ is parallel to the line, as in the diagram above. In fact, this vector <m>\uvec{
 Is there a way to use the normal vector <m>\uvec{n}</m> to create a vector condition by which we can tell if a vector <m>\uvec{x}</m> represents a point on the line, as we did with equation <xref ref="equation-orthog-concepts-point-normal-lines-1-normal-form" /> in the homoegenous case? We need <em>two</em> points on the line to create a parallel difference vector, but we could compare the variable vector <m>\uvec{x}</m> with a arbitrarily chosen <em>fixed</em> vector representing a point on the line (like <m>\uvec{x}_0</m>, say).
 </p>
 
-<sidebyside width="75%"><image>
+<image width="75%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a normal vector to a line in the plane (nonhomogeneous case).</description>
 	<latex-image><xi:include href="concepts.d/normal-vec-line-nonhomog-2.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 <p>
 Every such difference vector <m>\uvec{x}-\uvec{x}_0</m> is parallel to the line and hence orthogonal to the normal vector <m>\uvec{n}</m> , so that we can describe the line as all points where the corresponding vector <m>\uvec{x}</m> satisfies
 <md><mrow tag="dagger" xml:id="equation-orthog-concepts-point-normal-form">
@@ -241,13 +241,13 @@ Seeing how the algebraic equation for a plane in <m>\R^3</m> is connected to a n
 	Given two nonzero, nonparallel vectors in <m>\R^3</m>, determine a third vector that is orthogonal to each of the first two.
 </p></statement></question>
 
-<sidebyside width="23%"><image>
+<image width="23%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
 		Diagram of the setup for the cross product problem (<xref ref="question-orthog-concepts-cross-prod" /> above).
 	</description>
 	<latex-image><xi:include href="concepts.d/cross-prod.tex" parse="text" /></latex-image>
-</image></sidebyside>
+</image>
 
 <p>
 So if <m>\uvec{u} = (u_1,u_2,u_3)</m> and <m>\uvec{v} = (v_1,v_2,v_3)</m> are our starting vectors, we would like to simultaneously solve the equations
