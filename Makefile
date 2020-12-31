@@ -9,7 +9,8 @@ BRANDLOGO=AUG-Colour.png
 ROOTDOCNAME=book
 SERVEPORT=8080
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
-PRETEXT=/opt/pretext/pretext/pretext
+#PRETEXT=/opt/pretext/pretext/pretext
+PRETEXT=./pretext/pretext/pretext
 
 PTX_TARGETS = twosemester-ptx onesemester-ptx
 HTML_TARGETS = twosemester-html onesemester-html
@@ -43,7 +44,7 @@ help:
 	@echo "== PARAMETERS ============"
 	@echo "> BUILDDIR : Root directory for all output files. [Default: $(BUILDDIR)]"
 	@echo "> BRANDLOGO: Filename of institutional logo. Needs to exist in images/. [Default: $(BRANDLOGO)]"
-	@echo "> PRETEXT : Path to pretext compilation script [Default: $(PRETEXT)]"
+	@echo "> PRETEXT  : Path to pretext compilation script [Default: $(PRETEXT)]"
 	@echo "> SERVEPORT: Local port on which to serve HTML output when using the html-serve target. [Default: $(SERVEPORT)]"
 
 twosemester-html-all: twosemester-html twosemester-html-images html-fonts
