@@ -59,7 +59,7 @@ respective owners.
 	<task><p>
 		For what value(s) of <m>x</m> is <m>B</m> equal to <m>A</m>? <m>C</m> equal to <m>A</m>? <m>D</m> equal to <m>A</m>?
 	</p></task>
-	<task><p> Discuss what it means for two matrices to be equal. </p></task>
+	<task xml:id="activity-matrix-ops-matrix-equality-meaning"><p> Discuss what it means for two matrices to be equal. </p></task>
 </activity>
 
 <activity xml:id="activity-matrix-ops-basic-matrix-ops">
@@ -79,31 +79,51 @@ respective owners.
 		C \amp = \left[\begin{array}{rc} -6 \amp 1\\1 \amp 2 \end{array}\right].
 	</mrow></md>
 	</p></introduction>
-	<task><p>
-		What should <m>A+B</m> mean?
-		What should <m>A-B</m> mean?
-	</p></task>
-	<task><p>
-		How do you feel about <m>A+C</m>?
-		It is tempting to replace <m>C</m> by an <q>equivalent</q> matrix to make things work out.
-		But then what should <m>A+C-A</m> work out to?
-		Does this agree with your answer to what it means for two matrices to be equal from
-		<xref ref="activity-matrix-ops-matrix-equality" />?
+	<task xml:id="activity-matrix-ops-basic-matrix-ops-add-subtract"><p>
+		What should <m>A + B</m> mean?
+		What should <m>A - B</m> mean?
 	</p></task>
 	<task xml:id="activity-matrix-ops-basic-matrix-ops-scalar-mul"><p>
 		What should <m>3 A</m> mean?
 	</p></task>
+	<task>
+		<introduction><p> Now let's consider the sum <m>A + C</m>. </p></introduction>
+		<task><p>
+			Compute <m>A + C</m>.
+			Call this result matrix <m>D</m>.
+			What are the dimensions of <m>D</m>?
+		</p></task>
+		<task><p>
+			Now compute <m>D - A</m>.
+			Do this numerically, not algebraically;
+			that is, forget where your result matrix <m>D</m> came from and actually compute <m>D - A</m> using the same procedure that you used to subtract matrices in
+			<xref ref="activity-matrix-ops-basic-matrix-ops-add-subtract" text="type-local" />.
+			What are the dimensions of this result?
+		</p></task>
+		<task><p>
+			Now let's remember that <m>D = A + C</m>.
+			Algebraically, what result would you expect from computing <m>(A + C) - A</m>?
+			Does your numerical computation in the previous step agree with your algebraic expectation?
+			(Keep in mind your answer to what it means for two matrices to be equal from
+			<xref ref="activity-matrix-ops-matrix-equality-meaning" />.)
+		</p></task>
+		<task><p>
+			Given how things worked out,
+			how do you feel about performing <m>A + C</m> in the first place?
+		</p></task>
+	</task>
 </activity>
 
 <activity xml:id="activity-matrix-ops-zero-matrix">
 	<introduction><p>
-	The number zero is important in algebra, it lets us do things like the following (where the critical step is the last).
+	The number zero is important in algebra, it lets us do things like the following.
 	<md>
 		<mrow>a+5 \amp = 7</mrow>
 		<mrow>a+5-5 \amp = 7-5</mrow>
 		<mrow>a+0 \amp = 2</mrow>
 		<mrow>a \amp = 2.</mrow>
 	</md>
+	The critical step for us right now is the last simplification of the left-hand side: <me> a + 0 = a </me>.
 	</p></introduction>
 	<task><p>
 		What matrix do you think will act like zero in matrix addition?
@@ -134,7 +154,7 @@ respective owners.
 			\end{array}\right.
 		</me>
 	</p></task>
-	<task>
+	<task xml:id="activity-matrix-ops-system-to-matrix-mult-parts">
 		<introduction><p>
 			The simplest system of equations is one equation in one unknown,
 			<ie /> <me> a x = b</me>.
@@ -155,17 +175,29 @@ respective owners.
 			the operation <em>matrix-times-matrix</em> should compute to a <em>single</em> matrix.
 			What size of matrix should this multiplication result be?
 		</p></statement>
-		<hint><p> The result of computing <m>A \uvec{x}</m> must make sense in the matrix equality <m>A \uvec{x} = \uvec{b}</m>. </p></hint>
+		<hint><p>
+			The result of computing <m>A \uvec{x}</m> must make sense in the matrix equality <m>A \uvec{x} = \uvec{b}</m>,
+			per the pattern of <term>matrix equality</term> you described in <xref ref="activity-matrix-ops-matrix-equality-meaning" />.
+		</p></hint>
 	</task>
-	<task>
-		<statement><p> Finally, how should the operation <em>matrix <m>A</m> times column <m>\uvec{x}</m></em> actually be carried out? </p></statement>
-		<hint><p> Look back at your answer to <xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local"/>. </p></hint>
+	<task xml:id="activity-matrix-ops-system-to-matrix-mult-procedure">
+		<statement><p>
+			Finally, we want <m>A \uvec{x} = \uvec{b}</m> to represent in one matrix equation the full system of two number equations from
+			<xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local" />.
+			We already came up with a matrix equation to represent that system in <xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local" />.
+			Looking at your matrices <m>A</m> and <m>\uvec{x}</m> from <xref ref="activity-matrix-ops-system-to-matrix-mult-parts" text="type-local" />,
+			and comparing with the left-hand side of your matrix equation from <xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local" />,
+			what procedure should be used to carry out the operation <em>matrix <m>A</m> times column <m>\uvec{x}</m></em>?
+		</p></statement>
+		<!-- <hint><p> Look back at your answer to <xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local"/>. </p></hint> -->
 	</task>
 	<task xml:id="activity-matrix-ops-system-to-matrix-mult-check-sol"><p>
 		The values <m>x_1 = 2</m>, <m>x_2 = 1</m>, <m>x_3 = 3</m>,
 		represent a solution to the system in <xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local" />.
-		Verify this by carrying out the multiplication <m>A \uvec{x}</m> with the unknowns <m>x_1,x_2,x_3</m> in the column matrix <m>\uvec{x}</m> replaced by these solution values,
-		and comparing the result with <m>\uvec{b}</m>.
+		Verify this by carrying out the multiplication <m>A \uvec{x}</m>,
+		using your calculation procedure from <xref ref="activity-matrix-ops-system-to-matrix-mult-procedure" text="type-local" />,
+		and with the unknowns <m>x_1,x_2,x_3</m> in the column matrix <m>\uvec{x}</m> replaced by these solution values.
+		Then compare your calculation result with <m>\uvec{b}</m>.
 	</p></task>
 </activity>
 
@@ -190,7 +222,7 @@ respective owners.
 			\uvec{x}_1 \amp \uvec{x}_2 \amp \uvec{x}_3 \\
 			\mtrxvbar \amp \mtrxvbar \amp \mtrxvbar
 		\end{bmatrix}
-	</me> 
+	</me>
 	and using the procedure for <q>matrix times column</q> that you developed in <xref ref="activity-matrix-ops-system-to-matrix-mult" />.
 </p></activity>
 

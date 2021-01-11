@@ -23,21 +23,29 @@ respective owners.
 		The number one is important in algebra,
 		it lets us do things like
 		<md>
-			<mrow> 5a \amp = 15 </mrow>
+			<mrow> 5 a \amp = 15 </mrow>
 			<mrow> \frac{1}{5}\cdot 5 \cdot a \amp = \frac{1}{5} \cdot 15 </mrow>
-			<mrow> 1a \amp = 3 </mrow>
+			<mrow> 1 a \amp = 3 </mrow>
 			<mrow> a \amp = 3. </mrow>
 		</md>
+		The critical step for us right now is the last simplification of the left-hand side: <me> 1 a = a </me>.
 	</p></introduction>
 	<task xml:id="activity-inverses-identity-matrix-2x2-guess"><p>
-		What matrix do you think will act similarly in matrix algebra for <m>2\times 2</m> matrices?
-		(The rule you are trying to mimic is the <m>1a = a</m> step from the example with numbers above.)
+		What matrix do you think will act similarly in matrix algebra for <m>2\times 2</m> matrices to how the number <m>1</m> acts in number algebra?
+		To answer this, try to fill in the first matrix below so that the matrix equality is always true,
+		no matter the values of <m>a,b,c,d</m>.
+		<me>
+			\begin{bmatrix} <fillin characters="2" /> \amp <fillin characters="2" /> \\ <fillin characters="2" /> \amp <fillin characters="2" /> \end{bmatrix}
+			\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+			=
+			\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+		</me>
 	</p></task>
 	<task>
 		<introduction><p>
 			Write <m>I</m> for your <m>2\times 2</m> matrix from
 			<xref ref="activity-inverses-identity-matrix-2x2-guess" text="type-local" />
-			(for the <alert>I</alert> in <term>identity matrix</term>).
+			(for the <alert>I</alert> in <term>Identity matrix</term>).
 		</p></introduction>
 		<task><p>
 			Does <m>IA=A</m> work for every <m>2 \times 2</m> matrix <m>A</m>?
@@ -128,28 +136,31 @@ respective owners.
 		try to come up with them yourselves.
 		</p><p>
 		For this activity,
-		it might be helpful to think of the pattern of the inverse in words:
+		it might be helpful to think of the pattern of the inverse in the following way:
 		<alert>
-			the inverse of a square matrix is the square matrix of the same size that multiplies against the original matrix to produce the identity matrix,
-			for both possible orders of multiplication
+			given a square matrix <m>M</m>, the inverse of <m>M</m> is the square matrix of the same size that can fill both of the boxes below to create true matrix equalities.
 		</alert>.
+		<md><mrow xml:id="equation-inverses-pattern-of-inverses" tag="star">
+			M \boxed{\phantom{X}} \amp = I \amp \boxed{\phantom{X}} M \amp = I
+		</mrow></md>
 		</p>
 	</introduction>
 	<task xml:id="activity-inverses-props-of-inverses-inverse-of-inverse"><p>
 		What do you think is the inverse of <m>\inv{A}</m>?
-		(In other words, using the pattern of the inverse above,
-		what matrix will multiply against <m>\inv{A}</m> to produce <m>I</m>,
-		for both possible orders of multiplication?)
+		In other words, if you use <m>M = \inv{A}</m> in <xref ref="equation-inverses-pattern-of-inverses" />,
+		what single choice of matrix can be used to fill in both boxes?
 	</p></task>
 	<task><p>
 		Determine a formula for the inverse of <m>kA</m> in terms of <m>k</m> and <m>\inv{A}</m>.
-		(As in
-		<xref ref="activity-inverses-props-of-inverses-inverse-of-inverse" text="type-local" />,
-		try to interpret this task in terms of the pattern of the inverse described in the introduction to this activity.)
+		In other words, if you use <m>M = kA</m> in <xref ref="equation-inverses-pattern-of-inverses" />,
+		what formula involving <m>k</m> and <m>\inv{A}</m> can be used to fill in both boxes?
 	</p></task>
 	<task><p>
 		Explain why the formula for the inverse of the product <m>AB</m> is <em>not</em> <m>\inv{A}\inv{B}</m>.
 		Then determine a correct formula in terms of <m>\inv{A}</m> and <m>\inv{B}</m>.
+		(Again, to determine the correct formula for <m>\inv{(AB)}</m>,
+		use <m>M = AB</m> in <xref ref="equation-inverses-pattern-of-inverses" />,
+		and then try to figure out what single formula you can enter into both boxes so that both left-hand sides reduce to <m>I</m>.)
 	</p></task>
 	<task><p>
 		<em>Extend:</em>
@@ -158,8 +169,9 @@ respective owners.
 	</p></task>
 	<task xml:id="activity-inverses-props-of-inverses-inverse-powers"><p>
 		What do you think <m>A^{-2}</m> means?
-		There are two possibilities;
-		do they both work out to be the same?
+		There are two possibilities because the notation implies the application of two different processes:
+		squaring and inverting.
+		Do they both work out to be the same?
 		Try with <m>A</m> given below.
 		(For convenience, its inverse is also given.)
 		<md><mrow>
@@ -205,7 +217,7 @@ respective owners.
 	<m>A\uvec{x}=\uvec{b}</m>
 	with a square and invertible coefficient matrix <m>A</m>,
 	we can use matrix algebra to solve the system instead of row reducing,
-	by using <m>\inv{A}</m> to isolate <m>\uvec{x}</m>.
+	<alert>by using <m>\inv{A}</m> to isolate <m>\uvec{x}</m>.</alert>
 	</p><p>
 	Here is an invertible <m>3 \times 3</m> matrix <m>A</m> and its inverse:
 	<md><mrow>

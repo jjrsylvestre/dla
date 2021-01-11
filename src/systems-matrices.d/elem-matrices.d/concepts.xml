@@ -54,7 +54,9 @@ respective owners.
 	The point being that an inverse matrix <m>\inv{A}</m> <em>undoes</em> or <em>reverses</em> multiplication by <m>A</m>.
 	So if we want to understand inverses,
 	we need to understand how to reverse matrix multiplication.
-	</p><p>
+	</p>
+
+	<p>
 	Now,
 	our motivation for defining matrix multiplication in the way that we did
 	(<ie /> rows times columns)
@@ -89,7 +91,9 @@ and we called these special matrices <term>elementary matrices</term>.
 So if <m>E</m> is an elementary matrix and <m>A</m> is another matrix of a compatible size
 (but not necessarily square),
 then the result of computing the matrix product <m>EA</m> is the same as performing some elementary row operation on <m>A</m>.
-</p><p>
+</p>
+
+<p>
 Applying this same reasoning with <m>A</m> replaced by <m>I</m>,
 we see that <m>EI = E</m> must be the same result as applying that elementary row operation on the identity.
 This gives us an easy way to produce an elementary matrix for a particular elementary row operation.
@@ -105,34 +109,60 @@ This gives us an easy way to produce an elementary matrix for a particular eleme
 See
 <xref ref="subsection-elem-matrices-examples-elem-matrices-and-inverses" />
 for some examples.
-</p><p>
+</p>
+
+<p>
 If each elementary row operation can be achieved by multiplication by an elementary matrix,
-then a whole row reduction process can be achieved by iterated multiplication by elementary matrices,
+then a <em>sequence</em> of row operations can be achieved can be achieved by iterated multiplication by elementary matrices,
 as in
-<xref ref="activity-elem-matrices-invert-method" />.
-In that activity,
-it is possible to row reduce the matrix <m>B</m> to the identity matrix in three operations,
+<xref ref="activity-elem-matrices-application-order" />.
+For example, suppose we were to perform the following sequence of operations on some <m>3 \times \ell</m> matrix <m>A</m>:
+<me>
+	A
+	\xrightarrow{R_2 + 2 R_1 \quad} A'
+	\xrightarrow{-4 R_3 \quad} A''
+	\xrightarrow{R_1 \leftrightarrow R_2 \quad} A'''
+</me>.
+The first operation is the same as that corresponding to the elementary matrix <m>E</m> from
+<xref ref="activity-elem-matrices-intro" />,
+so the first result <m>A'</m> is equal to <m>E A</m>.
+Similarly, the second operation is the same as that corresponding to the elementary matrix <m>E'</m> from
+<xref ref="activity-elem-matrices-intro-cont" />,
+but this second operation is <em>being applied to the first result</em> <m>A'</m>.
+So the second result <m>A''</m> is equal to <me> E' A' = E' (E A) </me>.
+Finally, the third operation is the same as that corresponding to the elementary matrix <m>E''</m> from
+<xref ref="activity-elem-matrices-intro-cont-more" />,
+and this third operation is <em>being applied to the second result</em> <m>A''</m>.
+So the third result <m>A'''</m> is equal to <me> E'' A'' = E'' \bbrac{E' (E A)}</me>.
+So our sequence of row operations is
+<me>
+	A
+	\xrightarrow{R_2 + 2 R_1 \quad} E A
+	\xrightarrow{-4 R_3 \quad} E' E A
+	\xrightarrow{R_1 \leftrightarrow R_2 \quad} E'' E' E A
+</me>,
+where each new elementary matrix corresponds to the operation of the preceding arrow.
+<alert>Notice the order of the elementary matrices in the final product</alert> <mdash />
+the elementary matrices appear in right-to-left order compared to the order that the operations have been performed.
+Make sure you understand why this is so.
+</p>
+
+<p>
+In
+<xref ref="activity-elem-matrices-invert-method" />,
+we examined this kind of correspondence between row operations and elementary matrices in a row <em>reduction</em> process.
+It is possible to row reduce the matrix <m>B</m> in that activity to the identity matrix in three operations,
 represented by elementary matrices
-<m>E_1,E_2,E_3</m>.
-Via multiplication instead of row operations,
-this means
-<m>E_3 E_2 E_1 B = I</m>.
-<em>Notice the order of the elementary matrices in this product.</em>
-When we apply a first row operation to <m>B</m>,
-the result is the same as multiplying <m>B</m> by the corresponding elementary matrix <m>E_1</m>.
-Then the next elementary row operation is applied <em>to that result</em>,
-which is the same as multiplying the first result <m>E_1 B</m> by the corresponding elementary matrix <m>E_2</m>.
-And then <m>E_3</m> is applied <em>to that result</em>.
-The sequence of operations is then
+<m>E_1,E_2,E_3</m>:
 <me>
 	B
-	\xrightarrow[\text{operation}]{\text{first}} E_1B
-	\xrightarrow[\text{operation}]{\text{second}} E_2(E_1B)
-	\xrightarrow[\text{operation}]{\text{third}} E_3(E_2E_1B).
-</me>
+	\xrightarrow[\text{operation }\phantom{x}]{\text{first}} E_1 B
+	\xrightarrow[\text{operation }\phantom{x}]{\text{second}} E_2 E_1 B
+	\xrightarrow[\text{operation }\phantom{x}]{\text{third}} E_3 E_2 E_1 B
+</me>.
 See
 <xref ref="subsection-elem-matrices-examples-decompositions" />
-for another example.
+for another example of determining elementary matrices corresponding to the steps in a row reduction process.
 </p>
 
 </subsection>
@@ -153,7 +183,7 @@ Assuming that matrix <m>B</m> is invertible,
 we could use <m>\inv{B}</m> to manipulate this equality:
 <md>
 	<mrow>\amp \amp I \amp= E_3 E_2 E_1 B</mrow>
-	<mrow>\amp \implies \amp I\inv{B} \amp= (E_3 E_2 E_1 B) \inv{B}</mrow>
+	<mrow>\amp \implies \amp I \inv{B} \amp= (E_3 E_2 E_1 B) \inv{B}</mrow>
 	<mrow>\amp \implies \amp \phantom{I}\inv{B} \amp= E_3 E_2 E_1 (B \inv{B})</mrow>
 	<mrow>\amp \amp \amp = E_3 E_2 E_1 I</mrow>
 	<mrow>\amp \amp \amp= E_3 E_2 E_1.</mrow>

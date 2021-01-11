@@ -22,23 +22,34 @@ respective owners.
 	<introduction><p>
 		Consider the matrices
 		<md><mrow>
+			I \amp = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix},
+			\amp
 			E \amp = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix},
 			\amp
 			A \amp = \left[\begin{array}{rrrr}
-				1 \amp  0 \amp 1 \amp 0 \\
-				1 \amp  2 \amp 3 \amp 4 \\
-				0 \amp -1 \amp 0 \amp 3
+				1 \amp  0 \amp 2 \amp -1 \\
+				1 \amp  2 \amp 3 \amp  4 \\
+				0 \amp -1 \amp 0 \amp  3
 			\end{array}\right].
 		</mrow></md>
 	</p></introduction>
+	<task xml:id="activity-elem-matrices-intro-identity"><p>
+		Remind yourself using the <em>row-times-column</em> pattern of matrix multiplication why <m>I A = A</m> is true.
+	</p></task>
 	<task xml:id="activity-elem-matrices-intro-example">
-		<statement><p>
-			Compute <m>E A</m>.
+		<statement>
+			<p>
+			Notice how <m>E</m> is only one entry different from <m>I</m>.
+			How does this change the process of computing <m>E A</m> compared to computing <m>I A</m>?
+			</p><p>
 			Think of multiplication by <m>E</m> as <q>transforming</q> <m>A</m> into the result matrix <m>E A</m>.
 			How could you describe the transformation in this particular example?
-		</p></statement>
+			</p>
+		</statement>
 		<hint><p>
-			Think about how each row of <m>E</m> overlaps with and combines the entries of each column of <m>A</m> in the computation of <m>E A</m>.
+			In the <q>transformation</q> <m>A \to E A</m>,
+			which rows of <m>A</m> stay the same, and which rows change?
+			For the rows that change, how exactly do they change?
 		</p></hint>
 	</task>
 	<task xml:id="activity-elem-matrices-intro-reflection"><p>
@@ -55,7 +66,7 @@ respective owners.
 <activity xml:id="activity-elem-matrices-intro-cont">
 	<statement><p>
 		Create a <m>3 \times 3</m> matrix <m>E'</m> so that for every <m>3\times n</m> matrix <m>A</m>,
-		the result of <m>E' A</m> is the same as applying the row operation <q>multiply row <m>3</m> by <m>-4</m>.</q>
+		the result of <m>E' A</m> is the same as performing the row operation <q>multiply row <m>3</m> by <m>-4</m></q> on <m>A</m>.
 	</p></statement>
 	<hint><p>
 		What was the pattern you identified in
@@ -66,7 +77,7 @@ respective owners.
 <activity xml:id="activity-elem-matrices-intro-cont-more">
 	<statement><p>
 		Create a <m>3\times 3</m> matrix <m>E''</m> so that for every <m>3 \times n</m> matrix <m>A</m>,
-		the result of <m>E'' A</m> is the same as applying the row operation <q>swap rows <m>1</m> and <m>2</m>.</q>
+		the result of <m>E'' A</m> is the same as performing the row operation <q>swap rows <m>1</m> and <m>2</m></q> on <m>A</m>.
 	</p></statement>
 	<hint><p>
 		What was the pattern you identified in
@@ -81,6 +92,14 @@ As the preceding activities demonstrate,
 every elementary row operation has a corresponding elementary matrix.
 </p>
 
+<activity xml:id="activity-elem-matrices-application-order">
+	Suppose we were to take a <m>3 \times \ell</m> matrix <m>A</m> and compute
+	<me> E'' E' E A = E'' \bbrac{ E' (E A) } </me>,
+	where <m>E, E', E''</m> are as in <xref first="activity-elem-matrices-intro" last="activity-elem-matrices-intro-cont-more">Activities</xref>.
+	How can we interpret this matrix multiplication result in terms of row operations?
+	(Careful of the order of operations!)
+</activity>
+
 <activity xml:id="activity-elem-matrices-invert-method">
 	<introduction><p>
 		Consider
@@ -94,10 +113,11 @@ every elementary row operation has a corresponding elementary matrix.
 	</p></introduction>
 	<task>
 		<statement><p> Determine elementary matrices <m>E_1,E_2,E_3</m> so that <m>E_3 E_2 E_1 B</m> is the identity matrix. </p></statement>
+		<!-- HINT MADE UNNECESSARY BY ADDITION OF activity-elem-matrices-application-order
 		<hint><p>
 			Use the connection between elementary matrices and row operations that we have discovered in this discovery guide.
 			Consider carefully the order in which the elementary matrices should be multiplied onto <m>B</m>.
-		</p></hint>
+		</p></hint> -->
 	</task>
 	<task xml:id="activity-elem-matrices-invert-method-by-elem-matrices"><p>
 		The matrix <m>B</m> happens to be invertible.
@@ -106,7 +126,7 @@ every elementary row operation has a corresponding elementary matrix.
 	<task xml:id="activity-elem-matrices-invert-method-by-row-red">
 		<statement>
 			<p>
-			Tack an identity matrix <m>I</m> onto the right end of your formula from
+			Tack an identity matrix <m>I</m> onto the right end of your formula for <m>\inv{B}</m> from
 			<xref ref="activity-elem-matrices-invert-method-by-elem-matrices" text="type-local" />.
 			(Recall that multiplying by <m>I</m> has no effect.)
 			</p><p>
@@ -128,15 +148,18 @@ every elementary row operation has a corresponding elementary matrix.
 		<m>A = \left[\begin{smallmatrix}a \amp b\\c \amp d\end{smallmatrix}\right]</m>.
 	</p></introduction>
 	<task><p>
-		Assume that <m>a\neq 0</m>.
+		Assume that <m>a \neq 0</m>.
 		Use the method you developed in
 		<xref ref="activity-elem-matrices-invert-method" />
 		to determine the inverse of <m>A</m>.
 	</p></task>
-	<task><p>
-		Did you need to assume anything about <m>ad-bc</m> for this to work?
-		Why?
-	</p></task>
+	<task>
+		<statement><p>
+			Where there any other assumptions about the entries of <m>A</m> (besides <m>a \neq 0</m>) that you needed to make for this to work?
+			Why?
+		</p></statement>
+		<hint><p> Division by zero is undefined. </p></hint>
+	</task>
 	<task><p> Repeat for the other case: assume <m>a=0</m>. </p></task>
 </activity>
 
@@ -151,18 +174,26 @@ every elementary row operation has a corresponding elementary matrix.
 		</ol>
 	</p></introduction>
 	<task xml:id="activity-elem-matrices-invert-elem-mystery-op"><p>
-		Suppose someone has performed a single elementary row operation on a matrix,
-		but they have only given you the <em>result</em> of this computation
-		(as well as telling you <em>exactly</em> what row operation they performed).
-		How can you recover the original matrix the person started with?
+		Suppose someone has performed the row operation you are currently considering on a matrix:
+		<me> A \xrightarrow[\text{op}]{\text{row}} A' </me>.
+		If you know only the operation and the result <m>A'</m>,
+		how can you recover the original matrix <m>A</m>?
+		<me> A' \xrightarrow{\text{?}} A </me>
 	</p></task>
 	<task><p>
-		Determine a general rule for the inverse of an elementary matrix of the type you are currently considering.
-		You should be able to answer this directly,
-		<em>without</em> using the method you developed in
-		<xref ref="activity-elem-matrices-invert-method" />,
-		by instead considering your answer to
-		<xref ref="activity-elem-matrices-invert-elem-mystery-op" text="type-local" />.
+		Suppose we consider
+		<xref ref="activity-elem-matrices-invert-elem-mystery-op" text="type-local" />
+		with <m>A = I</m>:
+		<me> I \xrightarrow[\text{op}]{\text{row}} E I \xrightarrow{\text{(a)}} E' E I </me>,
+		where
+		<ul>
+			<li> (a) is the same <q>reverse</q> row operation you came up with in <xref ref="activity-elem-matrices-invert-elem-mystery-op" text="type-local" /> </li>
+			<li> <m>E</m> is the elementary matrix corresponding to the original row operation you are currently considering </li>
+			<li> and <m>E'</m> is the elementary matrix corresponding to the (a) row operation. </li>
+		</ul>
+		According to <xref ref="activity-elem-matrices-invert-elem-mystery-op" text="type-local" />,
+		what should the final result <m>E' E I</m> be?
+		What does this say in general about the inverse of an elementary matrix of the type you are currently considering?
 	</p></task>
 </activity>
 

@@ -155,7 +155,9 @@ and only performing one at a time <mdash />
 no shortcuts!
 </p>
 
-<example xml:id="example-elem-matrices-examples-decompositions"><statement><p>
+<example xml:id="example-elem-matrices-examples-decompositions"><statement>
+
+	<p>
 	Consider <m>4 \times 4</m> matrix
 	<me>
 		A = \left[\begin{array}{rrrr}
@@ -184,7 +186,7 @@ no shortcuts!
 			\end{smallmatrix}\right]\right)
 		</mrow><mrow>
 	 		\amp \longrightarrow \amp
-			E_1A \amp = \begin{bmatrix}
+			E_1 A \amp = \begin{bmatrix}
 				1 \amp 0 \amp 0 \amp 0 \\
 				0 \amp 5 \amp 3 \amp 0 \\
 				0 \amp 1 \amp 0 \amp 0 \\
@@ -199,7 +201,7 @@ no shortcuts!
 			\end{smallmatrix}\right]\right)
 		</mrow><mrow>
 			\amp \longrightarrow \amp
-			E_2E_1A \amp = \begin{bmatrix}
+			E_2 E_1 A \amp = \begin{bmatrix}
 				1 \amp 0 \amp 0 \amp 0 \\
 				0 \amp 1 \amp 0 \amp 0 \\
 				0 \amp 5 \amp 3 \amp 0 \\
@@ -214,7 +216,7 @@ no shortcuts!
 			\end{smallmatrix}\right]\right)
 		</mrow><mrow>
 			\amp \longrightarrow \amp
-			E_3E_2E_1A \amp = \begin{bmatrix}
+			E_3 E_2 E_1 A \amp = \begin{bmatrix}
 				1 \amp 0 \amp 0 \amp 0 \\
 				0 \amp 1 \amp 0 \amp 0 \\
 				0 \amp 0 \amp 3 \amp 0 \\
@@ -229,13 +231,20 @@ no shortcuts!
 			\end{smallmatrix}\right]\right)
 		</mrow><mrow>
 			\amp \longrightarrow \amp
-			E_4E_3E_2E_1A \amp = \bidentmatfour
+			E_4 E_3 E_2 E_1 A \amp = \bidentmatfour
 		</mrow>
 	</md>
-	We now have <m>E_4E_3E_2E_1A = I</m>,
+	<em>
+		Notice in this process that each elementary matrix is newly obtained by applying a row operation to the identity matrix,
+		<em>not</em> by applying a row operation to the previous elementary matrix in the sequence.
+	</em>
+	</p>
+
+	<p>
+	We now have <m>E_4 E_3 E_2 E_1 A = I</m>,
 	which suggests that
 	<md>
-		<mrow>\inv{A} \amp = E_4E_3E_2E_1</mrow>
+		<mrow>\inv{A} \amp = E_4 E_3 E_2 E_1</mrow>
 		<mrow>
 			\amp = \begin{bmatrix}
 				1 \amp 0 \amp 0 \amp 0 \\
@@ -272,8 +281,10 @@ no shortcuts!
 	</md>
 	To check that this is really is the correct inverse for <m>A</m>,
 	you can check that this matrix multiplied against <m>A</m> in the other order also results in the identity matrix
-	(<ie /> that <m>A(E_4E_3E_2E_1) = I</m> as well).
-	</p><p>
+	(<ie /> that <m>A (E_4 E_3 E_2 E_1) = I</m> as well).
+	</p>
+
+	<p>
 	Also, with some matrix algebra,
 	from <m>E_4E_3E_2E_1A = I</m> we can isolate
 	<md>
@@ -308,7 +319,9 @@ no shortcuts!
 	</md>
 	Recall that each of these inverse elementary matrices can each be obtained from the identity matrix using the corresponding reverse operation.
 	You may check that the result of multiplying these inverses together is <m>A</m>.
-</p></statement></example>
+	</p>
+
+</statement></example>
 
 </subsection>
 

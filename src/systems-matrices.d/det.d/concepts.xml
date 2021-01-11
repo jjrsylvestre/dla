@@ -284,13 +284,22 @@ And the pattern will continue until we finally get down to a <m>1\times 1</m> mi
 	</mrow>
 </md>
 So <em>the determinant of a diagonal matrix is equal to the product of its diagonal entries</em>.
-Applying this knowledge to the zero matrix and the identity matrix
-(which are both diagonal),
+</p>
+
+<p>
+What if we apply this pattern to an <m>n \times n</m> scalar matrix <m>k I</m>?
+Since such a matrix has the entry <m>k</m> repeated down the diagonal <m>n</m> times,
+the determinant will be <m>n</m> factors of <m>k</m> multiplied together,
+so that <m>\det (k I) = k^n</m>.
+Applying this formula to the zero matrix (<m>k = 0</m>) and the identity matrix (<m>k = 1</m>),
 we have
 <md><mrow> \det \zerovec \amp= 0, \amp \det I \amp= 1. </mrow></md>
-Furthermore,
-the same pattern would repeat if we computed the determinant of an upper triangular matrix,
-because always expanding along the first column would result in diagonal entry times an upper triangular minor determinant.
+</p>
+
+<p>
+When computing the determinant of an upper triangular matrix,
+a similar pattern of computation as in the diagonal case would arise,
+because choosing to always expand along the first column would result in diagonal entry times an upper triangular minor determinant.
 And the same pattern would repeat for lower triangular matrices,
 but for those it is best to expand along the first row.
 </p>
