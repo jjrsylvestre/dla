@@ -19,7 +19,7 @@ respective owners.
 <title>Discovery guide</title>
 
 <introduction>
-<paragraphs><title>Reminder</title><p>
+<assemblage><title>Reminder</title><p>
 The effects of the elementary row operations on the determinant are:
 <dl>
 	<li><title>swapping rows</title>
@@ -32,7 +32,7 @@ The effects of the elementary row operations on the determinant are:
 	<p><m>\det(\text{new}) = \det(\text{old})</m>.</p>
 	</li>
 </dl>
-</p></paragraphs>
+</p></assemblage>
 </introduction>
 
 <activity xml:id="activity-more-det-adjoint">
@@ -63,11 +63,14 @@ The effects of the elementary row operations on the determinant are:
 		of <m>A</m>.
 	</p></introduction>
 	<task><p>
-		Write out the <m>(1,1)</m> entry of the product <m>A\utrans{C}_A</m> as a formula in the entries of <m>A</m> and <m>C_A</m>. Does the result look familiar?
+		Write out the <m>(1,1)</m> entry of the product <m>A\utrans{C}_A</m> as a formula in the entries of <m>A</m> and <m>C_A</m>.
+		Does the result look familiar?
 	</p></task>
 	<task><p> What do you think the other diagonal entries of <m>A\utrans{C}_A</m> are? </p></task>
 	<task><p>
-		Write out the <m>(1,2)</m> entry of the product <m>A\utrans{C}_A</m> as a formula in the entries of <m>A</m> and <m>C_A</m>. Does the result look familiar? What did we discover about <q>mixed</q> cofactor expansions in
+		Write out the <m>(1,2)</m> entry of the product <m>A\utrans{C}_A</m> as a formula in the entries of <m>A</m> and <m>C_A</m>.
+		Does the result look familiar?
+		What did we discover about <q>mixed</q> cofactor expansions in
 		<xref ref="activity-det-by-row-red-det-combine-rows" />
 		and
 		<xref ref="subsection-det-by-row-red-concepts-combine-rows" />?
@@ -81,16 +84,20 @@ The effects of the elementary row operations on the determinant are:
 
 <activity xml:id="activity-more-det-row-red-det-0">
 	<task xml:id="activity-more-det-row-red-det-0-row-op-det-0"><p>
-		Suppose <m>\det A = 0</m>. If you apply some elementary row operation to <m>A</m>, what is the determinant of the new matrix? (Consider each of the three kinds of operations.)
+		Suppose <m>\det A = 0</m>.
+		If you apply some elementary row operation to <m>A</m>,
+		what is the determinant of the new matrix?
+		(Consider each of the three kinds of operations.)
 	</p></task>
 	<task xml:id="activity-more-det-row-red-det-0-row-red-det-0"><p>
-		If <m>\det A = 0</m> and you perform a whole sequence of row operations to <m>A</m>, what is the determinant of the last matrix in the sequence?
+		If <m>\det A = 0</m> and you perform a whole sequence of row operations to <m>A</m>,
+		what is the determinant of the last matrix in the sequence?
 	</p></task>
 	<task xml:id="activity-more-det-row-red-det-0-det-0-imp-n-invertible">
 		<statement><p>
-		Recall that if <m>A</m> is invertible, then it can be row reduced to <m>I</m>
-		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
-		If <m>\det A = 0</m>, could <m>A</m> be invertible?
+			Recall that if <m>A</m> is invertible, then it can be row reduced to <m>I</m>
+			(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+			If <m>\det A = 0</m>, could <m>A</m> be invertible?
 		</p></statement>
 		<hint><p>
 			Use your answer to
@@ -111,16 +118,21 @@ The effects of the elementary row operations on the determinant are:
 
 <activity xml:id="activity-more-det-row-red-det-n0">
 	<task xml:id="activity-more-det-row-red-det-n0-row-op-det-n0"><p>
-		Suppose <m>\det A \neq 0</m>. Is there any elementary row operation you can apply to <m>A</m> so that the new matrix has determinant <m>0</m>? (Consider each of the three kinds of operations.)
+		Suppose <m>\det A \neq 0</m>.
+		Is there any elementary row operation you can apply to <m>A</m> so that the new matrix has determinant <m>0</m>?
+		(Consider each of the three kinds of operations.)
 	</p></task>
 	<task xml:id="activity-more-det-row-red-det-n0-row-red-det-n0"><p>
-		If <m>\det A \neq 0</m> and you perform a whole sequence of row operations to <m>A</m>, could the last matrix in the sequence have determinant <m>0</m>?
+		If <m>\det A \neq 0</m> and you perform a whole sequence of row operations to <m>A</m>,
+		could the last matrix in the sequence have determinant <m>0</m>?
 	</p></task>
 	<task xml:id="activity-more-det-row-red-det-n0-det-n0-imp-invertible">
 		<statement><p>
-		Recall that if a matrix is singular (<ie /> not invertible), then it is <em>not</em> possible to row reduce it to <m>I</m>
-		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
-		and so its RREF must have a row of zeros. If <m>\det A \neq 0</m>, could <m>A</m> be singular?
+			Recall that if a matrix is singular (that is, not invertible),
+			then it is <em>not</em> possible to row reduce it to <m>I</m>
+			(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
+			and so its RREF must have a row of zeros.
+			If <m>\det A \neq 0</m>, could <m>A</m> be singular?
 		</p></statement>
 		<hint><p>
 			Use your answer to
@@ -141,21 +153,27 @@ The effects of the elementary row operations on the determinant are:
 
 <activity xml:id="activity-more-det-multiplicative-elem-version">
 	<p>
-	Recall that for matrix <m>A</m> and <em>elementary</em> matrix <m>E</m>, the result of <m>EA</m> is the same as the result of performing an elementary row operation on <m>A</m> (namely, the operation corresponding to <m>E</m>). Verify the formula
-	<me> \det (EA) = (\det E)(\det A) </me>
-	for <em>each</em> of the three types of elementary matrices <m>E</m> (assuming <m>A</m> to be a square matrix of the same size as <m>E</m>).
+	Recall that for matrix <m>A</m> and <em>elementary</em> matrix <m>E</m>,
+	the result of <m>E A</m> is the same as the result of performing an elementary row operation on <m>A</m>
+	(namely, the operation corresponding to <m>E</m>).
+	Verify the formula
+	<md><mrow xml:id="equation-more-det-elem-multiplicative" tag="star"> \det (E A) = (\det E) (\det A) </mrow></md>
+	for <em>each</em> of the three types of elementary matrices <m>E</m>
+	(assuming <m>A</m> to be a square matrix of the same size as <m>E</m>).
 	</p>
 	<paragraphs><title>Helpful notes</title> <!-- Note <paragraphs> is technically not supposed to be inside <activity> -->
 	<p><ul>
 		<li>
-		To verify a formula, consider LHS and RHS <em>separately</em>, and argue that they equal the same value. Do <em>not</em> work with the proposed equality directly, since you don't <em>know</em> it's an equality yet.
+			To verify a formula, consider LHS and RHS <em>separately</em>, and argue that they equal the same value.
+			Do <em>not</em> work with the proposed equality directly, since you don't <em>know</em> it's an equality yet.
 		</li>
-		<li>Do <em>not</em> just use examples; think abstractly instead.</li>
+		<li> Do <em>not</em> just use examples; think abstractly instead. </li>
 		<li>
-		For each type of <m>E</m>, on the LHS consider the product of <em>matrices</em> <m>EA</m> and how its determinant compares to <m>\det A</m> using the rules for how row operations affect determinant
-		(explored in <xref ref="worksheet-det-by-row-red"/>,
-		and recalled for you at the top of this activity section).
-		For this, think of <m>\det A = \det (\text{old})</m> and <m>\det (EA) = \det (\text{new})</m>. Then, on the RHS, consider the value of <m>\det E</m> and the corresponding product of <em>numbers</em> <m>(\det E)(\det A)</m>.
+			For each type of <m>E</m>, on the LHS consider the product of <em>matrices</em> <m>E A</m> and how its determinant compares to <m>\det A</m> using the rules for how row operations affect determinant
+			(explored in <xref ref="worksheet-det-by-row-red"/>,
+			and recalled for you at the top of this activity section).
+			For this, think of <m>\det A = \det (\text{old})</m> and <m>\det (E A) = \det (\text{new})</m>.
+			Then, on the RHS, consider the value of <m>\det E</m> and the corresponding product of <em>numbers</em> <m>(\det E) (\det A)</m>.
 		</li>
 	</ul></p>
 	</paragraphs>
@@ -163,80 +181,98 @@ The effects of the elementary row operations on the determinant are:
 
 <activity xml:id="activity-more-det-multiplicative-product-elem">
 	<introduction><p>
-		In this exercise, we will verify the general formula
-		<me>\det (MN) = (\det M)(\det N)</me>
+		In this activity, we will verify the general formula
+		<md><mrow xml:id="equation-more-det-multiplicative" tag="dstar"> \det (M N) = (\det M) (\det N) </mrow></md>
 		in the case that <m>M</m> is invertible (assuming <m>M</m> and <m>N</m> to be square matrices of the same size).
 	</p></introduction>
 	<task>
 		<statement><p>
-		Recall that every invertible matrix can be expressed as a product of elementary matrices (<xref ref="theorem-elem-matrices-equiv-to-invertible" />). For now, suppose that <m>M</m> (which we have assumed invertible) can be expressed as a product of <em>three</em> elementary matrices, say <m>M = E_1 E_2 E_3</m>. Use the formula from
-		<xref ref="activity-more-det-multiplicative-elem-version" />
-		to verify that
-		<me> \det (E_1 E_2 E_3 N) = (\det E_1)(\det E_2)(\det E_3)(\det N). </me>
+			Recall that every invertible matrix can be expressed as a product of elementary matrices
+			(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
+			For now, suppose that <m>M</m> (which we have assumed invertible) can be expressed as a product of <em>three</em> elementary matrices,
+			say <m>M = E_1 E_2 E_3</m>.
+			Use formula <xref ref="equation-more-det-elem-multiplicative" />
+			to verify that
+			<me> \det (E_1 E_2 E_3 N) = (\det E_1) (\det E_2) (\det E_3) (\det N) </me>.
 		</p></statement>
 		<hint><p>
-		Start with the LHS and apply the formula <m>\det (EA) = (\det E)(\det A)</m> one step at a time. What are you using for <m>A</m> at each step?
+			Start with the LHS and apply formula <xref ref="equation-more-det-elem-multiplicative" /> one step at a time.
+			In applying formula <xref ref="equation-more-det-elem-multiplicative" />, what are you using for <m>E</m> and for <m>A</m> at each step?
 		</p></hint>
 	</task>
 	<task><p>
-		Now use the formula from
-		<xref ref="activity-more-det-multiplicative-elem-version" />
-		to verify that
-		<me> (\det E_1)(\det E_2)(\det E_3)(\det N) = \bbrac{\det (E_1 E_2 E_3)}(\det N). </me>
+		Now use formula <xref ref="equation-more-det-elem-multiplicative" /> to verify that
+		<me> (\det E_1) (\det E_2) (\det E_3) (\det N) = \bbrac{\det (E_1 E_2 E_3)} (\det N). </me>
 	</p></task>
 	<task><p>
-		Make sure you understand why parts (a) and (b) together verify that <me>\det (MN) = (\det M)(\det N)</me> for this <m>M</m>.
+		Make sure you understand why parts (a) and (b) together verify
+		<!-- that <me>\det (M N) = (\det M) (\det N)</me> -->
+		formula <xref ref="equation-more-det-multiplicative" />
+		for this <m>M</m>.
 	</p></task>
 	<task><p>
 		Do you think the calculations in this activity would work out similarly no matter how many <m>E_i</m>'s are required to express <m>M</m> as a product of elementary matrices?
 	</p></task>
 		<!-- NOTE should uncomment this postlude if the last activity in this set (below) is omitted
 		<postlude><p>
-			In <xref ref="subsection-more-det-theory-det-formulas" />, we will establish the formula <m>\det (MN) = (\det M)(\det N)</m> in case <m>M</m> is <em>not</em> invertible.
+			In <xref ref="subsection-more-det-theory-det-formulas" />, we will establish the formula <m>\det (M N) = (\det M) (\det N)</m> in case <m>M</m> is <em>not</em> invertible.
 			(See the proof of <xref ref="proposition-more-det-product" /> in that subsection.)
 		</p></postlude>
 		-->
 </activity>
 
 <activity xml:id="activity-more-det-det-inv">
-	<introduction><p> If matrix <m>A</m> is invertible, by definition this means that <m>A\inv{A} = I</m> (as well as <m>\inv{A}A = I</m>). </p></introduction>
+	<introduction><p> If matrix <m>A</m> is invertible, by definition this means that <m>A \inv{A} = I</m> (as well as <m>\inv{A} A = I</m>). </p></introduction>
 	<task xml:id="activity-more-det-det-inv-det-orig-inv"><p>
-		Determine the value of <m>\det (A\inv{A})</m> from the equality <m>A\inv{A} = I</m>.
+		Determine the value of <m>\det (A \inv{A})</m> from the equality <m>A \inv{A} = I</m>.
 	</p></task>
 	<task>
 		<p>
 		Starting with your answer to
 		<xref ref="activity-more-det-det-inv-det-orig-inv" text="type-local" />,
-		use the formula <m>\det (MN) = (\det M)(\det N)</m> from
-		<xref ref="activity-more-det-multiplicative-product-elem" />
-		to find a formula for <m>\det (\inv{A})</m> in terms of <m>\det A</m>.
+		use formula <xref ref="equation-more-det-multiplicative" />
+		<!-- the formula <m>\det (M N) = (\det M) (\det N)</m> -->
+		from <xref ref="activity-more-det-multiplicative-product-elem" />
+		to obtain a formula for <m>\det (\inv{A})</m> in terms of <m>\det A</m>.
 		</p>
 		<aside><title>Recall</title><p>
-			A fraction <m>1/A</m> does not make sense for matrices. However, <m>\det A</m> is just a number, so you can do all the normal algebra you would like with it!
+			A fraction <m>1/A</m> does not make sense for matrices.
+			However, <m>\det A</m> is just a number, so you can do all the normal algebra you would like with it!
 		</p></aside>
 	</task>
 </activity>
 
 <activity xml:id="activity-more-det-det-multiplicative-first-factor-singular">
+
 	<p>
-	In this discovery activity, we extend the general formula
-	<me> \det (MN) = (\det M)(\det N) </me>
+	In this discovery activity, we extend
+	<!-- the general formula <me> \det (MN) = (\det M)(\det N) </me> -->
+	formula <xref ref="equation-more-det-multiplicative" />
 	to also be valid in case that <m>M</m> is singular (assuming <m>M</m> and <m>N</m> to be square matrices of the same size).
-	</p><p>
-	Recall that if <m>M</m> is singular (<ie /> not invertible), then every product <m>MN</m> is singular
+	</p>
+
+	<p>
+	Recall that if <m>M</m> is singular (<ie /> not invertible), then every product <m>M N</m> is singular
 	(<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>
 	of
 	<xref ref="proposition-elem-matrices-converse-props-of-singular" />).
-	</p><p>
+	</p>
+
+	<p>
 	Combine this with your answer to
 	<xref ref="activity-more-det-row-red-det-n0-singular-imp-det-0">Discovery</xref>
-	to verify the following formula in the case that <m>A</m> is singular.
-	<me> \det (AB) = (\det A)(\det B) </me>
+	to verify
+	<!-- the following formula -->
+	formula <xref ref="equation-more-det-multiplicative" />
+	in the case that <m>M</m> is singular.
+	<!-- <me> \det (AB) = (\det A)(\det B) </me> -->
 	</p>
-	<aside><title>Reminder</title>
-	<p>To verify a formula, consider LHS and RHS <em>separately</em>, and argue that they equal the same value. Do <em>not</em> work with the equality directly, since you don't <em>know</em> it's an equality yet. Do <em>not</em> just use examples; think abstractly instead.
-	</p>
-	</aside>
+
+	<aside><title>Reminder</title><p>
+		To verify a formula, consider LHS and RHS <em>separately</em>, and argue that they equal the same value.
+		Do <em>not</em> work with the equality directly, since you don't <em>know</em> it's an equality yet.
+		Do <em>not</em> just use examples; think abstractly instead.
+	</p></aside>
 </activity>
 
 </worksheet>
