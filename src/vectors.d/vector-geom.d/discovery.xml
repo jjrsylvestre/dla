@@ -109,7 +109,11 @@ respective owners.
 </activity>
 
 <activity xml:id="activity-vector-geom-vec-distance"><p>
-	Plot points <m>P(1,3)</m> and <m>Q(4,-1)</m> in the <m>xy</m>-plane. Now draw in the vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> that correspond to <m>\abray{OP}</m> and <m>\abray{OQ}</m>. Complete the triangle by drawing a vector between <m>P</m> and <m>Q</m>. Do you remember how to express this vector as a combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>? Now compute the distance between <m>P</m> and <m>Q</m> by computing the norm of this third vector.
+	Plot points <m>P(1,3)</m> and <m>Q(4,-1)</m> in the <m>xy</m>-plane.
+	Now draw in the vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> that correspond to <m>\abray{OP}</m> and <m>\abray{OQ}</m>.
+	Complete the triangle by drawing a vector between <m>P</m> and <m>Q</m>.
+	Do you remember how to express this vector as a combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>?
+	Now compute the distance between <m>P</m> and <m>Q</m> by computing the norm of this third vector.
 </p></activity>
 
 <activity>
@@ -145,9 +149,9 @@ respective owners.
 <activity xml:id="activity-vector-geom-dot-product">
 	<statement>
 		<p>
-		In the diagram below, consider <m>\uvec{u}</m> and <m>\uvec{v}</m> to be two-dimensional vectors. Label the third vector with the appropriate combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>. There is a version of Pythagoras that applies here even though <m>\theta\neq\degree{90}</m>, called <term>the law of cosines</term>:
-		<me> a^2 + b^2 - c^2 = 2ab\cos\theta, </me>
-		where <m>a</m> is the length of <m>\uvec{u}</m>, <m>b</m> is the length of <m>\uvec{v}</m>, and <m>c</m> is the length of the <q>hypotenuse</q> across from <m>\theta</m>. (If <m>\theta</m> were <m>\degree{90}</m>, the right-hand side would be zero and this law would be just Pythagoras.)
+		In the diagram below, consider <m>\uvec{u}</m> and <m>\uvec{v}</m> to be two-dimensional vectors.
+		Label the third vector with the appropriate combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+		just as you did in <xref ref="activity-vector-geom-vec-distance" />.
 		</p>
 		<image width="43%">
 			<!-- description gets inserted as alt text in html img tag -->
@@ -155,19 +159,31 @@ respective owners.
 			<latex-image><xi:include href="discovery.d/law-of-cosines.tex" parse="text" /></latex-image>
 		</image>
 		<p>
+		There is a version of Pythagoras that applies here even though <m>\theta\neq\degree{90}</m>, called <term>the law of cosines</term>:
+		<me> a^2 + b^2 - c^2 = 2ab\cos\theta, </me>
+		where <m>a</m> is the length of <m>\uvec{u}</m>,
+		<m>b</m> is the length of <m>\uvec{v}</m>,
+		and <m>c</m> is the length of the <q>hypotenuse</q> across from <m>\theta</m>.
+		(If <m>\theta</m> were <m>\degree{90}</m>, the right-hand side of this equality would be zero and this law would <q>collapse</q> to the same equality as Pythagoras.)
+		</p>
+		<p>
 		Use the formulas from <xref ref="activity-vector-geom-norm-formula" /> to rewrite the left-hand side of the law of cosines in terms of the components of <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>, then simplify until you get
-		<me>2\times(\text{simple formula}).</me>
+		<me>2\times(\text{simple formula})</me>.
 		</p>
 	</statement>
 
 	<postlude>
 		<p>
-		Combining the result of <xref ref="activity-vector-geom-dot-product" />
-		with the right-hand side of the law of cosines, we get
-		<me> \cos\theta = \frac{(\text{simple formula})}{\unorm{u}\unorm{v}}, </me>
-		(where <q>simple formula</q> is what you came up with in the discovery activity).
-		</p><p>
-		The <q>simple formula</q> part of this angle formula turns out to be an important one <mdash /> it is called the
+		Using the new expression <m>2\times(\text{simple formula})</m> from <xref ref="activity-vector-geom-dot-product" />
+		as the left-hand side in the law of cosines,
+		and dividing both sides by <m>2 a b</m>,
+		we get
+		<me> \cos\theta = \frac{(\text{simple formula})}{\unorm{u}\unorm{v}} </me>.
+		(Remember that <m>a</m> and <m>b</m> are the lengths of <m>\uvec{u}</m> and <m>\uvec{v}</m>, respectively.)
+		</p>
+		<p>
+		The <q>simple formula</q> part of this angle formula turns out to be an important one <mdash />
+		it is called the
 		<term>Euclidean inner product</term>
 		<idx><h>Euclidean</h><h>inner product</h></idx>
 		<idx><h>inner product</h><h>Euclidean</h></idx>

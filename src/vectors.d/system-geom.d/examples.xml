@@ -71,22 +71,29 @@ respective owners.
 	we considered a system consisting of two equations in three variables,
 	<me>
 		\left\{\begin{array}{rcrcrcr}
-			2x \amp - \amp y \amp + \amp z \amp = \amp 3\text{,} \\
-			x \amp + \amp 3y \amp - \amp 2z \amp = \amp -1\text{.}
+			2 x \amp - \amp   y \amp + \amp 5 z \amp = \amp -5 \text{,} \\
+			  x \amp + \amp 2 y \amp - \amp 5 z \amp = \amp 10 \text{.}
 		\end{array}\right.
 	</me>
-	Geometrically, each of the equations represents a plane in space, and solutions to the system represent points that are in common to both planes (<ie /> points in the intersection of the two planes). From the coefficients of the equations we may take <m>\uvec{n}_1 = (2,-1,1)</m> and <m>\uvec{n}_2 = (1,3,-2)</m> as normal vectors for the two planes, respectively. Since these normal vectors are not parallel, neither are the planes, and so they must intersect. Algebraically, this means that the coefficient parts of the two equations are not multiples of each other, so when we row reduce we will find two leading ones, representing the two independent equations with which we started. And so we will only require one parameter to express the general solution, which will then take the form of a line. The free variable in this system is <m>z</m>, so setting <m>z</m> to parameter <m>t</m> and solving we get
+	Geometrically, each of the equations represents a plane in space, and solutions to the system represent points that are in common to both planes
+	(that is, points in the intersection of the two planes).
+	From the coefficients of the equations we may take <m>\uvec{n}_1 = (2,-1,5)</m> and <m>\uvec{n}_2 = (1,2,-5)</m> as normal vectors for the two planes, respectively.
+	Since these normal vectors are not parallel, neither are the planes,
+	and so they must intersect.
+	Algebraically, this means that the coefficient parts of the two equations are not multiples of each other, so when we row reduce we will find two leading ones, representing the two independent equations with which we started.
+	And so we will only require one parameter to express the general solution, which will then take the form of a line.
+	The free variable in this system is <m>z</m>, so setting <m>z</m> to parameter <m>t</m> and solving we get
 	<me>
 		\uvec{x}
 		= \begin{bmatrix}x \\[0.5ex] y \\[0.5ex] z \end{bmatrix}
-		= \begin{bmatrix} \frac{8}{7}-\frac{t}{7} \\[6pt] -\frac{5}{7} + \frac{5t}{7} \\[0.5ex] t \end{bmatrix}
-		= \left[\begin{array}{r} \frac{8}{7} \\[0.5ex] -\frac{5}{7} \\[0.5ex] 0 \end{array}\right]
-		+ t\left[\begin{array}{r} -\frac{1}{7} \\[0.5ex] \frac{5}{7} \\[0.5ex] 1 \end{array}\right].
+		= \begin{bmatrix} -t \\ 5 + 3 t \\ t \end{bmatrix}
+		= \begin{bmatrix} 0 \\ 5 \\ 0 \end{bmatrix}
+		+ t\left[\begin{array}{r} -1 \\ 3 \\ 1 \end{array}\right].
 	</me>
 	Here, the <q>initial</q> point corresponding to <m>t=0</m> is
-	<m>\uvec{x}_0 = (8/7,-5/7,0)</m>,
+	<m>\uvec{x}_0 = (0,5,0)</m>,
 	and the vector
-	<m>\uvec{p} = (-1/7,5/7,1)</m>
+	<m>\uvec{p} = (-1,3,1)</m>
 	is parallel to the line.
 </p></statement></example>
 
@@ -96,42 +103,49 @@ respective owners.
 	we can view its equation as a system of equations,
 	just as we did with the line in
 	<xref ref="activity-system-geom-R2-line-eq2parametric" />.
-	In that activity, we worked with equation <m>x-y+2z=-3</m>.
+	In that activity, we worked with equation <m>x - y + 5 z = -5</m>.
 	For this equation, we will need two parameters to express the general solution,
 	and each parameter will provide us with a vector parallel to the plane.
-	Setting <m>y=s</m> and <m>z=t</m> and solving, we get
+	Setting <m>y = s</m> and <m>z = t</m>, we can then use the plane equation to express <m>x</m> in terms of these parameters.
+	This leads to general solution, in vector form:
 	<me>
 		\uvec{x}
 		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
-		= \begin{bmatrix} -3+s-2t \\ s \\ t \end{bmatrix}
-		= \left[\begin{array}{r} -3 \\ 0 \\0 \end{array}\right]
-		+ s\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
-		+ t\left[\begin{array}{r} -2 \\ 0 \\ 1 \end{array}\right].
-	</me>
-	Here, the <q>initial</q> point on the plane is <m>\uvec{x}_0 = (-3,0,0)</m>, which corresponds to parameter values <m>s=t=0</m>. Every other point on the plane corresponds to other choices of parameter values.
+		= \begin{bmatrix} -5 + s - 5t \\ s \\ t \end{bmatrix}
+		= \left[\begin{array}{r} -5 \\ 0 \\0 \end{array}\right]
+		+ s \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+		+ t \left[\begin{array}{r} -5 \\ 0 \\ 1 \end{array}\right]
+	</me>.
+	Here, the <q>initial</q> point on the plane is <m>\uvec{x}_0 = (-5,0,0)</m>, which corresponds to parameter values <m>s=t=0</m>.
+	Every other point on the plane corresponds to other choices of parameter values.
 	For example, as in the discovery activity,
-	the point <m>(-1,4,1)</m> is on the plane.
+	the point <m>(1,1,-1)</m> is on the plane.
 	We can verify this by checking
-	<me> -1 - 4 + 2\cdot 1 = -3, </me>
-	so that the coordinates of the point satisfy the plane equation <m>x-y+2z=-3</m>. We can also describe this point using the vector equation <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2</m>:
+	<me> 1 - 1 + 5 (-1) = -5 </me>,
+	so that the coordinates of the point satisfy the plane equation <m>x - y + 5 z = -5</m>.
+	We can also describe this point using the vector equation
+	<me> \uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2 </me>
+	as follows:
 	<me>
-		\left[\begin{array}{r} -1 \\ 4 \\ 1 \end{array}\right]
-		= \left[\begin{array}{r} -3 \\ 0 \\ 0 \end{array}\right]
-		+ s\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
-		+ t\left[\begin{array}{r} -2 \\ 0 \\ 1 \end{array}\right].
-	</me>
+		\left[\begin{array}{r} 1 \\ 1 \\ -1 \end{array}\right]
+		= \left[\begin{array}{r} -5 \\ 0 \\ 0 \end{array}\right]
+		+ s \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
+		+ t \left[\begin{array}{r} -5 \\ 0 \\ 1 \end{array}\right]
+	</me>.
 	Solving this vector equation for <m>s</m> and <m>t</m> leads to a <ellipsis /> system of linear equations!
 	<md><mrow>
-		\left[\begin{array}{r} -1 \\ 4 \\ 1 \end{array}\right]
+		\left[\begin{array}{r} 1 \\ 1 \\ -1 \end{array}\right]
 		-
-		\left[\begin{array}{r} -3 \\ 0 \\ 0 \end{array}\right]
+		\left[\begin{array}{r} -5 \\ 0 \\ 0 \end{array}\right]
 		\amp = \begin{bmatrix} s \\ s \\ 0 \end{bmatrix}
-		+ \begin{bmatrix} -2t \\ 0 \\ t \end{bmatrix}
+		+ \begin{bmatrix} -5 t \\ 0 \\ t \end{bmatrix}
 		\\
-		\begin{bmatrix} 2 \\ 4 \\ 1 \end{bmatrix}
-		\amp= \begin{bmatrix} s-2t \\ s \\ t \end{bmatrix}.
+		\left[\begin{array}{r} 6 \\ 1 \\ -1 \end{array}\right]
+		\amp= \begin{bmatrix} s - 5 t \\ s \\ t \end{bmatrix}.
 	</mrow></md>
-	From the second and third coordinates we immmediately see <m>s=4</m> and <m>t=1</m>, and we also verify that <m>s-2t = 2</m> for these parameter values, to satisfy the equality of the first coordinates on right and left.
+	From the second and third coordinates we immediately see <m>s = 1</m> and <m>t = -1</m>.
+	However, it's important to also verify that <m>s - 5 t = 6</m> for this choice of parameter values,
+	to satisfy the equality of the two first coordinates on right and left.
 </p></statement></example>
 
 </subsection>

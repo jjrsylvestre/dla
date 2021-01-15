@@ -494,20 +494,47 @@ and leave the rest to you.
 		<li>
 			<p>
 			This is
-			<xref ref="activity-basis-coords-compute-from-coords-M2-other">Discovery</xref>.
+			<xref ref="activity-basis-coords-compute-from-coords-M2-standard">Discovery</xref>.
 			</p><p>
 			Just compute the linear combination using the coordinate vector components as coefficients, in the proper order:
 			<md>
 				<mrow>
 					\uvec{w}
-					\amp= 1\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-					+ 3\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
-					+ 0\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
-					+ (-2)\begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix}
+					\amp=
+					    3  \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+					+ (-5) \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+					+   1  \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+					+   1  \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 				</mrow><mrow>
-					\amp= \begin{bmatrix} 4 \amp 3 \\ -2 \amp -2 \end{bmatrix}.
+					\amp= \left[\begin{array}{rr} 3 \amp -5 \\ 1 \amp 1 \end{array}\right]
 				</mrow>
-			</md>
+			</md>.
+			This result should not be surprising,
+			as both a <m>2 \times 2</m> matrix and a vector in <m>\R^4</m> are just a collection of four numbers.
+			</p>
+		</li>
+
+		<li>
+			<p>
+			This is
+			<xref ref="activity-basis-coords-compute-from-coords-M2-other">Discovery</xref>.
+			</p><p>
+			Again, just compute the linear combination using the coordinate vector components as coefficients, in the proper order:
+			<md>
+				<mrow>
+					\uvec{w}
+					\amp=
+					    3  \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+					+ (-5) \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+					+   1  \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+					+   1  \begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix}
+				</mrow><mrow>
+					\amp= \left[\begin{array}{rr} -2 \amp -5 \\ 2 \amp 1 \end{array}\right]
+				</mrow>
+			</md>.
+			Even though we were working with the <em>same</em> coordinate vector as in the previous example,
+			<em>we ended up with a different matrix result</em>
+			because it is relative to a different basis.
 			</p>
 		</li>
 
@@ -516,7 +543,8 @@ and leave the rest to you.
 			This is
 			<xref ref="activity-basis-coords-compute-from-coords-P3">Discovery</xref>.
 			</p><p>
-			Use the same process here as in the previous example above:  <m>\uvec{w} = -3 + x + 2x^2 + 3x^3</m>.
+			Use the same process here as in the previous two examples above:
+			<me> \uvec{w} = -3 \cdot 1 + 1 x + 0 x^2 + 3 x^3 = -3 + x + 3 x^ 3 </me>.
 			</p>
 		</li>
 
