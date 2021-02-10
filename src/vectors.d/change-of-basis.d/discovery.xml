@@ -36,9 +36,9 @@ respective owners.
 		</me>.
 	</p></task>
 	<task xml:id="activity-change-of-basis-recall-coord-vecs-to-lincomb"><p>
-		If <m> \matrixOf{\uvec{v}}{B} = \left[\begin{smallmatrix} 9 \\ -2 \\ 4 \end{smallmatrix}\right] </m>,
+		If <m> \matrixOf{\uvec{w}}{B} = \left[\begin{smallmatrix} -2 \\ 1 \\ 2 \end{smallmatrix}\right] </m>,
 		then
-		<m> \uvec{v} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </m>.
+		<m> \uvec{w} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </m>.
 	</p></task>
 </activity>
 
@@ -52,8 +52,13 @@ respective owners.
 		If <m> \matrixOf{\uvec{v}}{B} = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right] </m>
 		and <m> \matrixOf{\uvec{w}}{B} = \left[\begin{smallmatrix} -2 \\ 1 \\ 2 \end{smallmatrix}\right] </m>,
 		then
-		<me> \uvec{v} + \uvec{w} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>,
+		<md>
+			<mrow> \uvec{v} \amp = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 \text{,} </mrow>
+			<mrow> \uvec{w} \amp = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 \text{,} </mrow>
+		</md>
 		and so
+		<me> \uvec{v} + \uvec{w} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>
+		and
 		<me>
 			\matrixOf{\uvec{v} + \uvec{w}}{B}
 			= \begin{bmatrix} <fillin characters="2" /> \\ <fillin characters="2" /> \\ <fillin characters="2" /> \end{bmatrix}
@@ -75,8 +80,10 @@ respective owners.
 	<task xml:id="activity-change-of-basis-coord-vecs-vs-ops-smul-example"><p>
 		If <m> \matrixOf{\uvec{v}}{B} = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right] </m>,
 		then
-		<me> 7\uvec{v} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>,
+		<me> \uvec{v} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>,
 		and so
+		<me> 7\uvec{v} = <fillin characters="2" />\uvec{u}_1 + <fillin characters="2" />\uvec{u}_2 + <fillin characters="2" />\uvec{u}_3 </me>
+		and
 		<me>
 			\matrixOf{7 \uvec{v}}{B}
 			= \begin{bmatrix} <fillin characters="2" /> \\ <fillin characters="2" /> \\ <fillin characters="2" /> \end{bmatrix}
@@ -125,7 +132,7 @@ respective owners.
 		<me>
 			A = \begin{bmatrix}
 				| \amp | \amp | \\
-				\uvec{c}_1 \amp \uvec{c}_2 \amp \uvec{c}_3 \\
+				\uvec{a}_1 \amp \uvec{a}_2 \amp \uvec{a}_3 \\
 				| \amp | \amp |
 			\end{bmatrix}
 		</me>.
@@ -182,7 +189,7 @@ respective owners.
 		<me>
 			A = \begin{bmatrix}
 				| \amp | \amp | \\
-				\uvec{c}_1 \amp \uvec{c}_2 \amp \uvec{c}_3 \\
+				\uvec{a}_1 \amp \uvec{a}_2 \amp \uvec{a}_3 \\
 				| \amp | \amp |
 			\end{bmatrix},
 			\quad
@@ -226,17 +233,17 @@ respective owners.
 		</mrow></md>.
 	</p></task>
 	<task xml:id="activity-change-of-basis-cob-matrix-lin-comb"><p>
-		Use <xref ref="equation-change-of-basis-discovery-coord-vec-to-lincomb" />
-		and the pattern from
+		Apply the pattern from
 		<xref ref="activity-change-of-basis-coord-vecs-vs-ops-lincomb-pattern" />
-		to obtain an expression for <m>\matrixOf{\uvec{w}}{B'}</m> as a linear combination of certain other coordinate vectors.
+		to <xref ref="equation-change-of-basis-discovery-coord-vec-to-lincomb" />
+		to obtain an expression for <m>\matrixOf{\uvec{w}}{B'}</m> as a linear combination of coordinate vectors.
 	</p></task>
 	<task xml:id="activity-change-of-basis-cob-matrix-create">
 		<p>
 		Remember that the coordinate vectors in your linear combination from
 		<xref ref="activity-change-of-basis-cob-matrix-lin-comb" text="type-local" />
 		are vectors in <m>\R^n</m>,
-		so they can be thought of as column vectors (as we have been doing in this worksheet).
+		so they can be thought of as column vectors (as we have been doing in this discovery guide).
 		</p><p>
 		In <xref ref="activity-change-of-basis-matrix-times-col-pattern" />,
 		we established a new pattern for matrix-times-column-vector.
@@ -297,7 +304,7 @@ respective owners.
 	<task><p>
 		This vector space is four-dimensional,
 		not three-dimensional like the abstract vector space used in our development through examples in the previous activities of this discovery guide.
-		What size of matrix should <m> \ucobmtrx{S}{B} </m> here?
+		What size of matrix should <m> \ucobmtrx{S}{B} </m> be here?
 	</p></task>
 	<task><p>
 		Use the pattern you described in
