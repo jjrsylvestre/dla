@@ -46,83 +46,92 @@ First, we'll record just a few of the facts about general similar matrices from
 		<li xml:id="proposition-diagonalization-similar-matrices-properties-same-det">
 			Similar matrices have the same determinant.
 		</li>
-		<li> Similar matrices have the same characteristic polynomial. </li>
-		<li>
+		<li xml:id="proposition-diagonalization-similar-matrices-properties-same-char-poly">
+			Similar matrices have the same characteristic polynomial.
+		</li>
+		<li xml:id="proposition-diagonalization-similar-matrices-properties-same-evalues">
 			Similar matrices have the same eigenvalues,
 			with the same algebraic multiplicities.
 		</li>
 	</ol></p></statement>
 
-	<proof><p>
+	<proof>
+		<title>Proof of <xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref></title>
+		<p>
 		Suppose square matrices <m>A</m> and <m>B</m> are similar,
 		and <m>P</m> is a transition matrix that realizes the similarity,
 		so that <m>B = \inv{P}AP</m>.
-		<ol>
+		</p>
+		<p>
+		We know from
+		<xref ref="proposition-more-det-product" />
+		that the determinant of a product is the product of the determinants.
+		And we also know from
+		<xref ref="proposition-more-det-inverse" />
+		that the determinant of an inverse is the inverse of the determinant.
+		So we can compute <m>\det B</m> as
+		<md>
+			<mrow> \det B \amp= \det (\inv{P}AP) </mrow>
+			<mrow> \amp= \left(\det \inv{P}\right) (\det A) (\det P) </mrow>
+			<mrow> \amp= \inv{(\det P)} (\det A) (\det P) </mrow>
+			<mrow> \amp= \frac{(\det A) \bcancel{(\det P)}}{\bcancel{\det P}} </mrow>
+			<mrow> \amp= \det A. </mrow>
+		</md>
+		Thus, the similar matrices <m>A</m> and <m>B</m> have the same determinant.
+		</p>
+		<warning><title>Careful</title><p>
+			In this proof,
+			it would have been <em>incorrect</em> to cancel the <m>\inv{P}</m> with the <m>P</m> immediately,
+			because <em>order of matrix multiplication matters</em>!
+			It was only after we split the determinant into a <em>product</em> of determinants that we could cancel
+			<m>\det\left(\inv{P}\right)</m>
+			with <m>\det P</m> because all three of the determinants are <em>numbers</em>,
+			and order of <em>number</em> multiplication does not matter.
+		</p></warning>
+	</proof>
 
-			<li>
-				<p>
-				We know from
-				<xref ref="proposition-more-det-product" />
-				that the determinant of a product is the product of the determinants.
-				And we also know from
-				<xref ref="proposition-more-det-inverse" />
-				that the determinant of an inverse is the inverse of the determinant.
-				So we can compute <m>\det B</m> as
-				<md>
-					<mrow> \det B \amp= \det (\inv{P}AP) </mrow>
-					<mrow> \amp= \left(\det \inv{P}\right) (\det A) (\det P) </mrow>
-					<mrow> \amp= \inv{(\det P)} (\det A) (\det P) </mrow>
-					<mrow> \amp= \frac{(\det A) \bcancel{(\det P)}}{\bcancel{\det P}} </mrow>
-					<mrow> \amp= \det A. </mrow>
-				</md>
-				Thus, the similar matrices <m>A</m> and <m>B</m> have the same determinant.
-				</p>
-				<warning><title>Careful.</title><p> <!-- TODO huh? why does this title need a . -->
-					In this proof of the first statement,
-					it would have been <em>incorrect</em> to cancel the <m>\inv{P}</m> with the <m>P</m> immediately,
-					because <em>order of matrix multiplication matters</em>!
-					It was only after we split the determinant into a <em>product</em> of determinants that we could cancel
-					<m>\det\left(\inv{P}\right)</m>
-					with <m>\det P</m> because all three of the determinants are <em>numbers</em>,
-					and order of <em>number</em> multiplication does not matter.
-				</p></warning>
-			</li>
+	<proof>
+		<title>Proof of <xref ref="proposition-diagonalization-similar-matrices-properties-same-char-poly">Statement</xref></title>
+		<p>
+		Suppose square matrices <m>A</m> and <m>B</m> are similar,
+		and <m>P</m> is a transition matrix that realizes the similarity,
+		so that <m>B = \inv{P}AP</m>.
+		</p>
+		<p>
+		The characteristic polynomials of these two matrices are computed as
+		<md><mrow>
+			c_A(\lambda) \amp= \det(\lambda I - A), \amp
+			c_B(\lambda) \amp= \det(\lambda I - B).
+		</mrow></md>
+		Using our assumption
+		<m>B = \inv{P}AP</m>,
+		along with
+		<m>I = \inv{P}IP</m>,
+		we can express the matrix involved in the characteristic polynomial for <m>B</m> as
+		<me> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </me>
+		where in the last step we have factored the common <m>\inv{P}</m> and <m>P</m> factors out of the difference
+		(making sure to factor each to the correct side,
+		because <em>order of matrix multiplication matters</em>).
+		We have now shown that matrices <m>\lambda I - A</m> and <m>\lambda I - B</m> are also similar,
+		via the same transition matrix <m>P</m>,
+		and so by
+		<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
+		they have the same determinant.
+		That is,
+		<me> c_B(\lambda) = \det(\lambda I - B) = \det(\lambda I - A) = c_A(\lambda), </me>
+		and thus the similar matrices <m>A</m> and <m>B</m> have the same characteristic polynomial.
+		</p>
+	</proof>
 
-			<li>
-				The characteristic polynomials of these two matrices are computed as
-				<md><mrow>
-					c_A(\lambda) \amp= \det(\lambda I - A), \amp
-					c_B(\lambda) \amp= \det(\lambda I - B).
-				</mrow></md>
-				Using our assumption
-				<m>B = \inv{P}AP</m>,
-				along with
-				<m>I = \inv{P}IP</m>,
-				we can express the matrix involved in the characteristic polynomial for <m>B</m> as
-				<me> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </me>
-				where in the last step we have factored the common <m>\inv{P}</m> and <m>P</m> factors out of the difference
-				(making sure to factor each to the correct side,
-				because <em>order of matrix multiplication matters</em>).
-				We have now shown that matrices <m>\lambda I - A</m> and <m>\lambda I - B</m> are also similar,
-				via the same transition matrix <m>P</m>,
-				and so by
-				<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
-				of
-				<xref ref="proposition-diagonalization-similar-matrices-properties" />
-				they have the same determinant.
-				That is,
-				<me> c_B(\lambda) = \det(\lambda I - B) = \det(\lambda I - A) = c_A(\lambda), </me>
-				and thus the similar matrices <m>A</m> and <m>B</m> have the same characteristic polynomial.
-			</li>
-
-			<li>
-				The eigenvalues of a matrix are precisely the roots of the characteristic polynomial of the matrix,
-				so if two matrices have the same characteristic polynomial they must have the same eigenvalues,
-				each with the same corresponding algebraic multiplicity.
-			</li>
-
-		</ol>
-	</p></proof>
+	<proof>
+		<title>Proof of <xref ref="proposition-diagonalization-similar-matrices-properties-same-evalues">Statement</xref></title>
+		<p>
+		<xref ref="proposition-diagonalization-similar-matrices-properties-same-evalues">Statement</xref>
+		follows immediately from <xref ref="proposition-diagonalization-similar-matrices-properties-same-char-poly">Statement</xref>,
+		as the eigenvalues of a matrix are precisely the roots of the characteristic polynomial of the matrix,
+		and the algebraic multiplicity of an eigenvalue is the number of times that value is repeated as a root of the characteristic polynomial.
+		</p>
+	</proof>
 
 </proposition>
 

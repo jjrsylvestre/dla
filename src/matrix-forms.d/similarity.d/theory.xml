@@ -132,34 +132,44 @@ as the first <q>simple</q> form of interest.
 	</proof>
 </proposition>
 
-<proposition>
+<proposition xml:id="proposition-similarity-null-col-spaces">
 	<statement><p>
 		Assume <m>B = \inv{P} A P</m>.
 		Then
 		<ol>
-			<li> The transition matrix <m>P</m> transforms null space vectors of <m>B</m> into null space vectors of <m>A</m>. </li>
-			<li> The transition matrix <m>P</m> transforms column space vectors of <m>B</m> into column space vectors of <m>A</m>. </li>
+			<li xml:id="proposition-similarity-null-col-spaces-null">
+				The transition matrix <m>P</m> transforms null space vectors of <m>B</m> into null space vectors of <m>A</m>.
+			</li>
+			<li xml:id="proposition-similarity-null-col-spaces-col">
+				The transition matrix <m>P</m> transforms column space vectors of <m>B</m> into column space vectors of <m>A</m>.
+			</li>
 		</ol>
 	</p></statement>
-	<proof><title>Proof idea</title><p><ol>
-		<li>
-			Assume <m>B \uvec{x} = \zerovec</m>.
-			Substitute the similarity relation <m>B = \inv{P} A P</m> into this equality and rearrange to demonstrate that <m>A (P \uvec{x}) = \zerovec</m>.
-		</li>
-		<li>
-			If vector <m>\uvec{b}</m> is in the column space of <m>B</m>, then the system <m>B \uvec{x} = \uvec{b}</m> is consistent.
-			(See the discussion in <xref ref="subsection-col-row-null-space-concepts-colspace"/>.)
-			Substitute the similarity relation <m>B = \inv{P} A P</m> in <m>B \uvec{x} = \uvec{b}</m> and rearrange to demonstrate that the system
-			<m>A (P \uvec{x}) = P \uvec{b}</m> is consistent,
-			which means that <m>P \uvec{b}</m> is in the column space of <m>A</m>.
-		</li>
-	</ol></p></proof>
+	<proof>
+		<title>Proof idea for <xref ref="proposition-similarity-null-col-spaces-null">Statement</xref></title>
+		<p>
+		Assume <m>\uvec{x} = \uvec{x}_0</m> is a solution to <m>B \uvec{x} = \zerovec</m>,
+		so that <m>B \uvec{x}_0 = \zerovec</m> is true.
+		Substitute the similarity relation <m>B = \inv{P} A P</m> into this vector equality and rearrange to demonstrate that <m>\uvec{x} = P \uvec{x}_0</m> is a solution to
+		<m>A \uvec{x} = \zerovec</m>.
+		</p>
+	</proof>
+	<proof>
+		<title>Proof idea for <xref ref="proposition-similarity-null-col-spaces-col">Statement</xref></title>
+		<p>
+		If vector <m>\uvec{b}</m> is in the column space of <m>B</m>, then the system <m>B \uvec{x} = \uvec{b}</m> is consistent.
+		(See the discussion in <xref ref="subsection-col-row-null-space-concepts-colspace"/>.)
+		So suppose <m>\uvec{x} = \uvec{x}_0</m> is a solution to this system,
+		so that <m>B \uvec{x}_0 = \uvec{b}</m> is true.
+		Substitute the similarity relation <m>B = \inv{P} A P</m> into this vector equality and rearrange to demonstrate that
+		<m>\uvec{x} = P \uvec{x}_0</m> is a solution to the system <m>A \uvec{x} = P \uvec{b}</m>.
+		Hence this system is consistent,
+		which means that <m>P \uvec{b}</m> is in the column space of <m>A</m>.
+		</p>
+	</proof>
 </proposition>
 
-<p>
-The following corollary follows from the proposition due to the fact that the transition matrix <m>P</m> is invertible.
-We will just state this corollary without proof.
-</p>
+<p> The following corollary follows from the proposition due to the fact that the transition matrix <m>P</m> is invertible. </p>
 
 <corollary xml:id="corollary-similarity-rank-nullity">
 	<title>Rank and nullity of similar matrices</title>
@@ -168,21 +178,39 @@ We will just state this corollary without proof.
 		and also the dimensions of the column spaces of the two matrices are equal.
 		In other words, similar matrices have the same nullity and rank.
 	</p></statement>
+	<proof><title>Proof idea</title>
+		<p>
+		We will outline the proof of equal nullities by considering maximally linearly independent sets of null space vectors;
+		the proof of equal ranks can be similarly obtained by considering maximally linearly sets of column space vectors.
+		</p>
+		<p>
+		We have already seen in <xref ref="proposition-similarity-null-col-spaces" /> that if <m>B = \inv{P} A P</m>,
+		then the transition matrix <m>P</m> transforms null space vectors of <m>B</m> into null space vectors of <m>A</m>.
+		The symmetry of the similarity relation tells that <m>\inv{P}</m> will do the reverse:
+		transform null space vectors of <m>A</m> into null space vectors of <m>B</m>.
+		Applying <xref ref="proposition-col-row-null-space-dep-indep-of-images-indep-implies-indep-of-images">Statement</xref>
+		of <xref ref="proposition-col-row-null-space-dep-indep-of-images" />
+		with <m>E = P</m> to a maximal linearly independent set of null space vectors of <m>B</m>,
+		or with <m>E = \inv{P}</m> to a maximal linearly independent set of null space vectors of <m>A</m>,
+		we see that such maximal linearly independent sets must be the same size for <m>A</m> as for <m>B</m>.
+		As dimension is the size of a basis, and a basis is a maximally linearly independent set
+		(see <xref ref="theorem-basis-coords-basis-is-minimal-maximal-basis-is-maximal" text="type-local">Statement</xref>
+		of <xref ref="theorem-basis-coords-basis-is-minimal-maximal" />)
+		the dimensions of the two null spaces must be the same.
+	</p></proof>
 </corollary>
 
-<p> Now we work toward relating eigenvalues and eigenvectors between similar matrices. </p>
+<p>
+Now we record some facts relating eigenvalues and eigenvectors between similar matrices.
+Note that we have already recorded (and proved) some of these facts in <xref ref="subsection-diagonalization-theory-similar" />.
+</p>
 
 <proposition xml:id="proposition-similarity-similar-same-det">
 	<!-- TODO add same trace? -->
 	<statement><p> Similar matrices have the same determinant. </p></statement>
-	<proof><title>Proof idea</title><p>
-		Assuming <m>B = \inv{P} A P</m>, begin with <m>\det B = \det (\inv{P} A P)</m>, and use
-		<xref ref="proposition-more-det-product-many-matrices">Statement</xref>
-		of
-		<xref ref="proposition-more-det-product" />
-		and
-		<xref ref="proposition-more-det-inverse" />
-		to simplify.
+	<proof><p>
+		We have already stated and proved this fact as <xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
+		of <xref ref="proposition-diagonalization-similar-matrices-properties" />.
 	</p></proof>
 </proposition>
 
@@ -194,36 +222,46 @@ We will just state this corollary without proof.
 		if <m>B = \inv{P} A P</m>,
 		then for each shared eigenvalue the transition matrix <m>P</m> transforms eigenvectors of <m>B</m> into eigenvectors of <m>A</m>.
 	</p></statement>
-	<proof><title>Proof idea</title><p>
-		Assume <m>B = \inv{P} A P</m>.
-		Then using this similarity relation and the identity <m>\inv{P} P = I</m>,
-		one can show that <m>\lambda I - B = \inv{P} (\lambda I - A) P</m> as well.
-		Thus the matrices <m>\lambda I - B</m> and <m>\lambda I - A</m> are also similar,
-		and hence have the same determinant
-		(<xref ref="proposition-similarity-similar-same-det" />).
-		Therefore, the characteristic polynomial of <m>B</m> is the same as that of <m>A</m>.
-		And since the eigenvalues of a matrix are precisely the roots of its characteristic polynomial,
-		these similar matrices must also have the same eigenvalues.
-		</p><p>
-		Finally, suppose <m>\uvec{x}_0</m> is an eigenvector of <m>B</m> corresponding to eigenvalue <m>\lambda</m>.
+	<proof><title>Proof idea</title>
+		<p>
+		Note that we have already stated and proved the fact about eigenvalues and their multiplicities as
+		<xref ref="proposition-diagonalization-similar-matrices-properties-same-evalues">Statement</xref>
+		of <xref ref="proposition-diagonalization-similar-matrices-properties" />.
+		So all that remains is to prove the proposed fact about eigenvectors.
+		</p>
+		<p>
+		So assume <m>B = \inv{P} A P</m>,
+		and suppose <m>\uvec{x}_0</m> is an eigenvector of <m>B</m> corresponding to eigenvalue <m>\lambda</m>.
 		By definition, this means <me>B \uvec{x}_0 = \lambda \uvec{x}_0</me>.
-		Substitute the similarity relation for <m>A</m> and <m>B</m> and rearrange to <me>A (P \uvec{x}_0) = \lambda (P \uvec{x}_0)</me>,
-		which says that <m>P \uvec{x}_0</m> is an eigenvector of <m>A</m> corresponding to eigenvalue <m>\lambda</m>.
+		Substitute the assumed similarity relation for <m>A</m> and <m>B</m> and rearrange to <me>A (P \uvec{x}_0) = \lambda (P \uvec{x}_0)</me>,
+		which says that <m>P \uvec{x}_0</m> is an eigenvector of <m>A</m> corresponding to the shared eigenvalue <m>\lambda</m>.
 	</p></proof>
 </theorem>
 
 <p>
 Similarly to null spaces and column spaces of similar matrices above,
 the following corollary follows from the theorem due to the fact that the transition matrix <m>P</m> is invertible.
-We will also just state this corollary without proof.
 </p>
 
-<corollary><statement><p>
-	If <m>A</m> and <m>B</m> are similar matrices and <m>\lambda</m> is a shared eigenvalue of these two matrices,
-	then the eigenspace of <m>A</m> corresponding to <m>\lambda</m> has the same dimension as the eigenspace of <m>B</m> corresponding to <m>\lambda</m>.
-	In other words,
-	the geometric multiplicity of <m>\lambda</m> as an eigenvalue of <m>A</m> is the same as the geometric multiplicity of <m>\lambda</m> as an eigenvalue of <m>B</m>.
-</p></statement></corollary>
+<corollary>
+	<statement><p>
+		If <m>A</m> and <m>B</m> are similar matrices and <m>\lambda</m> is a shared eigenvalue of these two matrices,
+		then the eigenspace of <m>A</m> corresponding to <m>\lambda</m> has the same dimension as the eigenspace of <m>B</m> corresponding to <m>\lambda</m>.
+		In other words,
+		the geometric multiplicity of <m>\lambda</m> as an eigenvalue of <m>A</m> is the same as the geometric multiplicity of <m>\lambda</m> as an eigenvalue of <m>B</m>.
+	</p></statement>
+	<proof><title>Proof idea</title><p>
+		This is essentially the same as the proof of <xref ref="corollary-similarity-rank-nullity" />:
+		if <m>B = \inv{P} A P</m>,
+		then from <xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" /> we know that the transition matrix <m>P</m> will transform vectors in the eigenspace <m>E_\lambda(B)</m> into vectors in the eigenspace <m>E_\lambda(A)</m> for any shared eigenvalue of <m>A</m> and <m>B</m>,
+		and <m>\inv{P}</m> will do the reverse.
+		Applying <xref ref="proposition-col-row-null-space-dep-indep-of-images-indep-implies-indep-of-images">Statement</xref>
+		of <xref ref="proposition-col-row-null-space-dep-indep-of-images" />
+		with <m>E = P</m> to a maximal linearly independent set of vectors in <m>E_\lambda(B)</m>,
+		or with <m>E = \inv{P}</m> to a maximal linearly independent set of vectors in <m>E_\lambda(A)</m>,
+		we see that such maximal linearly independent sets must be the same size for <m>A</m> as for <m>B</m>.
+	</p></proof>
+</corollary>
 
 </subsection>
 
