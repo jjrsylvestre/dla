@@ -91,8 +91,6 @@ ${BUILDDIR}/html/.sentinal.%: ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx
 	  --publisher html-out.xml \
 	  --parameters \
 		html.css.extra dla.css \
-	    html.knowl.example no \
-	    numbering.projects.level 2 \
 	  --directory ${BUILDDIR}/html \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-${*}.ptx
 	@echo "...copying css style customizations"
