@@ -21,6 +21,12 @@ respective owners.
 <activity xml:id="activity-sys-diff-eq-one-var">
 	<task>
 		<p> Verify that <m>y(t) = 5 e^{-2t}</m> solves the differential equation <m>\dydt = -2 y(t)</m>. </p>
+
+		<p>
+		<em>Note:</em> Remember that <em>verifying</em> a function is a solution to a differential equation does not require you <em>solve</em> the differential equation <mdash />
+		you just need to verify that left-hand and right-hand sides evaluate to the same result when the proposed solution function is substituted.
+		</p>
+
 		<p> What is the initial value of the solution function? </p>
 	</task>
 	<task xml:id="activity-sys-diff-eq-one-var-pattern"><p>
@@ -192,19 +198,58 @@ respective owners.
 	</p></task>
 </activity>
 
-<activity>
-	<p>
-	The equation <me> y''(t) + 5 y'(t) + 4 y(t) = 0 </me>
-	is an example of a homogeneous, linear, second-order differential equation.
-	</p><p>
-	Setting <m>y_1(t) = y(t)</m> and <m>y_2(t) = y'(t)</m>,
-	turn the second-order equation into a coupled system of first-order equations.
-	Then try to solve by diagonalizing the coefficient matrix.
-	</p><p>
-	When you have computed the characteristic polynomial of the coefficient matrix,
-	look back at the original second-order differential equation.
-	Do you notice anything special?
-	</p>
+<activity xml:id="activity-sys-diff-eq-second-order">
+
+	<introduction>
+
+		<p>
+		The equation <me> y''(t) + 5 y'(t) + 4 y(t) = 0 </me>
+		is an example of a homogeneous, linear, second-order differential equation.
+		</p>
+
+		<p>
+			We will try to use vector/matrix methods to solve this equation.
+			The vector of unknown functions we will use is
+			<me> \mathbf{y}(t) = \begin{bmatrix} y(t) \\ y'(t) \end{bmatrix} </me>.
+			So, effectively we are setting <m>y_1(t) = y(t)</m> and <m>y_2(t) = y'(t)</m>.
+		</p>
+
+	</introduction>
+
+	<task xml:id="activity-sys-diff-eq-second-order-set-up">
+		<statement><p>
+			Let's set up our system of linear differential equations.
+			<md>
+				<mrow> y_1'(t) \amp = <fillin characters="3" /> y_1(t) + <fillin characters="3" /> y_2(t) </mrow>
+				<mrow> y_2'(t) \amp = <fillin characters="3" /> y_1(t) + <fillin characters="3" /> y_2(t) </mrow>
+			</md>
+		</p></statement>
+		<hint><p>
+			You can obtain the first equation by combining our definitions of <m>y_1(t)</m> and <m>y_2(t)</m>.
+			For the second equation, use the original differential equation and the fact that
+			<me> y_2'(t) = y_1''(t) </me>.
+		</p></hint>
+	</task>
+
+	<task xml:id="activity-sys-diff-eq-second-order-solve"><p>
+		Solve the system from <xref ref="activity-sys-diff-eq-second-order-set-up" text="type-local" />
+		by diagonalizing the coefficient matrix to decouple the system.
+	</p></task>
+
+	<task>
+
+		<p>
+		As part of <xref ref="activity-sys-diff-eq-second-order-solve" text="type-local" />,
+		you should have computed the characteristic polynomial of the coefficient matrix.
+		</p>
+
+		<p>
+		Compare this coefficient polynomial with the original second-order differential equation.
+		Do you notice anything special?
+		</p>
+
+	</task>
+
 </activity>
 
 </worksheet>
