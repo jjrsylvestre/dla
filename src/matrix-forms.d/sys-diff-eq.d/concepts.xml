@@ -176,15 +176,15 @@ for an example of solving an initial value problem involving a system of differe
 <p>
 Every homogeneous, second-order, linear differential equation
 <md><mrow xml:id="equation-sys-diff-eq-concepts-2nd-order" tag="tstar">
-	y'' - a y' - b y = 0
+	y'' - \alpha y' - \beta y = 0
 </mrow></md>
 can be recast as a coupled system of differential equations by setting <m>x(t) = y'(t)</m>.
 Then
-<me> x' = y'' = a y' + b y = a x + b y </me>,
+<me> x' = y'' = \alpha y' + \beta y = \alpha x + \beta y </me>,
 giving us system
 <me>
 	\left\{\begin{array}{rcrcr}
-		x' \amp = \amp a x \phantom{\text{.}} \amp + \amp b y \text{,} \\
+		x' \amp = \amp \alpha x \phantom{\text{.}} \amp + \amp \beta y \text{,} \\
 		y' \amp = \amp x \text{.}
 	\end{array}\right.
 </me>
@@ -195,11 +195,11 @@ but if we are able to solve this way we should remember that in the end we are o
 as the solution of <m>x(t)</m> should just be the derivative of <m>y(t)</m>.
 </p><p>
 Let's take at least the first steps to diagonalizing the coefficient matrix
-<me> A = \begin{bmatrix} a \amp b \\ 1 \amp 0 \end{bmatrix} </me>
+<me> A = \begin{bmatrix} \alpha \amp \beta \\ 1 \amp 0 \end{bmatrix} </me>
 by computing
-<me> \lambda I - A = \begin{bmatrix} \lambda - a \amp - b \\ - 1 \amp \lambda \end{bmatrix} </me>,
+<me> \lambda I - A = \begin{bmatrix} \lambda - \alpha \amp - \beta \\ - 1 \amp \lambda \end{bmatrix} </me>,
 which leads to characteristic polynomial
-<me> c_A(\lambda) = \det (\lambda I - A) = \lambda^2 - a\lambda - b </me>.
+<me> c_A(\lambda) = \det (\lambda I - A) = \lambda^2 - \alpha \lambda - \beta </me>.
 If you compare this characteristic polynomial with the original second-order differential equation
 <xref ref="equation-sys-diff-eq-concepts-2nd-order" />,
 you should notice a similarity.
