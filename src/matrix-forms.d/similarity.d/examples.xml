@@ -30,6 +30,7 @@ respective owners.
 <title>The algebraic pattern of similarity</title>
 
 <example xml:id="example-similarity-examples-algebraic-pattern">
+
 	<p>
 	Let's verify the algebraic pattern of similarity identified in
 	<xref ref="activity-similarity-algebraic" />
@@ -59,7 +60,24 @@ respective owners.
 		\text{.}
 	</mrow></md>
 	Let's verify that <m>A</m> and <m>B</m> are similar and that <m>P</m> is a transition matrix that realizes that similarity relationship using the aforementioned algebraic pattern of similarity.
-	The columns of <m>P</m> are
+	</p>
+
+	<p>
+	<xref ref="pattern-similarity-concepts-similarity-by-columns" /> says that each column of <m>B</m> should tell us how to decompose the result of computing <m>A</m> times the corresponding column of <m>P</m> as a linear combination of all the columns of <m>P</m>.
+	In other words, we should have
+	<me>
+		\begin{array}{rcrcrcr}
+			A \uvec{p}_1 \amp = \amp - \uvec{p}_1 \amp + \amp 2 \uvec{p}_2 \amp + \amp \uvec{p}_3 \text{,} \\
+			A \uvec{p}_2 \amp = \amp 12 \uvec{p}_1 \amp - \amp \uvec{p}_2 \amp - \amp 5 \uvec{p}_3 \text{,} \\
+			A \uvec{p}_3 \amp = \amp -23 \uvec{p}_1 \amp + \amp 8 \uvec{p}_2 \amp + \amp 11 \uvec{p}_3 \text{,}
+		\end{array}
+	</me>
+	where <m>\uvec{p}_1, \uvec{p}_2, \uvec{p}_3</m> represent the columns of <m>P</m>,
+	and the coefficients in each of these linear combinations are taken from the corresponding column of <m>B</m>.
+	</p>
+
+	<p>
+	We have
 	<md><mrow>
 		\uvec{p}_1 \amp = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \text{,} \amp
 		\uvec{p}_2 \amp = \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} \text{,} \amp
@@ -72,24 +90,22 @@ respective owners.
 		A \uvec{p}_3 \amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{.}
 	</mrow></md>
 	On the other hand,
-	if we use the columns of <m>B</m> as coefficients in linear combinations of the columns of <m>P</m>,
-	we get
-	<me>
-		\begin{array}{rcrcrcr}
-			P \uvec{b}_1 \amp = \amp - \uvec{p}_1 \amp + \amp 2 \uvec{p}_2 \amp + \amp \uvec{p}_3 \text{,} \\
-			P \uvec{b}_2 \amp = \amp 12 \uvec{p}_1 \amp - \amp \uvec{p}_2 \amp - \amp 5 \uvec{p}_3 \text{,} \\
-			P \uvec{b}_3 \amp = \amp -23 \uvec{p}_1 \amp + \amp 8 \uvec{p}_2 \amp + \amp 11 \uvec{p}_3 \text{.}
-		\end{array}
-	</me>
-	Computing these linear combinations,
-	we get
+	we have
 	<md>
 		<mrow>
-			- \uvec{p}_1 + 2 \uvec{p}_2 + \uvec{p}_3 \amp = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \text{,}
-		</mrow><mrow>
-			12 \uvec{p}_1 - \uvec{p}_2 - 5 \uvec{p}_3 \amp = \begin{bmatrix} 2 \\ 13 \\ 11 \end{bmatrix} \text{,}
-		</mrow><mrow>
-			-23 \uvec{p}_1 + 8 \uvec{p}_2 + 11 \uvec{p}_3 \amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{,}
+			- \uvec{p}_1 + 2 \uvec{p}_2 + \uvec{p}_3
+			= - \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} + 2 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} + \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right]
+			\amp = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \text{,}
+		</mrow>
+		<mrow>
+			12 \uvec{p}_1 - \uvec{p}_2 - 5 \uvec{p}_3
+			= 12 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} - \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} - 5 \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right]
+			\amp = \begin{bmatrix} 2 \\ 13 \\ 11 \end{bmatrix} \text{,}
+		</mrow>
+		<mrow>
+			-23 \uvec{p}_1 + 8 \uvec{p}_2 + 11 \uvec{p}_3
+			= -23 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} + 8 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} + 11 \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right]
+			\amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{,}
 		</mrow>
 	</md>
 	each of which agree with the corresponding <m>A \uvec{p}_j</m> calculation above.
@@ -98,14 +114,15 @@ respective owners.
 
 <remark><p>
 	In the example above,
-	we are really just computing and comparing <m>AP</m> and <m>PB</m> in a roundabout way,
+	we are really just computing and comparing <m>AP</m> and <m>PB</m>,
 	since those two products are where we got our patten of similarity.
 	Rather than a computational tool,
 	the algebraic pattern of similarity identified in
 	<xref ref="activity-similarity-algebraic" />
 	and
 	<xref ref="subsection-similarity-concepts-algebra" />
-	will be a theoretical tool to bring the theory of the vector space <m>\R^n</m> to bear on the analysis of various specific similarity patterns that we will explore in the chapters to come.
+	will be a theoretical tool to bring the theory of the vector space <m>\R^n</m> (or <m>\C^n</m>, as appropriate)
+	to bear on the analysis of various specific similarity patterns that we will explore in the chapters to come.
 </p></remark>
 
 </subsection>
