@@ -306,6 +306,46 @@ we will explore the properties of block-diagonal matrices.
 	</p></task>
 </activity>
 
+<activity><p>
+	By restricting ourselves to row operations that only swap or combine rows involving a single block,
+	we can reduce a block-diagonal matrix by reducing the blocks.
+	For example,
+	<me>
+		\left[\begin{array}{rrrrrrr}
+			1 \amp 1 \amp 1 \\
+			2 \amp 2 \amp 2 \\
+			0 \amp 1 \amp 0 \\
+			\amp \amp \amp 1 \amp -1 \\
+			\amp \amp \amp 1 \amp 1 \\
+			\amp \amp \amp \amp \amp 1 \amp -1 \\
+			\amp \amp \amp \amp \amp 2 \amp -2
+		\end{array}\right]
+		\to
+		\left[\begin{array}{rrrrrrr}
+			1 \amp 0 \amp 1 \\
+			0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 0 \\
+			\amp \amp \amp 1 \amp 0 \\
+			\amp \amp \amp 0 \amp 1 \\
+			\amp \amp \amp \amp \amp 1 \amp -1 \\
+			\amp \amp \amp \amp \amp 0 \amp 0
+		\end{array}\right]
+	</me>
+	The reduced matrix is not technically in RREF,
+	because there is a row of zeros that is not at the bottom.
+	But it still allows us to see the patterns of leading variables versus free variables:
+	<ul>
+		<li>
+			The rank of a block-diagonal matrix is the <fillin characters="10" />
+			of the ranks of the blocks.
+		</li>
+		<li>
+			The nullity of a block-diagonal matrix is the <fillin characters="10" />
+			of the nullities of the blocks.
+		</li>
+	</ul>
+</p></activity>
+
 <activity xml:id="activity-block-diag-det">
 	<task xml:id="activity-block-diag-det-example"><p>
 		Compute the determinant of the block-diagonal matrix

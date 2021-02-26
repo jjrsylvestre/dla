@@ -33,7 +33,7 @@ respective owners.
 <p>
 First, we'll record some of the properties of block-diagonal matrices explored in the latter part of
 <xref ref="worksheet-block-diag" />.
-As we have sufficiently explored these patterns in <xref ref="worksheet-block-diag" />,
+As we have sufficiently explored most of these patterns in <xref ref="worksheet-block-diag" />,
 we state these properties without proof.
 </p>
 
@@ -76,6 +76,16 @@ we state these properties without proof.
 					\begin{bmatrix} \uvec{x}_1 \\ \uvec{x}_2 \\ \vdots \\ \uvec{x}_\ell \end{bmatrix}
 					= \begin{bmatrix} A_1 \uvec{x}_1 \\ A_2 \uvec{x}_2 \\ \vdots \\ A_\ell \uvec{x}_\ell \end{bmatrix}
 				</me>.
+			</li>
+			<li>
+				If <m>\uvec{x}_j</m> is a null space vector of block <m>A_j</m>, for each index <m>j</m>,
+				then the vector <m>\uvec{x}</m> in <m>\R^n</m> formed by concatenating the vectors
+				<m>\uvec{x}_1,\uvec{x}_2,\dotsc,\uvec{x}_\ell</m>
+				together will be a null space vector for <m>A</m>.
+			</li>
+			<li>
+				The rank <m>A</m> is the sum of the ranks of the blocks <m>A_j</m>,
+				and similarly for the nullity of <m>A</m>.
 			</li>
 			<li xml:id="proposition-block-diag-props-det"> <!-- \label{PROP::block.diag.props::det} -->
 				The determinant of <m>A</m> is the product of the determinants of the blocks in <m>A</m>.
@@ -187,34 +197,44 @@ in the case of two subspaces.
 	</p></statement>
 
 	<proof>
-		<p> Again, with an <q>if and only if</q> statement, there are two things to prove. </p>
-		<case><title>(<m>\Rightarrow</m>)</title>
+
+		<p>
+		Again, with an <q>if and only if</q> statement, there are two things to prove.
+		In both cases, begin with bases
+		<md>
+			<mrow> \basisfont{B}_1 \amp = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_{d_1} \} \text{,} </mrow>
+			<mrow> \basisfont{B}_2 \amp = \{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_{d_2} \} \text{,} </mrow>
+		</md>
+		for <m>W_1</m> and <m>W_2</m>, respectively,
+		where <m>d_1 = \dim W_1</m> and <m>d_2 = \dim W_2</m>.
+		</p>
+
+		<case direction="forward">
+			<!-- <title>(<m>\Rightarrow</m>)</title> -->
+
 			<p>
 			Assume that <m>W_1</m> and <m>W_2</m> are independent.
+			By definition, this means that the combined set
+			<me> \{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \} </me>
+			is linearly independent.
+			</p>
+
+			<p>
 			We must prove that <m>W_1 \cap W_2 = \{\zerovec\}</m>.
 			So suppose <m>\uvec{v}</m> lies in the intersection <m>W_1 \cap W_2</m>.
 			If we are to prove that <m>W_1\cap W_2</m> consists of <em>only</em> the zero vector,
 			then we must prove that <m>\uvec{v} = \zerovec</m>.
-			</p><p>
-			Let <m>\basisfont{B}_1 = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_{d_1} \}</m> be a basis for <m>W_1</m>,
-			where <m>d_1 = \dim W_1</m>,
-			and let <m>\basisfont{B}_2 = \{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_{d_2} \}</m>
-			be a basis for <m>W_2</m>,
-			where <m>d_2 = \dim W_2</m>.
-			Then by definition our assumption that <m>W_1,W_2</m> are independent says that the combined set
-			<m>\{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \}</m>
-			is linearly independent.
-			</p><p>
-			Now consider <m>\uvec{v}</m>,
-			which we have assumed lies in the intersection <m>W_1 \cap W_2</m>.
+			</p>
+
+			<p>
 			Since <m>\uvec{v}</m> is in <m>W_1</m>,
 			there exist scalars
 			<m>a_1, a_2, \dotsc,a_{d_1}</m>
-			such that <m>\uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}</m>.
+			such that <me> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} </me>.
 			But <m>\uvec{v}</m> also lies in <m>W_2</m>,
 			and so there exist scalars
 			<m>b_1, b_2, \dotsc, b_{d_2}</m>
-			such that <m>\uvec{v} = b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2}</m>.
+			such that <me> \uvec{v} = b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2} </me>.
 			Now, from the vector space identity <m>\uvec{v} - \uvec{v} = \zerovec</m>,
 			we can subtract these two linear combination expressions for <m>\uvec{v}</m> to get
 			<me>
@@ -222,52 +242,66 @@ in the case of two subspaces.
 				+ (-b_1) \uvec{w}_1 + (-b_2) \uvec{w}_2 + \dotsb + (-b_{d_2}) \uvec{w}_{d_2}
 				= \zerovec
 			</me>.
-			Linear independence of
-			<m>\{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \}</m>
-			now says that all of the scalars above are zero, so that
+			Linear independence of the combined set of basis vectors says that all of the scalars above are zero, so that
 			<me>
 				\uvec{v} = 0 \uvec{u}_1 + 0 \uvec{u}_2 + \dotsb + 0 \uvec{u}_{d_1}
 				= 0 \uvec{w}_1 + 0 \uvec{w}_2 + \dotsb + 0 \uvec{w}_{d_2}
 				= \zerovec
 			</me>,
 			as desired.
-		</p></case>
-		<case><title>(<m>\Leftarrow</m>)</title><p>
+			</p>
+
+		</case>
+
+		<case direction="backward">
+			<!-- <title>(<m>\Leftarrow</m>)</title> -->
+
+			<p>
 			Assume that <m>W_1 \cap W_2 = \{\zerovec\}</m>.
 			We must prove that <m>W_1,W_2</m> are independent.
-			By contradiction, suppose they are not.
-			That is, suppose there exist basis
-			<m>\basisfont{B}_1 = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_{d_1} \}</m>
-			for <m>W_1</m> (where <m>d_1 = \dim W_1</m>)
-			and basis <m>\basisfont{B}_2 = \{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_{d_2} \}</m>
-			for <m>W_2</m> (where <m>d_2 = \dim W_2</m>)
-			such that the set
+			That is, we need to verify that the combined collection
 			<m>\{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \}</m>
-			is <em>not</em> linearly independent.
-			</p><p>
-			Then there exists a nontrivial linear combination of these basis vectors that equals the zero vector.
-			That is, there exist scalars <m> a_1, a_2, \dotsc, a_{d_1} </m> and <m> b_1, b_2, \dotsc, b_{d_2} </m>
-			that are not all zero and such that
-			<me>
+			remains linearly independent.
+			</p>
+
+			<p>
+			Setting up the test for linear independence,
+			we assume that
+			<md><mrow xml:id="equation-block-diag-theory-indep-subsp-iff-zero-intersect-test" tag="star">
 				a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}
 				+ b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2}
 				= \zerovec
-			</me>
-			Let <m>\uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}</m>.
-			Then <m>\uvec{v}</m> is in <m>W_1</m>. But the above equation says that
-			<me>
-				\uvec{v}
-				= a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}
-				= - b_1 \uvec{w}_1 - b_2 \uvec{w}_2 - \dotsb - b_{d_2} \uvec{w}_{d_2},
-			</me>
+			</mrow></md>
+			Set <me> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} </me>.
+			Then <m>\uvec{v}</m> is in <m>W_1</m>.
+			But by moving all the <m>\uvec{w}_j</m> terms to the other side
+			of <xref ref="equation-block-diag-theory-indep-subsp-iff-zero-intersect-test" />,
+			we obtain a second expression for <m>\uvec{v}</m>,
+			<me> \uvec{v} = - b_1 \uvec{w}_1 - b_2 \uvec{w}_2 - \dotsb - b_{d_2} \uvec{w}_{d_2} </me>,
 			so that <m>\uvec{v}</m> is also in <m>W_2</m>.
 			Therefore, <m>\uvec{v} \in W_1 \cap W_2</m>.
 			By assumption, this intersection contains <em>only</em> the zero vector,
 			so we must have <m>\uvec{v} = \zerovec</m>.
-			However, since the bases <m>\basisfont{B}_1</m> and <m>\basisfont{B}_2</m> are, individually, linearly independent sets,
-			the conclusion <m>\uvec{v} = \zerovec</m> contradicts the statement that not all of the scalars
-			<m>a_1,a_2,\dotsc,a_{d_1}</m> and <m>b_1,b_2,\dotsc,b_{d_2}</m> are zero.
-		</p></case>
+			Our two different expressions for <m>\uvec{v}</m> as linear combinations lead to
+			<md>
+				<mrow> a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} = \zerovec \text{,} </mrow>
+				<mrow> (-b_1) \uvec{w}_1 + (-b_2) \uvec{w}_2 + \dotsb + (-b_{d_2}) \uvec{w}_{d_2} = \zerovec \text{.} </mrow>
+			</md>
+			These expressions are essentially the test for linear independence,
+			one for basis <m>\basisfont{B}_1</m> and one for basis <m>\basisfont{B}_2</m>.
+			As each of these bases must be an independent set,
+			these two tests for independence lead to the conclusions
+			<md alignment="gather">
+				<mrow> a_1 = a_2 = \dotsb = a_{d_1} \text{,} </mrow>
+				<mrow> b_1 = b_2 = \dotsb = b_{d_2} \text{.} </mrow>
+			</md>
+			So, in fact, all of the coefficients in
+			<xref ref="equation-block-diag-theory-indep-subsp-iff-zero-intersect-test" />
+			must be zero, and the test for independence has been confirmed.
+			</p>
+
+		</case>
+
 	</proof>
 
 </theorem>
