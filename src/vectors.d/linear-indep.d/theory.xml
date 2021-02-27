@@ -36,40 +36,53 @@ serve as a proof.
 
 <proposition xml:id="proposition-linear-indep-test">
 	<title>Test for Linear Dependence/Independence</title>
-	<statement><p>
+	<p>
 		Vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly dependent if the vector equation
 		<me> k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec </me>
-		has a nontrivial solution in the (scalar) variables <m>k_1,k_2,\dotsc,k_m</m>. Otherwise, if this vector equation has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>, then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly independent.
-	</p></statement>
+		has a nontrivial solution in the (scalar) variables <m>k_1,k_2,\dotsc,k_m</m>.
+		Otherwise, if this vector equation has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>,
+		then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly independent.
+	</p>
 </proposition>
 
-<p>We will further explore the connection between linear dependence/independence and spanning sets in the next subsection below, but for now recall that we introduced these new concepts to help us determine when a spanning set could be reduced. The next statement reflects the fact that the zero vector does not help span anything other than itself, so it is not useful as a member of a spanning set.</p>
+<p>
+We will further explore the connection between linear dependence/independence and spanning sets in the next subsection below,
+but for now recall that we introduced these new concepts to help us determine when a spanning set could be reduced.
+The next statement reflects the fact that the zero vector does not help span anything other than itself, so it is not useful as a member of a spanning set.
+</p>
 
 <proposition xml:id="proposition-linear-indep-contains-zero-dep">
 
 	<title> Zero is linearly dependent </title>
 
-	<statement><p>
-		Any set of vectors that contains the zero vector is linearly dependent.
-	</p></statement>
+	<statement><p> Any set of vectors that contains the zero vector is linearly dependent. </p></statement>
 
 	<proof>
+
 		<p>
-		Suppose <m>S</m> is a set of vectors containing the zero vector. We'll break into cases depending on what <em>else</em> is in <m>S</m> besides <m>\zerovec</m>.
+		Suppose <m>S</m> is a set of vectors containing the zero vector.
+		We'll break into cases depending on what <em>else</em> is in <m>S</m> besides <m>\zerovec</m>.
 		</p>
+
 		<case><title><m>S</m> consists of <em>only</em> the zero vector</title>
-			<p>
-			Then <m>S</m> is linearly dependent by definition.
-			</p>
-			<aside><title>See</title><p>
+
+			<p> Then <m>S</m> is <xref ref="definition-linear-dep" text="custom">linearly dependent</xref> by definition. </p>
+
+			<!-- <aside><title>See</title><p>
 				<xref ref="section-linear-indep-terminology" /> for the definition of <term>linearly dependent</term>.
-			</p></aside>
+			</p></aside> -->
+
 		</case>
+
 		<case><title><m>S</m> contains <em>at least one</em> nonzero vector <m>\uvec{v}</m></title>
+
 			<p>
-			But then <m>\zerovec</m> can be expressed as the linear combination <m>\zerovec = 0\uvec{v}</m>. Since we have found a vector in <m>S</m> that can be expressed as a linear combination of another vector in <m>S</m>, the set of vectors is linearly dependent.
+			But then <m>\zerovec</m> can be expressed as the linear combination <m>\zerovec = 0\uvec{v}</m>.
+			Since we have found a vector in <m>S</m> that can be expressed as a linear combination of another vector in <m>S</m>,
+			the set of vectors is linearly dependent.
 		 	</p>
-			<aside><title>Note</title><p>
+
+			 <aside><title>Note</title><p>
 				This does not violate
 				<xref ref="proposition-linear-indep-test" />,
 				since in the equality <m>\zerovec = 0\uvec{v}</m>, vector <m>\zerovec</m> is acting as a vector in <m>S</m>.
@@ -77,7 +90,9 @@ serve as a proof.
 				which is an equality of a <em>non</em>trivial linear combination of vectors from <m>S</m> and the zero vector, as required by
 				<xref ref="proposition-linear-indep-test" />.
 			</p></aside>
+
 		</case>
+
 	</proof>
 
 </proposition>
@@ -89,24 +104,32 @@ serve as a proof.
 	<title> Dependence/independence versus subcollections </title>
 
 	<statement><p><ol>
+
 		<li xml:id="proposition-linear-indep-sub-super-sets-contains-dep">
-		A collection of vectors that contains a subcollection that is linearly dependent is itself linearly dependent.
+			A collection of vectors that contains a subcollection that is linearly dependent is itself linearly dependent.
 		</li>
+
 		<li xml:id="proposition-linear-indep-sub-super-sets-subset-indep">
-		In a linearly independent collection of vectors, every subcollection is also linearly independent.
+			In a linearly independent collection of vectors, every subcollection is also linearly independent.
 		</li>
+
 	</ol></p></statement>
 
-	<proof><p><ol>
-		<li>
-		Suppose <m>S</m> is a collection of vectors in a vector space, and <m>S'</m> is a linearly dependent subcollection of <m>S</m>. Then some vector in <m>S'</m> can be expressed as a linear combination of other vectors in <m>S'</m>. But because <m>S'</m> is a subcollection of <m>S</m>, all these vectors in <m>S'</m> are also vectors in <m>S</m>. So we can also say that some vector in <m>S</m> can be expressed as a linear combination of other vectors in <m>S</m>, making <m>S</m> a linearly dependent set.
-		</li>
-		<li>
-		Suppose <m>S</m> is a linearly independent collection of vectors in a vector space. Then no subcollection of <m>S</m> can be linearly dependent, because if <m>S</m> contained such a linearly dependent subcollection then
+	<proof><title>Proof of <xref ref="proposition-linear-indep-sub-super-sets-contains-dep" text="type-local">Statement </xref></title><p>
+		Suppose <m>S</m> is a collection of vectors in a vector space, and <m>S'</m> is a linearly dependent subcollection of <m>S</m>.
+		Then some vector in <m>S'</m> can be expressed as a linear combination of other vectors in <m>S'</m>.
+		But because <m>S'</m> is a subcollection of <m>S</m>, all these vectors in <m>S'</m> are also vectors in <m>S</m>.
+		So we can also say that some vector in <m>S</m> can be expressed as a linear combination of other vectors in <m>S</m>, making <m>S</m> a linearly dependent set.
+	</p></proof>
+
+	<proof><title>Proof of <xref ref="proposition-linear-indep-sub-super-sets-subset-indep" text="type-local">Statement</xref></title><p>
+		Suppose <m>S</m> is a linearly independent collection of vectors in a vector space.
+		Then no subcollection of <m>S</m> can be linearly dependent,
+		because if <m>S</m> contained such a linearly dependent subcollection then
 		<xref ref="proposition-linear-indep-sub-super-sets-contains-dep">Statement</xref>
-		of this proposition would imply that <m>S</m> itself is linearly dependent, which we assume it is not. So every subcollection of <m>S</m> must be linearly independent.
-		</li>
-	</ol></p></proof>
+		of this proposition would imply that <m>S</m> itself is linearly dependent, which we assume it is not.
+		So every subcollection of <m>S</m> must be linearly independent.
+	</p></proof>
 
 </proposition>
 
@@ -116,7 +139,8 @@ serve as a proof.
 <title>Linear dependence/independence of spanning sets</title>
 
 <p>
-First we'll record our observation about preserving spans when reducing spanning sets. Then, in the following proposition, we'll take this idea to its logical conclusion.
+First we'll record our observation about preserving spans when reducing spanning sets.
+Then, in the following proposition, we'll take this idea to its logical conclusion.
 </p>
 
 <lemma xml:id="lemma-linear-indep-span-minus-one">
@@ -124,15 +148,21 @@ First we'll record our observation about preserving spans when reducing spanning
 	<title> Dependent spanning sets can be reduced </title>
 
 	<statement><p>
-	Suppose <m>S</m> is a set of vectors in a vector space and <m>\uvec{w}</m> is both a vector in <m>S</m> and expressible as a linear combination of vectors in <m>S</m> besides itself. Then <m>\Span S = \Span S'</m>, where  <m>S'</m> is the one-smaller set of vectors obtained by removing <m>\uvec{w}</m> from <m>S</m>.
+		Suppose <m>S</m> is a set of vectors in a vector space and <m>\uvec{w}</m> is both a vector in <m>S</m> and expressible as a linear combination of vectors in <m>S</m> besides itself.
+		Then <m>\Span S = \Span S'</m>, where  <m>S'</m> is the one-smaller set of vectors obtained by removing <m>\uvec{w}</m> from <m>S</m>.
 	</p></statement>
 
 	<proof><p>
-	Using
-	<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
-	of
-	<xref ref="proposition-subspaces-eq-span-test" />,
-	we just need to show that every vector in <m>S</m> can be expressed as a linear combination of vectors in <m>S'</m>, and vice versa. However, <m>S</m> and <m>S'</m> are the same set of vectors <em>except</em> that <m>S</m> contains <m>\uvec{w}</m> while <m>S'</m> does not. So from the trivial expression <m>\uvec{v} = 1\uvec{v}</m>, we immediately have that every vector <m>\uvec{v}</m> in <m>S</m> (other than <m>\uvec{w}</m>) is a linear combination of itself (which is a vector in <m>S'</m>), and vice versa. And we have also assumed that <m>\uvec{w}</m> is expressible as a linear combination of vectors in <m>S</m> besides itself. Since the vectors in such a linear combination are also in <m>S'</m>, we know that <m>\uvec{w}</m> is expressible as a linear combination of vectors in <m>S'</m>.
+		Using
+		<xref ref="proposition-subspaces-eq-span-test-eq-test">Statement</xref>
+		of
+		<xref ref="proposition-subspaces-eq-span-test" />,
+		we just need to show that every vector in <m>S</m> can be expressed as a linear combination of vectors in <m>S'</m>, and vice versa.
+		However, <m>S</m> and <m>S'</m> are the same set of vectors <em>except</em> that <m>S</m> contains <m>\uvec{w}</m> while <m>S'</m> does not.
+		So from the trivial expression <m>\uvec{v} = 1\uvec{v}</m>, we immediately have that every vector <m>\uvec{v}</m> in <m>S</m> (other than <m>\uvec{w}</m>)
+		is a linear combination of itself (which is a vector in <m>S'</m>), and vice versa.
+		And we have also assumed that <m>\uvec{w}</m> is expressible as a linear combination of vectors in <m>S</m> besides itself.
+		Since the vectors in such a linear combination are also in <m>S'</m>, we know that <m>\uvec{w}</m> is expressible as a linear combination of vectors in <m>S'</m>.
 	</p></proof>
 
 </lemma>
@@ -142,24 +172,37 @@ First we'll record our observation about preserving spans when reducing spanning
 	<title> Fully reducing finite spanning sets </title>
 
 	<statement>
-	<p>
-	Every finite spanning set can be reduced to a linearly independent spanning set. That is, if <m>S</m> is a spanning set for a vector space and contains a finite number of vectors, then some subcollection of vectors in <m>S</m> will both span that vector space and be linearly independent.
-	</p>
-	<aside><title>Clarification</title>
-		<p> In this proposition, we consider the hypothetical <q>can be reduced</q> to allow the possibility of <em>not</em> reducing the set at all, in case the initial spanning set is already linearly independent. </p>
-	</aside>
+
+		<p>
+			Every finite spanning set can be reduced to a linearly independent spanning set.
+			That is, if <m>S</m> is a spanning set for a vector space and contains a finite number of vectors,
+			then some subcollection of vectors in <m>S</m> will both span that vector space and be linearly independent.
+		</p>
+
+		<aside><title>Clarification</title><p>
+			In this proposition, we consider the hypothetical <q>can be reduced</q> to allow the possibility of <em>not</em> reducing the set at all,
+			in case the initial spanning set is already linearly independent.
+		</p></aside>
+
 	</statement>
 
 	<proof><p>
-	If <m>S</m> is already linearly independent, then we have our desired linearly independent spanning set. Otherwise, there is some vector <m>\uvec{w}</m> in <m>S</m> that is a linear combination of the other vectors in <m>S</m>. If we set <m>S'</m> to be the subcollection of <m>S</m> consisting of every vector <em>except</em> <m>\uvec{w}</m>, then from
-	<xref ref="lemma-linear-indep-span-minus-one" />
-	we know that <m>S'</m> will remain a spanning set for the vector space. If <m>S'</m> is linearly independent, then we have our desired linearly independent spanning set. Otherwise, we can continue removing linearly dependent vectors in this way until we end up with a linearly independent spanning set. And since we assumed there were a finite number of vectors in <m>S</m>, this one-by-one removal process must indeed come to an end at some point.
+		If <m>S</m> is already linearly independent, then we have our desired linearly independent spanning set.
+		Otherwise, there is some vector <m>\uvec{w}</m> in <m>S</m> that is a linear combination of the other vectors in <m>S</m>.
+		If we set <m>S'</m> to be the subcollection of <m>S</m> consisting of every vector <em>except</em> <m>\uvec{w}</m>,
+		then from <xref ref="lemma-linear-indep-span-minus-one" />
+		we know that <m>S'</m> will remain a spanning set for the vector space.
+		If <m>S'</m> is linearly independent, then we have our desired linearly independent spanning set.
+		Otherwise, we can continue removing linearly dependent vectors in this way until we end up with a linearly independent spanning set.
+		And since we assumed there were a finite number of vectors in <m>S</m>, this one-by-one removal process must indeed come to an end at some point.
 	</p></proof>
 
 </proposition>
 
 <p>
-Just as a vector that points up out of a plane in <m>\R^3</m> must be linearly independent from vectors parallel to the plane, in any vector space we can enlarge a linearly independent set by including new vectors that are not linear combinations of the old. The next statement encapsulates this idea, and will help us in the next chapter to develop a <q>bottom-up</q> approach to building an optimal spanning set for a vector space, as opposed to the <q>top-down</q> approach made possible by
+Just as a vector that points up out of a plane in <m>\R^3</m> must be linearly independent from vectors parallel to the plane,
+in any vector space we can enlarge a linearly independent set by including new vectors that are not linear combinations of the old.
+The next statement encapsulates this idea, and will help us in the next chapter to develop a <q>bottom-up</q> approach to building an optimal spanning set for a vector space, as opposed to the <q>top-down</q> approach made possible by
 <xref ref="lemma-linear-indep-span-minus-one" />
 and
 <xref ref="proposition-linear-indep-reduce-span-to-indep" />.
@@ -170,85 +213,122 @@ and
 	<title> Enlarging independent sets </title>
 
 	<statement><p>
-	If <m>S</m> is a linearly independent set of vectors and vector <m>\uvec{v}</m> is <em>not</em> in <m>\Span S</m>, then the set of vectors containing both <m>\uvec{v}</m> and every vector in <m>S</m> is still linearly independent.
+		If <m>S</m> is a linearly independent set of vectors and vector <m>\uvec{v}</m> is <em>not</em> in <m>\Span S</m>,
+		then the set of vectors containing both <m>\uvec{v}</m> and every vector in <m>S</m> is still linearly independent.
 	</p></statement>
 
 	<proof>
-	<p>
-	Write <m>S'</m> for the set of vectors containing both the vector <m>\uvec{v}</m> and every vector in <m>S</m>. The set <m>S'</m> will be linearly independent if none of its vectors can be expressed as a linear combination of other vectors in the set.
-	</p><p>
-	So suppose <m>\uvec{w}</m> is a vector in <m>S'</m>. There are two cases to consider.
-	</p>
-	<case><title>Case <m>\uvec{w} = \uvec{v}</m></title><p>
-		In this case, we already know that <m>\uvec{w}</m> cannot be a linear combination of other vectors in <m>S'</m>, because the other vectors in <m>S'</m> are the vectors in <m>S</m>, and we assumed that <m>\uvec{v}</m> is not in <m>\Span S</m>.
-	</p></case>
-	<case><title>Case <m>\uvec{w} \neq \uvec{v}</m></title><p>
-		In this case, <m>\uvec{w}</m> is in the set <m>S</m>. Since <m>S</m> is assumed to be linearly independent, we know that <m>\uvec{w}</m> cannot be a linear combination of other vectors from just <m>S</m>. Could it be a linear combination involving other vectors in <m>S</m> <em>and</em> <m>\uvec{v}</m>? Suppose we had
-		<me> \uvec{w} = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_m\uvec{u}_m + k\uvec{v}, </me>
-		for some vectors <m>\uvec{u}_1,\uvec{u}_2,\dotsc,\uvec{u}_m</m> in <m>S</m> and scalars <m>k_1,k_2,\dotsc,k_m,k</m> (assuming <m>k\neq 0</m> so that <m>\uvec{v}</m> is indeed involved in the linear combination). But then we could isolate <m>\uvec{v}</m> as
-		<me>
-			\uvec{v} = \frac{1}{k}\uvec{w} - \frac{k_1}{k}\uvec{u}_1
-			- \frac{k_2}{k}\uvec{u}_2 - \dotsb - \frac{k_m}{k}\uvec{u}_m,
-		</me>
-		a linear combination of vectors in <m>S</m>, which is not possible because we have assumed that <m>\uvec{v}</m> is not in <m>\Span S</m>.
-	</p></case>
+
+		<p>
+		Write <m>S'</m> for the set of vectors containing both the vector <m>\uvec{v}</m> and every vector in <m>S</m>.
+		The set <m>S'</m> will be linearly independent if none of its vectors can be expressed as a linear combination of other vectors in the set.
+		</p>
+
+		<p>
+		So suppose <m>\uvec{w}</m> is a vector in <m>S'</m>.
+		There are two cases to consider.
+		</p>
+
+		<case><title>Case <m>\uvec{w} = \uvec{v}</m></title><p>
+			In this case, we already know that <m>\uvec{w}</m> cannot be a linear combination of other vectors in <m>S'</m>,
+			because the other vectors in <m>S'</m> are the vectors in <m>S</m>, and we assumed that <m>\uvec{v}</m> is not in <m>\Span S</m>.
+		</p></case>
+
+		<case><title>Case <m>\uvec{w} \neq \uvec{v}</m></title><p>
+			In this case, <m>\uvec{w}</m> is in the set <m>S</m>.
+			Since <m>S</m> is assumed to be linearly independent, we know that <m>\uvec{w}</m> cannot be a linear combination of other vectors from just <m>S</m>.
+			Could it be a linear combination involving other vectors in <m>S</m> <em>and</em> <m>\uvec{v}</m>?
+			Suppose we had
+			<me> \uvec{w} = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_m\uvec{u}_m + k\uvec{v} </me>,
+			for some vectors <m>\uvec{u}_1,\uvec{u}_2,\dotsc,\uvec{u}_m</m> in <m>S</m> and scalars <m>k_1,k_2,\dotsc,k_m,k</m>
+			(assuming <m>k\neq 0</m> so that <m>\uvec{v}</m> is indeed involved in the linear combination).
+			But then we could isolate <m>\uvec{v}</m> as
+			<me>
+				\uvec{v} = \frac{1}{k}\uvec{w} - \frac{k_1}{k}\uvec{u}_1
+				- \frac{k_2}{k}\uvec{u}_2 - \dotsb - \frac{k_m}{k}\uvec{u}_m
+			</me>,
+			a linear combination of vectors in <m>S</m>,
+			which is not possible because we have assumed that <m>\uvec{v}</m> is not in <m>\Span S</m>.
+		</p></case>
+
 	</proof>
 
 </proposition>
 
-<p> The final fact below records our observation in <xref ref="activity-linear-indep-max-indep-in-R2-R3" /> and <xref ref="subsection-linear-indep-concepts-in-Rn" /> that after a certain number, a collection of vectors can be too numerous to be linearly independent. </p>
+<p>
+The final fact below records our observation in <xref ref="activity-linear-indep-max-indep-in-R2-R3" /> and <xref ref="subsection-linear-indep-concepts-in-Rn" /> that after a certain number, a collection of vectors can be too numerous to be linearly independent.
+</p>
 
 <lemma xml:id="lemma-linear-indep-more-than-spanning-is-dep">
 
 	<title> Too-large sets must be dependent </title>
 
 	<statement><p>
-	If a vector space can be spanned by <m>n</m> vectors, then every collection containing <em>more</em> than <m>n</m> vectors must be linearly dependent.
+		If a vector space can be spanned by <m>n</m> vectors,
+		then every collection containing <em>more</em> than <m>n</m> vectors must be linearly dependent.
 	</p></statement>
 
-	<proof><p>
-	Suppose <m>S</m> is a set of <m>n</m> vectors in a vector space so that <m>S</m> is a spanning set for the space. By
-	<xref ref="proposition-linear-indep-reduce-span-to-indep" />,
-	there are vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_{n'}</m> in <m>S</m> that are both linearly independent and also a spanning set for the vectors space. Since this is a subcollection of <m>S</m>, we must have <m>n' \le n</m>. We'll refer to this subcollection of <m>S</m> as <m>S'</m>.
-	</p><p>
-	Now further suppose we have a collection of vectors <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> in the vector space, with <m>m>n</m>. Since <m>S'</m> is a spanning set, we can express each <m>\uvec{w}_i</m> as a linear combination of the vectors in <m>S</m>:
-	<md>
-		<mrow> \uvec{w}_1 \amp= a_{11}\uvec{v}_1 + a_{21}\uvec{v}_2 + \dotsb + a_{n'1}\uvec{v}_{n'}, </mrow>
-		<mrow> \uvec{w}_2 \amp= a_{12}\uvec{v}_1 + a_{22}\uvec{v}_2 + \dotsb + a_{n'2}\uvec{v}_{n'}, </mrow>
-		<mrow> \amp\;\;\vdots </mrow>
-		<mrow> \uvec{w}_m \amp= a_{1m}\uvec{v}_1 + a_{2m}\uvec{v}_2 + \dotsb + a_{n'm}\uvec{v}_{n'}. </mrow>
-	</md>
-	Let's apply
-	the <xref ref="proposition-linear-indep-test" text="title"/>
-	to <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>: suppose there are scalars <m>k_1,k_2,\dotsc,k_m</m> so that
-	<me> k_1\uvec{w}_1 + k_2\uvec{w}_2 + \dotsb + k_m\uvec{w}_m = \zerovec. </me>
-	If we substitute in the above expressions for each <m>\uvec{w}_i</m> in terms of the vectors in <m>S'</m> and collect like terms, we get
-	<md>
-		<mrow>
-			(a_{11}k_1 + a_{12}k_2 + \dotsb + a_{1m}k_m) \uvec{v}_1
-			+ (a_{21}k_1 + a_{22}k_2 + \dotsb + a_{2m}k_m) \uvec{v}_2
-		</mrow><mrow>
-			{}
-			+ \dotsb
-			+ (a_{n'1}k_1 + a_{n'2}k_2 + \dotsb + a_{n'm}k_m) \uvec{v}_{n'}
-			= \zerovec.
-		</mrow>
-	</md>
-	If we set <m>c_1</m> to be the coefficient expression on <m>\uvec{v}_1</m> in the expression above, and <m>c_2</m> to be the coefficient expression on <m>\uvec{v}_2</m>, and so on, then we obtain a vector equality
-	<me> c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_{n'}\uvec{v}_{n'} = \zerovec. </me>
-	But the vectors in this linear combination are the vectors in <m>S'</m>, and we have assumed that <m>S'</m> is a linearly independent set. So this vector equality can only be true for the trivial solution where each <m>c_i = 0</m>. This leads to homogeneous system
-	<me>
-		\left\{\begin{array}{rcrcccrcr}
-			a_{11}k_1 \amp + \amp a_{12}k_2 \amp + \amp \dotsb \amp + \amp a_{1m}k_m \amp = \amp 0 \text{,} \\
-			a_{21}k_1 \amp + \amp a_{22}k_2 \amp + \amp \dotsb \amp + \amp a_{2m}k_m \amp = \amp 0 \text{,} \\
-			 \amp \amp \amp \amp \vdots \amp \amp \amp \\
-			 a_{n'1}k_1 \amp + \amp a_{n'2}k_2 \amp + \amp \dotsb \amp + \amp a_{n'm}k_m \amp = \amp 0 \text{,}
-		\end{array}\right.
-	</me>
-	in the variables <m>k_1,k_2,\dotsc,k_m</m>. Now, we have assumed <m>m > n \ge n'</m>, so we have more variables than equations in the homogeneous system above. But then the solution will require parameters, which means there are nontrivial solutions. Thus,
-	the <xref ref="proposition-linear-indep-test" text="title"/>
-	tells us that the collection <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> is linearly dependent.
-	</p></proof>
+	<proof>
+
+		<p>
+		Suppose <m>S</m> is a set of <m>n</m> vectors in a vector space so that <m>S</m> is a spanning set for the space.
+		By
+		<xref ref="proposition-linear-indep-reduce-span-to-indep" />,
+		there are vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_{n'}</m> in <m>S</m> that are both linearly independent and also a spanning set for the vectors space.
+		Since this is a subcollection of <m>S</m>, we must have <m>n' \le n</m>.
+		We'll refer to this subcollection of <m>S</m> as <m>S'</m>.
+		</p>
+
+		<p>
+		Now further suppose we have a collection of vectors <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> in the vector space, with <m>m>n</m>.
+		Since <m>S'</m> is a spanning set, we can express each <m>\uvec{w}_i</m> as a linear combination of the vectors in <m>S</m>:
+		<md>
+			<mrow> \uvec{w}_1 \amp= a_{11}\uvec{v}_1 + a_{21}\uvec{v}_2 + \dotsb + a_{n'1}\uvec{v}_{n'}, </mrow>
+			<mrow> \uvec{w}_2 \amp= a_{12}\uvec{v}_1 + a_{22}\uvec{v}_2 + \dotsb + a_{n'2}\uvec{v}_{n'}, </mrow>
+			<mrow> \amp\;\;\vdots </mrow>
+			<mrow> \uvec{w}_m \amp= a_{1m}\uvec{v}_1 + a_{2m}\uvec{v}_2 + \dotsb + a_{n'm}\uvec{v}_{n'}. </mrow>
+		</md>
+		Let's apply
+		the <xref ref="proposition-linear-indep-test" text="title"/>
+		to <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>:
+		suppose there are scalars <m>k_1,k_2,\dotsc,k_m</m> so that
+		<me> k_1\uvec{w}_1 + k_2\uvec{w}_2 + \dotsb + k_m\uvec{w}_m = \zerovec </me>.
+		If we substitute in the above expressions for each <m>\uvec{w}_i</m> in terms of the vectors in <m>S'</m> and collect like terms, we get
+		<md>
+			<mrow>
+				(a_{11}k_1 + a_{12}k_2 + \dotsb + a_{1m}k_m) \uvec{v}_1
+				+ (a_{21}k_1 + a_{22}k_2 + \dotsb + a_{2m}k_m) \uvec{v}_2
+			</mrow><mrow>
+				{}
+				+ \dotsb
+				+ (a_{n'1}k_1 + a_{n'2}k_2 + \dotsb + a_{n'm}k_m) \uvec{v}_{n'}
+				= \zerovec
+			</mrow>
+		</md>.
+		If we set <m>c_1</m> to be the coefficient expression on <m>\uvec{v}_1</m> in the expression above,
+		and <m>c_2</m> to be the coefficient expression on <m>\uvec{v}_2</m>, and so on, then we obtain a vector equality
+		<me> c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_{n'}\uvec{v}_{n'} = \zerovec </me>.
+		But the vectors in this linear combination are the vectors in <m>S'</m>,
+		and we have assumed that <m>S'</m> is a linearly independent set.
+		So this vector equality can only be true for the trivial solution where each <m>c_i = 0</m>.
+		This leads to homogeneous system
+		<me>
+			\left\{\begin{array}{rcrcccrcr}
+				a_{11}k_1 \amp + \amp a_{12}k_2 \amp + \amp \dotsb \amp + \amp a_{1m}k_m \amp = \amp 0 \text{,} \\
+				a_{21}k_1 \amp + \amp a_{22}k_2 \amp + \amp \dotsb \amp + \amp a_{2m}k_m \amp = \amp 0 \text{,} \\
+				\amp \amp \amp \amp \vdots \amp \amp \amp \\
+				a_{n'1}k_1 \amp + \amp a_{n'2}k_2 \amp + \amp \dotsb \amp + \amp a_{n'm}k_m \amp = \amp 0 \text{,}
+			\end{array}\right.
+		</me>
+		in the variables <m>k_1,k_2,\dotsc,k_m</m>.
+		Now, we have assumed <m>m > n \ge n'</m>, so we have more variables than equations in the homogeneous system above.
+		But then the solution will require parameters, which means there are nontrivial solutions.
+		Thus,
+		the <xref ref="proposition-linear-indep-test" text="title"/>
+		tells us that the collection <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m> is linearly dependent.
+		</p>
+
+	</proof>
 
 </lemma>
 
