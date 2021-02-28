@@ -89,29 +89,39 @@ As we will prove in <xref ref="proposition-subspaces-test" />,
 we really only need to check a subcollection for closure under addition and scalar multiplication in order to verify that it is also a vector space.
 </p>
 
-<!-- TODO turn this into a proper procedure like the Test for Linear Dependence/Independence, then change references to it to be text="title" xrefs -->
-<paragraphs><title>Subspace Test</title><idx><h>Subspace Test</h></idx><idx><h>subspace</h><h>test</h></idx>
+<!--
+	TODO fix all uses of subspace test to be structured as <case> instead of <ol> ?
+	If yes, for the title of each case, use an xref to the individual list item, with text="title"
+-->
+<algorithm xml:id="procedure-subspaces-concepts-test">
+	<title>Subspace Test</title><idx><h>Subspace Test</h></idx><idx><h>subspace</h><h>test</h></idx>
+
 	<p>
-	To test whether a subcollection of vectors in a vector space is a sub<em>space</em> (<ie /> is vector space on its own),
+	To test whether a subcollection of vectors in a vector space is a sub<em>space</em> (that is, a vector space on its own),
 	check whether all three of the following conditions are met.
 	<ol label="(i)">
-		<li>
-			The subcollection is nonempty.
-			That is, it contains at least one vector.
+		<li xml:id="procedure-subspaces-concepts-test-nonempty">
+			<title>Nonempty</title>
+			<p> The subcollection contains at least one vector. </p>
 		</li>
-		<li>
-			The subcollection is <em>closed</em> under vector addition.
-			That is, given vectors <m>\uvec{w}_1</m> and <m>\uvec{w}_2</m> in the subcollection,
-			the sum <m>\uvec{w}_1+\uvec{w}_2</m> is also in the subcollection.
+		<li xml:id="procedure-subspaces-concepts-test-add-closed">
+			<title>Closed under vector addition</title>
+			<p>
+			Given vectors <m>\uvec{w}_1</m> and <m>\uvec{w}_2</m> in the subcollection,
+			the sum <m>\uvec{w}_1 + \uvec{w}_2</m> is also in the subcollection.
+			</p>
 		</li>
-		<li>
-			The subcollection is <em>closed</em> under scalar multiplication.
-			That is, given vector <m>\uvec{w}</m> in the subcollection and scalar <m>k</m>,
+		<li xml:id="procedure-subspaces-concepts-test-smul-closed">
+			<title>Closed under scalar multiplication</title>
+			<p>
+			Given vector <m>\uvec{w}</m> in the subcollection and scalar <m>k</m>,
 			the scaled vector <m>k\uvec{w}</m> is also in the subcollection.
+			</p>
 		</li>
 	</ol>
 	</p>
-</paragraphs>
+
+</algorithm>
 
 <remark><p><ul>
 
@@ -119,7 +129,7 @@ we really only need to check a subcollection for closure under addition and scal
 		The first condition might seem unnecessary.
 		But in math it is possible to accidentally be considering some collection of objects that in reality contains no objects.
 		For example, consider <m>\matrixring_1(\R)</m>, the vector space of all <m>1\times 1</m> matrices.
-		We could try to determine whether the subcollection of all <m>1\times 1</m> matrices whose square is equal to <m>[-1]</m> is a subspace of of <m>\matrixring_1(\R)</m>,
+		We could try to determine whether the subcollection of all <m>1\times 1</m> matrices whose square is equal to <m>\begin{bmatrix} -1 \end{bmatrix}</m> is a subspace of of <m>\matrixring_1(\R)</m>,
 		but we'd be wasting our time because there are no such matrices.
 	</li>
 

@@ -44,12 +44,12 @@ respective owners.
 				That is, it contains at least one vector.
 			</li>
 			<li xml:id="proposition-subspaces-test-add-closed">
-				The subcollection is <em>closed</em> under vector addition.
+				The subcollection is <term>closed under vector addition</term>.
 				That is, given vectors <m>\uvec{w}_1</m> and <m>\uvec{w}_2</m> in the subcollection,
 				the sum <m>\uvec{w}_1+\uvec{w}_2</m> is also in the subcollection.
 			</li>
 			<li xml:id="proposition-subspaces-test-smul-closed">
-				The subcollection is <em>closed</em> under scalar multiplication.
+				The subcollection is <term>closed under scalar multiplication</term>.
 				That is, given vector <m>\uvec{w}</m> in the subcollection and scalar <m>k</m>,
 				the scaled vector <m>k\uvec{w}</m> is also in the subcollection.
 			</li>
@@ -132,7 +132,7 @@ respective owners.
 </proposition>
 
 <p>
-As per the proposition above, every subspace satisfies the statements of the Subspace Test.
+As per the proposition above, every subspace satisfies the conditions of the <xref ref="procedure-subspaces-concepts-test" text="title" />.
 But we can go a little further.
 </p>
 
@@ -247,13 +247,16 @@ From the first property of subspaces listed above, we can deduce our observation
 		So <m>\Span S</m> is a subcollection of <m>V</m>.
 		</p>
 
-		<p> Now let's apply the Subspace Test to <m>\Span S</m>. </p>
+		<p> Now let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" /> to <m>\Span S</m>. </p>
 
-		<case><title><xref ref="proposition-subspaces-test-nonempty">Condition</xref></title><p>
-			We know <m>\Span S</m> is nonempty because it contains each of the vectors of <m>S</m>.
-		</p></case>
+		<case>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+			<p> We know <m>\Span S</m> is nonempty because it contains each of the vectors of <m>S</m>. </p>
+		</case>
 
-		<case><title><xref ref="proposition-subspaces-test-add-closed">Condition</xref></title><p>
+		<case>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+			<p>
 			Suppose <m>\uvec{u}</m> and <m>\uvec{v}</m> are vectors in <m>\Span S</m>.
 			Then each is a linear combination of vectors in <m>S</m>, say
 			<md>
@@ -268,9 +271,12 @@ From the first property of subspaces listed above, we can deduce our observation
 			</md>,
 			which is again a linear combination of vectors in <m>S</m>, so <m>\uvec{u}+\uvec{v}</m> is also in <m>\Span S</m>.
 			This shows that <m>\Span S</m> is closed under vector addition.
-		</p></case>
+			</p>
+		</case>
 
-		<case><title><xref ref="proposition-subspaces-test-smul-closed">Condition</xref></title><p>
+		<case>
+			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
+			<p>
 			Suppose <m>\uvec{v}</m> is a vector in <m>\Span S</m>.
 			Then it is a linear combination of vectors in <m>S</m>, say
 			<me> \uvec{v} = m_1\uvec{v}_1 + m_2\uvec{v}_2 + \dotsb + m_\ell\uvec{v}_\ell </me>,
@@ -282,10 +288,12 @@ From the first property of subspaces listed above, we can deduce our observation
 			</md>
 			which is again a linear combination of vectors in <m>S</m>, so <m>k\uvec{v}</m> is always also in <m>\Span S</m>.
 			This shows that <m>\Span S</m> is closed under scalar multiplication.
+			</p>
+		</case>
+
+		<case><title>Conclusion</title><p>
+			Since <m>\Span S</m> passes the Subspace Test, it is a subspace of <m>V</m>.
 		</p></case>
-		<p>
-		Since <m>\Span S</m> passes the Subspace Test, it is a subspace of <m>V</m>.
-		</p>
 
 	</proof>
 
