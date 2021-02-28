@@ -30,7 +30,8 @@ respective owners.
 </ul></p></assemblage>
 
 <introduction><p>
-When faced with any big problem, mathematical or otherwise, it is often a good idea to break the big problem up into smaller parts. In a vector space, the <q>smaller parts</q> are smaller vector spaces inside the larger space, called <term>subspaces</term>.
+	When faced with any big problem, mathematical or otherwise, it is often a good idea to break the big problem up into smaller parts.
+	In a vector space, the <q>smaller parts</q> are smaller vector spaces inside the larger space, called <term>subspaces</term>.
 </p></introduction>
 
 
@@ -38,7 +39,9 @@ When faced with any big problem, mathematical or otherwise, it is often a good i
 <title>Recognizing subspaces</title>
 
 <p>
-How can we recognize subspaces? To be a subspace, a subcollection of vectors must satisfy all ten vector space axioms on its own. But
+How can we recognize subspaces?
+To be a subspace, a subcollection of vectors must satisfy all ten vector space axioms on its own.
+But
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>,
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc" text="local">Axiom A</xref>,
 and
@@ -47,52 +50,91 @@ and
 	last="list-abstract-vec-spaces-concepts-smul-axioms-one"
 	text="local"
 >Axioms S</xref>
-all concern the <em>algebra</em> of vectors, and don't really take into account where the vectors are considered to <q>live</q>. Since these algebra axioms are true about <em>all</em> vectors in the larger space, they are automatically true about the vectors in the subcollection. So that leaves
+all concern the <em>algebra</em> of vectors, and don't really take into account where the vectors are considered to <q>live</q>.
+Since these algebra axioms are true about <em>all</em> vectors in the larger space, they are automatically true about the vectors in the subcollection.
+So that leaves
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>,
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>,
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>,
 and
 <xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>.
-</p><p>
+</p>
+
+<p>
 For axioms
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
 and
 <xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>,
-we already have addition and scalar multiplication of vectors defined as in the large space. But when we are considering whether the smaller collection is a vector space all on its own, the vectors <em>not</em> in this collection are no longer relevant. So the parts of these axioms that say <q>the result is always equal to another in the collection of objects</q> now refer to the <em>subcollection</em> of vectors under consideration. That is, we need to make sure that when vectors in the subcollection are added or scalar multiplied, then the result is again in the subcollection, not somewhere else in the vector space at large. We call this property being <term>closed</term> under the vector operations.
-</p><p>
+we already have addition and scalar multiplication of vectors defined as in the large space.
+But when we are considering whether the smaller collection is a vector space all on its own, the vectors <em>not</em> in this collection are no longer relevant.
+So the parts of these axioms that say <q>the result is always equal to another in the collection of objects</q> now refer to the <em>subcollection</em> of vectors under consideration.
+That is, we need to make sure that when vectors in the subcollection are added or scalar multiplied, then the result is again in the subcollection, not somewhere else in the vector space at large.
+We call this property being <term>closed</term> under the vector operations.
+</p>
+
+<p>
 Similarly, for
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>,
-we already know that every vector in the large space has a negative, hence so does every vector in the subcollection. But we need to check that the subcollection is <em>closed</em> under taking negatives <mdash /> that the negative of a vector in the subcollection is again in the subcollection. And we know that there is a zero vector in the large space, but the subcollection needs a zero vector too, to satisfy
+we already know that every vector in the large space has a negative, hence so does every vector in the subcollection.
+But we need to check that the subcollection is <em>closed</em> under taking negatives <mdash />
+that the negative of a vector in the subcollection is again in the subcollection.
+And we know that there is a zero vector in the large space, but the subcollection needs a zero vector too, to satisfy
 <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>.
-The zero vector from the larger space already satisfies the property that <m>\uvec{v}+\zerovec=\uvec{v}</m> for all vectors, but again <em>we need the zero vector to be in the subcollection</em>.
-</p><p>
-As we will prove in <xref ref="proposition-subspaces-test" />, we really only need to check a subcollection for closure under addition and scalar multiplication in order to verify that it is also a vector space.
+The zero vector from the larger space already satisfies the property that <m>\uvec{v}+\zerovec=\uvec{v}</m> for all vectors,
+but again <em>we need the zero vector to be in the subcollection</em>.
+</p>
+
+<p>
+As we will prove in <xref ref="proposition-subspaces-test" />,
+we really only need to check a subcollection for closure under addition and scalar multiplication in order to verify that it is also a vector space.
 </p>
 
 <!-- TODO turn this into a proper procedure like the Test for Linear Dependence/Independence, then change references to it to be text="title" xrefs -->
-<paragraphs><title>The Subspace Test</title><idx><h>Subspace Test</h></idx><idx><h>subspace</h><h>test</h></idx>
+<paragraphs><title>Subspace Test</title><idx><h>Subspace Test</h></idx><idx><h>subspace</h><h>test</h></idx>
 	<p>
-	To test whether a subcollection of vectors in a vector space is a sub<em>space</em> (<ie /> is vector space on its own), check whether all three of the following conditions are met.
+	To test whether a subcollection of vectors in a vector space is a sub<em>space</em> (<ie /> is vector space on its own),
+	check whether all three of the following conditions are met.
 	<ol label="(i)">
-		<li> The subcollection is nonempty. That is, it contains at least one vector. </li>
-		<li> The subcollection is <em>closed</em> under vector addition. That is, given vectors <m>\uvec{w}_1</m> and <m>\uvec{w}_2</m> in the subcollection, the sum <m>\uvec{w}_1+\uvec{w}_2</m> is also in the subcollection. </li>
-		<li> The subcollection is <em>closed</em> under scalar multiplication. That is, given vector <m>\uvec{w}</m> in the subcollection and scalar <m>k</m>, the scaled vector <m>k\uvec{w}</m> is also in the subcollection. </li>
+		<li>
+			The subcollection is nonempty.
+			That is, it contains at least one vector.
+		</li>
+		<li>
+			The subcollection is <em>closed</em> under vector addition.
+			That is, given vectors <m>\uvec{w}_1</m> and <m>\uvec{w}_2</m> in the subcollection,
+			the sum <m>\uvec{w}_1+\uvec{w}_2</m> is also in the subcollection.
+		</li>
+		<li>
+			The subcollection is <em>closed</em> under scalar multiplication.
+			That is, given vector <m>\uvec{w}</m> in the subcollection and scalar <m>k</m>,
+			the scaled vector <m>k\uvec{w}</m> is also in the subcollection.
+		</li>
 	</ol>
 	</p>
 </paragraphs>
 
 <remark><p><ul>
+
 	<li>
-	The first condition might seem unnecessary. But in math it is possible to accidentally be considering some collection of objects that in reality contains no objects. For example, consider <m>\matrixring_1(\R)</m>, the vector space of all <m>1\times 1</m> matrices. We could try to determine whether the subcollection of all <m>1\times 1</m> matrices whose square is equal to <m>[-1]</m> is a subspace of of <m>\matrixring_1(\R)</m>, but we'd be wasting our time because there are no such matrices.
+		The first condition might seem unnecessary.
+		But in math it is possible to accidentally be considering some collection of objects that in reality contains no objects.
+		For example, consider <m>\matrixring_1(\R)</m>, the vector space of all <m>1\times 1</m> matrices.
+		We could try to determine whether the subcollection of all <m>1\times 1</m> matrices whose square is equal to <m>[-1]</m> is a subspace of of <m>\matrixring_1(\R)</m>,
+		but we'd be wasting our time because there are no such matrices.
 	</li>
+
 	<li>
-	The logic of the test works in reverse as well: every subspace satisfies the three statements of the test because it is a vector space all on its own and thus satisfies the ten vector space axioms. (This is the <q>and only if</q> part of <xref ref="proposition-subspaces-test" />.) So a subspace is always nonempty because it must contain a zero vector
-	(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>),
-	and it is always closed under the vector operations
-	(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
-	and
-	<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>).
+		The logic of the test works in reverse as well:
+		every subspace satisfies the three statements of the test because it is a vector space all on its own and thus satisfies the ten vector space axioms.
+		(This is the <q>and only if</q> part of <xref ref="proposition-subspaces-test" />.)
+		So a subspace is always nonempty because it must contain a zero vector
+		(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>),
+		and it is always closed under the vector operations
+		(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-closed" text="local">Axiom A</xref>
+		and
+		<xref ref="list-abstract-vec-spaces-concepts-smul-axioms-closed" text="local">Axiom S</xref>).
 	</li>
+
 </ul></p></remark>
 
 <p> See <xref ref="section-subspaces-examples" /> for examples of applying the Subspace Test to verify that certain subcollections of vectors in vector spaces form subspaces. </p>
@@ -104,19 +146,35 @@ As we will prove in <xref ref="proposition-subspaces-test" />, we really only ne
 <title>Building subspaces</title>
 
 <p>
-Suppose we are studying a problem for which certain vectors in a certain vector space are important. We would like to do linear algebra with these certain special vectors, so the fact that they are part of a vector space is essential, but perhaps not all of the vector space in which they live is relevant to the problem. Can we find a smaller subspace which contains these important vectors? Even better, can we determine the <em>smallest</em> subspace which contains these important vectors?
-</p><p>
-As stated above, every subspace must satisfy the three parts of the Subspace Test. So if a subspace contains our special vectors, then it must also contain all scalar multiples of those vectors. And it must also be closed under vector addition, so it must also contain all sums of scalar multiples of the special vectors. Therefore, it must contain every <em>linear combination</em> of the special vectors. (In other words, subspaces are also <em>closed under taking linear combinations</em>.)
-</p><p>
+Suppose we are studying a problem for which certain vectors in a certain vector space are important.
+We would like to do linear algebra with these certain special vectors, so the fact that they are part of a vector space is essential,
+but perhaps not all of the vector space in which they live is relevant to the problem.
+Can we find a smaller subspace which contains these important vectors?
+Even better, can we determine the <em>smallest</em> subspace which contains these important vectors?
+</p>
+
+<p>
+As stated above, every subspace must satisfy the three parts of the Subspace Test.
+So if a subspace contains our special vectors, then it must also contain all scalar multiples of those vectors.
+And it must also be closed under vector addition, so it must also contain all sums of scalar multiples of the special vectors.
+Therefore, it must contain every <em>linear combination</em> of the special vectors.
+(In other words, subspaces are also <em>closed under taking linear combinations</em>.)
+</p>
+
+<p>
 As we noted in
 <xref ref="worksheet-subspaces" />,
 and will verify in
 <xref ref="subsection-subspaces-theory-examples" />
 (<xref ref="proposition-subspaces-span-subspace" />),
-the subcollection of a vector space consisting of all linear combinations of a set of vectors <m>S</m> is always a subspace, called the <term>span of <m>S</m></term> and written <m>\Span S</m>. So the process of taking <em>all possible</em> linear combinations of a set of vectors can be used to build subspaces. And sometimes, as in
+the subcollection of a vector space consisting of all linear combinations of a set of vectors <m>S</m> is always a subspace,
+called the <term>span of <m>S</m></term> and written <m>\Span S</m>.
+So the process of taking <em>all possible</em> linear combinations of a set of vectors can be used to build subspaces.
+And sometimes, as in
 <xref ref="activity-subspaces-span-eq-full-space" />,
 the space that span builds ends up being the <em>whole</em> larger space.
 </p>
+
 <aside><title>A look ahead</title><p>
 	In
 	<xref ref="subsection-subspaces-theory-examples" />,
@@ -126,8 +184,8 @@ the space that span builds ends up being the <em>whole</em> larger space.
 	<xref ref="proposition-subspaces-span-subspace" />).
 	And in
 	<xref first="chapter-linear-indep" last="chapter-dimension">Chapters</xref>
-	we will study optimal ways for doing so. </p>
-</aside>
+	we will study optimal ways for doing so.
+</p></aside>
 
 </subsection>
 
@@ -138,33 +196,55 @@ the space that span builds ends up being the <em>whole</em> larger space.
 <p>
 We saw in
 <xref ref="subsection-system-geom-concepts-lines-in-space" />
-that a line through the origin in <m>\R^n</m> can be described in vector form as <m>\uvec{x} = t\uvec{p}</m> for some vector <m>\uvec{p}</m> that is parallel to the line (and taking <q>initial</q> point <m>\uvec{x}_0 = \zerovec</m>, since the line passes through the origin). Similarly, we saw that a plane through the origin in <m>\R^3</m> can be described in vector form as <m>\uvec{x} = s\uvec{p}_1 + t\uvec{p}_2</m> for some vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> that are parallel to the plane but not parallel to each other. With our new, more sophisticated view of vector spaces and subspaces, we can now recognize a line <m>\uvec{x} = t\uvec{p}</m> as the subspace <m>\Span \{\uvec{p}\}</m>, and a plane <m>\uvec{x} = s\uvec{p}_1 + t\uvec{p}_2</m> as the subspace <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m>.
-</p><p>
-In fact, <em>every</em> (nontrivial) subspace of <m>\R^n</m> has a geometric interpretation as a line or a plane or some sort of higher-dimensional hyperplane. In particular,
+that a line through the origin in <m>\R^n</m> can be described in vector form as <m>\uvec{x} = t \uvec{p}</m> for some vector <m>\uvec{p}</m> that is parallel to the line
+(and taking <q>initial</q> point <m>\uvec{x}_0 = \zerovec</m>, since the line passes through the origin).
+Similarly, we saw that a plane through the origin in <m>\R^3</m> can be described in vector form as <m>\uvec{x} = s \uvec{p}_1 + t \uvec{p}_2</m> for some vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> that are parallel to the plane but not parallel to each other.
+With our new, more sophisticated view of vector spaces and subspaces, we can now recognize a line <m>\uvec{x} = t \uvec{p}</m> as the subspace <m>\Span \{\uvec{p}\}</m>,
+and a plane <m>\uvec{x} = s \uvec{p}_1 + t \uvec{p}_2</m> as the subspace <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m>.
+</p>
+
+<p>
+In fact, <em>every</em> (nontrivial) subspace of <m>\R^n</m> has a geometric interpretation as a line or a plane or some sort of higher-dimensional hyperplane.
+In particular,
 <ul>
-	<li><p> the subspaces of <m>\R^2</m> are precisely
-	<ul>
-		<li> the zero space <m>\{\zerovec\}</m>, </li>
-		<li> <m>\Span \{\uvec{p}\}</m> for a nonzero vector <m>\uvec{p}</m>, which builds a line through the origin, and </li>
-		<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m> for two nonzero, nonparallel vectors <m>\uvec{p}_1,\uvec{p}_2</m>, which builds the whole plane <m>\R^2</m>; </li>
-	</ul>
+	<li><p>
+		the subspaces of <m>\R^2</m> are precisely
+		<ul>
+			<li> the zero space <m>\{\zerovec\}</m>, </li>
+			<li> <m>\Span \{\uvec{p}\}</m> for a nonzero vector <m>\uvec{p}</m>, which builds a line through the origin, and </li>
+			<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m> for two nonzero, nonparallel vectors <m>\uvec{p}_1,\uvec{p}_2</m>, which builds the whole plane <m>\R^2</m>; </li>
+		</ul>
 	</p></li>
-	<li><p> the subspaces of <m>\R^3</m> are precisely
-	<ul>
-		<li> the zero space <m>\{\zerovec\}</m>, </li>
-		<li> <m>\Span \{\uvec{p}\}</m> for a nonzero vector <m>\uvec{p}</m>, which builds a line through the origin, </li>
-		<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m> for two nonzero, nonparallel vectors <m>\uvec{p}_1,\uvec{p}_2</m>, which builds a plane through the origin, and </li>
-		<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3\}</m> for three nonzero, non-coplanar vectors <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>, which builds all of space <m>\R^3</m>; </li>
-	</ul>
+	<li><p>
+		the subspaces of <m>\R^3</m> are precisely
+		<ul>
+			<li> the zero space <m>\{\zerovec\}</m>, </li>
+			<li> <m>\Span \{\uvec{p}\}</m> for a nonzero vector <m>\uvec{p}</m>, which builds a line through the origin, </li>
+			<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m> for two nonzero, nonparallel vectors <m>\uvec{p}_1,\uvec{p}_2</m>, which builds a plane through the origin, and </li>
+			<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3\}</m> for three nonzero, non-coplanar vectors <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>, which builds all of space <m>\R^3</m>; </li>
+		</ul>
 	</p></li>
-	<li><p> the subspaces of <m>\R^4</m> are precisely
-	<ul>
-		<li> the zero space <m>\{\zerovec\}</m>, </li>
-		<li> <m>\Span \{\uvec{p}\}</m> for a nonzero vector <m>\uvec{p}</m>, which builds a line through the origin, </li>
-		<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m> for two nonzero, nonparallel vectors <m>\uvec{p}_1,\uvec{p}_2</m>, which builds a plane through the origin, </li>
-		<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3\}</m> for three nonzero, non-coplanar vectors <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>, which builds a hyperplane through the origin, and </li>
-		<li> <m>\Span \{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3,\uvec{p}_4\}</m> for four nonzero, non-cohyperplanar vectors <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3,\uvec{p}_4</m>, which builds all of four-dimensional space <m>\R^4</m>; </li>
-	</ul>
+	<li><p>
+		the subspaces of <m>\R^4</m> are precisely
+		<ul>
+			<li> the zero space <m>\{\zerovec\}</m>, </li>
+			<li>
+				<m>\Span \{\uvec{p}\}</m> for a nonzero vector <m>\uvec{p}</m>,
+				which builds a line through the origin,
+			</li>
+			<li>
+				<m>\Span \{\uvec{p}_1,\uvec{p}_2\}</m> for two nonzero, nonparallel vectors <m>\uvec{p}_1,\uvec{p}_2</m>,
+				which builds a plane through the origin,
+			</li>
+			<li>
+				<m>\Span \{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3\}</m> for three nonzero, non-coplanar vectors <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>,
+				which builds a hyperplane through the origin, and
+			</li>
+			<li>
+				<m>\Span \{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3,\uvec{p}_4\}</m> for four nonzero, non-cohyperplanar vectors <m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3,\uvec{p}_4</m>,
+				which builds all of four-dimensional space <m>\R^4</m>;
+			</li>
+		</ul>
 	</p></li>
 	<li> <etc /> </li>
 </ul>
@@ -177,7 +257,12 @@ In fact, <em>every</em> (nontrivial) subspace of <m>\R^n</m> has a geometric int
 <title>Recognizing when two subspaces are the same</title>
 
 <p>
-One of the goals of the next few chapters is to determine how to describe vector spaces using spanning sets in an optimal fashion. In this endeavour, we will want to know when a refinement of a spanning set still spans the space we are trying to describe. So, in particular, we will need to know when two spanning sets generate the same subspace. Since spans are defined by linear combinations, and subspaces are closed under linear combinations, this will not be as difficult as it sounds, and we provide a test for this situation as
+One of the goals of the next few chapters is to determine how to describe vector spaces using spanning sets in an optimal fashion.
+In this endeavour, we will want to know when a refinement of a spanning set still spans the space we are trying to describe.
+So, in particular, we will need to know when two spanning sets generate the same subspace.
+Since spans are defined by linear combinations, and subspaces are closed under linear combinations,
+this will not be as difficult as it sounds,
+and we provide a test for this situation as
 <xref ref="proposition-subspaces-eq-span-test" />
 in
 <xref ref="subsection-subspaces-theory-equality" />.

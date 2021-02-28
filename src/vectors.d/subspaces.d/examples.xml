@@ -32,108 +32,166 @@ respective owners.
 <subsection xml:id="subsection-subspaces-examples-test">
 <title>The Subspace Test</title>
 
-<p>First, let's practise applying the Subspace Test.</p>
+<p> First, let's practise applying the Subspace Test. </p>
 
 <remark><p>
-Since every vector space must have a zero vector (<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>), so too must a subspace. But since the vector operations of a subspace are the same as the operations of the larger space, it will turn out that the zero vector in a subspace must always be the same as the zero vector in the larger space (see <xref ref="proposition-subspaces-props" />). So often the best way to check the nonempty clause of the Subspace Test is to verify that it contains the zero vector.
+	Since every vector space must have a zero vector
+	(<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>),
+	so too must a subspace.
+	But since the vector operations of a subspace are the same as the operations of the larger space,
+	it will turn out that the zero vector in a subspace must always be the same as the zero vector in the larger space (see <xref ref="proposition-subspaces-props" />).
+	So often the best way to check the nonempty clause of the Subspace Test is to verify that it contains the zero vector.
 </p></remark>
 
 <p> Here are some examples from <xref ref="worksheet-subspaces" />. </p>
 
 <!--<ol xml:id="list-subspaces-examples-subspace-test"> -->
 
-<example><title>A plane through the origin in <m>\R^3</m></title><statement>
+<example>
+	<title>A plane through the origin in <m>\R^3</m></title>
+
 	<p>
 	In
 	<xref ref="activity-subspaces-test-examples-R3-xy-plane">Discovery</xref>,
-	we considered the subcollection of vectors in <m>\R^3</m> consisting of all vectors from the origin with terminal point in the <m>xy</m>-plane. Note that any such vector must have a <m>0</m> as its <m>z</m>-component.
-	</p><p>
+	we considered the subcollection of vectors in <m>\R^3</m> consisting of all vectors from the origin with terminal point in the <m>xy</m>-plane.
+	Note that any such vector must have a <m>0</m> as its <m>z</m>-component.
+	</p>
+
+	<p>
 	Let's apply the subspace test.
+
 	<ol label="(i)">
 		<li> We know that the <m>xy</m>-plane is nonempty; in particular, it contains the zero vector since it contains the origin. </li>
-		<li> If vectors <m>\uvec{u}_1</m> and <m>\uvec{u}_2</m> are both in the <m>xy</m>-plane, then their <m>z</m>-components are both zero. So we can write these vectors as
-		<md><mrow> \uvec{u}_1 \amp= (x_1,y_1,0), \amp \uvec{u}_2 \amp= (x_2,y_2,0). </mrow></md>
-		Then,
-		<me> \uvec{u}_1 + \uvec{u}_2 = (x_1+x_2,y_1+y_2,0). </me>
-		Since this sum vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
+		<li>
+			If vectors <m>\uvec{u}_1</m> and <m>\uvec{u}_2</m> are both in the <m>xy</m>-plane, then their <m>z</m>-components are both zero.
+			So we can write these vectors as
+			<md><mrow> \uvec{u}_1 \amp= (x_1,y_1,0), \amp \uvec{u}_2 \amp= (x_2,y_2,0) </mrow></md>.
+			Then,
+			<me> \uvec{u}_1 + \uvec{u}_2 = (x_1+x_2,y_1+y_2,0) </me>.
+			Since this sum vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
 		</li>
-		<li> If vector <m>\uvec{u}</m> is in the <m>xy</m>-plane, then its <m>z</m>-component is zero, so we can write it as
-		<me> \uvec{u} = (x,y,0). </me>
-		Then for every scalar <m>k</m>, we have <me> k\uvec{u} = (kx,ky,0). </me>
-		Since this scaled vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
+		<li>
+			If vector <m>\uvec{u}</m> is in the <m>xy</m>-plane, then its <m>z</m>-component is zero,
+			so we can write it as <me> \uvec{u} = (x,y,0) </me>.
+			Then for every scalar <m>k</m>, we have <me> k\uvec{u} = (kx,ky,0) </me>.
+			Since this scaled vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
 		</li>
 	</ol>
+
 	Since all parts of the Subspace Test pass, the <m>xy</m>-plane is a subspace of <m>\R^3</m>.
 	</p>
-</statement></example>
 
-<example><title>A subspace of matrices</title><statement>
+</example>
+
+<example>
+	<title>A subspace of matrices</title>
+
 	<p>
 	In
 	<xref ref="activity-subspaces-test-examples-M12-7-upper-left">Discovery</xref>,
 	we considered the subcollection of <m>\matrixring_{12}(\R)</m> consisting of all those <m>12 \times 12</m> matrices that have a <m>7</m> in the <m>(1,1)</m> entry.
-	</p><p>
-	Let's apply the subspace test.
-	<ol label="(i)">
-		<li>
-		<p>
-		This collection is clearly not empty, since the <m>12 \times 12</m> matrix with <m>7</m> in <em>every</em> entry is in the collection.
-		</p>
-		<aside><title>Note</title>
-			<p>
-			The zero matrix is clearly <em>not</em> in the collection, so we could conclude right now that this subcollection is not a subspace. But since the Subspace Test itself has not yet failed, we will continue.
-			</p>
-		</aside>
-		</li>
-		<li> If matrices <m>A_1</m> and <m>A_2</m> are both in the subcollection, then they each have a <m>7</m> in the <m>(1,1)</m> entry. But then <m>A_1+A_2</m> has <m>14</m> in the <m>(1,1)</m> entry, not <m>7</m>. So the sum vector is <em>not</em> in the subcollection, and the Subspace Test fails.
-		</li>
-	</ol>
-	There is no need to check the third clause of the Subspace Test, since the second has already failed to pass. But it shouldn't be too difficult to see that scalar multiples of such a matrix will also fail to remain in the subcollection (except when the scalar is <m>1</m>).
 	</p>
-</statement></example>
 
-<example><title>Restricting degree creates a subspace of polynomials</title><statement>
-<!--	<li xml:id="list-subspaces-examples-subspace-test-P-vs-P2"> -->
+	<p>
+	Let's apply the subspace test.
+
+	<ol label="(i)">
+
+		<li>
+
+			<p> This collection is clearly not empty, since the <m>12 \times 12</m> matrix with <m>7</m> in <em>every</em> entry is in the collection. </p>
+
+			<aside><title>Note</title><p>
+				The zero matrix is clearly <em>not</em> in the collection, so we could conclude right now that this subcollection is not a subspace.
+				But since the Subspace Test itself has not yet failed, we will continue.
+			</p></aside>
+
+		</li>
+
+		<li>
+			If matrices <m>A_1</m> and <m>A_2</m> are both in the subcollection, then they each have a <m>7</m> in the <m>(1,1)</m> entry.
+			But then <m>A_1+A_2</m> has <m>14</m> in the <m>(1,1)</m> entry, not <m>7</m>.
+			So the sum vector is <em>not</em> in the subcollection, and the Subspace Test fails.
+		</li>
+
+	</ol>
+
+	There is no need to check the third clause of the Subspace Test, since the second has already failed to pass.
+	But it shouldn't be too difficult to see that scalar multiples of such a matrix will also fail to remain in the subcollection
+	(except when the scalar is <m>1</m>).
+	</p>
+
+</example>
+
+<example>
+	<!--	<li xml:id="list-subspaces-examples-subspace-test-P-vs-P2"> -->
+	<title>Restricting degree creates a subspace of polynomials</title>
+
 	<p>
 	In
 	<xref ref="activity-subspaces-test-examples-P-vs-P2">Discovery</xref>,
 	we considered the subcollection of <m>\poly(\R)</m> consisting of those polynomials that have degree <m>2</m> or less.
-	</p><p>
-	Let's apply the subspace test.
-	<ol label="(i)">
-		<li> Clearly this subcollection is nonempty, as any constant polynomial has degree <m>0</m>, which is less than <m>2</m>. In particular, the zero polynomial <m>\zerovec(x)=0</m> (which is the zero vector in this space) also has degree less than <m>2</m>. </li>
-		<li>
-		<p>
-		Suppose <m>p_1</m> and <m>p_2</m> are two polynomials in this subcollection. Then the degree of each of these polynomials is <m>2</m> or less, so we can write
-		<md><mrow>
-			p_1(x) \amp= a_1x^2 + b_1x + c_1, \amp
-			p_2(x) \amp= a_2x^2 + b_2x + c_2.
-		</mrow></md>
-		</p>
-		<aside><title>Note</title><p>
-		Even though each expression has an <m>x^2</m> term, the degree could still be less than <m>2</m> because the leading coefficient <m>a_i</m> could be zero.
-		</p></aside>
-		<p>
-		Then,
-		<md>
-			<mrow> p_1(x) + p_2(x) \amp = (a_1x^2 + b_1x + c_1) + (a_2x^2 + b_2x + c_2) </mrow>
-			<mrow> \amp = (a_1+a_2)x^2 + (b_1+b_2)x + (c_1+c_2). </mrow>
-		</md>
-		Since this sum polynomial also has degree <m>2</m> (or less, since <m>a_1</m> and <m>a_2</m> could cancel or could both be zero), it is again in the subcollection, as required.
-		</p></li>
-		<li> Suppose <m>p</m> is a polynomial in this subcollection. Then the degree of this polynomial is <m>2</m> or less, so we can write
-		<me> p(x) = ax^2 + bx + c. </me>
-		Then for every scalar <m>k</m>, we have
-		<me> kp(x) = kax^2 + kbx + kc. </me>
-		Since this scaled polynomial also has degree <m>2</m> (or less, since either <m>k</m> or <m>a</m> could be zero), it is again in the subcollection, as required.
-		</li>
-	</ol>
-	Since all parts of the Subspace Test pass, the collection of all polynomials of degree <m>2</m> or less is a subspace of <m>\poly(\R)</m>.
 	</p>
-</statement></example>
+
+	<p>
+	Let's apply the subspace test.
+
+	<ol label="(i)">
+
+		<li>
+			Clearly this subcollection is nonempty, as any constant polynomial has degree <m>0</m>, which is less than <m>2</m>.
+			In particular, the zero polynomial <m>\zerovec(x)=0</m> (which is the zero vector in this space) also has degree less than <m>2</m>.
+		</li>
+
+		<li>
+
+			<p>
+			Suppose <m>p_1</m> and <m>p_2</m> are two polynomials in this subcollection.
+			Then the degree of each of these polynomials is <m>2</m> or less, so we can write
+			<md><mrow>
+				p_1(x) \amp= a_1 x^2 + b_1 x + c_1, \amp
+				p_2(x) \amp= a_2 x^2 + b_2 x + c_2.
+			</mrow></md>
+			</p>
+
+			<aside><title>Note</title><p>
+				Even though each expression has an <m>x^2</m> term,
+				the degree could still be less than <m>2</m> because the leading coefficient <m>a_i</m> could be zero.
+			</p></aside>
+
+			<p>
+			Then,
+			<md>
+				<mrow> p_1(x) + p_2(x) \amp = (a_1 x^2 + b_1 x + c_1) + (a_2 x^2 + b_2 x + c_2) </mrow>
+				<mrow> \amp = (a_1 + a_2) x^2 + (b_1 + b_2) x + (c_1 + c_2) </mrow>
+			</md>.
+			Since this sum polynomial also has degree <m>2</m>
+			(or less, since <m>a_1</m> and <m>a_2</m> could cancel or could both be zero),
+			it is again in the subcollection, as required.
+			</p>
+		</li>
+
+		<li>
+			Suppose <m>p</m> is a polynomial in this subcollection.
+			Then the degree of this polynomial is <m>2</m> or less, so we can write <me> p(x) = a x^2 + b x + c </me>.
+			Then for every scalar <m>k</m>, we have <me> k p(x) = k a x^2 + k b x + k c </me>.
+			Since this scaled polynomial also has degree <m>2</m>
+			(or less, since either <m>k</m> or <m>a</m> could be zero),
+			it is again in the subcollection, as required.
+		</li>
+
+	</ol>
+
+	Since all parts of the Subspace Test pass,
+	the collection of all polynomials of degree <m>2</m> or less is a subspace of <m>\poly(\R)</m>.
+	</p>
+
+</example>
 
 <remark><p>
-	Similar to this last example, the Subspace Test can be used to verify that <m>\poly_n(\R)</m>, the subcollection of <m>\poly(\R)</m> consisting of all polynomials with degree <m>n</m> or less, is a subspace for every fixed value of positive integer <m>n</m>.
+	Similar to this last example, the Subspace Test can be used to verify that <m>\poly_n(\R)</m>,
+	the subcollection of <m>\poly(\R)</m> consisting of all polynomials with degree <m>n</m> or less,
+	is a subspace for every fixed value of positive integer <m>n</m>.
 </p></remark>
 
 </subsection>
@@ -142,89 +200,139 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 <subsection xml:id="subsection-subspaces-examples-important">
 <title>Important subspace examples</title>
 
-<p>Here are a few more important examples of subspaces.</p>
+<p> Here are a few more important examples of subspaces. </p>
 
 <example xml:id="example-subspaces-examples-trivial-subspace">
 	<title>The trivial subspace</title>
-	<statement><p>
-		Consider the subcollection in a vector space consisting of <em>just</em> the zero vector. Since we already know that the zero vector space is, indeed, a vector space, there is no need for the Subspace Test. <alert>In every vector space, the zero space <m>\{\zerovec\}</m> is always a subspace.</alert>
-	</p></statement>
+	<p>
+	Consider the subcollection in a vector space consisting of <em>just</em> the zero vector.
+	Since we already know that the zero vector space is, indeed, a vector space, there is no need for the Subspace Test.
+	<alert> In every vector space, the zero space <m>\{\zerovec\}</m> is always a subspace. </alert>
+	</p>
 </example>
 
 <example xml:id="example-subspaces-examples-full-subspace">
 	<title>The full subspace</title>
-	<statement><p>
-	Consider the subcollection in a vector space consisting of <em>every</em> vector. (This may not seem like a <em>sub</em>collection, but every vector in this subcollection is in the original vector space.) Since it is obviously true that the collection of all vectors in a vector space forms a vector space, we have that <alert>every vector space is a subspace of itself</alert>.
-	</p></statement>
+	<p>
+	Consider the subcollection in a vector space consisting of <em>every</em> vector.
+	(This may not seem like a <em>sub</em>collection, but every vector in this subcollection is in the original vector space.)
+	Since it is obviously true that the collection of all vectors in a vector space forms a vector space,
+	we have that <alert> every vector space is a subspace of itself </alert>.
+	</p>
 </example>
 
 <example xml:id="example-subspaces-examples-solution-space">
 	<!-- formerly labelled: \labelsub{homog.solution.set} -->
 	<title>The solution space of a homogeneous system</title>
-	<statement><p>
-	Suppose <m>A</m> is a fixed <m>m \times n</m> matrix. Solutions to the homogeneous system <m>A\uvec{x} = \zerovec</m> can be considered as (column) vectors in <m>\R^n</m>, so the solution set to this system is a subcollection of a vector space. Is it a subspace? Let's apply the Subspace Test, similarly to
+
+	<p>
+	Suppose <m>A</m> is a fixed <m>m \times n</m> matrix.
+	Solutions to the homogeneous system <m>A\uvec{x} = \zerovec</m> can be considered as (column) vectors in <m>\R^n</m>,
+	so the solution set to this system is a subcollection of a vector space.
+	Is it a subspace?
+	Let's apply the Subspace Test, similarly to
 	<xref ref="activity-subspaces-test-examples-solution-space">Discovery</xref>.
+
 	<ol label="(i)">
-		<li> Since a homogeneous system is always consistent, the solution set is nonempty. In particular, the solution set contains the zero vector, since this is the vector corresponding to the trivial solution. </li>
-		<li> Suppose <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are two solutions to this system. Then both
-		<md><mrow>
-			A\uvec{x}_1 \amp= \zerovec \amp
-			\amp\text{and} \amp
-			A\uvec{x}_2 \amp= \zerovec.
-		</mrow></md>
-		To check if the sum vector is also in the solution set, we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-		<me>
-			A(\uvec{x}_1+\uvec{x}_2)
-			= A\uvec{x}_1 + A\uvec{x}_2
-			= \zerovec + \zerovec
-			= \zerovec.
-		</me>
-		So the sum vector is indeed in the solution set.
+
+		<li>
+			Since a homogeneous system is always consistent, the solution set is nonempty.
+			In particular, the solution set contains the zero vector, since this is the vector corresponding to the trivial solution.
 		</li>
-		<li> Suppose <m>\uvec{x}_0</m> is a solution to this system. Then <m>A\uvec{x}_0 = \zerovec</m>. For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solution set, we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-		<me>
-			A(k\uvec{x}_0)
-			= kA\uvec{x}_0
-			= k\zerovec
-			= \zerovec.
-		</me>
-		So the scaled vector is indeed in the solution set.
+
+		<li>
+			Suppose <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are two solutions to this system.
+			Then both
+			<md><mrow>
+				A\uvec{x}_1 \amp= \zerovec \amp
+				\amp\text{and} \amp
+				A\uvec{x}_2 \amp= \zerovec
+			</mrow></md>.
+			To check if the sum vector is also in the solution set,
+			we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+			<me>
+				A(\uvec{x}_1+\uvec{x}_2)
+				= A\uvec{x}_1 + A\uvec{x}_2
+				= \zerovec + \zerovec
+				= \zerovec
+			</me>.
+			So the sum vector is indeed in the solution set.
 		</li>
+
+		<li>
+			Suppose <m>\uvec{x}_0</m> is a solution to this system.
+			Then <m>A\uvec{x}_0 = \zerovec</m>.
+			For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solution set,
+			we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+			<me>
+				A(k\uvec{x}_0)
+				= kA\uvec{x}_0
+				= k\zerovec
+				= \zerovec
+			</me>.
+			So the scaled vector is indeed in the solution set.
+		</li>
+
 	</ol>
+
 	Since all parts of the Subspace Test pass, the solution set of the homogeneous system <m>A\uvec{x}=\zerovec</m> is a subspace of <m>\R^n</m>.
-	</p></statement>
+	</p>
+
 </example>
 
-<remark xml:id="remark-subspaces-examples-every-subsp-is-homogeneous"><p>
-	Every subspace is somehow defined by a homogeneous condition or a set of homogeneous conditions. In the solution space example above, this was explicit <mdash /> the subcollection was directly defined as the solution set of a homogeneous matrix equation <m>A\uvec{x} = \zerovec</m>. On the other hand, it's easy to see that the solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> would <em>not</em> be a subspace of <m>\R^n</m>, since it would not contain the zero vector.
-</p><p>
+<remark xml:id="remark-subspaces-examples-every-subsp-is-homogeneous">
+
+	<p>
+	Every subspace is somehow defined by a homogeneous condition or a set of homogeneous conditions.
+	In the solution space example above, this was explicit <mdash />
+	the subcollection was directly defined as the solution set of a homogeneous matrix equation <m>A\uvec{x} = \zerovec</m>.
+	On the other hand, it's easy to see that the solution set of a nonhomogeneous system <m>A\uvec{x} = \uvec{b}</m> would <em>not</em> be a subspace of <m>\R^n</m>,
+	since it would not contain the zero vector.
+	</p>
+
+	<p>
 	Let's reconsider some of the examples of <xref ref="activity-subspaces-test-examples" /> from this perspective.
-<ul>
-	<li>
-	In
-	<xref ref="activity-subspaces-test-examples-R3-xy-plane">Discovery</xref>,
-	the <m>xy</m>-plane is a subspace of <m>\R^3</m>, and it corresponds to the homogeneous condition <m>z=0</m>. However, in
-	<xref ref="activity-subspaces-test-examples-R3-xy-plane-up1">Discovery</xref>,
-	the plane parallel to the <m>xy</m>-plane in <m>\R^3</m> but shifted one unit upward is <em>not</em> a subspace, and it corresponds to the <em>non</em>homogeneous condition <m>z=1</m>.
-	</li>
-	<li>
-	In
-	<xref ref="activity-subspaces-test-examples-M10-diag">Discovery</xref>,
-	the collection of <m>10 \times 10</m> diagonal matrices is a subspace of <m>\matrixring_{10}(\R)</m>, and it corresponds to the homogeneous conditions that the off-diagonal entries be zero. However, in
-	<xref ref="activity-subspaces-test-examples-M12-7-upper-left">Discovery</xref>,
-	the collection of those <m>12 \times 12</m> matrices with a <m>7</m> in the <m>(1,1)</m> entry is <em>not</em> a subspace of <m>\matrixring_{12}(\R)</m>, and this collection corresponds to the <em>non</em>homogeneous condition of requiring the top-left entry be <m>7</m>.
-	</li>
 
-	<li>
-	In
-	<xref ref="activity-subspaces-test-examples-P-vs-P2">Discovery</xref>,
-	the collection <m>\poly_2(\R)</m> of polynomials of degree <m>2</m> or less is a subspace of <m>\poly(\R)</m>, and it corresponds to the homogeneous conditions of requiring the coefficient on every power <m>x^n</m>, <m>n\ge 3</m>, be zero. However, in
-	<xref ref="activity-subspaces-test-examples-P-vs-deg-2">Discovery</xref>,
-	the collection of polynomials of degree <em>exactly</em> <m>2</m> is <em>not</em> a subspace. While this subcollection requires the same homogeneous conditions as those defining <m>\poly_2</m>, it also requires the <em>non</em>homogeneous condition that the coefficient on <m>x^2</m> be <em>non</em>zero.
-	</li>
+	<ul>
 
-</ul>
-</p></remark>
+		<li>
+			In
+			<xref ref="activity-subspaces-test-examples-R3-xy-plane">Discovery</xref>,
+			the <m>xy</m>-plane is a subspace of <m>\R^3</m>, and it corresponds to the homogeneous condition <m>z=0</m>.
+			However, in
+			<xref ref="activity-subspaces-test-examples-R3-xy-plane-up1">Discovery</xref>,
+			the plane parallel to the <m>xy</m>-plane in <m>\R^3</m> but shifted one unit upward is <em>not</em> a subspace,
+			and it corresponds to the <em>non</em>homogeneous condition <m>z=1</m>.
+		</li>
+
+		<li>
+			In
+			<xref ref="activity-subspaces-test-examples-M10-diag">Discovery</xref>,
+			the collection of <m>10 \times 10</m> diagonal matrices is a subspace of <m>\matrixring_{10}(\R)</m>,
+			and it corresponds to the homogeneous conditions that the off-diagonal entries be zero.
+			However, in
+			<xref ref="activity-subspaces-test-examples-M12-7-upper-left">Discovery</xref>,
+			the collection of those <m>12 \times 12</m> matrices with a <m>7</m> in the <m>(1,1)</m> entry is <em>not</em> a subspace of <m>\matrixring_{12}(\R)</m>,
+			and this collection corresponds to the <em>non</em>homogeneous condition of requiring the top-left entry be <m>7</m>.
+		</li>
+
+		<li>
+			In
+			<xref ref="activity-subspaces-test-examples-P-vs-P2">Discovery</xref>,
+			the collection <m>\poly_2(\R)</m> of polynomials of degree <m>2</m> or less is a subspace of <m>\poly(\R)</m>,
+			and it corresponds to the homogeneous conditions of requiring the coefficient on every power <m>x^n</m>, <m>n\ge 3</m>, be zero.
+			However, in
+			<xref ref="activity-subspaces-test-examples-P-vs-deg-2">Discovery</xref>,
+			the collection of polynomials of degree <em>exactly</em> <m>2</m> is <em>not</em> a subspace.
+			While this subcollection requires the same homogeneous conditions as those defining <m>\poly_2</m>,
+			it also requires the <em>non</em>homogeneous condition that the coefficient on <m>x^2</m> be <em>non</em>zero.
+		</li>
+
+	</ul>
+
+	</p>
+
+</remark>
 
 </subsection>
 
@@ -233,17 +341,23 @@ Since every vector space must have a zero vector (<xref ref="list-abstract-vec-s
 <title>Determining if a vector is in a span</title>
 
 <p>
-In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of determining whether a given vector was in the subspace generated by a specified spanning set. For this to be true, that vector must be a linear combination of vectors in the spanning set.
+In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of determining whether a given vector was in the subspace generated by a specified spanning set.
+For this to be true, that vector must be a linear combination of vectors in the spanning set.
 </p>
 
-<example xml:id="example-subspaces-examples-check-in-span-in-R3"><title>A span of <m>\R^3</m>-vectors</title>
-	<statement>
+<example xml:id="example-subspaces-examples-check-in-span-in-R3">
+	<title>A span of <m>\R^3</m>-vectors</title>
+
 	<p>
 	This example corresponds to
 	<xref ref="activity-subspaces-vec-in-span-R3">Discovery</xref>.
-	Working in <m>\R^3</m>, we would like to determine if <m>\uvec{v} = (1,-1,4)</m> is in <m>\Span S</m> for <m>S = \bigl\{(1,0,1),(2,1,-1)\bigr\}</m>. Let's try to express <m>\uvec{v}</m> as a linear combination of vectors in the spanning set, and see if it works out. Set
-	<me> (1,-1,4) = s(1,0,1) + t(2,1,-1), </me>
-	for unknown scalars <m>s,t</m>. Combining the linear combination on the right into a single vector and comparing components on each side, we get (surprise!) a linear system of equations:
+	Working in <m>\R^3</m>, we would like to determine if <m>\uvec{v} = (1,-1,4)</m> is in <m>\Span S</m> for <m>S = \bigl\{(1,0,1),(2,1,-1)\bigr\}</m>.
+	Let's try to express <m>\uvec{v}</m> as a linear combination of vectors in the spanning set, and see if it works out.
+	Set
+	<me> (1,-1,4) = s(1,0,1) + t(2,1,-1) </me>,
+	for unknown scalars <m>s,t</m>.
+	Combining the linear combination on the right into a single vector and comparing components on each side,
+	we get (surprise!) a linear system of equations:
 	<me>
 		\left\{\begin{array}{rcrcr}
 			1 \amp = \amp s \amp + \amp 2t \text{,} \\
@@ -251,33 +365,49 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 			4 \amp = \amp s \amp - \amp t \text{.}
 		\end{array}\right.
 	</me>
-	Now, we don't actually care about the solution to this system <mdash /> we only care if the system is <em>consistent</em> or not, because if it's consistent then there <em>is</em> a way to express <m>\uvec{v}</m> as a linear combination of the spanning vectors, so that <m>\uvec{v}</m> is in <m>\Span S</m>. And, as you can check for yourself, this system is consistent.
-	</p><p>
-	There is an interesting pattern to note if we actually convert the system above into an augmented matrix:
-	<me>
-		\left[\begin{array}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{array}\right].
-	</me>
-	Notice that <alert>the columns in the coefficient matrix are precisely the vectors in the spanning set, and the column of constants is precisely the vector that we are testing as being in <m>\Span S</m> or not</alert>.
+	Now, we don't actually care about the solution to this system <mdash />
+	we only care if the system is <em>consistent</em> or not,
+	because if it's consistent then there <em>is</em> a way to express <m>\uvec{v}</m> as a linear combination of the spanning vectors,
+	so that <m>\uvec{v}</m> is in <m>\Span S</m>.
+	And, as you can check for yourself, this system is consistent.
 	</p>
-	</statement>
+
+	<p>
+	There is an interesting pattern to note if we actually convert the system above into an augmented matrix:
+	<me> \left[\begin{array}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{array}\right] </me>.
+	Notice that
+	<alert>
+		the columns in the coefficient matrix are precisely the vectors in the spanning set,
+		and the column of constants is precisely the vector that we are testing as being in <m>\Span S</m> or not
+	</alert>.
+	</p>
+
 </example>
 
-<example><title>A span of matrices</title><statement>
+<example>
+	<title>A span of matrices</title>
+
 	<p>
 	This example corresponds to
 	<xref ref="activity-subspaces-vec-in-span-M23">Discovery</xref>.
 	Working in <m>\matrixring_{2 \times 3}(\R)</m>, we would like to determine if
 	<m> \uvec{v} = \left[\begin{smallmatrix} 0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{smallmatrix}\right] </m>
-	is in <m>\Span S</m>, for
+	is in <m>\Span S</m>,
+	for
 	<me>
 		S = \left\{
 			\begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
-		\right\}.
-	</me>
-	Here, we can see more directly that <m>\uvec{v}</m> is <em>not</em> in <m>\Span S</m>. Notice that the nonzero entries of the matrices in <m>S</m> do not overlap. From this, we can see that every linear combination of these spanning matrices will have the first two entries in the second row equal to each other. But the entries of <m>\uvec{v}</m> do not have this property.
-	</p><p>
+		\right\}
+	</me>.
+	Here, we can see more directly that <m>\uvec{v}</m> is <em>not</em> in <m>\Span S</m>.
+	Notice that the nonzero entries of the matrices in <m>S</m> do not overlap.
+	From this, we can see that every linear combination of these spanning matrices will have the first two entries in the second row equal to each other.
+	But the entries of <m>\uvec{v}</m> do not have this property.
+	</p>
+
+	<p>
 	If we didn't notice this, we could carry out a similar procedure as in the previous example, beginning with the vector equation
 	<me>
 		\left[\begin{array}{rrr}  0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{array}\right]
@@ -286,7 +416,8 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 		s\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp  1 \amp  0 \end{bmatrix} +
 		t\begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp  0 \amp  1 \end{bmatrix}
 	</me>
-	 in the unknown scalars <m>r,s,t</m>. Combining the linear combination on the right into one matrix, and then comparing entries on each side, we get a linear system with augmented matrix
+	 in the unknown scalars <m>r,s,t</m>.
+	 Combining the linear combination on the right into one matrix, and then comparing entries on each side, we get a linear system with augmented matrix
 	 <me>
 	 	\left[\begin{array}{rrr|r}
 	 		0 \amp 0 \amp 0 \amp 0 \\
@@ -295,22 +426,27 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 	 		0 \amp 1 \amp 0 \amp 3 \\
 	 		0 \amp 1 \amp 0 \amp -3 \\
 	 		0 \amp 0 \amp 1 \amp -3
-	 	\end{array}\right].
-	 </me>
+	 	\end{array}\right]
+	 </me>.
 	 </p>
-	 <aside><title>Notice</title><p>
-	 the pattern in the columns versus the vectors in our problem again!
-	</p></aside>
-	<p> In this matrix, the inconsistency is obvious in the fourth and fifth rows. </p>
-</statement></example>
 
-<example><title>A span of polynomials</title><statement>
+	 <aside><title>Notice</title><p> The pattern in the columns versus the vectors in our problem again! </p></aside>
+
+	<p> In this matrix, the inconsistency is obvious in the fourth and fifth rows. </p>
+
+</example>
+
+<example>
+	<title>A span of polynomials</title>
+
 	<p>
 	This example corresponds to
 	<xref ref="activity-subspaces-vec-in-span-poly">Discovery</xref>.
-	Working in <m>\poly(\R)</m>, we would like to determine if the vector <m>\uvec{v} = 2-x+3x^2</m> is in <m>\Span S</m> for <m>S = \{1, 1+x, 1+x^2\}</m>. Again, we set up a vector equation expressing <m>\uvec{v}</m> as a linear combination in the vectors of <m>S</m> with unknown scalars:
-	<me> 2 - x + 3x^2 = r \cdot 1 + s (1+x) + t(1+x^2). </me>
-	Two polynomials are only equal if they have the same degree and all the same coefficients. From this, we get the following linear system:
+	Working in <m>\poly(\R)</m>, we would like to determine if the vector <m>\uvec{v} = 2 - x + 3 x^2</m> is in <m>\Span S</m> for <m>S = \{1, 1 + x, 1 + x^2\}</m>.
+	Again, we set up a vector equation expressing <m>\uvec{v}</m> as a linear combination in the vectors of <m>S</m> with unknown scalars:
+	<me> 2 - x + 3 x^2 = r \cdot 1 + s (1 + x) + t (1 + x^2) </me>.
+	Two polynomials are only equal if they have the same degree and all the same coefficients.
+	From this, we get the following linear system:
 	<me>\begin{array}{rrcrcrcr}
 		\text{constant term:} \amp 2 \amp = \amp r \amp + \amp s \amp + \amp t, \\
 		\text{$x$ term:} \amp -1 \amp = \amp \amp \amp s, \\
@@ -322,12 +458,15 @@ In <xref ref="activity-subspaces-vec-in-span" />, we explored the question of de
 			1 \amp 1 \amp 1 \amp 2 \\
 			0 \amp 1 \amp 0 \amp -1 \\
 			0 \amp 0 \amp 1 \amp 3
-		\end{array}\right].
-	</me>
+		\end{array}\right]
+	</me>.
 	</p>
+
 	<aside><title>Notice</title><p> the pattern in the columns versus the vectors in our problem again! </p></aside>
+
 	<p> This system is consistent, so <m>\uvec{v}</m> is indeed in <m>\Span S</m>. </p>
-</statement></example>
+
+</example>
 
 </subsection>
 
@@ -344,43 +483,56 @@ In the three examples of that discovery activity,
 the answer was very clearly <em>yes</em>.
 </p>
 
-<example><title>A spanning set for <m>\R^5</m></title><statement><p>
+<example><title>A spanning set for <m>\R^5</m></title><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-R5">Discovery</xref>,
 	clearly every vector in <m>\R^5</m> can be decomposed as a linear combination of the standard basis vectors:
-	<me> (a,b,c,d,e) = a\uvec{e}_1 + b\uvec{e}_2 + c\uvec{e}_3 + d\uvec{e}_4 + e\uvec{e}_5. </me>
-</p></statement></example>
+	<me> (a,b,c,d,e) = a \uvec{e}_1 + b \uvec{e}_2 + c \uvec{e}_3 + d \uvec{e}_4 + e \uvec{e}_5 </me>.
+</p></example>
 
-<example><title>A spanning set for <m>\matrixring_2(\R)</m></title><statement><p>
+<example><title>A spanning set for <m>\matrixring_2(\R)</m></title><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-M2">Discovery</xref>,
 	every vector in <m>\matrixring_2(\R)</m> can be decomposed as a linear combination of the provided spanning set vectors:
 	<me>
 		\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
-		= a\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-		+ b\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
-		+ c\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
-		+ d\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
-	</me>
-</p></statement></example>
+		= a \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		+ b \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+		+ c \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+		+ d \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+	</me>.
+</p></example>
 
-<example><title>A spanning set for <m>\poly_3(\R)</m></title><statement><p>
+<example><title>A spanning set for <m>\poly_3(\R)</m></title><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-poly">Discovery</xref>,
-	every vector <m>a + bx + cx^2 + dx^3</m> in <m>\poly_3(\R)</m> is <em>naturally</em> expressed as a linear combination of <m>1</m> and the powers of <m>x</m> up to <m>x^3</m>, where the scalars in the linear combination are just the coefficients of the polynomial.
-</p></statement></example>
+	every vector <m>a + b x + c x^2 + d x^3</m> in <m>\poly_3(\R)</m> is <em>naturally</em> expressed as a linear combination of <m>1</m> and the powers of <m>x</m> up to <m>x^3</m>,
+	where the scalars in the linear combination are just the coefficients of the polynomial.
+</p></example>
 
 <remark xml:id="remark-subspaces-examples-standard-spanning-sets"><p>
 	In each of the spaces in the examples above, there are analogues for other <q>dimensions</q> of vectors.
 	<ol>
 		<li> In <m>\R^n</m>, the standard basis vectors <m>\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n</m> always form a spanning set for the entire vector space. </li>
-		<li> In <m>\matrixring_{m \times n}(\R)</m>, the set of <q>standard basis vectors,</q> consisting of those matrices that have all zero entries except for a single <m>1</m> in one specific entry, is always a spanning set for the entire vector space. </li>
-		<li> When we write a polynomial, we naturally write it as a <em>linear combination of the constant polynomial <m>1</m> and powers of <m>x</m></em>. So in <m>\poly_n(\R)</m>, the <q>standard basis vectors</q> <m>1,x,x^2,\dotsc,x^n</m> form a spanning set for the entire vector space. </li>
+		<li>
+			In <m>\matrixring_{m \times n}(\R)</m>, the set of <q>standard basis vectors,</q>
+			consisting of those matrices that have all zero entries except for a single <m>1</m> in one specific entry,
+			is always a spanning set for the entire vector space.
+		</li>
+		<li>
+			When we write a polynomial, we naturally write it as a <em>linear combination of the constant polynomial <m>1</m> and powers of <m>x</m></em>.
+			So in <m>\poly_n(\R)</m>, the <q>standard basis vectors</q> <m>1,x,x^2,\dotsc,x^n</m> form a spanning set for the entire vector space.
+		</li>
 	</ol>
 </p></remark>
 
 <p>
-In more complicated examples, the question <q>Is <m>\Span S</m> equal to the whole space?</q> may be more difficult to answer with the concepts we have accumulated so far. We will make this question more manageable through a deeper study of the relationships of vectors to one another with respect to linear combinations, and by attaching a notion of <q>size</q> to subspaces. In the meantime, see
+In more complicated examples, the question
+<q>Is <m>\Span S</m> equal to the whole space?</q>
+may be more difficult to answer with the concepts we have accumulated so far.
+We will make this question more manageable through a deeper study of the relationships of vectors to one another with respect to linear combinations,
+and by attaching a notion of <q>size</q> to subspaces.
+In the meantime, see
 <xref ref="example-subspaces-more-examples-span-generates-space" />
 in
 <xref ref="section-subspaces-more-examples" />
