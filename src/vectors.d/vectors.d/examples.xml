@@ -29,37 +29,51 @@ respective owners.
 <title>Vectors in <m>\R^n</m></title>
 
 <p>
-Following <xref ref="activity-vectors-directed-line-segments" />, consider the vector <m>\uvec{v}</m> in <m>\R^2</m> (<ie /> in the plane) that represents changing position from <m>P(1,2)</m> to <m>Q(3,-1)</m>.
+Following <xref ref="activity-vectors-directed-line-segments" />,
+consider the vector <m>\uvec{v}</m> in <m>\R^2</m>
+(that is, in the plane)
+that represents changing position from <m>P(1,2)</m> to <m>Q(3,-1)</m>.
 </p>
+
 <image width="50%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a directed line segment in the plane.</description>
 	<latex-image><xi:include href="examples.d/dir-line-seg-1.tex" parse="text" /></latex-image>
 </image>
+
 <p>
 We can compute the components of <m>\uvec{v}</m> by computing the change in <m>x</m> and the change in <m>y</m> in moving from <m>P</m> to <m>Q</m>:
-<me> \uvec{v} = (\Delta x,\Delta y) = (3-1,-1-2) = (2,-3). </me>
-We can see by looking at their coordinates that moving from point <m>P</m> to <m>Q</m> requires moving <m>2</m> units right to get from <m>x=1</m> to <m>x=3</m> and moving <m>3</m> units down to get from <m>y=2</m> to <m>y=-1</m>, and our calculation of <m>\uvec{v}</m> above agrees.
+<me> \uvec{v} = (\Delta x,\Delta y) = (3-1,-1-2) = (2,-3) </me>.
+We can see by looking at their coordinates that moving from point <m>P</m> to <m>Q</m> requires
+moving <m>2</m> units right to get from <m>x=1</m> to <m>x=3</m>
+and
+moving <m>3</m> units down to get from <m>y=2</m> to <m>y=-1</m>,
+and our calculation of <m>\uvec{v}</m> above agrees.
 </p>
 
 <p>
-The same vector with some other initial point will also have a terminal point that is <m>2</m> units to the right and <m>3</m> units down from the initial point. In particular, if we take the initial point to be the origin, then the terminal point will have coordinates <m>(2,-3)</m>, same as the components of <m>\uvec{v}</m>.
+The same vector with some other initial point will also have a terminal point that is <m>2</m> units to the right and <m>3</m> units down from the initial point.
+In particular, if we take the initial point to be the origin,
+then the terminal point will have coordinates <m>(2,-3)</m>,
+same as the components of <m>\uvec{v}</m>.
 </p>
+
 <image width="76%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a directed line segment in the plane with its tail at the origin.</description>
 	<latex-image><xi:include href="examples.d/dir-line-seg-2.tex" parse="text" /></latex-image>
 </image>
+
 <p> Notice that these different representations of the vector <m>\uvec{v}</m> are parallel and have the same length. </p>
 
 <p>
 Vectors can be similarly computed from pairs of points by subtracting coordinates in any dimension.
 For example, we compute the vector that represents changing position in space from <m>P(1,2,-3)</m> to <m>Q(3,-1,0)</m> by
 <md>
-	<mrow> \uvec{v} \amp = (\Delta x, \Delta y, \Delta z)</mrow>
+	<mrow> \uvec{v} \amp = (\Delta x, \Delta y, \Delta z) </mrow>
 	<mrow> \amp = \bbrac{3-1, -1-2, 0-(-3)} </mrow>
-	<mrow> \amp = (2,-3, 3). </mrow>
-</md>
+	<mrow> \amp = (2,-3, 3) </mrow>
+</md>.
 <!--  This is a not-very-good attempt at a 3D diagram of the above directed line segment.
 TODO FILLER TEXT
 <image width="100%">
@@ -72,118 +86,177 @@ Another example in four-dimensional space, with <m>P(1,2,-3,-4)</m> and <m>Q(1,-
 <md>
 	<mrow> \uvec{v} \amp = (\Delta x_1, \Delta x_2, \Delta x_3, \Delta x_4) </mrow>
 	<mrow> \amp = \bbrac{1-1, -1-2, 1-(-3), -1-(-4)} </mrow>
-	<mrow> \amp	= (0,-3, 4, 3). </mrow>
-</md>
+	<mrow> \amp	= (0,-3, 4, 3) </mrow>
+</md>.
 </p>
 
 </subsection>
 
+
 <subsection xml:id="subsection-vectors-examples-ops">
 <title>Vector operations</title>
 
-<p> Here we'll work through some of the computations of <xref ref="worksheet-vectors" />, and provide the accompanying diagrams. </p>
+<p>
+Here we'll work through some of the computations of <xref ref="worksheet-vectors" />,
+and provide the accompanying diagrams.
+</p>
 
-<example><title>Vector addition in <m>\R^2</m></title><statement>
+<example>
+	<title>Vector addition in <m>\R^2</m></title>
+
 	<p>
-	In <xref ref="activity-vectors-geom-vec-add" />, we were tasked with geometrically adding vectors <m>\uvec{u} = (2,3)</m> and <m>\uvec{v} = (3,-1)</m> in the plane, starting at initial point <m>P(1,1)</m>.
+	In <xref ref="activity-vectors-geom-vec-add" />,
+	we were tasked with geometrically adding vectors <m>\uvec{u} = (2,3)</m> and <m>\uvec{v} = (3,-1)</m> in the plane,
+	starting at initial point <m>P(1,1)</m>.
 	</p>
+
 	<image width="70%">
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>Diagram of vector addition in the plane.</description>
 		<latex-image><xi:include href="examples.d/vec-add.tex" parse="text" /></latex-image>
 	</image>
+
 	<p>
-	To add vectors geometrically, we put them head-to-tail. The vector <m>\uvec{u} = (2,3)</m> instructs us to move <m>2</m> units right and <m>3</m> units up, so starting at <m>P(1,1)</m> we end up at <m>Q(3,4)</m>. Then the vector <m>\uvec{v} = (3,-1)</m> instructs us to move <m>3</m> units right and <m>1</m> unit down, so starting at <m>Q</m> we end up at <m>R(6,3)</m>. The sum vector <m>\uvec{u}+\uvec{v}</m> represents the <em>overall</em> change from <m>P</m> to <m>R</m>, which is <m>5</m> units right and <m>2</m> units up, so that <m>\uvec{u}+\uvec{v} = (5,2)</m>. We can also add the vectors algebraically by
+	To add vectors geometrically, we put them head-to-tail.
+	The vector <m>\uvec{u} = (2,3)</m> instructs us to move <m>2</m> units right and <m>3</m> units up,
+	so starting at <m>P(1,1)</m> we end up at <m>Q(3,4)</m>.
+	Then the vector <m>\uvec{v} = (3,-1)</m> instructs us to move <m>3</m> units right and <m>1</m> unit down,
+	so starting at <m>Q</m> we end up at <m>R(6,3)</m>.
+	The sum vector <m>\uvec{u} + \uvec{v}</m> represents the <em>overall</em> change from <m>P</m> to <m>R</m>,
+	which is <m>5</m> units right and <m>2</m> units up,
+	so that <m>\uvec{u}+\uvec{v} = (5,2)</m>.
+	We can also add the vectors algebraically by
 	<md>
 		<mrow> \uvec{u} + \uvec{v} \amp = (2,3) + (3,-1) </mrow>
 		<mrow> \amp = \bbrac{2+3,3+(-1)} </mrow>
-		<mrow> \amp = (5,2). </mrow>
-	</md>
-	Adding the vectors algebraically is obviously faster and easier than drawing a diagram, but it's good to have a mental picture of the geometric version of addition <mdash /> it will help conceptually later on.
+		<mrow> \amp = (5,2) </mrow>
+	</md>.
+	Adding the vectors algebraically is obviously faster and easier than drawing a diagram,
+	but it's good to have a mental picture of the geometric version of addition <mdash />
+	it will help conceptually later on.
 	</p>
-</statement></example>
 
-<example><title>Vector addition in higher dimensions</title><statement>
-	<p>
+</example>
+
+<example><title>Vector addition in higher dimensions</title><p>
 	Our geometric picture and algebraic computation of addition are similar for three-dimensional vectors in space. In <m>\R^n</m> with <m>n>3</m>, we can't draw a picture but we could imagine vector addition would take same the familiar triangle shape, and the algebraic computations are similar again. For example,
 	<md>
 		<mrow> (1,2,3,4,5) + (6,-2,4,0,1) \amp = \bbrac{1+6,2+(-2),3+4,4+0,5+1} </mrow>
 		<mrow> \amp = (7,0,7,4,6) </mrow>
 	</md>
 	in <m>\R^5</m>.
-	</p>
-</statement></example>
+</p></example>
 
-<example><title>Negative vectors</title><statement>
+<example>
+	<title>Negative vectors</title>
+
 	<p>
-	In <xref ref="activity-vectors-neg-vec" />, we explored the concept of a negative vector as the vector that will return us to our initial point, after changing positions along vector <m>\uvec{v} = (1,2)</m> in the plane, starting at the origin. Recall that if a vector has its initial point at the origin, then the terminal point has coordinates equal to the components of the vector.
+	In <xref ref="activity-vectors-neg-vec" />,
+	we explored the concept of a negative vector as the vector that will return us to our initial point,
+	after changing positions along vector <m>\uvec{v} = (1,2)</m> in the plane,
+	starting at the origin.
+	Recall that if a vector has its initial point at the origin,
+	then the terminal point has coordinates equal to the components of the vector.
 	</p>
+
 	<image width="28%">
 		<!-- description gets inserted as alt text in html img tag -->
-		<description>Diagram of a vector and its negative in the plane.</description>
+		<description> Diagram of a vector and its negative in the plane. </description>
 		<latex-image><xi:include href="examples.d/vec-neg-1.tex" parse="text" /></latex-image>
 	</image>
+
 	<p>
-	If <m>\uvec{v}</m> represents moving <m>1</m> unit right and <m>2</m> units up, then to return to our original position we must move <m>1</m> unit left and <m>2</m> units down, so that <m>-\uvec{v} = (-1,-2)</m>. Of course, the components of <m>-\uvec{v}</m> do not depend on what initial point we choose <mdash /> we would need to make the same reverse change of position no matter where <m>\uvec{v}</m> started.
-	</p><p>
-	As in <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract"/>, it is helpful to have a mental picture of a negative vector where its initial point is the same as for the original vector. In this orientation, the vector and its negative are parallel but oppositely directed.
+	If <m>\uvec{v}</m> represents moving <m>1</m> unit right and <m>2</m> units up,
+	then to return to our original position we must move <m>1</m> unit left and <m>2</m> units down,
+	so that <m>-\uvec{v} = (-1,-2)</m>.
+	Of course, the components of <m>-\uvec{v}</m> do not depend on what initial point we choose <mdash />
+	we would need to make the same reverse change of position no matter where <m>\uvec{v}</m> started.
 	</p>
+
+	<p>
+	As in <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract"/>,
+	it is helpful to have a mental picture of a negative vector where its initial point is the same as for the original vector.
+	In this orientation, the vector and its negative are parallel but oppositely directed.
+	</p>
+
 	<image width="48%">
 		<!-- description gets inserted as alt text in html img tag -->
-		<description>Another diagram of a vector and its negative in the plane.</description>
+		<description> Another diagram of a vector and its negative in the plane. </description>
 		<latex-image><xi:include href="examples.d/vec-neg-2.tex" parse="text" /></latex-image>
 	</image>
-</statement></example>
 
-<example><title>Scalar multiplication</title><statement>
+</example>
+
+<example>
+	<title>Scalar multiplication</title>
+
 	<p>
-	In <xref ref="activity-vectors-scalar-mul" />, we explored scalar multiplication geometrically in the plane, using <m>\uvec{v} = (1,2)</m>, initially by relating scalar multiplication to addition.
+	In <xref ref="activity-vectors-scalar-mul" />,
+	we explored scalar multiplication geometrically in the plane, using <m>\uvec{v} = (1,2)</m>,
+	initially by relating scalar multiplication to addition.
 	</p>
+
 	<image width="35%">
 		<!-- description gets inserted as alt text in html img tag -->
 		<description>Diagram of scalar multiplication of a vector in the plane.</description>
 		<latex-image><xi:include href="examples.d/vec-scalar-mul.tex" parse="text" /></latex-image>
 	</image>
+
 	<p>
-	The above diagram illustrates that <m>\uvec{v}+\uvec{v} = 2\uvec{v}</m>, which we can also confirm algebraically:
+	The above diagram illustrates that <m>\uvec{v}+\uvec{v} = 2\uvec{v}</m>,
+	which we can also confirm algebraically:
 	<md>
 		<mrow> \uvec{v}+\uvec{v} \amp = (1+1,2+2) </mrow>
 		<mrow> \amp = (2,4) </mrow>
 		<mrow> \amp = 2(1,2) </mrow>
-		<mrow> \amp = 2\uvec{v}. </mrow>
-	</md>
-	Geometrically, the scalar multiples <m>3\uvec{v},-2\uvec{v},\frac{1}{2}\uvec{v},-\frac{5}{4}\uvec{v}</m> are all parallel to <m>\uvec{v}</m> but with lengths stretched or compressed by the scale factor. Additionally, a negative scalar multiple flips the vector around in the opposite direction.
+		<mrow> \amp = 2\uvec{v} </mrow>
+	</md>.
+	Geometrically, the scalar multiples
+	<m>3 \uvec{v}</m>, <m>-2 \uvec{v}</m>, <m>\frac{1}{2}\uvec{v}</m>, and <m>-\frac{5}{4} \uvec{v}</m>
+	are all parallel to <m>\uvec{v}</m> but with lengths stretched or compressed by the scale factor.
+	Additionally, a negative scalar multiple flips the vector around in the opposite direction.
 	</p>
+
 	<sidebyside widths="44% 45%" valign="middle">
+
 		<image>
 			<!-- description gets inserted as alt text in html img tag -->
-			<description>Several diagrams of scalar multiplication examples in the plane.</description>
+			<description> Several diagrams of scalar multiplication examples in the plane. </description>
 			<latex-image>
 				<xi:include href="examples.d/vec-scalar-muls-upper-left.tex" parse="text" />
 			</latex-image>
 		</image>
+
 		<image>
 			<!-- description gets inserted as alt text in html img tag -->
-			<description>Several more diagrams of scalar multiplication examples in the plane.</description>
+			<description> Several more diagrams of scalar multiplication examples in the plane. </description>
 			<latex-image>
 				<xi:include href="examples.d/vec-scalar-muls-upper-right.tex" parse="text" />
 			</latex-image>
 		</image>
+
 	</sidebyside>
+
 	<sidebyside widths="28% 44%" valign="middle">
+
 		<image>
 			<!-- description gets inserted as alt text in html img tag -->
-			<description>Several diagrams of scalar multiplication examples in the plane.</description>
+			<description> Several diagrams of scalar multiplication examples in the plane. </description>
 			<latex-image><xi:include href="examples.d/vec-scalar-muls-lower-left.tex" parse="text" /></latex-image>
 		</image>
+
 		<image>
 			<!-- description gets inserted as alt text in html img tag -->
-			<description>Several more diagrams of scalar multiplication examples in the plane.</description>
+			<description> Several more diagrams of scalar multiplication examples in the plane. </description>
 			<latex-image><xi:include href="examples.d/vec-scalar-muls-lower-right.tex" parse="text" /></latex-image>
 		</image>
+
 	</sidebyside>
+
 	<p>
-	Since the initial point is the origin, each vector above has components equal to the coordinates of its terminal point. In particular, we have
+	Since the initial point is the origin,
+	each vector above has components equal to the coordinates of its terminal point.
+	In particular, we have
 	<md>
 		<mrow>
 			3\uvec{v} \amp= 3(1,2) = (3,6), \amp
@@ -193,10 +266,13 @@ Another example in four-dimensional space, with <m>P(1,2,-3,-4)</m> and <m>Q(1,-
 			-\frac{5}{4}\uvec{v} \amp= -\frac{5}{4}(1,2) = \left(-\frac{5}{4},-\frac{5}{2}\right).
 		</mrow>
 	</md>
-	In higher dimensions, scalar multiplication works in exactly the same way algebraically <mdash /> we just multiply each component of the vector by the scale factor. For example, for <m>\uvec{v} = (1,-2,3,-4,5)</m> in <m>\R^5</m>, we have
-	<me> -17\uvec{v} = (-17, 34, -51, 68, -85). </me>
+	In higher dimensions, scalar multiplication works in exactly the same way algebraically <mdash />
+	we just multiply each component of the vector by the scale factor.
+	For example, for <m>\uvec{v} = (1,-2,3,-4,5)</m> in <m>\R^5</m>,
+	we have <me> -17\uvec{v} = (-17, 34, -51, 68, -85) </me>.
 	</p>
-</statement></example>
+
+</example>
 
 </subsection>
 
