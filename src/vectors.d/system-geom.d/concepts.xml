@@ -35,8 +35,12 @@ respective owners.
 <title>Lines in the plane</title>
 
 <p>
-When we view a single linear equation in two variables as a (very simple) system of equations, we require a single parameter to solve. We've previously seen that we can use matrix algebra to express the general solution to a system of equations as a linear combination of column matrices, where the parameters appear as coefficients.
+When we view a single linear equation in two variables as a (very simple) system of equations,
+we require a single parameter to solve.
+We've previously seen that we can use matrix algebra to express the general solution to a system of equations as a linear combination of column matrices,
+where the parameters appear as coefficients.
 </p>
+
 <aside><title>See</title><p>
 	<xref
 		first="example-matrix-ops-examples-sys-sol-vector-forms-unique"
@@ -48,17 +52,25 @@ When we view a single linear equation in two variables as a (very simple) system
 </p></aside>
 
 <p>
-When we interpret the column matrices in such a linear combination as vectors, we can investigate the geometry of the set of solutions, as we did in <xref ref="activity-system-geom-R2-line-parametric" />. For a general solution to <m>ax+by=c</m> of the form
-<me> \uvec{x} = \uvec{x}_0 + t \uvec{p}, </me>
-the vector <m>\uvec{x}_0</m> corresponds to the particular solution for <m>t=0</m>, and we can think of its terminal point as an <q>base</q> point on the line. When we vary the value of the parameter <m>t</m>, we get solutions that are vector sums of the base point <m>\uvec{x}_0</m> and scalar multiples of <m>\uvec{p}</m>. Geometrically, these vector sums all involve tacking some scaled copy of <m>\uvec{p}</m> onto the end of <m>\uvec{x}_0</m>.
+When we interpret the column matrices in such a linear combination as vectors,
+we can investigate the geometry of the set of solutions, as we did in <xref ref="activity-system-geom-R2-line-parametric" />.
+For a general solution to <m>ax+by=c</m> of the form
+<me> \uvec{x} = \uvec{x}_0 + t \uvec{p} </me>,
+the vector <m>\uvec{x}_0</m> corresponds to the particular solution for <m>t=0</m>,
+and we can think of its terminal point as an <q>base</q> point on the line.
+When we vary the value of the parameter <m>t</m>, we get solutions that are vector sums of the base point <m>\uvec{x}_0</m> and scalar multiples of <m>\uvec{p}</m>.
+Geometrically, these vector sums all involve tacking some scaled copy of <m>\uvec{p}</m> onto the end of <m>\uvec{x}_0</m>.
 </p>
+
 <image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a line in the plane described via a parameter.</description>
 	<latex-image><xi:include href="concepts.d/parametrized-line-1.tex" parse="text" /></latex-image>
 </image>
+
 <p>
-The terminal points of all such vectors <m>\uvec{x}</m> trace out the line parallel to <m>\uvec{p}</m> that passes through the terminal point of <m>\uvec{x}_0</m>. Since <m>\uvec{p}</m> is parallel to the line, we might think of <m>\uvec{p}</m> as a <q>direction</q> vector for the line.
+The terminal points of all such vectors <m>\uvec{x}</m> trace out the line parallel to <m>\uvec{p}</m> that passes through the terminal point of <m>\uvec{x}_0</m>.
+Since <m>\uvec{p}</m> is parallel to the line, we might think of <m>\uvec{p}</m> as a <q>direction</q> vector for the line.
 </p>
 
 </subsection>
@@ -70,9 +82,13 @@ The terminal points of all such vectors <m>\uvec{x}</m> trace out the line paral
 <p>
 Two nonparallel planes in space must intersect in a line, as in
 <xref ref="activity-system-geom-R3-line-parametric" />.
-If we have algebraic equations <m>a_1x+b_1y+c_1z = d_1</m> and <m>a_2x+b_2y+c_2z = d_2</m> for these planes, then solving for the points of intersection is the same as solving the linear system formed by these two equations. The assumption that the planes are not parallel guarantees that we will need one (and only one) parameter to solve the system, and then the general solution can be expressed in a vector form
-<me> \uvec{x} = \uvec{x}_0 + t\uvec{p}, </me>
-just as in the previous case of a line in the plane. To visualize, we can imagine the diagram in the previous subsection above as floating in space instead of lying in the plane.
+If we have algebraic equations <m>a_1 x + b_1 y + c_1 z = d_1</m> and <m>a_2 x + b_2 y + c_2 z = d_2</m> for these planes,
+then solving for the points of intersection is the same as solving the linear system formed by these two equations.
+The assumption that the planes are not parallel guarantees that we will need one (and only one) parameter to solve the system,
+and then the general solution can be expressed in a vector form
+<me> \uvec{x} = \uvec{x}_0 + t\uvec{p} </me>,
+just as in the previous case of a line in the plane.
+To visualize, we can imagine the diagram in the previous subsection above as floating in space instead of lying in the plane.
 </p>
 
 </subsection>
@@ -82,24 +98,35 @@ just as in the previous case of a line in the plane. To visualize, we can imagin
 <title>Planes in space</title>
 
 <p>
-When we view a single linear equation in three variables as a system of equations, we require <em>two</em> parameters to solve, As before, we can use matrix algebra to express the general solution as a linear combination of column matrices, where the parameters appear as coefficients.
+When we view a single linear equation in three variables as a system of equations,
+we require <em>two</em> parameters to solve.
+As before, we can use matrix algebra to express the general solution as a linear combination of column matrices,
+where the parameters appear as coefficients.
 </p>
-<aside><title>Recall</title>
-	<p> We explored this situation in <xref ref="activity-system-geom-R3-plane-parametric" />. </p>
-</aside>
+
+<aside><title>Recall</title><p>
+	We explored this situation in <xref ref="activity-system-geom-R3-plane-parametric" />.
+</p></aside>
 
 <p>
 Similarly to the vector description of a line, a parametric vector expression
-<me> \uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2 </me>
-can be interpreted as follows. The terminal point of the vector <m>\uvec{x}_0</m> is an <q>base</q> point on the plane, corresponding to parameter values <m>s=0</m> and <m>t=0</m>. The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are parallel to the plane. Similarly to the vector description of a line, as we vary the values of <m>s</m> and <m>t</m> we obtain other points on the plane by tacking on <em>linear combinations</em> of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to the end of <m>\uvec{x}_0</m>.
+<me> \uvec{x} = \uvec{x}_0 + s \uvec{p}_1 + t \uvec{p}_2 </me>
+can be interpreted as follows.
+The terminal point of the vector <m>\uvec{x}_0</m> is an <q>base</q> point on the plane,
+corresponding to parameter values <m>s=0</m> and <m>t=0</m>.
+The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are parallel to the plane.
+Similarly to the vector description of a line, as we vary the values of <m>s</m> and <m>t</m> we obtain other points on the plane by tacking on <em>linear combinations</em> of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to the end of <m>\uvec{x}_0</m>.
 </p>
+
 <image width="95%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a plane in space described with parameters.</description>
 	<latex-image><xi:include href="concepts.d/parametrized-plane-1.tex" parse="text" /></latex-image>
 </image>
+
 <aside><title>Note</title><p>
-	In this diagram, all of the vectors lie flat in the shaded plane (<ie /> parallel to it) except for <m>\uvec{x}_0</m> and <m>\uvec{x}</m>, which point from the origin into the plane.
+	In this diagram, all of the vectors lie flat in the shaded plane (and so, parallel to it)
+	except for <m>\uvec{x}_0</m> and <m>\uvec{x}</m>, which point from the origin into the plane.
 </p></aside>
 
 </subsection>
@@ -109,14 +136,26 @@ can be interpreted as follows. The terminal point of the vector <m>\uvec{x}_0</m
 <title>Parallel vectors as a <q>basis</q> for lines and planes</title>
 
 <p>
-In a vector description <m>\uvec{x}=\uvec{x}_0 + t\uvec{p}</m> for a line, the <q>base</q> point at the head of <m>\uvec{x}_0</m> gets you onto the line, and then one can get to any other point on the line by following a scalar multiple of the parallel vector <m>\uvec{p}</m>. In this way, the parameter <m>t</m> effectively places a coordinate system on the line, where the integers are spaced apart by the length of <m>\uvec{p}</m>.
+In a vector description <m>\uvec{x} = \uvec{x}_0 + t \uvec{p}</m> for a line, the <q>base</q> point at the head of <m>\uvec{x}_0</m> gets you onto the line,
+and then one can get to any other point on the line by following a scalar multiple of the parallel vector <m>\uvec{p}</m>.
+In this way, the parameter <m>t</m> effectively places a coordinate system on the line, where the integers are spaced apart by the length of <m>\uvec{p}</m>.
 </p>
+
 <aside><title>See</title><p>
 	the line diagram earlier in <xref ref="subsection-system-geom-concepts-lines-in-plane" />.
 </p></aside>
+
 <p>
-Values of the parameter <m>t</m> are mapped to specific positions on the line, just as when we visualize the set of real numbers <m>\R</m> along the real number line, where each real number represents a position on a line. This idea of a coordinate system along the line is more natural when the line passes through the origin, so that we can take <m>\uvec{x}_0 = \zerovec</m>. In this case we have <m>\uvec{x}=t\uvec{p}</m>, so that all points on the line correspond to scalar multiples of the parallel vector <m>\uvec{p}</m>, and parameter value <m>t=0</m> corresponds to the origin. So the vector <m>\uvec{p}</m> tells us pretty much all we need to know about the line, and any other line that is parallel to this line could use the same parallel vector <m>\uvec{p}</m>, it would just need a different <q>base point</q> vector <m>\uvec{x}_0</m>.
+Values of the parameter <m>t</m> are mapped to specific positions on the line, just as when we visualize the set of real numbers <m>\R</m> along the real number line,
+where each real number represents a position on a line.
+This idea of a coordinate system along the line is more natural when the line passes through the origin, so that we can take <m>\uvec{x}_0 = \zerovec</m>.
+In this case we have <m>\uvec{x} = t \uvec{p}</m>, so that all points on the line correspond to scalar multiples of the parallel vector <m>\uvec{p}</m>,
+and parameter value <m>t=0</m> corresponds to the origin.
+So the vector <m>\uvec{p}</m> tells us pretty much all we need to know about the line,
+and any other line that is parallel to this line could use the same parallel vector <m>\uvec{p}</m>,
+it would just need a different <q>base point</q> vector <m>\uvec{x}_0</m>.
 </p>
+
 <image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a line through the origin in the plane described via a parameter.</description>
@@ -124,8 +163,10 @@ Values of the parameter <m>t</m> are mapped to specific positions on the line, j
 </image>
 
 <p>
-In the plane, the standard basis vectors <m>\uvec{e}_1</m>,<m>\uvec{e}_2</m> play the same role <em>for the whole plane</em>, representing our <m>xy</m>-coordinate system and setting up a grid as in <xref ref="activity-system-geom-grid-xy-1" />.
+In the plane, the standard basis vectors <m>\uvec{e}_1</m>,<m>\uvec{e}_2</m> play the same role <em>for the whole plane</em>,
+representing our <m>xy</m>-coordinate system and setting up a grid as in <xref ref="activity-system-geom-grid-xy-1" />.
 </p>
+
 <aside><title>Recall</title><p>
 	We have previously explored how vectors in the plane can be decomposed as linear combinations of the standard basis vectors:
 	in
@@ -133,27 +174,38 @@ In the plane, the standard basis vectors <m>\uvec{e}_1</m>,<m>\uvec{e}_2</m> pla
 	and further back in
 	<xref ref="subsection-vectors-concepts-standard-basis" />.
 </p></aside>
+
 <image width="50%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram of a parametric description of the plane using the standard basis vectors.</description>
 	<latex-image><xi:include href="concepts.d/standard-basis-R2-grid.tex" parse="text" /></latex-image>
 </image>
+
+<!-- TODO check whether this aside and the one above interfere -->
 <aside><title>Notice</title><p>
 	In this diagram, vertical grid lines appear at multiples of <m>\uvec{e}_1</m>, and horizontal grid lines appear at multiples of <m>\uvec{e}_2</m>.
 </p></aside>
 
 <p>
-When we have a vector description <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2</m> for a plane in space, scalar multiples of the vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> form a grid on the plane in the same way (except that the grid lines will not be at right angles to each other if <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are not).
+When we have a vector description <m>\uvec{x} = \uvec{x}_0 + s \uvec{p}_1 + t \uvec{p}_2</m> for a plane in space,
+scalar multiples of the vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> form a grid on the plane in the same way
+(except that the grid lines will not be at right angles to each other if <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are not).
 </p>
+
 <image width="100%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Another diagram of a plane in space described with parameters.</description>
 	<latex-image><xi:include href="concepts.d/parametrized-plane-2.tex" parse="text" /></latex-image>
 </image>
+
 <p>
-The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> set up an <m>st</m>-coordinate system on the plane, where every point on the plane corresponds to a particular pair of parameter values, and vice versa, by adding the linear combination <m>s\uvec{p}_1+t\uvec{p}_2</m> onto <m>\uvec{x}_0</m>. If the plane passes through the origin
+The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> set up an <m>st</m>-coordinate system on the plane,
+where every point on the plane corresponds to a particular pair of parameter values, and vice versa,
+by adding the linear combination <m>s \uvec{p}_1 + t \uvec{p}_2</m> onto <m>\uvec{x}_0</m>.
+If the plane passes through the origin
 (as in <xref ref="activity-system-geom-grid-plane-R3-homog" />),
-then we can take <m>\uvec{x}_0</m> to be the zero vector, so that the origin corresponds to <m>(s,t) = (0,0)</m>. Then every other point in the plane could be constructed as a linear combination of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
+then we can take <m>\uvec{x}_0</m> to be the zero vector, so that the origin corresponds to <m>(s,t) = (0,0)</m>.
+Then every other point in the plane could be constructed as a linear combination of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
 </p>
 
 </subsection>
@@ -161,8 +213,10 @@ then we can take <m>\uvec{x}_0</m> to be the zero vector, so that the origin cor
 
 <subsection xml:id="subsection-system-geom-concepts-summary">
 <title>Summary</title>
+
 <p> Combining with our knowledge of normal vectors from the previous chapter, we now have several ways to describe lines and planes in <m>\R^2</m> and <m>\R^3</m>. </p>
-<table>
+
+<figure>
 	<title>Descriptions of lines in <m>\R^2</m> and lines and planes in <m>\R^3</m>.</title>
 	<tabular halign="center" top="medium">
 		<col width="25%" right="medium" />
@@ -227,18 +281,42 @@ then we can take <m>\uvec{x}_0</m> to be the zero vector, so that the origin cor
 		</row>
 
 	</tabular>
-</table>
+</figure>
 
 <remark><p><ul>
 	<li> In both the Geometric and Vector columns, the vector <m>\uvec{x}_0</m> represents a fixed <q>base</q> point that is on the line or plane. </li>
 	<li>
-	In the Geometric column, the <m>\uvec{n}</m> vectors are normal vectors to the line or plane. Note that in <m>\R^3</m>, there are <quantity><mag>360</mag><unit base='degree' /></quantity> of normal directions to a line, so we need two nonparallel normal vectors (<m>\uvec{n}_1</m> and <m>\uvec{n}_2</m>) to be able to specify the direction of the line <mdash /> and then the line is parallel to <m>\crossprod{\uvec{n}_1}{\uvec{n}_2}</m>. While the normal vector <m>\uvec{n}</m> for a line in <m>\R^2</m> or a plane in <m>\R^3</m> are essentially unique (for a specific line or plane, it can only be replaced by a nonzero scalar multiple), the pair of normal vectors for a line in <m>\R^3</m> is not unique (there are many pairs of normal vectors that are not just scalar multiples of other pairs that would describe the same line). We can say something about <m>\uvec{n}_1</m> and <m>\uvec{n}_2</m> though <mdash /> for a given line in <m>\R^3</m>, every such pair of normal vectors must be parallel to a plane that is normal to the line.
+		In the Geometric column, the <m>\uvec{n}</m> vectors are normal vectors to the line or plane.
+		Note that in <m>\R^3</m>, there are <quantity><mag>360</mag><unit base='degree' /></quantity> of normal directions to a line,
+		so we need two nonparallel normal vectors (<m>\uvec{n}_1</m> and <m>\uvec{n}_2</m>) to be able to specify the direction of the line <mdash />
+		and then the line is parallel to <m>\crossprod{\uvec{n}_1}{\uvec{n}_2}</m>.
+		While the normal vector <m>\uvec{n}</m> for a line in <m>\R^2</m> or a plane in <m>\R^3</m> are essentially unique
+		(for a specific line or plane, it can only be replaced by a nonzero scalar multiple),
+		the pair of normal vectors for a line in <m>\R^3</m> is not unique
+		(there are many pairs of normal vectors that are not just scalar multiples of other pairs that would describe the same line).
+		We can say something about <m>\uvec{n}_1</m> and <m>\uvec{n}_2</m> though <mdash />
+		for a given line in <m>\R^3</m>, every such pair of normal vectors must be parallel to a plane that is normal to the line.
 	</li>
 	<li>
-	In the Vector column, the <m>\uvec{p}</m> vectors are parallel to the line or plane. For a line in either <m>\R^2</m> or <m>\R^3</m>, we would just need to know a second <q>base point</q> vector <m>\uvec{x}_1</m>, and the we could take <m>\uvec{p} = \uvec{x}_1 - \uvec{x}_0</m>. Or, for a line in <m>\R^3</m>, we could start with two known, nonparallel normal vectors <m>\uvec{n}_1,\uvec{n}_2</m> for the line, and then we could take <m>\uvec{p} = \crossprod{\uvec{n}_1}{\uvec{n}_2}</m>. For a plane in <m>\R^3</m>, we need <em>three</em> <q>known</q> points total, represented by some vectors <m>\uvec{x}_0</m>, <m>\uvec{x}_1</m>, <m>\uvec{x}_2</m>. As long as these <q>known</q> points are not noncollinear, we can get the necessary vectors parallel to that plane by taking <m>\uvec{p}_1 = \uvec{x}_1 - \uvec{x}_0</m> and <m>\uvec{p}_2 = \uvec{x}_2 - \uvec{x}_0</m>.
+		In the Vector column, the <m>\uvec{p}</m> vectors are parallel to the line or plane.
+		For a line in either <m>\R^2</m> or <m>\R^3</m>, we would just need to know a second <q>base point</q> vector <m>\uvec{x}_1</m>,
+		and the we could take <m>\uvec{p} = \uvec{x}_1 - \uvec{x}_0</m>.
+		Or, for a line in <m>\R^3</m>, we could start with two known, nonparallel normal vectors <m>\uvec{n}_1,\uvec{n}_2</m> for the line, and then we could take <m>\uvec{p} = \crossprod{\uvec{n}_1}{\uvec{n}_2}</m>.
+		For a plane in <m>\R^3</m>, we need <em>three</em> <q>known</q> points total, represented by some vectors <m>\uvec{x}_0</m>, <m>\uvec{x}_1</m>, <m>\uvec{x}_2</m>.
+		As long as these <q>known</q> points are not noncollinear,
+		we can get the necessary vectors parallel to that plane by taking
+		<m>\uvec{p}_1 = \uvec{x}_1 - \uvec{x}_0</m> and <m>\uvec{p}_2 = \uvec{x}_2 - \uvec{x}_0</m>.
 	</li>
 	<li>
-	We can realize similar geometric <q>shapes</q> in <m>\R^4</m>, <m>\R^5</m>, and higher dimensions, even though we can't <q>see</q> them. A line or plane in higher dimensions would have the same kind of vector description. The algebraic and geometric descriptions of lines in <m>\R^2</m> and planes in <m>\R^3</m>, if adapted to be used in higher dimensions, would describe a <em>hyper</em>plane <mdash /> some sort of <q>subspace</q> of <m>n</m>-dimensional space that is of one dimension lower. For example, similarly to how we might think of a plane in <m>\R^3</m> as a <q>copy</q> of <em>the</em> plane (<m>\R^2</m>) sitting inside space (<m>\R^3</m>), we might imagine a hyperplane in <m>\R^4</m> as a <q>copy</q> of <m>\R^3</m> sitting inside <m>\R^4</m>.
+		We can realize similar geometric <q>shapes</q> in <m>\R^4</m>, <m>\R^5</m>, and higher dimensions,
+		even though we can't <q>see</q> them.
+		A line or plane in higher dimensions would have the same kind of vector description.
+		The algebraic and geometric descriptions of lines in <m>\R^2</m> and planes in <m>\R^3</m>,
+		if adapted to be used in higher dimensions,
+		would describe a <em>hyper</em>plane <mdash />
+		some sort of <q>subspace</q> of <m>n</m>-dimensional space that is of one dimension lower.
+		For example, similarly to how we might think of a plane in <m>\R^3</m> as a <q>copy</q> of <em>the</em> plane (<m>\R^2</m>) sitting inside space (<m>\R^3</m>),
+		we might imagine a hyperplane in <m>\R^4</m> as a <q>copy</q> of <m>\R^3</m> sitting inside <m>\R^4</m>.
 	</li>
 </ul></p></remark>
 

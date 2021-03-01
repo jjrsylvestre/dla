@@ -30,43 +30,55 @@ respective owners.
 
 <p> First we will work out some of the activities from <xref ref="worksheet-system-geom" /> that involve describing lines and planes parametrically. </p>
 
-<example><title>Parametrically describing a line in <m>\R^2</m></title><statement>
+<example><title>Parametrically describing a line in <m>\R^2</m></title>
+
 	<p>
-	In <xref ref="activity-system-geom-R2-line-eq2parametric" />, we considered the equation <m>x-2y=3</m> for a line in the plane. Setting parameter <m>y=t</m> and isolating <m>x</m> in this equation leads to general solution
+	In <xref ref="activity-system-geom-R2-line-eq2parametric" />, we considered the equation <m>x-2y=3</m> for a line in the plane.
+	Setting parameter <m>y=t</m> and isolating <m>x</m> in this equation leads to general solution
 	<me>
 		\uvec{x}
 		= \begin{bmatrix}x\\y\end{bmatrix}
 		= \begin{bmatrix} 3+2t \\ t \end{bmatrix}
-		= \begin{bmatrix} 3 \\ 0 \end{bmatrix} + t\begin{bmatrix}2\\1\end{bmatrix}.
-	</me>
-	Geometrically, the vector <m>\uvec{x}_0 = (3,0)</m> represents an <q>base</q> point on the line, and algebraically represents the particular solution to the system obtained from parameter value <m>t=0</m>. The vector <m>\uvec{p} = (2,1)</m> represents a vector parallel to the line, and every other point on the line (<ie /> every other solution to the system) can be obtained by adding a scalar multiple of <m>\uvec{p}</m> to <m>\uvec{x}_0</m>. For example, the point <m>\uvec{x} = (4,1/2)</m> lies on the line, as we can verify by checking
-	<me> 4 - 2\cdot\frac{1}{2} = 4-1 = 3, </me>
-	so that the coordinates of the point satisfy the line equation <m>x-2y=3</m>. We can solve for <m>t</m> in the vector equation
-	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix} + t\begin{bmatrix}2\\1\end{bmatrix} </me>
+		= \begin{bmatrix} 3 \\ 0 \end{bmatrix} + t\begin{bmatrix}2\\1\end{bmatrix}
+	</me>.
+	Geometrically, the vector <m>\uvec{x}_0 = (3,0)</m> represents an <q>base</q> point on the line,
+	and algebraically represents the particular solution to the system obtained from parameter value <m>t=0</m>.
+	The vector <m>\uvec{p} = (2,1)</m> represents a vector parallel to the line, and every other point on the line
+	(<ie /> every other solution to the system)
+	can be obtained by adding a scalar multiple of <m>\uvec{p}</m> to <m>\uvec{x}_0</m>.
+	For example, the point <m>\uvec{x} = (4,1/2)</m> lies on the line, as we can verify by checking
+	<me> 4 - 2 \cdot \frac{1}{2} = 4 - 1 = 3 </me>,
+	so that the coordinates of the point satisfy the line equation <m>x - 2 y = 3</m>.
+	We can solve for <m>t</m> in the vector equation
+	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix} + t \begin{bmatrix}2\\1\end{bmatrix} </me>
 	to see exactly how this point is a multiple of <m>\uvec{p}</m> away from <m>\uvec{x}_0</m>:
 	<md><mrow xml:id="equation-system-geom-examples-line-in-R2-point-to-parameter" tag="star">
 		\begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} - \begin{bmatrix}3\\0\end{bmatrix}
 		= \begin{bmatrix}1\\\frac{1}{2}\end{bmatrix}
 		= \begin{bmatrix}2t\\t\end{bmatrix}
 		\qquad\qquad\implies\qquad\qquad
-		t=\frac{1}{2}.
-	</mrow></md>
+		t=\frac{1}{2}
+	</mrow></md>.
 	</p>
+
 	<p>
 	Finally, we have
-	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \uvec{x} + \frac{1}{2}\uvec{p}. </me>
+	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \uvec{x} + \frac{1}{2}\uvec{p} </me>.
 	</p>
-</statement></example>
+
+</example>
 
 <warning><p>
 	In the previous example, we determined the value of the parameter <m>t</m> that corresponds to the point <m>(4,1/2)</m> on the line by solving vector equation
 	<xref ref="equation-system-geom-examples-line-in-R2-point-to-parameter" />.
-	When you are solving vector equations for parameters like this, make sure you check that your solution works in <em>every</em> coordinate! For example, in
+	When you are solving vector equations for parameters like this, make sure you check that your solution works in <em>every</em> coordinate!
+	For example, in
 	<xref ref="equation-system-geom-examples-line-in-R2-point-to-parameter" />
-	we see that <m>t=1/2</m> immediately from comparing the second coordinate on left and right. But it is important to check that this parameter value also works in the first coordinate (which it does).
+	we see that <m>t=1/2</m> immediately from comparing the second coordinate on left and right.
+	But it is important to check that this parameter value also works in the first coordinate (which it does).
 </p></warning>
 
-<example><title>Parametrically describing the intersection of two planes in <m>\R^3</m></title><statement><p>
+<example><title>Parametrically describing the intersection of two planes in <m>\R^3</m></title><p>
 	In <xref ref="activity-system-geom-R3-line-parametric" />,
 	we considered a system consisting of two equations in three variables,
 	<me>
@@ -80,7 +92,8 @@ respective owners.
 	From the coefficients of the equations we may take <m>\uvec{n}_1 = (2,-1,5)</m> and <m>\uvec{n}_2 = (1,2,-5)</m> as normal vectors for the two planes, respectively.
 	Since these normal vectors are not parallel, neither are the planes,
 	and so they must intersect.
-	Algebraically, this means that the coefficient parts of the two equations are not multiples of each other, so when we row reduce we will find two leading ones, representing the two independent equations with which we started.
+	Algebraically, this means that the coefficient parts of the two equations are not multiples of each other,
+	so when we row reduce we will find two leading ones, representing the two independent equations with which we started.
 	And so we will only require one parameter to express the general solution, which will then take the form of a line.
 	The free variable in this system is <m>z</m>, so setting <m>z</m> to parameter <m>t</m> and solving we get
 	<me>
@@ -95,9 +108,9 @@ respective owners.
 	and the vector
 	<m>\uvec{p} = (-1,3,1)</m>
 	is parallel to the line.
-</p></statement></example>
+</p></example>
 
-<example><title>Parametrically describing a plane in <m>\R^3</m></title><statement><p>
+<example><title>Parametrically describing a plane in <m>\R^3</m></title><p>
 	When we have just a single plane in space,
 	as in <xref ref="activity-system-geom-R3-plane-parametric" />,
 	we can view its equation as a system of equations,
@@ -116,7 +129,7 @@ respective owners.
 		+ s \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		+ t \left[\begin{array}{r} -5 \\ 0 \\ 1 \end{array}\right]
 	</me>.
-	Here, the <q>base</q> point on the plane is <m>\uvec{x}_0 = (-5,0,0)</m>, which corresponds to parameter values <m>s=t=0</m>.
+	Here, the <q>base</q> point on the plane is <m>\uvec{x}_0 = (-5,0,0)</m>, which corresponds to parameter values <m>s = t = 0</m>.
 	Every other point on the plane corresponds to other choices of parameter values.
 	For example, as in the discovery activity,
 	the point <m>(1,1,-1)</m> is on the plane.
@@ -146,7 +159,7 @@ respective owners.
 	From the second and third coordinates we immediately see <m>s = 1</m> and <m>t = -1</m>.
 	However, it's important to also verify that <m>s - 5 t = 6</m> for this choice of parameter values,
 	to satisfy the equality of the two first coordinates on right and left.
-</p></statement></example>
+</p></example>
 
 </subsection>
 
@@ -161,36 +174,44 @@ Here we will demonstrate determining points of intersection when some or all of 
 
 <example>
 	<title>Intersection of a parametrically-described line and an algebraically-described plane in <m>\R^3</m></title>
-	<statement>
+
 	<p>
-	In <xref ref="activity-system-geom-intersect-line-plane-1" />, we have a line described by a vector equation and a plane described algebraically, and would like to determine their point of intersection (if there is one). Any such point of intersection must be on the line, and so its coordinates can be described in terms of the parameter <m>t</m>:
+	In <xref ref="activity-system-geom-intersect-line-plane-1" />, we have a line described by a vector equation and a plane described algebraically,
+	and would like to determine their point of intersection (if there is one).
+	Any such point of intersection must be on the line, and so its coordinates can be described in terms of the parameter <m>t</m>:
 	<me>
 		\uvec{x}
 		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + t \left[\begin{array}{r} -1 \\ 1 \\ 1 \end{array}\right]
-		= \begin{bmatrix} 2-t \\ t \\ 3+t \end{bmatrix}.
-	</me>
+		= \begin{bmatrix} 2-t \\ t \\ 3+t \end{bmatrix}
+	</me>.
 	If this point is also on the plane, its coordinates must satisfy the equation for the plane:
 	<md><mrow>
 		2x+y-3z \amp= 7 \\
 		2(2-t) + t - 3(3+t) \amp= 7 \\
 		-5 - 4t \amp= 7 \\
-		t \amp= -3.
-	</mrow></md>
+		t \amp= -3
+	</mrow></md>.
 	Substituting this parameter value in our expression for <m>\uvec{x}</m> gives us the point of intersection:
-	<me> \left[\begin{array}{r} 5 \\ -3 \\ 0 \end{array}\right]. </me>
+	<me> \left[\begin{array}{r} 5 \\ -3 \\ 0 \end{array}\right] </me>.
 	</p>
+
 	<aside><title>Check your understanding</title><p>
-		What if the line and plane had been parallel with no point of intersection? What would have happened when we tried to solve for <m>t</m>? Or, what if the line and plane had been parallel, but with the line lying inside the plane? How would this have become evident from the algebra of attempting to solve for <m>t</m>?
+		What if the line and plane had been parallel with no point of intersection?
+		What would have happened when we tried to solve for <m>t</m>?
+		Or, what if the line and plane had been parallel, but with the line lying inside the plane?
+		How would this have become evident from the algebra of attempting to solve for <m>t</m>?
 	</p></aside>
-	</statement>
+
 </example>
 
 <example>
 	<title>Intersection of parametrically-described line and plane in <m>\R^3</m></title>
-	<statement>
+
 	<p>
-	In <xref ref="activity-system-geom-intersect-line-plane-2" />, we again want to determine the point of intersection (if any) of a line and a plane, but this time both line and plane are described by vector equations. But if a point lies on <em>both</em> line and plane, its coordinates must have a <em>simultaneous</em> description by both vector equations in terms of parameters:
+	In <xref ref="activity-system-geom-intersect-line-plane-2" />, we again want to determine the point of intersection (if any) of a line and a plane,
+	but this time both line and plane are described by vector equations.
+	If a point lies on <em>both</em> line and plane, its coordinates must have a <em>simultaneous</em> description by both vector equations in terms of parameters:
 	<md>
 		<mrow>
 			\uvec{x}
@@ -208,7 +229,8 @@ Here we will demonstrate determining points of intersection when some or all of 
 			= \begin{bmatrix} 3+r+3s \\ 1+r \\ r+2s \end{bmatrix}.
 		</mrow>
 	</md>
-	Now, this point can only have one set of coordinates, so these two descriptions must actually be the same. This lets us set up a <ellipsis /> system of linear equations!
+	Now, this point can only have one set of coordinates, so these two descriptions must actually be the same.
+	This lets us set up a <ellipsis /> system of linear equations!
 	<me>
 		\begin{array}{rcl}
 			x\colon \amp \qquad \amp 2-t = 3+r+3s\text{,} \\
@@ -222,7 +244,11 @@ Here we will demonstrate determining points of intersection when some or all of 
 			r \amp + \amp 2s \amp - \amp t \amp = \amp 3\text{.}
 		\end{array}\right.
 	</me>
-	We could put this system in a matrix and row reduce, but we only really care about the value of parameter <m>t</m> in the solution, because knowing <m>t</m> allows us to determine <m>\uvec{x}</m> from the vector description for the line. So we can use Cramer's rule instead. Write <m>A</m> for the coefficient matrix of this system, and <m>A_3</m> for the matrix obtained by replacing the third column of <m>A</m> by the vector of contants. Then,
+	We could put this system in a matrix and row reduce, but we only really care about the value of parameter <m>t</m> in the solution,
+	because knowing <m>t</m> allows us to determine <m>\uvec{x}</m> from the vector description for the line.
+	So we can use Cramer's rule instead.
+	Write <m>A</m> for the coefficient matrix of this system, and <m>A_3</m> for the matrix obtained by replacing the third column of <m>A</m> by the vector of constants.
+	Then,
 	<md>
 		<mrow>
 			\det A_3
@@ -251,13 +277,15 @@ Here we will demonstrate determining points of intersection when some or all of 
 	<me>
 		\uvec{x}
 		= \begin{bmatrix} 2-t \\ t \\ 3+t \end{bmatrix}
-		= \left[\begin{array}{r} 5 \\ -3 \\ 0 \end{array}\right].
-	</me>
+		= \left[\begin{array}{r} 5 \\ -3 \\ 0 \end{array}\right]
+	</me>.
 	</p>
+
 	<aside><title>Note</title><p>
-		We got the same answer as in the previous example because the lines and planes in the two discovery activities are actually the same, but the plane is described in two different ways in the two examples.
+		We got the same answer as in the previous example because the lines and planes in the two discovery activities are actually the same,
+		but the plane is described in two different ways in the two examples.
 	</p></aside>
-	</statement>
+
 </example>
 
 </subsection>
