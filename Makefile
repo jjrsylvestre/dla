@@ -54,7 +54,7 @@ clean: ptx-clean html-clean html-images-clean
 
 ptx-clean:
 	@-rm -f ${BUILDDIR}/ptx/.sentinal.*
-	@-rm -f ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@-rm -f ${BUILDDIR}/ptx/*.ptx
 html-clean:
 	@-rm -f ${BUILDDIR}/html/.sentinal.*
 	@-rm -f ${BUILDDIR}/html/*.html
