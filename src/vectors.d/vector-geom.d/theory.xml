@@ -28,7 +28,7 @@ respective owners.
 <subsection xml:id="subsection-vector-geom-theory-norm-and-dot-prod">
 <title>Norm and dot product</title>
 
-<p>We'll begin with algebraic properties of norm and dot product.</p>
+<p> We'll begin with algebraic properties of norm and dot product. </p>
 
 <proposition xml:id="proposition-vector-geom-norm-algebra">
 
@@ -64,30 +64,30 @@ respective owners.
 	<title> Algebra rules of the dot product </title>
 
 	<statement><p>
-	The following are true for all vectors <m>\uvec{u}</m>, <m>\uvec{v}</m>, and <m>\uvec{w}</m> in <m>\R^n</m>, and all scalars <m>k</m>.
-	<ol cols="2">
-		<li xml:id="proposition-vector-geom-dot-prod-algebra-commute">
-			<m>\udotprod{v}{u} = \udotprod{u}{v}</m>.
-		</li>
-		<li xml:id="proposition-vector-geom-dot-prod-algebra-distrib-left-over-right">
-			<m>\dotprod{\uvec{u}}{(\uvec{v}+\uvec{w})} = \udotprod{u}{v} + \udotprod{u}{w}</m>.
-		</li>
-		<li> <m>\dotprod{\uvec{u}}{(\uvec{v}-\uvec{w})} = \udotprod{u}{v} - \udotprod{u}{w}</m>. </li>
-		<li xml:id="proposition-vector-geom-dot-prod-algebra-distrib-right-over-left">
-			<m>\dotprod{(\uvec{u}+\uvec{v})}{\uvec{w}} = \udotprod{u}{w} + \udotprod{v}{w}</m>.
-		</li>
-		<li> <m>\dotprod{(\uvec{u}-\uvec{v})}{\uvec{w}} = \udotprod{u}{w} - \udotprod{v}{w}</m>. </li>
-		<li xml:id="proposition-vector-geom-dot-prod-algebra-scalar-left">
-			<m>\dotprod{(k\uvec{u})}{\uvec{v}} = k(\udotprod{u}{v})</m>.
-		</li>
-		<li xml:id="proposition-vector-geom-dot-prod-algebra-scalar-right">
-			<m>\dotprod{\uvec{u}}{(k\uvec{v})} = k(\udotprod{u}{v})</m>.
-		</li>
-		<li xml:id="proposition-vector-geom-dot-prod-algebra-vs-norm">
-			<m>\udotprod{v}{v} = \unorm{v}^2</m>.
-		</li>
-		<li> Both <m>\dotprod{\uvec{v}}{\zerovec} = 0</m> and <m>\dotprod{\zerovec}{\uvec{v}} = 0</m>. </li>
-	</ol>
+		The following are true for all vectors <m>\uvec{u}</m>, <m>\uvec{v}</m>, and <m>\uvec{w}</m> in <m>\R^n</m>, and all scalars <m>k</m>.
+		<ol cols="2">
+			<li xml:id="proposition-vector-geom-dot-prod-algebra-commute">
+				<m>\udotprod{v}{u} = \udotprod{u}{v}</m>.
+			</li>
+			<li xml:id="proposition-vector-geom-dot-prod-algebra-distrib-left-over-right">
+				<m>\dotprod{\uvec{u}}{(\uvec{v}+\uvec{w})} = \udotprod{u}{v} + \udotprod{u}{w}</m>.
+			</li>
+			<li> <m>\dotprod{\uvec{u}}{(\uvec{v}-\uvec{w})} = \udotprod{u}{v} - \udotprod{u}{w}</m>. </li>
+			<li xml:id="proposition-vector-geom-dot-prod-algebra-distrib-right-over-left">
+				<m>\dotprod{(\uvec{u}+\uvec{v})}{\uvec{w}} = \udotprod{u}{w} + \udotprod{v}{w}</m>.
+			</li>
+			<li> <m>\dotprod{(\uvec{u}-\uvec{v})}{\uvec{w}} = \udotprod{u}{w} - \udotprod{v}{w}</m>. </li>
+			<li xml:id="proposition-vector-geom-dot-prod-algebra-scalar-left">
+				<m>\dotprod{(k\uvec{u})}{\uvec{v}} = k(\udotprod{u}{v})</m>.
+			</li>
+			<li xml:id="proposition-vector-geom-dot-prod-algebra-scalar-right">
+				<m>\dotprod{\uvec{u}}{(k\uvec{v})} = k(\udotprod{u}{v})</m>.
+			</li>
+			<li xml:id="proposition-vector-geom-dot-prod-algebra-vs-norm">
+				<m>\udotprod{v}{v} = \unorm{v}^2</m>.
+			</li>
+			<li> Both <m>\dotprod{\uvec{v}}{\zerovec} = 0</m> and <m>\dotprod{\zerovec}{\uvec{v}} = 0</m>. </li>
+		</ol>
 	</p></statement>
 
 	<!-- TODO proofs? or at least comment on proofs relative to Activities/Concepts/Examples ? -->
@@ -121,9 +121,13 @@ even if one is (or both are) the zero vector.
 	<proof>
 
 		<p>
-		We will show that <m>(\udotprod{u}{v})^2 \le (\unorm{u}\unorm{v})^2</m>. Once this is established, then for <m>\udotprod{u}{v}</m> to have a smaller square than <m>\unorm{u}\unorm{v}</m>, it must be smaller in magnitude. That is, <m>(\udotprod{u}{v})^2 \le (\unorm{u}\unorm{v})^2</m> can only be true if <m>\abs{\udotprod{u}{v}} \le \abs{\unorm{u}\unorm{v}}</m> is true. But since neither <m>\unorm{u}</m> nor <m>\unorm{v}</m> can be negative, we have <m>\abs{\unorm{u}\unorm{v}} = \unorm{u}\unorm{v}</m>, and so
-		<me> \abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v} </me>
-		will be established.
+		We will show that <m>(\udotprod{u}{v})^2 \le (\unorm{u}\unorm{v})^2</m>.
+		Once this is established, then for <m>\udotprod{u}{v}</m> to have a smaller square than <m>\unorm{u}\unorm{v}</m>,
+		it must be smaller in magnitude.
+		That is, <m>(\udotprod{u}{v})^2 \le (\unorm{u}\unorm{v})^2</m> can only be true if <m>\abs{\udotprod{u}{v}} \le \abs{\unorm{u}\unorm{v}}</m> is true.
+		But since neither <m>\unorm{u}</m> nor <m>\unorm{v}</m> can be negative,
+		we have <m>\abs{\unorm{u}\unorm{v}} = \unorm{u}\unorm{v}</m>,
+		and so <me> \abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v} </me> will be established.
 		</p>
 
 		<p>
@@ -263,24 +267,34 @@ even if one is (or both are) the zero vector.
 <paragraphs><title>The triangle inequality</title>
 
 <p>
-Here is another commonly used inequality. Remembering our view of sums of vectors as a chain of changes in position, it basically says that the shortest path between two points in <m>\R^n</m> is the direct path.
+Here is another commonly used inequality.
+Remembering our view of sums of vectors as a chain of changes in position,
+it basically says that the shortest path between two points in <m>\R^n</m> is the direct path.
 </p>
 
 <theorem xml:id="theorem-vector-geom-triangle-ineq">
 	<idx><h>triangle inequality</h></idx>
 	<idx><h>inequality</h><h>triangle</h></idx>
 	<title>Triangle inequality</title>
+
 	<statement>
-		<p> For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, we have <m>\norm{\uvec{u}+\uvec{v}} \le \unorm{u} + \unorm{v}</m>. </p>
+
+		<p>
+		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>,
+		we have <m>\norm{\uvec{u}+\uvec{v}} \le \unorm{u} + \unorm{v}</m>.
+		</p>
+
 		<image width="48%">
 			<!-- description gets inserted as alt text in html img tag -->
 			<description>Diagram of the triangle inequality.</description>
 			<latex-image><xi:include href="theory.d/triangle.tex" parse="text" /></latex-image>
 		</image>
+
 		<aside><title>Check your understanding</title><p>
 			Can you think of a situation where <m>\norm{\uvec{u}+\uvec{v}}</m> and <m>\unorm{u} + \unorm{v}</m> are exactly equal?
 			Is this the only way this would happen?
 		</p></aside>
+
 	</statement>
 
 	<proof>
@@ -368,19 +382,22 @@ Here is another commonly used inequality. Remembering our view of sums of vector
 		</md>,
 		with justifications
 		<ol label="(i)">
-			<li>continued from above;</li>
-			<li>rule <xref ref="equation-vector-geom-theory-abs-x-ineq" />;</li>
+			<li> continued from above; </li>
+			<li> rule <xref ref="equation-vector-geom-theory-abs-x-ineq" />; </li>
 			<li> <xref ref="theorem-vector-geom-cauchy-schwarz" text="title" />; and </li>
-			<li>FOIL in reverse.</li>
+			<li> FOIL in reverse. </li>
 		</ol>
 		Following the chain of equalities and inequalities from beginning to end, we now have
 		<me> \norm{\uvec{u}+\uvec{v}}^2 \le (\unorm{u} + \unorm{v})^2 </me>.
 		In words, this says that the square of one number is less than or equal to the square of another number.
-		But when we square two numbers, the bigger number will always result in the bigger square (as long as neither number is negative).
+		But when we square two numbers, the bigger number will always result in the bigger square
+		(as long as neither number is negative).
 		Since neither <m>\norm{\uvec{u}+\uvec{v}}</m> nor <m>\unorm{u} + \unorm{v}</m> can be negative,
 		the bigger number must be <m>\unorm{u} + \unorm{v}</m> to result in a bigger square (or the two numbers could be equal).
 		That is, <me> \norm{\uvec{u}+\uvec{v}} \le \unorm{u} + \unorm{v} </me>.
-	</p></proof>
+		</p>
+
+	</proof>
 
 </theorem>
 

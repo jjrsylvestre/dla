@@ -42,49 +42,68 @@ respective owners.
 <subsection xml:id="subsection-vector-geom-concepts-norm">
 <title>Geometric length of a vector: the norm</title>
 
-<p>We can easily determine the length of a vector in the plane from its components using the Pythagorean Theorem.</p>
+<p> We can easily determine the length of a vector in the plane from its components using the Pythagorean Theorem. </p>
+
 <image width="37%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Using Pythagoras to determine the length of a vector.</description>
 	<latex-image><xi:include href="concepts.d/pythag.tex" parse="text" /></latex-image>
 </image>
+
 <p>
 If we let <m>\ell</m> represent the length of <m>\uvec{v}</m>, then Pythagoras tells us that
-<me> \ell^2 = (\Delta x)^2 + (\Delta y)^2. </me>
+<me> \ell^2 = (\Delta x)^2 + (\Delta y)^2 </me>.
 </p>
+
 <aside><title>Remember</title><p>
-	There is no such operation as <em>squaring</em> a vector, so it would be incorrect to write <m>\uvec{v}^2 = (\Delta x)^2 + (\Delta y)^2</m>.
+	There is no such operation as <em>squaring</em> a vector,
+	so it would be incorrect to write <m>\uvec{v}^2 = (\Delta x)^2 + (\Delta y)^2</m>.
 </p></aside>
 
 <p>
-We write <m>\unorm{v}</m> to mean the length of the vector <m>\uvec{v}</m> in the plane. Keep in mind in all that follows that <m>\unorm{v}</m> is always a <em>single number</em>, since it measures a length. If <m>\uvec{v}</m> has components <m>\uvec{v} = (v_1,v_2)</m> (where <m>v_1 = \Delta x</m> and <m>v_2 = \Delta y</m>), then solving for <m>\ell</m> in the Pythagorean equation above gives us
-<me> \unorm{v} = \sqrt{v_1^2 + v_2^2}. </me>
+We write <m>\unorm{v}</m> to mean the length of the vector <m>\uvec{v}</m> in the plane.
+Keep in mind in all that follows that <m>\unorm{v}</m> is always a <em>single number</em>,
+since it measures a length.
+If <m>\uvec{v}</m> has components <m>\uvec{v} = (v_1,v_2)</m> (where <m>v_1 = \Delta x</m> and <m>v_2 = \Delta y</m>),
+then solving for <m>\ell</m> in the Pythagorean equation above gives us
+<me> \unorm{v} = \sqrt{v_1^2 + v_2^2} </me>.
 </p>
 
 <p>
-For a vector <m>\uvec{v} = (v_1,v_2,v_3)</m> in <m>\R^3</m>, consider the vector <m>\uvec{v}' = (v_1,v_2,0)</m> sitting in the <m>xy</m>-plane.
+For a vector <m>\uvec{v} = (v_1,v_2,v_3)</m> in <m>\R^3</m>,
+consider the vector <m>\uvec{v}' = (v_1,v_2,0)</m> sitting in the <m>xy</m>-plane.
 </p>
+
 <image width="60%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Using Pythagoras to determine the length of a vector.</description>
 	<latex-image><xi:include href="concepts.d/pythag-3d.tex" parse="text" /></latex-image>
 </image>
+
 <p>
 Applying the Pythagorean Theorem to the vertical triangle, we find
-<me> \unorm{v}^2 = \norm{\uvec{v}'}^2 + (\Delta z)^2. </me>
+<me> \unorm{v}^2 = \norm{\uvec{v}'}^2 + (\Delta z)^2 </me>.
 But <m>\uvec{v}'</m> lies flat in the <m>xy</m>-plane, and we have already analyzed that case above:
-<me> \norm{\uvec{v}'}^2 = (\Delta x)^2 + (\Delta y)^2. </me>
+<me> \norm{\uvec{v}'}^2 = (\Delta x)^2 + (\Delta y)^2 </me>.
 Combining these, we get
-<me> \unorm{v}^2 = \bbrac{(\Delta x)^2 + (\Delta y)^2} + (\Delta z)^2 = v_1^2 + v_2^2 + v_3^2, </me>
+<me> \unorm{v}^2 = \bbrac{(\Delta x)^2 + (\Delta y)^2} + (\Delta z)^2 = v_1^2 + v_2^2 + v_3^2 </me>,
 so that
-<me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + v_3^2}. </me>
+<me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + v_3^2} </me>.
 </p>
 
 <p>
-The word <em>length</em> ceases to have any meaning in <m>\R^4</m>, so in general we refer to <m>\unorm{v}</m> as the <term>norm</term> of <m>\uvec{v}</m> in any dimension. We imagine that if we were able to somehow measure length in <m>\R^n</m> for <m>n\ge 4</m>, then the pattern where we used length in <m>\R^2</m> to help us compute length in <m>\R^3</m> would be repeated, and we would be able to use length in <m>\R^3</m> to help us compute <q>length</q> in <m>\R^4</m>, and then we would be able to use <q>length</q> in <m>\R^4</m> to help us compute <q>length</q> in <m>\R^5</m>, and so on. So it seems reasonable to define the <term>norm</term> of a vector <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m> in <m>\R^n</m> to be
-<me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2}. </me>
-Square roots are annoying to work with algebraically, so we often work with the square of a norm, for which we developed the formula
-<me> \unorm{v}^2 = v_1^2 + v_2^2 + \dotsb + v_n^2. </me>
+The word <em>length</em> ceases to have any meaning in <m>\R^4</m>,
+so in general we refer to <m>\unorm{v}</m> as the <term>norm</term> of <m>\uvec{v}</m> in any dimension.
+We imagine that if we were able to somehow measure length in <m>\R^n</m> for <m>n\ge 4</m>,
+then the pattern where we used length in <m>\R^2</m> to help us compute length in <m>\R^3</m> would be repeated,
+and we would be able to use length in <m>\R^3</m> to help us compute <q>length</q> in <m>\R^4</m>,
+and then we would be able to use <q>length</q> in <m>\R^4</m> to help us compute <q>length</q> in <m>\R^5</m>,
+and so on.
+So it seems reasonable to define the <term>norm</term> of a vector <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m> in <m>\R^n</m> to be
+<me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2} </me>.
+Square roots are annoying to work with algebraically,
+so we often work with the square of a norm, for which we developed the formula
+<me> \unorm{v}^2 = v_1^2 + v_2^2 + \dotsb + v_n^2 </me>
 in <xref ref="activity-vector-geom-norm-formula" />.
 </p>
 
@@ -95,23 +114,42 @@ in <xref ref="activity-vector-geom-norm-formula" />.
 <title>Properties of the norm</title>
 
 <p>
-We explored some other basic properties of the norm in <xref ref="activity-vector-geom-norm-props" />. First, when we take the square root of a nonzero number, we always take the <em>positive</em> square root, so a norm is never a negative number. This property agrees with our conception of norm as a length in <m>\R^2</m> and <m>\R^3</m>, since in geometry we usually require lengths to be nonnegative.
-</p><p>
+We explored some other basic properties of the norm in <xref ref="activity-vector-geom-norm-props" />.
+First, when we take the square root of a nonzero number,
+we always take the <em>positive</em> square root,
+so a norm is never a negative number.
+This property agrees with our conception of norm as a length in <m>\R^2</m> and <m>\R^3</m>,
+since in geometry we usually require lengths to be nonnegative.
+</p>
+
+<p>
 Second, the zero vector <m>\zerovec = (0,0,\dotsc,0)</m> always has norm <m>0</m> in every dimension, since
-<me> \norm{\zerovec} = \sqrt{0^2 + 0^2 + \dotsb + 0^2} = \sqrt{0} = 0. </me>
-And it is the <em>only</em> vector that has norm <m>0</m>, since as soon as one of the components of a vector is nonzero, the sum of squares under the square root sign in the norm formula will be a positive number. There is no possibility of cancellation to zero under the square root, even if a vector has a mix of positive and negative components, because squaring the components will always have positive results.
-</p><p>
-Finally, we considered the effect of a scalar multiplication on norm. Geometrically, in <m>\R^2</m> and <m>\R^3</m> we think of scalar multiplication as scaling a vector's length by some scale factor <m>k</m>, so we should expect the numerical norm of a vector to be multiplied by the scale factor. And that is (almost) exactly what happens:
+<me> \norm{\zerovec} = \sqrt{0^2 + 0^2 + \dotsb + 0^2} = \sqrt{0} = 0 </me>.
+And it is the <em>only</em> vector that has norm <m>0</m>,
+since as soon as one of the components of a vector is nonzero,
+the sum of squares under the square root sign in the norm formula will be a positive number.
+There is no possibility of cancellation to zero under the square root,
+even if a vector has a mix of positive and negative components,
+because squaring the components will never have negative results.
+</p>
+
+<p>
+Finally, we considered the effect of a scalar multiplication on norm.
+Geometrically, in <m>\R^2</m> and <m>\R^3</m> we think of scalar multiplication as scaling a vector's length by some scale factor <m>k</m>,
+so we should expect the numerical norm of a vector to be multiplied by the scale factor.
+And that is (almost) exactly what happens:
 <md><mrow>
 	\unorm{v} \amp= \sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2}, \amp
 	\norm{k\uvec{v}} \amp= \sqrt{(kv_1)^2 + (kv_2)^2 + \dotsb + (kv_n)^2} \\
 	\amp\amp \amp= \sqrt{k^2v_1^2 + k^2v_2^2 + \dotsb + k^2v_n^2} \\
 	\amp\amp \amp= \sqrt{k^2(v_1^2 + v_2^2 + \dotsb + v_n^2)} \\
 	\amp\amp \amp= \sqrt{k^2}\sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2} \\
-	\amp\amp \amp= \sqrt{k^2}\unorm{v}.
-</mrow></md>
-We need to be a little careful with the last step, because <em>it is not always true that <m>\sqrt{k^2} = k</m></em>. In particular, the result of <m>\sqrt{k^2}</m> is never negative, so if <m>k</m> is negative then it is impossible for <m>\sqrt{k^2}</m> to be equal to <m>k</m>. The proper formula for all values of <m>k</m> is <m>\sqrt{k^2} = \abs{k}</m>, so our norm formula becomes
-<me> \norm{k\uvec{v}} = \abs{k}\unorm{v}. </me>
+	\amp\amp \amp= \sqrt{k^2}\unorm{v}
+</mrow></md>.
+We need to be a little careful with the last step, because <em>it is not always true that <m>\sqrt{k^2} = k</m></em>.
+In particular, the result of <m>\sqrt{k^2}</m> is never negative, so if <m>k</m> is negative then it is impossible for <m>\sqrt{k^2}</m> to be equal to <m>k</m>.
+The proper formula for all values of <m>k</m> is <m>\sqrt{k^2} = \abs{k}</m>, so our norm formula becomes
+<me> \norm{k\uvec{v}} = \abs{k}\unorm{v} </me>.
 </p>
 
 </subsection>
@@ -121,24 +159,44 @@ We need to be a little careful with the last step, because <em>it is not always 
 <title>Unit vectors and normalization</title>
 
 <p>
-In the plane or in space, a vector with length <m>1</m> is convenient geometrically because it can be used as a <q>meter stick</q> <mdash /> every scalar multiple of that vector will have length equal to the (absolute value of) the scale factor. For example, if <m>\uvec{u}</m> has length <m>1</m>, then both <m>3\uvec{u}</m> and <m>-3\uvec{u}</m> have length <m>3</m>. The same pattern will hold in any dimension when we replace the word <q>length</q> with <q>norm.</q> A vector with norm <m>1</m> is called a <term>unit vector</term>. One of the reasons the standard basis vectors are so special is that each of them is a unit vector, as we saw in <xref ref="activity-vector-geom-unit-vecs" />. Thus each standard basis vector can be used as a <q>meter stick</q> along the corresponding axis.
-</p><p>
-We also explored how to scale a nonzero vector to a unit vector in <xref ref="activity-vector-geom-unit-vecs" />. For example, if a vector has norm <m>1/2</m>, then we can scale it up to a unit vector by multiplying it by <m>2</m> to double its norm. Conversely, if a vector has norm <m>2</m>, we can scale it down to a unit vector by multiplying it by <m>1/2</m> to halve its norm. In general, we can scale any nonzero vector <m>\uvec{v}</m> in <m>\R^n</m> up or down to a unit vector by multiplying it by scale factor <m>k=\frac{1}{\unorm{v}}</m>, since then
+In the plane or in space, a vector with length <m>1</m> is convenient geometrically because it can be used as a <q>meter stick</q> <mdash />
+every scalar multiple of that vector will have length equal to the (absolute value of) the scale factor.
+For example, if <m>\uvec{u}</m> has length <m>1</m>, then both <m>3\uvec{u}</m> and <m>-3\uvec{u}</m> have length <m>3</m>.
+The same pattern will hold in any dimension when we replace the word <q>length</q> with <q>norm.</q>
+A vector with norm <m>1</m> is called a <term>unit vector</term>.
+One of the reasons the standard basis vectors are so special is that each of them is a unit vector,
+as we saw in <xref ref="activity-vector-geom-unit-vecs" />.
+Thus each standard basis vector can be used as a <q>meter stick</q> along the corresponding axis.
+</p>
+
+<p>
+We also explored how to scale a nonzero vector to a unit vector in <xref ref="activity-vector-geom-unit-vecs" />.
+For example, if a vector has norm <m>1/2</m>, then we can scale it up to a unit vector by multiplying it by <m>2</m> to double its norm.
+Conversely, if a vector has norm <m>2</m>, we can scale it down to a unit vector by multiplying it by <m>1/2</m> to halve its norm.
+In general, we can scale any nonzero vector <m>\uvec{v}</m> in <m>\R^n</m> up or down to a unit vector by multiplying it by scale factor <m>k=\frac{1}{\unorm{v}}</m>,
+since then
 <me>
 	\norm{\frac{1}{\unorm{v}}\,\uvec{v}}
 	= \abs{\frac{1}{\unorm{v}}}\,\unorm{v}
 	= \frac{1}{\unorm{v}}\,\unorm{v}
-	= 1.
-</me>
-In the above, we have used the formula for the norm of a scalar multiple, <m>\norm{k\uvec{v}} = \abs{k}\unorm{v}</m>, with <m>k=\frac{1}{\unorm{v}}</m>.
-The absolute value brackets on this particular scalar <m>k</m> can be removed because norms are never negative, and so <m>\abs{k} = k</m> in this case.
+	= 1
+</me>.
+In the above, we have used the formula for the norm of a scalar multiple,
+<m>\norm{k\uvec{v}} = \abs{k}\unorm{v}</m>, with <m>k=\frac{1}{\unorm{v}}</m>.
+The absolute value brackets on this particular scalar <m>k</m> can be removed because norms are never negative,
+and so <m>\abs{k} = k</m> in this case.
 </p>
+
 <aside><title>Remember</title><p>
-	We should never divide by a vector because there is no such vector operation (see <xref ref="warning-vectors-concepts-no-mult-op" />). But <m>\unorm{v}</m> is a <em>number</em>, not a <em>vector</em>, so <m>k = \frac{1}{\unorm{v}}</m> is valid.
+	We should never divide by a vector because there is no such vector operation (see <xref ref="warning-vectors-concepts-no-mult-op" />).
+	But <m>\unorm{v}</m> is a <em>number</em>, not a <em>vector</em>,
+	so <m>k = \frac{1}{\unorm{v}}</m> is valid.
 </p></aside>
 
 <p>
-In fact, every nonzero vector <m>\uvec{v}</m> is parallel to exactly two corresponding unit vectors, because <m>k\uvec{v}</m> and <m>-k\uvec{v}</m> always have the same norm. So
+In fact, every nonzero vector <m>\uvec{v}</m> is parallel to exactly two corresponding unit vectors,
+because <m>k\uvec{v}</m> and <m>-k\uvec{v}</m> always have the same norm.
+So
 <md><mrow>
 	\uvec{u}_1 \amp= \frac{1}{\unorm{v}}\,\uvec{v}, \amp
 	\amp\text{and} \amp
@@ -155,7 +213,8 @@ are always unit vectors, as long as <m>\uvec{v} \neq \zerovec</m>.
 
 <p>
 As we saw in <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" />,
-if we position <m>\uvec{u}</m> and <m>\uvec{v}</m> to share the same initial points, then the difference vectors <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+if we position <m>\uvec{u}</m> and <m>\uvec{v}</m> to share the same initial points,
+then the difference vectors <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 </p>
 
 <image width="50%">
@@ -165,11 +224,18 @@ if we position <m>\uvec{u}</m> and <m>\uvec{v}</m> to share the same initial poi
 </image>
 
 <p>
-So we can measure the distance between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m> by computing <m>\norm{\uvec{u}-\uvec{v}}</m> or <m>\norm{\uvec{v}-\uvec{u}}</m>, as we discovered in <xref ref="activity-vector-geom-vec-distance" />. This process is even more straightforward when the common initial point of <m>\uvec{u}</m> and <m>\uvec{v}</m> is chosen to be the origin, so that the components of <m>\uvec{u}</m> and <m>\uvec{v}</m> are the same as the coordinates of their respective terminal points.
+So we can measure the distance between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m> by computing <m>\norm{\uvec{u}-\uvec{v}}</m> or <m>\norm{\uvec{v}-\uvec{u}}</m>,
+as we discovered in <xref ref="activity-vector-geom-vec-distance" />.
+This process is even more straightforward when the common initial point of <m>\uvec{u}</m> and <m>\uvec{v}</m> is chosen to be the origin,
+so that the components of <m>\uvec{u}</m> and <m>\uvec{v}</m> are the same as the coordinates of their respective terminal points.
 </p>
 
 <remark><p>
-	The analysis above illustrates a useful strategy to compute distances in the plane or in space: determine some vector that traverses the distance in question, and then compute the norm of that vector to obtain the desired distance. Combined with some of the vector geometry that we will develop in the next few chapters, this strategy is often easier than trying to determine the coordinates of the points at the endpoints of the desired distance. You should remember this strategy when we explore the geometry of lines and planes in
+	The analysis above illustrates a useful strategy to compute distances in the plane or in space:
+	determine some vector that traverses the distance in question, and then compute the norm of that vector to obtain the desired distance.
+	Combined with some of the vector geometry that we will develop in the next few chapters,
+	this strategy is often easier than trying to determine the coordinates of the points at the endpoints of the desired distance.
+	You should remember this strategy when we explore the geometry of lines and planes in
 	<xref first="chapter-orthog" last="chapter-system-geom">Chapters</xref>.
 </p></remark>
 
@@ -179,7 +245,7 @@ So we can measure the distance between the terminal points of <m>\uvec{u}</m> an
 <subsection xml:id="subsection-vector-geom-concepts-angle">
 <title>Angle between vectors in the plane and in space</title>
 
-<p>Two vectors in the plane, when given the same initial point, have two angles between them.</p>
+<p> Two vectors in the plane, when given the same initial point, have two angles between them. </p>
 
 <image width="37%">
 	<!-- description gets inserted as alt text in html img tag -->
@@ -188,8 +254,13 @@ So we can measure the distance between the terminal points of <m>\uvec{u}</m> an
 </image>
 
 <p>
-We only need to know one of these two angles, since the other can be computed from the knowledge that the sum of the two angles is <m>2\pi</m> radians. We generally prefer to avoid ambiguity in math, so it would be nice to have a systematic way to choose one of the two angles between a pair of vectors that we can refer to as <em>the</em> angle between the vectors.  We will not distinguish between clockwise and counterclockwise, because those terms will become meaningless when we move up a dimension. Instead we will always choose the smaller angle to be <em>the</em> angle between the two vectors.
+We only need to know one of these two angles, since the other can be computed from the knowledge that the sum of the two angles is <m>2\pi</m> radians.
+We generally prefer to avoid ambiguity in math, so it would be nice to have a systematic way to choose one of the two angles between a pair of vectors that we can refer to as <em>the</em> angle between the vectors.
+We will not distinguish between clockwise and counterclockwise,
+because those terms will become meaningless when we move up a dimension.
+Instead we will always choose the smaller angle to be <em>the</em> angle between the two vectors.
 </p>
+
 <image width="85%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>
@@ -199,7 +270,9 @@ We only need to know one of these two angles, since the other can be computed fr
 </image>
 
 <p>
-Thus, the angle between two vectors in the plane will always be between <m>0</m> and <m>\pi</m> radians. Note that it is possible for the angle to be <em>exactly</em> <m>0</m> radians or <em>exactly</em> <m>\pi</m> radians, in the case the the two vectors are parallel.
+Thus, the angle between two vectors in the plane will always be between <m>0</m> and <m>\pi</m> radians.
+Note that it is possible for the angle to be <em>exactly</em> <m>0</m> radians or <em>exactly</em> <m>\pi</m> radians,
+in the case the the two vectors are parallel.
 </p>
 
 <image width="70%">
@@ -209,7 +282,9 @@ Thus, the angle between two vectors in the plane will always be between <m>0</m>
 </image>
 
 <p>
-In space, two vectors that are positioned to share the same initial point can be completed to a triangle, and that triangle will lie in a plane. The angle between the two vectors can then be taken to be the smaller of the two angles between the two vectors in that shared plane.
+In space, two vectors that are positioned to share the same initial point can be completed to a triangle,
+and that triangle will lie in a plane.
+The angle between the two vectors can then be taken to be the smaller of the two angles between the two vectors in that shared plane.
 </p>
 
 <figure xml:id="figure-vector-geom-concepts-space-vectors-embedded-in-plane">
@@ -220,12 +295,10 @@ In space, two vectors that are positioned to share the same initial point can be
 		<latex-image><xi:include href="concepts.d/angle-3d.tex" parse="text" /></latex-image>
 	</image>
 </figure>
-<aside>
-	<title>Note</title>
-	<p>
+
+<aside><title>Note</title><p>
 	In this diagram, you should imagine the shaded surface passing through the origin, with the two vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> lying flat in it.
-	</p>
-</aside>
+</p></aside>
 
 </subsection>
 
@@ -234,7 +307,9 @@ In space, two vectors that are positioned to share the same initial point can be
 <title>Dot product</title>
 
 <p>
-In <xref ref="activity-vector-geom-dot-product" />, we combined vector geometry with some high school geometry to determine a formula for the (cosine of the) angle between two plane vectors. Recall from <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /> that a vector that runs between the terminal points of two vectors that share an initial point is a difference vector.
+In <xref ref="activity-vector-geom-dot-product" />,
+we combined vector geometry with some high school geometry to determine a formula for the (cosine of the) angle between two plane vectors.
+Recall from <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /> that a vector that runs between the terminal points of two vectors that share an initial point is a difference vector.
 </p>
 
 <image width="40%">
@@ -245,26 +320,23 @@ In <xref ref="activity-vector-geom-dot-product" />, we combined vector geometry 
 
 <p>
 The lengths of the sides of the triangle formed by these three vectors are just the norms of the vectors:
-<md><mrow>
-	a \amp= \unorm{u}, \amp b \amp= \unorm{v}, \amp c \amp= \norm{\uvec{u}-\uvec{v}}.
-</mrow></md>
-The Law of Cosines applied to this triangle says that <m>a^2+b^2-c^2 = 2ab\cos\theta</m>.
+<md><mrow> a \amp= \unorm{u}, \amp b \amp= \unorm{v}, \amp c \amp= \norm{\uvec{u}-\uvec{v}} </mrow></md>.
+The Law of Cosines applied to this triangle says that <m>a^2 + b^2 - c^2 = 2 a b \cos\theta</m>.
 </p>
-<aside><title>Careful</title>
-	<p>
+
+<aside><title>Careful</title><p>
 	It would be <em>nonsense</em> to write this as
-	<m>\uvec{u}^2+\uvec{v}^2-(\uvec{u}-\uvec{v})^2 = 2\uvec{u}\uvec{v}\cos\theta</m>,
+	<m>\uvec{u}^2 + \uvec{v}^2 - (\uvec{u} - \uvec{v})^2 = 2 \uvec{u} \uvec{v} \cos\theta</m>,
 	because there are no such operations as multiplying or squaring vectors.
-	</p>
-</aside>
+</p></aside>
 
 <p>
 Let's give our plane vectors some components so that we can work with this equality:
 <md><mrow>
 	\uvec{u} \amp= (u_1,u_2), \amp
 	\uvec{v} \amp= (v_1,v_2), \amp
-	\uvec{u}-\uvec{v} \amp= (u_1-v_1,u_2-v_2).
-</mrow></md>
+	\uvec{u}-\uvec{v} \amp= (u_1-v_1,u_2-v_2)
+</mrow></md>.
 Now we have
 <md><mrow>
 	a^2 \amp= \unorm{u}^2 \amp
@@ -276,28 +348,45 @@ Now we have
 	\amp\amp\amp\amp \amp= u_1^2 - 2u_1v_1 + v_1^2 + u_2^2 - 2u_2v_2 + v_2^2,
 </mrow></md>
 and so after some cancelling we have
-<me> a^2 + b^2 - c^2 = 2u_1v_1 + 2u_2v_2. </me>
+<me> a^2 + b^2 - c^2 = 2 u_1 v_1 + 2 u_2 v_2 </me>.
 Using the expression on the right above for the left-hand side of the equality
-<m>a^2+b^2-c^2 = 2ab\cos\theta</m> for <m>\cos\theta</m>,
+<m> a^2 + b^2 - c^2 = 2 a b \cos\theta </m> for <m>\cos\theta</m>,
 solving for <m>\cos\theta</m>, and then substituting <m>a=\unorm{u}</m> and <m>b=\unorm{v}</m> leads to
 <md><mrow tag="star" xml:id="equation-vector-geom-concepts-plane-cosine-law-result">
-	\cos\theta = \frac{u_1v_1 + u_2v_2}{\unorm{u}\unorm{v}}.
-</mrow></md>
-The expression on the left and the denominator on the right are both familiar <mdash /> we have the ordinary cosine function from trigonometry and we have some vector norms. However, before we worked through <xref ref="activity-vector-geom-dot-product" />, the expression in the numerator on the right-hand side was unknown.
-</p><p>
-Earlier in this chapter, we mentioned how two vectors in space with their initial points at the origin lie inside a common flat plane (see <xref ref="figure-vector-geom-concepts-space-vectors-embedded-in-plane" />). If we repeated the above geometric analysis of vector angle in this flat surface inside space, we would come to a similar conclusion:
+	\cos\theta = \frac{u_1v_1 + u_2v_2}{\unorm{u}\unorm{v}}
+</mrow></md>.
+The expression on the left and the denominator on the right are both familiar <mdash />
+we have the ordinary cosine function from trigonometry and we have some vector norms.
+However, before we worked through <xref ref="activity-vector-geom-dot-product" />,
+the expression in the numerator on the right-hand side was unknown.
+</p>
+
+<p>
+Earlier in this chapter, we mentioned how two vectors in space with their initial points at the origin lie inside a common flat plane
+(see <xref ref="figure-vector-geom-concepts-space-vectors-embedded-in-plane" />).
+If we repeated the above geometric analysis of vector angle in this flat surface inside space, we would come to a similar conclusion:
 <md><mrow tag="dstar" xml:id="equation-vector-geom-concepts-space-cosine-law-result">
-	\cos\theta = \frac{u_1v_1 + u_2v_2 + u_3v_3}{\unorm{u}\unorm{v}}.
-</mrow></md>
+	\cos\theta = \frac{u_1v_1 + u_2v_2 + u_3v_3}{\unorm{u}\unorm{v}}
+</mrow></md>.
 There is an obvious pattern to the numerators on the right-hand sides of equations
 <xref ref="equation-vector-geom-concepts-plane-cosine-law-result" />
 and
 <xref ref="equation-vector-geom-concepts-space-cosine-law-result" />.
-And it seems that the value that these numerator formulas compute is important, since it provides a link between the two most important quantities in geometry: length and angle. So we give it a name, the <term>dot product</term> (or the <term>Euclidean inner product</term>), and use the symbol <m>\dotprod{}{}</m> between two vectors to represent this quantity. The formula can obviously be extended to higher dimensions than just the plane <m>\R^2</m> and space <m>\R^3</m>, so we will do just that:
-<me> \udotprod{u}{v} = u_1v_1 + u_2v_2 + \dotsb + u_n v_n. </me>
+And it seems that the value that these numerator formulas compute is important,
+since it provides a link between the two most important quantities in geometry:
+length and angle. So we give it a name,
+the <term>dot product</term>
+(or the <term>Euclidean inner product</term>),
+and use the symbol <m>\dotprod{}{}</m> between two vectors to represent this quantity.
+The formula can obviously be extended to higher dimensions than just the plane <m>\R^2</m> and space <m>\R^3</m>,
+so we will do just that:
+<me> \udotprod{u}{v} = u_1v_1 + u_2v_2 + \dotsb + u_n v_n </me>.
 </p>
+
 <warning><p>
-	The result of the computation <m>\udotprod{u}{v}</m> is a <em>number</em>, which is important to keep in mind if you are working algebraically with an expression containing a dot product. See
+	The result of the computation <m>\udotprod{u}{v}</m> is a <em>number</em>,
+	which is important to keep in mind if you are working algebraically with an expression containing a dot product.
+	See
 	<xref ref="proposition-vector-geom-dot-prod-algebra" />
 	in
 	<xref ref="subsection-vector-geom-theory-norm-and-dot-prod" />
@@ -311,8 +400,18 @@ And it seems that the value that these numerator formulas compute is important, 
 <title>Angle between vectors in <m>\R^n</m></title>
 
 <p>
-Even though we can't <q>see</q> geometry in <m>\R^n</m> for <m>n>3</m>, we have already seen that we can perform computations related to geometry in these spaces. We can attach the number <m>\unorm{v}</m> to a vector <m>\uvec{v}</m> in <m>\R^n</m> that can be interpreted as its <q>length.</q> And for two vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, we can compute the number <m>\udotprod{u}{v}</m> that is somehow related to the geometric relationship between <m>\uvec{u}</m> and <m>\uvec{v}</m>. We have seen that in the plane and in space, <m>\udotprod{u}{v}</m> links the lengths of <m>\uvec{u}</m> and <m>\uvec{v}</m> to the angle between them. But do higher-dimensional vectors have angles between them? Is there some number that we can attach to <m>\uvec{u}</m> and <m>\uvec{v}</m> that <q>measures</q> the angle between them, even if we can't see or measure this angle directly?
-</p><p>
+Even though we can't <q>see</q> geometry in <m>\R^n</m> for <m>n>3</m>,
+we have already seen that we can perform computations related to geometry in these spaces.
+We can attach the number <m>\unorm{v}</m> to a vector <m>\uvec{v}</m> in <m>\R^n</m> that can be interpreted as its <q>length.</q>
+And for two vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>,
+we can compute the number <m>\udotprod{u}{v}</m> that is somehow related to the geometric relationship between <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+We have seen that in the plane and in space, <m>\udotprod{u}{v}</m> links the lengths of <m>\uvec{u}</m> and <m>\uvec{v}</m> to the angle between them.
+But do higher-dimensional vectors have angles between them?
+Is there some number that we can attach to <m>\uvec{u}</m> and <m>\uvec{v}</m> that <q>measures</q> the angle between them,
+even if we can't see or measure this angle directly?
+</p>
+
+<p>
 The equalities in
 <xref ref="equation-vector-geom-concepts-plane-cosine-law-result" />
 and
@@ -326,42 +425,69 @@ equal.
 </p>
 
 <question><statement><p><ul>
+
 	<li>
-	For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, can we always determine a suitable angle <m>\theta</m> in the domain <m>0\le\theta\le\pi</m> that works (<ie /> that makes the two quantities in
-	<xref ref="equation-vector-geom-concepts-cosine-equality" />
-	equal)?
+		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>,
+		can we always determine a suitable angle <m>\theta</m> in the domain <m>0\le\theta\le\pi</m> that works
+		(<ie /> that makes the two quantities in
+		<xref ref="equation-vector-geom-concepts-cosine-equality" />
+		equal)?
 	</li>
-	<li> For some pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, might it be possible that there are <em>several</em> values of <m>\theta</m> in the domain <m>0\le\theta\le\pi</m> that work? </li>
+
+	<li>
+		For some pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>,
+		might it be possible that there are <em>several</em> values of <m>\theta</m> in the domain <m>0\le\theta\le\pi</m> that work?
+	</li>
+
 </ul></p></statement></question>
 
 <p>
-Fortunately, for a pair of (nonzero) plane vectors or space vectors, there is <em>exactly one</em> number (once we restrict to the domain <m>0\le\theta\le\pi</m>) that gets to call itself <em>the</em> angle between the vectors. It would not bode well for the possibility of somehow doing geometry in higher-dimensional spaces if there were sometimes <em>two</em> numbers that could be reasonably called <q>the angle</q> between a pair of vectors, or sometimes <em>none</em> at all. Luckily neither of these is possible.
-</p><p>
+Fortunately, for a pair of (nonzero) plane vectors or space vectors,
+there is <em>exactly one</em> number
+(once we restrict to the domain <m>0\le\theta\le\pi</m>)
+that gets to call itself <em>the</em> angle between the vectors.
+It would not bode well for the possibility of somehow doing geometry in higher-dimensional spaces if there were sometimes <em>two</em> numbers that could be reasonably called <q>the angle</q> between a pair of vectors,
+or sometimes <em>none</em> at all.
+Luckily neither of these is possible.
+</p>
+
+<p>
 First, for a pair of nonzero vectors in <m>\R^n</m>, the formula
 <me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
 can always be computed, and the result of the computation is always a single, definite number.
 </p>
+
 <p>
-	Second, looking at the provided graph of <m>y=\cos\theta</m>,
-	there are no instances in the domain <m>0\le\theta\le\pi</m> where <m>\cos\theta</m> computes to the <em>same</em> value for two <em>different</em> values of <m>\theta</m>.
+	Second, looking at the provided graph of <m>y = \cos\theta</m>,
+	there are no instances in the domain <m>0 \le \theta \le \pi</m> where <m>\cos\theta</m> computes to the <em>same</em> value for two <em>different</em> values of <m>\theta</m>.
 </p>
+
 <image width="42%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Graph of <m>y=\cos\theta</m>.</description>
 	<latex-image><xi:include href="../../shared.d/cosine.tex" parse="text" /></latex-image>
 </image>
+
 <p>
-On this domain, we call the graph <em>one-to-one</em>. So a pair of vectors in <m>\R^n</m> can never have <em>two</em> angles in the domain <m>0\le\theta\le\pi</m> between them, because there are never two solutions to the equation
+On this domain, we call the graph <em>one-to-one</em>.
+So a pair of vectors in <m>\R^n</m> can never have <em>two</em> angles in the domain <m>0\le\theta\le\pi</m> between them,
+because there are never two solutions to the equation
 <md><mrow tag="dagger" xml:id="equation-vector-geom-concepts-def-angle-by-cos">
 	\cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}
 </mrow></md>
 in that domain.
-</p><p>
+</p>
+
+<p>
 But is there always <em>some</em> solution to equation
 <xref ref="equation-vector-geom-concepts-def-angle-by-cos" />?
-No matter what domain you work on, <m>\cos\theta</m> never evaluates to a number greater than <m>1</m> or less than <m>-1</m>. Perhaps if we tried hard enough we could discover some unlucky pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^{13}</m> where
+No matter what domain you work on, <m>\cos\theta</m> never evaluates to a number greater than <m>1</m> or less than <m>-1</m>.
+Perhaps if we tried hard enough we could discover some unlucky pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^{13}</m> where
 <me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
-computed to a number greater than <m>1</m> or to a number less than <m>-1</m>. In that case, it would be impossible for <m>\cos\theta</m> to be equal to that number, and <m>\uvec{u}</m> and <m>\uvec{v}</m> would have <em>no</em> angle between them. It turns out that finding such an unlucky pair of vectors is impossible, and we know this courtesy of a couple of dead guys.
+computed to a number greater than <m>1</m> or to a number less than <m>-1</m>.
+In that case, it would be impossible for <m>\cos\theta</m> to be equal to that number,
+and <m>\uvec{u}</m> and <m>\uvec{v}</m> would have <em>no</em> angle between them.
+It turns out that finding such an unlucky pair of vectors is impossible, and we know this courtesy of a couple of dead guys.
 </p>
 
 <theorem xml:id="theorem-vector-geom-concepts-cauchy-schwarz">
@@ -369,20 +495,22 @@ computed to a number greater than <m>1</m> or to a number less than <m>-1</m>. I
 	<idx><h>Cauchy-Schwarz inequality</h></idx>
 	<idx><h>inequality</h><h>Cauchy-Schwarz</h></idx>
 	<statement><p>
-	For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, the quantity
-	<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
-	is always between <m>-1</m> and <m>1</m> (inclusive).
+		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, the quantity
+		<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
+		is always between <m>-1</m> and <m>1</m> (inclusive).
 	</p></statement>
 </theorem>
 
 <aside><title>Note</title><p>
 	The <q>inequality</q> part of the Cauchy-Schwarz inequality is usually stated as
 	<m>\abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v}</m>, which for nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is equivalent to
-	<me> -1 \le \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} \le 1. </me>
+	<me> -1 \le \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} \le 1 </me>.
 </p></aside>
 
 <p>
-Since the graph <m>y=\cos\theta</m> passes through every possible <m>y</m>-value in the range <m>-1 \le y \le 1</m>, and does so only once, equation <xref ref="equation-vector-geom-concepts-def-angle-by-cos" /> always has <em>one unique</em> solution for a pair of nonzero vectors.
+Since the graph <m>y=\cos\theta</m> passes through every possible <m>y</m>-value in the range <m>-1 \le y \le 1</m>,
+and does so only once,
+equation <xref ref="equation-vector-geom-concepts-def-angle-by-cos" /> always has <em>one unique</em> solution for a pair of nonzero vectors.
 </p>
 
 </subsection>
@@ -392,7 +520,10 @@ Since the graph <m>y=\cos\theta</m> passes through every possible <m>y</m>-value
 <title>Dot product versus norm</title>
 
 <p>
-We have already seen that the dot product is intimately tied to the geometry of <m>\R^n</m>, acting as a link between norm (length) and angle. But as we discovered in <xref ref="activity-vector-geom-dot-product-vs-norm" />, it is also directly linked to the norm by the observation
+We have already seen that the dot product is intimately tied to the geometry of <m>\R^n</m>,
+acting as a link between norm (length) and angle.
+But as we discovered in <xref ref="activity-vector-geom-dot-product-vs-norm" />,
+it is also directly linked to the norm by the observation
 <md><mrow>
 	\unorm{v}^2
 	\amp= (\sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2})^2
@@ -423,7 +554,11 @@ So we obtain a very convenient formula: <m>\unorm{v}^2 = \udotprod{v}{v}</m>.
 <title>Dot product as matrix multiplication</title>
 
 <p>
-The pattern in the formula for the dot product of two vectors should look vaguely familiar to you <mdash /> it is a sum of products, which is exactly the pattern of the left-hand side of a linear equation, and so also the pattern in our <q>row-times-column</q> view of matrix multiplication in <xref ref="subsection-matrix-ops-concepts-matrix-mult" />. In fact, the dot product can be defined in terms of matrix multiplication if we take our vectors to be <em>column vectors</em> and use the transpose to turn one of the columns into a row. Indeed, for
+The pattern in the formula for the dot product of two vectors should look vaguely familiar to you <mdash />
+it is a sum of products, which is exactly the pattern of the left-hand side of a linear equation,
+and so also the pattern in our <q>row-times-column</q> view of matrix multiplication in <xref ref="subsection-matrix-ops-concepts-matrix-mult" />.
+In fact, the dot product can be defined in terms of matrix multiplication if we take our vectors to be <em>column vectors</em> and use the transpose to turn one of the columns into a row.
+Indeed, for
 <md><mrow>
 	\uvec{u} \amp= \begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix},
 	\amp
@@ -436,36 +571,46 @@ we have
 		\amp=
 		\begin{bmatrix} v_1 \amp v_2 \amp \cdots \amp v_n \end{bmatrix}
 		\begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}
-	</mrow><mrow>
-		\amp= v_1 u_1 + v_2 u_2 + \dotsb + v_n u_n.
-	</mrow><mrow>
-		\amp= u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n.
-	</mrow><mrow>
-		\amp= \udotprod{u}{v}.
 	</mrow>
-</md>
+	<mrow> \amp= v_1 u_1 + v_2 u_2 + \dotsb + v_n u_n </mrow>
+	<mrow> \amp= u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n </mrow>
+	<mrow> \amp= \udotprod{u}{v} </mrow>
+</md>.
 So we obtain a matrix formula for dot product: <m>\udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u}</m>.
 </p>
 
 <remark><p><ul>
+
 	<li>
-	Technically, the result of multiplying the <m>1\times n</m> matrix <m>\utrans{\uvec{v}}</m> and the <m>n\times 1</m> matrix <m>\uvec{u}</m> should be a <m>1\times 1</m> matrix. But algebraically there is no difference between numbers and <m>1\times 1</m> matrices with respect to the operations of addition, subtraction, and multiplication, so it is common to think of a <m>1\times 1</m> matrix as just a number, as we did above.
+		Technically, the result of multiplying the <m>1 \times n</m> matrix <m>\utrans{\uvec{v}}</m> and the <m>n \times 1</m> matrix <m>\uvec{u}</m> should be a <m>1 \times 1</m> matrix. But algebraically there is no difference between numbers and <m>1 \times 1</m> matrices with respect to the operations of addition, subtraction, and multiplication,
+		so it is common to think of a <m>1 \times 1</m> matrix as just a number, as we did above.
 	</li>
+
 	<li>
-	It might seem more natural to use
-	<me>
-		\udotprod{u}{v} \,=\, \utrans{\uvec{u}} \uvec{v}
-		\,=\,
-		\begin{bmatrix} u_1 \amp u_2 \amp \cdots \amp u_n \end{bmatrix}
-		\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
-		\,=\, u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n
-	</me>
-	(as we did in <xref ref="activity-vector-geom-dot-prod-vs-matrix-mult" />),
-	instead of the seemingly pointless reversal of order in the formula
-	<m>\udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u}</m>.
-	However, if you continue on in your study of linear algebra beyond this course, you will discover that this reversal of order is absolutely necessary when studying <em>complex</em> vectors (that is, vectors where the components are <em>complex</em> numbers). Since this reversal of order is harmless here, we will start using it now so as to avoid confusion later.
-	<!-- TODO rewrite the above when book is extended -->
+		It might seem more natural to use
+		<me>
+			\udotprod{u}{v} \,=\, \utrans{\uvec{u}} \uvec{v}
+			\,=\,
+			\begin{bmatrix} u_1 \amp u_2 \amp \cdots \amp u_n \end{bmatrix}
+			\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+			\,=\, u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n
+		</me>
+		(as we did in <xref ref="activity-vector-geom-dot-prod-vs-matrix-mult" />),
+		instead of the seemingly pointless reversal of order in the formula
+		<m> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </m>.
+		<restrictversion onlyin="onesemester">
+			However, if you continue on in your study of linear algebra beyond this course,
+			you will discover that this reversal of order is necessary when studying <em>complex</em> vectors
+			(that is, vectors where the components are <em>complex</em> numbers).
+		</restrictversion>
+		<restrictversion excludefrom="onesemester">
+			However, in <xref ref="chapter-inner-prod" />,
+			we will see that this reversal of order is necessary when studying <em>complex</em> vectors
+			(that is, vectors where the components are <em>complex</em> numbers).
+		</restrictversion>
+		Since this reversal of order is harmless here, we will start using it now so as to avoid confusion later.
 	</li>
+
 </ul></p></remark>
 
 </subsection>
