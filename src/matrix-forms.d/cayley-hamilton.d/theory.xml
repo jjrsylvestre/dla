@@ -34,16 +34,21 @@ respective owners.
 
 <lemma xml:id="lemma-cayley-hamilton-scalar-triang-nilpotent">
 	<title>Scalar-triangular with <m>\lambda = 0</m> is nilpotent</title>
+
 	<statement><p>
-		A scalar-triangular matrix <m>A</m> with <m>\lambda = 0</m> down the main diagonal will satisfy <m>A^n = 0</m>,
+		A scalar-triangular matrix <m>A</m> with <m>\lambda = 0</m> down the main diagonal will satisfy <m>A^n = \zerovec</m>,
 		where <m>n</m> is the size of <m>A</m>.
 		In particular, such a matrix is always nilpotent.
 	</p></statement>
+
 	<proof><title>Proof outline</title>
+
 		<p>
 		We omit a detailed proof,
 		relying on <xref ref="example-cayley-hamilton-scalar-triang-nilpotent" /> to demonstrate the pattern.
-		</p><p>
+		</p>
+
+		<p>
 		However, a proof by induction is fairly straightforward,
 		as a matrix of this form can be broken up into a block matrix
 		<me> A = \left[\begin{array}{@{}c|c@{}} 0 \amp R \\ \hline \zerovec \amp B \end{array}\right] </me>,
@@ -56,7 +61,9 @@ respective owners.
 		for any positive exponent <m>k</m>,
 		and from there the result follows readily using the appropriate induction hypothesis.
 		</p>
+
 	</proof>
+
 </lemma>
 
 <p>
@@ -65,99 +72,20 @@ keep <xref ref="example-cayley-hamilton-non-triang-nilpotent" /> in mind here <m
 a matrix does not have to be triangular to be nilpotent.
 </p>
 
-<proposition xml:id="proposition-cayley-hamilton-nilpotent-evalues">
-	<title>Eigenvalues and characteristic polynomial of nilpotent</title>
-	<statement><p>
-		A nilpotent matrix always has only a single eigenvalue <m>\lambda = 0</m>,
-		and its characteristic polynomial must be <m>c(\lambda) = \lambda^n</m>.
-	</p></statement>
-	<proof>
-		<p>
-		Suppose <m>A</m> is a square matrix,
-		<m>\lambda = \lambda_0</m> is an eigenvalue of <m>A</m>,
-		and <m>\uvec{x}</m> is a (nonzero) eigenvector of <m>A</m> corresponding to <m>\lambda_0</m>.
-		For every positive exponent <m>k</m>, we have
-		<me> A^k \uvec{x} = \lambda_0^k \uvec{x} </me>.
-		But if <m>A</m> is nilpotent with <m>A^k = \zerovec</m> for some <m>k</m>,
-		then the above becomes
-		<me> \zerovec = \lambda_0^k \uvec{x} </me>.
-		Since <m>\uvec{x}</m> is assumed nonzero,
-		we must have <m>\lambda_0^k = 0</m>
-		(<xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">Rule</xref>
-		of
-		<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />),
-		which forces <m>\lambda = 0</m> as well.
-		</p><p>
-		We have established that <m>A</m> cannot have any eigenvalues, real or complex, besides <m>\lambda = 0</m>.
-		The assertion that <m>c_A(\lambda) = \lambda^n</m> immediately follows.
-		</p>
-	</proof>
-</proposition>
-
 <p>
-A matrix whose powers eventually become zero does not sound like it could be invertible,
-and that is the case.
+The next proposition should not be a surprise,
+since we know that similar matrices are effectively the same matrix,
+just <q>expressed</q> in different coordinate systems.
 </p>
-
-<corollary>
-	<title>Nilpotent is singular</title>
-	<statement><p> A nilpotent matrix is always singular. </p></statement>
-	<proof><p>
-		Combine <xref ref="proposition-cayley-hamilton-nilpotent-evalues" />
-		with the equivalence of <xref ref="theorem-eigen-values-vectors-equiv-to-invertible-invertible">Statement</xref>
-		and <xref ref="theorem-eigen-values-vectors-equiv-to-invertible-evalue-0">Statement</xref>
-		in <xref ref="theorem-eigen-values-vectors-equiv-to-invertible" />.
-	</p></proof>
-</corollary>
-
-<p>
-While a matrix does not have to be triangular to be nilpotent,
-combining the above proposition with
-<xref ref="corollary-triang-block-scalar-triang" />
-does tell us the following.
-</p>
-
-<corollary xml:id="corollary-cayley-hamilton-triang-block-nilpotent">
-	<title>Triangular block form of nilpotent matrices</title>
-	<statement><p>
-		Every nilpotent matrix is similar to a scalar-triangular matrix with <m>\lambda = 0</m> down the main diagonal.
-	</p></statement>
-</corollary>
-
-<p> This corollary in turn tells us about the maximum exponent required to take a nilpotent matrix to zero. </p>
-
-<corollary xml:id="corollary-cayley-hamilton-max-nilpotency">
-	<title>Maximum degree of nilpotency</title>
-	<statement><p>
-		If <m>A</m> is an <m>n \times n</m> nilpotent matrix,
-		then <m>A^n = \zerovec</m>.
-	</p></statement>
-	<proof><p>
-		By <xref ref="corollary-cayley-hamilton-triang-block-nilpotent" />,
-		<m>A</m> is similar to a scalar-triangular matrix <m>T</m> with <m>\lambda = 0</m> down the main diagonal.
-		Applying <xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" /> to <m>T</m>,
-		we have <m>T^n = \zerovec</m>.
-		But <xref ref="proposition-similarity-powers" /> tells us that <m>A^n</m> will be similar to <m>T^n</m>,
-		and the only matrix that is similar to the zero matrix is the zero matrix itself
-		(<xref ref="proposition-similarity-scalar-sim-classes" />),
-		from which we can conclude that <m>A^n = \zerovec</m>.
-	</p></proof>
-</corollary>
-
-<remark><p>
-	<xref ref="example-cayley-hamilton-non-triang-nilpotent" /> demonstrates that powers of a nilpotent matrix can become zero <em>before</em> the exponent reaches the size of the matrix.
-	We call the first exponent where zero occurs the
-	<term><xref ref="definition-cayley-hamilton-degree-nilpotency" text="title" /></term>
-	of the matrix,
-	a concept that will become important in completing our study of matrix forms.
-</p></remark>
 
 <proposition xml:id="proposition-cayley-hamilton-similar-to-nilpotent">
 	<title>Similar to nilpotent is nilpotent of same degree</title>
+
 	<statement><p>
 		A matrix that is similar to a nilpotent one must itself also be nilpotent,
-		and the two similar matrices must have the same degree of nilpotency.
+		and the two similar matrices must have the same <xref ref="definition-cayley-hamilton-degree-nilpotency" text="title" />.
 	</p></statement>
+
 	<proof><title>Outline of proof</title><p>
 		Suppose we have a pair of similar matrices.
 		By <xref ref="proposition-similarity-powers" />,
@@ -166,7 +94,171 @@ does tell us the following.
 		if a power of one of the two matrices becomes zero at a certain power,
 		then so will the other.
 	</p></proof>
+
 </proposition>
+
+<p>
+Now we will record some characterizations of nilpotency.
+As each of these statements is equivalent to nipotency,
+we can use these statements both as properties of nilpotent matrices and as ways to recognize that a matrix is nilpotent.
+</p>
+
+<theorem xml:id="theorem-cayley-hamilton-characterizations-of-nilpotency">
+	<title>Characterizations of nilpotency</title>
+
+	<statement><p>
+		For a square matrix <m>A</m>,
+		the following are equivalent.
+		<ol>
+
+			<li xml:id="theorem-cayley-hamilton-characterizations-of-nilpotency-nilpotent">
+				Matrix <m>A</m> is nilpotent.
+			</li>
+
+			<li xml:id="theorem-cayley-hamilton-characterizations-of-nilpotency-evalues">
+				<title>Eigenvalues and characteristic polynomial</title>
+				<p>
+				Matrix <m>A</m> has only a single eigenvalue <m>\lambda = 0</m>,
+				and its characteristic polynomial must be <m>c_A(\lambda) = \lambda^n</m>.
+				</p>
+			</li>
+
+			<li xml:id="theorem-cayley-hamilton-characterizations-of-nilpotency-triang-block">
+				<title>Triangular block form</title>
+				<p> Matrix <m>A</m> is similar to a scalar-triangular matrix with <m>\lambda = 0</m> down the main diagonal. </p>
+			</li>
+
+			<li xml:id="theorem-cayley-hamilton-characterizations-of-nilpotency-max-nilpotency">
+				<title>Maximum degree of nilpotency</title>
+				<p> Matrix <m>A</m> satisfies <m>A^n = \zerovec</m>. </p>
+			</li>
+
+		</ol>
+	</p></statement>
+
+	<proof>
+		<p> We will show that each statement of the theorem implies the next. </p>
+
+		<case>
+			<title>
+				Whenever
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-nilpotent">Statement</xref>
+				is true,
+				then so is
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-evalues">Statement</xref>
+			</title>
+
+			<p>
+			Suppose <m>A</m> is a square matrix,
+			<m>\lambda = \lambda_0</m> is an eigenvalue of <m>A</m>,
+			and <m>\uvec{x}</m> is a (nonzero) eigenvector of <m>A</m> corresponding to <m>\lambda_0</m>.
+			For every positive exponent <m>k</m>, we have
+			<me> A^k \uvec{x} = \lambda_0^k \uvec{x} </me>.
+			But if <m>A</m> is nilpotent with <m>A^k = \zerovec</m> for some <m>k</m>,
+			then the above becomes
+			<me> \zerovec = \lambda_0^k \uvec{x} </me>.
+			Since <m>\uvec{x}</m> is assumed nonzero,
+			we must have <m>\lambda_0^k = 0</m>
+			(<xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">Rule</xref>
+			of
+			<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />),
+			which forces <m>\lambda_0 = 0</m> as well.
+			</p>
+
+			<p>
+			We have established that when <m>A</m> is nilpotent,
+			it cannot have any eigenvalues, real or complex, besides <m>\lambda = 0</m>.
+			The assertion that <m>c_A(\lambda) = \lambda^n</m> immediately follows.
+			</p>
+
+		</case>
+
+		<case>
+			<title>
+				Whenever
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-evalues">Statement</xref>
+				is true,
+				then so is
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-triang-block">Statement</xref>
+			</title>
+			<p> This is <xref ref="corollary-triang-block-scalar-triang" /> with <m>\lambda = 0</m>. </p>
+		</case>
+
+		<case>
+			<title>
+				Whenever
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-triang-block">Statement</xref>
+				is true,
+				then so is
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-max-nilpotency">Statement</xref>
+			</title>
+			<p>
+			Suppose there exists invertible <m>P</m> so that <m>\inv{P} A P = N</m>,
+			where <m>N</m> is scalar-triangular matrix with <m>\lambda = 0</m> down the main diagonal.
+			<xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" /> tells that such a matrix <m>N</m> will satisfy <m>N^n = \zerovec</m>.
+			Combined with the identity <me> {(\inv{P} A P)}^n = \inv{P} A^n P </me>,
+			we may conclude that <m>A^n = \zerovec</m> as well,
+			since the only matrix that is similar to the zero matrix is the zero matrix itself.
+			</p>
+		</case>
+
+		<case>
+			<title>
+				Whenever
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-max-nilpotency">Statement</xref>
+				is true,
+				then so is
+				<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-nilpotent">Statement</xref>
+			</title>
+			<p>
+			If we assume <m>A</m> satisfies <m>A^n = \zerovec</m>,
+			then by definition we are assuming that <m>A</m> is, in fact, a <term><xref ref="definition-cayley-hamilton-nilpotent" text="title" /></term>.
+			</p>
+		</case>
+
+	</proof>
+
+</theorem>
+
+<remark><p><ol>
+
+	<li>
+		As we have seen in <xref ref="example-cayley-hamilton-non-triang-nilpotent" />,
+		a matrix does not have to be scalar-triangular with zeros down its diagonal in order to be nilpotent.
+		But <xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-triang-block">Statement</xref>
+		of <xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency" />
+		does say that a matrix has to at least be similar to such a scalar-triangular matrix.
+	</li>
+
+	<li>
+		<xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-max-nilpotency">Statement</xref>
+		of <xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency" />
+		does not say that every nilpotent <m>n \times n</m> matrix
+		has <xref ref="definition-cayley-hamilton-degree-nilpotency" text="title" /> equal to <m>n</m>.
+		Instead, it tells us that degree of nilpotency will be <em>no greater</em> than <m>n</m>.
+	</li>
+
+</ol></p></remark>
+
+<p>
+Finally,
+a matrix whose powers eventually become zero does not sound like it could be invertible,
+and that is the case.
+</p>
+
+<corollary><title>Nilpotent is singular</title>
+
+	<statement><p> A nilpotent matrix is always singular. </p></statement>
+
+	<proof><p>
+		Combine <xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency-evalues">Statement</xref>
+		of <xref ref="theorem-cayley-hamilton-characterizations-of-nilpotency" />
+		with the equivalence of <xref ref="theorem-eigen-values-vectors-equiv-to-invertible-invertible">Statement</xref>
+		and <xref ref="theorem-eigen-values-vectors-equiv-to-invertible-evalue-0">Statement</xref>
+		in <xref ref="theorem-eigen-values-vectors-equiv-to-invertible" />.
+	</p></proof>
+
+</corollary>
 
 </subsection>
 
@@ -181,12 +273,14 @@ and discussed in
 <xref ref="subsection-cayley-hamilton-concepts-matrix-poly" />.
 </p>
 
-<lemma xml:id="lemma-cayley-hamilton-poly-of-similar"> <!-- old label \label{LEM::poly.of.conjugate} -->
+<lemma xml:id="lemma-cayley-hamilton-poly-of-similar">
 	<title>Similar matrices evaluate to similar results</title>
+
 	<statement><p>
 		Suppose <m>p(x)</m> is a polynomial and <m>A</m> and <m>P</m> are square matrices of the same size with <m>P</m> invertible.
 		Then, <me> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </me>.
 	</p></statement>
+
 	<proof><title>Proof outline</title><p>
 		The case that <m>p(x)</m> consists of just a power of <m>x</m>,
 		so that <m>p(x) = x^k</m>,
@@ -197,6 +291,7 @@ and discussed in
 		follows from single-power case,
 		and is left as an exercise for you, the reader.
 	</p></proof>
+
 </lemma>
 
 <p> Now we'll record and prove the main result of this chapter. </p>
@@ -205,8 +300,11 @@ and discussed in
 	<idx><h>Cayley-Hamilton Theorem</h></idx>
 	<idx><h>Theorem</h><h>Cayley-Hamilton</h></idx>
 	<title>The Cayley-Hamilton Theorem</title>
+
 	<statement><p> For every square matrix <m>A</m>, <m>c_A(A) = \zerovec</m>. </p></statement>
+
 	<proof>
+
 		<p>
 		As in <xref ref="activity-cayley-hamilton-triang-block-case" />,
 		first we will prove the statement in the case that <m>A</m> is a matrix in triangular block form.
@@ -236,7 +334,9 @@ and discussed in
 		Multiplying these factors together is achieved by multiplying together all the corresponding block matrices from the block diagonals,
 		and this will result in zero for each block position since each such product will have a zero factor in it.
 		Therefore, <m>c_A(A) = \zerovec</m>.
-		</p><p>
+		</p>
+
+		<p>
 		Now we proceed as in <xref ref="activity-cayley-hamilton-triang-general-case" />.
 		Suppose that <m>A</m> is a general square matrix,
 		not necessarily in any special form.
@@ -260,7 +360,9 @@ and discussed in
 		However, the only matrix that is similar to the zero matrix is the zero matrix itself,
 		so we can conclude that <me> c_A(A) = \zerovec </me>.
 		</p>
+
 	</proof>
+
 </theorem>
 
 </subsection>
@@ -276,26 +378,38 @@ we'll record the patterns we discovered in
 
 <theorem xml:id="theorem-cayley-hamilton-det-trace-vs-char-poly-evals">
 	<title>Determinant and trace versus characteristic polynomial and eigenvalues</title>
+
 	<statement><p>
 		Suppose <m>A</m> is an <m>n \times n</m> matrix.
 		<ol>
+
 			<li><p><ol>
+
 				<li>
 					The determinant of <m>A</m> is equal to the product of its eigenvalues, both real and complex,
 					and with each eigenvalue repeated in the product according to its algebraic multiplicity.
 				</li>
+
 				<li> The constant term in the characteristic polynomial of <m>A</m> is always <m>(-1)^n \det A</m>. </li>
+
 			</ol></p></li>
+
 			<li><p><ol>
+
 				<li>
 					The trace of <m>A</m> is equal to the sum of its eigenvalues, both real and complex,
 					and with each eigenvalue repeated in the sum according to its algebraic multiplicity.
 				</li>
+
 				<li> The <m>\lambda^{n-1}</m> term in the characteristic polynomial of <m>A</m> always has coefficient <m>- \trace A</m>. </li>
+
 			</ol></p></li>
+
 		</ol>
 	</p></statement>
+
 	<proof>
+
 		<p>
 		Since similar matrices have the same determinant, trace, characteristic polynomial, and eigenvalues,
 		and since every matrix is similar (over <m>\C</m>) to a matrix in triangular block form,
@@ -305,7 +419,9 @@ we'll record the patterns we discovered in
 		<md><mrow xml:id="equation-cayley-hamilton-fully-factored-char-poly2" tag="dstar">
 			c_A(\lambda) = (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
 		</mrow></md>.
-		</p><p>
+		</p>
+
+		<p>
 		The <m>\nth[j]</m> block of <m>A</m> is scalar-triangular with determinant equal to <m>\lambda_j^{m_j}</m>,
 		the product of its diagonal entries.
 		Applying <xref ref="proposition-block-diag-props-det">Statement</xref>
@@ -322,7 +438,9 @@ we'll record the patterns we discovered in
 		where
 		<me> m_1 + m_2 + \dotsb + m_\ell = n </me>
 		because the degree of a characteristic polynomial is always equal to the size of the matrix.
-		</p><p>
+		</p>
+
+		<p>
 		Similarly, the trace of the <m>\nth[j]</m> block of <m>A</m> is equal to <m>m_j \lambda_j</m>,
 		the sum of its diagonal entries.
 		The trace of <m>A</m> is then clearly equal to the sum of these sums of diagonal entries, so that
@@ -344,7 +462,9 @@ we'll record the patterns we discovered in
 			= - \trace A
 		</me>.
 		</p>
+
 	</proof>
+
 </theorem>
 
 
