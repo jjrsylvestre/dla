@@ -45,7 +45,9 @@ respective owners.
 Just as we can evaluate polynomials at specific numeric values of the indeterminate <m>x</m>,
 matrix algebra allows us to evaluate polynomials at <q>values</q> of <m>x</m> that are square matrices,
 if we regard the constant term of the polynomial as a scalar multiple of the identity matrix.
-</p><p>
+</p>
+
+<p>
 For example, the polynomial
 <me> p(x) = x^2 - 3x + 6 </me>
 from <xref ref="activity-cayley-hamilton-matrix-poly" />
@@ -69,7 +71,9 @@ in
 <xref ref="subsection-cayley-hamilton-theory-theorem" />.
 </p></paragraphs>
 
+
 <paragraphs><title>Diagonal and block-diagonal matrices in matrix polynomials</title>
+
 <p>
 Powers, scalar multiples, and sums of diagonal matrices all result in diagonal matrices,
 and can all be calculated by performing those operations on the diagonal entries.
@@ -94,7 +98,9 @@ we can calculate
 	\end{bmatrix}
 </me>.
 In other words, a matrix polynomial of a diagonal matrix can be evaluated by evaluating the polynomial at each diagonal entry.
-</p><p>
+</p>
+
+<p>
 Powers, scalar multiples, and sums of block-diagonal matrices can be calculated in a similar fashion by working with the blocks on the diagonal,
 so that if <m>D</m> is in block-diagonal form, then
 <me>
@@ -114,9 +120,12 @@ so that if <m>D</m> is in block-diagonal form, then
 		 \amp \amp \amp p(D_m)
 	\end{bmatrix}
 </me>.
-</p></paragraphs>
+</p>
+
+</paragraphs>
 
 </subsection>
+
 
 <subsection xml:id="subsection-cayley-hamilton-concepts-nilpotent">
 <title>Nilpotent matrices</title>
@@ -147,7 +156,9 @@ In general, this can be visualized as
 		 \amp \amp \amp   0
 	\end{bmatrix}
 </mrow></md>.
-</p><p>
+</p>
+
+<p>
 In <xref ref="activity-cayley-hamilton-nilpotent" />
 we focused specifically on matrices of form like the last matrix on the right above.
 A matrix of this form is called <term>nilpotent</term>,
@@ -155,11 +166,15 @@ and we soon discovered why:
 in subsequent powers of such a matrix,
 the zeros marches up the <q>super</q> diagonals above the main diagonal,
 until the whole matrix becomes zero when the exponent reaches the size of the matrix.
-</p><p>
+</p>
+
+<p>
 This form of matrix is just a special case of scalar-triangular form,
 with single eigenvalue <m>0</m> of multiplicity equal to the size of the matrix,
 and characteristic polynomial <m>c(\lambda) = \lambda^n</m>.
-</p><p>
+</p>
+
+<p>
 Generalizing from this nilpotent form of matrix,
 <em>every</em> matrix with the property that powers eventually become zero is also called <term>nilpotent</term>,
 and we will study the similarity patterns of such matrices in the next two chapters.
@@ -170,6 +185,7 @@ similar to our above analysis of the nilpotent scalar-triangular form.
 </p>
 
 </subsection>
+
 
 <subsection xml:id="subsection-cayley-hamilton-concepts-theorem">
 <title>Matrices and their characteristic polynomials</title>
@@ -184,36 +200,44 @@ Combining this with the facts that
 	<li> the only matrix that is similar to the zero matrix is the zero matrix itself, </li>
 </ul>
 we are led to the conclusion that <em><em>every</em> matrix evaluates to zero in its own characteristic polynomial</em>.
-This fact is usually referred to as
+This fact is usually referred to as the
 <term><xref ref="theorem-cayley-hamilton" text="title" /></term>.
 </p>
 
+
 <paragraphs><title>Roots and field extensions</title>
+
 <p>
-<xref ref="theorem-cayley-hamilton" text="title" /> is an extraordinary result!
+The <xref ref="theorem-cayley-hamilton" text="title" /> is an extraordinary result!
 It says that every matrix is a <term>root</term> of its own characteristic polynomial,
 which provides an algebraic way to deal with roots rather than just symbolically writing a <m>\sqrt{}</m> symbol.
 It is beyond the scope of this book to go into exactly what this means,
 but we can give a flavour here with an example.
-</p><p>
+</p>
+
+<p>
 In <xref ref="subsection-special-forms-concepts-scalar-matrix-algebra" />,
 we saw how scalar matrices allow us to embed the algebra of numbers into the algebra of matrices <mdash />
 that is, a <term>scalar matrix</term> is essentially the same as a <term>number</term>.
 </p>
+
 <aside><title>Note</title><p>
 	This view of scalar matrices also justifies our practice of interpreting the constant term in a polynomial as a scalar matrix in order to convert it into a <em>matrix</em> polynomial.
 </p></aside>
+
 <p>
 What if we further expand the concept of <term>number</term> to include the <m>2 \times 2</m> matrix
 <me> C = \left[\begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array}\right] </me>?
 It is straightforward to compute the characteristic polynomial
 <me> c_C(\lambda) = \lambda^2 + 1 </me>,
-so <xref ref="theorem-cayley-hamilton" text="title" /> tells us that
+so the <xref ref="theorem-cayley-hamilton" text="title" /> tells us that
 <me> C^2 + 1 = \zerovec </me>.
 This is precisely the defining condition of the <q>imaginary number</q> <m>\ci</m>.
 It turns out that <m>\ci</m> is not so imaginary after all,
 as here we have a matrix embodiment of it that only requires the numbers <m>0,1,-1</m> to construct!
-</p><p>
+</p>
+
+<p>
 Combining this special matrix with <m>2 \times 2</m> scalar matrices,
 we can even construct a realization of the field of complex numbers inside <m>\matrixring_2(\R)</m>.
 Every complex number <m>z</m> can be expressed as
@@ -226,11 +250,14 @@ We leave it as an exercise for you, the reader,
 to verify that adding, multiplying, and inverting matrices of the form of <m>Z</m> have the same results as adding, multiplying, and inverting the corresponding complex numbers.
 You might also get a surprise if you compute <m>\det Z</m>!
 </p>
+
 </paragraphs>
 
+
 <paragraphs><title>Companion matrices</title>
+
 <p>
-A slightly less precise way to phrase
+A slightly less precise way to phrase the
 <xref ref="theorem-cayley-hamilton" text="title" />
 would be to say that,
 given any square matrix,
@@ -239,6 +266,7 @@ Turning this statement around, we could also ask:
 given any polynomial, can we construct a matrix root of that polynomial?
 Getting more precise again, we ask the following question.
 </p>
+
 <question xml:id="question-cayley-hamilton-concepts-companion">
 	<p>
 	Given a monic, degree <m>n</m> polynomial,
@@ -248,6 +276,7 @@ Getting more precise again, we ask the following question.
 		<term>Monic</term> means that the coefficient on the highest power of <m>x</m> in the polynomial is equal to <m>1</m>.
 	</p></aside>
 </question>
+
 <p>
 We leave it as an exercise for you, the reader,
 to verify that the matrix
@@ -265,9 +294,11 @@ in the affirmative.
 The matrix above is called the <term>companion matrix</term> of the monic polynomial
 <me> p(x) = x^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \dotsb + a_1 x + a_0 </me>.
 </p>
+
 </paragraphs>
 
 </subsection>
+
 
 <subsection xml:id="subsection-cayley-hamilton-concepts-det-trace-evals">
 <title>Connection to determinants and traces of matrices</title>
