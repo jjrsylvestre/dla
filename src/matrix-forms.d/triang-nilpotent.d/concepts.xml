@@ -37,7 +37,9 @@ elementary nilpotent form is the single-block case of a multi-block nilpotent fo
 Elementary nilpotent form can be achieved when the nilpotent matrix has maximum degree of nilpotency.
 If the degree of nilpotency is less than maximum,
 then the matrix must be <q>built</q> out of smaller elementary nilpotent blocks that become zero earlier.
-</p><p>
+</p>
+
+<p>
 Justifying the theory behind the pattern of similarity for triangular-block nilpotent form is beyond the scope of this book,
 but we can recognize the pattern by combining the patterns for block-diagonal form and elementary nilpotent form.
 A matrix is similar to one in block diagonal form when there exists a complete set of independent, invariant subspaces of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
@@ -46,7 +48,9 @@ Each of those blocks will be in elementary nilpotent form when the corresponding
 Since cyclic spaces are always invariant
 (<xref ref="proposition-elem-nilpotent-cyclic-is-invariant" />),
 we can instead say that <alert>we need a complete set of independent, cyclic subspaces with each cyclic basis terminating in the null space of the matrix</alert>.
-</p><p>
+</p>
+
+<p>
 We can be even a little more specific.
 We need a cyclic basis for each of these subspaces,
 but we also need the collection of subspaces to be independent.
@@ -54,19 +58,25 @@ By definition, this means that we need the collection of cyclic bases to be inde
 In particular, the collection of final null space vectors from each cyclic basis must be independent when taken all together.
 </p>
 
-<convention xml:id="pattern-triang-nilpotent-concepts-similarity">
+<convention xml:id="pattern-triang-nilpotent-concepts-similarity">  <!-- hijacked to "pattern" -->
 	<title>Similarity with a triangular-block nilpotent matrix</title>
+
 	<p>
 	For <m>n \times n</m> matrix <m>A</m> to be similar to a triangular-block nilpotent matrix <m>N</m> via similarity relation <m>\inv{P} A P</m>,
 	the columns of the transition matrix <m>P</m> must form a collection of cyclic bases for a complete set of independent, <m>A</m>-cyclic subspaces of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
-	</p><p>
-	Furthermore, if the final vector is removed from each of these <m>A</m>-cyclic bases,
+	</p>
+
+	<p>
+	Furthermore, if the final vector is chosen from each of these <m>A</m>-cyclic bases,
 	this collection of final vectors must be a linearly independent subset of the null space of <m>A</m>.
 	</p>
+
 </convention>
 
 <p>
-We will learn that the condition on the final null space vectors in this procedure actually guarantees that the collection of <em>subspaces</em> will be independent
+Just as in <xref ref="activity-triang-nilpotent-independence-of-blocks" />,
+the condition on the final null space vectors included in <xref ref="pattern-triang-nilpotent-concepts-similarity" />
+actually guarantees that the collection of <em>subspaces</em> will be independent
 (<xref ref="proposition-triang-nilpotent-indep-cyclic-with-last-vector-null" />),
 which reduces the conditions to be checked even further.
 </p>
@@ -86,14 +96,18 @@ we listed two important properties of elementary nilpotent form:
 		beginning at rank <m>n - 1</m> at exponent <m>1</m> and ending at rank <m>0</m> at exponent <m>n</m>.
 	</li>
 </ul>
-</p><p>
+</p>
+
+<p>
 Each block in a triangular-block nilpotent matrix will exhibit the same properties,
 and each of these properties is preserved by similarity.
 So for a given nilpotent matrix <m>A</m>,
 we can determine exactly what form of triangular-block nilpotent matrix that <m>A</m> is similar to simply by considering the
 <term><xref ref="definition-cayley-hamilton-degree-nilpotency" text="title" /></term> of <m>A</m>
 and the ranks of its powers.
-</p><p>
+</p>
+
+<p>
 In <xref ref="activity-triang-nilpotent-rank-info" />,
 we carried out this task for a specific form of triangular-block form matrix,
 but then used our observations to imagine how we could reverse-engineer the form matrix.
@@ -141,34 +155,40 @@ What will appear in the powers blocks of largest size to make <m>N^{k - 1} \neq 
 Backing the exponent off by one from the degree of nilpotency of the largest blocks will cause a single one to appear in the lower left entry of each block of largest size.
 We can use these solitary ones to count the blocks of largest size,
 but again transfer the property by which we will count them from <m>N</m> to <m>A</m> via similarity:
-<alert>if <m>k</m> is the size of the largest blocks in <m>N</m>, then <m>\rank A</m> tells the number of these blocks of largest size</alert>.
+<alert>if <m>k</m> is the size of the largest blocks in <m>N</m>, then <m>\rank A^{k-1}</m> tells the number of these blocks of largest size</alert>.
 </p></paragraphs>
 
 <paragraphs><title>The number and sizes of smaller blocks</title>
-<p>
+
+	<p>
 We can continue the reasoning in our analysis of the blocks of largest size.
 And just as in that analysis,
-we can think in terms of the blocks of <m>N</m> but compute in terms of <m>A</m>
+we can think in terms of the blocks of <m>N</m> but compute in terms of <m>A</m>.
 Again let <m>k</m> represent the size of the largest block in <m>N</m>,
 and let <m>m</m> represent the number of these blocks.
-We then have <m>\rank A^k = 0</m> and <m>\rank AN^{k - 1} = m</m>.
-If we back the exponent off one more to <m>A^{k - 2}</m>,
+We then have <m>\rank A^k = 0</m> and <m>\rank A^{k - 1} = m</m>.
+If we back the exponent off one more to <m>N^{k - 2}</m>,
 the line of sub-diagonal ones in <m>N</m> will start reappearing in each block of size <m>k</m>,
-and we expect the rank to increase by one in each of those blocks.
+and we expect the rank
+(of both <m>N</m> and <m>A</m>)
+to increase by one in each of those blocks.
 And this continues with every step that we decrease the exponent.
 That is, we expect
-<me> \rank N^{k - 2} = 2m, \quad \rank N^{k-3} = 3m, \quad \rank N^{k-4} = 4m, \dotsc </me>.
-However, this pattern will be broken as soon as the block of next largest size <q>reappears</q> with a solitary one in its lower left corner.
-So if <m>\rank N^{k-j}</m> is larger than the pattern above predicts,
-we must have a new block of smaller size reappearing.
+<me> \rank A^{k - 2} = 2m, \quad \rank A^{k-3} = 3m, \quad \rank A^{k-4} = 4m, \dotsc </me>.
+However, this pattern will be broken as soon as the block of next largest size in <m>N</m> <q>reappears</q> with a solitary one in its lower left corner.
+So if <m>\rank A^{k-j}</m> is larger than the pattern above predicts,
+we must have a new block of smaller size reappearing in <m>N^{k-j}</m>.
 Since boosting the exponent back up to <m>k - j + 1</m> would make that block disappear again,
 that exponent value must be the size of that next largest block.
-And since we will get a new solitary corner one in <m>N^{k-j}</m> in each block,
-the <em>amount</em> that <m>\rank N^{k-j}</m> is larger than the pattern above predicts tells the number of blocks of that size.
-</p><p>
+And since we will get a new solitary block-corner <m>1</m> in <m>N^{k-j}</m> in each such block,
+the <em>amount</em> that <m>\rank A^{k-j}</m> is larger than the pattern above would have predicted tells the number of blocks of that size.
+</p>
+
+<p>
 From here, we can make a new <q>expected</q> pattern of rank increases in <m>A</m> based on the sizes and numbers of blocks in <m>N</m> that we already know about,
 and any new jump in rank to a value larger than the pattern predicts tells the existence, size, and number of occurrences of new blocks in <m>N</m>.
 </p>
+
 </paragraphs>
 
 <p> See <xref ref="example-triang-nilpotent-indirect" /> for an example of using this kind of indirect information gathering. </p>
@@ -177,17 +197,133 @@ and any new jump in rank to a value larger than the pattern predicts tells the e
 
 
 <subsection xml:id="subsection-triang-nilpotent-concepts-proc">
-<title>Procedure for any nilpotent matrix</title>
+<title>Procedures for any nilpotent matrix</title>
 
 <p>
 For the sake of completeness,
-here is a procedure that will put any nilpotent matrix into triangular-block nilpotent form.
-It is a very inefficient algorithm,
-but at least it is directly comprehensible (with some effort) from the theory developed in this chapter.
+here are two different procedures that will put any nilpotent matrix into triangular-block nilpotent form.
 </p>
 
-<algorithm xml:id="procedure-triang-nilpotent-concepts-form-proc">
-	<title>Procedure to put a <em>nilpotent</em> <m>n \times n</m> matrix <m>A</m> into triangular-block nilpotent form</title>
+<p>
+The first procedure takes a <q>bottom-up</q> approach,
+where we obtain cyclic subspaces for each block of a certain size,
+one block size at a time,
+from largest blocks to smallest.
+</p>
+
+<p>
+The procedure relies on the fact that null spaces of powers of a matrix are nested.
+That is, if we write <m>\null(M)</m> to mean the null space of any square matrix <m>M</m>,
+then we have
+<me> \null(A) \subseteq \null(A^2) \subseteq \null(A^3) \subseteq \dotsb \subseteq \null(A^k) \subseteq \dotsb </me>.
+This nesting occurs because for every <m>\uvec{x}</m> that satisfies <m>A^k \uvec{x} = \zerovec</m>,
+then <me> A^{k+1} \uvec{x} = A (A^k \uvec{x}) = A \zerovec = \zerovec </me>
+as well.
+</p>
+
+<aside><title>Recall</title><p>
+	This nesting of null spaces is precisely why we have a nesting of generalized eigensubspaces
+	<m>E^k_\lambda(A) \subseteq E^{k+1}_\lambda(A)</m>,
+	as eigensubspaces of <m>A</m> are null spaces of powers of <m>(\lambda I - A)</m>.
+</p></aside>
+
+<p>
+As all of these null spaces are subspaces of a finite-dimensional vector space,
+there has to be a point where the sequence of null spaces becomes constant.
+That is, there exists a <m>k</m> so that in fact <m>\null (A^m) = \null (A^k)</m> for all <m>m \ge k</m>.
+In the case that <m>A</m> is nilpotent,
+this occurs at the degree of nilpotency,
+since if <m>A^k = \zerovec</m>,
+then <me> \null (A^k) = \null (\zerovec) = \R^n </me>
+(or <m>\C^n</m>, if we are working with complex matrices).
+</p>
+
+<p>
+Now, suppose <m>A</m> is similar to triangular-block nilpotent form matrix <m>N</m>.
+Each nilpotent block <m>N_j</m> in <m>N</m> of size <m>m_j \times m_j</m> corresponds to an <m>A</m>-cyclic subspace of dimension <m>m_j</m>.
+Such a subspace needs to be generated by some vector <m>\uvec{w}_j</m> so that <m>A^{m_j} \uvec{w}_j = \zerovec</m> but <m>A^{m_j-1} \uvec{w}_j \neq \zerovec</m>.
+(See <xref ref="theorem-elem-nilpotent-cyclic-basis-terminating-in-zero" />.)
+That is, <m>\uvec{w}_j</m> needs to be in the null space of <m>A^{m_j}</m> but not in the null space of <m>A^{m_j-1}</m>.
+</p>
+
+<algorithm xml:id="procedure-triang-nilpotent-concepts-form-proc1">
+	<title><q>Bottom-up</q> procedure to put a <em>nilpotent</em> <m>n \times n</m> matrix <m>A</m> into triangular-block nilpotent form</title>
+	<p>
+	Let <m>k</m> represent the degree of nilpotency of <m>A</m>.
+	<ol>
+		<li>
+			<title>Cyclic spaces of dimension <m>k</m></title>
+			Compute a basis for the null space of <m>A^{k-1}</m>.
+			Extend this to a basis for the null space of <m>A^k</m>.
+			(Since <m>A^k = \zerovec</m>, this null space is all of <m>\R^n</m> or <m>\C^n</m>, as appropriate.)
+			For each vector <m>\uvec{w}</m> in this extended basis that is not part of the basis of the null space of <m>A^{k-1}</m>,
+			<me> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-1} \uvec{w} \} </me>
+			will be a basis for a <m>k</m>-dimensional <m>A</m>-cyclic space.
+			Use all of these cyclic bases (grouped together)
+			as the first set of columns of <m>P</m>.
+		</li>
+		<li>
+			<title>Cyclic spaces of dimension <m>k-1</m></title>
+			Compute a basis for the null space of <m>A^{k-2}</m>.
+			For each generating vector <m>\uvec{w}</m> from the dimension-<m>k</m> step,
+			the vector <m>A \uvec{w}</m> is in the null space of <m>A^{k-1}</m> but not in null space of <m>A^{k-2}</m>.
+			Include each of these <q>second</q> vectors from the already-obtained <m>k</m>-dimensional cyclic space bases
+			in with your collection of basis vectors for the null space of <m>A^{k-2}</m>.
+			If this extended collection is already a basis for the null space of <m>A^{k-1}</m>
+			(that is, if the number of vectors is equal to the nullity of <m>A^{k-1}</m>),
+			then skip to the next step <mdash />
+			the form matrix <m>\inv{P} A P</m> will not have any blocks of size <m>k - 1</m>.
+			Otherwise, extend the collection of vectors you already have from this step until it is a basis for the null space of <m>A^{k-1}</m>.
+			For each <m>\uvec{w}</m> of these new vectors,
+			<me> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-2} \uvec{w} \} </me>
+			will be a basis for a <m>(k-1)</m>-dimensional <m>A</m>-cyclic space.
+			Use all of these cyclic bases (grouped together)
+			as the next set of columns of <m>P</m>.
+		</li>
+		<li>
+			<title>Cyclic spaces of dimension <m>k-2</m></title>
+			Compute a basis for the null space of <m>A^{k-3}</m>.
+			For each generating vector <m>\uvec{w}</m> from the dimension-<m>(k-1)</m> step,
+			the vector <m>A \uvec{w}</m> is in the null space of <m>A^{k-2}</m> but not in null space of <m>A^{k-3}</m>.
+			Include each of these <q>second</q> vectors from the already-obtained <m>(k-1)</m>-dimensional cyclic space bases
+			in with your collection of basis vectors for the null space of <m>A^{k-3}</m>.
+			<em>In addition</em>,
+			for each generating vector <m>\uvec{w}</m> from the dimension-<m>k</m> step,
+			the vector <m>A^2 \uvec{w}</m> is also in the null space of <m>A^{k-2}</m> but not in null space of <m>A^{k-3}</m>.
+			Include each of these <q>third</q> vectors from the already-obtained <m>k</m>-dimensional cyclic space bases
+			in with your collection of vectors.
+			If this extended collection is already a basis for the null space of <m>A^{k-2}</m>
+			(that is, if the number of vectors is equal to the nullity of <m>A^{k-2}</m>),
+			then skip to the next step <mdash />
+			the form matrix <m>\inv{P} A P</m> will not have any blocks of size <m>k - 2</m>.
+			Otherwise, extend the collection of vectors you already have from this step until it is a basis for the null space of <m>A^{k-2}</m>.
+			For each <m>\uvec{w}</m> of these new vectors,
+			<me> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-3} \uvec{w} \} </me>
+			will be a basis for a <m>(k-2)</m>-dimensional <m>A</m>-cyclic space.
+			Use all of these cyclic bases (grouped together)
+			as the next set of columns of <m>P</m>.
+		</li>
+		<li>
+			<title>Continue</title>
+			Compute a basis for the null space of <m>A^{k-4}</m>,
+			and extend it to a basis for the null space of <m>A^{k-3}</m> in the same fashion as in the previous steps.
+			Use the <q>new</q> vectors (if any) to create <m>(k-3)</m>-dimensional <m>A</m>-cyclic spaces,
+			and place those new cyclic bases into the columns of <m>P</m>.
+			Then extend a basis for the null space of <m>A^{k-5}</m> to a basis for the null space of <m>A^{k-4}</m> in the same fashion,
+			and so on.
+		</li>
+	</ol></p>
+</algorithm>
+
+<p>
+The second procedure takes a <q>top-down</q> approach,
+where first we assemble a collection of (likely not independent) cyclic subspaces whose cyclic bases, when taken all together, at least span <m>\R^n</m>
+(or <m>\C^n</m>, as appropriate).
+Then we whittle this collection down until we have an independent collection that still spans the full space (<m>\R^n</m> or <m>\C^n</m>).
+</p>
+
+<algorithm xml:id="procedure-triang-nilpotent-concepts-form-proc2">
+	<title><q>Top-down</q> procedure to put a <em>nilpotent</em> <m>n \times n</m> matrix <m>A</m> into triangular-block nilpotent form</title>
 	<p><ol>
 		<li> Determine an <m>A</m>-cyclic basis for each of the <m>A</m>-cyclic spaces generated by standard basis vectors. </li>
 		<li>
@@ -214,9 +350,10 @@ but at least it is directly comprehensible (with some effort) from the theory de
 </algorithm>
 
 <remark><p>
-	Unless <m>A</m> is the zero matrix, there is no way the collection of <m>A</m>-cyclic spaces generated by the standard basis vectors obtained in the first step can be independent,
+	Unless <m>A</m> is the zero matrix,
+	there is no way the collection of <m>A</m>-cyclic spaces generated by the standard basis vectors obtained in the first step of <xref ref="procedure-triang-nilpotent-concepts-form-proc2" /> can be independent,
 	because the dimensions of these spaces will add up to more than <m>n</m>.
-	The point of the procedure is to take this collection as a starting point,
+	The point of this procedure is to take this collection as a starting point,
 	and reduce it down to an independent collection by discarding dependent spaces,
 	just as we might reduce a dependent spanning set down to a basis for a space by discarding dependent vectors.
 	The main criteria for deciding which spaces to discard is dependence of the final null space vectors in each <m>A</m>-cyclic basis,

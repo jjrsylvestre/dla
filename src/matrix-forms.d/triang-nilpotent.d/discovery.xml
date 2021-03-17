@@ -18,54 +18,296 @@ respective owners.
 <title>Discovery guide</title>
 
 <activity xml:id="activity-triang-nilpotent-rank-info">
+
 	<introduction>
 		<p>
-		Consider <m>18 \times 18</m> matrix
-		<me> N = \begin{bmatrix} N_1 \\ \amp N_2 \\ \amp\amp N_3 \\ \amp\amp\amp N_4 \\ \amp\amp\amp\amp N_5 \end{bmatrix} </me>
+		Consider <m>19 \times 19</m> matrix
+		<me> N = \begin{bmatrix} N_1 \\ \amp N_2 \\ \amp\amp N_3 \\ \amp\amp\amp N_4 \\ \amp\amp\amp\amp N_5 \\ \amp\amp\amp\amp\amp N_6 \end{bmatrix} </me>
 		in triangular-block nilpotent form,
 		where the elementary nilpotent blocks <m>N_1</m> and <m>N_2</m> are each <m>5 \times 5</m>,
 		blocks <m>N_3</m> and <m>N_4</m> are each <m>3 \times 3</m>,
-		and block <m>N_5</m> is <m>2 \times 2</m>.
+		block <m>N_5</m> is <m>2 \times 2</m>,
+		and block <m>N_6</m> is <m>1 \times 1</m>.
 		</p><p>
-		Suppose <m>A</m> is another <m>18 \times 18</m> matrix that is similar to <m>N</m>.
+		Suppose <m>A</m> is another <m>19 \times 19</m> matrix that is similar to <m>N</m>.
 		</p>
 	</introduction>
+
 	<task>
+
 		<statement>
 			<p> What is the rank of <m>A</m>? </p>
 			<p> What is nullity of <m>A</m> (<ie /> the dimension of the null space of <m>A</m>)? </p>
 			<p> Describe how and why this number determines the number of blocks in <m>N</m>. </p>
 		</statement>
+
 		<hint>
 			<p> For the rank, consider <xref ref="corollary-similarity-rank-nullity" />. </p>
 			<p> For the nullity, see <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />. </p>
 		</hint>
+
 	</task>
+
 	<task xml:id="activity-triang-nilpotent-rank-info-degree-nilpotency">
+
 		<statement><p>
 			What is the first power of <m>A</m> that is zero?
 			Describe how and why this number determines the size of the largest block in <m>N</m>.
 		</p></statement>
+
 		<hint><p>
 			Consider <xref ref="proposition-cayley-hamilton-similar-to-nilpotent" />,
 			and recall that powers of <m>N</m> can be computed by taking powers of the blocks.
 		</p></hint>
+
 	</task>
+
 	<task>
+
 		<p>
 		Let <m>k</m> represent the
 		<term><xref ref="definition-cayley-hamilton-degree-nilpotency" text="title" /></term>
 		of <m>A</m> from <xref ref="activity-triang-nilpotent-rank-info-degree-nilpotency" text="type-local" />.
-		</p><p>
+		</p>
+
+		<p>
 		What is the rank of <m>A^{k-1}</m>?
 		Describe how and why this number determines the number of blocks in <m>N</m> of the largest size.
 		</p>
+
 	</task>
+
 	<task><p>
 		Continue working backwards,
 		computing <m>\rank A^{k-2}</m>, <m>\rank A^{k-3}</m>, <etc />.
 		Describe how and why the jumps in these numbers determine the size and number of blocks in <m>N</m> of second largest size, then of third largest size, <etc />.
 	</p></task>
+
+</activity>
+
+
+<activity xml:id="activity-triang-nilpotent-form-from-info">
+
+	<!-- TODO again, this example has number of blocks same as size of largest block... -->
+
+	<prelude><p>
+		In <xref ref="activity-triang-nilpotent-rank-info" />
+		we worked backwards from the form matrix to uncover some patterns that must hold for any matrix that is similar to that specific form matrix.
+		Now let's take what we've learned and work forwards,
+		from a matrix to the form matrix.
+	</p></prelude>
+
+	<statement>
+
+		<p>
+		Consider the <m>9 \times 9</m> matrix
+		<me>
+			A = \left[\begin{array}{rrrrrrrrr}
+				 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 2 \amp 0 \amp -5 \amp  0 \\
+				-1 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  2 \\
+				 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 2 \amp 0 \amp -5 \amp  0 \\
+				 2 \amp 0 \amp 1 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp -2 \\
+				 0 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \\
+				-1 \amp 0 \amp 0 \amp  0 \amp 1 \amp 0 \amp 0 \amp  0 \amp  1 \\
+				 0 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 0 \amp  0 \amp  0 \\
+				 1 \amp 0 \amp 0 \amp  0 \amp 0 \amp 0 \amp 1 \amp  0 \amp -1 \\
+				 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 2 \amp 0 \amp -5 \amp  0
+			\end{array}\right]
+		</me>.
+		Assume that <m>A</m> is similar to a matrix in <xref ref="definition-triang-nilpotent-form" text="title" />.
+		</p>
+
+		<p>
+		Because of the size of <m>A</m>,
+		it will be more efficient for you to use your favourite computer algebra system (CAS) to perform the necessary calculations.
+		If you are familiar with Sage,
+		below is a Sage cell that you can use for your computations,
+		with our <m>A</m> matrix already set up.
+		</p>
+
+		<sage>
+			<input>
+				A = matrix([
+					[  0, 1, 0, -1, 0, 2, 0, -5,  0 ],
+					[ -1, 0, 0,  0, 0, 0, 0,  0,  2 ],
+					[  0, 1, 0, -1, 0, 2, 0, -5,  0 ],
+					[  2, 0, 1,  0, 0, 0, 0,  0, -2 ],
+					[  0, 0, 0,  0, 0, 0, 0,  0,  0 ],
+					[ -1, 0, 0,  0, 1, 0, 0,  0,  1 ],
+					[  0, 0, 0,  0, 0, 0, 0,  0,  0 ],
+					[  1, 0, 0,  0, 0, 0, 1,  0, -1 ],
+					[  0, 1, 0, -1, 0, 2, 0, -5,  0 ]
+				]);
+				print(A);
+			</input>
+			<output>
+				[ 0  1  0 -1  0  2  0 -5  0]
+				[-1  0  0  0  0  0  0  0  2]
+				[ 0  1  0 -1  0  2  0 -5  0]
+				[ 2  0  1  0  0  0  0  0 -2]
+				[ 0  0  0  0  0  0  0  0  0]
+				[-1  0  0  0  1  0  0  0  1]
+				[ 0  0  0  0  0  0  0  0  0]
+				[ 1  0  0  0  0  0  1  0 -1]
+				[ 0  1  0 -1  0  2  0 -5  0]
+			</output>
+		</sage>
+
+		<p>
+		Confirm that <m>A</m> is nilpotent, and determine the degree of nilpotency.
+		Compute the rank of <m>A</m>, and from that determine the nullity of <m>A</m>.
+		Finally, compute the ranks of the powers of <m>A</m>,
+		up to the degree of nilpotency.
+		</p>
+
+		<p>
+		From all of this information,
+		you should be able to determine the exact triangular-block nilpotent form matrix to which <m>A</m> must be similar.
+		(However, note that this information will not allow us to determine a transition matrix <m>P</m>.)
+		</p>
+
+	</statement>
+
+</activity>
+
+
+<activity xml:id="activity-triang-nilpotent-block-dim">
+
+	<introduction>
+
+		<p>
+		From <xref ref="chapter-block-diag" /> we know that we need a complete set of independent, <m>A</m>-invariant subspaces to produce a block-diagonal form matrix.
+		If each block is to be in elementary nilpotent form,
+		then from <xref ref="chapter-elem-nilpotent" /> we know that for each block we need a corresponding <m>A</m>-cyclic subspace of <m>\R^n</m>
+		(or <m>\C^n</m>, as appropriate).
+		</p>
+
+		<p> Suppose <m>W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc \}</m> is one the spaces in this collection. </p>
+
+	</introduction>
+
+	<task><p>
+		How is the dimension of <m>W</m> reflected in the corresponding elementary nilpotent block of the triangular-block nilpotent form matrix to which <m>A</m> is similar?
+	</p></task>
+
+	<task xml:id="activity-triang-nilpotent-block-dim-vs-generator"><p>
+		Let <m>k</m> represent <m>\dim W</m>.
+		What must be true about <m>A^k \uvec{w}</m>?
+	</p></task>
+
+</activity>
+
+
+<activity xml:id="activity-triang-nilpotent-independence-of-blocks">
+
+	<introduction>
+
+		<p>
+		Let's address the independence requirement of the <m>A</m>-cyclic subspaces we need to achieve triangular-block nilpotent form,
+		at least in the case of a set of two such subspaces.
+		For this, it is not necessary to actually assume that <m>A</m> is nilpotent.
+		</p>
+
+		<p>
+		Suppose
+		<md><mrow>
+			U \amp = \Span \{ \uvec{u}, A \uvec{u}, A^2 \uvec{u} \} \text{,} \amp
+			W \amp = \Span \{ \uvec{w}, A \uvec{w} \} \text{,}
+		</mrow></md>
+		where the provided spanning sets are assumed to independent,
+		and generating vectors <m>\uvec{u}</m> and <m>\uvec{w}</m> each satisfy the condition you determined in
+		<xref ref="activity-triang-nilpotent-block-dim-vs-generator" text="type-local" />
+		of <xref ref="activity-triang-nilpotent-block-dim" />.
+		Further assume that the two final vectors, <m> A^2 \uvec{u} </m> and <m> A \uvec{w} </m>, are independent.
+		</p>
+
+	</introduction>
+
+	<task xml:id="activity-triang-nilpotent-block-dim-start"><p>
+		Form the vector equation that begins the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
+		for the combined collection <me> \{ \uvec{u}, A \uvec{u}, A^2 \uvec{u}, \uvec{w}, A \uvec{w} \} </me>.
+		As there are five vectors in this collection,
+		your vector equation will involve five unknown scalars.
+	</p></task>
+
+	<task xml:id="activity-triang-nilpotent-block-dim-reduce-one"><p>
+		Multiply your vector equation from <xref ref="activity-triang-nilpotent-block-dim-start" text="type-local" /> through by <m>A^2</m>.
+		After applying that condition from
+		<xref ref="activity-triang-nilpotent-block-dim-vs-generator" text="type-local" />
+		of <xref ref="activity-triang-nilpotent-block-dim" />
+		and simplifying,
+		you should immediately be able to conclude that one of the five unknown scalars is zero.
+	</p></task>
+
+	<task xml:id="activity-triang-nilpotent-block-dim-reduce-two"><p>
+		Use the knowledge from <xref ref="activity-triang-nilpotent-block-dim-reduce-one" text="type-local" />
+		that one of the scalars is zero to simplify your initial vector equation (before having multiplied by <m>A^2</m>)
+		from <xref ref="activity-triang-nilpotent-block-dim-start" text="type-local" />.
+		Multiply this simplified vector equation through by <m>A</m>,
+		and again use that condition from
+		<xref ref="activity-triang-nilpotent-block-dim-vs-generator" text="type-local" />
+		of <xref ref="activity-triang-nilpotent-block-dim" />
+		to simplify.
+		Now you should be able to use the assumption that <m> A^2 \uvec{u} </m> and <m> A \uvec{w} </m> are independent to conclude that two more of the unknown scalars must be zero.
+	</p></task>
+
+	<task><p>
+		Use the knowledge from <xref ref="activity-triang-nilpotent-block-dim-reduce-two" text="type-local" />
+		that two more of the scalars are zero to simplify your independence vector equation even further.
+		You should be able to again use the assumption that <m> A^2 \uvec{u} </m> and <m> A \uvec{w} </m> are independent to conclude that the last two of the unknown scalars must be zero.
+	</p></task>
+
+	<task><p>
+		Think about how this argument would unfold if the two spaces we started with had larger dimensions:
+		<md><mrow>
+			U \amp = \Span \{ \uvec{u}, A \uvec{u}, A^2 \uvec{u}, \dotsc, A^{k - 1} \uvec{u} \} \text{,} \amp
+			W \amp = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc, A^{\ell - 1} \uvec{w} \} \text{.}
+		</mrow></md>
+	</p></task>
+
+</activity>
+
+<activity xml:id="activity-triang-nilpotent-transition-proc">
+
+	<p>
+	In <xref ref="subsection-triang-nilpotent-concepts-proc" />,
+	two different procedures for constructing a transition matrix <m>P</m> that will put a given nilpotent matrix <m>A</m> into triangular-block nilpotent form are given.
+	If you've made it this far and have time to spare,
+	see how far you can make it into applying the first of those two procedures
+	(<xref ref="procedure-triang-nilpotent-concepts-form-proc1" />)
+	to the <m>9 \times 9</m> matrix from <xref ref="activity-triang-nilpotent-form-from-info" />.
+	</p>
+
+	<p> Once again, here is a Sage cell you can use to perform your calculations, if you wish. </p>
+
+	<sage>
+		<input>
+			A = matrix([
+				[  0, 1, 0, -1, 0, 2, 0, -5,  0 ],
+				[ -1, 0, 0,  0, 0, 0, 0,  0,  2 ],
+				[  0, 1, 0, -1, 0, 2, 0, -5,  0 ],
+				[  2, 0, 1,  0, 0, 0, 0,  0, -2 ],
+				[  0, 0, 0,  0, 0, 0, 0,  0,  0 ],
+				[ -1, 0, 0,  0, 1, 0, 0,  0,  1 ],
+				[  0, 0, 0,  0, 0, 0, 0,  0,  0 ],
+				[  1, 0, 0,  0, 0, 0, 1,  0, -1 ],
+				[  0, 1, 0, -1, 0, 2, 0, -5,  0 ]
+			]);
+			print(A);
+		</input>
+		<output>
+			[ 0  1  0 -1  0  2  0 -5  0]
+			[-1  0  0  0  0  0  0  0  2]
+			[ 0  1  0 -1  0  2  0 -5  0]
+			[ 2  0  1  0  0  0  0  0 -2]
+			[ 0  0  0  0  0  0  0  0  0]
+			[-1  0  0  0  1  0  0  0  1]
+			[ 0  0  0  0  0  0  0  0  0]
+			[ 1  0  0  0  0  0  1  0 -1]
+			[ 0  1  0 -1  0  2  0 -5  0]
+		</output>
+	</sage>
+
 </activity>
 
 </worksheet>

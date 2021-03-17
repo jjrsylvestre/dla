@@ -135,10 +135,12 @@ Notice that the matrix we analyze is the same as in
 
 <example xml:id="example-jordan-proc">
 	<title>Calculating a transition matrix for Jordan form</title>
+
 	<p>
 	In <xref ref="example-triang-block-form-7x7" />,
 	we determined a matrix <m>Q</m> that puts the following <m>7 \times 7</m> matrix <m>A</m> in triangular-block form:
 	<md alignment="gather">
+
 		<mrow>
 			A = \left[\begin{array}{rrrrrrr}
 				3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
@@ -159,7 +161,9 @@ Notice that the matrix we analyze is the same as in
 				0  \amp  1  \amp  0  \amp  0  \amp  0  \amp  1  \amp  0 \\
 				1  \amp  0  \amp  0  \amp  0  \amp  1  \amp  0  \amp  0
 			\end{array}\right]
-		</mrow><mrow>
+		</mrow>
+
+		<mrow>
 			\implies
 			\inv{Q} A Q =
 			\begin{bmatrix}
@@ -181,13 +185,21 @@ Notice that the matrix we analyze is the same as in
 				}
 			\end{bmatrix} \text{.}
 		</mrow>
+
 	</md>
 	(Note that we called the transition matrix <m>P</m> in that example).
-	</p><p>
-	Now, let's use <xref ref="procedure-triang-nilpotent-concepts-form-proc" />
-	to put the nilpotent part of each block of <m>\inv{Q} A Q</m> into nilpotent triangular form.
+	</p>
+
+	<p>
+	Now, let's put the nilpotent part of each block of <m>\inv{Q} A Q</m> into nilpotent triangular form.
+	Since the blocks are small,
+	we will determine cyclic space bases by inspection,
+	using our knowledge of the theory from <xref ref="section-triang-nilpotent-theory" />,
+	instead of using either of the procedures from
+	<xref ref="subsection-triang-nilpotent-concepts-proc" />.
 	Break each of the two blocks of <m>\inv{Q} A Q</m> into its scalar and nilpotent parts:
 	<md alignment="gather">
+
 		<mrow>
 			A_1 = \left[\begin{array}{cccr}
 				3 \amp 0 \amp 0 \amp -1 \\
@@ -204,7 +216,9 @@ Notice that the matrix we analyze is the same as in
 		 	\end{array}\right]
 			\quad \implies \quad
 			A_1 = 3I_4 + N_1 \text{;}
-		</mrow><mrow>
+		</mrow>
+
+		<mrow>
 			A_2 = \left[\begin{array}{rrr}
 				-1 \amp 1 \amp 2\\
 				 \amp -1 \amp 1\\
@@ -219,12 +233,15 @@ Notice that the matrix we analyze is the same as in
 			\quad \implies \quad
 			A_2 \amp = (-1)I_3 + N_2 \text{.}
 		</mrow>
+
 	</md>
 	</p>
+
 	<aside><title>Recall</title><p>
 		A subscript on an identity matrix indicates its size.
 		That is, <m>I_m</m> represents the <m>m \times m</m> identity matrix.
 	</p></aside>
+
 	<p>
 	Start with <m>N_1</m>.
 	Let <m>N_1'</m> represent the nilpotent triangular form for <m>N_1</m>.
@@ -263,7 +280,9 @@ Notice that the matrix we analyze is the same as in
 			 \amp \amp \amp 0
 		\end{bmatrix}
 	</mrow></md>.
-	</p><p>
+	</p>
+
+	<p>
 	For <m>N_2</m>, we have
 	<md><mrow>
 		N_2 \amp = \begin{bmatrix}
@@ -300,7 +319,9 @@ Notice that the matrix we analyze is the same as in
 			 \amp 1 \amp 0
 		\end{bmatrix}
 	</mrow></md>.
-	</p><p>
+	</p>
+
+	<p>
 	We can also apply <m>R_1,R_2</m> to <m>A_1,A_2</m>:
 	<md>
 		<mrow>
@@ -330,7 +351,9 @@ Notice that the matrix we analyze is the same as in
 			\end{array}\right] \text{.}
 		</mrow>
 	</md>
-	</p><p>
+	</p>
+
+	<p>
 	Recall that the matrix <m>Q</m> puts <m>A</m> into triangular-block form.
 	We see above that the matrices <m>R_1,R_2</m> break each block of <m>\inv{Q} A Q</m> into Jordan blocks.
 	We can combine these by forming the block-diagonal matrix

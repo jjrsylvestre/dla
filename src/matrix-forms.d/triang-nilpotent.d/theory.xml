@@ -23,44 +23,58 @@ respective owners.
 <p> First, let's note that a nilpotent matrix can always be put into triangular-block nilpotent form. </p>
 
 <theorem xml:id="theorem-triang-nilpotent-cyclic-decomp">
+
 	<statement><p>
 		If <m>A</m> is a nilpotent matrix,
 		then there exists an invertible matrix <m>P</m> such that <m>\inv{P} A P</m> is in triangular-block nilpotent form.
 	</p></statement>
-	<proof><title>Proof idea</title>
+
+	<proof>
+		<title>Proof idea</title>
+
 		<p>
-		Essentially, the existence of <m>P</m> is implied by the fact that we can write down a procedure for finding <m>P</m>
-		(<xref ref="procedure-triang-nilpotent-concepts-form-proc" />).
-		However, it might take some convincing that the procedure we have written down does what it claims to do.
-		</p><p>
+		Essentially, the existence of <m>P</m> is implied by the fact that we can write down procedures for computing such a <m>P</m>.
+		(See <xref ref="subsection-triang-nilpotent-concepts-proc" />.)
+		<!-- (<xref ref="procedure-triang-nilpotent-concepts-form-proc1" /> or <xref ref="procedure-triang-nilpotent-concepts-form-proc2" />). -->
+		However, it might take some convincing that the procedures we have written down do what they claim to do.
+		</p>
+
+		<p>
 		For a different perspective, see the topic of <em>cyclic decomposition</em> in
 		<xref ref="reference-hoff-kunze,reference-roman-adv-linear-alg" />.
 		</p>
+
 	</proof>
 </theorem>
 
 <p>
-Once we know the form <m>N = \inv{P}AP</m> exists,
+Once we know the form <m>N = \inv{P} A P</m> exists,
 it is possible to use the properties of <m>N</m> to identify properties of <m>A</m> that will help us find <m>P</m>.
 </p>
 
 <theorem xml:id="theorem-triang-nilp-block-props">
+
 	<statement><p>
 		Suppose that <m>A</m> is an <m>n \times n</m> nilpotent matrix that is similar to the triangular-block nilpotent form <m>N</m>.
 		Then the following hold.
 		<ol>
+
 			<li>
 				The number of blocks in <m>N</m> is equal to <m>\nullity A</m>,
 				the dimension of the null space of <m>A</m>.
 			</li>
+
 			<li>
 				The largest (<ie /> first) block in <m>N</m> has size <m>k \times k</m>,
 				where <m>k</m> is the degree of nilpotency of <m>A</m>,
 				and <m>N</m> has <m>\rank (A^{k-1})</m> blocks of this size.
 			</li>
+
 		</ol>
 	</p></statement>
+
 	<proof><p><ol>
+
 		<li>
 			For this statement,
 			consider that <m>N</m> is <em>almost</em> in RREF;
@@ -78,7 +92,9 @@ it is possible to use the properties of <m>N</m> to identify properties of <m>A<
 			they have the same nullity (<xref ref="corollary-similarity-rank-nullity" />),
 			and so we could say that the number of blocks in <m>N</m> is equal to <m>\nullity A</m>.
 		</li>
+
 		<li>
+
 			<p>
 			For this statement, first recall that similar nilpotent matrices have the same degree of nilpotency
 			(<xref ref="proposition-cayley-hamilton-similar-to-nilpotent" />),
@@ -92,7 +108,9 @@ it is possible to use the properties of <m>N</m> to identify properties of <m>A<
 			we can conclude that degree of nilpotency of <m>N</m>
 			(and hence of <m>A</m>)
 			is equal to the size of the largest block in <m>N</m>.
-			</p><p>
+			</p>
+
+			<p>
 			It still remains to determine the number of blocks of largest size <m>k \times k</m>,
 			where <m>k</m> is the common degree of nilpotency of <m>N</m> and <m>A</m>.
 			For this, consider the matrix <m>N^{k-1}</m>.
@@ -110,8 +128,11 @@ it is possible to use the properties of <m>N</m> to identify properties of <m>A<
 			Therefore, <m>\rank(A^{k-1}) = \rank(N^{k-1})</m>,
 			and so we could also say that <m>\rank(A^{k-1})</m> counts the number of blocks of <m>N</m> of size <m>k \times k</m>.
 			</p>
+
 		</li>
+
 	</ol></p></proof>
+
 </theorem>
 
 <remark><p>
@@ -122,12 +143,13 @@ it is possible to use the properties of <m>N</m> to identify properties of <m>A<
 </p></remark>
 
 <p>
-The following final fact makes it easier to check whether our <m>A</m>-cyclic spaces are independent.
-We used this as part of our strategy in <xref ref="example-triang-nilpotent-proc-9x9" />.
+The following fact makes it easier to check whether our <m>A</m>-cyclic spaces are independent.
+<!-- We used this as part of our strategy in <xref ref="example-triang-nilpotent-proc-9x9" />. -->
 Note that the statement is true even in the case that <m>A</m> is not nilpotent.
 </p>
 
 <proposition xml:id="proposition-triang-nilpotent-indep-cyclic-with-last-vector-null">
+
 	<statement><p>
 		Suppose that <m>A</m> is an <m>n \times n</m> matrix
 		and <m>W_1, W_2, \dotsc, W_\ell</m> is a collection of <m>A</m>-cyclic subspaces of <m>\R^n</m>
@@ -135,7 +157,10 @@ Note that the statement is true even in the case that <m>A</m> is not nilpotent.
 		each of which has a cyclic basis whose last element lies in the null space of <m>A</m>.
 		Then the collection <m>W_1,W_2,\dotsc,W_\ell</m> is independent if and only if the collection of final vectors in each of these cyclic bases forms a linearly independent set in the null space <m>A</m>.
 	</p></statement>
-	<proof><title>Proof outline</title>
+
+	<proof>
+		<title>Proof outline</title>
+
 		<p>
 		If the spaces <m>W_1,W_2,\dotsc,W_\ell</m> are independent,
 		then by definition their bases taken all together remain linearly independent.
@@ -150,7 +175,9 @@ Note that the statement is true even in the case that <m>A</m> is not nilpotent.
 		(The proof in the case of more than two spaces is similar, but much more tedious.)
 		The proof we give is similar to the independence argument in the proof of
 		<xref ref="theorem-elem-nilpotent-cyclic-basis-terminating-in-zero" />.
-		</p><p>
+		</p>
+
+		<p>
 		Suppose
 		<me> \{ \uvec{u}, A\uvec{u}, \dotsc, A^{k-1} \uvec{u} \} </me>
 		is a cylic basis for <m>W_1</m> and
@@ -240,7 +267,77 @@ Note that the statement is true even in the case that <m>A</m> is not nilpotent.
 		</p></case>
 
 	</proof>
+
 </proposition>
 
+<p>
+As a corollary,
+we can justify our method for choosing new generating vectors at each step of
+<xref ref="procedure-triang-nilpotent-concepts-form-proc1" />.
+</p>
+
+<corollary>
+
+	<statement><p>
+		Suppose <m>\uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_\ell</m>
+		are vectors from the null space of <m>A^m</m> such that
+		<me> \Span \{ \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_\ell \} </me>
+		and the null space of <m>A^{m-1}</m> form a pair of independent subspaces.
+		Then the <m>A</m>-cyclic spaces generated by these vectors also form a collection of independent subspaces.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		Write <m>W_j</m> to represent the <m>A</m>-cyclic space generated by <m>\uvec{w}_j</m>.
+		By our assumption, no individual vector <m>\uvec{w}_j</m> from our collection can lie in the null space of <m>A^{m-1}</m>
+		(<xref ref="theorem-block-diag-pair-indep-subsp-iff-zero-intersect" />).
+		In that case,
+		<xref ref="theorem-elem-nilpotent-cyclic-basis-terminating-in-zero" /> tells us that
+		<me> \{ \uvec{w}_j, A \uvec{w}_j, A^2 \uvec{w}_j, \dotsc, A^{m-1} \uvec{w}_j \} </me>
+		is a (cyclic) basis for <m>W_j</m>,
+		and all of these spaces have the same dimension.
+		</p>
+
+		<p>
+		Since each <m>\uvec{w}_j</m> is in the null space of <m>A^m</m>,
+		each final cyclic basis vector <m>A^{m-1} \uvec{w}_j</m> is in the null space of <m>A</m>.
+		Therefore, <xref ref="proposition-triang-nilpotent-indep-cyclic-with-last-vector-null" /> applies,
+		and to demonstrate that the <m>W_j</m> form an independent collection of subspaces we just need to demonstrate that the collection
+		<me> \{ A^{m-1} \uvec{w}_1, A^{m-1} \uvec{w}_2, \dotsc, A^{m-1} \uvec{w}_\ell \} </me>
+		of final vectors is linearly independent.
+		</p>
+
+		<p>
+		So set up the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />:
+		<me> c_1 A^{m-1} \uvec{w}_1 + c_2 A^{m-1} \uvec{w}_2 + \dotsb c_\ell A^{m-1} \uvec{w}_\ell = \zerovec </me>.
+		Factoring out the common <m>A^{m-1}</m> gives us
+		<me> A^{m-1} (c_1 \uvec{w}_1 + c_2 \uvec{w}_2 + \dotsb c_\ell \uvec{w}_\ell) = \zerovec </me>,
+		which gives us a linear combination of the <m>\uvec{w}_j</m> in the null space of <m>A^{m-1}</m>.
+		By assumption, this linear combination must be the trivial one,
+		so that each coefficient <m>c_j</m> is equal to <m>0</m>.
+		</p>
+
+	</proof>
+
+</corollary>
+
+<p>
+The assumption of the corollary is precisely the situation at each step of
+<xref ref="procedure-triang-nilpotent-concepts-form-proc1" />.
+If <m>\{\uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_s \}</m> is a basis for the null space of <m>A^{m-1}</m>
+and we extend that to a basis
+<me> \{\uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_s, \uvec{w}_1, \uvec{w}_2, \dotsc, \uvec{w}_\ell \} </me>
+for the null space of <m>A^m</m>,
+then no non-trivial linear combination of the new <m>\uvec{w}_j</m> vectors can be in the null space of <m>A^{m-1}</m>,
+as such a combination would have to also be equal to a linear combination of the <m>\uvec{u}_j</m> vectors,
+violating the linear independence of the full collection.
+</p>
+
+<p>
+However, notice that it was not necessary to explicitly assume that the <m>\uvec{w}_j</m> in the corollary are linearly independent.
+Since the zero vector is in the null space of <m>A^{m-1}</m>,
+then the stated assumption in the corollary implies that no non-trivial linear combination of the <m>\uvec{w}_j</m> can equal to <m>\zerovec</m>.
+</p>
 
 </section>
