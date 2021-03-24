@@ -18,13 +18,15 @@ respective owners.
 <title>Discovery guide</title>
 
 <introduction>
-	<p>
-	Recall that two vectors <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m> are called <term>orthogonal</term> if <m>\udotprod{u}{v} = 0</m>.
-	</p><p>
-	In analogy with this, we will also call two vectors <m>\uvec{u},\uvec{v}</m> in an inner product space <term>orthogonal</term> if <m>\uvecinprod{u}{v} = 0</m>.
-</p></introduction>
+
+	<p> Recall that two vectors <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m> are called <term>orthogonal</term> if <m>\udotprod{u}{v} = 0</m>. </p>
+
+	<p> In analogy with this, we will also call two vectors <m>\uvec{u},\uvec{v}</m> in an inner product space <term>orthogonal</term> if <m>\uvecinprod{u}{v} = 0</m>. </p>
+
+</introduction>
 
 <activity xml:id="activity-inprod-orthog-geom-complement">
+
 	<prelude><p>
 		Suppose <m>V</m> in an inner product space,
 		and <m>U</m> is a subspace of <m>V</m>.
@@ -32,15 +34,31 @@ respective owners.
 		and is denoted <m>\orthogcmp{U}</m>.
 		That is, <m>\orthogcmp{U}</m> consists of all vectors that are orthogonal to <em>every</em> vector in <m>U</m>.
 	</p></prelude>
+
 	<introduction><p>
 		Suppose <m>V = \R^3</m> with the usual Euclidean inner product (<ie /> the dot product).
 		Then <term>orthogonal</term> is the same as <term>perpendicular</term>.
 	</p></introduction>
-	<task><p> Describe <m>\orthogcmp{U}</m> if <m>U</m> is a plane through the origin. </p></task>
-	<task><p> Describe <m>\orthogcmp{W}</m> if <m>W</m> is a line through the origin. </p></task>
+
+	<task xml:id="activity-inprod-orthog-geom-complement-to-plane"><p>
+		Describe <m>\orthogcmp{U}</m> if <m>U</m> is a plane through the origin.
+	</p></task>
+
+	<task xml:id="activity-inprod-orthog-geom-complement-to-line"><p>
+		Describe <m>\orthogcmp{W}</m> if <m>W</m> is a line through the origin.
+	</p></task>
+
 	<task xml:id="activity-inprod-orthog-geom-complement-pattern"><p>
 		Based on your two answers, make a general conjecture about <m>\orthogcmp{(\orthogcmp{U})}</m> in an inner product space.
 	</p></task>
+
+	<conclusion><p>
+		<em>Note:</em>
+		In <xref ref="activity-inprod-orthog-geom-complement-to-plane" text="type-local" />
+		and <xref ref="activity-inprod-orthog-geom-complement-to-line" text="type-local" />
+		keep in mind that changing the initial point of a geometric vector doesn't change the vector.
+	</p></conclusion>
+
 </activity>
 
 <!--
@@ -56,33 +74,45 @@ respective owners.
 -->
 
 <activity xml:id="activity-inprod-orthog-in-complement-if-orthog-to-basis">
+
 	<p>
 	Suppose <m>U = \Span \{\uvec{u}_1,\uvec{u}_2,\uvec{u}_3\}</m> is a subspace of an inner product space <m>V</m>.
 	Convince yourself that a vector <m>\uvec{v}</m> is in <m>\orthogcmp{U}</m> if and only if <m>\uvec{v}</m> is orthogonal to each of <m>\uvec{u}_1,\uvec{u}_2,\uvec{u}_3</m>.
 	</p>
+
 	<aside><title>Careful</title><p> Make sure you are considering the word <term>Span</term> in the definition of <m>U</m>. </p></aside>
+
 </activity>
 
 <activity xml:id="activity-inprod-orthog-complement-example-M22">
+
 	<prelude><p>
 		Since <m>\orthogcmp{U}</m> is defined by a homogeneous condition (inner product equals <m>0</m>),
 		we expect it to be a subspace.
 		The orthogonality condition can be used to determine a basis for <m>\orthogcmp{U}</m>.
 	</p></prelude>
+
 	<introduction><p>
 		Consider <m>V = \matrixring_{2 \times 2}(\R)</m> as an inner product space with
 		<m>\inprod{A}{B} = \trace(\utrans{B} A)</m>.
 		Let <m>U</m> represent the subspace of every upper triangular matrix whose upper-right entry is equal to its trace.
 	</p></introduction>
+
 	<task xml:id="activity-inprod-orthog-complement-example-M22-subspace">
+
 		<statement><p> Determine a basis for <m>U</m>. </p></statement>
+
 		<hint><p>
 			Describe a typical element in <m>U</m> using parameters,
 			then associate a basis vector to each independent parameter.
 		</p></hint>
+
 	</task>
+
 	<task>
+
 		<statement><p> Determine a basis for <m>\orthogcmp{U}</m>. </p></statement>
+
 		<hint><p>
 			Use the idea of
 			<xref ref="activity-inprod-orthog-in-complement-if-orthog-to-basis" />
@@ -90,7 +120,9 @@ respective owners.
 			<xref ref="activity-inprod-orthog-complement-example-M22-subspace" text="type-local"/>
 			to set up a homogeneous system of equations to solve.
 		</p></hint>
+
 	</task>
+
 </activity>
 
 <p>
@@ -99,10 +131,12 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 </p>
 
 <activity xml:id="activity-inprod-orthog-independent">
+
 	<prelude><p>
-		Geometrically we think of linearly independent vectors as <q>pointing in different directions</q>.
-		So it is reasonable to expect an orthogonal set of vectors to be independent
+		Geometrically we think of linearly independent vectors as <q>pointing in different directions,</q>
+		so it is reasonable to expect an orthogonal set of vectors to be independent.
 	</p></prelude>
+
 	<introduction><p>
 		Suppose <m>\{ \uvec{v}_1, \uvec{v}_2, \uvec{v}_3 \}</m> is an orthogonal set of nonzero vectors in an inner product space.
 		To test for independence, we start with the homogeneous vector equation
@@ -110,6 +144,7 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 			k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + k_3 \uvec{v}_3 = \zerovec
 		</mrow></md>.
 	</p></introduction>
+
 	<task><p>
 		From our initial equation <xref ref="equation-inprod-orthog-discovery-indep" />,
 		we have
@@ -119,13 +154,17 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 		</me>.
 		Simplify the left-hand side of this equality to discover something about <m>k_1</m>.
 	</p></task>
+
 	<task><p>
 		Convince yourself that similar reasoning will work for <m>k_2,k_3</m>.
 	</p></task>
+
 	<task><p> Is <m>\{ \uvec{v}_1, \uvec{v}_2, \uvec{v}_3 \}</m> an independent set? </p></task>
+
 </activity>
 
 <activity xml:id="activity-inprod-orthog-expansion">
+
 	<introduction><p>
 		Suppose <m>\basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\uvec{e}_3\}</m> is both a basis and an orthogonal set in an inner product space <m>V</m>.
 		Since <m>\basisfont{B}</m> is a basis,
@@ -135,17 +174,20 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 		</mrow></md>
 		for some scalars <m>k_1,k_2,k_3</m>.
 	</p></introduction>
+
 	<task xml:id="activity-inprod-orthog-expansion-first-coord"><p>
 		Substitute <xref ref="equation-inprod-orthog-discovery-3dim-expansion" />
 		into <m>\inprod{\uvec{v}}{\uvec{e}_1}</m> to obtain an expression for <m>\inprod{\uvec{v}}{\uvec{e}_1}</m> in terms of the <m>k_j</m> and <m>\uvec{e}_j</m>.
 		Then isolate <m>k_1</m>.
 	</p></task>
+
 	<task><p>
 		Similar to <xref ref="activity-inprod-orthog-expansion-first-coord" text="type-local" />,
 		use <xref ref="equation-inprod-orthog-discovery-3dim-expansion" />
 		in <m>\inprod{\uvec{v}}{\uvec{e}_2}</m> to obtain a formula for <m>k_2</m>,
 		and in <m>\inprod{\uvec{v}}{\uvec{e}_3}</m> to obtain a formula for <m>k_3</m>.
 	</p></task>
+
 	<task xml:id="activity-inprod-orthog-expansion-pattern"><p>
 		<em>Extract the pattern:</em>
 		If <m>V</m> has dimension <m>n</m> (instead of dimension <m>3</m>),
@@ -153,72 +195,95 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 		<m>\basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n\}</m> are
 		<fillin characters="20" />.
 	</p></task>
+
 	<task><p>
 		How does your pattern from
 		<xref ref="activity-inprod-orthog-expansion-pattern" text="type-local" />
 		change for an <em>orthonormal</em> basis?
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-inprod-orthog-gram-schmidt">
+
 	<prelude><p>
 		A basic problem in an inner product space is how to come up with an orthogonal basis.
 		So let's invent a procedure for doing so.
 	</p></prelude>
+
 	<introduction>
+
 		<p>
 		To keep it simple, let's suppose <m>V</m> has dimension <m>3</m>.
 		The beginning ingredient for our procedure is <em>some</em> (probably non-orthogonal) basis
 		<m>\basisfont{B}_0 = \{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>,
 		and the end result should be some <em>definitely</em> orthogonal basis
 		<m>\basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\uvec{e}_3\}</m>.
-		</p><p>
+		</p>
+
+		<p>
 		To get the process started,
 		we might as well first choose <m>\uvec{e}_1 = \uvec{v}_1</m>,
 		since we don't yet have any other <m>\uvec{e}_j</m> vectors chosen yet to which <m>\uvec{e}_1</m> needs to be orthogonal.
-		</p><p>
-		The rest of the activity requires us to choose <m>\uvec{e}_2,\uvec{e}_3</m> to complete the orthogonal basis.
 		</p>
+
+		<p> The rest of the activity requires us to choose <m>\uvec{e}_2,\uvec{e}_3</m> to complete the orthogonal basis. </p>
+
 	</introduction>
+
 	<task xml:id="activity-inprod-orthog-gram-schmidt-second-vector-coord">
+
 		<statement><p>
 			If we already knew the answer
 			<m>\basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\uvec{e}_3\}</m>,
 			and we expanded <m>\uvec{v}_2 = k_1\uvec{e}_1 + k_2 \uvec{e}_2 + k_3 \uvec{e}_3</m> relative to <m>\basisfont{B}</m>,
 			what would the coefficient <m>k_1</m> be?
 		</p></statement>
+
 		<hint><p> We already considered this sort of question in <xref ref="activity-inprod-orthog-expansion" /> above. </p></hint>
+
 	</task>
+
 	<task xml:id="activity-inprod-orthog-gram-schmidt-second-vector-diagram">
+
 		<p>
 		Draw a diagram of <m>\uvec{v}_2</m>, <m>\uvec{e}_1</m>, and <m>k_1 \uvec{e}_1</m> as if these were vectors in <m>\R^n</m>,
 		keeping in mind that <m>k_1 \uvec{e}_1</m> should be exactly that part of <m>\uvec{v}_2</m> that is parallel to <m>\uvec{e}_1</m>.
 		(Does this diagram remind you of some previous concept?)
-		</p><p>
-		Use your diagram to propose a choice of vector <m>\uvec{e}_2</m> that is orthogonal to <m>\uvec{e}_1</m>.
 		</p>
+
+		<p> Use your diagram to propose a choice of vector <m>\uvec{e}_2</m> that is orthogonal to <m>\uvec{e}_1</m>. </p>
+
 	</task>
+
 	<task>
+
 		<introduction><p>
 			Carry out a similar exploration process
 			as in <xref ref="activity-inprod-orthog-gram-schmidt-second-vector-coord" text="type-local" />
 			and <xref ref="activity-inprod-orthog-gram-schmidt-second-vector-diagram" text="type-local" />,
 			but for <m>\uvec{v}_3</m>.
 		</p></introduction>
+
 		<task><p>
 			For expansion <m>\uvec{v}_3 = k_1\uvec{e}_1 + k_2\uvec{e}_2 + k_3\uvec{e}_3</m> relative to <m>\basisfont{B}</m>,
 			what would be the coordinates <m>k_1</m> and <m>k_2</m>?
 		</p></task>
+
 		<task>
+
 			<p>
 			Draw a diagram of <m>\uvec{v}_3</m>, <m>\uvec{e}_1</m>, <m>\uvec{e}_2</m>, and <m>k_1 \uvec{e}_1 + k_2\uvec{e}_2</m>,
 			keeping in mind that <m>k_1 \uvec{e}_1 + k_2\uvec{e}_2</m> should be exactly that part of <m>\uvec{v}_3</m>
 			that is <q>parallel</q> to <m>\Span\{\uvec{e}_1,\uvec{e}_2\}</m>.
-			</p><p>
-			Use your diagram to propose a choice of vector <m>\uvec{e}_3</m> that is orthogonal to <em>both</em> <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>.
 			</p>
+
+			<p> Use your diagram to propose a choice of vector <m>\uvec{e}_3</m> that is orthogonal to <em>both</em> <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>. </p>
+
 		</task>
+
 	</task>
+
 	<task><p>
 		<em>Extract the pattern:</em>
 		If <m>V</m> has dimension <m>n</m> (instead of dimension <m>3</m>),
@@ -228,10 +293,12 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 		<me> \uvec{e}_5 = <fillin characters="20" /> </me>.
 		And so on.
 	</p></task>
+
 	<task><p>
 		At the end of all this,
 		what would you do if you wanted an ortho<em>normal</em> basis for <m>V</m>?
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-inprod-orthog-gs-orthog-start"><p>
@@ -241,22 +308,30 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 </p></activity>
 
 <activity xml:id="activity-inprod-orthog-gs-subspace">
-	<introduction><p>
-		Suppose <m>U</m> is a subspace of an inner product space <m>V</m>.
-	</p></introduction>
+
+	<introduction><p> Suppose <m>U</m> is a subspace of an inner product space <m>V</m>. </p></introduction>
+
 	<task xml:id="activity-inprod-orthog-gs-subspace-result">
+
 		<statement><p>
-			Will applying the procedure of
-			<xref ref="activity-inprod-orthog-gram-schmidt" /> to a basis of <m>U</m> produce an orthogonal basis for <m>U</m>?
+			Applying the procedure of
+			<xref ref="activity-inprod-orthog-gram-schmidt" /> to a basis for <m>U</m> should produce an orthogonal set.
+			But will it produce an orthogonal <em>basis for <m>U</m></em>?
 		</p></statement>
+
 		<hint><p> <xref ref="proposition-subspaces-props" />. </p></hint>
+
 	</task>
+
 	<task xml:id="activity-inprod-orthog-gs-subspace-complement">
+
 		<p>
 		Every basis for <m>U</m> can be enlarged to a basis for <m>V</m>
 		(<xref ref="proposition-dimension-subspace-dim-props-enlarge">Statement</xref>
 		of <xref ref="proposition-dimension-subspace-dim-props" />).
-		</p><p>
+		</p>
+
+		<p>
 		Suppose
 		<me> \basisfont{B}_0 = \{ \uvec{u}_1, \dotsc, \uvec{u}_m, \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
 		is such an enlarged basis for <m>V</m>,
@@ -268,7 +343,9 @@ A set of vectors is called an <term>orthonormal set</term> if it is an orthogona
 		for <m>V</m>,
 		what subspace do the <m>\uvec{f}_j</m> span?
 		</p>
+
 	</task>
+
 </activity>
 
 </worksheet>
