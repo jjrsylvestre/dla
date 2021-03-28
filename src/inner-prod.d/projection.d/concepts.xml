@@ -29,6 +29,9 @@ respective owners.
 <em><xref text="title" ref="subsection-projection-concepts-least-sq" /></em></li>
 </ul></p></assemblage>
 
+
+
+
 <subsection xml:id="subsection-projection-concepts-orthog-proj">
 <title>Orthogonal projection</title>
 
@@ -42,11 +45,13 @@ one in <m>U</m> and one in <m>\orthogcmp{U}</m>
 <me> \uvec{v} = \uvec{u} + \uvec{u}'</me>,
 with <m>\uvec{u}</m> in <m>U</m> and <m>\uvec{u}'</m> in <m>\orthogcmp{U}</m>.
 </p>
+
 <image width="65%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram illustrating an orthogonal projection in <m>\R^3</m>.</description>
 	<latex-image><xi:include href="concepts.d/orthog-proj.tex" parse="text" /></latex-image>
 </image>
+
 <p>
 The vector <m>\uvec{u}</m> in the decomposition is called
 the <term>orthogonal projection of <m>\uvec{v}</m> onto <m>U</m></term>,
@@ -58,12 +63,16 @@ Note that by the symmetry of orthogonal complements
 we could also say that the complementary vector <m>\uvec{u}'</m> in <m>\orthogcmp{U}</m> is
 <me> \proj_{\orthogcmp{U}} \uvec{v} </me>,
 the orthogonal projection of <m>\uvec{v}</m> onto <m>\orthogcmp{U}</m>.
-</p><p>
+</p>
+
+<p>
 As a pair, the vectors <m>\uvec{u}</m> and <m>\uvec{u}'</m> are sometimes called
 the <term>component of <m>\uvec{v}</m> parallel to <m>U</m></term>
 and the <term>component of <m>\uvec{v}</m> orthogonal to <m>U</m></term>,
 respectively.
-</p><p>
+</p>
+
+<p>
 The <xref ref="theorem-inprod-orthog-expansion" text="title" />,
 combined with <xref ref="proposition-inprod-orthog-complement-split-basis" />,
 tells us how to compute orthogonal projections.
@@ -111,8 +120,7 @@ in <xref ref="subsection-projection-examples-orthog-proj" />
 for an example.
 </p>
 
-<paragraphs><title>Orthogonal projection onto a vector in <m>\R^n</m></title>
-<p>
+<paragraphs><title>Orthogonal projection onto a vector in <m>\R^n</m></title><p>
 In <xref ref="chapter-orthog" />,
 we defined the <term>orthogonal projection</term> of one vector <m>\uvec{v}</m> onto another <m>\uvec{a}</m> in <m>\R^n</m> as
 <me> \proj_{\uvec{a}} \uvec{v} = \frac{\udotprod{u}{a}}{\unorm{a}^2}\, \uvec{a} </me>.
@@ -125,11 +133,12 @@ for <m>U</m> can be considered an orthogonal basis,
 and the formula
 <me> \proj_U \uvec{v} = \frac{\uvecinprod{v}{a}}{\unorm{a}^2} \, \uvec{a} </me>
 agrees with our previous formula for <m>\proj_{\uvec{a}} \uvec{v}</m>.
-</p>
-</paragraphs>
-
+</p></paragraphs>
 
 </subsection>
+
+
+
 
 <subsection xml:id="subsection-projection-concepts-gram-schmidt">
 <title>Gram-Schmidt process versus orthogonal projection</title>
@@ -154,7 +163,9 @@ where
 <me> \basisfont{B}_{U_j} = \{ \uvec{e}_1,\dotsc,\uvec{e}_j \} </me>
 is the collection of orthogonal vectors created to that point in the process,
 and <m>\uvec{v}_{j+1}</m> is the <m>\nth[(j+1)]</m> vector in the initial basis used as the starting point in the process.
-</p><p>
+</p>
+
+<p>
 Comparing the expression in the brackets being subtracted from <m>\uvec{v}_{j+1}</m> with
 formulas <xref ref="equation-projection-concepts-formula" />
 and <xref ref="equation-projection-concepts-complement-formula" />,
@@ -177,14 +188,18 @@ we see that
 
 </subsection>
 
+
+
+
 <subsection xml:id="subsection-projection-concepts-approx">
-<title>Best approximation</title>
+<title>Best approximation and distance between vector and subspace</title>
 
 <p>
 As in <m>\R^n</m>,
 we can measure distance between vectors by measuring the norm of a difference vector:
 <me> \dist(\uvec{u},\uvec{v}) = \norm{\uvec{u} - \uvec{v}} </me>.
 </p>
+
 <figure>
 	<caption>Visualization of the distance between vectors in an inner product space.</caption>
 	<image width="40%">
@@ -193,6 +208,7 @@ we can measure distance between vectors by measuring the norm of a difference ve
 		<latex-image><xi:include href="concepts.d/vec-dist.tex" parse="text" /></latex-image>
 	</image>
 </figure>
+
 <p>
 We originally developed the concept of <term>orthogonal projection</term>
 in <xref ref="chapter-orthog" /> to help us answer an approximation question
@@ -205,12 +221,15 @@ then amongst all vectors <m>\uvec{u}</m> in <m>U</m> the distance
 will be minimized at <me> \uvec{u} = \proj_U \uvec{v} </me>.
 (See <xref ref="theorem-projection-best-approx" />.)
 </p>
+
 <p> For this reason, the vector <m>\proj_U \uvec{v}</m> is called the <term>best approximation to <m>\uvec{v}</m> in <m>U</m></term>. </p>
+
 <image width="65%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram illustrating an orthogonal projection in <m>\R^3</m> as a best approximation.</description>
 	<latex-image><xi:include href="concepts.d/min-dist.tex" parse="text" /></latex-image>
 </image>
+
 <p>
 Because of this, orthogonal projection can be used to solve approximation and optimization problems.
 See <xref ref="example-projection-approx-sine-by-quadratic" />
@@ -218,10 +237,39 @@ in <xref ref="subsection-projection-examples-approx" />
 for an example.
 </p>
 
+<p>
+And since there is one unique smallest distance <m> \dist (\uvec{v},\uvec{u}) </m> amongst all <m>\uvec{u}</m> in <m>U</m>,
+achieved when <m>\uvec{u} = \proj_U \uvec{v}</m>,
+we can define this as the <term>distance between <m>\uvec{v}</m> and <m>U</m></term>:
+<me> \dist (\uvec{v},U) = \dist (\uvec{v},\proj_U \uvec{v}) = \norm{\uvec{v} - \proj_U \uvec{v}} = \norm{\proj_{\orthogcmp{U}} \uvec{v}} </me>.
+</p>
+
+<p>
+Suppose <m>\basisfont{B} = \{\uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n\}</m> is an orthonormal basis for our inner product space.
+(However, we do not assume here that the first so many vectors in this basis forms a basis for the subspace <m>U</m>.)
+We can then express the vector <m>\uvec{v}</m> and any vector <m>\uvec{u}</m> in <m>U</m> as a coordinate vector relative to this basis:
+<md><mrow>
+	\rmatrixOf{\uvec{v}}{B} \amp = (v_1,v_2,\dotsc,v_n) \text{,} \amp
+	\rmatrixOf{\uvec{u}}{B} \amp = (u_1,u_2,\dotsc,u_n) \text{.}
+</mrow></md>
+Applying <xref ref="proposition-inprod-orthog-vs-dot-norm">Statement</xref> of <xref ref="proposition-inprod-orthog-vs-dot" />,
+we have
+<me> \bbrac{\dist (\uvec{v},\uvec{u})}^2 = {\norm{\uvec{v} - \uvec{u}}}^2 = (v_1 - u_1)^2 + (v_2 - u_2)^2 + \dotsb + (v_n - u_n)^2 </me>.
+Since we are talking about non-negative quantities,
+minimizing <m>\dist (\uvec{v},\uvec{u})</m> is the same as minimizing the square of that distance,
+and so we can say that setting <m>\uvec{u} = \proj_U \uvec{v}</m> minimizes the <em>sum-of-squares</em> expression on the right above.
+We could interpret this <em>sum-of-squares</em> formula as a measure of the <q>error</q> when we <q>approximate</q> <m>\uvec{v}</m> by a vector <m>\uvec{u}</m> in <m>U</m>,
+and so <m>\uvec{u} = \proj_U \uvec{v}</m> could be called the <term>least squares</term> approximation to <m>\uvec{v}</m> within <m>U</m>.
+</p>
+
+
 </subsection>
 
+
+
+
 <subsection xml:id="subsection-projection-concepts-least-sq">
-<title>Least squares</title>
+<title>Least squares solutions to a linear system</title>
 
 <p> Here is a particular kind of linear approximation problem that can be solved with the help of orthogonal projection. </p>
 
@@ -234,7 +282,7 @@ for an example.
 	</p><p>
 	In other words,
 	for what vector <m>\uvec{x}_0</m> in <m>\R^n</m>
-	will <m>A\uvec{x}_0</m> be as close as possible to <m>\uvec{b}_0</m>?
+	will <m>A \uvec{x}_0</m> be as close as possible to <m>\uvec{b}_0</m>?
 	</p>
 </question>
 
@@ -243,39 +291,56 @@ We can pursue this question by <q>pushing it forward</q> through multiplication 
 so that it is a question about vectors in <m>\R^m</m>, where <m>\uvec{b}_0</m> and each <m>A \uvec{x}</m> live,
 instead of a question about vectors in <m>\R^n</m>, where each <m>\uvec{x}</m> lives
 (and where the answer <m>\uvec{x}_0</m> lives, if it exists).
-</p><p>
-We know from <xref ref="chapter-col-row-null-space" /> that a system
-<m>A \uvec{x} = \uvec{b}</m> is consistent precisely when the vector of constants <m>\uvec{b}</m> lies in the column space of <m>A</m>.
-(See <xref ref="subsection-col-row-null-space-concepts-colspace" /> in particular.)
-But we have assumed that our system is <em>in</em>consistent,
-so <m>\uvec{b}_0</m> must <em>not</em> lie in the column space of <m>A</m>.
-</p><p>
-On the other hand, by definition the column space of <m>A</m> is the span of the columns of <m>A</m>.
-And we have seen before that a <em>matrix-times-column</em> product can be expanded as a linear combination of the columns of the matrix:
-<me> A\uvec{x} = x_1 \uvec{a}_1 + x_2 \uvec{a}_2 + \dotsb + x_n \uvec{a}_n </me>,
-where the <m>\uvec{a}_j</m> are the columns of <m>A</m>.
-(See <xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" />.)
-So the column space of <m>A</m> is made up of all possible products <m>A \uvec{x}</m> for <m>\uvec{x}</m> in <m>\R^n</m>.
 </p>
-<aside><title>Note</title><p>
-	It is possible for different vectors <m>\uvec{x}</m> in <m>\R^n</m> to produce the same vector <m>\uvec{b}</m> in the column space of <m>A</m>,
-	since we know that a consistent system <m>A \uvec{x} = \uvec{b}</m> can have either one or an infinite number of solutions.
-</p></aside>
+
 <p>
-So we now have re-framed <xref ref="question-projection-least-sq" /> in a way that will allow us to apply orthogonal projection:
+We have seen before that a <em>matrix-times-column</em> product can be expanded as a linear combination of the columns of the matrix:
+<me> A \uvec{x} = x_1 \uvec{a}_1 + x_2 \uvec{a}_2 + \dotsb + x_n \uvec{a}_n </me>,
+where the <m>\uvec{a}_j</m> are the columns of <m>A</m>.
+(For example, see <xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" />.)
+It is this pattern that led us to the definition of <term>column space</term> of a matrix as the span of the columns of the matrix.
+Furthermore, we have seen that system <m>A \uvec{x} = \uvec{b}</m> is consistent precisely when the vector of constants <m>\uvec{b}</m> lies in the column space of <m>A</m>.
+(See <xref ref="subsection-col-row-null-space-concepts-colspace" />.)
+Turning the above <em>matrix-times-column</em> pattern around,
+we also see that the column space of <m>A</m> is made up of all possible products <m>A \uvec{x}</m> for <m>\uvec{x}</m> in <m>\R^n</m>.
+(But note that it is possible for different vectors <m>\uvec{x}</m> in <m>\R^n</m> to produce the same vector <m>\uvec{b}</m> in the column space of <m>A</m>,
+since we know that a consistent system <m>A \uvec{x} = \uvec{b}</m> could have an infinite number of solutions.)
+</p>
+
+<p>
+We have assumed that our system is <em>in</em>consistent,
+so that <m>\uvec{b}_0</m> must <em>not</em> lie in the column space of <m>A</m>,
+whereas every result <m>A \uvec{x}</m> lies in the column space of <m>A</m>.
+We can now re-frame <xref ref="question-projection-least-sq" /> in a way that will allow us to apply orthogonal projection:
 what vector(s) <m>\uvec{x}</m> will produce an <q>output</q> vector <m>A \uvec{x}</m> in the column space of <m>A</m> that is closest to <m>\uvec{b}_0</m>?
 The answer is:
 any vector <m>\uvec{x}_0</m> so that
 <md><mrow xml:id="equation-projection-least-sq-sol" tag="dagger"> A \uvec{x}_0 = \proj_U \uvec{b}_0 </mrow></md>,
 where <m>U</m> is the column space of <m>A</m> in <m>\R^m</m>.
 </p>
+
 <image width="65%">
 	<!-- description gets inserted as alt text in html img tag -->
 	<description>Diagram illustrating an orthogonal projection in <m>\R^3</m>.</description>
 	<latex-image><xi:include href="concepts.d/least-sq.tex" parse="text" /></latex-image>
 </image>
+
 <p>
-Take pairing <m>\inprod{\blank}{\blank}</m> to mean the standard inner product on <m>\R^m</m>.
+One way to solve this problem is to use <xref ref="procedure-col-row-null-space-concepts-col-space-basis" />
+to determine a basis for the column space of matrix A,
+apply the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> procedure to produce an orthogonal basis for the column space,
+and then use that basis to compute <m>\proj_U \uvec{b}_0</m>
+(where <m>U</m> represents the column space of <m>A</m>).
+Finally, we could solve the system <m>A \uvec{x} = \proj_U \uvec{b}_0</m>,
+which must be consistent because <m>\proj_U \uvec{b}_0</m> will lie in <m>U</m>,
+the column space of <m>A</m>.
+</p>
+
+<p>
+But by applying some theory,
+we can develop a more direct procedure.
+Take pairing <m>\inprod{\blank}{\blank}</m> to mean the standard inner product on <m>\R^m</m>
+(or, later, on <m>\R^n</m>).
 Now, the vector
 <me> \uvec{b}_0' = \proj_{\orthogcmp{U}} \uvec{b}_0 = \uvec{b}_0 - \proj_{U} \uvec{b}_0 </me>
 lies in <m>\orthogcmp{U}</m>,
@@ -287,18 +352,23 @@ So for every <m>\uvec{x}</m> in <m>\R^n</m>, we have
 	</mrow>
 	<mrow> \amp = \utrans{(A \uvec{x})} (\uvec{b}_0') </mrow>
 	<mrow> \amp = \utrans{\uvec{x}} (\utrans{A} \uvec{b}_0') </mrow>
+	<mrow> \amp = \inprod{\utrans{A} \uvec{b}_0'}{\uvec{x}} </mrow>
 </md>.
-Apply the above to <m>\uvec{x} = \uvec{e}_j</m>,
-the <m>\nth[j]</m> standard basis vector of <m>\R^n</m>,
-to get
-<me> \utrans{\uvec{e}}_j (\utrans{A} \uvec{b}_0') = 0 </me>.
-But <m>\utrans{A} \uvec{b}_0'</m>
-is an <m>n \times 1</m> column matrix,
-and
-<me> \utrans{\uvec{e}}_j (\utrans{A} \uvec{b}_0') </me>
-is equal to the <m>\nth[j]</m> entry of
-<m>\utrans{A} \uvec{b}_0'</m>.
-And if each of those entries is zero, we have
+</p>
+
+<aside><title>A look ahead.</title><p>
+	We will explore the pattern
+	<me> \inprod{\uvec{y}}{A \uvec{x}} = \inprod{\utrans{A} \uvec{y}}{\uvec{x}} </me>
+	more generally in <xref ref="chapter-matrix-adjoints" />.
+</p></aside>
+
+<p>
+As the above calculation holds for <em>every</em> <m>\uvec{x}</m> in <m>\R^n</m>,
+the result says that <m>\utrans{A} \uvec{b}_0'</m> lies in <m>\orthogcmp{(\R^n)}</m>.
+However, in an inner product space, only the zero vector is orthogonal to <em>every</em> vector
+(<xref ref="proposition-inprod-orthog-trivial-complements-full">Statement</xref>
+of <xref ref="proposition-inprod-orthog-trivial-complements" />).
+Hence
 <me>
 	\zerovec = \utrans{A} \uvec{b}_0'
 	= \utrans{A} (\uvec{b}_0 - \proj_{U} \uvec{b}_0)
@@ -312,13 +382,15 @@ In other words, the special <m>\uvec{x}_0</m> that we are looking for is a solut
 called the <term>normal system associated to <m>A \uvec{x} = \uvec{b}_0</m></term>.
 Solutions to this system are referred to as <term>least-squares solutions</term>
 for the original inconsistent system <m>A \uvec{x} = \uvec{b}_0</m>.
-</p><p>
+</p>
+
+<p>
 Because <m>\proj_{U} \uvec{b}_0</m> lies in the column space of <m>A</m>,
 there is always some <m>\uvec{x}_0</m> that satisfies <xref ref="equation-projection-least-sq-sol" />,
 hence there is always a solution to the normal system.
 If <m>A</m> is square and invertible,
 then so is <m>\utrans{A}A</m>,
-and so there in this case there is one unique solution
+and in this case there is one unique solution
 <md><mrow xml:id="equation-projection-least-sq-pseudo-inverse-sol" tag="ddagger">
 	\uvec{x}_0 = \inv{(\utrans{A} A)} \utrans{A} \uvec{b}_0
 </mrow></md>
@@ -337,7 +409,9 @@ with the fact that a square, invertible coefficient matrix affords solution
 <me> A \uvec{x} = \uvec{b} \quad\implies\quad \uvec{x} = \inv{A} \uvec{b} </me>.
 But recall that in this analysis, we have <em>not</em> assumed that <m>A</m> is square,
 hence the <em>pseudo</em> in <term>pseudo-inverse</term>.
-</p><p>
+</p>
+
+<p>
 See <xref ref="example-projection-least-sq" />
 in <xref ref="subsection-projection-examples-least-sq" />
 for an example of computing a least-squares solution.

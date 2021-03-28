@@ -61,9 +61,9 @@ again without proof.
 	is an enlargement to an orthogonal basis for <m>V</m>.
 	Then we have the following formulas.
 	<ol>
+
 		<li>
 			For <m>\uvec{v}</m> in <m>V</m>,
-			we have
 			<md>
 				<mrow>
 					\proj_U \uvec{v}
@@ -81,6 +81,7 @@ again without proof.
 				</mrow>
 			</md>.
 		</li>
+
 		<li>
 			If <m>\basisfont{B}_V</m> is ortho<em>normal</em>,
 			then
@@ -101,6 +102,7 @@ again without proof.
 				</mrow>
 			</md>.
 		</li>
+
 	</ol>
 </p></theorem>
 
@@ -116,20 +118,28 @@ again without proof.
 		and <m>k</m> is a scalar.
 		Then the following hold.
 		<ol>
+
 			<li xml:id="proposition-projection-props-zero">
 				<m>\proj_U \zerovec = \zerovec</m>.
 			</li>
+
 			<li> <m>\proj_U (k\uvec{v}) = k (\proj_U \uvec{v})</m>. </li>
+
 			<li> <m>\proj_U (\uvec{v} + \uvec{w}) = \proj_U \uvec{v} + \proj_U \uvec{w}</m>. </li>
 			<li xml:id="proposition-projection-props-identity-on-U">
 				If <m>\uvec{v}</m> is in <m>U</m>, then <m>\proj_U \uvec{v} = \uvec{v}</m>.
 			</li>
+
 			<li> <m> \proj_U (\proj_U \uvec{v}) = \proj_U \uvec{v} </m>. </li>
+
 			<li xml:id="proposition-projection-props-trivial-on-U-perp">
 				If <m>\uvec{v}</m> is in <m>\orthogcmp{U}</m>, then <m>\proj_U \uvec{v} = \zerovec</m>.
 			</li>
+
 			<li> <m> \proj_{\orthogcmp{U}} (\proj_U \uvec{v}) = \zerovec </m>. </li>
+
 			<li> <m> \proj_U (\proj_{\orthogcmp{U}} \uvec{v}) = \zerovec </m>. </li>
+
 			<li xml:id="proposition-projection-props-norm">
 				If
 				<m> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </m>
@@ -144,6 +154,7 @@ again without proof.
 				where the absolute values are redundant in the real context,
 				but indicate modulus in the complex context.
 			</li>
+
 		</ol>
 	</p></statement>
 
@@ -173,7 +184,13 @@ again without proof.
 <subsection xml:id="subsection-projection-theory-best-approx">
 <title>Best approximation is best</title>
 
+<p>
+Because of Pythagoras,
+the orthogonal projection <m>\proj_U \uvec{v}</m> is the vector in <m>U</m> that is at the smallest distance from <m>\uvec{v}</m>.
+</p>
+
 <theorem xml:id="theorem-projection-best-approx">
+
 	<statement><p>
 		Suppose <m>U</m> is a subspace of a finite-dimensional inner product space <m>V</m>,
 		and <m>\uvec{v}</m> is a vector in <m>V</m>.
@@ -182,24 +199,30 @@ again without proof.
 		<me> \dist(\uvec{v}, \proj_U \uvec{v}) \lt \dist(\uvec{v}, \uvec{u}) </me>
 		for every <m>\uvec{u} \neq \proj_U \uvec{v}</m> in <m>U</m>.
 	</p></statement>
+
 	<proof>
+
 		<p>
 		First, if <m>\uvec{v}</m> is in <m>U</m>,
 		then using
 		<xref ref="proposition-projection-props-identity-on-U">Rule</xref>
 		of <xref ref="proposition-projection-props" />
 		it is obvious that <m>\proj_U \uvec{v} = \uvec{v}</m> is the unique vector in <m>U</m> that is closest to <m>\uvec{v}</m>.
-		</p><p>
+		</p>
+
+		<p>
 		So assume <m>\uvec{v}</m> is <em>not</em> in <m>U</m>,
 		and suppose <m>\uvec{u} \neq \proj_U \uvec{v}</m> in <m>U</m>.
 		Then the three vectors <m>\uvec{v}, \uvec{u}, \proj_U \uvec{v}</m> form a <q>right triangle</q> to which we can apply
 		the Pythagorean formula (<xref ref="theorem-inprod-orthog-pythag" />).
 		</p>
+
 		<image width="65%">
 			<!-- description gets inserted as alt text in html img tag -->
 			<description>Diagram illustrating an orthogonal projection in <m>\R^3</m> as a best approximation.</description>
 			<latex-image><xi:include href="theory.d/min-dist.tex" parse="text" /></latex-image>
 		</image>
+
 		<p>
 		In this <q>right triangle</q>,
 		the vector <m>\uvec{v} - \uvec{u}</m> is the <q>hypotenuse</q>,
@@ -230,8 +253,24 @@ again without proof.
 		<me> \dist (\uvec{v}, \uvec{u}) \gt \dist(\uvec{v},\proj_U \uvec{v}) </me>,
 		as desired.
 		</p>
+
 	</proof>
+
 </theorem>
+
+<p>
+Looking back at our definition of
+<term><xref ref="definition-projection-distance-vec-subsp" text="title" /></term>,
+the preceding theorem tells us the value of such a distance.
+</p>
+
+<corollary>
+	<title>Distance between a vector and a subspace</title>
+	<p>
+	For vector <m>\uvec{v}</m> and subspace <m>U</m> in an inner product space,
+	<me> \dist (\uvec{v}, U) = \dist(\uvec{v},\proj_U \uvec{v}) = \norm{\uvec{v} - \proj_U \uvec{v}} = \norm{\proj_{\orthogcmp{U}} \uvec{v}} </me>.
+	</p>
+</corollary>
 
 </subsection>
 
