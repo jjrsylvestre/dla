@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sage-triang-block">
+<title>Triangular Block Form</title>
+
+<subsection>
+<title>Matrix and eigenvalues</title>
+
+<p> Here we will use Sage to carry out the calculations in <xref ref="section-triang-block-examples" />. </p>
+
+<p> First let's load our matrix into Sage. </p>
+<sage>
+	<input>
+		A = matrix( [
+		  [ 3, 4,  1, -1,  0, -4,  0 ],
+		  [ 0, 3, -4,  0,  4,  0,  0 ],
+		  [ 0, 0,  5, -1, -1,  0,  0 ],
+		  [ 0, 0, -2,  2,  3,  0,  0 ],
+		  [ 0, 0,  6, -1, -2,  0,  0 ],
+		  [ 0, 4, -5,  0,  5, -1,  0 ],
+		  [ 4, 3,  1, -1,  0, -3, -1 ]
+	 ] )
+		print(A)
+	</input>
+	<output>
+		[ 3  4  1 -1  0 -4  0]
+		[ 0  3 -4  0  4  0  0]
+		[ 0  0  5 -1 -1  0  0]
+		[ 0  0 -2  2  3  0  0]
+		[ 0  0  6 -1 -2  0  0]
+		[ 0  4 -5  0  5 -1  0]
+		[ 4  3  1 -1  0 -3 -1]
+	</output>
+</sage>
+<p> This is a <m>7 \times 7</m> matrix. </p>
+
+<paragraphs><title>Eigenvalues</title>
+
+<p> Determine the eigenvalues. </p>
+<sage>
+	<input>A.eigenvalues()</input>
+	<output>[-1, -1, -1, 3, 3, 3, 3]</output>
+</sage>
+<p>
+So we have an eigenvalue <m>\lambda_1 = -1</m> of algebraic multiplicity <m>m_1 = 3</m>,
+and another eigenvalue <m>\lambda_2 = 3</m> of algebraic multiplicity <m>m_1 = 4</m>.
+</p>
+
+</paragraphs>
+
+</subsection>
+
+<subsection>
+<title>Analysis of <m>\lambda_1</m></title>
+
+<p>
+For <m>\lambda_1 = -1</m>,
+the eigensubspaces are null spaces of powers of <m>(-1) I - A</m>,
+so let's form that matrix.
+</p>
+<sage>
+	<input>
+		C = -1 * identity_matrix(7) - A
+		print(C)
+	</input>
+	<output>
+		[-4 -4 -1  1  0  4  0]
+		[ 0 -4  4  0 -4  0  0]
+		[ 0  0 -6  1  1  0  0]
+		[ 0  0  2 -3 -3  0  0]
+		[ 0  0 -6  1  1  0  0]
+		[ 0 -4  5  0 -5  0  0]
+		[-4 -3 -1  1  0  3  0]
+	</output>
+</sage>
+
+<paragraphs><title>Compute a basis of the eigenspace</title>
+<sage>
+	<input>C.rref()</input>
+	<output>
+		[1 0 0 0 0 0 0]
+		[0 1 0 0 0 0 0]
+		[0 0 1 0 0 0 0]
+		[0 0 0 1 0 0 0]
+		[0 0 0 0 1 0 0]
+		[0 0 0 0 0 1 0]
+		[0 0 0 0 0 0 0]
+	</output>
+</sage>
+<p>
+Only one parameter is required (for <m>x_7</m>), so <m>\dim E_{-1}(A) = 1</m>
+and we can span this space with the vector <m>\uvec{p}_1 = (0,0,0,0,0,0,1)</m>.
+</p>
+<sage>
+	<input>
+		p1 = vector((0,0,0,0,0,0,1))
+		print(p1)
+		print(A*p1)
+	</input>
+	<output>
+		(0, 0, 0, 0, 0, 0, 1)
+		(0, 0, 0, 0, 0, 0, -1)
+	</output>
+</sage>
+<p> Notice that <m>A \uvec{p}_1 = - \uvec{p}_1</m>, as expected. </p>
+<p>
+Since the algebraic multiplicity of this eigenvalue is <m>m_1 = 3</m>,
+we need to continue with generalized eigenvectors until we hit dimension <m>3</m>.
+</p>
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the second generalized eigensubspace</title>
+<p>
+Continue on to the generalized eigensubspace of degree <m>2</m>.
+To do this, we analyze the null space of <m>C^2 = \bbrac{(-1)I - A}^2</m>.
+</p>
+<sage>
+	<input> (C^2).rref() </input>
+	<output>
+		[ 1  0  0  0  0 -1  0]
+		[ 0  1  0  0  0  0  0]
+		[ 0  0  1  0  0  0  0]
+		[ 0  0  0  1  0  0  0]
+		[ 0  0  0  0  1  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+	</output>
+</sage>
+<p>
+We need two parameters (for <m>x_6</m> and <m>x_7</m>),
+so <m>\dim E_{-1}^2(A) = 2</m>,
+and can be spanned by the vectors
+<me> (1,0,0,0,0,1,0) \text{,} \qquad (0,0,0,0,0,0,1) \text{.} </me>
+That second vector is already our basis vector from <m>E_{-1}^1(A)</m>,
+so take <m>\uvec{p}_2 = (1,0,0,0,0,1,0)</m>.
+</p>
+<sage>
+	<input>
+		p2 = vector((1,0,0,0,0,1,0))
+		print(p2)
+		C*p2
+	</input>
+	<output>
+		(1, 0, 0, 0, 0, 1, 0)
+		(0, 0, 0, 0, 0, 0, -1)
+	</output>
+</sage>
+<p>
+Notice that <m>\bbrac{(-1)I - A} \uvec{p}_2</m> is a multiple of <m>\uvec{p}_1</m>,
+so <m>\bbrac{(-1)I - A} \uvec{p}_2</m> is an eigenvector, as desired.
+</p>
+<p>
+We still don't have dimension equal to algebraic multiplicity,
+so continue.
+</p>
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the third generalized eigensubspace</title>
+
+<p>
+Now we move on to analyzing the null space of <m>C^3</m>
+(where <m>C = (-1)I - A</m>).
+</p>
+<sage>
+	<input> (C^3).rref() </input>
+	<output>
+		[ 1  0  0  0 -1 -1  0]
+		[ 0  1  0  0  1  0  0]
+		[ 0  0  1  0  0  0  0]
+		[ 0  0  0  1  1  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+	</output>
+</sage>
+<p>
+Now we need three parameters, so finally <m>\dim E_{-1}^3(A) = m_1 = 3</m>.
+Assigning parameters to <m>x_5,x_6,x_7</m> leads to basis vectors
+<me>
+	(1,-1,0,-1,1,0,0) \text{,} \qquad
+	(1,0,0,0,0,1,0) \text{,} \qquad
+	(0,0,0,0,0,0,1) \text{.}
+</me>
+Again, the last two are actually already our basis for <m>E_{-1}^2(A)</m>,
+so set <m>\uvec{p}_3 = (1,-1,0,-1,1,0,0)</m>.
+</p>
+<sage>
+	<input>
+		p3 = vector((1,-1,0,-1,1,0,0))
+		print(p3)
+		C*p3
+	</input>
+	<output>
+		(1, -1, 0, -1, 1, 0, 0)
+		(1, -1, 0, -1, 1, 0, 0)
+	</output>
+</sage>
+<p>
+Notice that <m>C \uvec{p}_3 = -2 \uvec{p}_1 - \uvec{p}_2</m>,
+so that <m>C \uvec{p}_3</m> lies in <m>E_{-1}^2(A)</m>,
+as desired.
+</p>
+</paragraphs>
+
+</subsection>
+
+<subsection>
+<title>Analysis of <m>\lambda_2</m></title>
+
+<p>
+For <m>\lambda_2 = 3</m>,
+the eigensubspaces are null spaces of powers of <m>3 I - A</m>,
+so let's form that matrix.
+</p>
+<sage>
+	<input>
+		C = 3 * identity_matrix(7) - A
+		print(C)
+	</input>
+	<output>
+		[ 0 -4 -1  1  0  4  0]
+		[ 0  0  4  0 -4  0  0]
+		[ 0  0 -2  1  1  0  0]
+		[ 0  0  2  1 -3  0  0]
+		[ 0  0 -6  1  5  0  0]
+		[ 0 -4  5  0 -5  4  0]
+		[-4 -3 -1  1  0  3  4]
+	</output>
+</sage>
+
+<paragraphs><title>Compute a basis of the eigenspace</title>
+<sage>
+	<input>C.rref()</input>
+	<output>
+		[ 1  0  0  0  0  0 -1]
+		[ 0  1  0  0  0 -1  0]
+		[ 0  0  1  0 -1  0  0]
+		[ 0  0  0  1 -1  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+	</output>
+</sage>
+<p>
+Three parameters are required, so <m>\dim E_3(A) = 3</m> and we are already almost up to our target multiplicity of <m>m_2 = 4</m>.
+Assign parameters to <m>x_5, x_6, x_7</m>,
+leading to basis vectors
+<md><mrow>
+	\uvec{q}_1 \amp = (0,0,1,1,1,0,0) \text{,} \amp
+	\uvec{q}_2 \amp = (0,1,0,0,0,1,0) \text{,} \amp
+	\uvec{q}_3 \amp = (1,0,0,0,0,0,1) \text{.}
+</mrow></md>
+</p>
+<sage>
+	<input>
+		q1 = vector((0,0,1,1,1,0,0))
+		q2 = vector((0,1,0,0,0,1,0))
+		q3 = vector((1,0,0,0,0,0,1))
+		print(q1,q2,q3)
+		print(A*q1,A*q2,A*q3)
+	</input>
+	<output>
+		(0, 0, 1, 1, 1, 0, 0) (0, 1, 0, 0, 0, 1, 0) (1, 0, 0, 0, 0, 0, 1)
+		(0, 0, 3, 3, 3, 0, 0) (0, 3, 0, 0, 0, 3, 0) (3, 0, 0, 0, 0, 0, 3)
+	</output>
+</sage>
+<p> Notice that <m>A \uvec{q}_j = 3 \uvec{q}_3</m>, as expected. </p>
+<p>
+Since the algebraic multiplicity of this eigenvalue is <m>m_2 = 4</m>,
+we need to continue with generalized eigenvectors until we hit dimension <m>4</m>.
+</p>
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the second generalized eigensubspace</title>
+<p>
+Continue on to the generalized eigensubspace of degree <m>2</m>.
+This should be our last step for this eigenvalue,
+as our dimension must increase past the eigenspace dimension (which was <m>3</m>),
+but can't increase past the algebraic multiplicity (which is <m>m_2 = 4</m>).
+The second generalized eigensubspace <m>E_3^2(A)</m> is the null space of <m>C^2 = \bbrac{3 I - A}^2</m>.
+</p>
+<sage>
+	<input> (C^2).rref() </input>
+	<output>
+		[ 1  0  0  0  0  0 -1]
+		[ 0  1  0  0  0 -1  0]
+		[ 0  0  1  0 -1  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+		[ 0  0  0  0  0  0  0]
+	</output>
+</sage>
+<p>
+Now we need four parameters, as expected.
+Assigning parameters to <m>x_4,x_5,x_6,x_7</m> leads to basis vectors
+<md alignment="gather">
+	<mrow>(0,0,0,1,0,0,0) \text{,}</mrow>
+	<mrow>(0,0,1,0,1,0,0) \text{,}</mrow>
+	<mrow>(0,1,0,0,0,1,0) \text{,}</mrow>
+	<mrow>(1,0,0,0,0,0,1) \text{.}</mrow>
+</md>
+The last two vectors are already in our basis for <m>E_3(A)</m>.
+The first two vectors can be combined to give our other basis vector for <m>E_3(A)</m>,
+so that indicates that either one would be independent from our current basis for <m>E_3(A)</m>.
+Let's choose the simplest one of the two.
+</p>
+<sage>
+	<input>
+		q4 = vector((0,0,0,1,0,0,0))
+		print(q4)
+		C*q4
+	</input>
+	<output>
+		(0, 0, 0, 1, 0, 0, 0)
+		(1, 0, 1, 1, 1, 0, 1)
+	</output>
+</sage>
+<p>
+Notice that <me>\bbrac{3 I - A} \uvec{q}_4 = \uvec{q}_1 + \uvec{q}_3</me>,
+so <m>\bbrac{3 I - A} \uvec{q}_4</m> is an eigenvector, as desired.
+</p>
+<p>
+Since we are now at <m>\dim E_3^2(A) = m_2 = 4</m>,
+our analysis of this eigenvalue is complete.
+</p>
+</paragraphs>
+
+</subsection>
+
+<subsection>
+<title>The transition matrix and the triangular block form matrix</title>
+
+<p>
+We now have a basis for each of the generalized eigenspaces <m>G_{-1}(A)</m> and <m>G_3(A)</m>,
+with each of these bases built up one step at a time by extending a basis for one generalized eigensubspace <m>E_{\lambda_j}^k(A)</m> to a basis for the next generalized eigensubspace <m>E_{\lambda_j}^{k+1}(A)</m>.
+Now let's create our transition matrix <m>P</m>.
+</p>
+<sage>
+	<input>
+		P = column_matrix([p1, p2, p3, q1, q2, q3, q4])
+		print(P)
+	</input>
+	<output>
+		[ 0  1  1  0  0  1  0]
+		[ 0  0 -1  0  1  0  0]
+		[ 0  0  0  1  0  0  0]
+		[ 0  0 -1  1  0  0  1]
+		[ 0  0  1  1  0  0  0]
+		[ 0  1  0  0  1  0  0]
+		[ 1  0  0  0  0  1  0]
+	</output>
+</sage>
+<p> And now compute the form matrix directly. </p>
+<sage>
+	<input>
+		T = P.inverse() * A * P
+		print(T)
+	</input>
+	<output>
+		[-1  1  2  0  0  0  0]
+		[ 0 -1  1  0  0  0  0]
+		[ 0  0 -1  0  0  0  0]
+		[ 0  0  0  3  0  0 -1]
+		[ 0  0  0  0  3  0  0]
+		[ 0  0  0  0  0  3 -1]
+		[ 0  0  0  0  0  0  3]
+	</output>
+</sage>
+<p>
+It worked!
+Notice the that there is a <m>m_1 \times m_1</m> (that is, <m>3 \times 3</m>) scalar-triangular block with the eigenvalue <m>\lambda_1 = -1</m> repeated down the diagonal,
+and a <m>m_2 \times m_2</m> (that is, <m>4 \times 4</m>) scalar-triangular block with the eigenvalue <m>\lambda_2 = 3</m> repeated down the diagonal.
+We can extract these blocks using Python-ic list comprehension.
+</p>
+<sage>
+	<input>
+		T1 = T[0:3,0:3]
+		T2 = T[3:7,3:7]
+		print(T1)
+		print()
+		print(T2)
+	</input>
+	<output>
+		[-1  1  2]
+		[ 0 -1  1]
+		[ 0  0 -1]
+
+		[ 3  0  0 -1]
+		[ 0  3  0  0]
+		[ 0  0  3 -1]
+		[ 0  0  0  3]
+	</output>
+</sage>
+<p>
+We can also use the idea in
+<xref ref="subsection-similarity-examples-compute-invpap" />
+to compute <m>\inv{P} A P</m> by row reduction:
+we augment <m>P</m> with the result of <m>A P</m>,
+and then reducing the <m>P</m> part on the left to identity simultaneously applies <m>\inv{P}</m> to the <m>A P</m> part on the right.
+<me>
+	\left[\begin{array}{c|c} P \amp AP \end{array}\right] \qquad \rowredarrow \qquad
+	\left[\begin{array}{c|c} I \amp \inv{P}(AP) \end{array}\right]
+</me>
+</p>
+<sage>
+	<input>
+		P_AP = P.augment(A*P)
+		print(P_AP)
+		print()
+		I_iPAP = P_AP.rref()
+		print(I_iPAP)
+	</input>
+	<output>
+		[ 0  1  1  0  0  1  0  0 -1  0  0  0  3 -1]
+		[ 0  0 -1  0  1  0  0  0  0  1  0  3  0  0]
+		[ 0  0  0  1  0  0  0  0  0  0  3  0  0 -1]
+		[ 0  0 -1  1  0  0  1  0  0  1  3  0  0  2]
+		[ 0  0  1  1  0  0  0  0  0 -1  3  0  0 -1]
+		[ 0  1  0  0  1  0  0  0 -1  1  0  3  0  0]
+		[ 1  0  0  0  0  1  0 -1  1  2  0  0  3 -1]
+
+		[ 1  0  0  0  0  0  0 -1  1  2  0  0  0  0]
+		[ 0  1  0  0  0  0  0  0 -1  1  0  0  0  0]
+		[ 0  0  1  0  0  0  0  0  0 -1  0  0  0  0]
+		[ 0  0  0  1  0  0  0  0  0  0  3  0  0 -1]
+		[ 0  0  0  0  1  0  0  0  0  0  0  3  0  0]
+		[ 0  0  0  0  0  1  0  0  0  0  0  0  3 -1]
+		[ 0  0  0  0  0  0  1  0  0  0  0  0  0  3]
+	</output>
+</sage>
+<p>
+As expected, there's our triangular-block form matrix on the right.
+We can use Python-ic list comprehension to extract it, if we like.
+</p>
+<sage>
+	<input>
+		T = I_iPAP[:,7:14]
+		print(T)
+	</input>
+	<output>
+		[-1  1  2  0  0  0  0]
+		[ 0 -1  1  0  0  0  0]
+		[ 0  0 -1  0  0  0  0]
+		[ 0  0  0  3  0  0 -1]
+		[ 0  0  0  0  3  0  0]
+		[ 0  0  0  0  0  3 -1]
+		[ 0  0  0  0  0  0  3]
+	</output>
+</sage>
+<p> And again, we can extract the blocks. </p>
+<sage>
+	<input>
+		T1 = T[0:3,0:3]
+		T2 = T[3:7,3:7]
+		print(T1)
+		print()
+		print(T2)
+	</input>
+	<output>
+		[-1  1  2]
+		[ 0 -1  1]
+		[ 0  0 -1]
+
+		[ 3  0  0 -1]
+		[ 0  3  0  0]
+		[ 0  0  3 -1]
+		[ 0  0  0  3]
+	</output>
+</sage>
+
+</subsection>
+
+
+</section>

@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sage-scalar-triang">
+<title>Scalar-triangular Form</title>
+
+<subsection>
+<title>A <m>3 \times 3</m> example</title>
+<p> Here we will use Sage to carry out the calculations in <xref ref="example-scalar-triang-small" />. </p>
+
+<p> First let's load our matrix into Sage. </p>
+<sage>
+	<input>
+		A = matrix( [ [-6, -14, 5], [1, 2, -1], [-2, -5, 1] ] )
+		print(A)
+	</input>
+	<output>
+		[ -6 -14   5]
+		[  1   2  -1]
+		[ -2  -5   1]
+	</output>
+</sage>
+
+<paragraphs><title>Eigenvalue</title>
+
+<p> Let's verify that <m>A</m> has only a single eigenvalue. </p>
+<sage>
+	<input>A.eigenvalues()</input>
+	<output>[-1, -1, -1]</output>
+</sage>
+<p>
+We find a single eigenvalue <m>\lambda = -1</m>,
+repeated in the output according to its algebraic multiplicity <m>m_\lambda = 3</m>,
+as desired.
+</p>
+
+</paragraphs>
+
+<paragraphs><title>Eigenvectors</title>
+
+<p>
+Now we compute the null space of the matrix <m>(-1) I - A</m> to determine a basis of the eigenspace.
+As the scalar-triangular form of <m>A</m> cannot be actually scalar
+(see <xref ref="section-diagonalization-motivation" />),
+we will need this matrix again later to compute generalized eigenspaces,
+so we'll save it to the variable C.
+</p>
+<sage>
+	<input>
+		C = -1 * identity_matrix(3) - A
+		print(C)
+		print()
+		C.rref()
+	</input>
+	<output>
+		[ 5 14 -5]
+		[-1 -3  1]
+		[ 2  5 -2]
+
+		[ 1  0 -1]
+		[ 0  1  0]
+		[ 0  0  0]
+	</output>
+</sage>
+<p>
+Only one parameter is required, so we only get one eigenvector.
+Assigning <m>x_3 = t</m> leads to eigenvector
+<m>\uvec{p}_1 = (1,0,1)</m>.
+</p>
+<sage>
+	<input>
+		p1 = vector((1,0,1))
+		print(p1)
+		print(A*p1)
+	</input>
+	<output>
+		(1, 0, 1)
+		(-1, 0, -1)
+	</output>
+</sage>
+<p> Notice that <m>A \uvec{p}_1 = - \uvec{p}_1</m>, as expected. </p>
+
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the second generalized eigensubspace</title>
+
+<p>
+Continue on to the generalized eigensubspace of degree <m>2</m>.
+To do this, we analyze the null space of <m>C^2 = \bbrac{(-1)I - A}^2</m>.
+</p>
+<sage>
+	<input> (C^2).rref() </input>
+	<output>
+		[ 1  3 -1]
+		[ 0  0  0]
+		[ 0  0  0]
+	</output>
+</sage>
+<p>
+We need two parameters,
+but this doesn't mean we get two new vectors to combine with <m>\uvec{p}_1</m> <mdash />
+since the eigenspace is a subspace of the second generalized eigensubspace,
+we only get one new vector that is independent from <m>\uvec{p}_1</m>.
+</p>
+<p>
+But first solve as usual.
+Assigning parameters <m>x_2 = s</m> and <m>x_3 = t</m>,
+we get two basis vectors for the generalized eigensubspace <m>E_{-1}^2(A)</m>:
+<me> (-3,1,0), \qquad (1,0,1). </me>
+Take <m>\uvec{p}_2 = (-3,1,0)</m>, since the second generalized eigenvector above is actually our <m>\uvec{p}_1</m> eigenvector from before.
+</p>
+<sage>
+	<input>
+		p2 = vector((-3,1,0))
+		print(p2)
+		C*p2
+	</input>
+	<output>
+		(-3, 1, 0)
+		(-1, 0, -1)
+	</output>
+</sage>
+<p>
+Notice that <m>\bbrac{(-1)I - A} \uvec{p}_2</m> is a multiple of <m>\uvec{p}_1</m>,
+so <m>\bbrac{(-1)I - A} \uvec{p}_2</m> is an eigenvector, as desired.
+</p>
+
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the third generalized eigensubspace</title>
+
+<p>
+We're still short a vector, so we move on to analyzing the null space of <m>C^3</m>
+(where <m>C = (-1)I - A</m>).
+</p>
+<sage>
+	<input> (C^3).rref() </input>
+	<output>
+		[0 0 0]
+		[0 0 0]
+		[0 0 0]
+	</output>
+</sage>
+<p>
+Actually, <m>C^3 = 0</m>
+(as the only matrix to have <m>\RREF = 0</m> is the zero matrix itself).
+So the third generalized eigensubspace is all of <m>\R^3</m>,
+and we may choose our third vector to be any vector from <m>\R^3</m> that is linearly independent from the first two.
+</p>
+<p> Let's try the first standard basis vector. </p>
+<sage>
+	<input>
+		p3 = vector((1,0,0))
+		P = column_matrix( [ p1, p2, p3 ] )
+		print(P)
+		print()
+		print("rank is", P.rank())
+	</input>
+	<output>
+		[ 1 -3  1]
+		[ 0  1  0]
+		[ 1  0  0]
+
+		rank is 3
+	</output>
+</sage>
+<p>
+It worked!
+Since the rank is <m>3</m>, our three vectors are linearly independent.
+</p>
+
+</paragraphs>
+
+<paragraphs><title>The transition matrix and the scalar triangular form matrix</title>
+
+<p>
+We now have our basis of the generalized eigenspace <m>G_{-1}(A)</m>,
+built up one step at a time by extending a basis for one generalized eigensubspace to a basis for the next generalized eigensubspace.
+And we have already created our transition matrix <m>P</m> above.
+</p>
+<sage>
+	<input>
+		print(P)
+		print()
+		P.inverse() * A * P
+	</input>
+	<output>
+		[ 1 -3  1]
+		[ 0  1  0]
+		[ 1  0  0]
+
+		[-1  1 -2]
+		[ 0 -1  1]
+		[ 0  0 -1]
+	</output>
+</sage>
+<p>
+It worked!
+Our matrix is in scalar-triangular form,
+as it is upper triangular
+and has the eigenvalue repeated down the diagonal to make the <q>scalar</q> part of the form.
+</p>
+<p>
+We can also use the idea in
+<xref ref="subsection-similarity-examples-compute-invpap" />
+to compute <m>\inv{P} A P</m> by row reduction:
+we augment <m>P</m> with the result of <m>A P</m>,
+and then reducing the <m>P</m> part on the left to identity simultaneously applies <m>\inv{P}</m> to the <m>A P</m> part on the right.
+<me>
+	\left[\begin{array}{c|c} P \amp AP \end{array}\right] \qquad \rowredarrow \qquad
+	\left[\begin{array}{c|c} I \amp \inv{P}(AP) \end{array}\right]
+</me>
+</p>
+<sage>
+	<input>
+		P_AP = P.augment(A*P)
+		print(P_AP)
+		print()
+		I_iPAP = P_AP.rref()
+		print(I_iPAP)
+	</input>
+	<output>
+		[ 1 -3  1 -1  4 -6]
+		[ 0  1  0  0 -1  1]
+		[ 1  0  0 -1  1 -2]
+
+		[ 1  0  0 -1  1 -2]
+		[ 0  1  0  0 -1  1]
+		[ 0  0  1  0  0 -1]
+	</output>
+</sage>
+<p>
+As expected, there's our scalar-triangular form matrix on the right.
+We can use Python-ic list comprehension to extract it, if we like.
+</p>
+<sage>
+	<input>
+		T = I_iPAP[:,3:6]
+		print(T)
+	</input>
+	<output>
+		[-1  1 -2]
+		[ 0 -1  1]
+		[ 0  0 -1]
+	</output>
+</sage>
+
+</paragraphs>
+
+</subsection>
+
+<subsection>
+<title>A <m>5 \times 5</m> example</title>
+<p> Here we will use Sage to carry out the calculations in <xref ref="example-scalar-triang-larger" />. </p>
+
+<p> First let's load our matrix into Sage. </p>
+<sage>
+	<input>
+		A = matrix( [
+		  [ 3, 1,-8, 8,-3],
+		  [-2,-5, 0,-2,-5],
+		  [ 2, 7, 3, 2, 4],
+		  [ 3,11, 1, 5, 7],
+		  [ 2, 8, 2, 0, 9]
+		] )
+		print(A)
+	</input>
+	<output>
+		[ 3  1 -8  8 -3]
+		[-2 -5  0 -2 -5]
+		[ 2  7  3  2  4]
+		[ 3 11  1  5  7]
+		[ 2  8  2  0  9]
+	</output>
+</sage>
+
+<paragraphs><title>Eigenvalue</title>
+
+<p> Let's verify that <m>A</m> has only a single eigenvalue. </p>
+<sage>
+	<input>A.eigenvalues()</input>
+	<output>[3, 3, 3, 3, 3]</output>
+</sage>
+<p>
+We find a single eigenvalue <m>\lambda = 3</m>,
+repeated in the output according to its algebraic multiplicity <m>m_\lambda = 5</m>,
+as desired.
+</p>
+
+</paragraphs>
+
+<paragraphs><title>Eigenvectors</title>
+
+<p>
+Now we compute the null space of the matrix <m>3 I - A</m> to determine a basis of the eigenspace.
+As the scalar-triangular form of <m>A</m> cannot be actually scalar
+(see <xref ref="section-diagonalization-motivation" />),
+we will need this matrix again later to compute generalized eigenspaces,
+so we'll save it to the variable C.
+</p>
+<sage>
+	<input>
+		C = 3 * identity_matrix(5) - A
+		print(C)
+		print()
+		C.rref()
+	</input>
+	<output>
+		[  0  -1   8  -8   3]
+		[  2   8   0   2   5]
+		[ -2  -7   0  -2  -4]
+		[ -3 -11  -1  -2  -7]
+		[ -2  -8  -2   0  -6]
+
+		[   1    0    0    1 -3/2]
+		[   0    1    0    0    1]
+		[   0    0    1   -1  1/2]
+		[   0    0    0    0    0]
+		[   0    0    0    0    0]
+	</output>
+</sage>
+<p>
+Two parameters are required:
+assign <m>x_4 = s</m> and <m>x_5 = t</m>,
+leading to a pair of linearly independent eigenvectors.
+To clear fractions, our second eigenvector was obtained by setting <m>s = 0</m> and <m>t = 2</m>.
+<md><mrow> \uvec{p}_1 \amp = (-1,0,1,1,0) \amp \uvec{p}_2 \amp = (3,-2,-1,0,2) </mrow></md>
+</p>
+<sage>
+	<input>
+		p1 = vector((-1,0,1,1,0))
+		p2 = vector((3,-2,-1,0,2))
+		print(p1,p2)
+		print(A*p1,A*p2)
+	</input>
+	<output>
+		(-1, 0, 1, 1, 0) (3, -2, -1, 0, 2)
+		(-3, 0, 3, 3, 0) (9, -6, -3, 0, 6)
+	</output>
+</sage>
+<p> Notice that <m>A \uvec{p}_j = 3 \uvec{p}_j</m> for each of these vectors, as expected. </p>
+
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the second generalized eigensubspace</title>
+
+<p>
+Continue on to the generalized eigensubspace of degree <m>2</m>.
+To do this, we analyze the null space of <m>C^2 = \bbrac{3 I - A}^2</m>.
+</p>
+<sage>
+	<input> (C^2).rref() </input>
+	<output>
+		[  0   0   1  -1 1/2]
+		[  0   0   0   0   0]
+		[  0   0   0   0   0]
+		[  0   0   0   0   0]
+		[  0   0   0   0   0]
+	</output>
+</sage>
+<p>
+We need four parameters:
+setting <m>x_1, x_2, x_4, x_5</m> to parameters leads to a basis for the second generalized eigensubspace <m>E_3^2(A)</m> consisting of the four vectors
+<md alignment="gather">
+	<mrow> (1,0,0,0,0), </mrow>
+	<mrow> (0,1,0,0,0), </mrow>
+	<mrow> (0,0,1,1,0), </mrow>
+	<mrow> (0,0,-1,0,2). </mrow>
+</md>
+(Again, we have used <m>x_5 = 2</m> to clear fractions.)
+</p>
+<p>
+But we want a basis for <m>E_3^2(A)</m> that extends our already-chosen basis <m>\{\uvec{p}_1,\uvec{p}_2\}</m> for the eigenspace <m>E_3(A)</m>.
+Let's try the first two above.
+</p>
+<sage>
+	<input>
+		p3 = vector((1,0,0,0,0))
+		p4 = vector((0,1,0,0,0))
+		print(p3,p4)
+		print()
+		print("rank is:")
+		column_matrix([p1,p2,p3,p4]).rank()
+	</input>
+	<output>
+		(1, 0, 0, 0, 0) (0, 1, 0, 0, 0)
+
+		rank is:
+		4
+	</output>
+</sage>
+<p> Since the rank is <m>4</m>, the four vectors we have chosen so far are linearly independent. </p>
+
+</paragraphs>
+
+<paragraphs><title>Extend to a basis for the third generalized eigensubspace</title>
+
+<p>
+We're still short a vector, so we move on to analyzing the null space of <m>C^3</m>
+(where <m>C = 3I - A</m>).
+</p>
+<sage>
+	<input> (C^3).rref() </input>
+	<output>
+		[0 0 0 0 0]
+		[0 0 0 0 0]
+		[0 0 0 0 0]
+		[0 0 0 0 0]
+		[0 0 0 0 0]
+	</output>
+</sage>
+<p>
+Actually, <m>C^3 = 0</m>
+(as the only matrix to have <m>\RREF = 0</m> is the zero matrix itself).
+So the third generalized eigensubspace is all of <m>\R^5</m>,
+and we may choose our fifth vector to be any vector from <m>\R^5</m> that is linearly independent from the first four we have collected.
+</p>
+<p>
+We already have a couple of standard basis vectors in our collection,
+so this time let's try the last standard basis vector.
+</p>
+<sage>
+	<input>
+		p5 = vector((0,0,0,0,1))
+		P = column_matrix( [ p1, p2, p3, p4, p5 ] )
+		print(P)
+		print()
+		print("rank is", P.rank())
+	</input>
+	<output>
+		[-1  3  1  0  0]
+		[ 0 -2  0  1  0]
+		[ 1 -1  0  0  0]
+		[ 1  0  0  0  0]
+		[ 0  2  0  0  1]
+
+		rank is 5
+	</output>
+</sage>
+<p>
+It worked!
+Since the rank is <m>5</m>, our five vectors are linearly independent.
+</p>
+
+</paragraphs>
+
+<paragraphs><title>The transition matrix and the scalar triangular form matrix</title>
+
+<p>
+We now have our basis of the generalized eigenspace <m>G_3(A)</m>,
+built up one step at a time by extending a basis for one generalized eigensubspace to a basis for the next generalized eigensubspace.
+And we have already created our transition matrix <m>P</m> above.
+</p>
+<sage>
+	<input>
+		print(P)
+		print()
+		P.inverse() * A * P
+	</input>
+	<output>
+		[-1  3  1  0  0]
+		[ 0 -2  0  1  0]
+		[ 1 -1  0  0  0]
+		[ 1  0  0  0  0]
+		[ 0  2  0  0  1]
+
+		[ 3  0  3 11  7]
+		[ 0  3  1  4  3]
+		[ 0  0  3  0 -5]
+		[ 0  0  0  3  1]
+		[ 0  0  0  0  3]
+	</output>
+</sage>
+<p>
+It worked!
+Our matrix is in scalar-triangular form,
+as it is upper triangular
+and has the eigenvalue repeated down the diagonal to make the <q>scalar</q> part of the form.
+</p>
+<p>
+We can also use the idea in
+<xref ref="subsection-similarity-examples-compute-invpap" />
+to compute <m>\inv{P} A P</m> by row reduction:
+we augment <m>P</m> with the result of <m>A P</m>,
+and then reducing the <m>P</m> part on the left to identity simultaneously applies <m>\inv{P}</m> to the <m>A P</m> part on the right.
+<me>
+	\left[\begin{array}{c|c} P \amp AP \end{array}\right] \qquad \rowredarrow \qquad
+	\left[\begin{array}{c|c} I \amp \inv{P}(AP) \end{array}\right]
+</me>
+</p>
+<sage>
+	<input>
+		P_AP = P.augment(A*P)
+		print(P_AP)
+		print()
+		I_iPAP = P_AP.rref()
+		print(I_iPAP)
+	</input>
+	<output>
+		[-1  3  1  0  0 -3  9  3  1 -3]
+		[ 0 -2  0  1  0  0 -6 -2 -5 -5]
+		[ 1 -1  0  0  0  3 -3  2  7  4]
+		[ 1  0  0  0  0  3  0  3 11  7]
+		[ 0  2  0  0  1  0  6  2  8  9]
+
+		[ 1  0  0  0  0  3  0  3 11  7]
+		[ 0  1  0  0  0  0  3  1  4  3]
+		[ 0  0  1  0  0  0  0  3  0 -5]
+		[ 0  0  0  1  0  0  0  0  3  1]
+		[ 0  0  0  0  1  0  0  0  0  3]
+	</output>
+</sage>
+<p>
+As expected, there's our scalar-triangular form matrix on the right.
+We can use Python-ic list comprehension to extract it, if we like.
+</p>
+<sage>
+	<input>
+		T = I_iPAP[:,5:10]
+		print(T)
+	</input>
+	<output>
+		[ 3  0  3 11  7]
+		[ 0  3  1  4  3]
+		[ 0  0  3  0 -5]
+		[ 0  0  0  3  1]
+		[ 0  0  0  0  3]
+	</output>
+</sage>
+
+</paragraphs>
+
+</subsection>
+
+</section>

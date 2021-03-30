@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sage-lin-alg">
+<title>Linear Algebra Basics</title>
+
+<paragraphs><title>Entering a matrix</title>
+<p> A matrix is entered as a list of rows, where each row is a list of entries. </p>
+<sage>
+	<input>
+		A = matrix( [ [1,2,3], [4,5,6], [0,7,8] ] )
+		print(A)
+	</input>
+	<output>
+		[1 2 3]
+		[4 5 6]
+		[0 7 8]
+	</output>
+</sage>
+<p>
+As mentioned in <xref ref="section-sage-basics" />,
+if you are running Sage locally on your computer you can usually just input <c>A</c> instead of <c>print(A)</c> to get an echo of your input.
+</p>
+</paragraphs>
+
+<paragraphs><title>Matrix operations</title>
+<p> You can do all the things you think you can with a matrix. </p>
+<sage>
+	<input> A.transpose() </input>
+	<output>
+		[1 4 0]
+		[2 5 7]
+		[3 6 8]
+	</output>
+</sage>
+<sage>
+	<input> A.det() </input>
+	<output> 18 </output>
+</sage>
+<p> Yep, it's invertible. </p>
+<sage>
+	<input> A.inverse() </input>
+	<output>
+		[ -1/9  5/18  -1/6]
+		[-16/9   4/9   1/3]
+		[ 14/9 -7/18  -1/6]
+	</output>
+</sage>
+<sage>
+	<input> A.rref() </input>
+	<output>
+		[1 0 0]
+		[0 1 0]
+		[0 0 1]
+	</output>
+</sage>
+</paragraphs>
+
+<paragraphs><title>Matrix arithmetic</title>
+<p> This all works as you'd expect. </p>
+<sage>
+	<input>
+		B = matrix( [ [1,1,1], [2,2,2], [3,3,3] ] )
+		print(B)
+	</input>
+	<output>
+		[1 1 1]
+		[2 2 2]
+		[3 3 3]
+	</output>
+</sage>
+<sage>
+	<input> A + B </input>
+	<output>
+		[ 2  3  4]
+		[ 6  7  8]
+		[ 3 10 11]
+	</output>
+</sage>
+<sage>
+	<input> A * B </input>
+	<output>
+		[14 14 14]
+		[32 32 32]
+		[38 38 38]
+	</output>
+</sage>
+<sage>
+	<input> 7 * B </input>
+	<output>
+		[ 7  7  7]
+		[14 14 14]
+		[21 21 21]
+	</output>
+</sage>
+<sage>
+	<input> B^2 </input>
+	<output>
+		[ 6  6  6]
+		[12 12 12]
+		[18 18 18]
+	</output>
+</sage>
+</paragraphs>
+
+<paragraphs><title>Vectors</title>
+<p>
+Sage has a <c>vector</c> object type.
+Notice all the brackets.
+</p>
+<sage>
+	<input>
+		v = vector((1,2,3))
+		print(v)
+	</input>
+	<output> (1, 2, 3) </output>
+</sage>
+<p>
+Sage treats a vector as a row vector,
+but does the right thing if you multiply it on the left by a matrix.
+Here is <em>row-vector-times-matrix</em>.
+</p>
+<sage>
+	<input>v * A</input>
+	<output> (9, 33, 39) </output>
+</sage>
+<p> And now <em>matrix-times-column-vector</em> (but the output will still be as a vector object). </p>
+<sage>
+	<input> A * v </input>
+	<output> (14, 32, 38) </output>
+</sage>
+<p>
+You can use vectors to create a matrix,
+but it will be as rows.
+</p>
+<sage>
+	<input>
+		v1 = vector((1,0,-1,1))
+		v2 = vector((1,1,0,2))
+		v3 = vector((0,1,1,1))
+		M = matrix([v1,v2,v3])
+		print(M)
+	</input>
+	<output>
+		[ 1  0 -1  1]
+		[ 1  1  0  2]
+		[ 0  1  1  1]
+	</output>
+</sage>
+<p>
+Usually we want to work with vectors as <em>columns</em> in a matrix.
+No problem, either transpose <ellipsis />
+</p>
+<sage>
+	<input> M.transpose() </input>
+	<output>
+		[ 1  1  0]
+		[ 0  1  1]
+		[-1  0  1]
+		[ 1  2  1]
+	</output>
+</sage>
+<p> <ellipsis /> or use the <c>column_matrix</c> method in the first place. </p>
+<sage>
+	<input>
+		P = column_matrix([v1,v2,v3])
+		print(P)
+	</input>
+	<output>
+		[ 1  1  0]
+		[ 0  1  1]
+		[-1  0  1]
+		[ 1  2  1]
+	</output>
+</sage>
+<p> Now let's investigate whether our vectors are linearly dependent or independent. </p>
+<sage>
+	<input> P.rref() </input>
+	<output>
+		[ 1  0 -1]
+		[ 0  1  1]
+		[ 0  0  0]
+		[ 0  0  0]
+	</output>
+</sage>
+<p>
+Turns out our vectors are linearly dependent.
+In particular, from the RREF we see that <m>\uvec{v}_3 = \uvec{v}_2 - \uvec{v}_1</m>.
+</p>
+<p>
+If all we wanted to know was dependence/independence,
+we could just use <c>rank</c>.
+</p>
+<sage>
+	<input> P.rank() </input>
+	<output>2</output>
+</sage>
+<p>
+Rank <m>2</m> for three vectors means dependent.
+Or, since dimension of row spaces and column spaces are equal,
+if all we wanted to know was dependence/independence,
+we could have used rank without the <c>transpose</c> or <c>column_matrix</c> methods.
+</p>
+<sage>
+	<input>matrix([v1,v2,v3]).rank()</input>
+	<output>2</output>
+</sage>
+<p>
+Yep, still dependent.
+(But keep in mind that row space won't tell you the dependence relation among the vectors, only column space will.)
+</p>
+<p>
+We can extract a column from a matrix as a vector.
+Keep in mind that Sage uses <m>0</m>-based indexing.
+</p>
+<sage>
+	<input>
+		print(A)
+		print()
+		col1 = A.column(0)
+		col2 = A.column(1)
+		col3 = A.column(2)
+		print("col1 = ",col1)
+		print("col1 = ",col2)
+		print("col1 = ",col3)
+	</input>
+	<output>
+		[1 2 3]
+		[4 5 6]
+		[0 7 8]
+
+		col1 =  (1, 4, 0)
+		col1 =  (2, 5, 7)
+		col1 =  (3, 6, 8)
+	</output>
+</sage>
+<p>
+We can also augment a matrix with a vector,
+usually to solve a system.
+</p>
+<sage>
+	<input>
+		b = vector((1,0,-1))
+		SYS = A.augment(b)
+		print(SYS)
+		print()
+		SYS.rref()
+	</input>
+	<output>
+		[ 1  2  3  1]
+		[ 4  5  6  0]
+		[ 0  7  8 -1]
+
+		[    1     0     0  1/18]
+		[    0     1     0 -19/9]
+		[    0     0     1 31/18]
+	</output>
+</sage>
+<p>
+But we can also row reduce to determine if a vector is in the span of some other collection of vectors.
+Recall that <c>P</c> is the matrix we made with columns equal to <c>v1</c>, <c>v2</c>, and <c>v3</c>.
+Notice how we can chain a bunch of computations into one command.
+</p>
+<sage>
+	<input>
+		w = vector((7,-1,2,2))
+		P.augment(w).rref()
+	</input>
+	<output>
+		[ 1  0 -1  0]
+		[ 0  1  1  0]
+		[ 0  0  0  1]
+		[ 0  0  0  0]
+	</output>
+</sage>
+<p>
+If we view the above as the reduced form of the augmented matrix
+<me>\left[\begin{array}{ccc|c} \uvec{v}_1 \amp \uvec{v}_2 \amp \uvec{v}_3 \amp \uvec{w} \end{array}\right]</me>
+then the third row says that this system is inconsistent,
+so <m>\uvec{w}</m> is not in <m>\Span \{ \uvec{v}_1, \uvec{v}_2, \uvec{v}_3 \}</m>.
+</p>
+<p>
+Let's cook up another example where <m>\uvec{w}</m> will definitely be in the span of the <m>\uvec{v}</m> vectors.
+This time we'll drop the creation of the intermediate <c>w_column</c> matrix.
+</p>
+<sage>
+	<input>
+		w = 3 * v1 - 2 * v2 + v3
+		P.augment(w).rref()
+	</input>
+	<output>
+		[ 1  0 -1  2]
+		[ 0  1  1 -1]
+		[ 0  0  0  0]
+		[ 0  0  0  0]
+	</output>
+</sage>
+<p>
+OK, we fudged this one with the way we defined <m>\uvec{w}</m>,
+so that by definition it was in <m>\Span \{ \uvec{v}_1, \uvec{v}_2, \uvec{v}_3 \}</m>.
+But row reducing served another purpose: from the fourth column we obtain a simplified expression
+<m> \uvec{w} = 2 \uvec{v}_1 - \uvec{v}_2 </m>.
+(And we already knew <m>\uvec{v}_3</m> was dependent with <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m>,
+so <m>\uvec{v}_3</m> was not needed as a spanning vector.)
+</p>
+</paragraphs>
+
+<paragraphs><title>Special forms of matrices</title>
+<p> Zero matrix. </p>
+<sage>
+	<input>
+		Z = zero_matrix(3)
+		print(Z)
+	</input>
+	<output>
+		[0 0 0]
+		[0 0 0]
+		[0 0 0]
+	</output>
+</sage>
+<p>
+Identity matrix.
+(But don't use <c>I</c> as a variable name for it, Sage already uses that for the imaginary complex number.)
+</p>
+<sage>
+	<input>
+		Ident = identity_matrix(3)
+		print(Ident)
+	</input>
+	<output>
+		[1 0 0]
+		[0 1 0]
+		[0 0 1]
+	</output>
+</sage>
+<p> We'll often need scalar matrices when investigating eigenvalues and eigenvectors. </p>
+<sage>
+	<input> 7 * Ident </input>
+	<output>
+		[7 0 0]
+		[0 7 0]
+		[0 0 7]
+	</output>
+</sage>
+<p> Or a variable scalar matrix if we don't yet know the eigenvalue to use. </p>
+<sage>
+	<input> x * Ident </input>
+	<output>
+		[x 0 0]
+		[0 x 0]
+		[0 0 x]
+	</output>
+</sage>
+<p> We can also create a diagonal matrix with specific entries. </p>
+<sage>
+	<input> D = diagonal_matrix([2,3,5]) </input>
+	<output>
+		[x 0 0]
+		[0 x 0]
+		[0 0 x]
+	</output>
+</sage>
+<p> Later in the course we will deal with block matrices. </p>
+<sage>
+	<input>
+		C = matrix([ [1,2], [3,4] ])
+		block_C = block_matrix([ [C, -C], [C^2, C] ])
+		print(block_C)
+	</input>
+	<output>
+		[ 1  2|-1 -2]
+		[ 3  4|-3 -4]
+		[-----+-----]
+		[ 7 10| 1  2]
+		[15 22| 3  4]
+	</output>
+</sage>
+<p>
+Even though the output appears to be split into blocks
+(which is how we should think of it, since we constructed it that way),
+it's really just a regular matrix.
+</p>
+<sage>
+	<input>
+		print(block_C)
+		print("First column vector in block_C is ",block_C.column(0))
+	</input>
+	<output>
+		[ 1  2|-1 -2]
+		[ 3  4|-3 -4]
+		[-----+-----]
+		[ 7 10| 1  2]
+		[15 22| 3  4]
+	</output>
+</sage>
+<p>
+If you like vertical dividers in your augmented matrices,
+you can build them this way instead of using the <c>augment</c> method.
+But remember that Sage thinks of vectors as <em>row</em> vectors.
+While Sage does this right thing if we do <c>M.augment(v)</c> for matrix <c>M</c> and vector <c>v</c>
+and appends the vector as a new <em>column</em>,
+it isn't so accommodating with the <c>block_matrix</c> method,
+as there is too much possible ambiguity.
+So we need to explicitly turn our vector into a column matrix.
+</p>
+<sage>
+	<input>
+		SYS = block_matrix([ [A, column_matrix([b])] ])
+		print(SYS)
+		print()
+		SYS.rref()
+	</input>
+	<output>
+		[ 1  2  3| 1]
+		[ 4  5  6| 0]
+		[ 0  7  8|-1]
+
+		[    1     0     0| 1/18]
+		[    0     1     0|-19/9]
+		[    0     0     1|31/18]
+	</output>
+</sage>
+<p>
+If we want certain blocks in our block matrix to be an identity block or a zero block,
+we can just put numbers <c>1</c> or <c>0</c>,
+and Sage will figure out the correct size of block to use based on other blocks around them.
+(But you can only put a <c>1</c> where it will definitely be a square block.)
+</p>
+<sage>
+	<input>
+		M = block_matrix([ [1,matrix([b]),0], [0,A,1], [0,0,A] ])
+		print(M)
+	</input>
+	<output>
+		[1|8 8 8|0 0 0]
+		[-+-----+-----]
+		[0|1 2 3|1 0 0]
+		[0|4 5 6|0 1 0]
+		[0|7 8 9|0 0 1]
+		[-+-----+-----]
+		[0|0 0 0|1 2 3]
+		[0|0 0 0|4 5 6]
+		[0|0 0 0|7 8 9]
+	</output>
+</sage>
+<p>
+One last special type of matrix we will meet in this course is a block-diagonal matrix,
+which is a block matrix where all the blocks are zero, except possibly in a diagonal pattern of blocks.
+</p>
+<sage>
+	<input>
+		M = block_diagonal_matrix([ C, identity_matrix(1), A ])
+		print(M)
+	</input>
+	<output>
+		[1 2|0|0 0 0]
+		[3 4|0|0 0 0]
+		[---+-+-----]
+		[0 0|1|0 0 0]
+		[---+-+-----]
+		[0 0|0|1 2 3]
+		[0 0|0|4 5 6]
+		[0 0|0|7 8 9]
+	</output>
+</sage>
+<p>
+(This time we had to put an explicit <c>identity_matrix(1)</c> instead of just <c>1</c>,
+or else Sage would have told us <c>Error: insufficient information to determine dimensions</c>.)
+</p>
+</paragraphs>
+
+</section>

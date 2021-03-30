@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sage-gram-schmidt">
+<title>Gram-Schmidt Orthogonalization</title>
+
+<p> Here we will carry out <xref ref="example-inprod-orthog-apply-gs-P2" />. </p>
+
+<p> First let's enter our initial (non-orthogonal) basis vectors into Sage. </p>
+<sage>
+	<input>
+		v1 = 1
+		v2 = x
+		v3 = x^2
+		print(v1,',',v2,',',v3)
+	</input>
+	<output> 1 , x , x^2 </output>
+</sage>
+
+<p>
+To make life easier, let's create a Python function to compute our inner product values for us.
+The last line is to test it out.
+</p>
+<sage>
+	<input>
+		def inprod(f,g):
+		    return integrate(f*g,x,0,1)
+		inprod(1,x)
+	</input>
+	<output> 1/2 </output>
+</sage>
+<p>
+Our calculation <c>inprod(1,x)</c> should be computing the integral
+<me> \int_0^1 1 x \, dx </me>,
+which should evaluate to the area of a triangle of base and height both <m>1</m>.
+Looks like the computation got it correct.
+</p>
+
+<p> Now we can begin the Gram-Schmidt process by setting <m>\uvec{e}_1</m> to be our first basis vector. </p>
+<sage>
+	<input>
+		e1 = v1
+		print('e1 =',e1)
+	</input>
+	<output> 1 </output>
+</sage>
+
+<p> Next we can compute <m>\uvec{e}_2</m>. </p>
+<sage>
+	<input>
+		e2 = v2 - (inprod(v2,e1) / inprod(e1,e1)) * e1
+		print('e2 =',e2)
+	</input>
+	<output> x - 1/2 </output>
+</sage>
+
+<p> And finally <m>\uvec{e}_3</m>. </p>
+<sage>
+	<input>
+		e3 = v3 - (inprod(v3,e1) / inprod(e1,e1)) * e1 - (inprod(v3,e2) / inprod(e2,e2)) * e2
+		print('e3 =',e3)
+	</input>
+	<output> x^2 - x + 1/6 </output>
+</sage>
+
+<p>
+We now have the orthogonal basis <me> \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </me>,
+just as in the textbook.
+Let's double-check:
+</p>
+<sage>
+	<input>
+		print(inprod(e1,e2))
+		print(inprod(e1,e3))
+		print(inprod(e2,e3))
+	</input>
+	<output>
+		0
+		0
+		0
+	</output>
+</sage>
+<p> Yep, all zeros. </p>
+
+<p>
+If we want an ortho<em>normal</em> basis,
+just need to normalize.
+</p>
+<sage>
+	<input>
+		f1 = e1 / sqrt(inprod(e1,e1))
+		f2 = e2 / sqrt(inprod(e2,e2))
+		f3 = e3 / sqrt(inprod(e3,e3))
+		print(f1,',',f2,',',f3)
+	</input>
+	<output> 1 , 3*sqrt(1/3)*(2*x - 1) , 5*sqrt(1/5)*(6*x^2 - 6*x + 1) </output>
+</sage>
+
+<paragraphs>
+	<title>Bonus Fun</title>
+	<p>
+	If you've taken a Python programming class,
+	see if you can write a procedure (using <c>def</c>)
+	that takes a list <c>B</c> and a function <c>inprod</c> as parameters,
+	and returns a list containing the results of performing the Gram-Schmidt process on the objects in <c>B</c>
+	using the input parameter function <c>inprod</c> as the inner product function.
+	Fun!
+	</p>
+</paragraphs>
+
+</section>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="best-approx">
+<title>Best Approximation</title>
+
+<subsection>
+<title>Approximating a matrix</title>
+
+<p> Here we will use Sage to carry out the calculations in <xref ref="example-projection-compute" />. </p>
+
+<p>
+We carry out the whole process, including Gram-Schmidt to obtain the orthogonal basis.
+The subspace <m>U</m> is described as
+<em>consisting of [those] upper-triangular matrices with <m>(1,2)</m> entry equal to the trace of the matrix</em>.
+Parametrically, we can describe <m>U</m> as
+<me> U = \left\{ \begin{bmatrix} a \amp a + b \\ 0 \amp b \end{bmatrix} \right\} </me>,
+where <m>a</m> and <m>b</m> are free parameters.
+This leads to (non-orthogonal) basis
+<me> \left\{
+	\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
+	\begin{bmatrix} 0 \amp 1 \\ 0 \amp 1 \end{bmatrix}
+\right\} </me>,
+where these matrices correspond to parameter choices <m>\{a = 1, b = 0\}</m> and <m>\{a = 0, b = 1\}</m>, respectively.
+</p>
+
+<paragraphs><title>Set up</title>
+<p> First let's load our initial basis vectors for <m>U</m> into Sage. </p>
+<sage>
+	<input>
+		A1 = matrix( [ [1, 1], [0, 0] ] )
+		A2 = matrix( [ [0, 1], [0, 1] ] )
+		print(A1)
+		print()
+		print(A2)
+	</input>
+	<output>
+		[1 1]
+		[0 0]
+
+		[0 1]
+		[0 1]
+	</output>
+</sage>
+<p>
+As in <xref ref="section-sage-gram-schmidt" />,
+let's make life easier by creating a Python procedure for our inner product.
+</p>
+<sage>
+	<input>
+		def inprod(A,B):
+		    return (B.T * A).trace()
+		print("inprod function loaded")
+	</input>
+	<output> inprod function loaded </output>
+</sage>
+<p> <em>Note:</em> <c>B.T</c> is a Sage <q>shortcut</q> for <c>B.transpose()</c>. </p>
+</paragraphs>
+
+<paragraphs><title>Gram-Schmidt That Thing</title>
+<p> It's the dead duo's time to shine. </p>
+<sage>
+	<input>
+		E1 = A1
+		E2 = A2 - (inprod(A2,E1) / inprod(E1,E1)) * E1
+		print(E1)
+		print()
+		print(E2)
+	</input>
+	<output>
+		[1 1]
+		[0 0]
+
+		[-1/2  1/2]
+		[   0    1]
+	</output>
+</sage>
+<p>
+Ugh, fractions.
+Since scaling doesn't affect orthogonality,
+let's scale <m>E_2</m> to clear the fractions.
+</p>
+<sage>
+	<input>
+		E2 = 2 * E2
+		print(E2)
+	</input>
+	<output>
+		[-1 1]
+		[ 0 2]
+	</output>
+</sage>
+<p> That's better. </p>
+</paragraphs>
+
+<paragraphs><title>Projection time</title>
+<p>
+The point of this example is to compute the matrix in <m>U</m> that is closest to being the identity matrix.
+For that, we want to compute <m>\proj_U I</m>.
+</p>
+<sage>
+	<input>
+		ID = identity_matrix(2)
+		PROJ = (inprod(ID,E1) / inprod(E1,E1)) * E1 + (inprod(ID,E2) / inprod(E2,E2)) * E2
+		print(PROJ)
+	</input>
+	<output>
+		[1/3 2/3]
+		[  0 1/3]
+	</output>
+</sage>
+<p>
+As expected, this is an upper-triangular matrix with the <m>(1,2)</m> entry equal to the trace.
+In other words, the result does indeed lie in the subspace <m>U</m>.
+</p>
+<p> Let's verify that <m>\proj_U I</m> and <m>\proj_{U^\perp} I = I - proj_U I</m> are orthogonal. </p>
+<sage>
+	<input>
+		O_PROJ = ID - PROJ
+		inprod(PROJ, O_PROJ)
+	</input>
+	<output> 0 </output>
+</sage>
+<p>
+Yep, they're orthogonal.
+Which means we can use the projection onto <m>U^\perp</m> to compute the distance from <m>I</m> to the space <m>U</m>.
+</p>
+<sage>
+	<input> sqrt(inprod(O_PROJ, O_PROJ)) </input>
+	<output> 0 </output>
+</sage>
+</paragraphs>
+
+</subsection>
+
+
+
+
+<subsection>
+<title>Approximating a function</title>
+
+<p> Here we will use Sage to carry out the calculations in <xref ref="example-projection-approx-sine-by-quadratic" />. </p>
+
+<p>
+As we have already demonstrated using Sage to apply Gram-Schmidt on our initial basis for this problem in <xref ref="section-sage-gram-schmidt" />,
+we'll skip that part this time and proceed immediately to entering in our function, our orthogonal basis, and our inner product function.
+</p>
+
+<sage>
+	<input>
+		f = sin(pi * x)
+		print(f)
+		e1 = 1
+		e2 = x - 1/2
+		e3 = x^2 - x + 1/6
+		print(e1,',',e2,',',e3)
+		def inprod(f,g):
+		    return integrate(f*g,x,0,1)
+		print("inprod function loaded")
+	</input>
+	<output>
+		sin(pi*x)
+		1 , x - 1/2 , x^2 - x + 1/6
+	</output>
+</sage>
+
+<p> Time to drop that perp. </p>
+
+<sage>
+	<input>
+		proj = \
+		    (inprod(f,e1) / inprod(e1,e1)) * e1 \
+		  + (inprod(f,e2) / inprod(e2,e2)) * e2 \
+		  + (inprod(f,e3) / inprod(e3,e3)) * e3
+		print(proj)
+	</input>
+	<output> 2/pi + 10*(pi^2 - 12)*(6*x^2 - 6*x + 1)/pi^3 </output>
+</sage>
+
+<p><em>Note:</em> The backslash at the end of some lines are a Python line continuation character, so that separate lines can be joined into one command for better readability. </p>
+
+<p>
+Huh, that was pretty easy.
+Who knew that with the right set-up, a computer could turn a tedious calculation into something so simple?
+</p>
+
+<p> Finally, let's calculate the <q>error</q> in our approximation. </p>
+
+<sage>
+	<input>
+		o_proj = f - proj
+		err = sqrt(inprod(o_proj,o_proj))
+		print(err.n())
+	</input>
+	<output> 0.0172635958108450 </output>
+</sage>
+
+<p>
+How does this compare to the <q>error</q> in the <q>naive</q> approximation described at the beginning of
+<xref ref="example-projection-approx-sine-by-quadratic" />?
+</p>
+
+<sage>
+	<input>
+		naive_err_vec = f - (4*x - 4*x^2)
+		naive_err = sqrt(inprod(naive_err_vec,naive_err_vec))
+		print(naive_err.n())
+	</input>
+	<output> 0.0358361754509264 </output>
+</sage>
+
+<p>
+So the orthogonal projection is better by a factor of <m>2</m>.
+(Though this judgement is based to the definition of the inner product.)
+</p>
+
+</subsection>
+
+</section>
