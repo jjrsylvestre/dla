@@ -40,14 +40,14 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 For subtraction, watch out for double negatives!
 </p>
 
-<example xml:id="example-matrix-ops-examples-add"><title>Matrix addition</title><p><me>
+<example xml:id="example-matrix-ops-add"><title>Matrix addition</title><p><me>
 	\left[\begin{array}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{array}\right]
 	+ \left[\begin{array}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{array}\right]
 	= \begin{bmatrix} 1+0 \amp -2+1 \\ 3+1 \amp 4+(-2) \\ -5+11 \amp 6+0 \end{bmatrix}
 	= \left[\begin{array}{rr} 1 \amp -1 \\ 4 \amp 2 \\ 6 \amp 6 \end{array}\right]
 </me></p></example>
 
-<example xml:id="example-matrix-ops-examples-subtr"><title>Matrix subtraction</title><p><md><mrow>
+<example xml:id="example-matrix-ops-subtr"><title>Matrix subtraction</title><p><md><mrow>
 	\left[\begin{array}{rrr} 1 \amp -2 \amp 3 \\ 0 \amp -4 \amp -5 \end{array}\right]
 	- \left[\begin{array}{rrr} 0 \amp 1 \amp 1 \\ -2 \amp 11 \amp -1 \end{array}\right]
 	\amp = \begin{bmatrix} 1-0 \amp -2-1 \amp 3-1 \\ 0-(-2) \amp -4-11 \amp -5-(-1) \end{bmatrix}
@@ -55,7 +55,7 @@ For subtraction, watch out for double negatives!
 	\amp = \left[\begin{array}{rrr} 1 \amp -3 \amp 2 \\ 2 \amp -15 \amp -4 \end{array}\right]
 </mrow></md></p></example>
 
-<example xml:id="example-matrix-ops-examples-scalar-mul"><title>Scalar multiplication of a matrix</title><p><me>
+<example xml:id="example-matrix-ops-scalar-mul"><title>Scalar multiplication of a matrix</title><p><me>
 		(-5)\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
 		= \left[\begin{array}{rr} -5 \amp 10 \\ 15 \amp -20\end{array}\right]
 </me></p></example>
@@ -66,7 +66,7 @@ For subtraction, watch out for double negatives!
 <subsection xml:id="subsection-matrix-ops-examples-mult">
 <title>Matrix multiplication</title>
 
-<example xml:id="example-matrix-ops-examples-detailed-mult">
+<example xml:id="example-matrix-ops-detailed-mult">
 	<title>A detailed multiplication example</title>
 	<p>
 	Let's compute the matrix product <m>AB</m>, for
@@ -361,7 +361,7 @@ Let's re-examine the systems in the examples from <xref ref="section-row-red-exa
 and express their solutions in vector form.
 </p>
 
-<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-unique">
+<example xml:id="example-matrix-ops-sys-sol-vector-forms-unique">
 	<title>Solutions in vector form: one unique solution</title>
 	<p>
 	The system from <xref ref="activity-row-red-system-unique-sol" /> can be expressed in the form <m>A\uvec{x} = \uvec{b}</m> for
@@ -378,7 +378,7 @@ and express their solutions in vector form.
 		\uvec{b} \amp = \begin{bmatrix} 4 \\ 3 \\ 7 \end{bmatrix}.
 	</mrow></md>
 	We solved this system in
-	<xref ref="example-row-red-examples-solving-unique" />
+	<xref ref="example-row-red-solving-unique" />
 	and determined that it had one unique solution,
 	<m>x = 5</m>, <m>y = 2</m>, and <m>z = 3</m>.
 	In vector form, we write this solution as
@@ -389,7 +389,7 @@ and express their solutions in vector form.
 	</p>
 </example>
 
-<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-infinite">
+<example xml:id="example-matrix-ops-sys-sol-vector-forms-infinite">
 	<title>Solutions in vector form: an infinite number of solutions</title>
 	<p>
 	The system from <xref ref="activity-row-red-system-infinite-sol" /> can be expressed in the form <m>A \uvec{x} = \uvec{b}</m> for
@@ -406,7 +406,7 @@ and express their solutions in vector form.
 		\uvec{b} \amp = \left[\begin{array}{r} -9 \\ -5 \\ -12 \end{array}\right].
 	</mrow></md>
 	We solved this system in
-	<xref ref="example-row-red-examples-solving-infinite" />,
+	<xref ref="example-row-red-solving-infinite" />,
 	and determined that it had an infinite number of solutions.
 	We expressed the general solution to the system using parametric equations
 	<md><mrow>
@@ -431,7 +431,7 @@ and express their solutions in vector form.
 	</p>
 </example>
 
-<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-homog">
+<example xml:id="example-matrix-ops-sys-sol-vector-forms-homog">
 	<title>Solutions in vector form: a homogenous system</title>
 	<p>
 	The system from <xref ref="activity-row-red-system-homog-sol" /> is homogeneous,
@@ -447,7 +447,7 @@ and express their solutions in vector form.
 		\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix},
 	</mrow></md>
 	where <m>\zerovec</m> is the <m>3 \times 1</m> zero column vector. We solved this system in
-	<xref ref="example-row-red-examples-solving-homog" />,
+	<xref ref="example-row-red-solving-homog" />,
 	and determined that it had an infinite number of solutions.
 	We expressed the general solution to the system using parametric equations
 	<md><mrow> x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t </mrow></md>.
@@ -477,11 +477,11 @@ and express their solutions in vector form.
 	</p>
 </example>
 
-<example xml:id="example-matrix-ops-examples-sys-sol-vector-forms-corresponding-homog">
+<example xml:id="example-matrix-ops-sys-sol-vector-forms-corresponding-homog">
 	<title>Solutions in vector form: patterns in homogeneous/nonhomogeneous systems</title>
 	<p>
 	In
-	<xref ref="example-row-red-examples-solving-corresponding-homog" />,
+	<xref ref="example-row-red-solving-corresponding-homog" />,
 	we solved a homogenous system <m>A\uvec{x} = \zerovec</m> with
 	<md><mrow>
 		A \amp =
@@ -504,16 +504,16 @@ and express their solutions in vector form.
 		= t\left[\begin{array}{r}-2\\1\\0\end{array}\right]
 	</me>.
 	This homogeneous system has the same coefficient matrix as in
-	<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
+	<xref ref="example-matrix-ops-sys-sol-vector-forms-infinite" />
 	above, so it is not surprising that their general solutions are related.
 	In particular, notice that both systems <em>have the same variable part</em>,
 	but that the nonhomogeneous system from
-	<xref ref="example-matrix-ops-examples-sys-sol-vector-forms-infinite" />
+	<xref ref="example-matrix-ops-sys-sol-vector-forms-infinite" />
 	has a non-trivial constant part.
 	</p>
 	<aside><title>Compare</title><p>
 		with the discussion at the end of
-		<xref ref="example-row-red-examples-solving-corresponding-homog" />.
+		<xref ref="example-row-red-solving-corresponding-homog" />.
 		</p>
 	</aside>
 </example>
