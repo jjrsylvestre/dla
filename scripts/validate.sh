@@ -5,4 +5,4 @@ xmllint \
   --xinclude \
   --postvalid \
   --relaxng /opt/mathbook/schema/pretext.rng \
-  src/book.xml
+  src/book.ptx

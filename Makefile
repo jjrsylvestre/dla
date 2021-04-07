@@ -1,8 +1,8 @@
 SOURCES = \
-  $(wildcard src/*.xml) $(wildcard src/*.tex) \
-  $(wildcard src/*/*.xml) $(wildcard src/*/*.tex) \
-  $(wildcard src/*/*/*.xml) $(wildcard src/*/*/*.tex) \
-  $(wildcard src/*/*/*/*.xml) $(wildcard src/*/*/*/*.tex)
+  $(wildcard src/*.ptx) $(wildcard src/*.tex) \
+  $(wildcard src/*/*.ptx) $(wildcard src/*/*.tex) \
+  $(wildcard src/*/*/*.ptx) $(wildcard src/*/*/*.tex) \
+  $(wildcard src/*/*/*/*.ptx) $(wildcard src/*/*/*/*.tex)
 # I think that's as deep as things go...
 
 BRANDLOGO=AUG-Colour.png
@@ -76,7 +76,7 @@ ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx: $(SOURCES) | validate-xml
 	  --xinclude \
 	  --output ${BUILDDIR}/ptx/${ROOTDOCNAME}-${*}.ptx \
 	  --stringparam version ${*} \
-	  ./preprocess.xsl src/${ROOTDOCNAME}.xml
+	  ./preprocess.xsl src/${ROOTDOCNAME}.ptx
 	@echo "...DONE"
 
 ${BUILDDIR}/html/.sentinal.%: ${BUILDDIR}/ptx/${ROOTDOCNAME}-%.ptx
@@ -155,6 +155,6 @@ html-serve:
 
 validate-xml: $(SOURCES)
 	@echo "Validating xml..."
-	@xmllint --xinclude src/${ROOTDOCNAME}.xml | xmllint --noout -
+	@xmllint --xinclude src/${ROOTDOCNAME}.ptx | xmllint --noout -
 	@mkdir -p ${BUILDDIR}
 	@echo "...DONE"
