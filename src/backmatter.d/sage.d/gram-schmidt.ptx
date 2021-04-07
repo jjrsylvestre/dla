@@ -17,6 +17,297 @@ respective owners.
 <section xml:id="section-sage-gram-schmidt">
 <title>Gram-Schmidt Orthogonalization</title>
 
+<introduction><warning>
+
+	<p>
+	This page contains several redefinitions of a Python function <c>inprod</c>.
+	You will get incorrect results or errors if you <c>Evaluate</c> a Sage cell defining that function in one subsection below,
+	and then <c>Evaluate</c> Sage cells that use a function by that same name in a different subsection below without
+	evaluating the appropriate Sage cell near the beginning of that different subsection that redefines that <c>inprod</c> function to the appropriate formula used in the example in that particular subsection.
+	</p>
+
+	<p>
+	The best way to avoid this problem is to <c>Evaluate</c> every Sage cell in a particular subsection,
+	from the beginning,
+	in order.
+	</p>
+
+</warning></introduction>
+
+<subsection>
+<title>An example in <m>\R^4</m></title>
+
+<p>
+Let's begin simply with the standard inner product on <m>\R^4</m>.
+Suppose we want to produce an orthogonal basis for the <q>hyperplane</q> in <m>\R^4</m> defined by the equation
+<me> w + 2 x + 3 y - 4 z = 0 </me>.
+First, we can obtain a basis for this space by treating this single equation as a homogeneous linear system.
+In other words, we want a basis for the null space of the matrix
+<me> \begin{bmatrix} 1 \amp 2 \amp 3 \amp -4 \end{bmatrix} </me>.
+Assigning parameters
+<md><mrow> x_2 \amp = r, \amp x_3 \amp = s, \amp x_4 \amp = t </mrow></md>
+leads to basis
+<me> \basisfont{B} = \{ (-2,1,0,0), (-3,0,1,0), (4,0,0,1) \} </me>.
+Let's load this basis into Sage.
+</p>
+<sage>
+	<input>
+		v1 = vector((-2,1,0,0))
+		v2 = vector((-3,0,1,0))
+		v3 = vector((4,0,0,1))
+		print(v1,',',v2,',',v3)
+	</input>
+	<output> (-2, 1, 0, 0) , (-3, 0, 1, 0) , (4, 0, 0, 1) </output>
+</sage>
+
+<p>
+Is this an orthogonal basis?
+We can realize the dot product just by multiplying vectors <mdash />
+Sage will interpret the first vector as a row vector and the second as a column matrix.
+</p>
+<sage>
+	<input> v1 * v2 </input>
+	<output> 6 </output>
+</sage>
+<p> Nope, not orthogonal. </p>
+
+<p>
+So let's carry out Gram-Schmidt.
+Begin by setting <m>\uvec{e}_1</m> to be our first basis vector.
+</p>
+<sage>
+	<input>
+		e1 = v1
+		print('e1 =', e1)
+	</input>
+	<output> e1 = (-2, 1, 0, 0) </output>
+</sage>
+
+<p> Next we can compute <m>\uvec{e}_2</m>. </p>
+<sage>
+	<input>
+		e2 = v2 - ( (v2*e1) / (e1*e1) ) * e1
+		print('e2 =',e2)
+	</input>
+	<output> e2 = (-3/5, -6/5, 1, 0) </output>
+</sage>
+
+<p> And finally <m>\uvec{e}_3</m>. </p>
+<sage>
+	<input>
+		e3 = v3 - ( (v3*e1) / (e1*e1) ) * e1 - ( (v3*e2) / (e2*e2) ) * e2
+		print('e3 =',e3)
+	</input>
+	<output> e3 = (2/7, 4/7, 6/7, 1) </output>
+</sage>
+
+<p>
+The fractions are kind of ugly,
+and scaling doesn't affect orthogonality,
+so let's clear them from <m>\uvec{e}_2</m> and <m>\uvec{e}_3</m>.
+</p>
+<sage>
+	<input>
+		e2 = 5 * e2
+		e3 = 7 * e3
+		print(e1,',',e2,',',e3)
+	</input>
+	<output> (-2, 1, 0, 0) , (-3, -6, 5, 0) , (2, 4, 6, 7) </output>
+</sage>
+
+<p> Let's make sure that these are orthogonal vectors. </p>
+<sage>
+	<input>
+		print(e1 * e2)
+		print(e1 * e3)
+		print(e2 * e3)
+	</input>
+	<output>
+		0
+		0
+		0
+	</output>
+</sage>
+<p> Yep, all orthogonal. </p>
+
+<p>
+If we want an orthonormal basis, we can go one step further and normalize each of these vectors.
+This will re-introduce some fractions, but that can't be helped.
+</p>
+<sage>
+	<input>
+		e1 = e1 / sqrt(e1*e1)
+		e2 = e2 / sqrt(e2*e2)
+		e3 = e3 / sqrt(e3*e3)
+		print(e1)
+		print(e2)
+		print(e3)
+	</input>
+	<output>
+		(-2/5*sqrt(5), 1/5*sqrt(5), 0, 0)
+		(-3/70*sqrt(70), -3/35*sqrt(70), 1/14*sqrt(70), 0)
+		(2/105*sqrt(105), 4/105*sqrt(105), 2/35*sqrt(105), 1/15*sqrt(105))
+	</output>
+</sage>
+<p> Not pretty, but they're orthogonal unit vectors. </p>
+
+<p>
+We know that these vectors are independent because they're orthogonal,
+and there are three of them,
+so as long as they all lie in our <m>3</m>-dimensional hyperplane,
+they will for a basis for it.
+We can test that by making sure they satisfy the hyperplane equation,
+<me> w + 2 x + 3 y - 4 z = 0 </me>.
+</p>
+<sage>
+	<input>
+		print(e1[0] + 2*e1[1] + 3*e1[2] - 4*e1[3])
+		print(e2[0] + 2*e2[1] + 3*e2[2] - 4*e2[3])
+		print(e3[0] + 2*e3[1] + 3*e3[2] - 4*e3[3])
+	</input>
+	<output>
+		0
+		0
+		0
+	</output>
+</sage>
+<p>
+(Remember that Sage, like Python, uses <m>0</m>-based indexing,
+so <c>e1[0]</c> means the first coordinate of vector <c>e1</c>.)
+</p>
+
+</subsection>
+
+<subsection>
+<title>An example in <m>\C^4</m></title>
+
+<p>
+Here we will carry out the Gram-Schmidt portion of
+<xref ref="example-inprod-orthog-orthog-comp-from-gs-C4" />.
+It will get annoying typing <c>conjugate</c> for every complex dot product calculation,
+so let's start by creating a Python function to return inner product values.
+Remember that the order of multiplication matters for the complex dot product.
+</p>
+<sage>
+	<input>
+		def inprod(u,v):
+		    return v.conjugate() * u
+		print("inprod function loaded")
+	</input>
+	<output> inprod function loaded </output>
+</sage>
+
+<p>
+Now let's load our initial basis into Sage.
+Remember that Sage uses <c>I</c> for the imaginary root of <m>x^2 + 1</m>.
+</p>
+<sage>
+	<input>
+		v1 = vector((1,1,I,I))
+		v2 = vector((1,-1,I,I))
+		v3 = vector((0,0,1,0))
+		v4 = vector((0,0,0,1))
+		print(v1,',',v2,',',v3,',',v4)
+	</input>
+	<output> (1, 1, I, I) , (1, -1, I, I) , (0, 0, 1, 0) , (0, 0, 0, 1) </output>
+</sage>
+
+<p>
+Let's double-check that these vectors are linearly independent,
+and hence a basis for <m>\C^4</m>.
+</p>
+<sage>
+	<input> column_matrix([v1,v2,v3,v4]).rank() </input>
+	<output> 4 </output>
+</sage>
+<p>
+Since the rank is equal to <m>\dim \C^4</m>,
+these vectors do indeend form a basis,
+just not an <em>orthogonal</em> one.
+</p>
+
+<p>
+To get an orthogonal basis, it's time to Gram-Schmidt.
+The last input line gets a bit long,
+so we have used the Python line-continuation character <c>\</c> to break it up over multiple input lines.
+</p>
+<sage>
+	<input>
+		e1 = v1
+		e2 = v2 - (inprod(v2,e1) / inprod(e1,e1)) * e1
+		e3 = v3 - (inprod(v3,e1) / inprod(e1,e1)) * e1 - (inprod(v3,e2) / inprod(e2,e2)) * e2
+		e4 = v4 \
+		- (inprod(v4,e1) / inprod(e1,e1)) * e1 \
+		- (inprod(v4,e2) / inprod(e2,e2)) * e2 \
+		- (inprod(v4,e3) / inprod(e3,e3)) * e3
+		print(e1,',',e2,',',e3,',',e4)
+	</input>
+	<output>
+		(1, 1, I, I) , (1/2, -3/2, 1/2*I, 1/2*I) , (1/3*I, 0, 2/3, -1/3) , (1/2*I, 0, 0, 1/2)
+	</output>
+</sage>
+
+<p>
+As in <xref ref="example-inprod-orthog-orthog-comp-from-gs-C4" />,
+we'll clear fractions, which doesn't affect orthogonality.
+</p>
+<sage>
+	<input>
+		e2 = 2 * e2
+		e3 = 3 * e3
+		e4 = 2 * e4
+		print(e1,',',e2,',',e3,',',e4)
+	</input>
+	<output> (1, 1, I, I) , (1, -3, I, I) , (I, 0, 2, -1) , (I, 0, 0, 1) </output>
+</sage>
+<p> That's better. </p>
+
+<p>
+Let's double-check orthogonality.
+This time we'll use some Python list magic.
+</p>
+<sage>
+	<input>
+		E = [e1,e2,e3,e4]
+		for e in E:
+			print("checking",e,"against all")
+			for f in E:
+				print(inprod(e,f))
+	</input>
+	<output>
+		checking (1, 1, I, I) against all
+		4
+		0
+		0
+		0
+		checking (1, -3, I, I) against all
+		0
+		12
+		0
+		0
+		checking (I, 0, 2, -1) against all
+		0
+		0
+		6
+		0
+		checking (I, 0, 0, 1) against all
+		0
+		0
+		0
+		2
+	</output>
+</sage>
+<p>
+Each block of four results contains three zeros and one non-zero value.
+The three zeros represents the orthogonality of that particular vector with the other three vectors in the basis,
+while the non-zero value is the result of the inner product of that vector paired with itself.
+</p>
+
+</subsection>
+
+<subsection xml:id="subsection-sage-gram-schmidt-poly-integral">
+<title>A polynomial example with an integral inner product</title>
+
 <p> Here we will carry out <xref ref="example-inprod-orthog-apply-gs-P2" />. </p>
 
 <p> First let's enter our initial (non-orthogonal) basis vectors into Sage. </p>
@@ -49,36 +340,26 @@ which should evaluate to the area of a triangle of base and height both <m>1</m>
 Looks like the computation got it correct.
 </p>
 
-<p> Now we can begin the Gram-Schmidt process by setting <m>\uvec{e}_1</m> to be our first basis vector. </p>
+<p> Now we carry out the Gram-Schmidt process. </p>
 <sage>
 	<input>
 		e1 = v1
-		print('e1 =',e1)
-	</input>
-	<output> 1 </output>
-</sage>
-
-<p> Next we can compute <m>\uvec{e}_2</m>. </p>
-<sage>
-	<input>
 		e2 = v2 - (inprod(v2,e1) / inprod(e1,e1)) * e1
-		print('e2 =',e2)
-	</input>
-	<output> x - 1/2 </output>
-</sage>
-
-<p> And finally <m>\uvec{e}_3</m>. </p>
-<sage>
-	<input>
 		e3 = v3 - (inprod(v3,e1) / inprod(e1,e1)) * e1 - (inprod(v3,e2) / inprod(e2,e2)) * e2
+		print('e1 =',e1)
+		print('e2 =',e2)
 		print('e3 =',e3)
 	</input>
-	<output> x^2 - x + 1/6 </output>
+	<output>
+		e1 = 1
+		e2 = x - 1/2
+		e3 = x^2 - x + 1/6
+	</output>
 </sage>
 
 <p>
 We now have the orthogonal basis <me> \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </me>,
-just as in the textbook.
+just as in <xref ref="example-inprod-orthog-apply-gs-P2" />.
 Let's double-check:
 </p>
 <sage>
@@ -109,7 +390,85 @@ just need to normalize.
 	<output> 1 , 3*sqrt(1/3)*(2*x - 1) , 5*sqrt(1/5)*(6*x^2 - 6*x + 1) </output>
 </sage>
 
-<paragraphs>
+</subsection>
+
+<subsection>
+<title>A polynomial example with a <q>sampling</q> inner product</title>
+
+<p>
+Now we'll repeat the Gram-Schmidt process on the standard basis of <m>\poly_2(\R)</m>,
+but using the inner product
+<me> \inprod{p}{q} = p(-1) q(-1) + p(0) q(0) + p(1) q(1) </me>.
+Once again we create a Python function to return inner product values,
+but this time we'll use slightly more sophisticated Python/Sage programming techniques.
+</p>
+<sage>
+	<input>
+		def inprod(p,q):
+			inprod_value = 0
+			for x_value in [-1, 0, 1]:
+				inprod_value += p.subs(x = x_value) * q.subs(x = x_value)
+			return inprod_value
+		print("inprod function loaded")
+	</input>
+	<output> inprod function loaded </output>
+</sage>
+
+<p> Now let's enter our initial (non-orthogonal) basis vectors into Sage. </p>
+<sage>
+	<input>
+		v1 = 1
+		v2 = x
+		v3 = x^2
+		print(v1,',',v2,',',v3)
+	</input>
+	<output> 1 , x , x^2 </output>
+</sage>
+
+<p> Now we carry out the Gram-Schmidt process. </p>
+<sage>
+	<input>
+		e1 = v1
+		e2 = v2 - (inprod(v2,e1) / inprod(e1,e1)) * e1
+		e3 = v3 - (inprod(v3,e1) / inprod(e1,e1)) * e1 - (inprod(v3,e2) / inprod(e2,e2)) * e2
+		print('e1 =',e1)
+		print('e2 =',e2)
+		print('e3 =',e3)
+	</input>
+	<output>
+		e1 = 1
+		e2 = x
+		e3 = x^2 - 2/3
+	</output>
+</sage>
+<p>
+Even though we are using the same initial basis as in <xref ref="subsection-sage-gram-schmidt-poly-integral" />,
+the Gram-Schmidt process has produced a different result because we are using a different inner product.
+</p>
+
+<p>
+Notice that this time it turns out that <m>1</m> and <m>x</m> were already orthogonal,
+and we just needed to <q>straighten out</q> <m>x^2</m>.
+</p>
+
+<p> Finally, let's double-check orthogonality. </p>
+<sage>
+	<input>
+		print(inprod(e1,e2))
+		print(inprod(e1,e3))
+		print(inprod(e2,e3))
+	</input>
+	<output>
+		0
+		0
+		0
+	</output>
+</sage>
+<p> Yep, all zeros. </p>
+
+</subsection>
+
+<subsection>
 	<title>Bonus Fun</title>
 	<p>
 	If you've taken a Python programming class,
@@ -119,6 +478,6 @@ just need to normalize.
 	using the input parameter function <c>inprod</c> as the inner product function.
 	Fun!
 	</p>
-</paragraphs>
+</subsection>
 
 </section>
