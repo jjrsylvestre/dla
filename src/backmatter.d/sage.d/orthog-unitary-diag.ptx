@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2021 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+
+<section xml:id="section-sage-orthog-unitary-diag">
+<title>Orthogonal/Unitary Diagonalization</title>
+
+<subsection>
+<title>Orthogonally diagonalizing a symmetric matrix</title>
+
+<p> Here we will use Sage to carry out the calculations in <xref ref="example-orthog-unitary-diag-symmetric" />. </p>
+
+<p> First let's load our matrix into Sage. </p>
+<sage>
+	<input>
+		S = matrix([
+			[ 0,  1, 0, 1 ],
+			[ 1,  0, 1, 0 ],
+			[ 0,  1, 0, 1 ],
+			[ 1,  0, 1, 0 ]
+		])
+		print(S)
+	</input>
+	<output>
+		[0 1 0 1]
+		[1 0 1 0]
+		[0 1 0 1]
+		[1 0 1 0]
+	</output>
+</sage>
+
+<paragraphs>
+<title>Eigenvalues and eigenvectors</title>
+
+<p>
+First we need to carry out the diagonalization procedure
+(see <xref ref="subsection-diagonalization-concepts-diag-proc" />).
+</p>
+<sage>
+	<input>S.eigenvalues()</input>
+	<output>[2, -2, 0, 0]</output>
+</sage>
+
+<p> First let's analyze <m>\lambda = 2</m>. </p>
+<sage>
+	<input> (2*identity_matrix(4) - S).rref() </input>
+	<output>
+		[ 1  0  0 -1]
+		[ 0  1  0 -1]
+		[ 0  0  1 -1]
+		[ 0  0  0  0]
+	</output>
+</sage>
+
+<p>
+As expected from the algebraic multiplicity of <m>\lambda = 2</m>,
+only one parameter is required, so we only get one eigenvector.
+Assigning <m>x_4 = t</m> leads to eigenvector
+<m>\uvec{p}_1 = (1,1,1,1)</m>.
+</p>
+<sage>
+	<input>
+		p1 = vector((1,1,1,1))
+		print(p1)
+		print(S*p1)
+	</input>
+	<output>
+		(1, 1, 1, 1)
+		(2, 2, 2, 2)
+	</output>
+</sage>
+<p> Notice that <m>S \uvec{p}_1 = 2 \uvec{p}_1</m>, as expected. </p>
+
+<p> Next we'll analyze <m>\lambda = - 2</m>. </p>
+<sage>
+	<input> (-2*identity_matrix(4) - S).rref() </input>
+	<output>
+		[ 1  0  0  1]
+		[ 0  1  0 -1]
+		[ 0  0  1  1]
+		[ 0  0  0  0]
+	</output>
+</sage>
+
+<p>
+Again, only one parameter required as the the algebraic multiplicity of <m>\lambda = -2</m> is <m>1</m>.
+Assigning <m>x_4 = t</m> leads to eigenvector
+<m>\uvec{p}_2 = (-1,1,-1,1)</m>.
+</p>
+<sage>
+	<input>
+		p2 = vector((-1,1,-1,1))
+		print(p2)
+		print(S*p2)
+	</input>
+	<output>
+		(-1, 1, -1, 1)
+		(2, -2, 2, -2)
+	</output>
+</sage>
+<p> Notice that <m>S \uvec{p}_2 = - 2 \uvec{p}_2</m>, as expected. </p>
+
+<p>
+Finally we analyze <m>\lambda = 0</m>.
+For this eigenvalue, there is no need to work with <m>\lambda I - S</m>,
+as solving <m>(0 I - S) \uvec{x} = \zerovec</m> is equivalent to solving <m>S \uvec{x} = \zerovec</m>.
+</p>
+<sage>
+	<input> S.rref() </input>
+	<output>
+		[1 0 1 0]
+		[0 1 0 1]
+		[0 0 0 0]
+		[0 0 0 0]
+	</output>
+</sage>
+
+<p>
+Here the geometric multiplicity is equal to the algebraic multiplicity,
+so <m>S</m> is indeed diagonalizable.
+Setting parameters <m>x_3 = s</m> and <m>x_4 = t</m> leads to eigenvectors
+<md><mrow>
+	p_3 \amp = (-1,0,1,0), \amp
+	p_4 \amp = (0,-1,0,1).
+</mrow></md>
+</p>
+<sage>
+	<input>
+		p3 = vector((-1,0,1,0))
+		p4 = vector((0,-1,0,1))
+		print(p3,p4)
+		print(S*p3,S*p4)
+	</input>
+	<output>
+		(-1, 0, 1, 0) (0, -1, 0, 1)
+		(0, 0, 0, 0) (0, 0, 0, 0)
+	</output>
+</sage>
+<p>
+The second output line verifies that both vectors are in the null space of <m>S</m>,
+and hence in eigenspace <m>E_0(S)</m>.
+</p>
+
+</paragraphs>
+
+<paragraphs>
+<title>The transition matrix</title>
+
+<p>
+We want an orthogonal transition matrix,
+so let's check which of our eigenvectors are orthogonal to the others.
+We know that for a symmetric matrix like <m>S</m>,
+eigenvectors from different eigenspaces should automatically be orthogonal:
+</p>
+<sage>
+	<input>
+		print(p1 * p3)
+		print(p1 * p4)
+		print(p2 * p3)
+		print(p2 * p4)
+	</input>
+	<output>
+		0
+		0
+		0
+		0
+	</output>
+</sage>
+<p>
+So both <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are orthogonal to the eigenspace <m>E_0(S)</m>,
+as predicted by our theory,
+and it only remains to ensure that we have an orthogonal basis for that <m>2</m>-dimensional eigenspace, <m>E_0(S)</m>.
+</p>
+<sage>
+	<input> p3 * p4 </input>
+	<output> 0 </output>
+</sage>
+<p>
+Conveniently, this eigenspace basis is already orthogonal,
+so no need for Gram-Schmidt.
+However, for a matrix to be orthogonal,
+its columns need to be ortho<em>normal</em>,
+so we need create our transition matrix out of <em>normalized</em> eigenvectors.
+</p>
+<sage>
+	<input>
+		P = column_matrix([
+		  p1 / sqrt(p1*p1),
+		  p2 / sqrt(p2*p2),
+		  p3 / sqrt(p3*p3),
+		  p4 / sqrt(p4*p4)
+	    ])
+		print(P)
+	</input>
+	<output>
+		[         1/2         -1/2 -1/2*sqrt(2)            0]
+		[         1/2          1/2            0 -1/2*sqrt(2)]
+		[         1/2         -1/2  1/2*sqrt(2)            0]
+		[         1/2          1/2            0  1/2*sqrt(2)]
+	</output>
+</sage>
+
+<p>
+Finally, let's double-check both that <m>P</m> is orthogonal,
+and that it diagonalizes <m>S</m>.
+</p>
+<sage>
+	<input>
+		print("P.T * P =")
+		print(P.T * P)
+		print()
+		print("P.T * S * P =")
+		print(P.T * S * P)
+	</input>
+	<output>
+		P.T * P =
+		[1 0 0 0]
+		[0 1 0 0]
+		[0 0 1 0]
+		[0 0 0 1]
+
+		P.T * S * P =
+		[ 2  0  0  0]
+		[ 0 -2  0  0]
+		[ 0  0  0  0]
+		[ 0  0  0  0]
+	</output>
+</sage>
+<p>
+Yep, it all worked out.
+And notice that in our calculation of the diagonal form matrix,
+we used <m>\utrans{P}</m> in place of <m>\inv{P}</m> <mdash />
+since <m>P</m> is orthogonal, the two are equal.
+</p>
+
+</paragraphs>
+
+</subsection>
+
+<subsection>
+<title>Unitarily diagonalizing a normal matrix</title>
+
+<p> Here we will use Sage to carry out the calculations in <xref ref="example-orthog-unitary-diag-normal" />. </p>
+
+<paragraphs>
+<title>Set up</title>
+
+<p> First, let's create a convenience inner product function to minimize having to type <c>conjugate</c> a lot. </p>
+<sage>
+	<input>
+		def inprod(u,v):
+		    return v.conjugate() * u
+		print("inprod function loaded")
+	</input>
+	<output> inprod function loaded </output>
+</sage>
+
+<p>
+Now let's load our matrix into Sage.
+Remember that Sage used <c>I</c> to represent the imaginary root of <m>x^2 + 1</m>.
+</p>
+<sage>
+	<input>
+		N = matrix([
+		  [ 2 + I, 1 - I, 1 + I ],
+		  [ 1 - I, 2 + I, -1 - I ],
+		  [ -1 - I, 1 + I, 2 + I ]
+		])
+		print(N)
+	</input>
+	<output>
+		[0 1 0 1]
+		[1 0 1 0]
+		[0 1 0 1]
+		[1 0 1 0]
+	</output>
+</sage>
+
+<p>
+Let's double-check that <m>N</m> is normal.
+We can use the Sage method <c>conjugate_transpose</c> to compute adjoints.
+Rather than check entry-by-entry that <m>N \adjoint{N}</m> and <m>\adjoint{N} N</m> are equal,
+we can subtract the two <mdash />
+if they are equal, their difference should be the zero matrix.
+</p>
+<sage>
+	<input> N * N.conjugate_transpose() - N.conjugate_transpose() * N </input>
+	<output>
+		[0 0 0]
+		[0 0 0]
+		[0 0 0]
+	</output>
+</sage>
+<p>
+Great, <m>N</m> is normal, and so the unitary diagonalization procedure should succeed.
+</p>
+
+</paragraphs>
+
+<paragraphs>
+<title>Eigenvalues and eigenvectors</title>
+
+<p>
+Our first step is to carry out the diagonalization procedure
+(see <xref ref="subsection-diagonalization-concepts-diag-proc" />).
+</p>
+
+<sage>
+	<input>N.eigenvalues()</input>
+	<output> [3*I, 3, 3] </output>
+</sage>
+
+<p> First let's analyze <m>\lambda = 3 \ci</m>. </p>
+<sage>
+	<input> ((3*I)*identity_matrix(3) - N).rref() </input>
+	<output>
+		[ 1  0  I]
+		[ 0  1 -I]
+		[ 0  0  0]
+	</output>
+</sage>
+<p>
+The geometric multiplicity is <m>1</m>,
+as expected.
+Assigning parameter <m>x_3 = t</m> leads to eigenvector
+<m> \uvec{u}_1 = (-\ci, \ci, 1) </m>.
+</p>
+<sage>
+	<input>
+		u1 = vector((-I, I, 1))
+		print(u1)
+		print(N * u1)
+	</input>
+	<output>
+		(-I, I, 1)
+		(3, -3, 3*I)
+	</output>
+</sage>
+<p> Notice that <m>N \uvec{u}_1 = 3 \ci \uvec{u}_1</m>, as expected. </p>
+
+<p> Now let's analyze <m>\lambda = 3</m>. </p>
+<sage>
+	<input> (3*identity_matrix(3) - N).rref() </input>
+	<output>
+		[ 1 -1 -I]
+		[ 0  0  0]
+		[ 0  0  0]
+	</output>
+</sage>
+<p>
+Since the geometric multiplicity of this eigenvalue is <m>2</m>,
+we have confirmed that this matrix is at least <em>diagonalizable</em>.
+Assigning parameters <m>x_2 = s</m> and <m>x_3 = t</m> leads to eigenvectors
+<md><mrow>
+	\uvec{u}_2 \amp = (1,1,0), \amp
+	\uvec{u}_3 \amp = (\ci, 0, 1).
+</mrow></md>
+</p>
+<sage>
+	<input>
+		u2 = vector((1,1,0))
+		u3 = vector((I,0,1))
+		print(u2,',',u3)
+	</input>
+	<output> (1, 1, 0) , (I, 0, 1) </output>
+</sage>
+
+</paragraphs>
+
+<paragraphs>
+<title>The transition matrix</title>
+
+<p> First let's form a transition matrix with the eigenvectors we currently have, to check that it diagonalizes. </p>
+<sage>
+	<input>
+		U = column_matrix([u1,u2,u3])
+		U.inverse() * N * U
+	</input>
+	<output>
+		[3*I   0   0]
+		[  0   3   0]
+		[  0   0   3]
+	</output>
+</sage>
+<p>
+It worked, as expected.
+But does it <em>unitarily</em> diagonalize?
+</p>
+<sage>
+	<input>
+		U.conjugate_transpose() * U
+	</input>
+	<output>
+		[ 3  0  0]
+		[ 0  2  I]
+		[ 0 -I  2]
+	</output>
+</sage>
+<p>
+No, our transition matrix is not unitary.
+From the theory, we expect at least that the eigenvector <m>\uvec{u}_1</m>,
+which came from the eigenspace <m>E_{3 \ci}(N)</m>,
+should be orthogonal with the other two,
+which came from the eigenspace <m>E_3(N)</m>.
+</p>
+<sage>
+	<input>
+		print(inprod(u1,u2))
+		print(inprod(u1,u3))
+	</input>
+	<output>
+		0
+		0
+	</output>
+</sage>
+<p>
+But what about the two vectors within <m>E_3(N)</m>?
+</p>
+<sage>
+	<input> inprod(u2,u3) </input>
+	<output> -I </output>
+</sage>
+<p>
+So we'll need to Gram-Schmidt these two.
+But <em>just</em> these two <mdash />
+we should not include the eigenvector from <m>E_{3 \ci}(N)</m> in the process.
+</p>
+<sage>
+	<input>
+		v2 = u2
+		v3 = u3 - (inprod(u3,v2) / inprod(v2,v2)) * v2
+		print(v2,',',v3)
+		print(3*v3 - N*v3)
+		print(inprod(v2,v3))
+	</input>
+	<output>
+		(1, 1, 0) , (1/2*I, -1/2*I, 1)
+		(0, 0, 0)
+		0
+	</output>
+</sage>
+<p>
+The calculation <m>3 \uvec{v}_3 - N \uvec{v}_3 = \zerovec</m> verifies that our new third vector is still an eigenvector for <m>\lambda = 3</m>,
+while the calculation <m>\inprod{\uvec{v}_2}{\uvec{v}_3} = 0</m> verifies that our new third vector is orthogonal to the second.
+</p>
+
+<p>
+Last step:
+to be unitary, a matrix must have ortho<em>normal</em> columns.
+So we normalize each vector as we enter it into a new transition matrix.
+</p>
+<sage>
+	<input>
+		U = column_matrix([
+		  u1 / sqrt(inprod(u1,u1)),
+		  v2 / sqrt(inprod(v2,v2)),
+		  v3 / sqrt(inprod(v3,v3))
+		])
+		print("U =")
+		print(U)
+		print()
+		print("U* U =")
+		print(U.conjugate_transpose() * U)
+		print()
+		print("U* N U =")
+		print(U.conjugate_transpose() * N * U)
+	</input>
+	<output>
+		U =
+		[      -I/sqrt(3)      1/2*sqrt(2)  1/2*I/sqrt(3/2)]
+		[       I/sqrt(3)      1/2*sqrt(2) -1/2*I/sqrt(3/2)]
+		[       1/sqrt(3)                0      1/sqrt(3/2)]
+
+		U* U =
+		[1 0 0]
+		[0 1 0]
+		[0 0 1]
+
+		U* N U =
+		[3*I   0   0]
+		[  0   3   0]
+		[  0   0   3]
+	</output>
+</sage>
+<p>
+So our new transition matrix is unitary,
+as we have verified that <m>\adjoint{U} U = I</m>,
+and also our new transition matrix still diagonalizes.
+And notice that in our calculation of the diagonal form matrix,
+we used <m>\adjoint{U}</m> in place of <m>\inv{U}</m> <mdash />
+since <m>U</m> is unitary, the two are equal.
+</p>
+
+</paragraphs>
+
+</subsection>
+
+</section>
