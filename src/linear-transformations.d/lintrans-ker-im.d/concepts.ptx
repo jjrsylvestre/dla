@@ -27,6 +27,9 @@ respective owners.
 <em><xref text="title" ref="subsection-lintrans-ker-im-concepts-dimensions" /></em></li>
 </ul></p></assemblage>
 
+
+
+
 <subsection xml:id="subsection-lintrans-ker-im-concepts-matrix">
 <title>Kernel and image of matrix transformations</title>
 
@@ -37,28 +40,35 @@ we already know what <term>kernel</term> and <term>image</term> mean for a matri
 <m>\funcdef{T_A}{\R^n}{\R^m}</m>,
 because we have studied them before,
 albeit with different terminology.
-</p><p>
+</p>
+
+<p>
 A vector <m>\uvec{x}</m> in <m>\R^n</m> is in <m>\ker T_A</m> precisely when <m>A \uvec{x} = \zerovec</m>,
 which is the same as saying that <m>\uvec{x}</m> is in the <term>null space</term> of <m>A</m>.
 And a vector <m>\uvec{b}</m> in <m>\R^m</m> is in <m>\im T_A</m> precisely when there exists at least one corresponding solution <m>\uvec{x}</m> to the matrix equation <m>A \uvec{x} = \uvec{b}</m>.
 Since a <em>matrix-times-vector</em> product can be considered as a linear combination of the columns of <m>A</m>
 (see <xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" />),
 we can say that <m>\uvec{b}</m> is in <m>\im T</m> precisely when it is in the <term>column space</term> of <m>A</m>.
-</p><p>
+</p>
+
+<p>
 Also in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker" />
 and <xref ref="activity-lintrans-ker-im-matrix-transformation-im" />,
 we reminded ourselves that the dimension of the column space
-(<ie /> the number of leading ones in the RREF of the matrix)
 and the dimension of the null space
-(<ie /> the number of parameters required to solve the homogeneous system)
-always add up to the number of columns in the matrix
-(<ie /> the number of variables involved in any system with that matrix as coefficient matrix).
+always add up to the number of columns in the matrix.
+This is because the dimension of the column space is the number of leading ones in the RREF of the matrix,
+while the dimension of the null space is the number of parameters required to solve the homogeneous system,
+where every variable that does <em>not</em> have a leading one in its column will be assigned a parameter.
 But we already knew this as <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
 As matrix transformations are our model,
 it shouldn't be too surprising that we shall soon see a similar pattern for the dimensions of the kernel, image, and domain space of a general linear transformations.
 </p>
 
 </subsection>
+
+
+
 
 <subsection xml:id="subsection-lintrans-ker-im-concepts-bases">
 <title>Bases for kernel and image</title>
@@ -99,31 +109,32 @@ and <m>V = \Span S</m>,
 then <m>\im T</m> is spanned by <m>T(S)</m>,
 the collection of image vectors <m>T(\uvec{v})</m> for all <m>S</m>-vectors <m>\uvec{v}</m>.
 This is because if
-<me> \uvec{u} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </me>
+<me> \uvec{u} = a_1 \uvec{v}_1 + \dotsb + a_\ell \uvec{v}_\ell </me>
 is an expansion of vector <m>\uvec{u}</m> in <m>V</m> in terms of some collection of <m>S</m>-vectors
-<m>\uvec{v}_1,\dotsc,\uvec{v}_m</m>,
+<m>\uvec{v}_1,\dotsc,\uvec{v}_\ell</m>,
 then the linearity of <m>T</m> gives us
-<me> T(\uvec{u}) = a_1 T(\uvec{v}_1) + \dotsb + a_m T(\uvec{v}_m) </me>,
+<me> T(\uvec{u}) = a_1 T(\uvec{v}_1) + \dotsb + a_\ell T(\uvec{v}_\ell) </me>,
 a linear combination of the image vectors in <m>T(S)</m>.
 However, even if <m>S</m> is a <em>linearly independent</em> spanning set
-(<ie /> a basis for <m>V</m>),
+(and so a basis for <m>V</m>),
 there is no guarantee that the image vectors <m>T(\uvec{v})</m> in <m>T(S)</m> will remain independent.
 So to get a <em>basis</em> for <m>\im T</m> in this way,
-we will need to choose domain spanning set <m>S</m> in a more deliberate way.
+we will need to choose a spanning set <m>S</m> for the domain <m>V</m> in a more deliberate way.
 </p></paragraphs>
 
-<paragraphs><title>Basis for image</title>
+<paragraphs>
+<title>Basis for image</title>
 
 <p>
 Suppose we have linear <m>\funcdef{T}{V}{W}</m>,
 and we know <m>V = \Span S</m> for
-<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m \} </me>.
+<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </me>.
 Then as in the discussion above, we will also have
-<me> \im T = \Span \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_m) \} </me>.
+<me> \im T = \Span \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </me>.
 But every finite spanning set can be reduced to a basis
 (<xref ref="proposition-basis-coords-reduce-span-to-basis" />),
 so there should be a way to reduce the collection of image vectors
-<me> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_m) \} </me>
+<me> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </me>
 to a basis for <m>\im T</m>.
 In particular examples we could do this through calculation via
 the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>.
@@ -137,19 +148,18 @@ suppose we have a basis
 <me> \basisfont{K} = \{ \uvec{u}_1, \dotsc, \uvec{u}_k \} </me>
 for <m>\ker T</m> in <m>V</m>.
 We can enlarge this to a basis
-<me> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_k, \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
+<me> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_k, \uvec{v}_1, \dotsc, \uvec{v}_r \} </me>
 for <m>V</m>
 (<xref ref="proposition-dimension-increase-indep-to-basis" />).
 Then, as in previous discussion above,
-<me> T(\basisfont{B}_V) = \{ T(\uvec{u}_1), \dotsc, T(\uvec{u}_k), T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>
+<me> T(\basisfont{B}_V) = \{ T(\uvec{u}_1), \dotsc, T(\uvec{u}_k), T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>
 will be a spanning set for <m>\im T</m>.
 But since the <m>\uvec{u}_j</m> came from the kernel, we really have
-<me> T(\basisfont{B}_V) = \{ \zerovec, \dotsc, \zerovec, T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>,
+<me> T(\basisfont{B}_V) = \{ \zerovec, \dotsc, \zerovec, T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>,
 and it is obvious that we can reduce this spanning set by discarding all those zero vectors:
-<me> S' = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_\ell) \} </me>.
+<me> S' = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>.
 We will still have <m>\im T = \Span S'</m>,
-and in fact we will see that building <m>\basisfont{B}_V</m> to have as many linearly independent vectors from <m>\ker T</m> as possible will ensure that <m>S'</m> is a <em>linearly independent</em> spanning set for <m>\im T</m>
-(<ie /> a basis).
+and in fact we will see that building <m>\basisfont{B}_V</m> to have as many linearly independent vectors from <m>\ker T</m> as possible will ensure that <m>S'</m> is a <em>linearly independent</em> spanning set (hence a basis) for <m>\im T</m>.
 </p>
 
 <algorithm xml:id="procedure-lintrans-ker-im-concepts-im-basis">
@@ -180,6 +190,9 @@ where the above procedure is carried out.
 
 </subsection>
 
+
+
+
 <subsection xml:id="subsection-lintrans-ker-im-concepts-dimensions">
 <title>Dimensions of the kernel and image of a transformation</title>
 
@@ -201,5 +214,8 @@ we have the linear transformation version of
 </p>
 
 </subsection>
+
+
+
 
 </section>

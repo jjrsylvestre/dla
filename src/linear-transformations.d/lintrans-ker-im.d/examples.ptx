@@ -299,7 +299,9 @@ respective owners.
 </subsection>
 
 <subsection xml:id="subsection-lintrans-ker-im-examples-special">
-<title>Three special examples</title>
+<title>Special examples</title>
+
+<p> Let's look back at some of the examples from <xref ref="subsection-lintrans-basic-concepts-special" />. </p>
 
 <example><title>Kernel and image of a zero transformation</title><p>
 	Consider <m>\funcdef{\zerovec_{V,W}}{V}{W}</m> defined by <m>\zerovec_{V,W}(\uvec{v}) = \zerovec_W</m> for all <m>\uvec{v}</m> in the domain space <m>V</m>,
@@ -349,6 +351,39 @@ respective owners.
 	</p>
 </example>
 
+<example>
+	<title>Kernel and image of pairing with a fixed vector</title>
+
+	<p>
+	Suppose that <m>V</m> is a finite-dimensional inner product space,
+	and <m>\uvec{u}_0</m> is a fixed choice of (nonzero) vector in <m>V</m>.
+	Let <m>\funcdef{T_{\uvec{u}_0}}{V}{\R^1}</m> represent the linear transformation defined by pairing with <m>\uvec{u}_0</m>:
+	<me> T_{\uvec{u}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{u}_0} </me>
+	for all <m>\uvec{x}</m> in <m>V</m>.
+	</p>
+
+	<p>
+	Then to be in <m>\ker T_{\uvec{u}_0}</m>, a vector <m>\uvec{x}</m> must be orthogonal to <m>\uvec{u}_0</m>.
+	This implies that <m>\ker T_{\uvec{u}_0} = \orthogcmp{U}</m> for <m>U = \Span \{\uvec{u}_0\}</m>.
+	</p>
+
+	<p>
+	On the one hand,
+	we know that <me> \dim U + \dim \orthogcmp{U} = \dim V </me>,
+	since a subspace and its orthogonal complement always form a complete set of independent subspaces of an inner product space (<xref ref="theorem-inprod-orthog-complement-indep" />).
+	On the other hand, the <xref ref="theorem-lintrans-ker-im-dimension" text="title" /> says that
+	<me> \dim (\im T_{\uvec{u}_0}) + \dim (\ker T_{\uvec{u}_0}) = \dim V </me>.
+	From <m>\ker T_{\uvec{u}_0} = \orthogcmp{U}</m>,
+	we may conclude that
+	<me> \dim (\im T_{\uvec{u}_0}) = \dim U = \dim (\Span \{\uvec{u}_0\}) = 1 </me>.
+	But <m>\im T_{\uvec{u}_0}</m> is a subspace of the codomain space <m>\R^1</m>,
+	which itself has dimension <m>1</m>,
+	so we must have <m>\im T_{\uvec{u}_0} = \R^1</m>.
+	</p>
+
+</example>
+
 </subsection>
+
 
 </section>
