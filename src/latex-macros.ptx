@@ -110,8 +110,10 @@ respective owners.
 \newcommand{\ucobmtrx}[2]{P_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
 \newcommand{\uinvcobmtrx}[2]{\inv{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style inverse change of basis matrix
 \newcommand{\uadjcobmtrx}[2]{\adjoint{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style adjoint change of basis matrix
-\newcommand{\coordmap}[1]{C_{\basisfont{#1}}}% coordinate map to $\R^n$ or $\C^n$
-\newcommand{\invcoordmap}[1]{\inv{C}_{\basisfont{#1}}}% inverse coordinate map from $\R^n$ or $\C^n$
+\newcommand{\coordmapplain}[1]{C_{#1}}% coordinate map to $\R^n$ or $\C^n$
+\newcommand{\coordmap}[1]{\coordmapplain{\basisfont{#1}}}% coordinate map to $\R^n$ or $\C^n$
+\newcommand{\invcoordmapplain}[1]{\inv{C}_{#1}}% inverse coordinate map from $\R^n$ or $\C^n$
+\newcommand{\invcoordmap}[1]{\invcoordmapplain{\basisfont{#1}}}% inverse coordinate map from $\R^n$ or $\C^n$
 \newcommand{\similar}{\sim}
 \newcommand{\inprod}[2]{\left\langle\, #1,\, #2 \,\right\rangle}% inner product
 \newcommand{\uvecinprod}[2]{\inprod{\uvec{#1}}{\uvec{#2}}}% inner product with vector notation of arguments
