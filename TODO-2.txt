@@ -1,5 +1,22 @@
+* Re-balance amount of theory between kernel/image chapter and composition/inverse chapter.
+  ---> Could do the following:
+  Q: {0} and V are always subspaces of V. ker T is a subspace of V.
+     When is ker T = {0} ? When is ker T = V ?
+  Q: {0} and W are always subspaces of W. im T is a subspace of W.
+     When is im T = {0} ? When is im T = W ?
+  This would allow moving injective/surjective theory into kernel/image chapter.
+ 
+
+* Edit complex matrix chapter to remove all mention of "adjoint" --- leave that to chapter on matrix adjoints.
+  ---> use "Hermitian" or "conjugate-symmetric" instead of "self-adjoint"
+
+* Add a "generalize" subsection to matrix adjoint concepts section
+  ---> if C is positive definite and ⟨u,v⟩ = v*Cu then adjoint of A relative to this alternative inner product is inv(C) A* C ....
+
+
+
 *************** A lot of this likely should be in TODO-1.txt.
-* src/backmatter.d/complex.d/plane.xml contains a tag on an me, needs to be an mrow of md instead
+* src/backmatter.d/complex.d/plane.ptx contains a tag on an me, needs to be an mrow of md instead
 * the way I use <question> is more RemarkLike than it is ExampleLike
   --> maybe rename <insight> to question?
 * see EF/style.xsl for working html.css.extra
@@ -10,12 +27,12 @@
 * STOP putting <term> inside <title> of <dl> --- use custom css to get italics instead\
   --> see ef.css from EF project
 * Reconsider all use of <table> --- see discussion on pretext-dev and pretext-support.
-* In lintrans-matrix.d/concepts.xml, rewrite part about inverses to just use a back-and-forth diagram instead of a composition diagram.
+* In lintrans-matrix.d/concepts.ptx, rewrite part about inverses to just use a back-and-forth diagram instead of a composition diagram.
   DECIDED NOT TO. But leaving this here in case I reconsider.
 * Look for tag="dstar" or tag="tstar", might be better to use dagger instead if the subsequent equations
   are not related to the star equation. (And similarly for ddagger/tdagger vs dagger, etc.)
-* Go through lintrans-iso/concepts.xml,theory.xml and make sure injective/invertible are distinct enough and not conflated.
-* lintrans-*.d/examples.xml --- some complex examples?
+* Go through lintrans-iso/concepts.ptx,theory.xml and make sure injective/invertible are distinct enough and not conflated.
+* lintrans-*.d/examples.ptx --- some complex examples?
 * In col-row-null-space.d, change all A = columns as \uvec{c}_j into columns as \uvec{a}_j.
 * In lintrans-basic.d, need some examples of add/scalar multiplying linear transformations?
 * Consider changing "multiplication by a scalar" notation in lintrans-*.d to a LaTeX math operator.
@@ -23,23 +40,25 @@
   to subspace chapter
 * Not sure if this is a duplicate: Cayley-Hamilton theory has "similar to nilpotent is nilpotent"
   but then elem. nilpotent form has an activity on this.... maybe should just drop the activity?
-* Consider going through terminology.xml files and moving parenthetical information outside of the <term>...</term> of the title
-* grep --color=always "xref ref=\"definition" src/**/*.xml | grep -v term
+* Consider going through terminology.ptx files and moving parenthetical information outside of the <term>...</term> of the title
+* grep --color=always "xref ref=\"definition" src/**/*.ptx | grep -v term
 * Add to inprod-orthog.d? U subspace W => W^\perp subspace U^\perp.
-* In orthog.d/concepts.xml, make a copy of concepts.d/proj.tex properly labelling the projection w as proj_a u,
+* In orthog.d/concepts.ptx, make a copy of concepts.d/proj.tex properly labelling the projection w as proj_a u,
   and n as n = u - proj_a u. Then also combine the k formula into a proper proj_a u = formula display.
 * Gram-Schmidt process or procedure?
 * Add to matrix-adjoints chapter:
   Make connection between S^T S = I, U^\ast U = I, and the way that alternative inner products on \R^n and \C^n are generated.
   --> So essentially a matrix is orthog/unitary when positive definite A^\ast A induces the same inner product on \R^n or \C^n.
-* Add to matrix-adjoints chapter: If A is product-preserving and W is A-invariant, then so is W^\perp.
-* Add to matrix-adjoints chapter: If A is product-preserving, then so is \inv{A}.
+* Add to matrix-adjoints chapter:
+  . If A is product-preserving and W is A-invariant, then so is W^\perp.
+  . If A is product-preserving, then so is \inv{A}.
+  . If A and B are product-preserving, then so is AB.
 * Add to inprod-orthog chapter: relative to orthog basis, norm = sqrt{sum of squares of coeffs in expansion}.
-  Then use this to avoid having to prove "proposition-projection-props-norm" in projection.d/theory.xml.
+  Then use this to avoid having to prove "proposition-projection-props-norm" in projection.d/theory.ptx.
 * Add to block-diagonal chapter: dimensions of complete set of independent subspaces add up to dim whole space.
 * Go through and try to make applications of the Subspace Test uniform using <cases>.
 * Turn each "In this section" assemblage contents into a table, otherwise long subsection titles wrap to underneath the subsection number,
-  which looks bad. (See output of inprod-orthog.d/examples.xml.)
+  which looks bad. (See output of inprod-orthog.d/examples.ptx.)
 * In chapter-inprod-orthog discusses creating a U,U^\perp pair by breaking up an orthog basis.
   This should be discussed more generally in block-diagonal chapter,
   re creating a complete set of independent subspaces by breaking up a basis.
@@ -50,7 +69,7 @@
 * Go through Matrix Forms chapters and add text="title" to xrefs to procs...
 * In cayley-hamilton chapter, add rotation matrices to discussion a+bi ⟷ \begin{bmatrix} a & -b \\ b & a \end{bmatrix}.
 * Check if I should make more use of \boxed in block diagonal matrices
-  --- see the two \inv{P} A P matrices in src/triang-nilpotent.d/examples.xml.
+  --- see the two \inv{P} A P matrices in src/triang-nilpotent.d/examples.ptx.
 * In whichever det chapter: in the long theorem that lists row ops vs det, add an entry for
   "If one row is equal to a combination of other rows, then det 0".
 * In elementary nilpotent form, make connection between "terminating in zero" and "eventually ends up in the nullspace".
@@ -69,7 +88,7 @@
   <m>A \uvec{p}_2 = <fillin characters="10" /></m>
   etc.
   (See elem-nilpotent discovery guide.)
-  And while we're at it, maybe redo general similarity pattern discussion (similarity.d/discovery.xml)
+  And while we're at it, maybe redo general similarity pattern discussion (similarity.d/discovery.ptx)
   to go back to using standard basis vectors as in old activity sets and in PRIMUS article
   ---> current activities have too many links to open to see relevant matrix mult patterns.
 * Cayley-Hamilton [Tt]heorem ? Cauchy-Schwarz [Ii]nequality ?
@@ -84,6 +103,7 @@
 * There are already some facts about similar matrices proved in diagonalization
   chapter, just reference from similarity chapter...!!
   Also check for overlap of activities....
+  ---> I think I've already addressed some of this
 * <md> containing matrices but no actual alignment \amp's will still be processed as \begin{align*}...\end{align*}
   ---> use <md alignment="gather"> instead
 * grep for rowredarrow and amp on the same line, probably convert to a gather-style md with no alignment.
@@ -96,7 +116,7 @@
   in existing sources to try to go against the tide.
 * DO THIS!!!
   knowl-ize definitions? Would especially be nice to have terminology knowls in activity sets...
-  Could add an xml:id to <li>'s in terminology.xml, then
+  Could add an xml:id to <li>'s in terminology.ptx, then
   search for <term>...</term> to change to an <xref>...</xref>
   ---> see how this is already done for the defintion of linear combination in the vectors chapter.
   ---> would also need to do a bit of re-reading to find places
