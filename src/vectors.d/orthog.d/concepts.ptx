@@ -87,6 +87,9 @@ Since we can't <q>see</q> right angles and perpendicular lines in higher dimensi
 in general we say that <m>\uvec{u}</m> and <m>\uvec{v}</m> are <term>orthogonal</term> when <m>\udotprod{u}{v} = 0</m>.
 </p>
 
+<subsubsection xml:id="subsubsection-orthog-concepts-orthog-in-R2">
+<title>Orthogonal vectors in <m>\R^2</m></title>
+
 <p>
 In <xref ref="activity-orthog-guess-orthog-in-plane" />, we tried to find a pattern to the task of choosing some vector that is orthogonal to a given one in the plane.
 Rather than struggle with the geometry, we unleash the power of algebra:
@@ -95,12 +98,31 @@ Expanding out the dot product, we are looking to fill in the blanks in the follo
 <me> a\cdot\boxed{\phantom{X}} + b\cdot\boxed{\phantom{X}} = 0 </me>.
 Two numbers add to zero only if one is the negative of the other.
 We can make both terms in the sum the same number by entering <m>b</m> in the first blank and <m>a</m> in the second,
-so we can make the sum cancel to zero by also making one of those entries zero:
+so we can make the sum cancel to zero by also flipping the sign of one of those entries.
+For example,
 <me> a\cdot\boxed{b} + b\cdot\boxed{(-a)} = 0 </me>.
-We have now answered the question in
-<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Discovery</xref>:
-given vector <m>\uvec{u} = (a,b)</m> in the plane, one example of a vector that is orthogonal to <m>\uvec{u}</m> is <m>\uvec{v} = (b,-a)</m>.
 </p>
+
+<p>
+We have now answered the question in
+<xref ref="activity-orthog-guess-orthog-in-plane-pattern">Discovery</xref>.
+</p>
+
+<convention>
+	<title>Orthogonal vectors in the plane</title>
+	<p>
+	Given vector <m>\uvec{u} = (a,b)</m> in the plane,
+	two examples of vectors that are orthogonal to <m>\uvec{u}</m> are <m>\uvec{v} = (b,-a)</m> and <m>-\uvec{v} = (-b, a)</m>,
+	and every vector that is orthogonal to <m>\uvec{u}</m> is some scalar multiple of this example <m>\uvec{v}</m>.
+	</p>
+</convention>
+
+<note><p>
+	For patterns of orthogonal vectors in <m>\R^3</m>,
+	see <xref ref="subsection-orthog-concepts-cross-prod" />.
+</p></note>
+
+</subsubsection>
 
 </subsection>
 
@@ -111,7 +133,9 @@ given vector <m>\uvec{u} = (a,b)</m> in the plane, one example of a vector that 
 <p> Orthogonal projection is a vector solution to a problem in geometry. </p>
 
 <question xml:id="question-orthog-concepts-proj-motivation"><p>
-	Given a line through the origin in the plane, and a point not on the line, what point on the line is closest to the given point?
+	Given a line through the origin in the plane,
+	and a point not on the line,
+	what point on the line is closest to the given point?
 </p></question>
 
 <p>
@@ -142,9 +166,12 @@ then maybe we can use what we know about the dot product and right angles to hel
 </image>
 
 <p>
-In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m>, and <m>\uvec{w}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m>, where <m>P</m> is our unknown closest point.
-Since <m>\uvec{w}</m> is placed with its tail at the origin, the components of <m>\uvec{w}</m> are precisely the coordinates of <m>P</m>.
-So determining <m>\uvec{w}</m> will solve the problem.
+In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m>,
+and <m>\uvec{p}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m>,
+where <m>P</m> is our unknown closest point.
+Since <m>\uvec{p}</m> is placed with its tail at the origin,
+the components of <m>\uvec{p}</m> are precisely the coordinates of <m>P</m>.
+So determining <m>\uvec{p}</m> will solve the problem.
 </p>
 
 <p>
@@ -153,43 +180,104 @@ But the vectors created by the points on this line (using the origin as a univer
 (as we discovered in <xref ref="activity-orthog-proj-scalar-mul-line">Discovery</xref>)
 line <m>\ell</m> could be described as all scalar multiples of a particular vector <m>\uvec{a}</m>.
 This vector can be arbitrarily chosen as any vector parallel to the line.
-Once we have chosen <m>\uvec{a}</m>, we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{w}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{w} = k\uvec{a}</m>.
+Once we have chosen <m>\uvec{a}</m>,
+we have reduced our problem from determining the <em>two</em> unknown components of the vector <m>\uvec{p}</m> to determining a <em>single</em> unknown scalar <m>k</m> so that <m>\uvec{p} = k\uvec{a}</m>.
 </p>
 
 <p>
-As mentioned, since <m>P</m> is the closest point, the directed line segment <m>\abray{PQ}</m> must be perpendicular to <m>\ell</m>.
-On the diagram above, we have used the vector <m>\uvec{n}</m> to represent this direct line segment.
+As mentioned, since <m>P</m> is the closest point,
+the directed line segment <m>\abray{PQ}</m> must be perpendicular to <m>\ell</m>.
+On the diagram above,
+we have used the vector <m>\uvec{n}</m> to represent this direct line segment.
 As in
 <xref ref="activity-orthog-proj-dot-prod-condition">Discovery</xref>,
 we know that <m>\udotprod{n}{a}</m> must be zero <mdash />
 this is the perpendicular condition.
 However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.
-But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>, and <m>\uvec{w}</m> to replace <m>\uvec{n}</m>:
-<md><mrow> \uvec{w} + \uvec{n} \amp= \uvec{u} \amp \amp\implies \amp \uvec{n} \amp= \uvec{u} - \uvec{w} = \uvec{u} - k\uvec{a} </mrow></md>
+But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>,
+and <m>\uvec{p}</m> to replace <m>\uvec{n}</m>:
+<md><mrow> \uvec{p} + \uvec{n} \amp= \uvec{u} \amp \amp\implies \amp \uvec{n} \amp= \uvec{u} - \uvec{p} = \uvec{u} - k\uvec{a} </mrow></md>
 Replacing <m>\uvec{n}</m> by this expression in the condition <m>\udotprod{n}{a} = 0</m> gives us an equation of numbers that we can solve for the unknown scale factor <m>k</m>,
 as we did in
 <xref ref="activity-orthog-proj-solve">Discovery</xref>:
 <me> k = \frac{\udotprod{u}{a}}{\unorm{a}^2} </me>.
-This vector <m>\uvec{w} = k\uvec{a}</m> pointing from the origin to the desired closest point <m>P</m> is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>,
-and we write <m>\proj_{\uvec{a}} \uvec{u}</m> to represent it.
-That is, <me> \proj_{\uvec{a}}{\uvec{u}} = \frac{\udotprod{u}{a}}{\unorm{a}^2}\, \uvec{a} </me>.
-The normal vector <m>\uvec{n}</m> is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>.
-These two vectors are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
-<me> \uvec{u} = \uvec{w} + \uvec{n} </me>,
-where <m>\uvec{w}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}</m> is orthogonal to <m>\uvec{a}</m>.
+This vector <m>\uvec{p} = k\uvec{a}</m> pointing from the origin to the desired closest point <m>P</m> is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>,
+and we write <m>\uproj{u}{a}</m> to represent it.
+</p>
+
+<algorithm xml:id="procedure-orthog-concepts-closest-point">
+	<title>Closest point on a line (orthogonal projection)</title>
+	<p>
+	Given a line <m>\ell</m> through the origin and point <m>Q</m> that does not lie on <m>\ell</m>,
+	compute the point <m>P</m> on <m>\ell</m> that is closest to <m>Q</m> as follows.
+	<ol>
+		<li><p>
+			Choose any point <m>P'</m> on the line
+			(excluding the origin),
+			and form the parallel vector <m>\uvec{a} = \abray{OP'}</m>.
+		</p></li>
+		<li><p> Form the vector <m>\uvec{u} = \abray{OQ}</m>. </p></li>
+		<li><p>
+			Compute the projection vector
+			<me> \uvec{p} = \uproj{u}{a} = \frac{\udotprod{u}{a}}{\unorm{a}^2}\, \uvec{a} </me>.
+		</p></li>
+	</ol>
+	This projection vector will now point from the origin to the desired closest point <m>P</m>,
+	<em>parallel to the line <m>\ell</m></em>,
+	so that <m>\uvec{p} = \abray{OP}</m>.
+	</p>
+</algorithm>
+
+<remark><p>
+	It is not actually necessary that <m>Q</m> be external to the line.
+	If you were to carry out the procedure above in the case that <m>Q</m> lies on <m>\ell</m>,
+	the calculations would end up with <m>\uvec{p} = \uvec{u}</m>,
+	confirming that <m>Q</m> was already the point on the line that is closest to itself.
+</p></remark>
+
+<p>
+The normal vector <m>\uvec{n}</m> in the diagram above is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>.
+Together, the projection vector and corresponding normal vector are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
+<me> \uvec{u} = \uvec{p} + \uvec{n} </me>,
+where <m>\uvec{p}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}</m> is orthogonal to <m>\uvec{a}</m>.
 While this decomposition is relative to <m>\uvec{a}</m>, it is really only the <em>direction</em> of <m>\uvec{a}</m> that matters <mdash />
 if <m>\uvec{a}'</m> is parallel to <m>\uvec{a}</m> (even possibly opposite to <m>\uvec{a}</m>), then both
 <md><mrow>
-	\uvec{w} \amp= \proj_{\uvec{a}} \uvec{u} = \proj_{\uvec{a}'} \uvec{u}, \amp
-	\uvec{n} \amp= \uvec{u} - \proj_{\uvec{a}} \uvec{u} = \uvec{u} - \proj_{\uvec{a}'} \uvec{u}
+	\uvec{p} \amp= \uproj{u}{a} = \proj_{\uvec{a}'} \uvec{u}, \amp
+	\uvec{n} \amp= \uvec{u} - \uvec{p} = \uvec{u} - \uproj{u}{a} = \uvec{u} - \proj_{\uvec{a}'} \uvec{u}
 </mrow></md>
 will be true.
 </p>
 
-<remark><p>
-	All of these calculations can be performed in higher dimensions as well,
-	the only difference being that there is no longer one unique perpendicular direction to a given vector <m>\uvec{a}</m>.
-</p></remark>
+<algorithm xml:id="procedure-orthog-concepts-shortest-distance">
+	<title>Shortest distance to a line</title>
+	<p>
+	Given a line <m>\ell</m> through the origin and point <m>Q</m> that does not lie on <m>\ell</m>,
+	compute the shortest distance from <m>Q</m> to the line as follows.
+	<ol>
+		<li><p>
+			Compute the projection vector <m>\uvec{p} = \uproj{u}{a}</m> as in
+			<xref ref="procedure-orthog-concepts-closest-point" />.
+		</p></li>
+		<li><p> Compute the normal vector <m>\uvec{n} = \uvec{u} - \uvec{p}</m>. </p></li>
+		<li><p> Compute the norm <m>\unorm{n}</m>. </p> </li>
+	</ol>
+	The computed norm is the distance from the closest point <m>P</m> to the point <m>Q</m>.
+	</p>
+</algorithm>
+
+<remark><ol>
+	<li><p>
+		These procedures and calculations can be easily modified to work for lines that do not pass through the origin:
+		simply choose some arbitrary <q>initial</q> point <m>R</m> on the line to <q>act</q> as the origin.
+	</p></li>
+	<li><p>
+		All of these calculations can be performed in higher dimensions as well.
+		In higher dimensions,
+		it is true that there is no longer one unique perpendicular direction to a given vector <m>\uvec{a}</m>,
+		but the calculation of <m>\uvec{n}</m> as above will pick out the correction direction to extend from the line to the point <m>Q</m> at a right angle to the line.
+	</p></li>
+</ol></remark>
 
 </subsection>
 
@@ -273,6 +361,31 @@ This is called the
 for the line, referring to the <em>point</em> on the line at the terminal point of <m>\uvec{x}_0</m> and the <em>normal</em> vector <m>\uvec{n}</m>.
 </p>
 
+<convention>
+	<title>Point-normal form for a line in <m>\R^2</m></title>
+	<p>
+	If <m>(x_0,y_0)</m> is a point on the line <m>\ell \colon a x + b y = d</m>
+	(that is, <m>a x_0 + b y_0 = d</m> is true),
+	then <m>\ell</m> can alternatively be described as all points <m>(x,y)</m> that satisfy
+	<me> \dotprod{(a,b)}{\bbrac{(x,y) - (x_0,y_0)}} = 0 </me>.
+	</p>
+</convention>
+
+<remark><p>
+	It may seem like the line parameter <m>d</m> has disappeared in converting from algebraic form <m>a x + b y = d</m> to point-normal form.
+	But it has merely be replaced by the point <m>(x_0,y_0)</m>,
+	since <m>d = a x_0 + b y_0</m>.
+	In fact, if we use the algebraic properties of the dot product to expand the left-hand side of the point-normal form equation,
+	we can recover the original algebraic equation:
+	<md alignment="gather">
+		<mrow> \dotprod{(a,b)}{\bbrac{(x,y) - (x_0,y_0)}} = 0 </mrow>
+		<mrow> \dotprod{(a,b)}{(x,y)} - \dotprod{(a,b)}{(x_0,y_0)} = 0 </mrow>
+		<mrow> (a x + b y) - (a x_0 + b y_0) = 0 </mrow>
+		<mrow> (a x + b y) - d = 0 </mrow>
+		<mrow> a x + b y = d </mrow>
+	</md>.
+</p></remark>
+
 </subsection>
 
 
@@ -289,6 +402,16 @@ If we keep a fixed choice of <m>\uvec{x}_0</m> but replace <m>\uvec{x}_1</m> by 
 we can describe the plane as all points whose difference is orthogonal to <m>\uvec{n}</m>,
 giving us a point-normal for a plane just as in equation <xref ref="equation-orthog-concepts-point-normal-form" />.
 </p>
+
+<convention>
+	<title>Point-normal form for a plane in <m>\R^3</m></title>
+	<p>
+	If <m>(x_0,y_0,z_0)</m> is a point on the plane <m>\Pi \colon a x + b y + c z = d</m>
+	(that is, <m>a x_0 + b y_0 + c z_0 = d</m> is true),
+	then <m>\Pi</m> can alternatively be described as all points <m>(x,y,z)</m> that satisfy
+	<me> \dotprod{(a,b,c)}{\bbrac{(x,y,z) - (x_0,y_0,z_0)}} </me>.
+	</p>
+</convention>
 
 <remark><p>
 	A line in space does not have a point-normal form, because it does not have one unique normal <q>direction</q> like a line in the plane or a plane in space does.
