@@ -21,17 +21,21 @@ respective owners.
 <assemblage><title>In this section</title><p><ul>
 <li><xref ref="subsection-det-examples-2x2" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-det-examples-2x2" /></em></li>
+<li><xref ref="subsection-det-examples-3x3-minor-cofactor" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-det-examples-3x3-minor-cofactor" /></em></li>
 <li><xref ref="subsection-det-examples-3x3" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-det-examples-3x3" /></em></li>
+<li><xref ref="subsection-det-examples-4x4-minor-cofactor" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-det-examples-4x4-minor-cofactor" /></em></li>
 <li><xref ref="subsection-det-examples-4x4" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-det-examples-4x4" /></em></li>
 </ul></p></assemblage>
 
 <subsection xml:id="subsection-det-examples-2x2">
-<title>Determinants of <m>2\times 2</m> matrices</title>
+<title>Determinants of <m>2 \times 2</m> matrices</title>
 
 <p>
-An easy way to remember the <m>2\times 2</m> determinant formula is with a crisscross pattern,
+An easy way to remember the <m>2 \times 2</m> determinant formula is with a crisscross pattern,
 as illustrated below for general <m>2 \times 2</m> matrix
 <m>A = \left[\begin{smallmatrix} a \amp b \\ c \amp d \end{smallmatrix}\right]</m>.
 </p>
@@ -74,11 +78,101 @@ The next example illustrates the occurrence of a double negative in a determinan
 
 </subsection>
 
+<subsection xml:id="subsection-det-examples-3x3-minor-cofactor">
+<title>Minors and cofactors of <m>3 \times 3</m> matrices</title>
+
+<subsubsection>
+	<title>Minors</title>
+
+	<p>
+	A minor determinant is just a <em>one-size-smaller</em> determinant.
+	To obtain that smaller matrix,
+	we remove one row and one column.
+	Usually we specify which to remove by focusing on a single entry and removing the row and column that contain the entry.
+	</p>
+
+	<example xml:id="example-minor-in-3x3"><title>Minor determinants in a <m>3 \times 3</m> matrix</title><statement>
+		<p>
+		Let's compute a couple of minor determinants in the matrix from
+		<xref ref="activity-det-3by3-det" />:
+		<me>
+			\left[\begin{array}{rrr}
+				3 \amp 1 \amp 0 \\
+				-2 \amp -2 \amp 1 \\
+				0 \amp 1 \amp -1
+			\end{array}\right]
+		</me>.
+		The notation <m>M_{11}</m> means the minor associated to the <m>(1,1)</m> entry,
+		so we should remove both the first row and the first column,
+		leaving behind a <m>2 \times 2</m> matrix.
+		</p>
+		<image width="46%">
+			<!-- description gets inserted as alt text in html img tag -->
+			<description><m>3 \times 3</m> minor determinant calculation example: remove associated row and column</description>
+			<latex-image><xi:include href="examples.d/3x3-minor-det-1-1.tex" parse="text" /></latex-image>
+		</image>
+		<p> We can now compute this minor determinant using the <m>a d - b c</m> pattern for <m>2 \times 2</m> determinants. </p>
+		<image width="66%">
+			<!-- description gets inserted as alt text in html img tag -->
+			<description><m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant</description>
+			<latex-image><xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" /></latex-image>
+		</image>
+		<p>
+		Now let's try the <m>M_{23}</m> minor determinant.
+		This time we should remove the second row and the third column.
+		</p>
+		<image width="46%">
+			<!-- description gets inserted as alt text in html img tag -->
+			<description><m>3 \times 3</m> minor determinant calculation example: remove associated row and column</description>
+			<latex-image><xi:include href="examples.d/3x3-minor-det-2-3.tex" parse="text" /></latex-image>
+		</image>
+		<p> Again, from here we compute this minor determinant using the <m>a d - b c</m> pattern. </p>
+		<image width="56%">
+			<!-- description gets inserted as alt text in html img tag -->
+			<description><m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant</description>
+			<latex-image><xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" /></latex-image>
+		</image>
+	</statement></example>
+
+</subsubsection>
+
+<subsubsection>
+	<title>Cofactors</title>
+
+	<p>
+	A cofactor just takes a minor determinant and (sometimes) flips its sign:
+	when the corresponding entry is at an <q>even</q> position then the cofactor is equal to the minor determinant value,
+	and when the corresponding entry is at an <q>odd</q> position then the sign is flipped.
+	</p>
+
+	<example><title>Cofactors in a <m>3 \times 3</m> matrix</title><statement>
+
+		<p>
+		Let's continue <xref ref="example-minor-in-3x3" /> above.
+		The minor determinant <m>M_{11}</m> corresponds to the <m>(1,1)</m> entry in the matrix,
+		which is at an <q>even</q> position since <m>1 + 1 = 2</m> is even.
+		So the corresponding cofactor value is equal to the minor determinant value:
+		<me> C_{11} = M_{11} = 1 </me>.
+		</p>
+
+		<p>
+		But the minor determinant <m>M_{23}</m> corresponds to the <m>(2,3)</m> entry in the matrix,
+		which is at an <q>odd</q> position since <m>2 + 3 = 5</m> is odd.
+		So the corresponding cofactor value is equal to the negative of the minor determinant value:
+		<me> C_{23} = - M_{23} = -3 </me>.
+		</p>
+
+	</statement></example>
+
+</subsubsection>
+
+</subsection>
+
 <subsection xml:id="subsection-det-examples-3x3">
-<title>Determinants of <m>3\times 3</m> matrices</title>
+<title>Determinants of <m>3 \times 3</m> matrices</title>
 
 <p>
-For a <m>3\times 3</m> matrix,
+For a <m>3 \times 3</m> matrix,
 we choose a <em>single</em> row or column and perform a cofactor expansion.
 It's usually best to choose the row or column with the most zeros,
 since for a zero entry the <q>entry times cofactor</q> part of the expansion for that entry will be zero no matter the value of the cofactor,
@@ -92,10 +186,14 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 <example><title>Determinant of a <m>3 \times 3</m> matrix along a row</title><statement>
 	<p>
 	Let's compute the determinant of the matrix from
-	<xref ref="activity-det-3by3-det" />.
-	<!-- COMMENT No need to repeat the matrix here, can just open the knowl... ENDCOMMENT
-	<me> A = \begin{bmatrix}[rrr]3&1&0\\-2&-2&1\\0&1&-1\end{bmatrix}. </me>
-	-->
+	<xref ref="activity-det-3by3-det" />:
+	<me>
+		\left[\begin{array}{rrr}
+			 3 \amp  1 \amp  0 \\
+			-2 \amp -2 \amp  1 \\
+			 0 \amp  1 \amp -1
+		\end{array}\right]
+	</me>.
 	Any of the first row or column or the third row or column would be good choices as they all contain a zero entry.
 	Let's choose the third row,
 	since it also contains some <m>1</m>s,
@@ -118,8 +216,8 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 	Also, recall that a cofactor for an entry involves the minor for that entry <mdash />
 	the determinant of the smaller matrix obtained by removing the row and column in which that entry sits.
 	We have indicated each removal of a row or column by a strike-through.
-	Since <m>A</m> is <m>3\times 3</m>,
-	all of its minors are <m>2\times 2</m> determinants that we can compute with our crisscross pattern.
+	Since <m>A</m> is <m>3 \times 3</m>,
+	all of its minors are <m>2 \times 2</m> determinants that we can compute with our crisscross pattern.
 	However,
 	since the <m>(3,1)</m> entry is <m>0</m>,
 	there is no need to compute the <m>(3,1)</m> minor.
@@ -198,11 +296,53 @@ see
 
 </subsection>
 
+<subsection xml:id="subsection-det-examples-4x4-minor-cofactor">
+	<title>Minors and cofactors of <m>4 \times 4</m> matrices</title>
+
+	<p>
+	Applying the <em>one-size-smaller</em> pattern again,
+	a minor determinant in a <m>4 \times 4</m> matrix is the determinant of a <m>3 \times 3</m> matrix obtained by removing one row and one column.
+	And again cofactor values are equal to minor determinant values,
+	except that we flip the signs for values associated to <q>odd</q> positions with the <m>4 \times 4</m> matrix.
+	</p>
+
+	<example>
+
+		<p>
+		Consider the matrix
+		<me>
+			\left[\begin{array}{rrrr}
+				-1 \amp 3 \amp 1 \amp 0 \\
+				-5 \amp 6 \amp 7 \amp 8 \\
+				2 \amp -2 \amp -2 \amp 1 \\
+				2 \amp 0 \amp 1 \amp -1
+			\end{array}\right]
+		</me>.
+		To compute the <m>M_{21}</m> minor determinant,
+		we remove the second row and the first column.
+		</p>
+		<image width="88%">
+			<!-- description gets inserted as alt text in html img tag -->
+			<description><m>4 \times 4</m> minor determinant calculation example: remove associated row and column</description>
+			<latex-image><xi:include href="examples.d/4x4-minor-det-2-1.tex" parse="text" /></latex-image>
+		</image>
+		<p>
+		You might recognize this <m>3 \times 3</m> matrix as the same as the one from the examples in <xref ref="subsection-det-examples-3x3"/>,
+		so we already know its determinant.
+		Also, the <m>(2,1)</m> entry in the original <m>4 \times 4</m> matrix is in an <q>odd</q> position since <m>2 + 1 = 3</m> is odd,
+		so must flip the sign to obtain the <m>C_{21}</m> cofactor value from the <m>M_{21}</m> minor determinant value:
+		<md> <mrow> M_{21} \amp = 1 \text{,} \amp C_{21} \amp = - M_{21} = -1 \text{.} </mrow> </md>
+		</p>
+
+	</example>
+
+</subsection>
+
 <subsection xml:id="subsection-det-examples-4x4">
-<title>Determinants of <m>4\times 4</m> matrices</title>
+<title>Determinants of <m>4 \times 4</m> matrices</title>
 
 <p>
-Finally, here is a <m>4\times 4</m> example.
+Finally, here is a <m>4 \times 4</m> example.
 We'll do one with a few zeros,
 so that it doesn't get too out of hand.
 </p>
@@ -228,7 +368,7 @@ so that it doesn't get too out of hand.
 		<description><m>4 \times 4</m> determinant calculation example: choose a row</description>
 		<latex-image><xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" /></latex-image>
 	</image>
-	<p> However, the cofactor expansion along the chosen row will still involve two <m>3\times 3</m> minor determinant calculations. </p>
+	<p> However, the cofactor expansion along the chosen row will still involve two <m>3 \times 3</m> minor determinant calculations. </p>
 	<image width="100%">
 		<!-- description gets inserted as alt text in html img tag -->
 		<description><m>4 \times 4</m> determinant calculation example: expand</description>

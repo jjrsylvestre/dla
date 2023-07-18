@@ -53,8 +53,8 @@ which means that <m>A</m> must be invertible with
 <p>
 Now,
 we could achieve this goal by <em>always</em> choosing <m>\delta=0</m> and <m>A'=0</m>,
-but that won't help us replicate for larger matrices the patterns we discovered in the <m>2\times 2</m> case.
-We will find that there is a very particular procedure to achieve this goal that works for every square matrix <em>and</em> recovers the <m>2\times 2</m> case above,
+but that won't help us replicate for larger matrices the patterns we discovered in the <m>2 \times 2</m> case.
+We will find that there is a very particular procedure to achieve this goal that works for every square matrix <em>and</em> recovers the <m>2 \times 2</m> case above,
 so we will tackle the goal in two parts:
 <ol>
 	<li> determine the scalar <m>\delta</m> for each square matrix <m>A</m>, and then </li>
@@ -74,7 +74,7 @@ and usually write <m>\det A</m> instead of <m>\delta</m>.
 	and
 	<xref ref="proposition-elem-matrices-check-only-right-inverse" />
 	we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)}A'</m>,
-	as in the <m>2\times 2</m> case discussed above.
+	as in the <m>2 \times 2</m> case discussed above.
 	Also, we will learn in
 	<xref ref="chapter-more-det" />
 	that when <m>\det A=0</m>,
@@ -107,10 +107,10 @@ which are defined in terms of
 But the key word in the definition of <term>minor</term> is <em>smaller</em> <mdash />
 determinants are defined <em>recursively</em> in terms of smaller matrices.
 In <xref ref="worksheet-det" />,
-after first exploring the determinant of a <m>2\times 2</m> matrix as motivation,
-we started afresh with a precise definition of the <m>1\times 1</m> determinant,
-and then defined the <m>2\times 2</m> determinant in terms of <m>1\times 1</m> determinants.
-Then the <m>3\times 3</m> determinant is defined in terms of <m>2\times 2</m> determinants,
+after first exploring the determinant of a <m>2 \times 2</m> matrix as motivation,
+we started afresh with a precise definition of the <m>1 \times 1</m> determinant,
+and then defined the <m>2 \times 2</m> determinant in terms of <m>1 \times 1</m> determinants.
+Then the <m>3 \times 3</m> determinant is defined in terms of <m>2 \times 2</m> determinants,
 and so on.
 As we will see in examples in
 <xref ref="section-det-examples" />,
@@ -118,8 +118,8 @@ computing a determinant from this recursive definition will involve unpacking it
 then unpacking those in terms of determinants of one size smaller again,
 and so on.
 Technically,
-this process should continue until we are down to a bunch of <m>1\times 1</m> determinants,
-but since there is a simple formula for a <m>2\times 2</m> determinant,
+this process should continue until we are down to a bunch of <m>1 \times 1</m> determinants,
+but since there is a simple formula for a <m>2 \times 2</m> determinant,
 in direct computations we will stop there.
 </p>
 
@@ -127,8 +127,8 @@ in direct computations we will stop there.
 	Computing determinants by cofactor expansions is <em>extremely</em> inefficient,
 	whether by hand or by computer.
 	For example,
-	for a <m>10\times 10</m> matrix,
-	the recursive process of a cofactor expansion could eventually require you to compute more than <m>1.8</m> million <m>2\times 2</m> determinants.
+	for a <m>10 \times 10</m> matrix,
+	the recursive process of a cofactor expansion could eventually require you to compute more than <m>1.8</m> million <m>2 \times 2</m> determinants.
 	In the next chapter we will discover that we can also compute determinants by
 	<ellipsis /> you guessed it,
 	row reduction!
@@ -142,10 +142,10 @@ in direct computations we will stop there.
 </subsection>
 
 <subsection xml:id="subsection-det-concepts-1x1">
-<title>Determinants of <m>1\times 1</m> matrices</title>
+<title>Determinants of <m>1 \times 1</m> matrices</title>
 
 <p>
-Consider the general <m>1\times 1</m> matrix
+Consider the general <m>1 \times 1</m> matrix
 <m>A=\begin{bmatrix}a\end{bmatrix}</m>.
 We should expect the invertibility of <m>A</m> to be completely <em>determined</em> by the value of the single entry <m>a</m>,
 since that is all the information that <m>A</m> contains.
@@ -163,17 +163,17 @@ we set
 </subsection>
 
 <subsection xml:id="subsection-det-concepts-2x2">
-<title>Determinants of <m>2\times 2</m> matrices</title>
+<title>Determinants of <m>2 \times 2</m> matrices</title>
 
 <p>
 In <xref ref="activity-det-2by2-criss-cross-det-formula" />,
-we calculated the determinant of the general <m>2\times 2</m> matrix to be
+we calculated the determinant of the general <m>2 \times 2</m> matrix to be
 <me> \det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = ad -bc, </me>
 using a cofactor expansion along the first row.
 (We leave it up to you,
 the reader,
 to check that a cofactor expansion along a column or along the second row yields the same result.)
-And we already verified by row reducing that a <m>2\times 2</m> matrix is invertible precisely when
+And we already verified by row reducing that a <m>2 \times 2</m> matrix is invertible precisely when
 <m>ad-bc\neq 0</m>
 (<xref ref="proposition-elem-matrices-2x2-det-invertible" />).
 </p>
@@ -184,23 +184,67 @@ And we already verified by row reducing that a <m>2\times 2</m> matrix is invert
 <title>Determinants of larger matrices</title>
 
 <p>
-Determinants by cofactor expansions of square matrices of sizes larger than <m>2\times 2</m> are best considered through examples <mdash />
-you wouldn't want to try to write out a general formula for the determinant of a <m>5\times 5</m> matrix in twenty-five entry variables like the one we have above for <m>2\times 2</m> matrices.
-We'll move on to examples shortly,
-but let's first recall the cofactor sign patterns from
+In <xref first="activity-det-1by1-det" last="activity-det-3by3-det" />,
+we used an <term>inductive</term> process to build up from computing <m>1 \times 1</m> determinants to <m>3 \times 3</m> determinants.
+The inductive process continues for larger matrices to provide a formula for the determinant of an <m>n \times n</m> matrix for every <m>n</m> via a cofactor expansion along the first row:
+<md><mrow xml:id="equation-det-concepts-cofactor-exp" tag="star">
+	\det A = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13} + \dotsb + a_{1n} C_{1n}
+</mrow></md>.
+And we saw in <xref ref="activity-det-3by3-det-other-rows-cols" /> that can replace the cofactor expansion in
+<xref ref="equation-det-concepts-cofactor-exp" />
+with a cofactor expansion along any row or column of our choosing and get the same result.
+</p>
+
+<aside><title>Inductive versus recursive</title><p>
+	<term>Induction</term> and <term>recursion</term> are two sides of the same coin.
+	Both are step-by-step processes.
+	In an inductive process,
+	we <em>build up</em> step-by-step,
+	using the results of the previous step to create the process for the next step.
+	Theoretically, we imagine this process could continue forever,
+	effectively establishing <em>all infinity</em> of the possible steps/cases.
+	In a recursive process,
+	we <em>work backwards</em> from a particular step/case,
+	repeatedly decomposing the current case into a process/calculation of the type of the previous case.
+	In the case of calculations or algorithms,
+	an inductive process usually leads to a recursive algorithm.
+	If you undertake further studies in mathematics and/or computing science you will encounter induction and recursion frequently.
+</p></aside>
+
+<p>
+While we have a convenient general formula for <m>2 \times 2</m> matrices in terms of the four entry variables,
+we certainly wouldn't want to attempt to write out a general formula for the determinant of a <m>5 \times 5</m> matrix in <em>twenty-five</em> entry variables.
+Instead, for matrices larger than <m>2 \times 2</m>,
+computing a determinant for a specific matrix from a cofactor expansion is a <term>recursive</term> process,
+since cofactors are just minor determinants with some sign changes.
+A cofactor expansion for an <m>n \times n</m> matrix requires <m>n</m> cofactor calculations.
+Each of those cofactor calculations is a determinant calculation of some <m>(n-1) \times (n-1)</m> <q>submatrices</q>.
+Each of those determinants,
+if calculated by cofactor expansion,
+will require <m>n-1</m> determinant calculations of various <m>(n-2) \times (n-2)</m> <q>submatrices</q>.
+And so on.
+As you can see, the number of calculations involved grows out of hand quite quickly,
+even for single-digit values of <m>n</m>.
+</p>
+
+<p>
+We will work through some <m>3 \times 3</m> and <m>4 \times 4</m> cofactor expansions in <xref ref="section-det-examples"/>,
+but we will develop a more efficient determinant calculation procedure based on row operations in <xref ref="chapter-det-by-row-red"/>.
+For now,
+let's record the cofactor sign patterns from
 <xref ref="activity-det-cofactor-sign-patterns" />.
-Remember that a cofactor is equal to either the corresponding minor or its negative,
+Remember that a cofactor is equal to either the corresponding minor determinant or its negative,
 depending on whether the sum <m>i+j</m> of row and column indices is even or odd.
-This extra <q>sign</q> portion of the cofactor formula in terms of minors will alternate from entry to entry,
+This extra <q>sign</q> portion of the cofactor formula in terms of minor determinants will alternate from entry to entry,
 since as we move along a row or along a column,
 only one of <m>i</m> or <m>j</m> will change,
 and so <m>i+j</m> will flip from even to odd or vice versa.
 So the cofactor signs follow the patterns,
 <mdn><mrow xml:id="equation-det-concepts-cofactor-sign-patterns">
-	3\times 3 \amp \colon \;
+	3 \times 3 \amp \colon \;
 	\left[\begin{smallmatrix} + \amp - \amp + \\ - \amp + \amp - \\ + \amp - \amp + \end{smallmatrix}\right],
 	\amp
-	4\times 4 \amp \colon \;
+	4 \times 4 \amp \colon \;
 	\left[\begin{smallmatrix}
 		+ \amp - \amp + \amp - \\
 		- \amp + \amp - \amp + \\
@@ -208,7 +252,7 @@ So the cofactor signs follow the patterns,
 		- \amp + \amp - \amp +
 	\end{smallmatrix}\right],
 	\amp
-	5\times 5 \amp \colon \;
+	5 \times 5 \amp \colon \;
 	\left[\begin{smallmatrix}
 		+ \amp - \amp + \amp - \amp + \\
 		- \amp + \amp - \amp + \amp - \\
@@ -257,7 +301,7 @@ so we really just get <m>d_1</m> times its minor determinant:
 </me>
 This minor determinant is again a diagonal matrix,
 so we can again expand along the first column to get a similar result.
-And the pattern will continue until we finally get down to a <m>1\times 1</m> minor
+And the pattern will continue until we finally get down to a <m>1 \times 1</m> minor
 <md>
 	<mrow>
 		\det D
