@@ -3,8 +3,6 @@
 
 <xsl:output method="xml" cdata-section-elements="latex-image"/>
 
-<xsl:param name="version" select="'unset'" />
-
 <!-- kill copyright headers, replace with one single header at the top -->
 <!-- TODO figure out how to kill copyright headers in included .tex files -->
 <xsl:template match="comment()[substring(string(.), 1, 4) = '****']" />
@@ -12,6 +10,8 @@
 	<xsl:copy-of select="document('./src/copyright-header.xml')/copyright/comment()" />
 	<xsl:apply-templates />
 </xsl:template>
+
+<!-- <xsl:param name="version" select="'unset'" />
 
 <xsl:template match="restrictversion[@onlyin]">
 	<xsl:if test="@onlyin=$version">
@@ -39,7 +39,7 @@
 			<xsl:apply-templates select="@*[name(.)!='excludefrom']|node()|text()"/>
 		</xsl:copy>
 	</xsl:if>
-</xsl:template>
+</xsl:template> -->
 
 <xsl:template match="@*|node()|text()">
 	<xsl:copy>
@@ -48,5 +48,3 @@
 </xsl:template>
 
 </xsl:stylesheet>
-
-

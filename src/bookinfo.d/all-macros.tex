@@ -1,0 +1,154 @@
+% *********************************************************************
+% © 2023 Jeremy Sylvestre
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3 or
+% any later version published by the Free Software Foundation; with no
+% Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+% copy of the license is included in the appendix entitled “GNU Free
+% Documentation License” that appears in the output document of this
+% PreTeXt source code. All trademarks™ are the registered® marks of
+% their respective owners.
+%
+% *********************************************************************
+
+
+% *********************************************************************
+% operators
+% *********************************************************************
+\DeclareMathOperator{\RREF}{RREF}% row reduced echelon format
+\DeclareMathOperator{\adj}{adj}% classical adjoint
+\DeclareMathOperator{\proj}{proj}% projection
+\DeclareMathOperator{\matrixring}{M}% $m\times n$ matrices
+\DeclareMathOperator{\poly}{P}% polynomials
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+
+% extra operators for two-semester version
+\DeclareMathOperator{\null}{null}% null space of a matrix (could really just use ker, but want to use this before concept of kernel is introduced)
+\DeclareMathOperator{\uppermatring}{U}% $m\times n$ upper triangular matrices
+\DeclareMathOperator{\trace}{trace} % trace, more explicitly than just tr
+\DeclareMathOperator{\dist}{dist}% distance
+\DeclareMathOperator{\neg}{neg}% negative operator
+\DeclareMathOperator{\Hom}{Hom}% hom space
+\DeclareMathOperator{\im}{im}% image of a function
+% *********************************************************************
+
+
+% *********************************************************************
+% numbers and number systems
+% *********************************************************************
+\newcommand{\R}{\mathbb{R}}% real numbers
+
+% complex numbers for two-semester version
+\newcommand{\C}{\mathbb{C}}% complex numbers
+\newcommand{\ci}{\mathrm{i}}% the imaginary number (\ci instead of \i because of conflict with an existing \i in some package somewhere)
+\newcommand{\cconj}[1]{\bar{#1}}% complex conjugate
+\newcommand{\lcconj}[1]{\overline{#1}}% long complex conjugate
+\newcommand{\cmodulus}[1]{\left\lvert #1 \right\rvert}% complex modulus
+% *********************************************************************
+
+
+% *********************************************************************
+% general constructs
+% *********************************************************************
+\newcommand{\bbrac}[1]{\bigl(#1\bigr)}% slightly larger enclosing brackets
+\newcommand{\Bbrac}[1]{\Bigl(#1\Bigr)}% even larger enclosing brackets
+\newcommand{\irst}[1][1]{{#1}^{\mathrm{st}}}
+\newcommand{\ond}[1][2]{{#1}^{\mathrm{nd}}}
+\newcommand{\ird}[1][3]{{#1}^{\mathrm{rd}}}
+\newcommand{\nth}[1][n]{{#1}^{\mathrm{th}}}
+\newcommand{\leftrightlinesubstitute}{\scriptstyle \overline{\phantom{xxx}}}
+\newcommand{\inv}[2][1]{{#2}^{-{#1}}}% inverse
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}% absolute value
+\newcommand{\degree}[1]{{#1}^\circ} % makeshift degree symbol
+
+% couple of extra constructs for two-semester version
+\newcommand{\iddots}{{\kern3mu\raise1mu{.}\kern3mu\raise6mu{.}\kern3mu \raise12mu{.}}}
+\newcommand{\blank}{-}% dash for blank in maps
+% *********************************************************************
+
+
+% *********************************************************************
+% general math
+% *********************************************************************
+% only needed in two-semester version
+\newcommand{\iso}{\simeq}% isomorphic objects
+% *********************************************************************
+
+
+% *********************************************************************
+% geometry
+% *********************************************************************
+\newcommand{\abray}[1]{\overrightarrow{#1}}% ray through points in arg, or directed line segment
+\newcommand{\abctriangle}[1]{\triangle #1}% triangle through points in arg
+% *********************************************************************
+
+
+% *********************************************************************
+% matrices and vectors
+% *********************************************************************
+%\newcommand{\basisfont}[1]{\mathscr{#1}}% font for basis
+\newcommand{\basisfont}[1]{\mathcal{#1}}% font for basis
+\newcommand{\mtrxvbar}{\mathord{|}}% a vertical bar to give a visual of extending a column in a matrix
+\newcommand{\utrans}[1]{{#1}^{\mathrm{T}}}% undergrad-style transpose
+\newcommand{\rowredarrow}{\xrightarrow[\text{reduce}]{\text{row}}}% row reduce arrow
+\newcommand{\bidentmatfour}{\begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0
+ \\ 0 \amp 0 \amp 0 \amp 1\end{bmatrix}}% four-by-four identity
+\newcommand{\uvec}[1]{\mathbf{#1}}% undergrad boldface vector
+\newcommand{\zerovec}{\uvec{0}}% zero vector
+\newcommand{\bvec}[2]{#1\,\uvec{#2}}% undergrad vector with components
+\newcommand{\ivec}[1]{\bvec{#1}{i}}% i vector with component
+\newcommand{\jvec}[1]{\bvec{#1}{j}}% j vector with component
+\newcommand{\kvec}[1]{\bvec{#1}{k}}% k vector with component
+\newcommand{\injkvec}[3]{\ivec{#1} - \jvec{#2} + \kvec{#3}}% i - j + k vector with components
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\unorm}[1]{\norm{\uvec{#1}}}% norm with undergrad vector style
+\newcommand{\dotprod}[2]{#1 \bigcdot #2}% dot product
+\newcommand{\udotprod}[2]{\dotprod{\uvec{#1}}{\uvec{#2}}}% dot product with undergrad vector style
+\newcommand{\crossprod}[2]{#1 \times #2}% cross product
+\newcommand{\ucrossprod}[2]{\crossprod{\uvec{#1}}{\uvec{#2}}}% cross product with undergrad vector style
+\newcommand{\uproj}[2]{\proj_{\uvec{#2}} \uvec{#1}}% projection with undergrad vector style
+\newcommand{\adjoint}[1]{{#1}^\ast}% adjoint
+\newcommand{\matrixOfplain}[2]{{\left[#1\right]}_{#2}}% matrix of, do not use basis font
+\newcommand{\rmatrixOfplain}[2]{{\left(#1\right)}_{#2}}% matrix of, round brackets, does not use basis font
+\newcommand{\rmatrixOf}[2]{\rmatrixOfplain{#1}{\basisfont{#2}}}% matrix of, round brackets
+\newcommand{\matrixOf}[2]{\matrixOfplain{#1}{\basisfont{#2}}}% matrix of
+
+
+% more matrices and vectors for two-semester version
+\newcommand{\invmatrixOfplain}[2]{\inv{\left[#1\right]}_{#2}}% inverse matrix of, do not use basis font
+\newcommand{\invrmatrixOfplain}[2]{\inv{\left(#1\right)}_{#2}}% inverse matrix of, round brackets, does not use basis font
+\newcommand{\invmatrixOf}[2]{\invmatrixOfplain{#1}{\basisfont{#2}}}% inverse matrix of
+\newcommand{\invrmatrixOf}[2]{\invrmatrixOfplain{#1}{\basisfont{#2}}}% inverse matrix of, round brackets
+\newcommand{\stdmatrixOf}[1]{\left[#1\right]}% standard matrix of a linear transformation, no basis specified
+\newcommand{\ucobmtrx}[2]{P_{\basisfont{#1} \to \basisfont{#2}}}% arrow style change of basis matrix
+\newcommand{\uinvcobmtrx}[2]{\inv{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style inverse change of basis matrix
+\newcommand{\uadjcobmtrx}[2]{\adjoint{P}_{\basisfont{#1} \to \basisfont{#2}}}% arrow style adjoint change of basis matrix
+\newcommand{\coordmapplain}[1]{C_{#1}}% coordinate map to $\R^n$ or $\C^n$
+\newcommand{\coordmap}[1]{\coordmapplain{\basisfont{#1}}}% coordinate map to $\R^n$ or $\C^n$
+\newcommand{\invcoordmapplain}[1]{\inv{C}_{#1}}% inverse coordinate map from $\R^n$ or $\C^n$
+\newcommand{\invcoordmap}[1]{\invcoordmapplain{\basisfont{#1}}}% inverse coordinate map from $\R^n$ or $\C^n$
+\newcommand{\similar}{\sim}
+\newcommand{\inprod}[2]{\left\langle\, #1,\, #2 \,\right\rangle}% inner product
+\newcommand{\uvecinprod}[2]{\inprod{\uvec{#1}}{\uvec{#2}}}% inner product with vector notation of arguments
+\newcommand{\orthogcmp}[1]{{#1}^{\perp}}
+\newcommand{\vecdual}[1]{{#1}^\ast}% vector space dual
+\newcommand{\vecddual}[1]{{#1}^{\ast\ast}}% vector space double dua
+% *********************************************************************
+
+% *********************************************************************
+% analysis
+% *********************************************************************
+% only needed in two-semester version
+\newcommand{\dd}[2]{\frac{d{#1}}{d#2}}% Leibniz derivative
+\newcommand{\ddx}[1][x]{\dd{}{#1}}% Leibniz differential operator
+\newcommand{\ddt}[1][t]{\dd{}{#1}}% Leibniz differential operator
+\newcommand{\dydx}{\dd{y}{x}}% Leibniz derivative, filled in
+\newcommand{\dxdt}{\dd{x}{t}}% Leibniz derivative, filled in
+\newcommand{\dydt}{\dd{y}{t}}% Leibniz derivative, filled in
+\newcommand{\intspace}{\;}
+\newcommand{\integral}[4]{\int^{#2}_{#1} #3 \intspace d{#4}}% spaced out integral
+\newcommand{\funcdef}[3]{#1\colon #2\to #3}
+% *********************************************************************

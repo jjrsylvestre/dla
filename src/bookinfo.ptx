@@ -30,7 +30,15 @@ respective owners.
 		<package>cancel</package>
 	</latex-preamble>
 
-	<xi:include href="./latex-macros.ptx" />
+	<!-- only one of these two will survive the assembly phase -->
+	<macros component="html">
+		<xi:include href="./bookinfo.d/dotprod-html.tex" parse="text" />
+		<xi:include href="./bookinfo.d/all-macros.tex" parse="text" />
+	</macros>
+	<macros component="latex">
+		<xi:include href="./bookinfo.d/dotprod-tex.tex" parse="text" />
+		<xi:include href="./bookinfo.d/all-macros.tex" parse="text" />
+	</macros>
 
 	<!-- tikz package and libraries for images -->
 	<latex-image-preamble>
