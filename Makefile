@@ -13,7 +13,7 @@ BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 PRETEXT=./pretext/pretext/pretext
 
 HTML_TARGETS = two-semester-html one-semester-html
-LATEX_TARGETS = two-semester-latex one-semester-latex
+LATEX_TARGETS = two-semester-latex one-semester-latex two-semester-print-latex one-semester-print-latex
 IMAGE_TARGETS = two-semester-html-images one-semester-html-images
 .PHONY: ptx two-semester-html-all one-semester-html-all \
   $(HTML_TARGETS) $(LATEX_TARGETS) $(IMAGE_TARGETS) \
@@ -38,7 +38,13 @@ help:
 	@echo "                            one-semester course."
 	@echo "> html-serve              : Fire up a simple Python web server to locally host the HTML output."
 	@echo "> two-semester-latex      : Output (only) LaTeX file containing chapters for a two-semester course."
+	@echo "                            (Electronic pdf version)"
+	@echo "> two-semester-print-latex: Output (only) LaTeX file containing chapters for a two-semester course."
+	@echo "                            (Print pdf version)"
 	@echo "> one-semester-latex      : Output (only) LaTeX file containing chapters for a one-semester course."
+	@echo "                            (Electronic pdf version)"
+	@echo "> one-semester-print-latex: Output (only) LaTeX file containing chapters for a one-semester course."
+	@echo "                            (Print pdf version)"
 	@echo "> ptx                     : Only preprocess source to create a single XML file in PTX format"
 	@echo "                            containing all chapters."
 	@echo "> clean                   : Remove all output files."
@@ -134,7 +140,7 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --component all \
 	  --format latex \
 	  --publisher publication/${*}-latex.xml \
-	  --directory ${BUILDDIR}/latex \
+	  --output ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...DONE"
 
