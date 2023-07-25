@@ -108,7 +108,7 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying css style customizations"
 	@cp css/dla.css ${BUILDDIR}/html/${*}/
 	@echo "...copying fonts"
-	@cp stixfonts/WOFF/*.woff stixfonts/WOFF2/*.woff2 ${BUILDDIR}/html/${*}/
+	@cp stixfonts/fonts/static_otf_woff2/*.woff2 ${BUILDDIR}/html/${*}/
 	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/${*}/*.html
 	@touch ${BUILDDIR}/html/${*}/.sentinal
 	@echo "...DONE"
