@@ -77,18 +77,26 @@ html-images-clean:
 	@-rm -f ${BUILDDIR}/html/images/*.svg
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-$(HTML_TARGETS): %-html: ${BUILDDIR}/html/%/.sentinal
+$(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinal
 $(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/html/%/images/.sentinal
-$(LATEX_TARGETS): %-latex: ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
+$(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
 
-${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) precompile.xsl | validate-xml
+${BUILDDIR}/ptx/publication-%.xml: publication/%.xml $(wildcard publication/include.d/*.xml)
+	@echo "Compiling publication file"
+	@mkdir -p ${BUILDDIR}/ptx
+	@xsltproc \
+	  --xinclude \
+	  --output ${BUILDDIR}/ptx/publication-${*}.xml \
+	  ./one-file.xsl publication/${*}.xml
+
+${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) one-file.xsl | validate-xml
 	@echo "Preprocessing PTX-->PTX, output will be placed in ${BUILDDIR}/ptx..."
 	@mkdir -p ${BUILDDIR}/ptx
 	@echo "...calling xsltproc to create single-file PreTeXt document"
 	@xsltproc \
 	  --xinclude \
 	  --output ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx \
-	  ./precompile.xsl src/${ROOTDOCNAME}.ptx
+	  ./one-file.xsl src/${ROOTDOCNAME}.ptx
 	@echo "...DONE"
 
 ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
@@ -100,7 +108,7 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --verbose \
 	  --component all \
 	  --format html \
-	  --publisher publication/${*}-html.xml \
+	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
 	  --parameters \
 		html.css.extra dla.css \
 	  --directory ${BUILDDIR}/html/${*}/ \
@@ -139,7 +147,7 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@${PRETEXT} \
 	  --component all \
 	  --format latex \
-	  --publisher publication/${*}-latex.xml \
+	  --publisher ${BUILDDIR}/ptx/publication-${*}-latex.xml \
 	  --output ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@sed -i \
