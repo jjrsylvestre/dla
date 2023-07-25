@@ -142,6 +142,13 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --publisher publication/${*}-latex.xml \
 	  --output ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@sed -i \
+	  -e 's|newtcolorbox\[use counter from=block\]{warning|newtcolorbox[use counter from=block]{warningenv|' \
+	  -e 's|begin{warning|begin{warningenv|g' \
+	  -e 's|end{warning|end{warningenv|g' \
+	  -e 's|\\usepackage{fontspec}|%\\usepackage{fontspec}|' \
+	  -e 's|usepackage{lmodern|usepackage{fouriernc|' \
+	  ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex
 	@echo "...DONE"
 
 html-serve:
