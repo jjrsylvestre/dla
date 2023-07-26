@@ -145,6 +145,7 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@mkdir -p ${BUILDDIR}/latex
 	@echo "...calling pretext to compile PreTeXt document"
 	@${PRETEXT} \
+	  --XSL style-latex.xsl \
 	  --component all \
 	  --format latex \
 	  --publisher ${BUILDDIR}/ptx/publication-${*}-latex.xml \

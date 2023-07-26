@@ -47,20 +47,20 @@ leading to our conclusion about how to determine a basis for the column space of
 		<ol>
 
 			<li xml:id="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">
-				If vectors
-				<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>
-				are linearly independent,
-				then so too are
-				<m>\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell</m>.
+				If
+				<m> \{ E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell \} </m>
+				is a linearly independent set of vectors
+				then so too is
+				<m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m>.
 			</li>
 
 			<li xml:id="proposition-col-row-null-space-dep-indep-of-images-indep-implies-indep-of-images">
 				If <m>E</m> is square and invertible
-				and vectors
-				<m>\uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell</m>
-				are linearly independent,
-				then so too are
-				<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>.
+				and
+				<m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m>
+				is a linearly independent set,
+				then so too is
+				<m> \{ E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell \} </m>.
 			</li>
 
 			<li xml:id="proposition-col-row-null-space-dep-indep-of-images-pullback-image-dependence">
@@ -80,48 +80,57 @@ leading to our conclusion about how to determine a basis for the column space of
 		</p>
 	</statement>
 
-	<proof><p><ol>
-		<li>
-			Let's apply
-			the <xref ref="proposition-linear-indep-test" text="title" />
-			to the vectors
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>:
-			suppose that <m>k_1,k_2,\dotsc,k_\ell</m> are scalars so that
-			<md><mrow tag="star" xml:id="equation-col-row-null-space-dep-indep-of-images-image-indep-implies-indep-test">
-				k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsc + k_\ell\uvec{v}_\ell = \zerovec.
-			</mrow></md>
-			Multiplying both sides of this equation by the matrix <m>E</m>, and using some matrix algebra, we get
-			<me> k_1E\uvec{v}_1 + k_2E\uvec{v}_2 + \dotsc + k_\ell E\uvec{v}_\ell = E\zerovec = \zerovec. </me>
-			But we have assumed that the vectors
-			<m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m>
-			are linearly independent,
-			so the only way this linear combination could equal the zero vector is if all the scalars
-			<m>k_1,k_2,\dotsc,k_\ell</m> are zero.
-			Thus, the linear combination in
-			<xref ref="equation-col-row-null-space-dep-indep-of-images-image-indep-implies-indep-test" />
-			must be the trivial one, and so the vectors
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
-			are linearly independent.
-		</li>
-		<li>
-			We assume <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are linearly independent.
-			Since we also assume <m>E</m> to be invertible,
-			we can restate this as saying that
-			<m>\inv{E} (E \uvec{v}_1), \inv{E} (E \uvec{v}_2), \dotsc, \inv{E} (E \uvec{v}_\ell)</m>
-			are linearly independent.
-			Now we can apply <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
-			with <m>E</m> replaced by <m>\inv{E}</m> and
-			<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
-			replaced by
-			<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>.
-		</li>
-		<li>
-			Simply apply the inverse <m>\inv{E}</m> to both sides of
-			<me> E\uvec{w} = k_1 E\uvec{v}_1 + k_2 E\uvec{v}_2 + \dotsb + k_\ell E\uvec{v}_\ell </me>
-			to obtain
-			<me> \uvec{w} = k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_\ell\uvec{v}_\ell. </me>
-		</li>
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref></title>
+		<p>
+		Let's apply
+		the <xref ref="proposition-linear-indep-test" text="title" />
+		to the vectors
+		<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>:
+		suppose that <m>k_1,k_2,\dotsc,k_\ell</m> are scalars so that
+		<md><mrow tag="star" xml:id="equation-col-row-null-space-dep-indep-of-images-image-indep-implies-indep-test">
+			k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsc + k_\ell\uvec{v}_\ell = \zerovec.
+		</mrow></md>
+		Multiplying both sides of this equation by the matrix <m>E</m>, and using some matrix algebra, we get
+		<me> k_1E\uvec{v}_1 + k_2E\uvec{v}_2 + \dotsc + k_\ell E\uvec{v}_\ell = E\zerovec = \zerovec. </me>
+		But we have assumed that the vectors
+		<m>E\uvec{v}_1,E\uvec{v}_2,\dotsc,E\uvec{v}_\ell</m>
+		are linearly independent,
+		so the only way this linear combination could equal the zero vector is if all the scalars
+		<m>k_1,k_2,\dotsc,k_\ell</m> are zero.
+		Thus, the linear combination in
+		<xref ref="equation-col-row-null-space-dep-indep-of-images-image-indep-implies-indep-test" />
+		must be the trivial one, and so the vectors
+		<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
+		are linearly independent.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-col-row-null-space-dep-indep-of-images-indep-implies-indep-of-images">Statement</xref></title>
+		<p>
+		We assume <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m> are linearly independent.
+		Since we also assume <m>E</m> to be invertible,
+		we can restate this as saying that vectors
+		<me> \inv{E} (E \uvec{v}_1), \inv{E} (E \uvec{v}_2), \dotsc, \inv{E} (E \uvec{v}_\ell) </me>
+		are linearly independent.
+		Now we can apply <xref ref="proposition-col-row-null-space-dep-indep-of-images-image-indep-implies-indep">Statement</xref>
+		with <m>E</m> replaced by <m>\inv{E}</m> and
+		<m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell</m>
+		replaced by
+		<m>E \uvec{v}_1, E \uvec{v}_2, \dotsc, E \uvec{v}_\ell</m>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-col-row-null-space-dep-indep-of-images-pullback-image-dependence">Statement</xref></title>
+		<p>
+		Simply apply the inverse <m>\inv{E}</m> to both sides of
+		<me> E\uvec{w} = k_1 E\uvec{v}_1 + k_2 E\uvec{v}_2 + \dotsb + k_\ell E\uvec{v}_\ell </me>
+		to obtain
+		<me> \uvec{w} = k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_\ell\uvec{v}_\ell. </me>
+		</p>
+	</proof>
 
 </proposition>
 

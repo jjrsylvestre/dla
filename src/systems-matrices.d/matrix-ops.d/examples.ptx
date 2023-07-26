@@ -120,15 +120,28 @@ For subtraction, watch out for double negatives!
 	In this matrix multiplication example,
 	notice that it does not make sense to even consider the possibility that <m>B A = A B</m> because the sizes of <m>B</m> and <m>A</m> are not compatible for multiplication in the order <m>B A</m>,
 	and so <m>B A</m> is undefined!
-	<aside>
+	</p>
+	<aside component="html">
 		<title>Check your understanding</title>
 		<p>	Is it <em>never</em> true that <m> B A = A B</m>?
 		It should be obvious that it will be true if <m>A</m> is a square zero matrix and <m>B</m> is a square matrix of the same size.
 		Can you come up with an example of <m>2\times 2</m> matrices <m>A</m> and <m>B</m> where neither is the zero matrix,
 		and <m>B A = A B</m> is true?</p>
 	</aside>
-	</p>
 </example>
+
+<!--
+	TODO recombine this with aside above if
+	https://github.com/PreTeXtBook/pretext/issues/746
+	gets fixed/closed
+-->
+<aside component="latex">
+	<title>Check your understanding</title>
+	<p>	Is it <em>never</em> true that <m> B A = A B</m>?
+	It should be obvious that it will be true if <m>A</m> is a square zero matrix and <m>B</m> is a square matrix of the same size.
+	Can you come up with an example of <m>2\times 2</m> matrices <m>A</m> and <m>B</m> where neither is the zero matrix,
+	and <m>B A = A B</m> is true?</p>
+</aside>
 
 <example><title>Matrix powers</title><p>
 	Since powers of matrices only work for <em>square matrices</em>,
@@ -269,7 +282,7 @@ and for some of the rules, in that same subsection we verify that they are indee
 <subsubsection>
 <title>A first example</title>
 
-<example><title>A system as a matrix equation</title>
+<example xml:id="example-matrix-ops-verify-sol-via-Ax-eq-b"><title>A system as a matrix equation</title>
 	<p>
 	Let's again consider the system from
 	<xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols" text="type-local"/> of
@@ -279,7 +292,7 @@ and for some of the rules, in that same subsection we verify that they are indee
 		\amp
 		\left[\begin{array}{rrr|r}
 			 1 \amp -3 \amp -1 \amp -4 \\
-			-2 \amp  7 \amp  2 \amp  9 
+			-2 \amp  7 \amp  2 \amp  9
 		\end{array}\right]
 		\amp\amp\rowredarrow\amp
 		\amp
@@ -311,7 +324,7 @@ and for some of the rules, in that same subsection we verify that they are indee
 		= A\uvec{x}
 		= \left[\begin{array}{rrr}
 			 1 \amp -3 \amp -1 \\
-			-2 \amp  7 \amp  2 
+			-2 \amp  7 \amp  2
 		\end{array}\right]
 		\left[\begin{array}{r} -1 \\ 1 \\ 0 \end{array}\right]
 		= \begin{bmatrix} -1 - 3 + 0 \\ 2 + 7 + 0 \end{bmatrix}
@@ -329,7 +342,7 @@ and for some of the rules, in that same subsection we verify that they are indee
 		= A\uvec{x}
 		= \left[\begin{array}{rrr}
 			 1 \amp -3 \amp -1 \\
-			-2 \amp  7 \amp  2 
+			-2 \amp  7 \amp  2
 		\end{array}\right]
 		\left[\begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
 		= \begin{bmatrix} 2 - 3 - 3 \\ -4 + 7 + 6 \end{bmatrix}
@@ -339,11 +352,25 @@ and for some of the rules, in that same subsection we verify that they are indee
 	</me>
 	Again, our system solution gives us a solution to the matrix equation.
 	</p>
-	<aside><title>Check your understanding</title><p>
-		Carry out the same verification as in this example for the <em>general</em> solution to the system,
+	<aside component="html"><title>Check your understanding</title><p>
+		Carry out the same verification as in
+		<xref ref="example-matrix-ops-verify-sol-via-Ax-eq-b" />
+		for the <em>general</em> solution to the system,
 		with the parameter <m>t</m> left variable.
 	</p></aside>
 </example>
+
+<!--
+	TODO recombine this with aside above if
+	https://github.com/PreTeXtBook/pretext/issues/746
+	gets fixed/closed
+-->
+<aside component="latex"><title>Check your understanding</title><p>
+	Carry out the same verification as in
+	<xref ref="example-matrix-ops-verify-sol-via-Ax-eq-b" />
+	for the <em>general</em> solution to the system,
+	with the parameter <m>t</m> left variable.
+</p></aside>
 
 </subsubsection>
 
@@ -478,7 +505,10 @@ and express their solutions in vector form.
 </example>
 
 <example xml:id="example-matrix-ops-sys-sol-vector-forms-corresponding-homog">
-	<title>Solutions in vector form: patterns in homogeneous/nonhomogeneous systems</title>
+	<title>
+		Solutions in vector form:
+		patterns for homogeneous and nonhomogeneous systems with the same coefficient matrix
+	</title>
 	<p>
 	In
 	<xref ref="example-row-red-solving-corresponding-homog" />,
@@ -511,12 +541,25 @@ and express their solutions in vector form.
 	<xref ref="example-matrix-ops-sys-sol-vector-forms-infinite" />
 	has a non-trivial constant part.
 	</p>
-	<aside><title>Compare</title><p>
-		with the discussion at the end of
+	<aside component="html"><title>Compare</title><p>
+		the pattern in
+		<xref ref="example-matrix-ops-sys-sol-vector-forms-corresponding-homog" />
+		with the pattern in
 		<xref ref="example-row-red-solving-corresponding-homog" />.
-		</p>
-	</aside>
+	</p></aside>
 </example>
+
+<!--
+	TODO recombine this with aside above if
+	https://github.com/PreTeXtBook/pretext/issues/746
+	gets fixed/closed
+-->
+<aside component="latex"><title>Compare</title><p>
+	the pattern in
+	<xref ref="example-matrix-ops-sys-sol-vector-forms-corresponding-homog" />
+	with the pattern in
+	<xref ref="example-row-red-solving-corresponding-homog" />.
+</p></aside>
 
 </subsubsection>
 
