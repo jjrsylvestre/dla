@@ -154,6 +154,7 @@ since it is the <q>just-right</q> size for a set of vectors to be a basis.
 
 <proposition xml:id="proposition-dimension-right-num-indep-iff-spanning">
 	<title>Using dimension to help test basis</title>
+
 	<statement><p>
 		Suppose <m>S</m> is a set of vectors in a finite-dimensional vector space,
 		and the number of vectors in <m>S</m> is exactly equal to the dimension of the vector space.
@@ -162,38 +163,45 @@ since it is the <q>just-right</q> size for a set of vectors to be a basis.
 				If <m>S</m> is linearly independent,
 				then we can conclude that <m>S</m> is also a spanning set without checking.
 			</li>
-			<li>
+			<li xml:id="proposition-dimension-right-num-indep-iff-spanning-spanning-imp-indep">
 				If <m>S</m> is a spanning set,
 				then we can conclude that <m>S</m> is also linearly independent without checking.
 			</li>
 		</ol>
 	</p></statement>
-	<proof><p><ol>
-		<li>
-			Assume that <m>S</m> is linearly independent.
-			By
-			<xref ref="proposition-dimension-increase-indep-to-basis" />,
-			<m>S</m> can be enlarged to a basis for the vector space.
-			But every basis for that space contains the same number of vectors
-			(<xref ref="theorem-dimension-every-basis-same-number" />),
-			and we have assumed that <m>S</m> already contains that number of vectors.
-			So <m>S</m> must not need to be enlarged to become a basis <mdash />
-			it must already be a basis itself,
-			and so must be a spanning set.
-		</li>
-		<li>
-			Assume that <m>S</m> is a spanning set.
-			By
-			<xref ref="proposition-basis-coords-reduce-span-to-basis" />,
-			<m>S</m> can be reduced to a basis for the vector space.
-			But every basis for that space contains the same number of vectors
-			(<xref ref="theorem-dimension-every-basis-same-number" />),
-			and we have assumed that <m>S</m> already contains that number of vectors.
-			So <m>S</m> must not need to be reduced to become a basis <mdash />
-			it must already be a basis itself,
-			and so must be linearly independent.
-		</li>
-	</ol></p></proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-dimension-right-num-indep-iff-spanning-indep-imp-spanning">Statement</xref></title>
+		<p>
+		Assume that <m>S</m> is linearly independent.
+		By
+		<xref ref="proposition-dimension-increase-indep-to-basis" />,
+		<m>S</m> can be enlarged to a basis for the vector space.
+		But every basis for that space contains the same number of vectors
+		(<xref ref="theorem-dimension-every-basis-same-number" />),
+		and we have assumed that <m>S</m> already contains that number of vectors.
+		So <m>S</m> must not need to be enlarged to become a basis <mdash />
+		it must already be a basis itself,
+		and so must be a spanning set.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-dimension-right-num-indep-iff-spanning-spanning-imp-indep">Statement</xref></title>
+		<p>
+		Assume that <m>S</m> is a spanning set.
+		By
+		<xref ref="proposition-basis-coords-reduce-span-to-basis" />,
+		<m>S</m> can be reduced to a basis for the vector space.
+		But every basis for that space contains the same number of vectors
+		(<xref ref="theorem-dimension-every-basis-same-number" />),
+		and we have assumed that <m>S</m> already contains that number of vectors.
+		So <m>S</m> must not need to be reduced to become a basis <mdash />
+		it must already be a basis itself,
+		and so must be linearly independent.
+		</p>
+	</proof>
+
 </proposition>
 
 <corollary xml:id="corollary-dimension-basis-right-num-just-one-check">
@@ -233,6 +241,7 @@ and then also the dimension of the subspace to the dimension of the whole space.
 </p>
 
 <proposition xml:id="proposition-dimension-subspace-dim-props">
+
 	<statement><p>
 		Suppose <m>U</m> is a subspace of a finite-dimensional vector space <m>V</m>.
 		Then the following all hold true.
@@ -248,37 +257,48 @@ and then also the dimension of the subspace to the dimension of the whole space.
 			</li>
 		</ol>
 	</p></statement>
-	<proof><p><ol>
-		<li>
-			Since <m>U</m> is a subspace of <m>V</m>,
-			each vector of <m>U</m> is also a vector of <m>V</m>.
-			So a basis for <m>U</m> will be a linearly independent set of vectors in <m>V</m>,
-			which
-			<xref ref="proposition-dimension-increase-indep-to-basis" />
-			tells us can be enlarged to a basis for <m>V</m>.
-		</li>
-		<li>
-			Recall that the dimenion of a vector space
-			(whether a subspace of another space or not)
-			is defined to be the number of vectors in a basis for the space.
-			Since every basis for <m>U</m> can be enlarged to a basis for <m>V</m>,
-			the number of vectors in a basis for <m>U</m> cannot be larger than the number of vectors in a basis for <m>V</m>.
-		</li>
-		<li>
-			Let <m>\basisfont{B}</m> be a basis for <m>U</m>,
-			so that <m>U = \Span\basisfont{B}</m>.
-			If we have <m>\dim U = \dim V</m>,
-			then the number of vectors in <m>\basisfont{B}</m> is exactly equal to the dimension of <m>V</m>.
-			But <m>\basisfont{B}</m> is also linearly independent in <m>V</m>,
-			so by
-			<xref ref="proposition-dimension-right-num-indep-iff-spanning-indep-imp-spanning">Statement</xref>
-			of
-			<xref ref="proposition-dimension-right-num-indep-iff-spanning" />,
-			it must also be a spanning set for <m>V</m>.
-			Thus,
-			<m>U = \Span\basisfont{B} = V</m>.
-		</li>
-	</ol></p></proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-dimension-subspace-dim-props-enlarge">Statement</xref></title>
+		<p>
+		Since <m>U</m> is a subspace of <m>V</m>,
+		each vector of <m>U</m> is also a vector of <m>V</m>.
+		So a basis for <m>U</m> will be a linearly independent set of vectors in <m>V</m>,
+		which
+		<xref ref="proposition-dimension-increase-indep-to-basis" />
+		tells us can be enlarged to a basis for <m>V</m>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-dimension-subspace-dim-props-le">Statement</xref></title>
+		<p>
+		Recall that the dimenion of a vector space
+		(whether a subspace of another space or not)
+		is defined to be the number of vectors in a basis for the space.
+		Since every basis for <m>U</m> can be enlarged to a basis for <m>V</m>,
+		the number of vectors in a basis for <m>U</m> cannot be larger than the number of vectors in a basis for <m>V</m>.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="proposition-dimension-subspace-dim-props-same-dim">Statement</xref></title>
+		<p>
+		Let <m>\basisfont{B}</m> be a basis for <m>U</m>,
+		so that <m>U = \Span\basisfont{B}</m>.
+		If we have <m>\dim U = \dim V</m>,
+		then the number of vectors in <m>\basisfont{B}</m> is exactly equal to the dimension of <m>V</m>.
+		But <m>\basisfont{B}</m> is also linearly independent in <m>V</m>,
+		so by
+		<xref ref="proposition-dimension-right-num-indep-iff-spanning-indep-imp-spanning">Statement</xref>
+		of
+		<xref ref="proposition-dimension-right-num-indep-iff-spanning" />,
+		it must also be a spanning set for <m>V</m>.
+		Thus,
+		<m>U = \Span\basisfont{B} = V</m>.
+		</p>
+	</proof>
+
 </proposition>
 
 </subsection>

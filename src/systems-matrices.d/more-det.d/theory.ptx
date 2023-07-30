@@ -224,69 +224,73 @@ of the multiplicative formula for determinants.
 	</ol>
 	</p></statement>
 
-	<proof><title>Proof outlines</title><p><ol>
+	<proof>
+		<title>Proof outline for <xref ref="proposition-more-det-product-two-matrices">Statement</xref></title>
 
-		<li>
-			<p>There are two cases to consider.</p>
+		<p>There are two cases to consider.</p>
 
-			<case><title>Case <m>M</m> is invertible</title>
+		<case><title>Case <m>M</m> is invertible</title>
 
-				<p>
-				In this case, <m>M</m> can be expressed as a product of elementary matrices
-				(<xref ref="theorem-more-det-equiv-to-invertible" />),
-				and so
-				<xref ref="lemma-more-det-product-elem-matrix" /> can be repeatedly applied to obtain the desired equality.
-				</p>
-
-				<p>
-				In <xref ref="activity-more-det-multiplicative-product-elem" />
-				and
-				<xref ref="subsection-more-det-concepts-det-vs-mult-invertible" />,
-				we worked under the assumption that <m>M</m> could be expressed as a product of <em>three</em> elementary matrices, but the calculations and logic used there would work no matter how many elementary matrices were required in a product expression for <m>M</m>.
-				</p>
-
-			</case>
-			<aside><title>Comment</title><p>
-				A more formal proof would require using the principal of mathematical induction on the number of elementary matrices required in a product expansion for <m>M</m>,
-				but that is beyond the scope of this book.
-			</p></aside>
-
-			<case xml:id="proofcase-proposition-more-det-product">
-				<title>Case <m>M</m> is singular</title>
-				<p>
-				In this case, <m>\det M = 0</m> by our newly added statement in the list of
-				<xref ref="theorem-more-det-equiv-to-invertible" />,
-				so we have
-				<me> \text{RHS} = (\det M) (\det N) = 0 \cdot \det N = 0 </me>
-				as well.
-				But we also know that if <m>M</m> is singular, then the product <m>M N</m> must also be singular
-				(<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>
-				of
-				<xref ref="proposition-elem-matrices-converse-props-of-singular" />).
-				So again we can apply the equivalence of
-				<xref ref="theorem-more-det-equiv-to-invertible-invertible">Statement</xref>
-				and
-				<xref ref="theorem-more-det-equiv-to-invertible-det-nonzero">Statement</xref>
-				of
-				<xref ref="theorem-more-det-equiv-to-invertible" />
-				to obtain
-				<me> \text{LHS} = \det (M N) = 0. </me>
-				Since both LHS and RHS are equal to <m>0</m>, they are equal to each other.
-				</p>
-			</case>
-		</li>
-
-		<li>
 			<p>
-			This result can be obtained by repeated applications of the formula in
-			<xref ref="proposition-more-det-product-two-matrices">Statement</xref>, one <m>M_i</m> at a time.
+			In this case, <m>M</m> can be expressed as a product of elementary matrices
+			(<xref ref="theorem-more-det-equiv-to-invertible" />),
+			and so
+			<xref ref="lemma-more-det-product-elem-matrix" /> can be repeatedly applied to obtain the desired equality.
 			</p>
-			<aside><title>Comment</title><p>
-				Again, a more formal proof would require mathematical induction on the number of matrices in the product.
-			</p></aside>
-		</li>
 
-	</ol></p></proof>
+			<p>
+			In <xref ref="activity-more-det-multiplicative-product-elem" />
+			and
+			<xref ref="subsection-more-det-concepts-det-vs-mult-invertible" />,
+			we worked under the assumption that <m>M</m> could be expressed as a product of <em>three</em> elementary matrices, but the calculations and logic used there would work no matter how many elementary matrices were required in a product expression for <m>M</m>.
+			</p>
+
+		</case>
+
+		<aside><title>Comment</title><p>
+			A more formal proof would require using the principal of mathematical induction on the number of elementary matrices required in a product expansion for <m>M</m>,
+			but that is beyond the scope of this book.
+		</p></aside>
+
+		<case xml:id="proofcase-proposition-more-det-product">
+			<title>Case <m>M</m> is singular</title>
+			<p>
+			In this case, <m>\det M = 0</m> by our newly added statement in the list of
+			<xref ref="theorem-more-det-equiv-to-invertible" />,
+			so we have
+			<me> \text{RHS} = (\det M) (\det N) = 0 \cdot \det N = 0 </me>
+			as well.
+			But we also know that if <m>M</m> is singular, then the product <m>M N</m> must also be singular
+			(<xref ref="proposition-elem-matrices-converse-props-of-singular-product">Statement</xref>
+			of
+			<xref ref="proposition-elem-matrices-converse-props-of-singular" />).
+			So again we can apply the equivalence of
+			<xref ref="theorem-more-det-equiv-to-invertible-invertible">Statement</xref>
+			and
+			<xref ref="theorem-more-det-equiv-to-invertible-det-nonzero">Statement</xref>
+			of
+			<xref ref="theorem-more-det-equiv-to-invertible" />
+			to obtain
+			<me> \text{LHS} = \det (M N) = 0. </me>
+			Since both LHS and RHS are equal to <m>0</m>, they are equal to each other.
+			</p>
+		</case>
+
+	</proof>
+
+	<proof>
+		<title>Proof outline for <xref ref="proposition-more-det-product-many-matrices">Statement</xref></title>
+
+		<p>
+		This result can be obtained by repeated applications of the formula in
+		<xref ref="proposition-more-det-product-two-matrices">Statement</xref>, one <m>M_i</m> at a time.
+		</p>
+
+		<aside><title>Comment</title><p>
+			Again, a more formal proof would require mathematical induction on the number of matrices in the product.
+		</p></aside>
+
+	</proof>
 
 </proposition>
 

@@ -78,7 +78,7 @@ html-images-clean:
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 $(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinal
-$(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/html/%/images/.sentinal
+$(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinal
 $(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
 
 ${BUILDDIR}/ptx/publication-%.xml: publication/%.xml $(wildcard publication/include.d/*.xml)
@@ -103,6 +103,9 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to HTML for version: ${*}..."
 	@-rm -f ${BUILDDIR}/html/${*}/.sentinal
 	@mkdir -p ${BUILDDIR}/html/${*}/knowl
+	@echo "...html fixups"
+	@./make.d/html/fixups.sh ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@mv ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx.html-fixup ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...calling pretext to compile PreTeXt document"
 	@$(PRETEXT) \
 	  --verbose \
@@ -112,7 +115,7 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --parameters \
 		html.css.extra dla.css \
 	  --directory ${BUILDDIR}/html/${*}/ \
-	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...copying css style customizations"
 	@cp css/dla.css ${BUILDDIR}/html/${*}/
 	@echo "...copying fonts"
@@ -132,7 +135,8 @@ ${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@$(PRETEXT) \
 	  --verbose \
 	  --component latex-image \
-	  --format svg \
+	  --format pdf \
+	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
 	  --directory ${BUILDDIR}/html/${*}/images \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
@@ -151,14 +155,11 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --publisher ${BUILDDIR}/ptx/publication-${*}-latex.xml \
 	  --output ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-	@sed -i \
-	  -e 's|newtcolorbox\[use counter from=block\]{warning|newtcolorbox[use counter from=block]{warningenv|' \
-	  -e 's|begin{warning|begin{warningenv|g' \
-	  -e 's|end{warning|end{warningenv|g' \
-	  -e 's|\\usepackage{fontspec}|%\\usepackage{fontspec}|' \
-	  -e 's|usepackage{lmodern|usepackage{fouriernc|' \
-	  ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex
+	@echo "...applying adjustments from ./make.d/latex/"
+	@./make.d/latex/fourier-font.sh ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex
+	@./make.d/latex/page-breaks.sh ${BUILDDIR}/latex/${ROOTDOCNAME}-${*}.tex
 	@echo "...DONE"
+
 
 html-serve:
 	@./scripts/serve.py ${BUILDDIR}/html $(SERVEPORT) 2>/dev/null

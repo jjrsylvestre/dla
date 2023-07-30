@@ -55,100 +55,102 @@ we can instead just logically deduce these properties from the weaker axioms we 
 		</li>
 	</ol></p></statement>
 
-	<proof><p><ol>
+	<proof>
+		<title>Proof of <xref ref="proposition-abstract-vec-spaces-unique-zero-neg-zero">Statement</xref></title>
+		<p>
+		Suppose there were two vectors,
+		<m>\zerovec_1</m> and <m>\zerovec_2</m>,
+		that could each fulfill the requirement of
+		<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>.
+		But then we would have both
+		<md>
+			<mrow>
+				\zerovec_1 + \zerovec_2 \amp= \zerovec_1 \amp \amp\text{(i)},
+			</mrow>
+			<intertext>and</intertext>
+			<mrow>
+				\zerovec_1 + \zerovec_2 \amp= \zerovec_2 + \zerovec_1 \amp
+				\amp\text{(ii)}
+			</mrow><mrow>
+				\amp= \zerovec_2 \amp \amp\text{(iii)},
+			</mrow>
+		</md>
+		with justifications
+		<ol marker="(i)">
+			<li>
+				<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>
+				with <m>\uvec{v} = \zerovec_1</m> and <m>\zerovec = \zerovec_2</m>;
+			</li>
+			<li>
+				<xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>;
+				and
+			</li>
+			<li>
+				<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>
+				with <m>\uvec{v} = \zerovec_2</m> and <m>\zerovec = \zerovec_1</m>.
+			</li>
+		</ol>
+		Since <m>\zerovec_1+\zerovec_2</m> equals both <m>\zerovec_1</m> and <m>\zerovec_2</m>,
+		we must have <m>\zerovec_1=\zerovec_2</m>.
+		So there can't really be more than one zero vector,
+		since multiple zero vectors would end up having to be equal to each other.
+		</p>
+	</proof>
 
-		<li><p>
-			Suppose there were two vectors,
-			<m>\zerovec_1</m> and <m>\zerovec_2</m>,
-			that could each fulfill the requirement of
-			<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>.
-			But then we would have both
-			<md>
-				<mrow>
-					\zerovec_1 + \zerovec_2 \amp= \zerovec_1 \amp \amp\text{(i)},
-				</mrow>
-				<intertext>and</intertext>
-				<mrow>
-					\zerovec_1 + \zerovec_2 \amp= \zerovec_2 + \zerovec_1 \amp
-					\amp\text{(ii)}
-				</mrow><mrow>
-					\amp= \zerovec_2 \amp \amp\text{(iii)},
-				</mrow>
-			</md>
-			with justifications
-			<ol marker="(i)">
-				<li>
-					<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>
-					with <m>\uvec{v} = \zerovec_1</m> and <m>\zerovec = \zerovec_2</m>;
-				</li>
-				<li>
-					<xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>;
-					and
-				</li>
-				<li>
-					<xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>
-					with <m>\uvec{v} = \zerovec_2</m> and <m>\zerovec = \zerovec_1</m>.
-				</li>
-			</ol>
-			Since <m>\zerovec_1+\zerovec_2</m> equals both <m>\zerovec_1</m> and <m>\zerovec_2</m>,
-			we must have <m>\zerovec_1=\zerovec_2</m>.
-			So there can't really be more than one zero vector,
-			since multiple zero vectors would end up having to be equal to each other.
-		</p></li>
-
-		<li><p>
-			Suppose a vector <m>\uvec{v}</m> could have two negatives,
-			<m>(-\uvec{v})_1</m> and <m>(-\uvec{v})_2</m>.
-			But then,
-			<md>
-				<mrow>
-					(-\uvec{v})_2
-					\amp= (-\uvec{v})_2 + \zerovec \amp
-					\amp\text{(i)}
-				</mrow><mrow>
-					\amp= (-\uvec{v})_2 + \bbrac{\uvec{v} + (-\uvec{v})_1} \amp
-					\amp\text{(ii)}
-				</mrow><mrow>
-					\amp= \bbrac{(-\uvec{v})_2 + \uvec{v}} + (-\uvec{v})_1 \amp
-					\amp\text{(iii)}
-				</mrow><mrow>
-					\amp= \bbrac{\uvec{v} + (-\uvec{v})_2} + (-\uvec{v})_1 \amp
-					\amp\text{(iv)}
-				</mrow><mrow>
-					\amp= \zerovec + (-\uvec{v})_1 \amp
-					\amp\text{(v)}
-				</mrow><mrow>
-					\amp= (-\uvec{v})_1 + \zerovec \amp
-					\amp\text{(vi)}
-				</mrow><mrow>
-					\amp= (-\uvec{v})_1 \amp
-					\amp\text{(vii)},
-				</mrow>
-			</md>
-			with justifications
-			<ol marker="(i)">
-				<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>; </li>
-				<li>
-					<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>
-					with <m>-\uvec{v} = (-\uvec{v})_1</m>;
-				</li>
-				<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc" text="local">Axiom A</xref>; </li>
-				<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>; </li>
-				<li>
-					<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>
-					with <m>-\uvec{v} = (-\uvec{v})_2</m>;
-				</li>
-				<li>
-					<xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>;
-					and
-				</li>
-				<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>. </li>
-			</ol>
-			So <m>\uvec{v}</m> can't really have more than one negative vector,
-			since multiple negative vectors would end up having to be equal to each other.
-		</p></li>
-
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="proposition-abstract-vec-spaces-unique-zero-neg-neg">Statement</xref></title>
+		<p>
+		Suppose a vector <m>\uvec{v}</m> could have two negatives,
+		<m>(-\uvec{v})_1</m> and <m>(-\uvec{v})_2</m>.
+		But then,
+		<md>
+			<mrow>
+				(-\uvec{v})_2
+				\amp= (-\uvec{v})_2 + \zerovec \amp
+				\amp\text{(i)}
+			</mrow><mrow>
+				\amp= (-\uvec{v})_2 + \bbrac{\uvec{v} + (-\uvec{v})_1} \amp
+				\amp\text{(ii)}
+			</mrow><mrow>
+				\amp= \bbrac{(-\uvec{v})_2 + \uvec{v}} + (-\uvec{v})_1 \amp
+				\amp\text{(iii)}
+			</mrow><mrow>
+				\amp= \bbrac{\uvec{v} + (-\uvec{v})_2} + (-\uvec{v})_1 \amp
+				\amp\text{(iv)}
+			</mrow><mrow>
+				\amp= \zerovec + (-\uvec{v})_1 \amp
+				\amp\text{(v)}
+			</mrow><mrow>
+				\amp= (-\uvec{v})_1 + \zerovec \amp
+				\amp\text{(vi)}
+			</mrow><mrow>
+				\amp= (-\uvec{v})_1 \amp
+				\amp\text{(vii)},
+			</mrow>
+		</md>
+		with justifications
+		<ol marker="(i)">
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>; </li>
+			<li>
+				<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>
+				with <m>-\uvec{v} = (-\uvec{v})_1</m>;
+			</li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-assoc" text="local">Axiom A</xref>; </li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>; </li>
+			<li>
+				<xref ref="list-abstract-vec-spaces-concepts-add-axioms-neg" text="local">Axiom A</xref>
+				with <m>-\uvec{v} = (-\uvec{v})_2</m>;
+			</li>
+			<li>
+				<xref ref="list-abstract-vec-spaces-concepts-add-axioms-comm" text="local">Axiom A</xref>;
+				and
+			</li>
+			<li> <xref ref="list-abstract-vec-spaces-concepts-add-axioms-zero" text="local">Axiom A</xref>. </li>
+		</ol>
+		So <m>\uvec{v}</m> can't really have more than one negative vector,
+		since multiple negative vectors would end up having to be equal to each other.
+		</p>
+	</proof>
 
 </proposition>
 

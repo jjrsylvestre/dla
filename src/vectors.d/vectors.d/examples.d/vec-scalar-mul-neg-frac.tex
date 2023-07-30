@@ -16,21 +16,21 @@
 	vector/.style={-latex},
 ]
 
-	% 3x
-%	\begin{scope}
-		\draw[->] (-0.5,0) to (3.5,0) node[below right] {$x$};
-		\draw[->] (0,-0.5) to (0,6.5) node[above left] {$y$};
-		\foreach \x in {1,2,3} {
+	% (-5/4)x
+%	\begin{scope}[xshift=6cm,yshift=1.9cm,xscale=0.45,yscale=0.75]
+		\draw[->] (-3,0) to (2.5,0) node[below right] {$x$};
+		\draw[->] (0,-1.5) to (0,1.5) node[above left] {$y$};
+		\foreach \x in {-2.5,-2,-1,1,2} {
 			\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
 		}
-		\foreach \y in {1,2,3,4,5,6} {
+		\foreach \y in {-1,1} {
 			\draw (0.1,\y) to (-0.1,\y) node[left] {$\scriptstyle \y$};
 		}
 		\node[point] at (0,0) (o) {};
-		\node[point] at (1,2) (r) [label=right:{$R(1,2)$}] {};
-		\node[point] at (3,6) (r2) [label=above right:{$R'(3,6)$}] {};
-		\draw[vector,very thick] (o.north) to node[above left,near end] {$3\uvec{v}$} (r2.west);
-		\draw[vector,very thick] (o.east) to node[below right,near end] {$\uvec{v}$} (r.south);
+		\node[point] at (2,1) (r) [label=right:{$R(2,1)$}] {};
+		\node[point] at (-2.5,-1.25) (r2) [label=below:{$R'\left( -\frac{5}{2}, -\frac{5}{4} \right)\qquad$}] {};
+		\draw[vector,very thick] (o) to node[above left,near end] {$\uvec{v}$} (r);
+		\draw[vector,very thick] (o) to node[below right,near end] {$-\frac{5}{4}\uvec{v}$} (r2);
 %	\end{scope}
 
 \end{tikzpicture}

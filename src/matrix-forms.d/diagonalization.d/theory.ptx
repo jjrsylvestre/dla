@@ -462,58 +462,76 @@ and the next statements record this thinking.
 
 	<title> More characterizations of diagonalizability </title>
 
-	<statement><p><ol>
-		<li xml:id="corollary-diagonalization-geom-alg-multiplicity-diag-alg-vs-geom">
-			A matrix with real eigenvalues is diagonalizable if and only if each eigenvalue has geometric multiplicity <em>equal</em> to its algebraic multiplicity.
-		</li>
-		<li> An <m>n \times n</m> matrix that has <m>n</m> different real eigenvalues must be diagonalizable. </li>
-	</ol></p></statement>
-	<aside><title>Note</title><p>
-		We present these statements as a corollary, as they follow from
-		<xref ref="theorem-diagonalization-geom-alg-multiplicity" />.
-	</p></aside>
+	<statement>
 
-	<proof><p><ol>
-		<li>
-			<p>
-			We need <m>n</m> linearly independent eigenvectors to make up the columns of the <m>n\times n</m> transition matrix <m>P</m>.
-			The maximum number of linearly independent eigenvectors we can get from a single eigenspace is <m>\dim(E_\lambda(A))</m>,
-			the geometric multiplicity of the eigenvalue <m>\lambda</m>.
-			So the maximum number of linearly independent eigenvectors we can get in total is the sum of the geometric multiplicities of the eigenvalues.
-			But the characteristic polynomial <m>c_A(\lambda)</m> has degree <m>n</m>,
-			and <m>n</m> is the sum of the <em>algebraic</em> multiplicities of the eigenvalues,
-			because if <m>A</m> has all real eigenvalues,
-			then <m>c_A(\lambda)</m> factors as
-			<me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}. </me>
-			So if even <em>one</em> eigenvalue is deficient in the sense that its geometric multiplicity is strictly less than its algebraic multiplicity,
-			we won't obtain enough linearly independent eigenvectors from that eigenspace to contribute to the <m>n</m> linearly eigenvectors we need in total.
-			</p><p>
-			On the other hand,
-			if each eigenvalue has geometric multiplicity equal to its algebraic multiplicity,
-			then forming eigenspace bases and collecting them all together will provide us with exactly <m>n</m> eigenvectors,
-			and
-			<xref ref="proposition-diagonalization-indep-e-vectors" />
-			tells us that these <m>n</m> eigenvectors will be linearly independent.
-			</p>
-		</li>
-		<li>
-			<p>
-			In the case that a square matrix has <m>n</m> <em>different</em> real eigenvalues,
-			then each of these eigenvalues must have algebraic multiplicity <m>1</m>,
-			since otherwise these <m>n</m> algebraic multiplicities would add up to <em>more</em> than <m>n</m>,
-			the degree of the characteristic polynomial.
-			So each geometric multiplicity is no greater than <m>1</m>.
-			But also, as in noted in
-			<xref ref="remark-diagonalization-theory-geo-mult-nonzero" />,
-			each geometric multiplicity must be <em>at least</em> <m>1</m>.
-			Thus, each geometric multiplicity for this matrix is <em>exactly</em> <m>1</m>,
-			and so is equal to the corresponding algebraic multiplicity.
-			</p><p>
-			The result now follows from the first statement of this corollary.
-			</p>
-		</li>
+		<p><ol>
 
-	</ol></p></proof>
+			<li xml:id="corollary-diagonalization-geom-alg-multiplicity-diag-alg-vs-geom">
+				A matrix with real eigenvalues is diagonalizable if and only if each eigenvalue has geometric multiplicity <em>equal</em> to its algebraic multiplicity.
+			</li>
+
+			<li xml:id="corollary-diagonalization-geom-alg-multiplicity-diag-n-distinct-evalues">
+				An <m>n \times n</m> matrix that has <m>n</m> different real eigenvalues must be diagonalizable.
+			</li>
+
+		</ol></p>
+
+		<aside><title>Note</title><p>
+			We present these statements as a corollary, as they follow from
+			<xref ref="theorem-diagonalization-geom-alg-multiplicity" />.
+		</p></aside>
+
+	</statement>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-diagonalization-geom-alg-multiplicity-diag-alg-vs-geom">Statement</xref></title>
+
+		<p>
+		We need <m>n</m> linearly independent eigenvectors to make up the columns of the <m>n\times n</m> transition matrix <m>P</m>.
+		The maximum number of linearly independent eigenvectors we can get from a single eigenspace is <m>\dim(E_\lambda(A))</m>,
+		the geometric multiplicity of the eigenvalue <m>\lambda</m>.
+		So the maximum number of linearly independent eigenvectors we can get in total is the sum of the geometric multiplicities of the eigenvalues.
+		But the characteristic polynomial <m>c_A(\lambda)</m> has degree <m>n</m>,
+		and <m>n</m> is the sum of the <em>algebraic</em> multiplicities of the eigenvalues,
+		because if <m>A</m> has all real eigenvalues,
+		then <m>c_A(\lambda)</m> factors as
+		<me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}. </me>
+		So if even <em>one</em> eigenvalue is deficient in the sense that its geometric multiplicity is strictly less than its algebraic multiplicity,
+		we won't obtain enough linearly independent eigenvectors from that eigenspace to contribute to the <m>n</m> linearly eigenvectors we need in total.
+		</p>
+
+		<p>
+		On the other hand,
+		if each eigenvalue has geometric multiplicity equal to its algebraic multiplicity,
+		then forming eigenspace bases and collecting them all together will provide us with exactly <m>n</m> eigenvectors,
+		and
+		<xref ref="proposition-diagonalization-indep-e-vectors" />
+		tells us that these <m>n</m> eigenvectors will be linearly independent.
+		</p>
+
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-diagonalization-geom-alg-multiplicity-diag-n-distinct-evalues">Statement</xref></title>
+
+		<p>
+		In the case that a square matrix has <m>n</m> <em>different</em> real eigenvalues,
+		then each of these eigenvalues must have algebraic multiplicity <m>1</m>,
+		since otherwise these <m>n</m> algebraic multiplicities would add up to <em>more</em> than <m>n</m>,
+		the degree of the characteristic polynomial.
+		So each geometric multiplicity is no greater than <m>1</m>.
+		But also, as in noted in
+		<xref ref="remark-diagonalization-theory-geo-mult-nonzero" />,
+		each geometric multiplicity must be <em>at least</em> <m>1</m>.
+		Thus, each geometric multiplicity for this matrix is <em>exactly</em> <m>1</m>,
+		and so is equal to the corresponding algebraic multiplicity.
+		</p>
+
+		<p>
+		The result now follows from the first statement of this corollary.
+		</p>
+
+	</proof>
 
 </corollary>
 

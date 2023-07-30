@@ -111,69 +111,78 @@ and no multiple ways of expressing vectors in the space as linear combinations o
 		</ol></li>
 	</ol></p></statement>
 
-	<proof><p><ol>
-		<li><ol>
-			<li>
-				Suppose <m>\basisfont{B}</m> is a basis for a vector space.
-				That is, suppose <m>\basisfont{B}</m> is a linearly independent spanning set.
-				If we remove even one vector <m>\uvec{v}</m> from <m>\basisfont{B}</m>,
-				the remaining vectors cannot still form a spanning set for the space.
-				Because if they could,
-				then <m>\uvec{v}</m>,
-				being a vector in that vector space,
-				could be expressed as a linear combination of some number of the remaining vectors in <m>\basisfont{B}</m>.
-				In other words, some vector in <m>\basisfont{B}</m> would be expressible as a linear combination of others,
-				which would violate the assumption that <m>\basisfont{B}</m> is linearly independent.
-				</li>
-			<li>
-				Suppose <m>S</m> is a spanning set for a vector space,
-				and that <m>S</m> contains a finite number of vectors.
-				Further suppose that <m>S</m> is <em>minimal</em> in the sense that no proper subcollection of <m>S</m> also forms a spanning set for the space.
-				We would like to prove that this forces <m>S</m> to be a basis.
-				We already assuming one-half of the definition of <term>basis</term>,
-				so we only need to consider the other half:
-				must <m>S</m> also be linearly independent?
-				If it were linearly dependent instead,
-				then it could be reduced to subcollection that forms a linearly independent spanning set
-				(<xref ref="proposition-linear-indep-reduce-span-to-indep" />).
-				But <m>S</m> doesn't have any subcollections that form spanning sets for the vector space,
-				let alone any linearly independent ones.
-				So <m>S</m> cannot be linearly dependent,
-				forcing it to be linearly independent, as required.
-			</li>
-		</ol></li>
-		<li><ol>
-			<li>
-				Suppose <m>\basisfont{B}</m> is a basis for a vector space,
-				and that <m>\basisfont{B}</m> contains a finite number of vectors.
-				Then by definition of <term>basis</term>,
-				<m>\basisfont{B}</m> is a spanning set for the vector space,
-				and so any collection of vectors that contains more vectors than <m>\basisfont{B}</m> must be linearly dependent
-				(<xref ref="lemma-linear-indep-more-than-spanning-is-dep" />).
-				In particular, if some collection of vectors contains <m>\basisfont{B}</m> as a proper subcollection,
-				then that larger collection must be linearly dependent.
-			</li>
-			<li>
-				Suppose <m>S</m> is a linearly independent collection of vectors in a vector space,
-				and that <m>S</m> is maximal in the sense that no other linearly independent collection of vectors can contain <m>S</m> as a proper subcollection.
-				We would like to prove that this forces <m>S</m> to be a basis for the space.
-				We already assuming one-half of the definition of <term>basis</term>,
-				so we only need to consider the other half:
-				must <m>S</m> also be a spanning set for the space?
-				If it were <em>not</em> a spanning set,
-				then <m>\Span S</m> would merely be a proper subspace,
-				and there would be other vectors in the full vector space that are <em>not</em> in that subspace.
-				Let <m>\uvec{v}</m> be one such vector.
-				Then
-				<xref ref="proposition-linear-indep-expand-indep"/>
-				tells us that the collection of vectors containing both <m>\uvec{v}</m> and every vector in <m>S</m> must be linearly independent.
-				But this is not possible, since this new,
-				<q>larger</q> linearly independent collection would contain <m>S</m> as a proper subcollection,
-				and we have assumed that <m>S</m> is a maximal linearly independent set of vectors.
-				So <m>S</m> must also be a spanning set for the vector space, as required.
-			</li>
-		</ol></li>
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="theorem-basis-coords-basis-is-minimal-maximal-basis-is-minimal">Statement</xref></title>
+		<p>
+		Suppose <m>\basisfont{B}</m> is a basis for a vector space.
+		That is, suppose <m>\basisfont{B}</m> is a linearly independent spanning set.
+		If we remove even one vector <m>\uvec{v}</m> from <m>\basisfont{B}</m>,
+		the remaining vectors cannot still form a spanning set for the space.
+		Because if they could,
+		then <m>\uvec{v}</m>,
+		being a vector in that vector space,
+		could be expressed as a linear combination of some number of the remaining vectors in <m>\basisfont{B}</m>.
+		In other words, some vector in <m>\basisfont{B}</m> would be expressible as a linear combination of others,
+		which would violate the assumption that <m>\basisfont{B}</m> is linearly independent.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="theorem-basis-coords-basis-is-minimal-maximal-minimal-is-basis">Statement</xref></title>
+		<p>
+		Suppose <m>S</m> is a spanning set for a vector space,
+		and that <m>S</m> contains a finite number of vectors.
+		Further suppose that <m>S</m> is <em>minimal</em> in the sense that no proper subcollection of <m>S</m> also forms a spanning set for the space.
+		We would like to prove that this forces <m>S</m> to be a basis.
+		We already assuming one-half of the definition of <term>basis</term>,
+		so we only need to consider the other half:
+		must <m>S</m> also be linearly independent?
+		If it were linearly dependent instead,
+		then it could be reduced to subcollection that forms a linearly independent spanning set
+		(<xref ref="proposition-linear-indep-reduce-span-to-indep" />).
+		But <m>S</m> doesn't have any subcollections that form spanning sets for the vector space,
+		let alone any linearly independent ones.
+		So <m>S</m> cannot be linearly dependent,
+		forcing it to be linearly independent, as required.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="theorem-basis-coords-basis-is-minimal-maximal-basis-is-maximal">Statement</xref></title>
+		<p>
+		Suppose <m>\basisfont{B}</m> is a basis for a vector space,
+		and that <m>\basisfont{B}</m> contains a finite number of vectors.
+		Then by definition of <term>basis</term>,
+		<m>\basisfont{B}</m> is a spanning set for the vector space,
+		and so any collection of vectors that contains more vectors than <m>\basisfont{B}</m> must be linearly dependent
+		(<xref ref="lemma-linear-indep-more-than-spanning-is-dep" />).
+		In particular, if some collection of vectors contains <m>\basisfont{B}</m> as a proper subcollection,
+		then that larger collection must be linearly dependent.
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="theorem-basis-coords-basis-is-minimal-maximal-maximal-is-basis">Statement</xref></title>
+		<p>
+		Suppose <m>S</m> is a linearly independent collection of vectors in a vector space,
+		and that <m>S</m> is maximal in the sense that no other linearly independent collection of vectors can contain <m>S</m> as a proper subcollection.
+		We would like to prove that this forces <m>S</m> to be a basis for the space.
+		We already assuming one-half of the definition of <term>basis</term>,
+		so we only need to consider the other half:
+		must <m>S</m> also be a spanning set for the space?
+		If it were <em>not</em> a spanning set,
+		then <m>\Span S</m> would merely be a proper subspace,
+		and there would be other vectors in the full vector space that are <em>not</em> in that subspace.
+		Let <m>\uvec{v}</m> be one such vector.
+		Then
+		<xref ref="proposition-linear-indep-expand-indep"/>
+		tells us that the collection of vectors containing both <m>\uvec{v}</m> and every vector in <m>S</m> must be linearly independent.
+		But this is not possible, since this new,
+		<q>larger</q> linearly independent collection would contain <m>S</m> as a proper subcollection,
+		and we have assumed that <m>S</m> is a maximal linearly independent set of vectors.
+		So <m>S</m> must also be a spanning set for the vector space, as required.
+		</p>
+	</proof>
 
 </theorem>
 

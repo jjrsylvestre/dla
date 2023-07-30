@@ -139,46 +139,55 @@ leading to our conclusion about how to determine a basis for the column space of
 	<title> Column space basis and dimension </title>
 
 	<statement><p><ol>
-		<li>
+		<li xml:id="corollary-col-row-null-space-colspace-basis-leading-ones">
 			A basis for the column space of an <m>m\times n</m> matrix <m>A</m> can be formed from those columns of <m>A</m>
 			(as column vectors in <m>\R^m</m>)
 			in positions corresponding to the locations of the leading ones in the RREF of <m>A</m>.
 		</li>
-		<li> The dimension of the column space of a matrix is equal to the rank of the matrix. </li>
+		<li xml:id="corollary-col-row-null-space-colspace-basis-dim">
+			The dimension of the column space of a matrix is equal to the rank of the matrix.
+		</li>
 	</ol></p></statement>
 
-	<proof><p><ol>
-		<li>
-			<p>
-			By definition, the columns of <m>A</m> are a spanning set for the column space of <m>A</m>.
-			By
-			<xref ref="proposition-basis-coords-reduce-span-to-basis" />,
-			this spanning set can be reduced to a basis;
-			it's a matter of determining the largest possible linearly independent set of these spanning column vectors.
-			</p><p>
-			Let
-			<m>E = E_t E_{t-1} \dotsm E_1</m>
-			be the product of elementary matrices corresponding to some sequence of row operations that reduces <m>A</m> to its RREF.
-			Because of the nature of RREF,
-			each column of <m>\RREF(A)</m> that contains a leading one will be a standard basis vector in <m>\R^m</m>,
-			no two such leading-one columns will be the same standard basis vector,
-			and each column that does not contain a leading one will be a linear combination of those leading-one columns that appear to its left.
-			Therefore, the leading-one columns represent the largest set of linearly independent vectors that can be formed from the columns of <m>\RREF(A)</m>.
-			Since <m>E</m> is invertible, the two statements of
-			<xref ref="proposition-col-row-null-space-dep-indep-of-images" />
-			tell us that the columns of <m>A</m> will have the same relationships:
-			those columns in <m>A</m> that are in positions where the leading ones occur in <m>\RREF(A)</m> will be linearly independent,
-			and that will be the largest possible collection of linearly independent columns of <m>A</m>,
-			because each of the other columns will be linearly dependent with the leading-one-position columns of <m>A</m> to its left.
-			</p><p>
-			Thus, we can reduce the spanning set made up of all columns of <m>A</m> to a basis for its column space by discarding the linearly dependent columns and keeping only those columns in positions corresponding to the locations of the leading ones occur in <m>\RREF(A)</m>.
-			</p>
-		</li>
-		<li>
-			Since we obtain a basis for column space by taking those columns in the matrix in positions corresponding to the leading ones in a reduced form for the matrix,
-			the number of basis vectors is equal to the number of leading ones.
-		</li>
-	</ol></p></proof>
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-colspace-basis-leading-ones">Statement</xref></title>
+
+		<p>
+		By definition, the columns of <m>A</m> are a spanning set for the column space of <m>A</m>.
+		By
+		<xref ref="proposition-basis-coords-reduce-span-to-basis" />,
+		this spanning set can be reduced to a basis;
+		it's a matter of determining the largest possible linearly independent set of these spanning column vectors.
+		</p>
+
+		<p>
+		Let
+		<m>E = E_t E_{t-1} \dotsm E_1</m>
+		be the product of elementary matrices corresponding to some sequence of row operations that reduces <m>A</m> to its RREF.
+		Because of the nature of RREF,
+		each column of <m>\RREF(A)</m> that contains a leading one will be a standard basis vector in <m>\R^m</m>,
+		no two such leading-one columns will be the same standard basis vector,
+		and each column that does not contain a leading one will be a linear combination of those leading-one columns that appear to its left.
+		Therefore, the leading-one columns represent the largest set of linearly independent vectors that can be formed from the columns of <m>\RREF(A)</m>.
+		Since <m>E</m> is invertible, the two statements of
+		<xref ref="proposition-col-row-null-space-dep-indep-of-images" />
+		tell us that the columns of <m>A</m> will have the same relationships:
+		those columns in <m>A</m> that are in positions where the leading ones occur in <m>\RREF(A)</m> will be linearly independent,
+		and that will be the largest possible collection of linearly independent columns of <m>A</m>,
+		because each of the other columns will be linearly dependent with the leading-one-position columns of <m>A</m> to its left.
+		</p><p>
+		Thus, we can reduce the spanning set made up of all columns of <m>A</m> to a basis for its column space by discarding the linearly dependent columns and keeping only those columns in positions corresponding to the locations of the leading ones occur in <m>\RREF(A)</m>.
+		</p>
+
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-colspace-basis-dim">Statement</xref></title>
+		<p>
+		Since we obtain a basis for column space by taking those columns in the matrix in positions corresponding to the leading ones in a reduced form for the matrix,
+		the number of basis vectors is equal to the number of leading ones.
+		</p>
+	</proof>
 
 </corollary>
 
@@ -203,6 +212,7 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 	</p></statement>
 
 	<proof>
+
 		<p>
 		Consider an <m>m \times n</m> matrix <m>A</m> as a collection of row vectors in <m>\R^n</m>:
 		<me>
@@ -217,7 +227,9 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		the subspace
 		<m>\Span\{\uvec{a}_1,\uvec{a}_2,\dotsc,\uvec{a}_m\}</m>
 		of <m>\R^m</m>.
-		</p><p>
+		</p>
+
+		<p>
 		As we did in
 		<xref ref="activity-col-row-null-space-row-ops-same-rowspace" />,
 		we will make repeated use of
@@ -330,7 +342,8 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 			</p>
 		</li>
 
-		</ol></p>
+		</ol>
+		</p>
 
 	</proof>
 
@@ -355,18 +368,27 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		<li xml:id="corollary-col-row-null-space-rref-row-space-basis">
 			The nonzero rows of each REF for <m>A</m> form a basis for the row space of <m>A</m>.
 		</li>
-		<li> The dimension of the row space of <m>A</m> is equal to the rank of <m>A</m>. </li>
+		<li xml:id="corollary-col-row-null-space-rref-row-space-dim">
+			The dimension of the row space of <m>A</m> is equal to the rank of <m>A</m>.
+		</li>
 	</ol>
 	</p></statement>
 
-	<proof><p><ol><li>
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-invertible-times">Statement</xref></title>
+		<p>
 		Since <m>E</m> is invertible, it can be expressed as a product of elementary matrices
 		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />),
 		and the product <m>EA</m> has the same result as applying to <m>A</m> the sequence of row operations represented by those elementary matrices.
 		But
 		<xref ref="proposition-col-row-null-space-row-op-row-space" />
 		tells us that applying those operations does not change the row space.
-	</li><li>
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-same-row-space">Statement</xref></title>
+		<p>
 		Let <m>F</m> be an REF for <m>A</m>,
 		and let
 		<m>E_1,E_2,\dotsc,E_\ell</m>
@@ -376,7 +398,12 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		Therefore, <m>F</m> has the same row space as <m>A</m> by
 		<xref ref="corollary-col-row-null-space-rref-row-space-invertible-times">Statement</xref>
 		of this corollary.
-	</li><li>
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-basis">Statement</xref></title>
+		<p>
 		Let <m>F</m> be an REF for <m>A</m>.
 		By
 		<xref ref="corollary-col-row-null-space-rref-row-space-same-row-space">Statement</xref>
@@ -432,7 +459,12 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		is linearly independent.
 		Repeating this argument as we move up the rows of <m>F</m>,
 		we see that the nonzero rows of <m>F</m> are linearly independent when taken altogether.
-	</li><li>
+		</p>
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-dim">Statement</xref></title>
+		<p>
 		Applying
 		<xref ref="corollary-col-row-null-space-rref-row-space-basis">Statement</xref>
 		of this corollary to the RREF for <m>A</m>,
@@ -440,7 +472,8 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 		But the nonzero rows of <m>\RREF(A)</m> must all contain leading ones,
 		so the number of vectors in a basis for the row space of <m>A</m> is equal to the number of leading ones in <m>\RREF(A)</m>,
 		as desired.
-	</li></ol></p></proof>
+		</p>
+	</proof>
 
 </corollary>
 
