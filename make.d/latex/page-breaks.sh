@@ -20,7 +20,7 @@
 #   * Subsection 20.5.2
 
 # newpage @ end of each discovery section
-sed -i -e "/\\\\end{worksheet-section}/ s|$|\n\\\\newpage|" ${1}
+sed -i -e '/\\end{worksheet-section}/ s|$|\n\\newpage|' ${1}
 
 # other manual page breaks
 lines=(
@@ -35,7 +35,7 @@ lines=(
 	"begin{sectionptx}{Section}{Concepts}{}{Concepts}{}{}{section-section-system-geom-concepts}"
 	"begin{sectionptx}{Section}{Concepts}{}{Concepts}{}{}{section-section-abstract-vec-spaces-concepts}"
 	"begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-basis-coords-theory}"
-	"\begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-col-row-null-space-theory}"
+	"begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-col-row-null-space-theory}"
 )
 for l in ${lines[@]}
 do
@@ -44,8 +44,8 @@ done
 
 # spaces cause problems with the nice array/loop above, can't figure out why
 sed -i \
-  -e "/\\\\begin{subsectionptx}{Subsection}{Linear systems as matrix equations}{}{Linear systems as matrix equations}{}{}{subsection-subsection-matrix-ops-theory-sys-as-matrix-eqns}/ s|^|\\\\newpage\n|" \
-  -e "/\\\\begin{subsectionptx}{Subsection}{Inverse matrices}{}{Inverse matrices}{}{}{subsection-subsection-inverses-concepts-inverses}/ s|^|\\\\newpage\n|" \
-  -e "/\\\\begin{subsectionptx}{Subsection}{Solving other matrix equations using inverses}{}{Solving other matrix equations using inverses}{}{}{subsection-subsection-inverses-examples-solving-alg-eqns}/ s|^|\\\\newpage\n|" \
-  -e "/\\\\begin{subsectionptx}{Subsection}{Row space}{}{Row space}{}{}{subsection-subsection-col-row-null-space-theory-rowspace}/ s|^|\\\\newpage\n|" \
+  -e '/\\begin{subsectionptx}{Subsection}{Linear systems as matrix equations}{}{Linear systems as matrix equations}{}{}{subsection-subsection-matrix-ops-theory-sys-as-matrix-eqns}/ s|^|\\newpage\n|' \
+  -e '/\\begin{subsectionptx}{Subsection}{Inverse matrices}{}{Inverse matrices}{}{}{subsection-subsection-inverses-concepts-inverses}/ s|^|\\newpage\n|' \
+  -e '/\\begin{subsectionptx}{Subsection}{Solving other matrix equations using inverses}{}{Solving other matrix equations using inverses}{}{}{subsection-subsection-inverses-examples-solving-alg-eqns}/ s|^|\\newpage\n|' \
+  -e '/\\begin{subsectionptx}{Subsection}{Row space}{}{Row space}{}{}{subsection-subsection-col-row-null-space-theory-rowspace}/ s|^|\\newpage\n|' \
   ${1}
