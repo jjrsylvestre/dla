@@ -1,0 +1,90 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('vector space' 'zero vector' 'negative vector')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('General Vector Spaces')
+## Date('2013/03/06')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"PGmatrixmacros.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+BEGIN_TEXT
+In each of the following, determine the appropriate zero vector in the given vector space \(V\). Then determine the negative of the given vector \(\vec{v}\).
+$PAR
+$BBOLD $BITALIC NOTE: $EITALIC $EBOLD In each part, we have used the alternate notation \(\oplus\) for vector addition and \(\odot\) for scalar multiplication, as a reminder that the definitions used are different from the usual operations on the space.
+END_TEXT
+
+$v1 = non_zero_random(-9,9);
+$v2 = random(-9,9);
+$v3 = non_zero_random(-9,9);
+BEGIN_TEXT
+$BR$HR$BR
+$BBOLD (a) $EBOLD \(V = \mathbb{R}^3\), written as column vectors, with vector addition and scalar multiplication defined as follows.
+\[
+	\begin{bmatrix} x_1 \\ y_1 \\ z_1 \end{bmatrix}
+	\oplus
+	\begin{bmatrix} x_2 \\ y_2 \\ z_2 \end{bmatrix}
+	=
+	\begin{bmatrix} x_1 + x_2 + 1 \\ y_1 + y_2 \\ z_1 + z_2 - 1 \end{bmatrix}
+	\qquad
+	k
+	\odot
+	\begin{bmatrix} x \\ y \\ z \end{bmatrix}
+	=
+	\begin{bmatrix} kx + k - 1 \\ ky \\ kz - k + 1 \end{bmatrix}
+\]
+\{ mbox( 'The zero vector in \(V\) is $SPACE$SPACE \(\vec{0} = \)', answer_matrix(3,1,1) ) \} $BR
+\{ mbox(
+  'If $SPACE$SPACE \(\vec{v}=\)',
+  display_matrix([[$v1], [$v2], [$v3] ]),
+  '$SPACE$SPACE then $SPACE$SPACE \(-\vec{v} = \)',
+  answer_matrix(3,1,2),
+) \}
+END_TEXT
+ANS(num_cmp(-1));
+ANS(num_cmp(0));
+ANS(num_cmp(1));
+ANS(num_cmp(-$v1 - 2));
+ANS(num_cmp(-$v2));
+ANS(num_cmp(-$v3 + 2));
+
+$v = non_zero_random(1,20);
+BEGIN_TEXT
+$BR$HR$BR
+$BBOLD (b) $EBOLD \(V\) is the set of $BITALIC positive $EITALIC real numbers, with vector addition and scalar multiplication defined as follows.
+\[ x \oplus y = xy \qquad k \odot x = x^k \]
+\{ mbox( 'The zero vector in \(V\) is $SPACE$SPACE \(\vec{0} = \)', ans_rule(10) ) \} $BR
+\{ mbox(
+  'If $SPACE$SPACE \(\vec{v}=$v\) $SPACE$SPACE then $SPACE$SPACE \(-\vec{v} = \)',
+  ans_rule(10),
+) \}
+END_TEXT
+ANS(num_cmp(1));
+ANS(num_cmp(1/$v));
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

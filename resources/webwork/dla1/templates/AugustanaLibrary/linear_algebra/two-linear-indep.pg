@@ -1,0 +1,232 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Vector spaces)
+## DBsection(Linear independence)
+## Institution(University of Alberta, Augustana Campus)
+## TitleText1('')
+## AuthorText1('')
+## EditionText1('')
+## Section1('')
+## Problem1('')
+## KEYWORDS('vectors' 'basis' 'linearly independent' 'dependent')
+
+
+## Mash up of
+## Library/Rochester/setLinearAlgebra9Dependence/ur_la_9_1.pg
+## Library/Rochester/setLinearAlgebra9Dependence/ur_la_9_3.pg
+
+## NOTE:
+## Library/Rochester/setLinearAlgebra9Dependence/ur_la_9_1.pg
+## is just a pointer to
+## Library/TCNJ/TCNJ_LinearIndependence/problem5.pg
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+  "PGchoicemacros.pl",  # for shuffle, NchooseK
+  "parserMultiAnswer.pl",
+  "PGcourse.pl",
+#  "answerHints.pl",
+
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+
+##################################################
+## first part
+
+$flip1 = random(0,1,1);  # choose between dependent and independent vectors
+@lambda = ();
+# we'll scramble the vectors and coefficients
+@slice = NchooseK(3,3);
+ 
+$u[$slice[0]] = Matrix([[non_zero_random(-5,5,1), random(-5,5,1), non_zero_random(-5,5,1)]])->transpose;
+
+$u[$slice[1]] =
+  non_zero_random(-2,2,1) * $u[$slice[0]]
+  + Matrix([[0, non_zero_random(-3,3,1), non_zero_random(-3,3,1)]])->transpose;
+
+if ($flip1==0) {
+	push(@lambda,0,0,0);
+	$u[$slice[2]] =
+	  non_zero_random(-2,2,1) * $u[$slice[0]]
+	  + non_zero_random(-2,2,1) * $u[$slice[1]]
+		+ Matrix([[0, 0, non_zero_random(-5,5,1)]])->transpose;
+} else {
+	$lambda[$slice[0]] = non_zero_random(-5,5,1);
+	$lambda[$slice[1]] = non_zero_random(-5,5,1);
+	$lambda[$slice[2]] = -1;
+	$u[$slice[2]] = $lambda[$slice[0]] * $u[$slice[0]] + $lambda[$slice[1]] * $u[$slice[1]];
+}
+
+
+$sl1 = new_pop_up_select_list();
+$sl1->qa(
+"Determine whether or not the three vectors listed above are linearly independent or linearly dependent.",
+($flip1==0) ? 'Linearly_Independent' : 'Linearly_Dependent',
+);
+$sl1->choose(1);
+$sl1->ra_pop_up_list(['No_Answer_Entered' => 'Select an Answer', 'Linearly_Independent' => 'Linearly Independent', 'Linearly_Dependent'
+=> 'Linearly Dependent']);
+
+if ( $flip1 ) {
+    $coef1 = MultiAnswer( Compute($lambda[0]),
+			  Compute($lambda[1]),
+			  Compute($lambda[2]) )->with(
+        singleResult=>1,
+        checker=> sub {
+	    my ( $c, $s, $ans ) = @_;
+	    my @sans = @$s;
+	    my $zero = Compute(0);
+	    if ( $zero == $sans[0] && $zero == $sans[1] && $zero == $sans[2] ) {
+		$ans->setMessage(1, "Your responses should not be all zero.");
+		return 0;
+	    } else {
+		return ( ($sans[0]*$u[0] + $sans[1]*$u[1] + $sans[2]*$u[2])->isZero );
+	    }});
+} else {
+    $coef1 = MultiAnswer( Compute(0), Compute(0), Compute(0) )->with(
+        singleResult=>1,
+        checker=> sub {
+	    my ( $c, $s, $ans ) = @_;
+	    return $c->[0]==$s->[0] && $c->[1]==$s->[1] && $c->[2]==$s->[2];
+	} );
+}
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR
+$BBOLD (a) $EBOLD
+Let \( \vec{u}_1 = $u[0]\), \( \vec{u}_2 = $u[1]\), and \( \vec{u}_3 = $u[2]\).
+$BR
+\{$sl1->print_q()\}  
+$BR
+If they are linearly dependent, determine a non-trivial linear relation.
+Otherwise, if the vectors are linearly independent, enter 0s for 
+the coefficients, since that relationship $BBOLD always $EBOLD holds.
+$BR
+\{ $coef1->ans_rule(10) \}\(\vec{u}_1+\)
+\{ $coef1->ans_rule(10) \}\(\vec{u}_2+\)
+\{ $coef1->ans_rule(10) \}\(\vec{u}_3 = \vec{0}\).
+END_TEXT
+Context()->normalStrings;
+ANS( str_cmp($sl1->ra_correct_ans) );
+ANS( $coef1->cmp() );
+
+
+
+##################################################
+## second part
+
+$flip2 = random(0,1,1);  # choose between dependent and independent vectors
+@lambda = ();
+# we'll scramble the vectors and coefficients
+@slice = NchooseK(4,4);
+
+$v[$slice[0]] = Matrix([
+	[non_zero_random(-3,3,1), random(-5,5,1), non_zero_random(-3,3,1), non_zero_random(-3,3,1)]
+])->transpose;
+
+$v[$slice[1]] =
+  non_zero_random(-2,2,1) * $v[$slice[0]]
+  + Matrix([[0, non_zero_random(-3,3,1), non_zero_random(-3,3,1), random(-3,3,1)]])->transpose;
+
+$v[$slice[2]] =
+  non_zero_random(-2,2,1) * $v[$slice[0]] + random(-1,1,2) * $v[$slice[1]]
+  + Matrix([[0, 0, non_zero_random(-3,3,1), random(-3,3,1)]])->transpose;
+
+if ($flip2==0) {
+	push(@lambda,0,0,0,0);
+	$v[$slice[3]] =
+	  random(-2,2,1) * $v[$slice[0]] + random(-1,1,1) * $v[$slice[1]] 
+	  + random(-1,1,1) * $v[$slice[2]]
+	  + Matrix([[0, 0, 0, non_zero_random(-2,2,1)]])->transpose;
+} else {
+	$lambda[$slice[0]] = non_zero_random(-5,5,1);
+	$lambda[$slice[1]] = non_zero_random(-5,5,1);
+	$lambda[$slice[2]] = non_zero_random(-5,5,1);
+	$lambda[$slice[3]] = -1;
+	$v[$slice[3]] = $lambda[$slice[0]] * $v[$slice[0]] + $lambda[$slice[1]] * $v[$slice[1]]
+	  + $lambda[$slice[2]] * $v[$slice[2]];
+}
+
+
+$sl2 = new_pop_up_select_list();
+$sl2->qa(
+"Determine whether or not the four vectors listed above are linearly independent or linearly dependent.",
+($flip2==0) ? 'Independent' : 'Dependent',
+);
+$sl2->choose(1);
+$sl2->ra_pop_up_list(['no_answer' => 'Select an Answer', 'Independent' => 'Linearly Independent', 'Dependent' => 'Linearly Dependent']);
+
+if ( $flip2 ) {
+	$coef2 = MultiAnswer(
+		Compute($lambda[0]),
+		Compute($lambda[1]),
+		Compute($lambda[2]),
+		Compute($lambda[3])
+	)->with(
+		singleResult=>1,
+		checker=> sub {
+		my ( $c, $s, $ans ) = @_;
+		my @sans = @$s;
+		my $zero = Compute(0);
+		if ( $zero == $sans[0] && $zero == $sans[1] && $zero == $sans[2] && $zero == $sans[3] ) {
+			$ans->setMessage(1, "Your responses should not be all zero.");
+			return 0;
+		} else {
+			return (
+				($sans[0]*$v[0] + $sans[1]*$v[1] + $sans[2]*$v[2] + $sans[3]*$v[3])
+				  ->isZero
+			);
+	}});
+} else {
+    $coef2 = MultiAnswer( Compute(0), Compute(0), Compute(0), Compute(0) )->with(
+        singleResult=>1,
+        checker=> sub {
+        my ( $c, $s, $ans ) = @_;
+        return $c->[0]==$s->[0] && $c->[1]==$s->[1] && $c->[2]==$s->[2];
+    } );
+}
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR
+$HR
+$BR$BR
+$BBOLD (b) $EBOLD
+Let \( \vec{v}_1 = $v[0]\), \( \vec{v}_2 = $v[1]\), \( \vec{v}_3 = $v[2]\), and \( \vec{v}_4 = $v[3]\).
+$BR
+\{$sl2->print_q()\}  
+
+$BR
+If they are linearly dependent, determine a non-trivial linear relation.
+Otherwise, if the vectors are linearly independent, enter 0s for 
+the coefficients, since that relationship $BBOLD always $EBOLD holds.
+$BR
+$BR
+\{ $coef2->ans_rule(10) \}\(\vec{v}_1+\)
+\{ $coef2->ans_rule(10) \}\(\vec{v}_2+\)
+\{ $coef2->ans_rule(10) \}\(\vec{v}_3+\)
+\{ $coef2->ans_rule(10) \}\(\vec{v}_4 = \vec{0}\).
+
+END_TEXT
+Context()->normalStrings;
+ANS str_cmp($sl2->ra_correct_ans);
+ANS( $coef2->cmp() );
+
+
+
+ENDDOCUMENT() ;        

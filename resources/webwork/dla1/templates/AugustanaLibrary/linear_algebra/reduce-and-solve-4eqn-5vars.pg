@@ -1,0 +1,197 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Systems of linear equations)
+## DBsection(Row reduction)
+## Date(Nov-2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## KEYWORDS('matrix', 'RREF', 'solutions', 'free variables')
+
+
+########################################
+#  Initialization
+
+DOCUMENT();  
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"scaffold.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Scaffold::Begin(
+  is_open=> "correct_or_first_incorrect",
+);
+
+
+########################################
+#  First determine the RREF of the system
+
+Context('Matrix');
+
+# remember that these are 0-based...
+@leading_possibilities = (
+[0,1,2],[0,1,3],[0,1,4],
+[0,2,3],[0,2,4],[0,3,4],
+);
+@leading = @{$leading_possibilities[random(0,5,1)]};
+@free = ();
+foreach my $j (1..4) {
+	if (not grep {$j eq $_} @leading) {
+		push(@free,$j);
+	}
+}
+@leading_proper = map {$_ + 1} @leading;
+@free_proper   = map {$_ + 1} @free;
+
+
+# fill array @R with RREF matrix entries
+foreach my $i (0..2) {
+	foreach my $j (0..$leading[$i]-1) {
+		$R[$i][$j] = 0;
+	}
+	$R[$i][$leading[$i]] = 1;
+	foreach my $j ($leading[$i]+1..4) {
+		if (grep {$j eq $_} @leading) {
+			$R[$i][$j] = 0;
+		} else {
+			$R[$i][$j] = non_zero_random(-5,5,1);
+		}
+	}
+	$R[$i][5] = random(-5,5,1);
+}
+foreach my $j (0..5) { $R[3][$j] = 0; }
+$RREF = Matrix(@R);
+
+# hit this with a random invertible 4x4 matrix
+do {
+	foreach my $i (0..3) {
+		foreach my $j (0..3) {
+			$Earr[$i][$j] = random(-3,3,1);
+		}
+	}
+	$E = Matrix(@Earr);
+} until ($E->det != 0);
+$A = $E * $RREF;
+
+Section::Begin("Part 1: Row Reducing");
+
+Context()->texStrings;
+BEGIN_TEXT
+The $BBOLD augmented $EBOLD matrix for a system in the variables \(x_1,x_2,x_3,x_4,x_5\) is given below.
+\[ $A \]
+Compute the reduced row echelon form for this augmented matrix.
+\{ $RREF->ans_array(5) \}
+END_TEXT
+
+BEGIN_SOLUTION
+$PAR
+You need to apply the method of Gauss-Jordan elimination until you reach RREF.
+\[$RREF\]
+END_SOLUTION
+Context()->normalStrings;
+
+ANS($RREF->cmp);
+
+Section::End();
+
+
+#########################################
+#  Then decide to which variables should
+#  parameters be assigned
+
+Context('Numeric');
+
+$leadingList = List( @leading_proper );
+$freeList = List( @free_proper );
+
+Section::Begin("Part 2: Assigning parameters");
+
+Context()->texStrings;
+BEGIN_TEXT
+Based on your RREF in Section 1 of this problem, the leading variables are
+\{ ans_rule(10) \},
+and the free variables that should be assigned parameters are
+\{ ans_rule(10) \}.
+$PAR
+$BBOLD$BITALIC INSTRUCTIONS: $EITALIC$EBOLD In each answer box, input $BBOLD whole numbers $EBOLD separated by commas, where the whole numbers correspond to variable indexes.
+For example, if you think that only variable \(x_5\) is a free variable, then enter 5 in the second answer box.
+$PAR
+$BBOLD$BITALIC REMEMBER: $EITALIC$EBOLD The matrix in this question is an ${BBOLD}augmented matrix${EBOLD}, so the last column is the ${LQ}equals${RQ} column.
+END_TEXT
+
+BEGIN_SOLUTION
+There are leading ones in columns 1, $leading_proper[1], and $leading_proper[2], corresponding to variables \(x_1\), \(x_{$leading_proper[1]}\), and \(x_{$leading_proper[2]}\). The other columns (except the last) correspond to free variables. So we should assign parameters to variables \(x_{$free_proper[0]}\) and \(x_{$free_proper[1]}\). 
+END_SOLUTION
+Context()->normalStrings;
+
+ANS($leadingList->cmp());
+ANS($freeList->cmp());
+
+Section::End();
+
+#########################################
+#  Finally solve the system
+
+Context()->variables->add(s => 'Real', t => 'Real');
+
+$leading_count = 0;
+foreach my $j (0..4) {
+	if ($j == $leading[$leading_count]) {
+		$x[$j] = Formula("$R[$leading_count][5] - $R[$leading_count][$free[0]] * s - $R[$leading_count][$free[1]] * t");
+		$leading_count += 1;
+	} elsif ($j == $free[0]) {
+		$x[$j] = Formula("s");
+	} else {
+		$x[$j] = Formula("t");
+	}
+}
+
+Section::Begin("Part 3: Solving the system");
+
+Context()->texStrings;
+BEGIN_TEXT
+In Section 2, you decided to assign parameters to variables \(x_{$free_proper[0]}\) and \(x_{$free_proper[1]}\). So let \(x_{$free_proper[0]} = s\) and \(x_{$free_proper[1]} = t\). With these parameter assignments, use your RREF from Section 1 to determine the parametric form of the system's solution.
+$PAR
+$BBOLD$BITALIC REMEMBER: $EITALIC$EBOLD The matrix in this question is an ${BBOLD}augmented matrix${EBOLD}, so the last column is the ${LQ}equals${RQ} column.
+$PAR
+\(x_1 =\) \{ ans_rule(15) \}, $BR
+\(x_2 =\) \{ ans_rule(15) \}, $BR
+\(x_3 =\) \{ ans_rule(15) \}, $BR
+\(x_4 =\) \{ ans_rule(15) \}, $BR
+\(x_5 =\) \{ ans_rule(15) \}.
+END_TEXT
+
+BEGIN_SOLUTION
+Your RREF matrix for this system is: \($RREF\).
+$PAR
+Convert each row into an equation, substitute \(x_{{$free_proper[0]}} = s\) and \(x_{{$free_proper[1]}} = t\), and solve for the leading variable. Doing this for row 1 will lead to a parametric expression for \(x_1\). From row 2 you will get a parametric expression for \(x_{$leading_proper[1]}\). And from row 3 you will get a parametric expression for \(x_{$leading_proper[2]}\).
+$PAR
+Finally, we have assigned \(x_{$free_proper[0]} = s\) and \(x_{$free_proper[1]} = t\), so just enter those letters into the corresponding boxes.
+$PAR
+Final answers: $BR
+\(x_1 = $x[0]\), $BR
+\(x_2 = $x[1]\), $BR
+\(x_3 = $x[2]\), $BR
+\(x_4 = $x[3]\), $BR
+\(x_5 = $x[4]\).
+END_SOLUTION
+Context()->normalStrings;
+
+ANS($x[0]->cmp);
+ANS($x[1]->cmp);
+ANS($x[2]->cmp);
+ANS($x[3]->cmp);
+ANS($x[4]->cmp);
+
+Section::End();
+
+Scaffold::End();
+
+ENDDOCUMENT();

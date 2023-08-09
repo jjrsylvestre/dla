@@ -1,0 +1,77 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','inner product','dot product')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Inner Product')
+## Date('2013-02-26')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## BASED ON: NationalProblemLibrary/Rochester/setLinearAlgebra17DotProductRn/ur_la_17_1.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGnumericalmacros.pl",
+"PGstatisticsmacros.pl", 
+"PGmatrixmacros.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$prod = 0;
+foreach $i (1..2) {
+	$x[$i] = random(-7,7,1);
+	$y[$i] = random(-7,7,1);
+	$prod = $prod + $x[$i] * $y[$i];
+}
+BEGIN_TEXT
+$BBOLD (a) $EBOLD
+\{ mbox( 'Let \(\vec{x}=\)', display_matrix([[$x[1]], [$x[2]]]), 
+	 'and \(\vec{y}=\)', display_matrix([[$y[1]], [$y[2]]]), '.'  ) \}
+$BR
+Compute:
+$BR
+\(\vec{x}\cdot \vec{y} = \) \{ans_rule(20)\}$BR
+\(\vec{y}\cdot \vec{x} = \) \{ans_rule(20)\}
+END_TEXT
+ANS(num_cmp($prod));
+ANS(num_cmp($prod));
+
+$prod = 0;
+foreach $i (1..3) {
+	$x[$i] = random(-7,7,1);
+	$y[$i] = random(-7,7,1);
+	$prod = $prod + $x[$i] * $y[$i];
+}
+BEGIN_TEXT
+$PAR
+$BBOLD (b) $EBOLD
+\{ mbox( 'Let \(\vec{u}=\)', display_matrix([[$x[1]], [$x[2]], [$x[3]]]), 
+	 'and \(\vec{v}=\)', display_matrix([[$y[1]], [$y[2]], [$y[3]]]), '.'  ) \}
+$BR
+Compute:
+$BR
+\(\vec{u}\cdot \vec{v} = \) \{ans_rule(20)\}$BR
+\(\vec{v}\cdot \vec{u} = \) \{ans_rule(20)\}
+END_TEXT
+ANS(num_cmp($prod));
+ANS(num_cmp($prod));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

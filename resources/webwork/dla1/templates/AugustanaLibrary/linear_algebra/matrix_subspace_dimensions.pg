@@ -1,0 +1,80 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Abstract vector spaces)
+## DBsection(Basis and dimension)
+## Institution('University of Alberta, Augustana Campus')
+
+## BASED ON
+## Library/Rochester/setLinearAlgebra8VectorSpaces/ur_la_8_4.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$n = random(4,7,1);
+
+@subspaces = (
+  "diagonal matrices",
+  "upper triangular matrices",
+  "lower triangular matrices",
+  "symmetric matrices",
+  "skew-symmetric matrices", 
+  "matrices with trace 0",
+);
+
+$ans_all = $n**2;
+$ans_diag = $n;
+$ans_upper_lower_sym = $n*($n+1)/2;
+$ans_skew = $n*($n-1)/2;
+$ans_trace0 = $ans_all-1;
+
+BEGIN_TEXT
+Let \(V = M_{$n} (\mathbb{R})\), the vector space of all \($n \times $n\) matrices.
+$BR$BR
+${BBOLD}REMINDERS:${EBOLD}${BR}
+A square matrix \(A\) is ${BITALIC}skew-symmetric${EITALIC} if \(A^{\mathrm{T}} = -A\).$BR
+The trace of a square matrix is the sum of its diagonal entries.$BR
+$BR
+(a) \(\dim V=\) \{ans_rule(5)\}
+$BR
+(b) If \(U\) is the subspace of \(V\) consisting of all $subspaces[0], 
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(c) If \(U\) is the subspace of \(V\) consisting of all $subspaces[1], 
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(d) If \(U\) is the subspace of \(V\) consisting of all $subspaces[2], 
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(e) If \(U\) is the subspace of \(V\) consisting of all $subspaces[3], 
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(f) If \(U\) is the subspace of \(V\) consisting of all $subspaces[4], 
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(g) If \(U\) is the subspace of \(V\) consisting of all $subspaces[5], 
+then \(\dim U=\) \{ans_rule(5)\}
+END_TEXT
+
+ANS(num_cmp($ans_all));
+ANS(num_cmp($ans_diag));
+ANS(num_cmp($ans_upper_lower_sym));
+ANS(num_cmp($ans_upper_lower_sym));
+ANS(num_cmp($ans_upper_lower_sym));
+ANS(num_cmp($ans_skew));
+ANS(num_cmp($ans_trace0));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

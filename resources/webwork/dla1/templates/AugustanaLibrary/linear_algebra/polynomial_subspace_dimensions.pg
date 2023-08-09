@@ -1,0 +1,82 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Abstract vector spaces)
+## DBsection(Basis and dimension)
+## Institution('University of Alberta, Augustana Campus')
+
+## BASED ON
+## Library/Rochester/setLinearAlgebra8VectorSpaces/ur_la_8_4.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$n = random(4,7,1);
+$m = random(1,3,1);
+
+@subspaces = (
+  "polynomials of degree less than $n",
+  "polynomials of degree $m or less",
+  "polynomials with constant term equal to \(0\)",
+  "polynomials involving only odd powers of \(x\)",
+  "polynomials involving only even powers of \(x\) (including the constant term)",
+  "polynomials whose coefficients sum to \(0\)", 
+);
+
+# Note: first question is not in the subspace list
+@answers = (
+  $n+1,
+  $n,
+  $m+1,
+  $n,
+  (int (($n+1)/2)),
+  (int $n/2) + 1,
+  $n
+);
+
+BEGIN_TEXT
+Let \(V = P_{$n}\), the vector space of all polynomials of degree \($n\) or less.$BR
+$BR
+(a) \(\dim V=\) \{ans_rule(5)\}
+$BR
+(b) If \(U\) is the subspace of \(V\) consisting of all $subspaces[0],
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(c) If \(U\) is the subspace of \(V\) consisting of all $subspaces[1],
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(d) If \(U\) is the subspace of \(V\) consisting of all $subspaces[2],
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(e) If \(U\) is the subspace of \(V\) consisting of all $subspaces[3],
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(f) If \(U\) is the subspace of \(V\) consisting of all $subspaces[4],
+then \(\dim U=\) \{ans_rule(5)\}
+$BR
+(g) If \(U\) is the subspace of \(V\) consisting of all $subspaces[5],
+then \(\dim U=\) \{ans_rule(5)\}
+END_TEXT
+
+ANS(num_cmp($answers[0]));
+ANS(num_cmp($answers[1]));
+ANS(num_cmp($answers[2]));
+ANS(num_cmp($answers[3]));
+ANS(num_cmp($answers[4]));
+ANS(num_cmp($answers[5]));
+ANS(num_cmp($answers[6]));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

@@ -1,0 +1,120 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrices)
+## DBsection(Inverses)
+## Date(Sep 2016)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## Level(2)
+## MO(1)
+## TitleText1()
+## AuthorText1()
+## EditionText1()
+## Section1()
+## Problem1()
+## KEYWORDS('matrix' 'inverse')
+
+## BASED ON:
+## Library/TCNJ/TCNJ_MatrixInverse/problem5.pg
+## Library/TCNJ/TCNJ_MatrixInverse/problem6.pg
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+# INTRO
+
+BEGIN_TEXT
+Recall that if a square matrix \(A\) is invertible, its inverse is the unique square matrix \(A^{-1}\) of the same size that satisfies both \(AA^{-1} = I\) and \(A^{-1}A = I\), where \(I\) is the identity matrix of the same size as \(A\).
+$PAR
+Find the inverse of each of the following matrices by inspection (ie. by educated guess), by considering the definition of $BITALIC inverse matrix $EITALIC above.
+END_TEXT
+
+
+Context('Matrix');
+
+# PART 1
+
+do {
+$a = random(-1,1,2) * random(2,9,1);
+$d = random(-1,1,2) * random(2,9,1);
+$b = 0;
+$c = 0;
+} until ($a != $d);
+
+$A = Matrix([[$a, $b], [$c, $d]]);
+$Ainv = $A->inverse;
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR
+For \(\displaystyle A = $A \), 
+$BR $BR
+\( A^{-1} = \) \{ $Ainv->ans_array(15) \}.
+END_TEXT
+Context()->normalStrings;
+
+ANS($Ainv->cmp);
+
+
+# PART 2
+
+do {
+$a11 = random(-1,1,2) * random(2,9,1);
+$a22 = random(-1,1,2) * random(2,9,1);
+$a33 = random(-1,1,2) * random(2,9,1);
+} until ($a11 != $a22 and $a11 != $a33 and $a22 != $a33);
+
+$a12 = 0;
+$a13 = 0;
+$a21 = 0;
+$a23 = 0;
+$a31 = 0;
+$a32 = 0;
+
+$B = Matrix([[$a11, $a12, $a13], [$a21, $a22, $a23], [$a31, $a32, $a33]]);
+$Binv = $B->inverse;
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR
+For \(\displaystyle B = $B \),
+$BR $BR
+\( B^{-1} = \) \{ $Binv->ans_array(15) \}.
+END_TEXT
+Context()->normalStrings;
+
+ANS($Binv->cmp);
+
+# PART 3
+
+$C = Matrix([
+[random(-1,1,2) * random(2,9,1),0,0,0],
+[0,random(-1,1,2) * random(2,9,1),0,0],
+[0,0,random(-1,1,2) * random(2,9,1),0],
+[0,0,0,random(-1,1,2) * random(2,9,1)],
+]);
+$Cinv = $C->inverse;
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR
+For \(\displaystyle C = $C \),
+$BR $BR
+\( C^{-1} = \) \{ $Cinv->ans_array(15) \}.
+END_TEXT
+
+ANS($Cinv->cmp);
+COMMENT('MathObject version.  Matrices are always diagonal.');
+ENDDOCUMENT();

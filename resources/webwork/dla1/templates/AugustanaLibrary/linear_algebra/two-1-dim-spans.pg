@@ -1,0 +1,95 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Euclidean spaces)
+## DBsection(Span)
+## Date(December 2014)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## KEYWORDS('vectors' 'span')
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"MatrixCheckers.pl",
+"PGcourse.pl",
+"PGmatrixmacros.pl",
+);
+
+## Mash up of
+## Library/TCNJ/TCNJ_VectorSpaces/problem1.pg
+## Library/TCNJ/TCNJ_VectorSpaces/problem2.pg
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Matrix')->variables->are('s'=>'Real','t'=>'Real');
+
+#################################################
+## From problem1.pg
+
+$v[1] = non_zero_random(-5,5,1);
+$v[2] = non_zero_random(-1,1,1);
+$v[3] = non_zero_random(-5,5,1);
+
+$V = Matrix([ $v[1], $v[2], $v[3] ])->transpose;
+
+foreach my $i (1..3) {
+$expr[$i] = Formula("$v[$i] * s")->reduce;
+}
+
+$E = Matrix([ [$expr[1]], [$expr[2]], [$expr[3]] ]);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BBOLD (a) $EBOLD
+Let \(U\) be the set of all vectors of the form \( $E \), where \(s\) is a free parameter.
+$BR
+Find a vector \(\vec{u}\) in \( {\mathbb R}^3\) such that \( U=\operatorname{Span}\left\lbrace \vec{u} \right\rbrace \).
+$BR
+$BR  
+\{ mbox( '\(\vec{u}=\)', $V->ans_array, '.', ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($V->cmp(checker=>~~&basis_checker_one_column));
+
+
+#################################################
+## From problem2.pg
+
+$v[1] = non_zero_random(-5,5,1);
+$v[2] = 0;
+$v[3] = non_zero_random(-5,5,1);
+
+$V = Matrix([ $v[1], $v[2], $v[3] ])->transpose;
+
+foreach my $i (1..3) {
+$expr[$i] = Formula("$v[$i] * t")->reduce;
+}
+
+$E = Matrix([ [$expr[1]], [$expr[2]], [$expr[3]] ]);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$HR$BR
+$BBOLD (b) $EBOLD
+Let \(W\) be the set of all vectors of the form \( $E \), where \(t\) is a free parameter.
+$BR
+Find a vector \(\vec{w}\) in \( {\mathbb R}^3\) such that \( W=\operatorname{Span}\left\lbrace \vec{w} \right\rbrace \).
+$BR
+$BR  
+\{ mbox( '\(\vec{w}=\)', $V->ans_array, '.', ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($V->cmp(checker=>~~&basis_checker_one_column));
+
+
+
+COMMENT('MathObject version.  All entries in the vector are non-zero.');
+ENDDOCUMENT();

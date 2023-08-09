@@ -1,0 +1,139 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','inner product','dot product')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Inner Product')
+## Date('2013-02-26')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## COBBLED TOGETHER FROM
+## NationalProblemLibrary/Rochester/setLinearAlgebra17DotProductRn/ur_la_17_13.pg
+## NationalProblemLibrary/Rochester/setLinearAlgebra17DotProductRn/ur_la_17_3.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGnumericalmacros.pl",
+"PGstatisticsmacros.pl",
+"PGauxiliaryFunctions.pl",
+"PGmatrixmacros.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+#+++++++++++++++++++++++++++++++
+# In R2
+#+++++++++++++++++++++++++++++++
+
+$prod = 0;
+$norm_x = 0;
+$norm_y = 0;
+
+foreach $i (0..1) {
+	$x[$i] = non_zero_random(-5,5,1);
+	$y[$i] = non_zero_random(-5,5,1);
+ 	if ($y[$i] == $x[$i]) { 
+		$y[$i] = 6;
+	}
+	$prod = $prod + $x[$i] * $y[$i];
+	$norm_x = $norm_x + $x[$i] * $x[$i];
+	$norm_y = $norm_y + $y[$i] * $y[$i];
+}
+
+
+$value = $prod**2 /( $norm_x * $norm_y);
+$value = sqrt($value);
+if ($prod < 0) {$value = -$value;}
+
+if ($value > 1) {$value = 1;}
+if ($value < -1) {$value = -1;}  ## avoid round off errors
+
+$angle = arccos( $value );
+
+BEGIN_TEXT
+$PAR
+\{ mbox(
+  '$BBOLD (a) $EBOLD Find the angle \( \alpha \) between the vectors ',
+  display_matrix([[$x[0]], [$x[1]]]),
+  ' and ',
+  display_matrix([[$y[0]], [$y[1]]]),
+  '.'
+) \} 
+$BR
+\( \alpha = \) \{ans_rule(20)\}
+
+END_TEXT
+
+ANS(num_cmp($angle, tol => .001));
+
+
+#+++++++++++++++++++++++++++++++
+# In R3
+#+++++++++++++++++++++++++++++++
+
+$prod = 0;
+$norm_x = 0;
+$norm_y = 0;
+
+foreach $i (1..3) {
+
+	$x[$i] = non_zero_random(-5,5,1);
+	$y[$i] = non_zero_random(-5,5,1);
+	$prod = $prod + $x[$i] * $y[$i];
+        $norm_x = $norm_x + $x[$i] * $x[$i];
+        $norm_y = $norm_y + $y[$i] * $y[$i];
+
+}
+
+$norm_x = sqrt($norm_x);
+$norm_y = sqrt($norm_y);
+
+$angle = arccos( $prod / $norm_x / $norm_y);
+
+BEGIN_TEXT
+$PAR
+\{ mbox(
+  '$BBOLD (b) $EBOLD Find the angle \( \beta \) between the vectors ',
+  display_matrix([[$x[1]], [$x[2]], [$x[3]]]), 
+  ' and ',
+  display_matrix([[$y[1]], [$y[2]], [$y[3]]]),
+  '.'
+) \} 
+$BR
+\( \beta = \) \{ans_rule(20)\}
+
+END_TEXT
+
+ANS(num_cmp($angle, tol => .001));
+
+
+#+++++++++++++++++++++++++++++++
+# Final message
+#+++++++++++++++++++++++++++++++
+BEGIN_TEXT
+$BR$BR$BR$BR
+$BBOLD WEBWORK TIP: $EBOLD You don't need to enter decimal numbers as your answers to this question, since WeBWorK understands the $BITALIC arccos $EITALIC function.
+$PAR
+The arccos function accepts an input \(-1 \le x \le 1\) and returns the angle \(0 \le \theta \le \pi\) such that \(\cos \theta = x\).
+$PAR
+For example, you could enter arccos(1/2) as an answer, if you think the answer should be the angle whose cosine is 1/2.
+END_TEXT
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

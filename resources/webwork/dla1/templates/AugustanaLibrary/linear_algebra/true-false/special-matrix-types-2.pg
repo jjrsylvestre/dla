@@ -1,0 +1,81 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('')
+## DBsection('')
+## Date('01/28/13')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Special Matrix Types", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"Every diagonal matrix is invertible.",
+"F",
+"Every upper triangular matrix can be row reduced to the identity matrix as its RREF.",
+"F",
+"The inverse of an invertible diagonal matrix is a diagonal matrix.",
+"T",
+"The inverse of an invertible upper triangular matrix is an upper triangular matrix.",
+"T",
+"The inverse of an invertible lower triangular matrix is a lower triangular matrix.",
+"T",
+"The inverse of an invertible symmetric matrix is a symmetric matrix.",
+"T",
+);
+
+# Choose all six of the question and answer pairs.
+$tf ->choose(6);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)
+
+$PAR
+
+$BBOLD Assume that matrices in the following statements are all square and of the same size. $EBOLD
+
+$PAR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

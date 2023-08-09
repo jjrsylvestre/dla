@@ -1,0 +1,101 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrices)
+## DBsection(Inverses)
+## Date(Sep 2016)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## MLT(2x2triangular)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1()
+## AuthorText1()
+## EditionText1()
+## Section1()
+## Problem1('')
+## KEYWORDS('matrix' 'inverse')
+
+## BASED ON
+## Library/TCNJ/TCNJ_MatrixInverse/problem10.pg
+## Library/TCNJ/TCNJ_MatrixInverse/problem12.pg
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Matrix');
+
+# UPPER TRIANG
+
+do {
+
+$a = non_zero_random(-9,9,1);
+$d = non_zero_random(-9,9,1);
+$b = non_zero_random(-9,9,1);
+$c = 0;
+
+$U = Matrix([[$a, $b], [$c, $d]]);
+
+} until (($U->det != 0) and ($a != $d));
+
+$Uinv = $U->inverse;
+
+
+Context()->texStrings;
+BEGIN_TEXT
+For \( U = $U \),
+$BR $BR
+\( U^{-1} = \) \{ $Uinv->ans_array(15) \}.
+END_TEXT
+Context()->normalStrings;
+
+ANS($Uinv->cmp);
+
+# LOWER TRIANG
+
+do {
+
+$a = non_zero_random(-9,9,1);
+$d = non_zero_random(-9,9,1);
+$c = non_zero_random(-9,9,1);
+$b = 0;
+
+$L = Matrix([[$a, $b], [$c, $d]]);
+
+} until (($L->det != 0) and ($a != $d));
+
+$Linv = $L->inverse;
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR $BR
+For \(\displaystyle L = $L \),
+$BR $BR
+\( L^{-1} = \) \{ $Linv->ans_array(15) \}.
+END_TEXT
+Context()->normalStrings;
+
+ANS($Linv->cmp);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR $BR
+$BBOLD Pause for reflection: $EBOLD
+Compare the original matrices with your answers. What do you notice?
+END_TEXT
+Context()->normalStrings;
+
+
+COMMENT('MathObject version.  Matrices are always triangular.');
+ENDDOCUMENT();

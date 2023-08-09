@@ -1,0 +1,86 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Euclidean spaces)
+## DBsection(Coordinate vectors and change of basis)
+## Institution(University of Alberta, Augustana Campus)
+
+## ProblemLibrary/Rochester/setLinearAlgebra10Bases/ur_la_10_3.pg
+## ProblemLibrary/Rochester/setLinearAlgebra10Bases/ur_la_10_2.pg
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "PGchoicemacros.pl",  # for shuffle, NchooseK
+#  "answerHints.pl",
+  "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+foreach $i (0..1) { 
+	foreach $j (0..1) {
+		$a[$i][$j] = random(-7,5,1);
+	}
+	$v[$i][0] = non_zero_random(-6,6,1);
+}
+
+$A = Matrix(@a);
+$V = Matrix(@v);
+
+while ($A->det->isZero) { 
+	$a[0][0] += 1;
+	$a[1][1] += 1;
+	$A = Matrix(@a);
+}
+
+$A1 = $A->column(1);
+$A2 = $A->column(2);
+
+$m = non_zero_random(-5,5,1);
+$n = non_zero_random(-5,5,1);
+
+$U = $m * $A1 + $n * $A2;
+
+$parta_ans = $A * $V;
+$partb_ans = Matrix([[$m,$n]])->transpose;
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider the basis \(B\) of \( {\mathbb R}^2 \) consisting of vectors \($A1\) and \($A2\).
+$BR$HR$BR
+$BBOLD (a) $EBOLD
+Determine the vector \(\vec{v}\) in \( {\mathbb R}^2 \) whose coordinate vector relative to the basis \(B\) is \( [\vec{v}]_B = $V \).
+$BR
+\{ mbox( '\( \vec{v} = \)', $parta_ans->ans_array ) \} 
+END_TEXT
+Context()->normalStrings;
+
+ANS($parta_ans->cmp); 
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$HR$BR
+$BBOLD (b) $EBOLD
+Determine the coordinates of the vector \(\vec{u} = $U\) relative to the basis \( B \): 
+$BR
+\{ mbox( '\( [\vec{u}]_B = \)', $partb_ans->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($partb_ans->cmp);
+
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

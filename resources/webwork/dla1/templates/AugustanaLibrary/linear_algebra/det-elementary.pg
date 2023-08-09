@@ -1,0 +1,87 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('determinant' 'matrix')
+## Tagged by tda2d
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Determinants')
+## Date('Sep 2016')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## BASED ON
+## Library/TCNJ/TCNJ_Determinants/problem1.pg
+## Library/TCNJ/TCNJ_Determinants/problem2.pg
+## Library/TCNJ/TCNJ_Determinants/problem3.pg
+## Library/TCNJ/TCNJ_Determinants/problem4.pg
+## Library/TCNJ/TCNJ_Determinants/problem5.pg
+## Library/TCNJ/TCNJ_Determinants/problem6.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGchoicemacros.pl",
+"parserVectorUtils.pl",
+"PGcourse.pl"
+) ;
+
+$showPartialCorrectAnswers = 1 ;
+
+TEXT(beginproblem());
+
+Context('Matrix');
+Context()->variables->are(k=>'Real');
+
+
+
+@Ms=(
+	Matrix([ [1, 0, 0], [0, 1, 0], [0, 'k', 1] ]),
+	Matrix([ [1, 0, 0], [0, 1, 0], ['k', 0, 1] ]),
+	Matrix([ ['k', 0, 0], [0, 1, 0], [0, 0, 1] ]),
+	Matrix([ [1, 0, 0], [0, 'k', 0], [0, 0, 1] ]),
+	Matrix([ [0, 1, 0], [1, 0, 0], [0, 0, 1] ]),
+	Matrix([ [0, 0, 1], [0, 1, 0], [1, 0, 0] ]),
+);
+
+# dets are 1, 1, 'k', 'k', -1, -1
+@dets=(
+	Compute("1"),
+	Compute("1"),
+	Compute("k"),
+	Compute("k"),
+	Compute("-1"),
+	Compute("-1"),
+);
+
+@p = NchooseK(6,6);
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$BBOLD Enter the determinants of the following elementary matrices. $EBOLD
+END_TEXT
+Context()->normalStrings;
+
+for $i (0..5) {
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $Ms[$p[$i]] =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($dets[$p[$i]]->cmp);
+
+}
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

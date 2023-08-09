@@ -1,0 +1,68 @@
+## BASED ON
+## NPL/Rochester/setLinearAlgebra1Systems/ur_la_1_8.pg
+## and the problem in the same Rochester set that comes after it...
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$x1 = random(3,8,1);
+$c = random(2,4,1);
+$x2 = -$c*$x1;
+$y1 = random(-8,-2,1);
+$y2 = -$c*$y1;
+$a = random(2,9,1);
+$h = -$a/$c;
+
+$xx1 = random(3,8,1);
+$cc = random(2,4,1);
+$xx2 = $cc*$xx1;
+$yy1 = random(-8,-2,1);
+$aa = random(2,9,1);
+$bb = $cc*$aa;
+$hh = $yy1*$cc;
+
+BEGIN_TEXT
+
+Determine the value of \(h\) such that the matrix below is the augmented matrix of a consistent linear system.
+$PAR
+\[ \left[ \begin{array} {rr}
+$x1 & $y1 \cr
+$x2 & $y2
+\end{array} \right| \left. \begin{array}{r}
+h \cr
+$a
+\end{array} \right]
+\]
+$BR
+\( h= \) \{ans_rule(10) \}$BR
+$PAR
+Determine the value of \(k\) such that the matrix below is the augmented matrix of a consistent linear system with $BITALIC infinitely many solutions. $EITALIC $PAR
+
+\[ \left[ \begin{array} {rr}
+$xx1 & $yy1 \cr
+$xx2 & k  
+\end{array} \right| \left. \begin{array}{r}
+$aa \cr
+$bb 
+\end{array} \right]
+\]
+$BR
+\( k= \) \{ans_rule(10) \}
+
+END_TEXT
+
+ANS(num_cmp($h));
+ANS(num_cmp($hh));
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem. 

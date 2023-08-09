@@ -1,0 +1,97 @@
+# This header file can be used for both the screen and hardcopy output
+
+
+DOCUMENT();
+
+loadMacros(
+	"PG.pl",
+	"PGbasicmacros.pl",
+
+);
+
+TEXT($BEGIN_ONE_COLUMN);
+
+####################################################
+#
+# The item below printed out only when a hardcopy is made.
+#
+####################################################
+
+
+
+TEXT(MODES(TeX =>EV3(<<'EOT'),HTML=>""));
+
+\noindent
+{\large \bf {\{protect_underbar($courseName)\}}}
+\hfill
+{\large \bf $studentName}
+% Uncomment the line below if this course has sections. Note that this is a comment in TeX mode since this is only processed by LaTeX
+%   {\large \bf { Section: \{protect_underbar($sectionName)\} } }
+\par
+\noindent{\large \bf {WeBWorK \{protect_underbar($setNumber)\} due $DueDateTime12 on
+$DueDateDayOfWeekAbbrev $DueDateDay $DueDateMonthAbbrev $DueDateYear4Digit}}
+\par\noindent \bigskip
+% Uncomment and edit the line below if this course has a web page. Note that this is a comment in TeX mode.
+%See the course web page for information http://yoururl/yourcourse
+
+EOT
+
+####################################################
+#
+# End of hardcopy only output.
+#
+####################################################
+
+
+####################################################
+#
+# The items below are printed out only when set is displayed on screen
+# 
+####################################################
+TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
+
+$BBOLD Due:
+$DueDateTime12 on
+$DueDateDayOfWeekAbbrev $DueDateDay $DueDateMonthAbbrev $DueDateYear4Digit.
+$EBOLD
+$PAR
+Here's the list of 
+\{ htmlLink(qq!http://webwork.maa.org/wiki/Available_Functions!,"functions and symbols") \}
+ which WeBWorK understands.
+$BR
+
+EOT
+
+####################################################
+# Uncomment and edit the lines below if this course has a web page. Note that this is comment in Perl mode. 
+# IMPORTANT: Make sure the EOT at the bottom is at the beginning of a line with no spaces preceeding it.
+#TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
+#See the course web page for information \{ htmlLink(qq!http://yoururl/yourcourse!,"your course name") \}
+#EOT
+####################################################
+
+####################################################
+#
+# End of screen only output.
+#
+####################################################
+
+####################################################
+#
+# Anything between the BEGIN_TEXT AND END_TEXT lines
+# will be printed in both screen and hardcopy output
+#
+####################################################
+
+BEGIN_TEXT
+$HR
+The purpose of this problem set is to practise$BR
+$SPACE$SPACE(i) computing the norm of a vector,$BR
+$SPACE$SPACE(ii) working with unit vectors, including the standard unit vectors, and$BR
+$SPACE$SPACE(iii) computing the dot product, and using it to determine the angle between two vectors.
+END_TEXT
+
+
+TEXT($END_ONE_COLUMN);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

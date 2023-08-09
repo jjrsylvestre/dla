@@ -1,0 +1,121 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','matrix','determinant')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Determinants')
+## Date('Sep 2016')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+"MathObjects.pl",
+"parserVectorUtils.pl",
+"PGcourse.pl"
+) ;
+
+# all answers are zero
+
+$showPartialCorrectAnswers = 1 ;
+
+TEXT(beginproblem());
+
+Context('Matrix');
+
+#################
+# a row of zeros
+#################
+
+$zero_i = random(0,3,1);
+foreach my $i (0..3) {
+	foreach my $j (0..3) {
+		$entries[$i][$j] = ($i == $zero_i) ? 0 : random(-9,9,1);
+	}
+}
+$A[0] = Matrix(@entries);
+
+#####################
+# two identical rows
+#####################
+
+$copied_i = random(0,3,1);
+foreach my $i (0..3) {
+	foreach my $j (0..3) {
+		$entries[$i][$j] = ($i == $copied_i) ? 0 : random(-9,9,1);
+	}
+}
+do { $from_i = random(0,3,1); } until ($from_i != $copied_i);
+foreach my $j (0..3) {
+	$entries[$copied_i][$j] = $entries[$from_i][$j];
+}
+$A[1] = Matrix(@entries);
+
+#############################################
+# a column that's a multiple of another col
+#############################################
+$multiplied_i = random(0,3,1);
+$mult = random(2,5);
+foreach my $i (0..3) {
+	foreach my $j (0..3) {
+		$entries[$i][$j] = ($i == $multiplied_i) ? 0 : random(-9,9,1);
+	}
+}
+do { $from_i = random(0,3,1); } until ($from_i != $multiplied_i);
+foreach my $j (0..3) {
+	$entries[$multiplied_i][$j] = $mult * $entries[$from_i][$j];
+}
+$A[2] = Matrix(@entries);
+
+###########################################
+# a row that's a sum of two others
+# --> always make it row 4 = row 2 + row 3
+#     so that it's easy to see
+###########################################
+foreach my $i (0..2) {
+	foreach my $j (0..3) {
+		$entries[$i][$j] = random(-9,9,1);
+	}
+}
+foreach my $j (0..3) {
+	$entries[3][$j] = $entries[1][$j] + $entries[2][$j];
+}
+$A[3] = Matrix(@entries);
+
+
+$det = Compute("0");
+
+# TODO FROM HERE
+
+BEGIN_TEXT
+$BBOLD In each of the following, determine the determinant by inspection. $EBOLD$BR
+(That is, you should be able to answer this question without doing any complicated determinant computations.)
+END_TEXT
+
+@p = NchooseK(4,4);
+
+for $i (0..3) {
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $A[$p[$i]] =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+}
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

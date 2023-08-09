@@ -1,0 +1,73 @@
+## EDIT REASONS:
+## 1. Change from vectors to points.
+## 2. Add exhortation for the students to use their brains instead of a formula.
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Linear algebra)
+## DBchapter(Inner products)
+## DBsection(Projection and distance)
+## Institution(TCNJ)
+## TitleText1('Linear Algebra with Applications')
+## AuthorText1('Jeffrey Holt')
+## EditionText1('1')
+## Section1('8.2')
+## Problem1('')
+## KEYWORDS('inner product' 'orthogonal' 'projection' 'distance')
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGmatrixmacros.pl", 
+"PGnumericalmacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$u1 = non_zero_random(-7,7,1);
+$u2 = non_zero_random(-6,6,2);
+
+$y1 = random(-10,10,1);
+$y2 = random(-9,9,2);
+
+$yu = $y1 * $u1 + $y2 * $u2;
+$norm2u = $u1 * $u1 + $u2 * $u2; 
+$projyu = $yu/$norm2u; 
+
+$ans1 = $projyu * $u1;
+$ans2 = $projyu * $u2;
+$ans3 = $y1 - $ans1;
+$ans4 = $y2 - $ans2;
+
+$dist = sqrt($ans3**2+$ans4**2);
+
+BEGIN_TEXT
+
+Let \(L\) be the line in \(\mathbb{R}^2\) that passes through both the origin and the point \(P($u1,$u2)\).
+$PAR
+Compute the distance \(d\) from the point \(Q($y1,$y2)\) to the line \(L\).
+$PAR
+\(d=\) \{ans_rule(10)\}
+$PAR
+$BBOLD NOTE: $EBOLD It is likely possible that you can find a formula on the internet or in another textbook that you can use to plug'n'chug your way to an answer quickly, and $BITALIC learn absolutely nothing $EITALIC
+in the process.
+$BR
+$BBOLD $BITALIC OR $EITALIC $EBOLD $BR
+You could treat this problem as a little puzzle, where you must use the geometry of vectors and lines in
+\(\mathbb{R}^2\) and the concepts of $BITALIC norm $EITALIC and $BITALIC orthogonal projection $EITALIC
+to figure out a solution to the problem all on your own. Here's a tip: start by drawing a diagram!
+END_TEXT
+
+ANS(num_cmp($dist));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

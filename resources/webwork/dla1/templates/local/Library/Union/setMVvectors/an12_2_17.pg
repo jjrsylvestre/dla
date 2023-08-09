@@ -1,0 +1,104 @@
+## EDIT REASONS:
+## 1. Add reminder about <x,y,z> notation.
+## 2. Add reminder about i-j-k notation.
+## 3. In the second part, a vector with a zero k component will not display the k component,
+##     and so the student will not be able to tell that the vector is supposed to be in R3 and not R2
+##     (at least, if they have trouble reading the whole question....)
+##     TODO: It doesn't seem I have actually fixed that issue.... ?
+
+## DESCRIPTION
+##   Working with Vectors
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Geometry)
+## DBchapter(Vector geometry)
+## DBsection(Dot product, length, and unit vectors)
+## Date(8/23/07)
+## Institution(Union College)
+## Level(3)
+## TitleText1('Calculus')
+## AuthorText1('Anton')
+## EditionText1('7')
+## Section1('12.2')
+## Problem1('37')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('12.1')
+## Problem2('37')
+## KEYWORDS('Vector', 'Length', 'Unit')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "parserVectorUtils.pl",
+  "PGcourse.pl",
+);
+
+
+TEXT(beginproblem());
+
+##############################################
+#  Setup
+
+Context("Vector")->functions->undefine("unit");
+
+# the vectors
+$U = non_zero_vector2D();
+$V = non_zero_vector3D();
+
+# the points A and B
+$A = non_zero_point2D();
+$B = $A + non_zero_point2D();
+
+##############################################
+#  Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+
+Find ${BBOLD}unit${EBOLD} vectors that satisfy the given conditions:
+$PAR
+
+\{BeginList()\}
+
+$ITEM
+The unit vector in \(\mathbb{R}^2\) in the same direction as \($U\) is \{ans_rule(30)\}.
+$ITEMSEP
+
+$ITEM
+The unit vector in \(\mathbb{R}^3\) oppositely directed to \(\{$V->ijk\}\) is \{ans_rule(30)\}. $BR
+${BBOLD}Note:${EBOLD} Vectors \(\vec{i},\vec{j},\vec{k}\) are alternative notation to mean the three standard basis vectors \(\vec{e}_1,\vec{e}_2,\vec{e}_3\) in \(\mathbb{R}^3\text{.}\)
+$ITEMSEP
+
+$ITEM
+The unit vector in \(\mathbb{R}^2\) that has the same direction as the
+vector from the point \(A=$A\) to the point \(B=$B\) is \{ans_rule(30)\}.
+
+\{EndList()\}
+
+$PAR
+$BBOLD REMEMBER: $EBOLD When WeBWorK asks for a vector answer in single answer box, you should use angle brackets (ie. less-than and greater-than signs) instead of round brackets. WeBWorK distinguishes between vectors and points, and to WeBWorK, $LT 1, 2, 3 $GT is a vector in \(\mathbb{R}^3\), while (1,2,3) is a point in \(\mathbb{R}^3\text{.}\) But you can also use i-j-k notation if you like, as in part 2 above.
+
+END_TEXT
+Context()->normalStrings;
+
+##################################################
+#  Answers
+
+ANS($U->unit->cmp);
+ANS((-$V)->unit->cmp);
+ANS(Vector($B-$A)->unit->cmp);
+
+$showPartialCorrectAnswers = 1;
+
+##################################################
+
+
+COMMENT('MathObject version');
+ENDDOCUMENT();

@@ -1,0 +1,75 @@
+## EDIT REASON:
+## Make it appropriate for an audience without calculus background.
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/3/06
+
+## DBsubject(Linear algebra)
+## DBchapter(Systems of linear equations)
+## DBsection(Applications)
+## Date(July 2013)
+## Institution(Rochester and Hope College)
+## Author(Paul Pearson)
+## Level(4)
+## MO(1)
+## TitleText1('Linear Algebra with Applications')
+## AuthorText1('Jeffrey Holt')
+## EditionText1('1')
+## Section1('1.2')
+## Problem1('')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Numeric');
+
+$a = non_zero_random(-2,2,1);
+$b = random(-3,3,1);
+$c = non_zero_random(-4,4,1);
+$d = random(-5,5,1);
+
+$x = non_zero_random(-2,2,1);
+
+$fx = $a*$x**3 + $b*$x**2 + $c*$x + $d;
+$fpx = 3*$a*$x**2 + 2*$b*$x + $c;
+$fppx = 6*$a*$x + 2*$b;
+$fpppx = 6*$a;
+
+$f = Formula("$a * x^3 + $b * x^2 + $c * x + $d")->reduce;
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider the following cubic polynomial \(f(x)\) and related polynomials \(f'(x),f''(x),f'''(x)\):
+$PAR
+\[ f(x) = a x^3 + bx^2 + cx + d \]
+$PAR
+\[ f'(x) = 3a x^2 + 2bx + c \]
+$PAR
+\[ f''(x) = 6a x + 2b \]
+$PAR
+\[ f'''(x) = 6a \]
+$PAR
+$BITALIC (If you have taken calculus, you will recognize these as the derivatives of \(f(x)\).)$EITALIC
+$PAR
+Determine values of the coefficients \(a,b,c,d\) so that these polynomials simultaneously satisfy the conditions \(f($x)=$fx,\) \(f'($x)=$fpx,\) \(f''($x)=$fppx,\) and \(f'''($x)=$fpppx\), then enter the resulting polynomial \(f(x)\) below.
+$PAR
+\(f(x)=\) \{ans_rule(40)\}.
+$PAR
+$BBOLD$BITALIC NOTE: $EITALIC$EBOLD Yes, you can probably solve this problem without linear algebra. But remember that the purpose of doing this homework is to $BITALIC help you learn linear algebra${EITALIC}, so it would probably be a good idea to try to solve this problem by setting up a matrix and row reducing...
+END_TEXT
+Context()->normalStrings;
+
+ANS($f->cmp);
+COMMENT('MathObject version.  Integer coefficients.');
+ENDDOCUMENT();       # This should be the last executable line in the problem.

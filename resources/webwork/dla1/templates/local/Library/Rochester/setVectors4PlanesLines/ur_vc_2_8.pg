@@ -1,0 +1,73 @@
+## EDIT REASON
+## More detailed description of proposed situations.
+
+## DESCRIPTION
+##   Intersection of Lines and Planes
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Geometry)
+## DBchapter(Vector geometry)
+## DBsection(Lines and Planes)
+## Date(6/3/2002)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('12.5')
+## Problem1('1')
+## KEYWORDS('Intersection', 'Line', 'Plane','Geometry')
+           
+DOCUMENT();
+
+loadMacros("PG.pl",      
+           "PGbasicmacros.pl",
+           "PGchoicemacros.pl",      
+           "PGanswermacros.pl",
+           "PGauxiliaryFunctions.pl"     
+          );      
+
+TEXT(beginproblem());  
+$showPartialCorrectAnswers = 0;
+              
+$tf = new_select_list();
+$tf -> qa (
+"If lines \(L_1\) and \(L_2\) are each parallel to line \(L_3\), then \(L_1\) and \(L_2\) are parallel.",
+"T",
+"If lines \(L_1\) and \(L_2\) are each perpendicular to line \(L_3\), then \(L_1\) and \(L_2\) are parallel.",
+"F",
+"If planes \(\Pi_1\) and \(\Pi_2\) are each parallel to plane \(\Pi_3\), then \(\Pi_1\) and \(\Pi_2\) are parallel.",
+"T",
+"If planes \(\Pi_1\) and \(\Pi_2\) are each perpendicular to plane \(\Pi_3\), then \(\Pi_1\) and \(\Pi_2\) are parallel.",
+"F",
+"If lines \(L_1\) and \(L_2\) are each parallel to plane \(\Pi\), then \(L_1\) and \(L_2\) are parallel.",
+"F",
+"If lines \(L_1\) and \(L_2\) are each perpendicular to plane \(\Pi\), then \(L_1\) and \(L_2\) are parallel.",
+"T",
+"If planes \(\Pi_1\) and \(\Pi_2\) are each parallel to line \(L\), then \(\Pi_1\) and \(\Pi_2\) are parallel.",
+"F",
+"If planes \(\Pi_1\) and \(\Pi_2\) are each perpendicular to line \(L\), then \(\Pi_1\) and \(\Pi_2\) are parallel.",
+"T",
+"Two planes either intersect or are parallel.",
+"T",
+"Two lines either intersect or are parallel.",
+"F",
+"A plane and a line either intersect or are parallel.",
+"T"
+);
+
+$tf -> choose(11);
+
+
+BEGIN_TEXT
+$BBOLD The statements below concern lines and planes in \(\mathbb{R}^3\). $EBOLD
+$PAR
+Enter T or F depending on whether the statement is true or false.  (You
+must enter T or F -- True and False will not work.)$BR
+\{ $tf-> print_q \}
+END_TEXT
+
+ANS(str_cmp($tf->ra_correct_ans) );
+
+ENDDOCUMENT();	# This should be the last executable line in the problem.

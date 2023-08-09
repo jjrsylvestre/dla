@@ -1,0 +1,228 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrices)
+## DBsection(Matrix algebra)
+## Date(Sep 2016)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## Level(3)
+## MO(1)
+## TitleText1()
+## AuthorText1()
+## EditionText1()
+## Section1()
+## Problem1('')
+## KEYWORDS('matrix' 'product')
+
+## BASED ON
+## Library/TCNJ/TCNJ_MatrixOperations/problem4.pg
+## Library/TCNJ/TCNJ_MatrixOperations/problem5.pg
+## Library/TCNJ/TCNJ_MatrixOperations/problem6.pg
+## Library/TCNJ/TCNJ_MatrixOperations/problem7.pg
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"MatrixReduce.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Fraction');
+Context()->parens->set("[" => {formMatrix => 1});
+Context()->variables->are(a=>'Real',b=>'Real',c=>'Real',d=>'Real');
+
+$Wvar = Matrix([['a','b'],['c','d']]);
+
+# PART 1
+
+$A = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$B = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$m = random(2,5,1)*random(-1,1,2);
+
+$A = apply_fraction_to_matrix_entries($A);
+$B = apply_fraction_to_matrix_entries($B);
+
+$W = ($B - $A)*Fraction("1/$m");
+
+Context()->texStrings;
+BEGIN_TEXT
+In each of the following, solve for the unknown matrix \(W\), \(X\), \(Y\), or \(Z\).
+$BR
+${BBOLD}NOTE:${EBOLD} You do ${BITALIC}not${EITALIC} need to set \(W = $Wvar\) and solve for \(a,b,c,d\). Instead, isolate \(W\) algebraically. (And similarly for \(X\), \(Y\), and \(Z\)).
+$BR $BR $BR $BR
+\(\displaystyle $A + $m W = $B \)
+$BR $BR
+\(W=\) \{ $W->ans_array(15) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($W->cmp);
+
+# PART 2
+
+$A = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$B = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$num = random(2,5,1)*random(-1,1,2);
+$m = random(2,5,1)*random(-1,1,2);
+
+# $A = apply_fraction_to_matrix_entries($A);
+# $B = apply_fraction_to_matrix_entries($B);
+
+$X = ($A - Fraction("$num") * $B)*Fraction("1/$m");
+# $X = ($A - $num * $B)*(1/$m);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR $BR
+\(\displaystyle $A  = $m X + $num $B \)
+$BR $BR
+\(X=\) \{ $X->ans_array(15) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($X->cmp);
+
+# PART 3
+
+do {
+
+do {
+
+$A = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+} until ($A->det != 0);
+
+$A = apply_fraction_to_matrix_entries($A);
+
+$a = $A->element(1,1);
+$b = $A->element(1,2);
+$c = $A->element(2,1);
+$d = $A->element(2,2);
+
+$det = $a * $d - $b * $c;
+
+$Ainv = Matrix([
+[$d / $det, - $b / $det],
+[- $c / $det, $a / $det],
+]);
+
+$B = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$C = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$num = random(2,5,1)*random(-1,1,2);
+$m = random(2,5,1)*random(-1,1,2);
+
+$B = apply_fraction_to_matrix_entries($B);
+$C = apply_fraction_to_matrix_entries($C);
+
+$Y = ($Ainv) * ($C - $B);
+
+$Ybad = ($C - $B) * ($Ainv); # common incorrect answer
+
+} until ($Y != $Ybad);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR $BR
+\(\displaystyle $A Y + $B = $C \)
+$BR $BR
+\(Y=\) \{ $Y->ans_array(15) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($Y->cmp);
+
+# PART 4
+
+do {
+
+do {
+
+$A = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+} until ($A->det != 0);
+
+$A = apply_fraction_to_matrix_entries($A);
+
+$a = $A->element(1,1);
+$b = $A->element(1,2);
+$c = $A->element(2,1);
+$d = $A->element(2,2);
+
+$det = $a * $d - $b * $c;
+
+$Ainv = Matrix([
+[$d / $det, - $b / $det],
+[- $c / $det, $a / $det],
+]);
+
+$B = Matrix([
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+[non_zero_random(-9,9,1),non_zero_random(-9,9,1)],
+]);
+
+$Id = Matrix([
+[1,0],
+[0,1],
+]);
+
+$B = apply_fraction_to_matrix_entries($B);
+$Id = apply_fraction_to_matrix_entries($Id);
+
+$Z = ($B - $Id) * ($Ainv);
+
+$Zbad = $Ainv * ($B - $Id); # common incorrect answer
+
+} until ($Z != $Zbad);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR $BR $BR $BR
+\(\displaystyle $B - Z $A = I \)
+$BR $BR
+\(Z=\) \{ $Z->ans_array(15) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($Z->cmp);
+COMMENT('MathObject version.  Requires an inverse matrix.');
+ENDDOCUMENT();

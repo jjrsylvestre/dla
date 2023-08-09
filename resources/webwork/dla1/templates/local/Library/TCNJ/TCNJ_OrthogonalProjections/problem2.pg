@@ -1,0 +1,86 @@
+## EDIT REASONS:
+## 1. Change from vectors to points.
+## 2. Add exhortation for the students to use their brains instead of a formula.
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Linear algebra)
+## DBchapter(Inner products)
+## DBsection(Projection and distance)
+## Institution(TCNJ)
+## TitleText1('Linear Algebra with Applications')
+## AuthorText1('Jeffrey Holt')
+## EditionText1('1')
+## Section1('8.2')
+## Problem1('')
+## KEYWORDS('inner product' 'orthogonal' 'projection' 'subspace' 'distance')
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGmatrixmacros.pl", 
+"PGnumericalmacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$x1 = non_zero_random(-7,7,1);
+$y1 = random(-6,6,2);
+$x2 = non_zero_random(-6,6,2);
+$y2 = non_zero_random(-7,7,1);
+$x3 = non_zero_random(-2,2,1);
+$y3 = - ($x1 * $y1 + $x2 * $y2) / $x3;
+
+$v1 = random(-10,10,1);
+$v2 = random(-10,10,1);
+$v3 = random(-10,10,1);
+
+$vx = $v1 * $x1 + $v2 * $x2 + $v3 * $x3;
+$norm2x = $x1 * $x1 + $x2 * $x2 + $x3 * $x3; 
+$projvx = $vx/$norm2x; 
+
+$vy = $v1 * $y1 + $v2 * $y2 + $v3 * $y3;
+$norm2y = $y1 * $y1 + $y2 * $y2 + $y3 * $y3; 
+$projvy = $vy/$norm2y;
+
+$ans1 = $projvx * $x1 + $projvy * $y1;
+$ans2 = $projvx * $x2 + $projvy * $y2;  
+$ans3 = $projvx * $x3 + $projvy * $y3;
+$ans4 = $v1 - $ans1;
+$ans5 = $v2 - $ans2;
+$ans6 = $v3 - $ans3;
+
+$dist = sqrt($ans4**2+$ans5**2+$ans6**2);
+
+BEGIN_TEXT
+
+Let \(\Pi\) be the plane in \(\mathbb{R}^3\) that passes through the origin as well as through both the points \(P($x1,$x2,$x3)\) and \(Q($y1,$y2,$y3)\).
+$PAR
+Compute the distance \(d\) from the point \(R($v1,$v2,$v3)\) to the plane \(\Pi\).
+$PAR
+\(d=\) \{ans_rule(10)\}
+$PAR
+$BBOLD NOTE: $EBOLD It is likely possible that you can find a formula on the internet or in another textbook that you can use to plug'n'chug your way to an answer quickly, and $BITALIC learn absolutely nothing $EITALIC in the process.
+$BR
+$BBOLD $BITALIC OR $EITALIC $EBOLD $BR
+You could treat this problem as a little puzzle, where you must use the geometry of vectors, lines, and planes in
+\(\mathbb{R}^3\) and the concepts of $BITALIC norm $EITALIC and $BITALIC orthogonal projection $EITALIC
+to figure out a solution to the problem all on your own. Here's a tip: start by drawing a diagram! It's OK if
+you're not sure how to plot points P, Q, and R in a diagram of 3-space. You can just put (almost) any four dots on
+your page (one for the origin, and one each for P, Q, and R), and your diagram can be used to help you figure out the
+problem.
+END_TEXT
+
+ANS(num_cmp($dist));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

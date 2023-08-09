@@ -1,0 +1,229 @@
+<html>
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132951299-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-132951299-1');
+	</script>
+
+	<meta name="author" content="Jeremy Sylvestre" charset="UTF-8" />
+
+	<style type="text/css" media="all">@import "/~jsylvest/css/style.css";</style>
+	<title>Answers to Column Space Practise Problems for Discover Linear Algebra &mdash; An Open Educational Resource</title>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<h1 id="Header">:: Answers to column space practise problems</h1>
+
+<div class="Content">
+
+<ol>
+    <li style="margin-bottom:20px"><ol type="a">
+
+		<li style="margin-top:10px"><ol type="i">
+			<li>
+				The RREF of this matrix is the identity,
+				so the two columns
+				\[
+					\mathbf{c}_1 = \begin{bmatrix} 1 \\ 4 \end{bmatrix} \text{,}
+					\mathbf{c}_2 = \left[ \begin{array}{r} 3 \\ -6 \end{array} \right]
+				\]
+				are a basis for the column space.
+			</li>
+			<li>
+				There are no other columns &mdash;
+				all the columns ended being part of the basis.
+			</li>
+			<li>
+				The vector equation
+				\( k_1 \mathbf{c}_1 + k_2 \mathbf{c}_2 = \mathbf{b} \) leads to a linear system with \(A\) as the coefficient matrix and \(\mathbf{b}\)
+				as the "equals" column.
+				So augment \(A\) with \(\mathbf{b}\) and row reduce:
+				\[
+					\left[ \begin{array}{rr|r} 1 &amp; 3 &amp; -2 \\ 4 &amp; -6 &amp; 10 \end{array} \right]
+					\qquad\to\qquad
+					\left[ \begin{array}{rr|r} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; -1 \end{array} \right]
+					\text{.}
+				\]
+				So \( \mathbf{b} = \mathbf{c}_1 - \mathbf{c}_2 \).
+			</li>
+			<li>
+				Since \(\mathbf{b}\) is a linear combination of the columns of \(A\),
+				it is in the column space of \(A\),
+				and so the system \(A \mathbf{x} = \mathbf{b}\) is consistent.
+			</li>
+		</ol></li>
+
+		<li style="margin-top:10px"><ol type="i">
+			<li>
+				The RREF of this matrix is
+				\[ \begin{bmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{bmatrix} \text{.} \]
+				Since only the first two columns have leading ones,
+				only the first two columns
+				\[\begin{align*}
+					\mathbf{c}_1 &amp;= \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix} \text{,}
+					&amp;
+					\mathbf{c}_2 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}
+				\end{align*}\]
+				are required for a basis for the column space.
+			</li>
+			<li>
+				In the RREF above,
+				the third column is equal to the sum of the first two columns.
+				So the same relationship will hold for the columns of \(A\):
+				\( \mathbf{c}_3 = \mathbf{c}_1 + \mathbf{c}_2 \).
+			</li>
+			<li>
+				The vector equation
+				\( k_1 \mathbf{c}_1 + k_2 \mathbf{c}_2 = \mathbf{b} \) leads to linear system with augmented matrix
+				\[ \left[ \begin{array}{rr|r} 1 &amp; 1 &amp; -1 \\ 1 &amp; 0 &amp; 0 \\ 2 &amp; 1 &amp; 2 \end{array} \right] \text{.} \]
+				Notice that this is just the first two columns of \(A\) augmented with \(\mathbf{b}\).
+				Row reduce:
+				\[
+					\left[ \begin{array}{rr|r} 1 &amp; 1 &amp; -1 \\ 1 &amp; 0 &amp; 0 \\ 2 &amp; 1 &amp; 2 \end{array} \right]
+					\qquad \to \qquad
+					\left[ \begin{array}{rr|r} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array} \right]
+					\text{.}
+				\]
+				From the last row we can see that there is no solution.
+				Or, alternatively, we can interpret the leading one in the last column as indicating that \(\mathbf{b}\) is independent
+                from the two basis vectors for the column space of \(A\).
+				So it is not possible to express \(\mathbf{b}\) as a linear combination of the basis vectors from (i).
+			</li>
+			<li>
+				Since \(\mathbf{b}\) is not in the column space of \(A\),
+				the system \( A \mathbf{x} = \mathbf{b} \) is inconsistent.
+			</li>
+		</ol></li>
+
+		<li style="margin-top:10px"><ol type="i">
+			<li>
+				The RREF of this matrix is the identity,
+				so all three columns are independent,
+				and all three are required to form a basis for the column space.
+			</li>
+			<li>
+				There are no other columns &mdash;
+				we used all three columns for the basis in part i.
+			</li>
+			<li>
+				The vector equation \( k_1 \mathbf{c}_1 + k_2 \mathbf{c}_2 + k_3 \mathbf{c}_3 = \mathbf{b} \)
+				leads to a linear system with \(A\) as the coefficient matrix and \(\mathbf{b}\) as the "equals" column.
+				So augment \(A\) with \(\mathbf{b}\) and row reduce:
+				\[
+					\left[ \begin{array}{rrr|r} 1 &amp; -1 &amp; 1 &amp; 5 \\ 9 &amp; 3 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; -1 \end{array} \right]
+					\qquad\to\qquad
+					\left[ \begin{array}{rrr|r} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 &amp; -3 \\ 0 &amp; 0 &amp; 1 &amp; 1 \end{array} \right]
+					\text{.}
+				\]
+				So \(\mathbf{b} = \mathbf{c}_1 - 3\mathbf{c}_2 + \mathbf{c}_3\).
+			</li>
+			<li>
+				Since \(\mathbf{b}\) is in the column space of \(A\),
+				the system \( A \mathbf{x} = \mathbf{b} \) is consistent.
+			</li>
+		</ol></li>
+
+		<li style="margin-top:10px"><ol type="i">
+			<li>
+				We don't need to row reduce this one &mdash;
+				we can see that the third column is the negative of the second,
+				so it is dependent and should be discarded.
+				That leaves us with the first two columns,
+				which are independent because neither is a scalar multiple of the other.
+				So the first two columns of \(A\) form a basis for the column space.
+			</li>
+			<li> We already determined that \( \mathbf{c}_3 = 0 \mathbf{c}_1 - \mathbf{c}_2 \). </li>
+			<li>
+				Again, we don't need to row reduce this one &mdash;
+				we can easily see that \(\mathbf{b}\) is equal to the sum of the first and third columns of \(A\).
+				Since we determined in part i that the third column was the negative of the second,
+				we then have
+				\(\mathbf{b} = \mathbf{c}_1 - \mathbf{c}_2\).
+			</li>
+			<li>
+				Since \(\mathbf{b}\) is in the column space of \(A\),
+				the system \( A \mathbf{x} = \mathbf{b} \) is consistent.
+			</li>
+		</ol></li>
+
+		<li style="margin-top:10px"><ol type="i">
+			<li>
+				The RREF for this matrix is the identity,
+				so all four columns are required to form a basis for the column space of \(A\).
+			</li>
+			<li>
+				There are no other columns &mdash;
+				all columns were required in our basis in part i.
+			</li>
+			<li>
+				The vector equation
+				\[ k_1 \mathbf{c}_1 + k_2 \mathbf{c}_2 + k_3 \mathbf{c}_3 + k_4 \mathbf{c}_4 = \mathbf{b} \]
+				leads to a linear system with \(A\) as the coefficient matrix and \(\mathbf{b}\) as the "equals" column.
+				So augment \(A\) with \(\mathbf{b}\) and row reduce:
+				\[
+					\left[ \begin{array}{rrrr|r}
+						1 &amp; 2 &amp; 0 &amp; 1 &amp; 4 \\
+						0 &amp; 1 &amp; 2 &amp; 1 &amp; 3 \\
+						1 &amp; 2 &amp; 1 &amp; 3 &amp; 5 \\
+						0 &amp; 1 &amp; 2 &amp; 2 &amp; 7
+					\end{array} \right]
+					\qquad\to\qquad
+					\left[ \begin{array}{rrrr|r}
+						1 &amp; 0 &amp; 0 &amp; 0 &amp; -26 \\
+						0 &amp; 1 &amp; 0 &amp; 0 &amp;  13 \\
+						0 &amp; 0 &amp; 1 &amp; 0 &amp;  -7 \\
+						0 &amp; 0 &amp; 0 &amp; 1 &amp;   4
+					\end{array} \right]
+					\text{.}
+				\]
+				So
+				\[ \mathbf{b} = -26 \mathbf{c}_1 + 13 \mathbf{c}_2 - 7 \mathbf{c}_3 + 4 \mathbf{c}_4 \text{.} \]
+			</li>
+			<li>
+				Since \(\mathbf{b}\) is in the column space of \(A\),
+				the system \( A \mathbf{x} = \mathbf{b} \) is consistent.
+			</li>
+        </ol></li>
+
+	</ol></li>
+
+    <li>
+		We can use column space to answer each of these.
+        <ol type="a">
+            <li style="margin-top:10px">
+				Place the four vectors in order as columns in a \(4\times 4\) matrix and reduce.
+				The RREF has leading ones in columns 1 and 2,
+				so a basis for this subspace is \(\{\mathbf{v}_1,\mathbf{v}_2\}\).
+			</li>
+            <li style="margin-top:10px">
+				Place the four vectors in order as columns in a \(4\times 4\) matrix and reduce.
+				The RREF has leading ones in columns 1 and 3,
+				so a basis for this subspace is \(\{\mathbf{v}_1,\mathbf{v}_3\}\).
+			</li>
+            <li style="margin-top:10px">
+				Place the five vectors in order as columns in a \(4\times 5\) matrix and reduce.
+				The RREF has leading ones in columns 1, 2, and 4,
+				so a basis for this subspace is \(\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_4\}\).
+			</li>
+        </ol>
+    </li>
+
+</ol>
+
+</div>
+
+</body>
+
+</html>

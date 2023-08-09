@@ -1,0 +1,119 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Euclidean spaces)
+## DBsection(Span)
+## Date(December 2014)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## KEYWORDS('vectors' 'span')
+
+## Mash up of
+## Library/TCNJ/TCNJ_VectorSpaces/problem3.pg
+## Library/TCNJ/TCNJ_VectorSpaces/problem4.pg
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserMultiAnswer.pl",
+"MatrixCheckers.pl",
+"PGcourse.pl",
+"PGmatrixmacros.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Matrix')->variables->are('a'=>'Real','b'=>'Real','s'=>'Real','t'=>'Real');
+Context()->noreduce('(-x)-y');
+
+
+#################################################
+## From problem3.pg
+
+$a = non_zero_random(-5,5,1);
+$b = non_zero_random(-5,5,1);
+
+$u = Matrix([ $a, -1, 0 ])->transpose;
+$v = Matrix([ $b, 0, 1 ])->transpose;
+
+$expr[1] = Formula("$a * a + $b * b")->reduce;
+$expr[2] = Formula("-a")->reduce;
+$expr[3] = Formula("b")->reduce;
+
+$E = Matrix([ [$expr[1]], [$expr[2]], [$expr[3]] ]);
+
+$multians = MultiAnswer($u, $v)->with(
+  singleResult => 1,
+  separator => ',',
+  tex_separator => ',',
+  allowBlankAnswers=>0,
+  checker => ~~&basis_checker_columns,
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BBOLD (a) $EBOLD
+Let \(U\) be the set of all vectors of the form \( $E \), where \(a\) and \(b\) are free parameters.
+$BR
+Find vectors \( \vec{u}_1\) and \(\vec{u}_2\) in \( {\mathbb R}^3\) such that \( U=\operatorname{Span}\left\lbrace \vec{u}_1, \vec{u}_2 \right\rbrace \).
+$BR
+$BR
+\{ mbox( '\(\vec{u}_1=\)', $multians->ans_array, ',',
+'\(\vec{u}_2=\)', $multians->ans_array, '.', ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($multians->cmp);
+
+
+#################################################
+## From problem4.pg
+
+foreach my $i (1..3) {
+$a[$i] = non_zero_random(-5,5,1);
+$b[$i] = non_zero_random(-5,5,1);
+}
+
+$u = Matrix([ $a[1], $a[2], $a[3] ])->transpose;
+$v = Matrix([ $b[1], $b[2], $b[3] ])->transpose;
+
+$expr[1] = Formula("$a[1] * s + $b[1] * t")->reduce;
+$expr[2] = Formula("$a[2] * s + $b[2] * t")->reduce;
+$expr[3] = Formula("$a[3] * s + $b[3] * t")->reduce;
+
+$E = Matrix([ [$expr[1]], [$expr[2]], [$expr[3]] ]);
+
+$multians = MultiAnswer($u, $v)->with(
+  singleResult => 1,
+  separator => ',',
+  tex_separator => ',',
+  allowBlankAnswers=>0,
+  checker => ~~&basis_checker_columns,
+);
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$HR$BR
+$BBOLD (b) $EBOLD
+Let \(W\) be the set of all vectors of the form \( $E \), where \(s\) and \(t\) are free parameters.
+$BR
+Find vectors \( \vec{w}_1\) and \(\vec{w}_2\) in \( {\mathbb R}^3\) such that \( W=\operatorname{Span}\left\lbrace \vec{w}_1, \vec{w}_2 \right\rbrace \).
+$BR
+$BR  
+\{ mbox( '\(\vec{w}_1=\)', $multians->ans_array, ',',
+'\(\vec{w}_2=\)', $multians->ans_array, '.', ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($multians->cmp);
+
+
+COMMENT('MathObject version.  Middle entry in the vector is always -a and the bottom entry is always b.');
+ENDDOCUMENT();
+

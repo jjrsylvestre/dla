@@ -1,0 +1,174 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Systems of linear equations)
+## DBsection(Row reduction)
+## Date(Nov-2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+## KEYWORDS('matrix', 'RREF', 'solutions', 'free variables')
+
+
+########################################
+#  Initialization
+
+DOCUMENT();  
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"scaffold.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Scaffold::Begin(
+  is_open=> "correct_or_first_incorrect",
+);
+
+########################################
+#  First determine the RREF of the system
+
+Context('Matrix');
+
+$a = non_zero_random(-5,5,1);
+$b = non_zero_random(-5,5,1);
+$c = non_zero_random(-5,5,1);
+$d = random(-5,5,1);
+$e = random(-5,5,1);
+@R = ( [1, 0, $a, $b, $d],[0, 1, 0, $c, $e]);
+$swap = random(0,1,1);
+if ($swap == 1) {
+	($R[0][1],$R[0][2]) = ($R[0][2],$R[0][1]);
+	($R[1][1],$R[1][2]) = ($R[1][2],$R[1][1]);
+}
+$RREF = Matrix(@R);
+
+# hit this with some elementary matrices
+$r1 = non_zero_random(-5,5,1);
+@elem = ( [1,0],[(-1)*$r1,1] );
+$E = Matrix(@elem);
+$A1 = $E * $RREF;
+$r2 = non_zero_random(-5,5,1);
+($elem[0][1],$elem[1][0]) = ((-1)*$r2,0);
+$E = Matrix(@elem);
+$A = $E * $A1;
+
+
+Section::Begin("Part 1: Row Reducing");
+
+Context()->texStrings;
+BEGIN_TEXT
+The $BBOLD augmented $EBOLD matrix for a system in the variables \(x_1,x_2,x_3,x_4\) is given below.
+\[ $A \]
+Compute the reduced row echelon form for this augmented matrix.
+\{ $RREF->ans_array(5) \}
+END_TEXT
+
+BEGIN_SOLUTION
+$PAR
+$BBOLD One way $EBOLD to reduce this matrix to RREF (and there certainly may be more direct ways depending on your matrix in this question) is to first apply elementary row operation \(\mathrm{R}_1 \to \mathrm{R}_1+($r2)\mathrm{R}_2\).
+$BR
+Result: \($A1\).
+$PAR
+Then apply elementary row operation \(\mathrm{R}_2 \to \mathrm{R}_2+($r1)\mathrm{R}_2\).
+$BR
+Result: \($RREF\).
+END_SOLUTION
+Context()->normalStrings;
+
+ANS($RREF->cmp);
+
+Section::End();
+
+#########################################
+#  Then decide to which variables should
+#  parameters be assigned
+
+Context('Numeric');
+
+$second_leading = 2 + $swap;
+$first_free = 3 - $swap;
+$leading = List( 1, $second_leading );
+$free = List( $first_free, 4);
+
+
+Section::Begin("Part 2: Assigning parameters");
+
+Context()->texStrings;
+BEGIN_TEXT
+Based on your RREF in Section 1 of this problem, the leading variables are \{ ans_rule(10) \}, and the free variables that should be assigned parameters are \{ ans_rule(10) \}.
+$PAR
+$BBOLD$BITALIC INSTRUCTIONS: $EITALIC$EBOLD In each answer box, input $BBOLD whole numbers $EBOLD separated by commas, where the whole numbers correspond to variable indexes.
+For example, if you think that only variable \(x_4\) is a free variable, then enter 4 in the second answer box.
+$PAR
+$BBOLD$BITALIC REMEMBER: $EITALIC$EBOLD The matrix in this question is an ${BBOLD}augmented matrix${EBOLD}, so the last column is the ${LQ}equals${RQ} column.
+END_TEXT
+
+BEGIN_SOLUTION
+There are leading ones in columns 1 $second_leading, corresponding to variables \(x_1\) and \(x_{$second_leading}\). The other columns (except the last) correspond to free variables. So we should assign parameters to variables \(x_{$first_free}\) and \(x_4\). 
+END_SOLUTION
+Context()->normalStrings;
+
+ANS($leading->cmp());
+ANS($free->cmp());
+
+Section::End();
+
+
+#########################################
+#  Finally solve the system
+
+
+Context()->variables->add(s => 'Real', t => 'Real');
+
+# @R = ( [1, 0, $a, $b, $d],[0, 1, 0, $c, $e]);
+# but if $swap == 1 then second and third colums are swapped
+$x1 = Formula("$d - $a * s - $b * t");
+$x2 = Formula("$e - $c * t");
+$x3 = Formula("s");
+$x4 = Formula("t");
+if ($swap == 1) { ($x2,$x3) = ($x3,$x2); }
+
+Section::Begin("Part 3: Solving the system");
+
+Context()->texStrings;
+BEGIN_TEXT
+In Section 2, you decided to assign parameters to variables \(x_{$first_free}\) and \(x_4\). So let \(x_{$first_free} = s\) and \(x_4 = t\). With these parameter assignments, use your RREF from Section 1 to determine the parametric form of the system's solution.
+$PAR
+$BBOLD$BITALIC REMEMBER: $EITALIC$EBOLD The matrix in this question is an ${BBOLD}augmented matrix${EBOLD}, so the last column is the ${LQ}equals${RQ} column.
+$PAR
+\(x_1 =\) \{ ans_rule(15) \}, $BR
+\(x_2 =\) \{ ans_rule(15) \}, $BR
+\(x_3 =\) \{ ans_rule(15) \}, $BR
+\(x_4 =\) \{ ans_rule(15) \}.
+END_TEXT
+
+BEGIN_SOLUTION
+Your RREF matrix for this system is: \($RREF\).
+$PAR
+The first row can be converted into an equation. Substitute \(x_{$first_free} = s\) and \(x_4 = t\) into this equation and isolate the leading variable \(x_1\).
+\[ 1 x_1 + $a x_{$first_free} + $b x_4 = $d \]
+\[ x_1 + $a s + $b t = $d \]
+\[ x_1 = $d - $a s - $b t \]
+The second row can be converted into an equation. Substitute \(x_{$first_free} = s\) and \(x_4 = t\) into this equation and isolate the leading variable \(x_1\).
+\[ 1 x_{$second_leading} + $c x_4 = $e \]
+\[ x_{$second_leading} + $c t = $e \]
+\[ x_{$second_leading} = $e - $c t \]
+Finally, we have assigned \(x_{$first_free} = s\) and \(x_4 = t\), so just enter those letters into the corresponding boxes.
+END_SOLUTION
+Context()->normalStrings;
+
+ANS($x1->cmp);
+ANS($x2->cmp);
+ANS($x3->cmp);
+ANS($x4->cmp);
+
+Section::End();
+
+Scaffold::End();
+
+ENDDOCUMENT();

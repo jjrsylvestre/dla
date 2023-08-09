@@ -1,0 +1,139 @@
+## EDIT REASON:
+## * Explain notation.
+## * Clarify three-dimensions.
+## * Remove the word "displacement".
+
+## DESCRIPTION
+##   Working with Vectors
+## ENDDESCRIPTION
+
+
+## DBsubject(Geometry)
+## DBchapter(Vector geometry)
+## DBsection(Dot product, length, and unit vectors)
+## Date(10/15/09)
+## Institution(Fort Lewis College)
+## Author(Paul Pearson)
+## Level(3)
+## TitleText1('Calculus')
+## AuthorText1('Hughes-Hallett')
+## EditionText1('4')
+## Section1('13.1')
+## Problem1('25')
+## TitleText2('Calculus')
+## AuthorText2('Hughes-Hallett')
+## EditionText2('5')
+## Section2('13.1')
+## Problem2('25')
+## KEYWORDS('Vector', 'Length')
+
+DOCUMENT();
+ 
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "parserVectorUtils.pl",
+  "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+##############################################
+#  Setup
+
+Context("Vector");
+
+$h = random(8,15,1);
+$s = random(4,9,1);
+
+$boat = Vector(3,4,0); # point B = (3,4)
+$submarine = Vector(5,1,-($s)); # point S = (5,1)
+$helicopter = Vector(1,2,$h); # point H = (1,2)
+
+$avect = $boat-$submarine;
+$adist = norm($avect);
+
+$bvect = $boat-$helicopter;
+$bdist = norm($bvect);
+
+$cvect = $helicopter-$submarine;
+$cdist = norm($cvect);
+
+Context()->functions->disable("Vector");
+Context()->parens->remove("|");
+  Context()->{error}{convert} = sub {
+    my $message = shift;
+    $message =~ s/Unexpected character '~~|'/Vector norm is not allowed.  Enter a number instead./;
+    return $message;
+  };
+
+
+##############################################
+#  Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+$BBOLD $BITALIC NOTE: $EITALIC $EBOLD WeBWorK makes a distinction between a point (x,y,z) and a vector $LT x,y,z $GT. $BBOLD Make sure you enclose your vector answers below in angle brackets (ie. less-than and greater-than signs) instead of round brackets. $EBOLD
+$PAR
+You are looking down at a map, on which are plotted the north-south-east-west positions of a boat (point B), submarine (point S), and helicopter (point H).
+The \(y\)-axis points north and the \(x\)-axis points east.
+$PAR
+Consider this map to represent the \(xy\)-plane in three-dimensional space,
+so that the \(xy\)-plane is at sea level. While the boat sits at sea level, the actual position of the submarine is $s units below sea level (below the plotted point S), and the actual position of the helicopter is $h units above sea level (below point H).
+
+$BCENTER
+\{ image("HGM4-13-1-25.png", width=>179, height=>155, tex_size=>500) \}
+$ECENTER
+
+\{BeginList()\}
+
+$ITEM 
+Determine the three-dimensional vector that runs from the submarine's position to the boat's position.${BR}
+Then use that vector to determine the distance from the submarine to the boat.   
+$BR Vector:   \{ans_rule(30)\}
+$BR Distance: \{ans_rule(30)\} 
+$ITEMSEP
+
+$ITEM 
+Determine the three-dimensional vector that runs from the helicopter's position to the boat's position.${BR}
+Then use that vector to determine the distance from the helicopter to the boat.   
+$BR Vector:   \{ans_rule(30)\}
+$BR Distance: \{ans_rule(30)\} 
+$ITEMSEP
+
+$ITEM
+Determine the three-dimensional vector that runs from the submarine's position to the helicopter's position.${BR}
+Then use that vector to determine the distance from the submarine to the helicopter.   
+$BR Vector:   \{ans_rule(30)\}
+$BR Distance: \{ans_rule(30)\} 
+
+\{EndList()\}
+
+
+
+END_TEXT
+Context()->normalStrings;
+
+##################################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+
+ANS(($avect)->cmp);
+ANS(($adist)->cmp);
+
+ANS(($bvect)->cmp);
+ANS(($bdist)->cmp);
+
+ANS(($cvect)->cmp);
+ANS(($cdist)->cmp);
+
+
+
+##################################################
+
+
+COMMENT('MathObject version');
+ENDDOCUMENT();

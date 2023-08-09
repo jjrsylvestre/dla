@@ -1,0 +1,213 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('determinant' 'matrix')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Determinants')
+## Date('09/28/2016')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## BASED ON
+## Library/TCNJ/TCNJ_Determinants/problem7.pg
+## Library/TCNJ/TCNJ_Determinants/problem8.pg
+## Library/TCNJ/TCNJ_Determinants/problem10.pg
+## Library/TCNJ/TCNJ_Determinants/problem11.pg
+
+
+DOCUMENT();        
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserVectorUtils.pl",
+"PGcourse.pl"
+) ;
+
+$showPartialCorrectAnswers = 1 ;
+
+TEXT(beginproblem());
+
+Context('Matrix');
+
+
+######################
+# 3x3 diagonal
+######################
+$a11 = non_zero_random(-6,6,1);
+$a22 = non_zero_random(-6,6,1);
+$a33 = non_zero_random(-6,6,1);
+
+$M = Matrix([
+[$a11,0,0],
+[0,$a22,0],
+[0,0,$a33],
+]);
+
+$det = Compute("$a11 * $a22 * $a33");
+
+Context()->texStrings;
+BEGIN_TEXT
+\(\det $M =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+
+######################
+# 4x4 diagonal
+######################
+$a11 = non_zero_random(-6,6,1);
+$a22 = non_zero_random(-6,6,1);
+$a33 = non_zero_random(-6,6,1);
+$a44 = non_zero_random(-6,6,1);
+
+$M = Matrix([
+[$a11,0,0,0],
+[0,$a22,0,0],
+[0,0,$a33,0],
+[0,0,0,$a44],
+]);
+
+$det = Compute("$a11 * $a22 * $a33 * $a44");
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $M =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+
+######################
+# 3x3 upper triangular
+######################
+$a11 = non_zero_random(-6,6,1);
+$a22 = non_zero_random(-6,6,1);
+$a33 = non_zero_random(-6,6,1);
+
+$a12 = random(-9,9,1);
+$a13 = non_zero_random(-9,9,1);
+$a23 = random(-9,9,1);
+
+$M = Matrix([
+[$a11,$a12,$a13],
+[0,$a22,$a23],
+[0,0,$a33],
+]);
+
+$det = Compute("$a11 * $a22 * $a33");
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $M =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+
+######################
+# 3x3 lower triangular
+######################
+$a11 = non_zero_random(-6,6,1);
+$a22 = non_zero_random(-6,6,1);
+$a33 = non_zero_random(-6,6,1);
+
+$a12 = random(-9,9,1);
+$a13 = non_zero_random(-9,9,1);
+$a23 = random(-9,9,1);
+
+$M = Matrix([
+[$a11,$a12,$a13],
+[0,$a22,$a23],
+[0,0,$a33],
+])->transpose;
+
+$det = Compute("$a11 * $a22 * $a33");
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $M =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+
+######################
+# 4x4 upper triangular
+######################
+$a11 = non_zero_random(-6,6,1);
+$a22 = non_zero_random(-6,6,1);
+$a33 = non_zero_random(-6,6,1);
+$a44 = non_zero_random(-6,6,1);
+
+$a12 = random(-9,9,1);
+$a13 = non_zero_random(-9,9,1);
+$a14 = random(-9,9,1);
+$a23 = random(-9,9,1);
+$a24 = non_zero_random(-9,9,1);
+$a34 = random(-9,9,1);
+
+$M = Matrix([
+[$a11,$a12,$a13,$a14],
+[0,$a22,$a23,$a24],
+[0,0,$a33,$a34],
+[0,0,0,$a44],
+]);
+
+$det = Compute("$a11 * $a22 * $a33 * $a44");
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $M =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+
+######################
+# 4x4 lower triangular
+######################
+$a11 = non_zero_random(-6,6,1);
+$a22 = non_zero_random(-6,6,1);
+$a33 = non_zero_random(-6,6,1);
+$a44 = non_zero_random(-6,6,1);
+
+$a12 = random(-9,9,1);
+$a13 = non_zero_random(-9,9,1);
+$a14 = random(-9,9,1);
+$a23 = random(-9,9,1);
+$a24 = non_zero_random(-9,9,1);
+$a34 = random(-9,9,1);
+
+$M = Matrix([
+[$a11,$a12,$a13,$a14],
+[0,$a22,$a23,$a24],
+[0,0,$a33,$a34],
+[0,0,0,$a44],
+])->transpose;
+
+$det = Compute("$a11 * $a22 * $a33 * $a44");
+
+Context()->texStrings;
+BEGIN_TEXT
+$BR$BR$BR
+\(\det $M =\) \{ans_rule(15)\}.
+END_TEXT
+Context()->normalStrings;
+ANS($det->cmp);
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

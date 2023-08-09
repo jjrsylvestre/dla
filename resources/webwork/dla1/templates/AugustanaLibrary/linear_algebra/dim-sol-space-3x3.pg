@@ -1,0 +1,75 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('dimension','solutions space')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Dimension')
+## Date('2015/04/01')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$n = 3;
+$N = Compute("$n");
+do {
+	$rank = 0;
+	@leading_ones = ();
+	foreach (0..$n-1) {
+		push(@leading_ones,random(0,1));
+		$rank += $leading_ones[$_];
+	}
+} until ($rank > 0 && $rank < $n);
+$nullity = Compute("$n - $rank");
+foreach $i (0..$n-1) {
+	$a[$i][$_] = 0 for (0..$i-1);
+	$a[$i][$i] = $leading_ones[$i];
+	$a[$i][$_] = ( ($leading_ones[$i] == 0) ? 0 : non_zero_random(-5,5) ) for ($i+1..$n-1);
+}
+$REF = Matrix(@a);
+
+# hit $A with a random invertible matrix
+do {
+	foreach my $i (0..$n-1) {
+		foreach my $j (0..$n-1) {
+			$Earr[$i][$j] = random(-3,3,1);
+		}
+	}
+	$E = Matrix(@Earr);
+} until ($E->det != 0);
+$A = $E * $REF;
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \(A=$A\).
+$PAR
+The set of solutions to the homogeneous system \(A\vec{x} = \vec{0}\) is a subspace of \(\mathbb{R}^n\), where \(n =\) \{$N->ans_rule\}.
+END_TEXT
+ANS($N->cmp);
+
+BEGIN_TEXT
+$PAR
+The dimension of this subspace is \{$nullity->ans_rule\}.
+END_TEXT
+ANS($nullity->cmp);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
