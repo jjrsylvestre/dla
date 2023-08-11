@@ -135,7 +135,7 @@ ${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@$(PRETEXT) \
 	  --verbose \
 	  --component latex-image \
-	  --format pdf \
+	  --format svg \
 	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
 	  --directory ${BUILDDIR}/html/${*}/images \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
