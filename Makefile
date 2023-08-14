@@ -103,9 +103,9 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to HTML for version: ${*}..."
 	@-rm -f ${BUILDDIR}/html/${*}/.sentinal
 	@mkdir -p ${BUILDDIR}/html/${*}/knowl
-	@echo "...html fixups"
-	@./make.d/html/fixups.sh ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-	@mv ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx.html-fixup ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
+#	@echo "...html fixups"
+#	@./make.d/html/fixups.sh ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+#	@mv ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx.html-fixup ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...calling pretext to compile PreTeXt document"
 	@$(PRETEXT) \
 	  --verbose \
@@ -115,7 +115,8 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --parameters \
 		html.css.extra dla.css \
 	  --directory ${BUILDDIR}/html/${*}/ \
-	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+#	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...copying css style customizations"
 	@cp css/dla.css ${BUILDDIR}/html/${*}/
 	@echo "...copying fonts"
