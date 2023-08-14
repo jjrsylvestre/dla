@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Current manual page breaks:
+#  NOTE not sure if this list is still accurate
 #   * end each discovery section with a newpage
 #   * Section 1.3
 #   * Section 2.3
@@ -13,7 +14,6 @@
 #   * Section 11.5
 #   * Section 13.3
 #   * Section 13.5
-#   * Section 14.3.5
 #   * Section 15.4
 #   * Section 18.5
 #   * Section 20.5
@@ -32,7 +32,6 @@ lines=(
 	"begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-vectors-theory}"
 	"begin{sectionptx}{Section}{Concepts}{}{Concepts}{}{}{section-section-orthog-concepts}"
 	"begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-orthog-theory}"
-	"begin{sectionptx}{Section}{Concepts}{}{Concepts}{}{}{section-section-system-geom-concepts}"
 	"begin{sectionptx}{Section}{Concepts}{}{Concepts}{}{}{section-section-abstract-vec-spaces-concepts}"
 	"begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-basis-coords-theory}"
 	"begin{sectionptx}{Section}{Theory}{}{Theory}{}{}{section-section-col-row-null-space-theory}"
