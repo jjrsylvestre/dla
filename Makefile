@@ -13,44 +13,52 @@ BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 PRETEXT=./pretext/pretext/pretext
 
 HTML_TARGETS = two-semester-html one-semester-html
-LATEX_TARGETS = two-semester-latex one-semester-latex two-semester-print-latex one-semester-print-latex
+HTML_CLEAN_TARGETS = two-semester-html-clean one-semester-html-clean
 IMAGE_TARGETS = two-semester-html-images one-semester-html-images
+IMAGE_CLEAN_TARGETS = two-semester-html-images-clean one-semester-html-images-clean
+LATEX_TARGETS = two-semester-latex one-semester-latex two-semester-print-latex one-semester-print-latex
 .PHONY: ptx two-semester-html-all one-semester-html-all \
-  $(HTML_TARGETS) $(LATEX_TARGETS) $(IMAGE_TARGETS) \
-  clean ptx-clean html-clean html-images-clean \
+  $(HTML_TARGETS) $(HTML_CLEAN_TARGETS) \
+  $(IMAGE_TARGETS) $(IMAGE_CLEAN_TARGETS) \
+  $(LATEX_TARGETS) \
+  clean ptx-clean html-images-clean \
   html-serve validate-xml \
   help list
 
 list: help
 help:
 	@echo "= TARGETS =========================================================================================="
-	@echo "> validate-xml            : Check for XML syntax/format errors."
-	@echo "                            (Does not validate against PTX schema.)"
-	@echo "> two-semester-html-all   : Perform all steps necessary to create HTML version of the book"
-	@echo "                            containing all chapters."
-	@echo "> one-semester-html-all   : Perform all steps necessary to create HTML version of the book"
-	@echo "                            containing chapters for a one-semester course."
-	@echo "                            one-semester course."
-	@echo "> two-semester-html       : Output (only) HTML files containing all chapters."
-	@echo "> one-semester-html       : Output (only) HTML files containing chapters for a one-semester course."
-	@echo "> two-semester-html-images: Create SVG image files to accompany the html output for all chapters."
-	@echo "> one-semester-html-images: Create SVG image files to accompany the html output for chapters for a"
-	@echo "                            one-semester course."
-	@echo "> html-serve              : Fire up a simple Python web server to locally host the HTML output."
-	@echo "> two-semester-latex      : Output (only) LaTeX file containing chapters for a two-semester course."
-	@echo "                            (Electronic pdf version)"
-	@echo "> two-semester-print-latex: Output (only) LaTeX file containing chapters for a two-semester course."
-	@echo "                            (Print pdf version)"
-	@echo "> one-semester-latex      : Output (only) LaTeX file containing chapters for a one-semester course."
-	@echo "                            (Electronic pdf version)"
-	@echo "> one-semester-print-latex: Output (only) LaTeX file containing chapters for a one-semester course."
-	@echo "                            (Print pdf version)"
-	@echo "> ptx                     : Only preprocess source to create a single XML file in PTX format"
-	@echo "                            containing all chapters."
-	@echo "> clean                   : Remove all output files."
-	@echo "> ptx-clean               : Remove preprocessed PTX output."
-	@echo "> html-clean              : Remove all HTML output."
-	@echo "> html-images-clean       : Remove all accomanying SVG files."
+	@echo "> validate-xml                  : Check for XML syntax/format errors."
+	@echo "                                  (Does not validate against PTX schema.)"
+	@echo "> two-semester-html-all         : Perform all steps necessary to create HTML version of the book"
+	@echo "                                  containing all chapters."
+	@echo "> one-semester-html-all         : Perform all steps necessary to create HTML version of the book"
+	@echo "                                  containing chapters for a one-semester course."
+	@echo "                                  one-semester course."
+	@echo "> two-semester-html             : Output HTML files containing all chapters."
+	@echo "> one-semester-html             : Output HTML files containing chapters for a one-semester course."
+	@echo "> two-semester-html-images      : Create SVG image files to accompany the html output for all"
+	@echo "                                  chapters."
+	@echo "> one-semester-html-images      : Create SVG image files to accompany the html output for chapters"
+	@echo "                                  for a one-semester course."
+	@echo "> html-serve                    : Fire up a simple Python web server to locally host the HTML"
+	@echo "                                  output."
+	@echo "> two-semester-latex            : Output LaTeX file containing chapters for a two-semester course."
+	@echo "                                  (Electronic pdf version)"
+	@echo "> two-semester-print-latex      : Output LaTeX file containing chapters for a two-semester course."
+	@echo "                                  (Print pdf version)"
+	@echo "> one-semester-latex            : Output LaTeX file containing chapters for a one-semester course."
+	@echo "                                  (Electronic pdf version)"
+	@echo "> one-semester-print-latex      : Output LaTeX file containing chapters for a one-semester course."
+	@echo "                                  (Print pdf version)"
+	@echo "> ptx                           : Only preprocess source to create a single XML file in PTX format"
+	@echo "                                  containing all chapters."
+	@echo "> clean                         : Remove all output files."
+	@echo "> ptx-clean                     : Remove preprocessed PTX output."
+	@echo "> two-semester-html-clean       : Remove all HTML output."
+	@echo "> one-semester-html-clean       : Ditto."
+	@echo "> two-semester-html-images-clean: Remove all accomanying SVG files."
+	@echo "> one-semester-html-images-clean: Ditto."
 	@echo "= PARAMETERS ======================================================================================="
 	@echo "> BUILDDIR : Root directory for all output files."
 	@echo "             [Default: $(BUILDDIR)]"
@@ -68,18 +76,19 @@ clean: ptx-clean html-clean html-images-clean
 
 ptx-clean:
 	@-rm -f ${BUILDDIR}/ptx/*.ptx
-html-clean:
-	@-rm -f ${BUILDDIR}/html/.sentinal.*
-	@-rm -f ${BUILDDIR}/html/*.html
-	@-rm -f ${BUILDDIR}/html/knowl/*.html
-html-images-clean:
-	@-rm -f ${BUILDDIR}/html/images/.sentinal.*
-	@-rm -f ${BUILDDIR}/html/images/*.svg
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 $(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinal
 $(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinal
 $(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
+
+$(HTML_CLEAN_TARGETS): %-html-clean:
+	@-rm -f ${BUILDDIR}/html/${*}/.sentinal.*
+	@-rm -f ${BUILDDIR}/html/${*}/*.html
+	@-rm -f ${BUILDDIR}/html/${*}/knowl/*.html
+$(IMAGE_CLEAN_TARGETS): %-html-images-clean:
+	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinal.*
+	@-rm -f ${BUILDDIR}/html/${*}/images/*.svg
 
 ${BUILDDIR}/ptx/publication-%.xml: publication/%.xml $(wildcard publication/include.d/*.xml)
 	@echo "Compiling publication file"
