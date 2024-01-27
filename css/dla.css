@@ -6,15 +6,39 @@
 }
 @font-face {
   font-family: "STIX Two Text";
-  src: url(./fonts/STIXTwoText-Bold.woff2) format("woff2");
-  font-weight: bold;
+  src: url(./fonts/STIXTwoText-Italic.woff2) format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-Medium.woff2) format("woff2");
+  font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "STIX Two Text";
-  src: url(./fonts/STIXTwoText-Italic.woff2) format("woff2");
-  font-weight: normal;
+  src: url(./fonts/STIXTwoText-MediumItalic.woff2) format("woff2");
+  font-weight: 500;
   font-style: italic;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-SemiBoldItalic.woff2) format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url(./fonts/STIXTwoText-Bold.woff2) format("woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
   font-family: "STIX Two Text";
@@ -23,7 +47,10 @@
   font-style: italic;
 }
 
-body.pretext {
+body.pretext,
+.ptx-content section .heading,
+.ptx-content article .heading
+{
   font-family: "STIX Two Text", "Times New Roman", Times, serif;
 }
 
@@ -36,28 +63,94 @@ header.ptx-masthead span.subtitle {
   color: #09AB0D;
 }
 
-.ptx-toc.parts:not(.depth2) > ul.structural > li > ul.structural > li > .toc-item > a
-{
+.ptx-content .summary-links a {
+  color: #09AB0D;
+}
+
+.ptx-content .summary-links a:hover {
+  color: white;
+  background-color: #AB09A7;
+}
+
+.ptx-toc.focused .toc-chapter > .toc-title-box {
   background-color: #09AB0D;
 }
 
-.ptx-toc ul.structural li a, .ptx-toc ul.structural li a:link,
-.ptx-toc.parts:not(.depth2) > ul.structural > li > ul.structural > li > .toc-item > a:hover
+.ptx-toc.focused .toc-chapter,
+.ptx-toc.focused .toc-section
 {
-  background-color: #0D09AB;
+  border-color: #067409;
 }
 
-.ptx-toc ul.structural li ul.structural a.active,
-.ptx-toc ul.structural li ul.structural a:hover
+.ptx-toc.focused :is(.toc-frontmatter, .toc-backmatter, .toc-part) > .toc-title-box {
+  background-color: #067409;
+}
+
+.ptx-toc.focused :is(
+  .toc-section, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+) > .toc-title-box {
+  color: #AB09A7;
+}
+
+.ptx-toc.focused .toc-subsection > .toc-title-box {
+  color: #333333;
+  background-color: #FEEBFD;
+}
+
+.ptx-toc.focused :is(
+  .toc-chapter, .toc-section, .toc-worksheet, .toc-frontmatter, .toc-backmatter, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+):is(.active, .contains-active) > .toc-title-box,
+.ptx-toc.focused :is(
+  .toc-chapter, .toc-frontmatter, .toc-backmatter, .toc-section, .toc-worksheet, .toc-colophon, .toc-biography, .toc-preface, .toc-appendix, .toc-index, .toc-references
+) > .toc-title-box:hover,
+.ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
 {
-  background-color: #AB0D09;
+  color: white;
+  background-color: #AB09A7;
 }
 
-.ptx-toc ul.structural li ul.structural a {
-  color: #0D09AB;
-  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+.ptx-toc.focused.depth4 .toc-title-box > .toc-expander:hover,
+.ptx-toc.focused.depth4 .toc-title-box > .toc-expander > .icon:hover
+{
+  color: #AB09A7;
+  background-color: #FEEBFD;
 }
 
-.ptx-toc.parts:not(.depth2) > ul.structural > li:first-child > ul.structural > li > .toc-item > a {
-  color: #0D09AB;
+
+/* xrefs */
+.ptx-content [data-knowl],
+.ptx-content .para > a.internal
+{
+  color: #067409;
+}
+
+.ptx-content [data-knowl]:hover,
+.ptx-content .para > a.internal:hover
+{
+  background-color: #FEEBFD;
+}
+
+.ptx-content [data-knowl].active {
+  background-color: #d9fdda;
+}
+
+/* knowls */
+.ptx-content .knowl-output {
+  border-color: #d9fdda;
+  background-color: #f7fbff;
+}
+
+/* links for proof knowls */
+.ptx-content .hiddenproof h4.heading .type,
+.ptx-content .hiddenproof h4.heading .title
+{
+  color: #067409;
+}
+
+ /* colors for assemblage */
+.ptx-content .assemblage.assemblage-like {
+  border: solid 2px #AB09A7;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #FEF2FE;
 }
