@@ -11,10 +11,12 @@ SERVEPORT=8080
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 #PRETEXT=/opt/pretext/pretext/pretext
 PRETEXT=./pretext/pretext/pretext
+ROOT_XMLID=discover-linear-algebra-book
 
 HTML_TARGETS = two-semester-html one-semester-html
 HTML_CLEAN_TARGETS = two-semester-html-clean one-semester-html-clean
 IMAGE_TARGETS = two-semester-html-images one-semester-html-images
+IMAGE_PDF_TARGETS = two-semester-html-image-pdfs one-semester-html-image-pdfs
 IMAGE_CLEAN_TARGETS = two-semester-html-images-clean one-semester-html-images-clean
 LATEX_TARGETS = two-semester-latex one-semester-latex two-semester-print-latex one-semester-print-latex
 .PHONY: ptx two-semester-html-all one-semester-html-all \
@@ -40,6 +42,10 @@ help:
 	@echo "> two-semester-html-images      : Create SVG image files to accompany the html output for all"
 	@echo "                                  chapters."
 	@echo "> one-semester-html-images      : Create SVG image files to accompany the html output for chapters"
+	@echo "                                  for a one-semester course."
+	@echo "> two-semester-html-image-pdfs  : Create PDF image files to accompany the html output for all"
+	@echo "                                  chapters."
+	@echo "> one-semester-html-image-pdfs  : Create PDF image files to accompany the html output for chapters"
 	@echo "                                  for a one-semester course."
 	@echo "> html-serve                    : Fire up a simple Python web server to locally host the HTML"
 	@echo "                                  output."
@@ -80,15 +86,17 @@ ptx-clean:
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 $(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinal
 $(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinal
+$(IMAGE_PDF_TARGETS): %-html-image-pdfs: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html-image-pdfs/%/.sentinal
 $(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
 
 $(HTML_CLEAN_TARGETS): %-html-clean:
-	@-rm -f ${BUILDDIR}/html/${*}/.sentinal.*
+	@-rm -f ${BUILDDIR}/html/${*}/.sentinal*
 	@-rm -f ${BUILDDIR}/html/${*}/*.html
 	@-rm -f ${BUILDDIR}/html/${*}/knowl/*.html
 $(IMAGE_CLEAN_TARGETS): %-html-images-clean:
-	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinal.*
+	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinal*
 	@-rm -f ${BUILDDIR}/html/${*}/images/*.svg
+	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/*.pdf
 
 ${BUILDDIR}/ptx/publication-%.xml: publication/%.xml $(wildcard publication/include.d/*.xml)
 	@echo "Compiling publication file"
@@ -147,12 +155,29 @@ ${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --verbose \
 	  --component latex-image \
 	  --format svg \
+	  --restrict ${ROOT_XMLID} \
 	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
 	  --directory ${BUILDDIR}/html/${*}/images \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
 	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/${*}/images
 	@touch ${BUILDDIR}/html/${*}/images/.sentinal
+	@echo "...DONE"
+
+${BUILDDIR}/html-image-pdfs/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@echo "Generating PDF files for HTML output for version: ${*}..."
+	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/.sentinal
+	@mkdir -p ${BUILDDIR}/html-image-pdfs/${*}
+	@echo "...calling pretext to generate images"
+	@$(PRETEXT) \
+	  --verbose \
+	  --component latex-image \
+	  --format pdf \
+	  --restrict ${ROOT_XMLID} \
+	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
+	  --directory ${BUILDDIR}/html-image-pdfs/${*} \
+	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+	@touch ${BUILDDIR}/html-image-pdfs/${*}/.sentinal
 	@echo "...DONE"
 
 ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
