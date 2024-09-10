@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-systems" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<exercise xml:id="exercise-systems-recognize-linear">
+	<title>Recognizing linear equations</title>
+
+	<statement><p>
+		Which of the following is a <term><xref ref="definition-systems-linear-eqn" text="title" /></term>?
+		<ol cols="2">
+			<li xml:id="exercise-systems-recognize-linear-yes"><m> 2 a + 3 b - 6 c = 5 </m></li>
+			<li xml:id="exercise-systems-recognize-linear-square"><m> 2 a^2 + 3 b - 6 c = 5 </m></li>
+			<li xml:id="exercise-systems-recognize-linear-rearrange-then-yes"><m> 2 a = 5 - 3 b + 6 c </m></li>
+			<li xml:id="exercise-systems-recognize-linear-parameter"><m> w + 2 x + 3 t y + 4 z = 0 </m></li>
+		</ol>
+	</p></statement>
+
+	<answer><p>
+		Equations <xref ref="exercise-systems-recognize-linear-yes" text="local" /> and <xref ref="exercise-systems-recognize-linear-rearrange-then-yes" text="local" /> are linear,
+		though we would typically rearrange the equation in <xref ref="exercise-systems-recognize-linear-rearrange-then-yes" text="local" /> so that all unknowns appear on the left-hand side.
+		Equation <xref ref="exercise-systems-recognize-linear-square" text="local" /> is not linear because of the degree-<m>2</m> term <m>2 a^2</m>.
+		Whether equation <xref ref="exercise-systems-recognize-linear-parameter" text="local" /> is considered linear or not depends on our perspective:
+		we would probably consider <m>w</m>, <m>x</m>, <m>y</m>, and <m>z</m> to be unknowns,
+		but what is the status of <m>t</m>?
+		If the role of <m>t</m> is also to be an unknown,
+		then the equation is not linear because of the degree-<m>2</m> term <m>3 t y</m>.
+		But if the role of <m>t</m> is as an unspecified constant value,
+		then the equation is linear in the other four variables.
+	</p></answer>
+
+</exercise>
+
+<exercise>
+	<title>Testing equation solutions</title>
+
+	<introduction><p>
+		For each collection of variable values,
+		determine whether it constitutes a
+		<term><xref ref="definition-systems-solution" text="custom">solution</xref></term>
+		of the linear equation
+		<me>-4 x + y + 9 z = 3</me>.
+	</p></introduction>
+
+	<task>
+		<statement><p><m>x = 2, y = 2, z = 1</m>.</p></statement>
+		<solution><p>
+			Substitute the variable values into the left-hand side of the equation and compute
+			<md>
+				<mrow> \textrm{LHS} \amp = -4 x + y + 9 z </mrow>
+				<mrow> \amp = -4 \cdot 2 + 2 + 9 \cdot 1 </mrow>
+				<mrow> \amp = -8 + 2 + 9 </mrow>
+				<mrow> \amp = 3 </mrow>
+				<mrow> \amp = \textrm{RHS} </mrow>
+			</md>.
+			As this collection of variable values satisfy the equation,
+			it does constitute a solution of the equation.
+		</p></solution>
+	</task>
+
+	<task>
+		<statement><p><m>x = 1, y = -2, z = 2</m>.</p></statement>
+		<solution><p>
+			Substitute the variable values into the left-hand side of the equation and compute
+			<md>
+				<mrow> \textrm{LHS} \amp = -4 x + y + 9 z </mrow>
+				<mrow> \amp = -4 \cdot 1 + (-2) + 9 \cdot 2 </mrow>
+				<mrow> \amp = -4 - 2 + 18 </mrow>
+				<mrow> \amp = 12 </mrow>
+				<mrow> \amp \neq \textrm{RHS} </mrow>
+			</md>.
+			As this collection of variable values does not satisfy the equation,
+			it does not constitute a solution of the equation.
+		</p></solution>
+	</task>
+
+</exercise>
+
+<exercise>
+	<title>Testing system solutions</title>
+
+	<introduction>
+		<p>
+		For each collection of variable values,
+		determine whether it constitutes a
+		<term><xref ref="definition-systems-solution" text="custom">solution</xref></term>
+		of the system of linear equations
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+				-4 x \amp + \amp   y \amp + \amp 9 z \amp = \amp  3, \\
+				 3 x \amp - \amp 4 y \amp - \amp 4 z \amp = \amp -6, \\
+				   x \amp - \amp   y \amp + \amp 2 z \amp = \amp 2
+			\end{sysofeqns}
+		</me>
+		</p>
+		<aside><title>Note</title><p>
+			It is not necessary to <em>solve</em> the system of equations in order to <em>test</em> potential solutions.
+		</p></aside>
+	</introduction>
+
+	<task>
+		<statement><p><m>x = 2, y = 2, z = 1</m>.</p></statement>
+		<solution><p>
+			Substitute the variable values into each of the left-hand side of the equations and compute
+			<md>
+				<mrow> \textrm{LHS}_1 \amp = -4 x + y + 9 z </mrow>
+				<mrow> \amp = -4 \cdot 2 + 2 + 9 \cdot 1 </mrow>
+				<mrow> \amp = -8 + 2 + 9 </mrow>
+				<mrow> \amp = 3 </mrow>
+				<mrow> \amp = \textrm{RHS}_1 </mrow>
+			</md>,
+			<md>
+				<mrow> \textrm{LHS}_2 \amp = 3 x - 4 y - 4 z </mrow>
+				<mrow> \amp = 3 \cdot 2 - 4 \cdot 2 - 4 \cdot 1 </mrow>
+				<mrow> \amp = 6 - 8 - 4 </mrow>
+				<mrow> \amp = -6 </mrow>
+				<mrow> \amp = \textrm{RHS}_2 </mrow>
+			</md>,
+			<md>
+				<mrow> \textrm{LHS}_3 \amp = x - y + 2 z </mrow>
+				<mrow> \amp = 2 - 2 + 2 \cdot 1 </mrow>
+				<mrow> \amp = 0 + 2 </mrow>
+				<mrow> \amp = 2 </mrow>
+				<mrow> \amp = \textrm{RHS}_3 </mrow>
+			</md>.
+			As this collection of variable values simultaneously satisfies all equations in the system,
+			it does constitute a solution of the system.
+		</p></solution>
+	</task>
+
+	<task>
+		<statement><p><m>x = -2, y = 4, z = -1</m>.</p></statement>
+		<solution><p>
+			Substitute the variable values into each of the left-hand side of the equations and compute
+			<md>
+				<mrow> \textrm{LHS}_1 \amp = -4 x + y + 9 z </mrow>
+				<mrow> \amp = -4 \cdot (-2) + 4 + 9 \cdot (-1) </mrow>
+				<mrow> \amp = 8 + 4 - 9 </mrow>
+				<mrow> \amp = 3 </mrow>
+				<mrow> \amp = \textrm{RHS}_1 </mrow>
+			</md>,
+			<md>
+				<mrow> \textrm{LHS}_2 \amp = 3 x - 4 y - 4 z </mrow>
+				<mrow> \amp = 3 \cdot (-2) - 4 \cdot 4 - 4 \cdot (-1) </mrow>
+				<mrow> \amp = -6 - 16 + 4 </mrow>
+				<mrow> \amp = -18 </mrow>
+				<mrow> \amp \neq \textrm{RHS}_2 </mrow>
+			</md>.
+			There is no need to continue on to the third equation,
+			as we may already conclude that this collection of variable values does not simultaneously satisfy all equations in the system.
+			Therefore, it does not constitute a solution of the system.
+		</p></solution>
+	</task>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/guess-eqn-solns.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/solve-by-intersecting-lines.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/convert-sys-to-augmatrix.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/convert-augmatrix-to-sys.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/rowops.ptx" />
+
+</exercises>
