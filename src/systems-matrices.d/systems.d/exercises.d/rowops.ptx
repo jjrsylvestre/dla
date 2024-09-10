@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Performing row operations</title>
+
+<introduction><p>
+	In each case,
+	perform the stated <term><xref ref="definition-systems-rowop" text="custom">row operation</xref></term> on the given matrix.
+	Then explore how the row operation represents an algebraic manipulation/combination of equations in the underlying system.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		Interchange the first and second rows.
+		<me>
+			\begin{amatrix}{rrr|r}
+					4 \amp 8 \amp -7 \amp  3 \\
+					1 \amp 2 \amp -3 \amp -1 \\
+				-2 \amp 0 \amp -4 \amp 13
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p><me>
+			\begin{amatrix}{rrr|r}
+					4 \amp 8 \amp -7 \amp  3 \\
+					1 \amp 2 \amp -3 \amp -1 \\
+				-2 \amp 0 \amp -4 \amp 13
+			\end{amatrix}
+			\xrightarrow{R_1 \leftrightarrow R_2}
+			\begin{amatrix}{rrr|r}
+					1 \amp 2 \amp -3 \amp -1 \\
+					4 \amp 8 \amp -7 \amp  3 \\
+				-2 \amp 0 \amp -4 \amp 13
+			\end{amatrix}
+		</me></p>
+
+		<p>
+		Using variables <m>x,y,z</m>,
+		the original system of equations is
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+					4 x \amp + \amp 8 y \amp - \amp 7 z \amp = \amp  3 \\
+					1 x \amp + \amp 2 y \amp - \amp 3 z \amp = \amp -1 \\
+				-2 x \amp    \amp    \amp - \amp 4 z \amp = \amp 13
+			\end{sysofeqns}
+		</me>.
+		Interchanging the order of the first two equations leads to system
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+					1 x \amp + \amp 2 y \amp - \amp 3 z \amp = \amp -1 \\
+					4 x \amp + \amp 8 y \amp - \amp 7 z \amp = \amp  3 \\
+				-2 x \amp    \amp    \amp - \amp 4 z \amp = \amp 13
+			\end{sysofeqns}
+		</me>,
+		and the coefficients/constants of this re-ordered system correspond exactly to the entries in the result matrix above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Interchange the third and fifth rows.
+		<me>
+			\begin{amatrix}{rrrr|r}
+				1 \amp 1 \amp -6 \amp 3 \amp  3 \\
+				0 \amp 1 \amp 6 \amp -1 \amp  2 \\
+				0 \amp 0 \amp 0 \amp  4 \amp -1 \\
+				0 \amp 0 \amp 0 \amp -4 \amp -7 \\
+				0 \amp 0 \amp 0 \amp  1 \amp  3
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p><me>
+			\begin{amatrix}{rrrrr|r}
+				1 \amp 1 \amp -6 \amp 3 \amp  3 \amp  7 \\
+				0 \amp 1 \amp 6 \amp -1 \amp  2 \amp  3 \\
+				0 \amp 0 \amp 0 \amp  4 \amp -1 \amp -8 \\
+				0 \amp 0 \amp 0 \amp -4 \amp -7 \amp  7 \\
+				0 \amp 0 \amp 0 \amp  1 \amp  3 \amp  3
+			\end{amatrix}
+			\xrightarrow{R_3 \leftrightarrow R_5}
+			\begin{amatrix}{rrrrr|r}
+				1 \amp 1 \amp -6 \amp 3 \amp  3 \amp  7 \\
+				0 \amp 1 \amp 6 \amp -1 \amp  2 \amp  3 \\
+				0 \amp 0 \amp 0 \amp  1 \amp  3 \amp  3 \\
+				0 \amp 0 \amp 0 \amp -4 \amp -7 \amp  7 \\
+				0 \amp 0 \amp 0 \amp  4 \amp -1 \amp -8
+			\end{amatrix}
+		</me></p>
+
+		<p>
+		Using variables <m>x_1,x_2,x_3,x_4,x_5</m>,
+		the original system of equations is
+		<me>
+			\begin{sysofeqns}{rcrcrcrcrcr}
+				x_1 \amp + \amp x_2 \amp - \amp 6 x_3 \amp + \amp  3 x_4 \amp + \amp 3 x_5 \amp = \amp  7 \\
+					\amp   \amp x_2 \amp + \amp 6 x_3 \amp - \amp    x_4 \amp + \amp 2 x_5 \amp = \amp  3 \\
+					\amp   \amp     \amp   \amp       \amp   \amp  4 x_4 \amp - \amp   x_5 \amp = \amp -8 \\
+					\amp   \amp     \amp   \amp       \amp   \amp -4 x_4 \amp - \amp 7 x_5 \amp = \amp  7 \\
+					\amp   \amp     \amp   \amp       \amp   \amp    x_4 \amp + \amp 3 x_5 \amp = \amp  3
+			\end{sysofeqns}
+		</me>.
+		Interchanging the order of the third and fifth equations leads to system
+		<me>
+			\begin{sysofeqns}{rcrcrcrcrcr}
+				x_1 \amp + \amp x_2 \amp - \amp 6 x_3 \amp + \amp  3 x_4 \amp + \amp 3 x_5 \amp = \amp  7 \\
+					\amp   \amp x_2 \amp + \amp 6 x_3 \amp - \amp    x_4 \amp + \amp 2 x_5 \amp = \amp  3 \\
+					\amp   \amp     \amp   \amp       \amp   \amp    x_4 \amp + \amp 3 x_5 \amp = \amp  3 \\
+					\amp   \amp     \amp   \amp       \amp   \amp -4 x_4 \amp - \amp 7 x_5 \amp = \amp  7 \\
+					\amp   \amp     \amp   \amp       \amp   \amp  4 x_4 \amp - \amp   x_5 \amp = \amp -8
+			\end{sysofeqns}
+		</me>,
+		and the coefficients/constants of this re-ordered system correspond exactly to the entries in the result matrix above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Multiply the second row by <m>1/3</m>.
+		<me>
+			\begin{amatrix}{rrr|r}
+				2 \amp 4 \amp  3 \amp -7 \\
+				3 \amp 6 \amp  6 \amp  9 \\
+				0 \amp 4 \amp 13 \amp  2
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p><me>
+			\begin{amatrix}{rrr|r}
+				2 \amp 4 \amp  3 \amp -7 \\
+				3 \amp 6 \amp  6 \amp  9 \\
+				0 \amp 4 \amp 13 \amp  2
+			\end{amatrix}
+			\xrightarrow{\frac{1}{3} R_2}
+			\begin{amatrix}{rrr|r}
+				2 \amp 4 \amp  3 \amp -7 \\
+				1 \amp 2 \amp  2 \amp  3 \\
+				0 \amp 4 \amp 13 \amp  2
+			\end{amatrix}
+		</me></p>
+
+		<p>
+		Using variables <m>x,y,z</m>,
+		the original second row represents the equation
+		<me> 3 x + 6 y + 6 z = 9 </me>.
+		The coefficients and constant in this equation have a factor of <m>3</m> in common,
+		and multiplying the equation by <m>1/3</m> represents <q>cancelling out</q> this common factor on both sides:
+		<me> 3 x + 6 y + 6 z = 9 \quad \longrightarrow \quad x + 2 y + 2 z = 3 </me>.
+		The coefficients/constant in this new equation correspond exactly to the new second row in our manipulated matrix above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise xml:id="exercise-systems-row-op-div7">
+
+	<statement><p>
+		Multiply the first row by <m>1/7</m>.
+		<me>
+			\begin{amatrix}{rrrr|r}
+					7 \amp -21 \amp 15 \amp 0 \amp  7 \\
+				12 \amp - 5 \amp -4 \amp 1 \amp  8 \\
+				11 \amp - 1 \amp -1 \amp 3 \amp -2
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p><me>
+			\begin{amatrix}{rrrr|r}
+					7 \amp -21 \amp 15 \amp 0 \amp  7 \\
+				12 \amp - 5 \amp -4 \amp 1 \amp  8 \\
+				11 \amp - 1 \amp -1 \amp 3 \amp -2
+			\end{amatrix}
+			\xrightarrow{\frac{1}{7} R_1}
+			\begin{amatrix}{rrrr|r}
+					1 \amp -3 \amp \frac{15}{7} \amp 0 \amp  1 \\
+				12 \amp -5 \amp      -4      \amp 1 \amp  8 \\
+				11 \amp -1 \amp      -1      \amp 3 \amp -2
+			\end{amatrix}
+		</me></p>
+
+		<p>
+		Using variables <m>x_1,x_2,x_3,x_4</m>,
+		the original first row represents the equation
+		<me> 7 x_1 - 21 x_2 + 15 x_3 = 7 </me>.
+		Most of the coefficients and constant in this equation have a factor of <m>7</m> in common.
+		Usually, in purely algebraic manipulations we would not divide this equation through by that common factor.
+		But when we develop an algorithm for systematically simplifying systems of equations through matrix operations in
+		<xref ref="chapter-row-red" />,
+		we will find that it is advantageous to perform operations to reduce the <q>leading</q> coefficient in some of the equations in the system to <m>1</m>,
+		which is precisely what our chosen operation achieves:
+		<me> 7 x_1 - 21 x_2 + 15 x_3 = 7 \quad \longrightarrow \quad x_1 - 3 x_2 + \tfrac{15}{7} x_3 = 1 </me>.
+		The coefficients/constant in this new equation correspond exactly to the new first row in our manipulated matrix above.
+		(While we often try to avoid fractions in our matrices,
+		there is no reason a matrix cannot contain fractional entries because there is no reason the coefficients in an equation cannot be fractions.)
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Add <m>2</m>-times the first row to the third row.
+		<me>
+			\begin{amatrix}{rrrr|r}
+					1 \amp 3 \amp  1 \amp -2 \amp 1 \\
+					0 \amp 1 \amp  1 \amp -2 \amp 3 \\
+				-2 \amp 1 \amp -6 \amp  8 \amp 5
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p>
+		<me>
+			\begin{amatrix}{rrrr|r}
+					1 \amp 3 \amp  1 \amp -2 \amp 1 \\
+					0 \amp 1 \amp  1 \amp -2 \amp 3 \\
+				-2 \amp 1 \amp -6 \amp  8 \amp 5
+			\end{amatrix}
+			\xrightarrow{R_3 + 2 R_1}
+			\begin{amatrix}{rrrr|r}
+				1 \amp  3 \amp  1 \amp -2 \amp 1 \\
+				0 \amp  1 \amp  1 \amp -2 \amp 3 \\
+				0 \amp  7 \amp -4 \amp  4 \amp 3
+			\end{amatrix}
+		</me>
+		<em>Notice that the first row has not changed.</em>
+		We wished to modify the third row using a multiple of the first,
+		but the first row itself is not modified by that multiple.
+		</p>
+
+		<p>
+		Using variables <m>w,x,y,z</m>,
+		the original first and third rows represent the equations
+		<md>
+			<mrow>    w + 3 x +   y - 2 z \amp = 1 \text{,} </mrow>
+			<mrow> -2 w +   x - 6 y + 8 z \amp = 5 \text{.} </mrow>
+		</md>
+		Combine left- and right-hand sides identically.
+		Since each left-hand side is assumed to be equal to its corresponding right-hand side,
+		any specific combination of left-hand sides will be equal to the identical combination of right-hand sides.
+		In the combination of left-hand sides, we simplify by collecting like terms.
+		<md alignment="gather">
+			<mrow> {\text{LHS}}_3 + 2 ({\text{LHS}}_1) = {\text{RHS}}_3 + 2 ({\text{RHS}}_1) </mrow>
+			<mrow> (-2 w + x - 6 y + 8 z) + 2 (w + 3 x + y - 2 z) = 5 - 2 \cdot 1 </mrow>
+			<mrow> (-2 w + x - 6 y + 8 z) + (2 w + 6 x + 2 y - 4 z) = 5 - 2 </mrow>
+			<mrow> 7 x - 4 y + 4 z = 3 </mrow>
+		</md>
+		The coefficients/constant in this new equation correspond exactly to the new third row in our manipulated matrix above.
+		(Recall that we have assigned the variable <m>w</m> to the first column in the original matrix.
+		The fact that <m>w</m> no longer appears in the new equation corresponds to the zero value in the first entry of the new third row.)
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Subtract the second row from the first.
+		<em>Note:</em> This operation should modify the first row only.
+		<me>
+			\begin{amatrix}{rrr|r}
+				3 \amp 9 \amp -2 \amp 3 \\
+				2 \amp 6 \amp  1 \amp 1
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p><me>
+			\begin{amatrix}{rrr|r}
+				3 \amp 9 \amp -2 \amp 3 \\
+				2 \amp 6 \amp  1 \amp 1
+			\end{amatrix}
+			\xrightarrow{R_1 - R_2}
+			\begin{amatrix}{rrr|r}
+				1 \amp 3 \amp -3 \amp 2 \\
+				2 \amp 6 \amp  1 \amp 1
+			\end{amatrix}
+		</me></p>
+
+		<p>
+		Using variables <m>x,y,z</m>,
+		the original equations are
+		<md>
+			<mrow> 3 x + 9 y - 2 z \amp = 3 \text{,} </mrow>
+			<mrow> 2 x + 6 y +   z \amp = 1 \text{.} </mrow>
+		</md>
+		Combine left- and right-hand sides identically.
+		Since each left-hand side is assumed to be equal to its corresponding right-hand side,
+		any specific combination of left-hand sides will be equal to the identical combination of right-hand sides.
+		In the combination of left-hand sides, we simplify by collecting like terms.
+		<md alignment="gather">
+			<mrow> {\text{LHS}}_1 - {\text{LHS}}_2 = {\text{RHS}}_1 - {\text{RHS}}_2 </mrow>
+			<mrow> (3 x + 9 y - 2 z) - (2 x + 6 y +   z) = 3 - 1 </mrow>
+			<mrow> x + 3 y - 3 z = 2 </mrow>
+		</md>
+		The coefficients/constant in this new equation correspond exactly to the new first row in our manipulated matrix above.
+		</p>
+
+		<p>
+		In <xref ref="exercise-systems-row-op-div7" text="type-local" />,
+		our choice of operation had a purpose:
+		to reduce the leading coefficient in that equation to <m>1</m>.
+		But the operation had the side-effect of introducing fractions into our matrix.
+		Here we were able to reduce the leading coefficient in the first equation to <m>1</m> <em>without</em> introducing fractions,
+		as would have happened if we had instead multiplied the first row by <m>1/3</m>.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Subtract <m>3</m>-times the third row from the second.
+		Take care when subtracting a negative!
+		<em>Note:</em> This operation should modify the second row only.
+		<me>
+			\begin{amatrix}{rrrr|r}
+				1 \amp -3 \amp  0 \amp -1 \amp  1 \\
+				0 \amp  0 \amp 16 \amp  4 \amp  1 \\
+				0 \amp  0 \amp  5 \amp -2 \amp -1
+			\end{amatrix}
+		</me>
+	</p></statement>
+
+	<answer>
+
+		<p><me>
+			\begin{amatrix}{rrrr|r}
+				1 \amp -3 \amp  0 \amp -1 \amp  1 \\
+				0 \amp  0 \amp 16 \amp  4 \amp  1 \\
+				0 \amp  0 \amp  5 \amp -2 \amp -1
+			\end{amatrix}
+			\xrightarrow{R_2 - 3 R_3}
+			\begin{amatrix}{rrrr|r}
+				1 \amp -3 \amp  0 \amp -1 \amp  1 \\
+				0 \amp  0 \amp  1 \amp 10 \amp  4 \\
+				0 \amp  0 \amp  5 \amp -2 \amp -1
+			\end{amatrix}
+		</me></p>
+
+		<p>
+		Using variables <m>x_1,x_2,x_3,x_4</m>,
+		the original equations are
+		<md>
+			<mrow> 16 x_3 + 4 x_4 \amp =  1 \text{,} </mrow>
+			<mrow>  5 x_3 - 2 x_4 \amp = -1 \text{.} </mrow>
+		</md>
+		Combine left- and right-hand sides identically.
+		Since each left-hand side is assumed to be equal to its corresponding right-hand side,
+		any specific combination of left-hand sides will be equal to the identical combination of right-hand sides.
+		In the combination of left-hand sides, we simplify by collecting like terms.
+		<md alignment="gather">
+			<mrow> {\text{LHS}}_2 - 3 ({\text{LHS}}_3) = {\text{RHS}}_2 - 3 ({\text{RHS}}_3) </mrow>
+			<mrow> (16 x_3 + 4 x_4) - 3 (5 x_3 - 2 x_4) = 1 - 3 (-1) </mrow>
+			<mrow> 16 x_3 + 4 x_4 - 15 x_3 \mathbin{\color{red} \boldsymbol{+}} 6 x_4 = 1 \mathbin{\color{red} \boldsymbol{+}} 3 </mrow>
+			<mrow> x_3 + 10 x_4  = 4 </mrow>
+		</md>
+		The coefficients/constant in this new equation correspond exactly to the new second row in our manipulated matrix above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+</exercisegroup>
