@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-row-red" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/identify-leading-constrained-free.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/recognize-REF.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/choose-next-rowop.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/solve-from-RREF.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/reduce-and-solve.ptx" />
+
+<exercise>
+	<title>Patterns of RREF</title>
+
+	<task><p>
+		Determine all possible matrices that have two rows, two columns, and are in RREF.
+		(In your example matrices,
+		every entry will be one of
+		<em>must be one</em>
+		or
+		<em>must be zero</em>
+		or
+		<em>could be any value</em>.
+		Write an asterisk <m>\ast</m> for entries that <em>could be any value</em>.)
+	</p></task>
+
+	<task><p>
+		Determine all possible matrices that have three rows, three columns, and are in RREF.
+	</p></task>
+
+	<task><p>
+		Without writing all the possibilities down,
+		can you determine <em>how many</em> different possible forms of RREF matrix with four rows and four columns there are?
+	</p></task>
+
+	<task><p>
+		Based on your answers so far,
+		can you come up with a pattern for the number of different possible forms of RREF matrix with <m>n</m> rows and <m>n</m> columns?
+		How does the pattern change for matrices with more rows than columns?
+		Or for matrices with fewer rows than columns?
+	</p></task>
+
+</exercise>
+
+<exercise xml:id="exercise-row-red-2var-unique-sol-condition">
+	<title>Existence of a unique solution for two variables</title>
+
+	<task xml:id="exercise-row-red-2var-unique-sol-condition-algebra"><p>
+		Suppose <m>a, b, c, d</m> are constant values so that <m>a d - b c</m> is <em>not</em> equal to zero.
+		Use <xref ref="proposition-row-red-sys-sol-type-conditions" /> to demonstrate that every system that has coefficient matrix
+		<me> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+		has one unique solution.
+	</p></task>
+
+	<task>
+		<introduction><p>
+			Now consider the geometric interpretation of <xref ref="exercise-row-red-2var-unique-sol-condition-algebra" text="type-local" />.
+			Suppose we have system of equations
+			<me>
+				\begin{sysofeqns}{rcrcr}
+					a x \amp + \amp b y \amp = \amp k_1 \\
+					c x \amp + \amp d y \amp = \amp k_2
+				\end{sysofeqns}
+			</me>.
+		</p></introduction>
+
+		<task><p>
+			What are the slopes of the lines involved in the system?
+			(For simplicity, assume both <m>b \neq 0</m> and <m>d \neq 0</m>.)
+		</p></task>
+
+		<task xml:id="exercise-row-red-2var-unique-sol-condition-geometry-1"><p>
+			Suppose the system has no solution.
+			How must the slopes of the two lines be related?
+		</p></task>
+
+		<task xml:id="exercise-row-red-2var-unique-sol-condition-geometry-2"><p>
+			Suppose the system has an infinite number of solutions.
+			How must the slopes of the two lines be related?
+		</p></task>
+
+		<task><p>
+			The two cases of
+			<xref ref="exercise-row-red-2var-unique-sol-condition-geometry-1" text="type-local" />
+			and
+			<xref ref="exercise-row-red-2var-unique-sol-condition-geometry-2" text="type-local" />
+			can be summarized into one case as <q><em>not</em> the case of a single unique solution.</q>
+			In each of those two cases,
+			what does the relationship between the slopes of the two lines imply about the value of <m>a d - b c</m>?
+		</p></task>
+
+	</task>
+
+</exercise>
+
+<exercise>
+	<title>A special type of coefficient matrix</title>
+
+	<p>
+	A matrix is called <term>upper triangular</term> when it has the same number of columns as rows <em>and</em> its entries follow the pattern:
+	<ul>
+		<li>The first entry in the second row is zero.</li>
+		<li>The first two entries in the third row are zero.</li>
+		<li>The first three entries in the fourth row are zero.</li>
+		<li>And so on.</li>
+	</ul>
+	For example, the matrices
+	<md><mrow>
+		\amp \begin{bmatrix} a \amp b \\ 0 \amp c \end{bmatrix} \amp
+		\amp \begin{bmatrix} a \amp b \amp c \\ 0 \amp d \amp e \\ 0 \amp 0 \amp f \end{bmatrix} \amp
+		\amp \begin{bmatrix} a \amp b \amp c \amp d \\ 0 \amp e \amp f \amp g \\ 0 \amp 0 \amp h \amp i \\ 0 \amp 0 \amp 0 \amp j \end{bmatrix}
+	</mrow></md>
+	are all upper triangular.
+	</p>
+
+	<aside><title>A look ahead</title><p>
+		We will study this and other special forms of matrices further in <xref ref="chapter-special-forms" />.
+	</p></aside>
+
+	<p>
+	Using <xref ref="proposition-row-red-sys-sol-type-conditions" /> for inspiration,
+	determine a simple condition or set of conditions by which one can predict,
+	<em>without</em> performing any row operations,
+	whether a homogeneous system of equations with an upper triangular coefficient matrix will have one unique solution or will have an infinite number of solutions.
+	</p>
+
+</exercise>
+
+</exercises>

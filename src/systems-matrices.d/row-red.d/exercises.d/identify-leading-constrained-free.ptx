@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Identifying leading/constrained/free variables</title>
+
+<introduction>
+
+	<p>
+	Assume that each matrix below represents the augmented matrix of a linear system of equations in the variables <m>x_1,x_2,\dotsc,x_n</m>
+	(where <m>n</m> is the number of variable columns in the matrix).
+	</p>
+
+	<p>
+	For each matrix,
+	identify the <term><xref ref="definition-row-red-leading-var" text="title" /></term>.
+	Then decide which variables are <term><xref ref="definition-row-red-free-var" text="custom">free</xref></term> and which are constrained.
+	</p>
+
+</introduction>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rr|r}
+			0 \amp 5 \amp  9 \\
+			8 \amp 9 \amp -2
+		\end{amatrix}
+	</m></p></statement>
+	<answer><p>
+		Both variables <m>x_1</m> and <m>x_2</m> are leading:
+		<me>
+			\begin{amatrix}{rr|r}
+				{\color{red} 0} \amp \boxed{5} \amp  9 \\
+				   \boxed{8}    \amp     9     \amp -2
+			\end{amatrix}
+		</me>.
+		The boxed entries could be converted into leading ones through row operations.
+		Therefore, both variables are constrained and there are no free variables.
+		(This implies the underlying system has one unique solution.)
+	</p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrr|r}
+			7 \amp -3 \amp 1 \amp 4 \\
+			0 \amp  0 \amp 5 \amp 8
+		\end{amatrix}
+	</m></p></statement>
+	<answer><p>
+		Variables <m>x_1</m> and <m>x_3</m> are leading:
+		<me>
+			\begin{amatrix}{rrr|r}
+				   \boxed{7}    \amp        -3       \amp     1     \amp 4 \\
+				{\color{red} 0} \amp {\color{red} 0} \amp \boxed{5} \amp 8
+			\end{amatrix}
+		</me>.
+		The boxed entries could be converted into leading ones through row operations.
+		These two variables are constrained by the respective equations in which they are the leading variables,
+		which leaves <m>x_2</m> as a free variable.
+		(This implies the underlying system has an infinite number of solutions.)
+	</p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrrrr|r}
+			0 \amp 0 \amp 0 \amp  0 \amp  8 \amp  5 \\
+			0 \amp 0 \amp 0 \amp  0 \amp  0 \amp  0 \\
+			0 \amp 1 \amp 0 \amp  3 \amp  0 \amp  0 \\
+			0 \amp 0 \amp 0 \amp -4 \amp -4 \amp -7
+		\end{amatrix}
+	</m></p></statement>
+	<answer><p>
+		Variables <m>x_2,x_4,x_5</m> are leading:
+		<me>
+			\begin{amatrix}{rrrrr|r}
+				{\color{red} 0} \amp {\color{red} 0} \amp {\color{red} 0} \amp  {\color{red} 0} \amp    \boxed{8}    \amp        5        \\
+				{\color{red} 0} \amp {\color{red} 0} \amp {\color{red} 0} \amp  {\color{red} 0} \amp {\color{red} 0} \amp {\color{red} 0} \\
+				{\color{red} 0} \amp    \boxed{1}    \amp        0        \amp         3        \amp        0        \amp        0        \\
+				{\color{red} 0} \amp {\color{red} 0} \amp {\color{red} 0} \amp     \boxed{-4}   \amp       -4        \amp       -7
+			\end{amatrix}
+		</me>.
+		Variable <m>x_2</m> already has a leading one in its column,
+		and the other two boxed entries could be converted into leading ones through row operations.
+		These three variables are constrained by the respective equations in which they are the leading variables,
+		which leaves <m>x_1</m> and <m>x_3</m> as free variables.
+		(This implies the underlying system has an infinite number of solutions.)
+	</p></answer>
+</exercise>
+
+</exercisegroup>

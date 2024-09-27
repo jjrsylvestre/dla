@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Determining general solutions</title>
+
+<introduction>
+
+	<p>
+	The matrices below are all already in <xref ref="definition-row-red-rref" text="custom">RREF</xref>.
+	For each, determine whether the associated system of equations is consistent.
+	If it is, carry out the following additional tasks.
+	<ol>
+		<li> Write out that system in variables of your choosing. </li>
+		<li>
+			Determine the general solution to the system,
+			expressed in parametric form if necessary.
+		</li>
+		<li>
+			If the system has an infinite number of solutions,
+			use your expression of the general solution to determine at least three different specific solutions.
+		</li>
+	</ol>
+	<alert>Note:</alert>
+	if the matrix does not have a vertical line separating the last column,
+	interpret the matrix to be the <term><xref ref="definition-row-red-coeff-matrix" text="title" /></term> of a <term><xref ref="definition-row-red-homog-sys" text="title" /></term>.
+	</p>
+
+
+</introduction>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrrr|r}
+			1 \amp 0 \amp 0 \amp 0 \amp  6 \\
+			0 \amp 1 \amp 0 \amp 0 \amp -7 \\
+			0 \amp 0 \amp 1 \amp 0 \amp  0 \\
+			0 \amp 0 \amp 0 \amp 1 \amp  2
+		\end{amatrix}
+	</m></p></statement>
+	<solution><p>
+		The system is consistent but there are no free variables,
+		hence there is one unique solution.
+		The associated system of equations is identical to that solution;
+		using variables <m>x_1,x_2,x_3,x_4</m> we have
+		<md>
+			<mrow> x_1 \amp =  6 \text{,} </mrow>
+			<mrow> x_2 \amp = -7 \text{,} </mrow>
+			<mrow> x_3 \amp =  0 \text{,} </mrow>
+			<mrow> x_4 \amp =  2 \text{.} </mrow>
+		</md>
+	</p></solution>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrr|r}
+			1 \amp 0 \amp 0 \amp  5 \\
+			0 \amp 1 \amp 0 \amp  5 \\
+			0 \amp 0 \amp 1 \amp -3 \\
+			0 \amp 0 \amp 0 \amp  0
+		\end{amatrix}
+	</m></p></statement>
+	<solution><p>
+		The system is consistent but there are no free variables,
+		hence there is one unique solution.
+		The associated system of equations is identical to that solution if we ignore the irrelevant <m>0 = 0</m> equation;
+		using variables <m>x_1,x_2,x_3</m> we have
+		<md>
+			<mrow> x_1 \amp =  5 \text{,} </mrow>
+			<mrow> x_2 \amp =  5 \text{,} </mrow>
+			<mrow> x_3 \amp = -3 \text{,} </mrow>
+		</md>
+	</p></solution>
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrr|r}
+			1 \amp 0 \amp -4 \amp -8 \\
+			0 \amp 1 \amp  2 \amp  7 \\
+			0 \amp 0 \amp  0 \amp  0
+		\end{amatrix}
+	</m></p></statement>
+
+	<solution><p>
+		The system is consistent.
+		<ol>
+
+			<li><p>
+				Ignoring the irrelevant <m>0 = 0</m> equation,
+				the associated system of equations in variables <m>x,y,z</m> is
+				<me>
+					\begin{sysofeqns}{rcrcr}
+						x \amp - \amp 4 z \amp = \amp -8 \\
+						y \amp + \amp 2 z \amp = \amp  7
+					\end{sysofeqns}
+				</me>.
+			</p></li>
+
+			<li><p>
+				There is no leading one in the third column of the matrix,
+				hence variable <m>z</m> is free.
+				Assigning parameter <m>z = t</m> and isolating the two constrained variables in the equations above yields general solution
+				<me>
+					\begin{array}{rcrcr}
+						x \amp = \amp -8 \amp + \amp 4 t \text{,} \\
+						y \amp = \amp  7 \amp - \amp 2 t \text{,} \\
+						z \amp = \amp    \amp   \amp   t \text{.}
+					\end{array}
+				</me>
+			</p></li>
+
+			<li><p>
+				We may determine specific solutions by choosing arbitrary values for the parameter.
+				For example:
+				<ul>
+					<li><p>
+						Parameter value <m>t = 0</m> leads to specific solution
+						<md><mrow> x \amp = -8 \text{,} \amp y \amp = 7 \text{,} \amp z \amp = 0 \text{.} </mrow></md>
+					</p></li>
+					<li><p>
+						Parameter value <m>t = 1</m> leads to specific solution
+						<md><mrow> x \amp = -4 \text{,} \amp y \amp = 5 \text{,} \amp z \amp = 1 \text{.} </mrow></md>
+					</p></li>
+					<li><p>
+						Parameter value <m>t = -3</m> leads to specific solution
+						<md><mrow> x \amp = -20 \text{,} \amp y \amp = 13 \text{,} \amp z \amp = -3 \text{.} </mrow></md>
+					</p></li>
+				</ul>
+			</p></li>
+
+		</ol>
+	</p></solution>
+
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrr|r}
+			1 \amp 8 \amp 0 \amp -1 \\
+			0 \amp 0 \amp 1 \amp  3
+		\end{amatrix}
+	</m></p></statement>
+	<solution><p>
+		The system is consistent.
+		<ol>
+
+			<li><p>
+				The associated system of equations in variables <m>x,y,z</m> is
+				<me>
+					\begin{sysofeqns}{rcrcr}
+						x \amp + \amp 8 y \amp = \amp -1 \\
+						  \amp   \amp   z \amp = \amp  3
+					\end{sysofeqns}
+				</me>.
+			</p></li>
+
+			<li><p>
+				There is no leading one in the second column of the matrix,
+				hence variable <m>y</m> is free.
+				Assigning parameter <m>y = t</m> and isolating the two constrained variables in the equations above yields general solution
+				<me>
+					\begin{array}{rcc}
+						x \amp = \amp -1 - 8 t \text{,} \\
+						y \amp = \amp    t     \text{,} \\
+						z \amp = \amp    3     \text{.}
+					\end{array}
+				</me>
+			</p></li>
+
+			<li><p>
+				We may determine specific solutions by choosing arbitrary values for the parameter.
+				For example:
+				<ul>
+					<li><p>
+						Parameter value <m>t = 0</m> leads to specific solution
+						<md><mrow> x \amp = -1 \text{,} \amp y \amp = 0 \text{,} \amp z \amp = 3 \text{.} </mrow></md>
+					</p></li>
+					<li><p>
+						Parameter value <m>t = 1</m> leads to specific solution
+						<md><mrow> x \amp = -9 \text{,} \amp y \amp = 1 \text{,} \amp z \amp = 3 \text{.} </mrow></md>
+					</p></li>
+					<li><p>
+						Parameter value <m>t = \sqrt{2}</m> leads to specific solution
+						<md><mrow> x \amp = -1 - 8\sqrt{2} \text{,} \amp y \amp = \sqrt{2} \text{,} \amp z \amp = 3 \text{.} </mrow></md>
+					</p></li>
+				</ul>
+			</p></li>
+
+		</ol>
+	</p></solution>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrrr|r}
+			1 \amp 0 \amp 7 \amp -6 \amp 0 \\
+			0 \amp 1 \amp 9 \amp -1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp  0 \amp 1 \\
+			0 \amp 0 \amp 0 \amp  0 \amp 0
+		\end{amatrix}
+	</m></p></statement>
+	<solution><p> The system is inconsistent due to the appearance of a leading one in the <q>equals</q> column. </p></solution>
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{amatrix}{rrrrr}
+			1 \amp 0 \amp 7 \amp -6 \amp 0 \\
+			0 \amp 1 \amp 9 \amp -1 \amp 0 \\
+			0 \amp 0 \amp 0 \amp  0 \amp 1 \\
+			0 \amp 0 \amp 0 \amp  0 \amp 0
+		\end{amatrix}
+	</m></p></statement>
+
+	<solution><p>
+		We assume this to be the coefficient matrix of a homogeneous system,
+		which is always consistent.
+		<ol>
+
+			<li><p>
+				The associated system of equations using variables <m>x_1,x_2,x_3,x_4,x_5</m> is
+				<me>
+					\begin{sysofeqns}{rcrcrcr}
+						x_1 \amp + \amp 7 x_3 \amp - \amp 6 x_4 \amp = \amp 0 \\
+						x_2 \amp + \amp 9 x_3 \amp - \amp   x_4 \amp = \amp 0 \\
+						    \amp   \amp       \amp   \amp   x_5 \amp = \amp 0
+					\end{sysofeqns}
+				</me>.
+				(We ignore the irrelevant <m>0 = 0</m> equation.)
+			</p></li>
+
+			<li><p>
+				The third and fourth columns in the matrix do not contain leading ones,
+				hence variables <m>x_3</m> and <m>x_4</m> are free.
+				Assigning parameters <m>x_3 = s</m> and <m>x_4 = t</m> and isolating for the three constrained variables in the equations above leads to general solution
+				<me>
+					\begin{array}{rcrcr}
+						x_1 \amp = \amp -7 s \amp + \amp 6 t \text{,} \\
+						x_2 \amp = \amp -9 s \amp + \amp   t \text{,} \\
+						x_3 \amp = \amp    s                 \text{,} \\
+						x_4 \amp = \amp      \amp   \amp   t \text{,} \\
+						x_5 \amp = \amp      \amp 0          \text{.}
+					\end{array}
+				</me>
+			</p></li>
+
+			<li><p>
+				We may determine specific solutions by choosing different combinations of arbitrary values for the parameters.
+				For example:
+				<ul>
+					<li><p>
+						Parameter values <m>s = 0</m> and <m>t = 0</m> lead to the <term><xref ref="definition-row-red-trivial-sol" text="title" /></term>
+						<md><mrow>
+							x_1 \amp = 0 \text{,} \amp
+							x_2 \amp = 0 \text{,} \amp
+							x_3 \amp = 0 \text{,} \amp
+							x_4 \amp = 0 \text{,} \amp
+							x_5 \amp = 0 \text{.}
+						</mrow></md>
+					</p></li>
+					<li><p>
+						Parameter values <m>s = 1</m> and <m>t = 0</m> lead to solution
+						<md><mrow>
+							x_1 \amp = -7 \text{,} \amp
+							x_2 \amp = -9 \text{,} \amp
+							x_3 \amp =  1 \text{,} \amp
+							x_4 \amp =  0 \text{,} \amp
+							x_5 \amp =  0 \text{.}
+						</mrow></md>
+					</p></li>
+					<li><p>
+						Parameter values <m>s = 0</m> and <m>t = 1</m> lead to solution
+						<md><mrow>
+							x_1 \amp = 6 \text{,} \amp
+							x_2 \amp = 1 \text{,} \amp
+							x_3 \amp = 0 \text{,} \amp
+							x_4 \amp = 1 \text{,} \amp
+							x_5 \amp = 0 \text{.}
+						</mrow></md>
+					</p></li>
+					<li><p>
+						Parameter values <m>s = -2</m> and <m>t = 3</m> lead to solution
+						<md><mrow>
+							x_1 \amp = 32 \text{,} \amp
+							x_2 \amp = 21 \text{,} \amp
+							x_3 \amp = -2 \text{,} \amp
+							x_4 \amp =  3 \text{,} \amp
+							x_5 \amp =  0 \text{.}
+						</mrow></md>
+					</p></li>
+				</ul>
+			</p></li>
+
+
+		</ol>
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

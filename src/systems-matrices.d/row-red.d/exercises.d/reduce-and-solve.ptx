@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Solving systems</title>
+
+<introduction>
+
+	<p>
+	For each system:
+	<ol>
+
+		<li>
+			Form the associated <xref ref="definition-systems-augmatrix" text="title" />.
+			(If it is a <xref ref="definition-row-red-homog-sys" text="title" />,
+			form the <xref ref="definition-row-red-coeff-matrix" text="title" /> instead.)
+		</li>
+
+		<li> Use <xref ref="procedure-row-red-reduce-to-rref" /> to reduce the matrix to <xref ref="definition-row-red-rref" text="custom">RREF</xref> </li>.
+
+		<li>
+			Determine whether the system is consistent.
+			If it is,
+			determine the general solution to the system,
+			expressed in parametric form if necessary.
+		</li>
+
+	</ol>
+	</p>
+
+</introduction>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcr}
+			4 x \amp + \amp 3 y \amp = \amp 4 \\
+			5 x \amp + \amp 4 y \amp = \amp 6
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li>
+			The augmented matrix is
+			<me>
+				\begin{amatrix}{rr|r}
+					4 \amp 3 \amp 4 \\
+					5 \amp 4 \amp 6
+				\end{amatrix}
+			</me>.
+		</li>
+
+		<li><p>
+			The matrix can be reduced to RREF by <xref ref="procedure-row-red-reduce-to-rref" /> using the following sequence of operations.
+			<ol>
+				<li><m> R_2 - R_1               </m></li>
+				<li><m> R_1 \leftrightarrow R_2 </m></li>
+				<li><m> R_2 - 4 R_1             </m></li>
+				<li><m> - R_2                   </m></li>
+				<li><m> R_1 - R_2               </m></li>
+			</ol>
+			<me>
+				\begin{amatrix}{rr|r}
+					4 \amp 3 \amp 4 \\
+					5 \amp 4 \amp 6
+				\end{amatrix}
+				\longrightarrow
+				\begin{amatrix}{rr|r}
+					1 \amp 0 \amp -2 \\
+					0 \amp 1 \amp  4
+				\end{amatrix}
+			</me>
+		</p></li>
+
+		<li> The system is consistent and has one unique solution of <m>x = -2, y = 4</m>. </li>
+
+	</ol></p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcr}
+			 4 x \amp - \amp 36 y \amp = \amp 12 \\
+			-3 x \amp + \amp 27 y \amp = \amp -7
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li>
+			The augmented matrix is
+			<me>
+				\begin{amatrix}{rr|r}
+					 4 \amp -36 \amp 12 \\
+					-3 \amp  27 \amp -7
+				\end{amatrix}
+			</me>.
+		</li>
+
+		<li><p>
+			The matrix can be reduced to RREF by <xref ref="procedure-row-red-reduce-to-rref" /> using the following sequence of operations.
+			<ol>
+				<li><m> R_1 + R_2        </m></li>
+				<li><m> R_2 + 3 R_1      </m></li>
+				<li><m> \tfrac{1}{8} R_2 </m></li>
+				<li><m> R_1 - 5 R_2      </m></li>
+			</ol>
+			<me>
+				\begin{amatrix}{rr|r}
+					 4 \amp -36 \amp 12 \\
+					-3 \amp  27 \amp -7
+				\end{amatrix}
+				\longrightarrow
+				\begin{amatrix}{rr|r}
+					1 \amp -9 \amp 0 \\
+					0 \amp  0 \amp 1
+				\end{amatrix}
+			</me>
+		</p></li>
+
+		<li> The system is inconsistent. </li>
+
+	</ol></p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcr}
+			 7 x \amp   \amp     \amp - \amp   z \amp = \amp   6 \\
+			-3 x \amp + \amp 3 y \amp + \amp   z \amp = \amp   9 \\
+			-4 x \amp - \amp 1 y \amp + \amp   z \amp = \amp -11 \\
+			14 x \amp - \amp 1 y \amp - \amp 2 z \amp = \amp   7
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li>
+			The augmented matrix is
+			<me>
+				\begin{amatrix}{rrr|r}
+					 7 \amp  0 \amp -1 \amp   6 \\
+					-3 \amp  3 \amp  1 \amp   9 \\
+					-4 \amp -1 \amp  1 \amp -11 \\
+					14 \amp -1 \amp -2 \amp   7
+				\end{amatrix}
+			</me>.
+		</li>
+
+		<li><p>
+			The matrix can be reduced to RREF by <xref ref="procedure-row-red-reduce-to-rref" /> using the following sequence of operations.
+			<ol>
+				<li><m> R_2 - R_3                                 </m></li>
+				<li><m> R_1 \leftrightarrow R_2                   </m></li>
+				<li><m> R_2 - 7 R_1;\ R_3 + 4 R_1;\ R_4 - 14 R_1  </m></li>
+				<li><m> R_4 - 2 R_2                               </m></li>
+				<li><m> - R_4                                     </m></li>
+				<li><m> R_2 \leftrightarrow R_4                   </m></li>
+				<li><m> R_1 - 4 R_2;\ R_3 - 15 R_2;\ R_4 + 28 R_2 </m></li>
+				<li><m> R_4 + R_3                                 </m></li>
+			</ol>
+			<me>
+				\begin{amatrix}{rrr|r}
+					 7 \amp  0 \amp -1 \amp   6 \\
+					-3 \amp  3 \amp  1 \amp   9 \\
+					-4 \amp -1 \amp  1 \amp -11 \\
+					14 \amp -1 \amp -2 \amp   7
+				\end{amatrix}
+				\longrightarrow
+				\begin{amatrix}{rrr|r}
+					1 \amp 0 \amp 0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp  5 \\
+					0 \amp 0 \amp 1 \amp -6 \\
+					0 \amp 0 \amp 0 \amp  0
+				\end{amatrix}
+			</me>
+		</p></li>
+
+		<li> The system is consistent and has one unique solution of <m>x = 0, y = 5, z = -6</m>. </li>
+
+	</ol></p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcr}
+			5 x \amp - \amp 8 y \amp + \amp 35 z \amp = \amp 36 \\
+			2 x \amp - \amp 3 y \amp + \amp 13 z \amp = \amp 14 \\
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li>
+			The augmented matrix is
+			<me>
+				\begin{amatrix}{rrr|r}
+					5 \amp -8 \amp 35 \amp 36 \\
+					2 \amp -3 \amp 13 \amp 14
+				\end{amatrix}
+			</me>.
+		</li>
+
+		<li><p>
+			The matrix can be reduced to RREF by <xref ref="procedure-row-red-reduce-to-rref" /> using the following sequence of operations.
+			<ol>
+				<li><m> R_1 - 2 R_2 </m></li>
+				<li><m> R_2 - 2 R_1 </m></li>
+				<li><m> R_1 + 2 R_2 </m></li>
+			</ol>
+			<me>
+				\begin{amatrix}{rrr|r}
+					5 \amp -8 \amp 35 \amp 36 \\
+					2 \amp -3 \amp 13 \amp 14
+				\end{amatrix}
+				\longrightarrow
+				\begin{amatrix}{rrr|r}
+					1 \amp 0 \amp -1 \amp  4 \\
+					0 \amp 1 \amp -5 \amp -2
+				\end{amatrix}
+			</me>
+		</p></li>
+
+		<li>
+			The system is consistent and has one free variable, <m>z</m>.
+			The simplified system of equations is
+			<me>
+				\begin{sysofeqns}{rcrcr}
+					x \amp - \amp   z \amp = \amp  4 \\
+					y \amp - \amp 5 z \amp = \amp -2 \\
+				\end{sysofeqns}
+			</me>
+			Assigning parameter <m>z = t</m> and isolating the two constrained variables in the equations above leads to general solution
+			<me>
+				\begin{array}{rcrcr}
+					x \amp = \amp  4 \amp + \amp   t \\
+					y \amp = \amp -2 \amp + \amp 5 t \\
+					z \amp = \amp    \amp   \amp   t
+				\end{array}
+			</me>.
+		</li>
+
+	</ol></p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcrcr}
+			6 x_1 \amp - \amp 13 x_2 \amp - \amp 17 x_3 \amp - \amp 6 x_4 \amp = \amp 0 \\
+			7 x_1 \amp - \amp 15 x_2 \amp - \amp 20 x_3 \amp - \amp 7 x_4 \amp = \amp 0 \\
+			5 x_1 \amp - \amp 11 x_2 \amp - \amp 14 x_3 \amp - \amp 4 x_4 \amp = \amp 0 \\
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li>
+			The system is homogeneous with coefficient matrix
+			<me>
+				\begin{amatrix}{rrrr}
+					6 \amp -13 \amp -17 \amp -6 \\
+					7 \amp -15 \amp -20 \amp -7 \\
+					5 \amp -11 \amp -14 \amp -4
+				\end{amatrix}
+			</me>.
+		</li>
+
+		<li><p>
+			The matrix can be reduced to RREF by <xref ref="procedure-row-red-reduce-to-rref" /> using the following sequence of operations.
+			<ol>
+				<li><m> R_1 - R_3                  </m></li>
+				<li><m> R_2 - 7 R_1;\ R_3 - 5 R_1  </m></li>
+				<li><m> - R_2                      </m></li>
+				<li><m> R_1 + 2 R_2;\ R_3 + R_2    </m></li>
+				<li><m> - R_3                      </m></li>
+				<li><m> R_1 + 16 R_3;\ R_2 + 7 R_3 </m></li>
+			</ol>
+			<me>
+				\begin{amatrix}{rrr|r}
+					6 \amp -13 \amp -17 \amp -6 \\
+					7 \amp -15 \amp -20 \amp -7 \\
+					5 \amp -11 \amp -14 \amp -4
+				\end{amatrix}
+				\longrightarrow
+				\begin{amatrix}{rrrr}
+					1 \amp 0 \amp -5 \amp 0 \\
+					0 \amp 1 \amp -1 \amp 0 \\
+					0 \amp 0 \amp  0 \amp 1
+				\end{amatrix}
+			</me>
+		</p></li>
+
+		<li>
+			The system is consistent and has one free variable, <m>x_3</m>.
+			Remember that the matrices above are only the <em>coefficient</em> matrices of a homogeneous system;
+			the corresponding <em>augmented</em> matrix is
+			<me>
+				\begin{amatrix}{rrrr|r}
+					1 \amp 0 \amp -5 \amp 0 \amp 0 \\
+					0 \amp 1 \amp -1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp  0 \amp 1 \amp 0
+				\end{amatrix}
+			</me>
+			The simplified system of equations is
+			<me>
+				\begin{sysofeqns}{rcrcr}
+					x_1 \amp - \amp 5 x_3 \amp = \amp 0 \\
+					x_2 \amp - \amp   x_3 \amp = \amp 0 \\
+					    \amp   \amp   x_4 \amp = \amp 0 \\
+				\end{sysofeqns}
+			</me>
+			Assigning parameter <m>x_3 = t</m> and isolating the constrained variables in the first two equations above leads to general solution
+			<md><mrow>
+				x_1 \amp = 5 t \text{,} \amp
+				x_2 \amp = t   \text{,} \amp
+				x_3 \amp = t   \text{,} \amp
+				x_4 \amp = 0   \text{.}
+			</mrow></md>
+		</li>
+
+	</ol></p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcrcrcr}
+			 2 x_1 \amp - \amp 4 x_2 \amp - \amp 24 x_3 \amp - \amp 3 x_4 \amp + \amp 18 \amp = \amp   9 \\
+			-3 x_1 \amp + \amp 4 x_2 \amp + \amp 26 x_3 \amp + \amp 8 x_4 \amp - \amp  7 \amp = \amp -17 \\
+			-1 x_1 \amp + \amp 2 x_2 \amp + \amp 12 x_3 \amp + \amp 2 x_4 \amp - \amp  7 \amp = \amp - 5 \\
+			 3 x_1 \amp - \amp 5 x_2 \amp - \amp 31 x_3 \amp - \amp 6 x_4 \amp + \amp 18 \amp = \amp  15
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li>
+			The augmented matrix is
+			<me>
+				\begin{amatrix}{rrrrr|r}
+					 2 \amp -4 \amp -24 \amp -3 \amp 18 \amp   9 \\
+					-3 \amp  4 \amp  26 \amp  8 \amp -7 \amp -17 \\
+					-1 \amp  2 \amp  12 \amp  2 \amp -7 \amp - 5 \\
+					 3 \amp -5 \amp -31 \amp -6 \amp 18 \amp  15
+				\end{amatrix}
+			</me>.
+		</li>
+
+		<li><p>
+			The matrix can be reduced to RREF by <xref ref="procedure-row-red-reduce-to-rref" /> using the following sequence of operations.
+			<ol>
+				<li><m> - R_3                                   </m></li>
+				<li><m> R_1 \leftrightarrow R_3                 </m></li>
+				<li><m> R_2 + 3 R_1;\ R_3 - 2 R_1;\ R_4 - 3 R_1 </m></li>
+				<li><m> R_2 \leftrightarrow R_4                 </m></li>
+				<li><m> R_1 + 2 R_2;\ R_4 + 2 R_2               </m></li>
+				<li><m> R_1 + 2 R_3;\ R_4 - 2 R_3               </m></li>
+			</ol>
+			<me>
+				\begin{amatrix}{rrrrr|r}
+					 2 \amp -4 \amp -24 \amp -3 \amp 18 \amp   9 \\
+					-3 \amp  4 \amp  26 \amp  8 \amp -7 \amp -17 \\
+					-1 \amp  2 \amp  12 \amp  2 \amp -7 \amp - 5 \\
+					 3 \amp -5 \amp -31 \amp -6 \amp 18 \amp  15
+				\end{amatrix}
+				\longrightarrow
+				\begin{amatrix}{rrrrr|r}
+					1 \amp 0 \amp -2 \amp 0 \amp  9 \amp  3 \\
+					0 \amp 1 \amp  5 \amp 0 \amp -3 \amp  0 \\
+					0 \amp 0 \amp  0 \amp 1 \amp  4 \amp -1 \\
+					0 \amp 0 \amp  0 \amp 0 \amp  0 \amp  0
+				\end{amatrix}
+			</me>
+		</p></li>
+
+		<li>
+			The system is consistent and has two free variables, <m>x_3</m> amd <m>x_5</m>.
+			The simplified system of equations is
+			<me>
+				\begin{sysofeqns}{rcrcrcr}
+					x_1 \amp - \amp 2 x_3 \amp + \amp 9 x_5 \amp = \amp  3 \\
+					x_2 \amp + \amp 5 x_3 \amp - \amp 3 x_5 \amp = \amp  0 \\
+					    \amp   \amp   x_4 \amp + \amp 4 x_5 \amp = \amp -1 \\
+				\end{sysofeqns}
+			</me>
+			Assigning parameters <m>x_3 = s</m> and <m>x_5 = t</m> and isolating the constrained variables in the equations above leads to general solution
+			<me>
+				\begin{array}{rcrcrcr}
+					x_1 \amp = \amp  3 \amp + \amp  2 s \amp - \amp 9 t \\
+					x_2 \amp = \amp    \amp   \amp -5 s \amp + \amp 3 t \\
+					x_3 \amp = \amp    \amp   \amp    s                 \\
+					x_4 \amp = \amp -1 \amp   \amp      \amp - \amp 4 t \\
+					x_5 \amp = \amp    \amp   \amp      \amp   \amp   t
+				\end{array}
+			</me>.
+		</li>
+
+	</ol></p></solution>
+
+</exercise>
+
+</exercisegroup>
