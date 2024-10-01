@@ -40,18 +40,19 @@ respective owners.
 			as long as we <alert>never simultaneously modify a row and also use that row to modify another row</alert>.
 		</li>
 		<li>
-			We write down the row operation(s) we are using in that reduction step to the right of the matrix, to keep track of what we are doing.
+			We write down the row operation(s) we are using in the next reduction step to the right of the previous matrix,
+			to keep track of what we are doing.
 		</li>
 		<li>
 			We don't always have to multiply a row by a fraction to get a leading one <mdash />
 			we can sometimes use a difference between entries in a column, and avoid fractions that way.
 		</li>
 		<li>
-			There are many different sequences of operations one could use to get from initial augmented matrix to an RREF matrix.
-			The reductions in the examples below are not the only way, nor are they necessarily the <em>best</em> way to proceed.
-			As long as we steadily progress toward RREF, that's all that matters.
+			There are many different sequences of operations one could use to get from initial matrix to its RREF matrix.
+			The reductions in the examples below are not the only way, nor are they necessarily the <em>most efficient</em> way to proceed.
+			We choose <em>systematicity over speed/cleverness</em> and adhere to <xref ref="procedure-row-red-reduce-to-rref" />,
+			which will always lead to RREF in a direct manner.
 		</li>
-		<!--<li>We sometimes deviate from the strategy a little bit to avoid fractions. In particular, we might eliminate entries using a leading <em>entry</em> before turning it into a leading <em>one</em>.</li>-->
 		<li>
 			We never write an equals sign between matrices when row reducing.
 			We will explore what it means for two matrices to be equal in
@@ -60,13 +61,21 @@ respective owners.
 			When you perform a row operation,
 			the result is a <em>different</em> matrix than the original,
 			and the two matrices represent <em>different</em> systems of equations.
-			However, the two matrices <em>are</em> related, and it is to express this relationship that we have the terminology <term>row equivalent</term>.
+			However, the two matrices <em>are</em> related, and it is to express this relationship that we have the terminology <term><xref ref="definition-row-red-row-equiv" text="title" /></term>.
 		</li>
 	</ul>
 </p></introduction>
 
 <subsection xml:id="subsection-row-red-examples-solving">
 <title>Worked examples from the discovery guide</title>
+
+<p>
+As you analyze these examples,
+it is a good idea to compare them side-by-side with <xref ref="procedure-row-red-reduce-to-rref" />,
+making sure you can match up each choice of row operation(s) with a particular step in the procedure.
+(But note that sometimes steps in the procedure are skipped,
+when the matrix already exhibits the pattern in the goal of that step.)
+</p>
 
 <example xml:id="example-row-red-solving-unique">
 	<title>One unique solution</title>
@@ -88,7 +97,7 @@ respective owners.
 				1 \amp -1 \amp 0 \amp 3\\
 				4 \amp -2 \amp -3 \amp 7
 			\end{array}\right]
-			\begin{matrix}R_1\leftrightarrow R_2\\\\\end{matrix}
+			\begin{matrix} R_1 \leftrightarrow R_2 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -97,7 +106,7 @@ respective owners.
 				2 \amp 0 \amp -2 \amp 4 \\
 				4 \amp -2 \amp -3 \amp 7
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\R_2 - 2R_1\\R_3-4R_1\end{matrix}
+			\begin{matrix}\\ R_2 - 2 R_1 \\ R_3 - 4 R_1 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -106,7 +115,7 @@ respective owners.
 				0 \amp 2 \amp -2 \amp -2 \\
 				0 \amp 2 \amp -3 \amp -5
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\\\\frac{1}{2}R_2\\\phantom{x}\\\phantom{x}\end{matrix}
+			\begin{matrix}\\ \frac{1}{2} R_2 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -115,7 +124,7 @@ respective owners.
 				0 \amp 1 \amp -1 \amp -1 \\
 				0 \amp 2 \amp -3 \amp -5
 			\end{array}\right]
-			\begin{matrix}R_1+R_2\\\phantom{X}\\R_3-2R_2\end{matrix}
+			\begin{matrix} R_1 + R_2 \\\\ R_3 - 2 R_2 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -124,7 +133,7 @@ respective owners.
 				0 \amp 1 \amp -1 \amp -1 \\
 				0 \amp 0 \amp -1 \amp -3
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\\phantom{X}\\-R_3\end{matrix}
+			\begin{matrix}\\\\ -R_3 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -133,7 +142,7 @@ respective owners.
 				0 \amp 1 \amp -1 \amp -1 \\
 				0 \amp 0 \amp 1 \amp 3
 			\end{array}\right]
-			\begin{matrix}R_1+R_3\\R_2+R_3\\\phantom{X}\end{matrix}
+			\begin{matrix} R_1 + R_3 \\ R_2 + R_3 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -172,7 +181,7 @@ respective owners.
 				2 \amp 4 \amp 3 \amp -5\\
 				3 \amp 6 \amp 6 \amp -12
 			\end{array}\right]
-			\begin{matrix}R_1-R_2\\\phantom{X}\\\phantom{X}\end{matrix}
+			\begin{matrix} R_1 - R_2 \\\\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -181,7 +190,7 @@ respective owners.
 				2 \amp 4 \amp 3 \amp -5\\
 				3 \amp 6 \amp 6 \amp -12
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\R_2-2R_1\\R_3-3R_1\end{matrix}
+			\begin{matrix}\\ R_2 - 2 R_1 \\ R_3 - 3 R_1 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -190,7 +199,7 @@ respective owners.
 				0 \amp 0 \amp -1 \amp 3\\
 				0 \amp 0 \amp 0 \amp 0
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\-R_2\\\phantom{X}\end{matrix}
+			\begin{matrix}\\ -R_2 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -199,7 +208,7 @@ respective owners.
 				0 \amp 0 \amp 1 \amp -3\\
 				0 \amp 0 \amp 0 \amp 0
 			\end{array}\right]
-			\begin{matrix}R_1-2R_2\\\phantom{X}\\\phantom{X}\end{matrix}
+			\begin{matrix} R_1 - 2 R_2 \\\\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -252,7 +261,7 @@ respective owners.
 				2 \amp 5 \amp 2 \amp -3\\
 				2 \amp 4 \amp 2 \amp -1
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\R_2-2R_1\\R_3-2R_1\end{matrix}
+			\begin{matrix}\\ R_2 - 2 R_1 \\ R_3 - 2 R_1 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -261,7 +270,16 @@ respective owners.
 				0 \amp 1 \amp 0 \amp -7\\
 				0 \amp 0 \amp 0 \amp -5
 			\end{array}\right]
-			\begin{matrix}R_1-2R_2\\\phantom{X}\\-\frac{1}{5}R_3\end{matrix}
+			\begin{matrix} R_1 - 2 R_2 \\\\\\\end{matrix}
+		</mrow>
+		<mrow>
+			\longrightarrow \amp
+			\left[\begin{array}{rrr|r}
+				1 \amp 0 \amp 1 \amp 16\\
+				0 \amp 1 \amp 0 \amp -7\\
+				0 \amp 0 \amp 0 \amp -5
+			\end{array}\right]
+			\begin{matrix}\\\\ -\frac{1}{5} R_3 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -270,7 +288,7 @@ respective owners.
 				0 \amp 1 \amp 0 \amp -7\\
 				0 \amp 0 \amp 0 \amp 1
 			\end{array}\right]
-			\begin{matrix} R_1 - 16 R_3 \\ R_2 + 7 R_3 \\ \phantom{X} \end{matrix}
+			\begin{matrix} R_1 - 16 R_3 \\ R_2 + 7 R_3 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -287,7 +305,7 @@ respective owners.
 	Therefore, the system is <term>inconsistent</term>.
 	(Of course, we could have seen that this would happen right from the second matrix,
 	and could have stopped there.
-	But we went all the way to RREF to have another example demonstrating the row reduction strategy.
+	But we went all the way to RREF to have another example demonstrating <xref ref="procedure-row-red-reduce-to-rref" />.
 	In practice, we should stop reducing as soon as we can see that the system will be inconsistent.)
 	</p>
 </example>
@@ -314,7 +332,7 @@ respective owners.
 				1 \amp 2 \amp -2 \amp 3 \\
 				2 \amp 4 \amp -5 \amp 8
 			\end{array}\right]
-			\begin{matrix}R_1\leftrightarrow R_2\\\\\end{matrix}
+			\begin{matrix} R_1 \leftrightarrow R_2 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -323,7 +341,7 @@ respective owners.
 				3 \amp 6 \amp -8 \amp 13 \\
 				2 \amp 4 \amp -5 \amp 8
 			\end{array}\right]
-			\begin{matrix}\phantom{X}\\R_2-3R_1\\R_3-2R_1\end{matrix}
+			\begin{matrix}\\ R_2 - 3 R_1 \\ R_3 - 2 R_1 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -332,7 +350,7 @@ respective owners.
 				0 \amp 0 \amp -2 \amp 4 \\
 				0 \amp 0 \amp -1 \amp 2
 			\end{array}\right]
-			\begin{matrix}\\-\frac{1}{2}R_2\\\phantom{X}\end{matrix}
+			\begin{matrix}\\ -\frac{1}{2} R_2 \\\\\end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
@@ -341,7 +359,7 @@ respective owners.
 				0 \amp 0 \amp 1 \amp -2 \\
 				0 \amp 0 \amp -1 \amp 2
 			\end{array}\right]
-			\begin{matrix}R_1+2R_3\\\phantom{X}\\R_3+R_2\end{matrix}
+			\begin{matrix} R_1 + 2 R_3 \\\\ R_3 + R_2 \end{matrix}
 		</mrow>
 		<mrow>
 			\longrightarrow \amp
