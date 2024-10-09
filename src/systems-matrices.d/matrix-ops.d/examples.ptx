@@ -357,10 +357,12 @@ and for some of the rules, in that same subsection we verify that they are indee
 <p>
 We may use matrices and matrix algebra to express the solutions to solutions as column vectors.
 In particular, we can expand solutions involving parameters into a
-<term>linear combination</term><idx><h>linear</h><h>combination</h></idx>
+<term><xref ref="definition-matrix-ops-linear-combination" text="custom">linear combination</xref></term><idx><h>linear</h><h>combination</h></idx>
 of column vectors.
 Expressing solutions this way allows us to see the effect of each parameter on the system.
-</p><p>
+</p>
+
+<p>
 Let's re-examine the systems in the examples from <xref ref="section-row-red-examples" /> as matrix equations,
 and express their solutions in vector form.
 </p>
@@ -418,18 +420,19 @@ and express their solutions in vector form.
 	</mrow></md>
 	In vector form, we expand this solution as
 	<me>
-		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
-		= \begin{bmatrix}2-2t\\t\\-3\end{bmatrix}
-		= \begin{bmatrix}2-2t\\0+t\\-3+0t\end{bmatrix}
-		= \begin{abmatrix}{r}2\\0\\-3\end{abmatrix}
-		+ \begin{abmatrix}{r}-2t\\t\\0t\end{abmatrix}
-		= \begin{abmatrix}{r}2\\0\\-3\end{abmatrix}
-		+ t\begin{abmatrix}{r}-2\\1\\0\end{abmatrix}.
+		\uvec{x}
+		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+		= \begin{bmatrix} 2 - 2 t \\ t \\ -3 \end{bmatrix}
+		= \begin{bmatrix} 2 + (-2) t \\ 0 + 1 t \\ -3 + 0 t \end{bmatrix}
+		= \begin{abmatrix}{r} 2 \\ 0 \\ -3 \end{abmatrix}
+		+ \begin{abmatrix}{r} -2 t \\ 1 t \\ 0 t \end{abmatrix}
+		= \begin{abmatrix}{r} 2 \\ 0 \\ -3 \end{abmatrix}
+		+ t \begin{abmatrix}{r} -2 \\ 1 \\ 0 \end{abmatrix}.
 	</me>
 	Notice how the solution is the sum of a <term>constant part</term>
-	<me> \begin{abmatrix}{r}2\\0\\-3\end{abmatrix} </me>
+	<me> \begin{abmatrix}{r} 2 \\ 0 \\ -3 \end{abmatrix} </me>
 	and a <term>variable part</term>
-	<me> t\begin{abmatrix}{r}-2\\1\\0\end{abmatrix}. </me>
+	<me> t \begin{abmatrix}{r} -2 \\ 1 \\ 0 \end{abmatrix}. </me>
 	Further notice how the constant part is a particular solution to the system <mdash />
 	it is the <q>initial</q> particular solution associated to the parameter value <m>t=0</m>.
 	</p>
@@ -457,19 +460,20 @@ and express their solutions in vector form.
 	<md><mrow> x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t </mrow></md>.
 	In vector form, we expand this solution as
 	<me>
-		\uvec{x} = \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
-		= \begin{bmatrix}-2s+t\\s\\2t\\t\end{bmatrix}
-		= \begin{bmatrix}-2s+t\\s+0t\\0s+2t\\0s+t\end{bmatrix}
-		= \begin{abmatrix}{r}-2s\\s\\0s\\0s\end{abmatrix}
-		+ \begin{abmatrix}{r}t\\0t\\2t\\t\end{abmatrix}
-		= s\begin{abmatrix}{r}-2\\1\\0\\0\end{abmatrix}
-		+ t\begin{abmatrix}{r}1\\0\\2\\1\end{abmatrix}.
+		\uvec{x}
+		= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix}
+		= \begin{bmatrix} -2 s + t \\ s \\ 2 t \\ t \end{bmatrix}
+		= \begin{bmatrix} -2 s + 1 t \\ 1 s + 0 t \\ 0 s + 2 t \\ 0 s + 1 t \end{bmatrix}
+		= \begin{abmatrix}{r} -2 s \\ s \\ 0 s \\ 0 s \end{abmatrix}
+		+ \begin{abmatrix}{r} t \\ 0 t \\ 2 t \\ t \end{abmatrix}
+		= s \begin{abmatrix}{r} -2 \\ 1 \\ 0 \\ 0 \end{abmatrix}
+		+ t \begin{abmatrix}{r} 1 \\ 0 \\ 2 \\ 1 \end{abmatrix}.
 	</me>
 	This time, the solution is a sum of <em>two</em> variables parts,
 	<md><mrow>
-		\amp s\begin{abmatrix}{r}-2\\1\\0\\0\end{abmatrix}
+		\amp s \begin{abmatrix}{r} -2 \\ 1 \\ 0 \\ 0 \end{abmatrix}
 		\amp \amp\text{and}\amp
-		\amp t\begin{abmatrix}{r}1\\0\\2\\1\end{abmatrix}
+		\amp t \begin{abmatrix}{r} 1 \\ 0 \\ 2 \\ 1 \end{abmatrix}
 	</mrow></md>,
 	since there are two parameters.
 	And there is <em>no</em> constant part to the general solution,
@@ -502,13 +506,13 @@ and express their solutions in vector form.
 	</mrow></md>
 	and found an infinite number of solutions,
 	with general solution expressed parametrically as
-	<md><mrow> x \amp = -2t, \amp y \amp = t, \amp z \amp = 0. </mrow></md>
+	<md><mrow> x \amp = -2 t, \amp y \amp = t, \amp z \amp = 0. </mrow></md>
 	In vector form, we express this as
 	<me>
-		\uvec{x} = \begin{bmatrix}x\\y\\z\end{bmatrix}
-		= \begin{abmatrix}{r}-2t\\t\\0\end{abmatrix}
-		= \begin{abmatrix}{r}-2t\\t\\0t\end{abmatrix}
-		= t\begin{abmatrix}{r}-2\\1\\0\end{abmatrix}
+		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+		= \begin{abmatrix}{r} -2 t \\ t \\ 0 \end{abmatrix}
+		= \begin{abmatrix}{r} -2 t \\ 1 t \\ 0 t \end{abmatrix}
+		= t \begin{abmatrix}{r} -2 \\ 1 \\0 \end{abmatrix}
 	</me>.
 	This homogeneous system has the same coefficient matrix as in
 	<xref ref="example-matrix-ops-sys-sol-vector-forms-infinite" />
