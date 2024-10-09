@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-matrix-ops-matrix-arithmetic">
+<title>Matrix arithmetic</title>
+
+<introduction><p>
+	In each case, carry out the matrix operations.
+	If the operations cannot be carried out, explain why.
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\utrans{\begin{bmatrix} 2 \amp 1 \amp -4 \amp 9 \end{bmatrix}}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle \begin{abmatrix}{r} -2 \\ 1 \\ -4 \\ 9 \end{abmatrix} </m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\utrans{\begin{bmatrix} 5 \\ 1 \\ 7 \end{bmatrix}}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle \begin{bmatrix} 5 \amp 1 \amp 7 \end{bmatrix} </m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\utrans{
+			\begin{abmatrix}{rrrrr}
+				2 \amp -2 \amp -3 \amp  0 \amp -5 \\
+				3 \amp  4 \amp  1 \amp -3 \amp  3 \\
+				2 \amp -5 \amp  0 \amp  4 \amp -2
+			\end{abmatrix}
+		}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 2 \amp  3 \amp  2 \\
+			-2 \amp  4 \amp -5 \\
+			-3 \amp  1 \amp  0 \\
+			 0 \amp -3 \amp  4 \\
+			-5 \amp  3 \amp -2
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\utrans{
+			\begin{abmatrix}{rrr}
+				4 \amp  1 \amp  2 \\
+				1 \amp -5 \amp -9 \\
+				2 \amp -9 \amp  3
+			\end{abmatrix}
+		}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			4 \amp  1 \amp  2 \\
+			1 \amp -5 \amp -9 \\
+			2 \amp -9 \amp  3
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<!-- addition/subtraction -->
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			 6 \amp 4 \\
+			-3 \amp 9
+		\end{abmatrix}
+		+
+		\begin{abmatrix}{rr}
+			 8 \amp  2 \\
+			-2 \amp -8
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			14 \amp 6 \\
+			-5 \amp 1
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			 6 \amp 4 \\
+			-3 \amp 9
+		\end{abmatrix}
+		+
+		\begin{abmatrix}{rr}
+			 8 \amp  2 \\
+			-2 \amp -8 \\
+			 7 \amp  5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p> <alert>Undefined:</alert> addition requires matrices of the same dimensions. </p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			 4 \amp -6 \\
+			-8 \amp -9 \\
+			-9 \amp  8
+		\end{abmatrix}
+		-
+		\begin{abmatrix}{rr}
+			0 \amp -8 \\
+			0 \amp  2 \\
+			7 \amp  4
+		\end{abmatrix}
+		+
+		\utrans{\begin{abmatrix}{rrr}
+			4 \amp 1 \amp 1 \\
+			6 \amp -3 \amp -1
+		\end{abmatrix}}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			  8 \amp   8 \\
+			- 7 \amp -14 \\
+			-15 \amp   3
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<task>
+		<statement><p><m>\displaystyle \begin{bmatrix} 2 \end{bmatrix} + \begin{bmatrix} 5 \end{bmatrix} </m></p></statement>
+		<answer>
+			<p><m>\displaystyle \begin{bmatrix} 7 \end{bmatrix} </m></p>
+			<p><alert>Note:</alert> that the result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
+		</answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle \begin{bmatrix} 2 \end{bmatrix} + \begin{bmatrix} 5 \amp 5 \end{bmatrix} </m></p></statement>
+		<answer><p> <alert>Undefined:</alert> addition requires matrices of the same dimensions. </p></answer>
+	</task>
+
+</exercise>
+
+<!-- negative -->
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		-
+		\begin{abmatrix}{rr}
+			 7 \amp -1 \\
+			-9 \amp  3 \\
+			 0 \amp  4
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-7 \amp  1 \\
+			 9 \amp -3 \\
+			 0 \amp -4
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		-
+		\begin{bmatrix}
+			0 \amp 0 \\
+			0 \amp  0
+		\end{bmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\zerovec =
+		\begin{bmatrix}
+			0 \amp 0 \\
+			0 \amp  0
+		\end{bmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<!-- scalar multiplication -->
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		3
+		\begin{abmatrix}{rrr}
+			-7 \amp 2 \amp -8 \\
+			 8 \amp 1 \amp  2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-21 \amp 6 \amp -24 \\
+			 24 \amp 3 \amp   6
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle -2 \begin{abmatrix}{r} -6 \\ 0 \\  1 \\   5 \end{abmatrix} </m></p></statement>
+	<answer>   <p><m>\displaystyle    \begin{abmatrix}{r} 12 \\ 0 \\ -2 \\ -10 \end{abmatrix} </m></p></answer>
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\pi
+		\begin{abmatrix}{rr}
+			1 \amp -3 \\
+			2 \amp -2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{bmatrix}
+			  \pi \amp -3 \pi \\
+			2 \pi \amp -2 \pi
+		\end{bmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		0
+		\begin{abmatrix}{rr}
+			4 \amp  9 \\
+			3 \amp -9
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\zerovec =
+		\begin{bmatrix}
+			0 \amp 0 \\
+			0 \amp 0
+		\end{bmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\sqrt{2}
+		\begin{bmatrix}
+			0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0
+		\end{bmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\zerovec =
+		\begin{bmatrix}
+			0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0
+		\end{bmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle 4 \begin{bmatrix} 8 \end{bmatrix} </m></p></statement>
+	<answer>
+		<p><m>\displaystyle \begin{bmatrix} 32 \end{bmatrix} </m></p>
+		<p><alert>Note:</alert> that the result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
+	</answer>
+</exercise>
+
+<!-- linear combinations -->
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		    6  \begin{abmatrix}{r} -2 \\ 5 \\  0 \end{abmatrix}
+		+ (-8) \begin{abmatrix}{r} -7 \\ 6 \\  1 \end{abmatrix}
+		+   3  \begin{abmatrix}{r}  5 \\ 0 \\ -3 \end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{r} 59 \\ -18 \\ -17 \end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		2
+		\begin{abmatrix}{rr}
+			6 \amp -4 \\
+			0 \amp -6
+		\end{abmatrix}
+		+ 3
+		\begin{abmatrix}{rr}
+			 8 \amp 9 \\
+			-4 \amp 0
+		\end{abmatrix}
+		+ (-2)
+		\begin{abmatrix}{rr}
+			 5 \amp 2 \\
+			-5 \amp 3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			26 \amp  15 \\
+			-2 \amp -18
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<!-- multiplication -->
+
+<exercise>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{bmatrix} 3 \amp 4 \end{bmatrix}
+			\begin{bmatrix} 1  \\  3 \end{bmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} 15 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rr} 2 \amp -5 \end{abmatrix}
+			\begin{bmatrix}      1  \\   3 \end{bmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} -13 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rr}
+				3 \amp  4 \\
+				2 \amp -5
+			\end{abmatrix}
+			\begin{bmatrix} 1  \\  3 \end{bmatrix}
+		</m></p></statement>
+		<hint><p> Consider the relationship between this matrix multiplication and the two matrix products you have already computed in this exercise. </p></hint>
+		<answer><p><m>\displaystyle \begin{abmatrix}{r} 15 \\ -13 \end{abmatrix} </m></p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+
+	<task>
+
+		<statement><p><m>\displaystyle
+			\begin{bmatrix} 3 \amp 4 \amp 0 \end{bmatrix}
+			\begin{bmatrix} 1  \\  3 \end{bmatrix}
+		</m></p></statement>
+
+		<answer><p>
+			<alert>Undefined:</alert>
+			the row matrix has more entries than the column matrix,
+			so we cannot carry out the <em>multiply-then-add</em> procedure of matrix multiplication.
+		</p></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p><m>\displaystyle
+			\begin{bmatrix} 3 \amp 4 \end{bmatrix}
+			\begin{bmatrix} 1  \\  3 \\ 0 \end{bmatrix}
+		</m></p></statement>
+
+		<answer><p>
+			<alert>Undefined:</alert>
+			the row matrix has fewer entries than the column matrix,
+			so we cannot carry out the <em>multiply-then-add</em> procedure of matrix multiplication.
+		</p></answer>
+
+	</task>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-1">
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr} 2 \amp -5 \amp -2 \end{abmatrix}
+			\begin{abmatrix}{r}   3  \\  -3  \\   2 \end{abmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} 17 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr} -4 \amp  5 \amp 4 \end{abmatrix}
+			\begin{abmatrix}{r}    3  \\  -3  \\  2 \end{abmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} -19 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr} 1 \amp  3 \amp -5 \end{abmatrix}
+			\begin{abmatrix}{r}   3  \\  -3  \\   2 \end{abmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} -16 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr}
+				 2 \amp -5 \amp -2 \\
+				-4 \amp  5 \amp  4 \\
+				 1 \amp  3 \amp -5
+			\end{abmatrix}
+			\begin{abmatrix}{r} 3 \\ -3 \\ 2 \end{abmatrix}
+		</m></p></statement>
+		<hint><p> Consider the relationship between this matrix multiplication task and the three matrix products you have already computed in this exercise. </p></hint>
+		<answer><p><m>\displaystyle \begin{abmatrix}{r} 17 \\ -19 \\ -16 \end{abmatrix} </m></p></answer>
+	</task>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-2">
+
+	<introduction><p>
+		<alert>Note:</alert>
+		you should complete <xref ref="exercise-matrix-ops-mult-three-rows-against-same-column-1" text="type-local" /> before completing this exercise.
+	</p></introduction>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr} 2 \amp -5 \amp -2 \end{abmatrix}
+			\begin{abmatrix}{r}   2  \\  -1  \\  -3 \end{abmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} 15 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr} -4 \amp  5 \amp  4 \end{abmatrix}
+			\begin{abmatrix}{r}    2  \\  -1  \\  -3 \end{abmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} -25 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr} 1 \amp  3 \amp -5 \end{abmatrix}
+			\begin{abmatrix}{r}   2  \\  -1  \\  -3 \end{abmatrix}
+		</m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} 14 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			\begin{abmatrix}{rrr}
+				 2 \amp -5 \amp -2 \\
+				-4 \amp  5 \amp  4 \\
+				 1 \amp  3 \amp -5
+			\end{abmatrix}
+			\begin{abmatrix}{rr}
+				 3 \amp  2 \\
+				-3 \amp -1 \\
+				 2 \amp -3
+			\end{abmatrix}
+		</m></p></statement>
+		<hint><p>
+			Consider the relationship between this matrix multiplication task,
+			the final matrix multiplication task in <xref ref="exercise-matrix-ops-mult-three-rows-against-same-column-1" text="type-local" />,
+			and the three matrix products you have already computed in this exercise.
+		</p></hint>
+		<answer><p><m>\displaystyle
+			\begin{abmatrix}{rr}
+				 17 \amp  15 \\
+				-19 \amp -25 \\
+				-16 \amp  14
+			\end{abmatrix}
+		</m></p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 3 \amp -2 \amp 1 \\
+			-2 \amp -1 \amp 1
+		\end{abmatrix}
+		\begin{abmatrix}{rrr}
+			 2 \amp -2 \amp -1 \\
+			-2 \amp -3 \amp  0 \\
+			-1 \amp  0 \amp  2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 9 \amp 0 \amp -1 \\
+			-3 \amp 7 \amp  4
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 2 \amp -2 \amp -1 \\
+			-2 \amp -3 \amp  0 \\
+			-1 \amp  0 \amp  2
+		\end{abmatrix}
+		\begin{abmatrix}{rrr}
+			 3 \amp -2 \amp 1 \\
+			-2 \amp -1 \amp 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p> <alert>Undefined:</alert> the first matrix has three columns while the second matrix has only two rows. </p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			2 \amp -4 \amp -1 \\
+			0 \amp  1 \amp  3 \\
+			1 \amp -2 \amp -1
+		\end{abmatrix}
+		\begin{abmatrix}{rrr}
+			-5 \amp 2 \amp 11 \\
+			-3 \amp 1 \amp  6 \\
+			 1 \amp 0 \amp -2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			7 \amp 14 \amp 4 \amp -5 \\
+			0 \amp  0 \amp 1 \amp  4 \\
+			2 \amp  4 \amp 0 \amp -6 \\
+			3 \amp  6 \amp 4 \amp  7
+		\end{abmatrix}
+		\begin{abmatrix}{rr}
+			 1 \amp  4 \\
+			 1 \amp  1 \\
+			-4 \amp -8 \\
+			 1 \amp  2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>\displaystyle \begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \\ 0 \amp 0 \\ 0 \amp 0 \end{bmatrix} </m></p>
+
+		<p>
+		<alert>Notice:</alert>
+		Here have multiplied two matrices,
+		neither of which is a zero matrix,
+		yet the result is a zero matrix.
+		This confirms that for matrices, <em>result <m>A B = \zerovec</m> does NOT imply that at least one of <m>A</m> or <m>B</m> must be zero</em>.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<task>
+
+		<statement><p><m>\displaystyle
+			\begin{bmatrix} -2 \end{bmatrix}
+			\begin{bmatrix}  5 \end{bmatrix}
+		</m></p></statement>
+
+		<answer>
+			<p><m>\displaystyle \begin{bmatrix} -10 \end{bmatrix} </m></p>
+			<p><alert>Note:</alert> that the result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
+		</answer>
+
+	</task>
+
+	<task>
+
+		<statement><p><m>\displaystyle
+			\begin{bmatrix} -2 \end{bmatrix}
+			\begin{bmatrix} 5 \amp 5 \end{bmatrix}
+		</m></p></statement>
+
+		<answer>
+			<p><m>\displaystyle \begin{bmatrix} -10 \amp -10 \end{bmatrix} </m></p>
+		</answer>
+
+	</task>
+
+	<task>
+
+		<statement><p><m>\displaystyle
+			\begin{bmatrix} -2 \end{bmatrix}
+			\begin{bmatrix} 5 \\ 5 \end{bmatrix}
+		</m></p></statement>
+
+		<answer>
+			<p> <alert>Undefined:</alert> the first matrix has only one column while the second matrix has two rows. </p>
+			<p> <alert>Note:</alert> this operation is <em>NOT</em> the same as scalar multiplication. </p>
+		</answer>
+
+	</task>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+		<p><m>\displaystyle
+			\begin{abmatrix}{r} 1 \\ -2 \end{abmatrix}
+			\begin{abmatrix}{rrr} -1 \amp 4 \amp 5 \end{abmatrix}
+		</m></p>
+	</statement>
+
+	<hint><p>
+		Before you think about <em>how</em> this matrix product should be carried out,
+		first determine the <em>dimensions</em> that the result matrix should have.
+	</p></hint>
+
+	<answer><p>
+		The first factor in the matrix product is <m>2 \times 1</m> and the second factor is <m>1 \times 3</m>,
+		so the product result should be a <m>2 \times 3</m> matrix:
+		<me>
+			\begin{abmatrix}{rrr}
+				-1 \amp  4 \amp   5 \\
+				 2 \amp -8 \amp -10
+			\end{abmatrix}
+		</me>.
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-diag">
+	<statement>
+
+		<p><m>\displaystyle
+			\begin{bmatrix} a \amp 0 \amp 0 \\ 0 \amp b \amp 0 \\ 0 \amp 0 \amp c \end{bmatrix}
+			\begin{bmatrix} d \amp 0 \amp 0 \\ 0 \amp e \amp 0 \\ 0 \amp 0 \amp f \end{bmatrix}
+		</m></p>
+
+		<p><alert>Note:</alert> see also <xref ref="exercise-matrix-ops-power-diag" text="type-local" />. </p>
+
+	</statement>
+
+	<answer>
+
+		<p><m>\displaystyle
+			\begin{bmatrix} a d \amp 0 \amp 0 \\ 0 \amp b e \amp 0 \\ 0 \amp 0 \amp c f \end{bmatrix}
+		</m></p>
+
+		<aside><title>Consider the pattern</title><p>
+			Will the same pattern hold when multiplying square matrices with the same <q>form</q> as but of a different size from the ones in this exercise?
+		</p></aside>
+
+	</answer>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-unipotent-isolates-addition">
+
+	<statement>
+
+		<p><m>\displaystyle
+			\begin{bmatrix} 1 \amp a \\ 0 \amp 1 \end{bmatrix}
+			\begin{bmatrix} 1 \amp b \\ 0 \amp 1 \end{bmatrix}
+		</m></p>
+
+		<p>
+		<alert>Note:</alert>
+		after completing this exercise,
+		you should consider <xref ref="exercise-matrix-ops-patterns-of-unipotent-isolates-addition" text="type-local" />.
+		</p>
+
+	</statement>
+
+	<answer><p><m>\displaystyle \begin{bmatrix} 1 \amp a + b \\ 0 \amp 1 \end{bmatrix} </m></p></answer>
+
+</exercise>
+
+<!-- powers -->
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		{
+			\begin{abmatrix}{rrr}
+				 2 \amp -2 \amp -1 \\
+				-2 \amp -3 \amp  0 \\
+				-1 \amp  0 \amp  2
+			\end{abmatrix}
+		}^2
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 9 \amp  2 \amp -4 \\
+			 2 \amp 13 \amp  2 \\
+			-4 \amp  2 \amp  5
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		{
+			\begin{abmatrix}{rrr}
+				 2 \amp -2 \amp -1 \\
+				-2 \amp -3 \amp  0 \\
+				-1 \amp  0 \amp  2
+			\end{abmatrix}
+		}^3
+	</m></p></statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 18 \amp -24 \amp -17 \\
+			-24 \amp -43 \amp   2 \\
+			-17 \amp   2 \amp  14
+		\end{abmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		{
+			\begin{abmatrix}{rrr}
+				 3 \amp -2 \amp 1 \\
+				-2 \amp -1 \amp 1
+			\end{abmatrix}
+		}^2
+	</m></p></statement>
+
+	<answer><p>
+		<alert>Undefined:</alert>
+		cannot take powers of a matrix that is not <term><xref ref="definition-matrix-ops-square-matrix" text="custom">square</xref></term> as there will be a mismatch between the number of columns of the first factor with the number of rows of the second factor.
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-power-diag">
+
+	<statement>
+
+		<p><m>\displaystyle
+			{ \begin{bmatrix} a \amp 0 \amp 0 \\ 0 \amp b \amp 0 \\ 0 \amp 0 \amp c \end{bmatrix} }^5
+		</m></p>
+
+		<p><alert>Note:</alert> first see <xref ref="exercise-matrix-ops-mult-diag" text="type-local" />. </p>
+
+	</statement>
+
+	<answer>
+
+		<p><m>\displaystyle
+			\begin{bmatrix} a^5 \amp 0 \amp 0 \\ 0 \amp b^5 \amp 0 \\ 0 \amp 0 \amp c^5 \end{bmatrix}
+		</m></p>
+
+		<aside><title>Consider the pattern</title><p>
+			Will the same pattern hold when computing a power of a square matrix with the same <q>form</q> as but of a different size from the one in this exercise?
+		</p></aside>
+
+	</answer>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-power-unipotent">
+
+	<introduction><title>Note:</title><p>
+		first see <xref ref="exercise-matrix-ops-unipotent-isolates-addition" text="type-local" />.
+	</p></introduction>
+
+	<task>
+		<statement><p><m>\displaystyle { \begin{bmatrix} 1 \amp 2 \\ 0 \amp 1 \end{bmatrix} }^{527} </m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} 1 \amp 1054 \\ 0 \amp 1 \end{bmatrix} </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle { \begin{bmatrix} 1 \amp a \\ 0 \amp 1 \end{bmatrix} }^k </m></p></statement>
+		<answer><p><m>\displaystyle \begin{bmatrix} 1 \amp k a \\ 0 \amp 1 \end{bmatrix} </m></p></answer>
+	</task>
+
+</exercise>
+
+<!-- matrix times its own transpose always produces symmetric result -->
+
+<exercise xml:id="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-1">
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 3 \amp -2 \amp 1 \\
+			-2 \amp -1 \amp 1
+		\end{abmatrix}
+		\utrans{
+			\begin{abmatrix}{rrr}
+				 3 \amp -2 \amp 1 \\
+				-2 \amp -1 \amp 1
+			\end{abmatrix}
+		}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>\displaystyle
+			\begin{abmatrix}{rr}
+				14 \amp -3 \\
+				-3 \amp  6
+			\end{abmatrix}
+		</m></p>
+
+		<aside><title>Identify the pattern</title><p>
+			Is there any pattern to the entries in the result?
+			Compare with any pattern you see after computing the answer to <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-2" text="type-local" />.
+		</p></aside>
+
+	</answer>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-2">
+
+	<statement><p><m>\displaystyle
+		\utrans{
+			\begin{abmatrix}{rrr}
+				 3 \amp -2 \amp 1 \\
+				-2 \amp -1 \amp 1
+			\end{abmatrix}
+		}
+		\begin{abmatrix}{rrr}
+			 3 \amp -2 \amp 1 \\
+			-2 \amp -1 \amp 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>\displaystyle
+			\begin{abmatrix}{rrr}
+				13 \amp -4 \amp  1 \\
+				-4 \amp  5 \amp -3 \\
+				 1 \amp -3 \amp  2
+			\end{abmatrix}
+		</m></p>
+
+		<aside><title>Identify the pattern</title><p>
+			Is there any pattern to the entries in the result?
+			Compare with any pattern you saw in the answer to <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-1" text="type-local" />.
+		</p></aside>
+
+	</answer>
+
+</exercise>
+
+<!-- mixed -->
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 3 \amp -2 \amp 1 \\
+			-2 \amp -1 \amp 1
+		\end{abmatrix}
+		\utrans{
+			\begin{abmatrix}{rrr}
+				 3 \amp -2 \amp 1 \\
+				-2 \amp -1 \amp 1
+			\end{abmatrix}
+		}
+		+
+		6
+		\begin{abmatrix}{rrr}
+			 5 \amp -3 \amp 6 \\
+			-5 \amp -1 \amp 7
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		<alert>Undefined:</alert>
+		we computed that initial matrix product in <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-1" text="type-local" />
+		and the result had dimensions <m>2 \times 2</m>,
+		which is not compatible with addition to a <m>2 \times 3</m> matrix.
+	</p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		{ \begin{bmatrix} 1 \amp 2 \\ 3 \amp  4 \end{bmatrix} }^2
+		- \begin{bmatrix} 1 \amp 4 \\ 9 \amp 16 \end{bmatrix}
+	</m></p></statement>
+
+	<answer>
+		<p><m>\displaystyle \begin{bmatrix} 6 \amp 6 \\ 6 \amp 6 \end{bmatrix} </m></p>
+		<p><alert>Note:</alert> that the result is <em>NOT</em> a zero matrix. </p>
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		{
+			\begin{abmatrix}{rr}
+				-2 \amp  3 \\
+				 2 \amp -2
+			\end{abmatrix}
+		}^2
+		+
+		\begin{abmatrix}{rr}
+			3 \amp -1 \\
+			1 \amp -6
+		\end{abmatrix}
+		\begin{abmatrix}{rr}
+			-2 \amp  3 \\
+			 2 \amp -2
+		\end{abmatrix}
+		-
+		{
+			\begin{abmatrix}{rr}
+				 0 \amp -5 \\
+				-2 \amp  5
+			\end{abmatrix}
+		}^2
+	</m></p></statement>
+
+	<solution><p>
+		This arithmetic has the algebraic pattern
+		<me> X^2 + A X - B^2 </me>
+		for
+		<md><mrow>
+			X \amp = \begin{abmatrix}{rr} -2 \amp  3 \\  2 \amp -2 \end{abmatrix} \text{,}
+			\amp
+			A \amp = \begin{abmatrix}{rr}  3 \amp -1 \\  1 \amp -6 \end{abmatrix} \text{,}
+			\amp
+			B \amp = \begin{abmatrix}{rr}  0 \amp -5 \\ -2 \amp  5 \end{abmatrix} \text{.}
+		</mrow></md>
+		We can reduce the number of matrix products we need to compute by factoring the common <m>X</m> out of the first two terms,
+		but <em>we must be careful to factor it in the correct <q>direction</q></em>:
+		<me> X^2 + A X - B^2 = (X + A) X - B^2 </me>.
+		Now compute:
+		<md>
+			<mrow>
+				X + A \amp =
+				  \begin{abmatrix}{rr} -2 \amp  3 \\  2 \amp -2 \end{abmatrix}
+				+ \begin{abmatrix}{rr}  3 \amp -1 \\  1 \amp -6 \end{abmatrix}
+			</mrow>
+			<mrow> \amp = \begin{abmatrix}{rr} 1 \amp 2 \\ 3 \amp -8 \end{abmatrix} </mrow>
+		</md>,
+		<md>
+			<mrow>
+				(X + A) X \amp =
+				\begin{abmatrix}{rr}  1 \amp 2 \\ 3 \amp -8 \end{abmatrix}
+				\begin{abmatrix}{rr} -2 \amp 3 \\ 2 \amp -2 \end{abmatrix}
+			</mrow>
+			<mrow> = \begin{abmatrix}{rr} 2 \amp -1 \\ -22 \amp 25 \end{abmatrix} </mrow>
+		</md>,
+		<md>
+			<mrow>
+				B^2 \amp =
+				\begin{abmatrix}{rr} 0 \amp -5 \\ -2 \amp 5 \end{abmatrix}
+				\begin{abmatrix}{rr} 0 \amp -5 \\ -2 \amp 5 \end{abmatrix}
+			</mrow>
+			<mrow> = \begin{abmatrix}{rr} 10 \amp -25 \\ -10 \amp 35 \end{abmatrix} </mrow>
+		</md>.
+		Finally put it all together:
+		<md>
+			<mrow> X^2 + A X - B^2 \amp = (X + A) X - B^2 </mrow>
+			<mrow>
+				\amp =
+				  \begin{abmatrix}{rr}  2 \amp - 1 \\ -22 \amp 25 \end{abmatrix}
+				- \begin{abmatrix}{rr} 10 \amp -25 \\ -10 \amp 35 \end{abmatrix}
+			</mrow>
+			<mrow> \amp = \begin{abmatrix}{rr} -8 \amp 24 \\ -12 \amp -10 \end{abmatrix} </mrow>
+		</md>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>
