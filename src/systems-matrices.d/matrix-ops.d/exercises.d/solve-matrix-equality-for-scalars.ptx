@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup>
+<title>Interpreting matrix equality as a system of equations</title>
+
+<introduction><p>
+	In each case,
+	determining the variable values that make the matrix equality true.
+	In any equality where <m>\zerovec</m> appears,
+	assume it represents a zero matrix of appropriate dimensions.
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			b + 3 c \amp c + 3 b - 2 a \\
+			a + 4 c \amp a - 4 b - 3 c
+		\end{bmatrix}
+		=
+		\begin{amatrix}{rr}
+			-5 \amp 3 \\
+			-9 \amp 0
+		\end{amatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Comparing corresponding entries on each side of the matrix equality leads to system of equations
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+				     \amp   \amp   b \amp + \amp 3 c \amp = \amp -5 \\
+				-2 a \amp + \amp 3 b \amp + \amp   c \amp = \amp  3 \\
+				   a \amp   \amp     \amp + \amp 4 c \amp = \amp -9 \\
+				   a \amp - \amp 4 b \amp - \amp 3 c \amp = \amp  0
+			\end{sysofeqns}
+		</me>.
+		Turn this system into an augmented matrix and reduce:
+		<me>
+			\begin{amatrix}{rrr|r}
+				 0 \amp  1 \amp  3 \amp -5 \\
+				-2 \amp  3 \amp  1 \amp  3 \\
+				 1 \amp  0 \amp  4 \amp -9 \\
+				 2 \amp -4 \amp -3 \amp  0
+			\end{amatrix}
+			\longrightarrow
+			\left(\begin{array}{rrr|r}
+				1 \amp 0 \amp 0 \amp -1 \\
+				0 \amp 1 \amp 0 \amp  1 \\
+				0 \amp 0 \amp 1 \amp -2 \\
+				0 \amp 0 \amp 0 \amp  0
+			\end{array}\right)
+		</me>.
+		This system is consistent with one unique solution <m>a = -1</m>, <m>b = 1</m>, <m>c = -2</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		  k_1 \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix}
+		+ k_2 \begin{bmatrix} 7 \\ 3 \\ 1 \end{bmatrix}
+		= \begin{amatrix}{r} -3 \\ -7 \\ -5 \end{amatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		First compute the left-hand side to a single column matrix:
+		<md>
+
+			<mrow>
+				  k_1 \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix}
+				+ k_2 \begin{bmatrix} 7 \\ 3 \\ 1 \end{bmatrix}
+				\amp
+				= \begin{amatrix}{r} 3 k_1 \\ 2 k_1 \\ k_1 \end{amatrix}
+				+ \begin{amatrix}{r} 7 k_2 \\ 3 k_2 \\ k_2 \end{amatrix}
+			</mrow>
+
+			<mrow> \amp = \begin{bmatrix} 3 k_1 + 7 k_2 \\ 2 k_1 + 3 k_2 \\ k_1 + k_2 \end{bmatrix} </mrow>
+
+		</md>.
+		Our simplified matrix equality is now
+		<me>
+			\begin{bmatrix} 3 k_1 + 7 k_2 \\ 2 k_1 + 3 k_2 \\ k_1 + k_2 \end{bmatrix}
+			= \begin{amatrix}{r} -3 \\ -7 \\ -5 \end{amatrix}
+		</me>.
+		Comparing corresponding entries on each side of the matrix equality leads to system of equations
+		<me>
+			\begin{sysofeqns}{rcrcr}
+				3 k_1 \amp + \amp 7 k_2 \amp = \amp -3 \\
+				2 k_1 \amp + \amp 3 k_2 \amp = \amp -7 \\
+				  k_1 \amp + \amp   k_2 \amp = \amp -5
+			\end{sysofeqns}
+		</me>.
+		Turn this system into an augmented matrix and reduce:
+		<me>
+			\begin{amatrix}{rr|r}
+				3 \amp 7 \amp -3 \\
+				2 \amp 3 \amp -7 \\
+				1 \amp 1 \amp -5
+			\end{amatrix}
+			\longrightarrow
+			\begin{amatrix}{rrr}
+				1 \amp 0 \amp -8 \\
+				0 \amp 1 \amp  3 \\
+				0 \amp 0 \amp  0
+			\end{amatrix}
+		</me>.
+		This system is consistent with one unique solution <m>k_1 = -8</m>, <m>b = 3</m>.
+		You may test that this is the correct solution by recomputing the matrix algebra on the left-hand side of the original matrix equality with those values in place of <m>k_1</m> and <m>k_2</m>.
+		</p>
+
+		<aside><title>Identify the pattern</title><p>
+			Compare the augmented system matrix we produced with three column matrices in the original matrix equality <mdash />
+			what do you notice?
+		</p></aside>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		  c_1 \begin{amatrix}{r}  0 \\ -1 \\  1 \end{amatrix}
+		+ c_2 \begin{amatrix}{r}  1 \\ -2 \\ -1 \end{amatrix}
+		=     \begin{amatrix}{r} -5 \\ 11 \\  5 \end{amatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		First compute the left-hand side to a single column matrix:
+		<md>
+
+			<mrow>
+				  c_1 \begin{amatrix}{r} 0 \\ -1 \\  1 \end{amatrix}
+				+ c_2 \begin{amatrix}{r} 1 \\ -2 \\ -1 \end{amatrix}
+				\amp
+				= \begin{amatrix}{r}  0  \\ -  c_1 \\  c_1 \end{amatrix}
+				+ \begin{amatrix}{r} c_2 \\ -2 c_2 \\ -c_2 \end{amatrix}
+			</mrow>
+
+			<mrow> \amp = \begin{bmatrix} c_1 \\ 2 k_1 + 3 k_2 \\ k_1 + k_2 \end{bmatrix} </mrow>
+
+		</md>.
+		Our simplified matrix equality is now
+		<me>
+			\begin{bmatrix} c_2 \\ -c_1 - 2 c_2 \\ c_1 - c_2 \end{bmatrix}
+			= \begin{amatrix}{r} -5 \\ 11 \\ 5 \end{amatrix}
+		</me>.
+		Comparing corresponding entries on each side of the matrix equality leads to system of equations
+		<me>
+			\begin{sysofeqns}{rcrcr}
+				     \amp   \amp   c_2 \amp = \amp -5 \\
+				-c_1 \amp - \amp 2 c_2 \amp = \amp 11 \\
+				 c_1 \amp - \amp   c_2 \amp = \amp  5
+			\end{sysofeqns}
+		</me>.
+		Turn this system into an augmented matrix and reduce:
+		<me>
+			\begin{amatrix}{rr|r}
+				 0 \amp  1 \amp -5 \\
+				-1 \amp -2 \amp 11 \\
+				 1 \amp -1 \amp  5
+			\end{amatrix}
+			\longrightarrow
+			\begin{amatrix}{rrr}
+				1 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 1
+			\end{amatrix}
+		</me>.
+		This system is inconsistent,
+		so there is no combination of values for <m>c_1</m> and <m>c_2</m> that make the original matrix equality true.
+		</p>
+
+		<p>
+		<alert>Careful:</alert>
+		It is tempting to attempt to solve the system of equations directly,
+		without using an augmented matrix,
+		as we clearly have <m>c_2 = -5</m> from the first equation,
+		and then we can use the third equation to solve <m>c_1 = 0</m>.
+		But if you substitute those two values into the left-hand side of the original matrix equality and recompute the matrix algebra,
+		you will find that the matrix equality is not true for these values.
+		The reason for this is that the original matrix equality leads to a system of <em>three</em> equations,
+		and we cannot ignore any one equation in that system.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		  k_1 \begin{amatrix}{rr} 0 \amp  2 \\ -2 \amp 1 \end{amatrix}
+		+ k_2 \begin{amatrix}{rr} 1 \amp -2 \\  3 \amp 2 \end{amatrix}
+		+ k_3 \begin{amatrix}{rr} 2 \amp -2 \\  3 \amp 5 \end{amatrix}
+		+ k_4 \begin{amatrix}{rr} 1 \amp  0 \\  4 \amp 3 \end{amatrix}
+		=
+		\zerovec
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		First compute the left-hand side to a single matrix:
+		<md>
+
+			<mrow>
+				\amp
+				  k_1 \begin{amatrix}{rr} 0 \amp  2 \\ -2 \amp 1 \end{amatrix}
+				+ k_2 \begin{amatrix}{rr} 1 \amp -2 \\  3 \amp 2 \end{amatrix}
+				+ k_3 \begin{amatrix}{rr} 2 \amp -2 \\  3 \amp 5 \end{amatrix}
+				+ k_4 \begin{amatrix}{rr} 1 \amp  0 \\  4 \amp 3 \end{amatrix}
+			</mrow>
+
+			<mrow>
+				\amp
+				= \begin{bmatrix}   0   \amp  2 k_1 \\ -2 k_1 \amp   k_1 \end{bmatrix}
+				+ \begin{bmatrix}  k_2  \amp -2 k_2 \\  3 k_2 \amp 2 k_2 \end{bmatrix}
+				+ \begin{bmatrix} 2 k_3 \amp -2 k_3 \\  3 k_3 \amp 5 k_3 \end{bmatrix}
+				+ \begin{bmatrix}  k_4  \amp    0   \\  4 k_4 \amp 3 k_4 \end{bmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{bmatrix}
+					           k_2 + 2 k_3 +   k_4 \amp 2 k_1 - 2 k_2 - 2 k_3         \\
+					-2 k_1 + 3 k_2 + 3 k_3 + 4 k_4 \amp   k_1 + 2 k_2 + 5 k_3 + 3 k_4
+				\end{bmatrix}
+			</mrow>
+
+		</md>.
+		In the context of the original matrix equality,
+		the <m>\zerovec</m> symbol on the right-hand side should represent the <m>2 \times 2</m> zero matrix,
+		and so our simplified matrix equality is now
+		<me>
+			\begin{bmatrix}
+				           k_2 + 2 k_3 +   k_4 \amp 2 k_1 - 2 k_2 - 2 k_3         \\
+				-2 k_1 + 3 k_2 + 3 k_3 + 4 k_4 \amp   k_1 + 2 k_2 + 5 k_3 + 3 k_4
+			\end{bmatrix}
+			=
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		</me>.
+		Comparing corresponding entries on each side of the matrix equality leads to homogeneous system of equations
+		<me>
+			\begin{sysofeqns}{rcrcrcrcr}
+				       \amp   \amp   k_2 \amp + \amp 2 k_3 \amp + \amp   k_4 \amp = \amp 0 \\
+				 2 k_1 \amp - \amp 2 k_2 \amp - \amp 2 k_3 \amp   \amp       \amp = \amp 0 \\
+				-2 k_1 \amp + \amp 3 k_2 \amp + \amp 3 k_3 \amp + \amp 4 k_4 \amp = \amp 0 \\
+				   k_1 \amp + \amp 2 k_2 \amp + \amp 5 k_3 \amp + \amp 3 k_4 \amp = \amp 0
+			\end{sysofeqns}
+		</me>.
+		Since the system is homogeneous,
+		we reduce only with the coefficient matrix:
+		<me>
+			\begin{amatrix}{rrrr}
+				 0 \amp  1 \amp  2 \amp 1 \\
+				 2 \amp -2 \amp -2 \amp 0 \\
+				-2 \amp  3 \amp  3 \amp 4 \\
+				 1 \amp  2 \amp  5 \amp 3
+			\end{amatrix}
+			\longrightarrow
+			\begin{amatrix}{rrrr}
+				1 \amp 0 \amp 0 \amp  4 \\
+				0 \amp 1 \amp 0 \amp  7 \\
+				0 \amp 0 \amp 1 \amp -3 \\
+				0 \amp 0 \amp 0 \amp  0
+			\end{amatrix}
+		</me>.
+		This system is consistent
+		(as all homogeneous systems are)
+		but the solution requires a parameter,
+		so in fact there are an <em>infinite</em> number of combinations of scalar values for <m>k_1,k_2,k_3,k_4</m> that make the original matrix equality true.
+		In particular,
+		if we assign parameter <m>k_4 = t</m>,
+		the general solution is
+		<md><mrow>
+			k_1 \amp = -4 t \text{,} \amp
+			k_2 \amp = -7 t \text{,} \amp
+			k_3 \amp =  3 t \text{,} \amp
+			k_4 \amp =    t \text{.}
+		</mrow></md>
+		</p>
+
+		<aside><title>Identify the pattern</title><p>
+			Compare the coefficient matrix we produced with the four <m>2 \times 2</m> matrices in the original matrix equality <mdash />
+			what do you notice?
+		</p></aside>
+
+		<p>
+		<alert>Careful:</alert>
+		We may have been misled by the zero matrix on the right-hand side of the original matrix equality,
+		and decided that <em>the</em> solution must be to set each of <m>k_1,k_2,k_3,k_4</m> to <m>0</m>.
+		While that is <em>one possible</em> solution to the matrix equation
+		(which we would call the <term><xref ref="definition-row-red-trivial-sol" text="title" /></term>),
+		by re-interpreting the matrix equation as a <em>system of (ordinary) equations</em>,
+		we were able to arrive at the <em>complete</em> collection of <em>all possible</em> solutions to the matrix equation.
+		So while it is <em>possible</em> to make the matrix equality true by setting each of <m>k_1,k_2,k_3,k_4</m> to <m>0</m>,
+		it is also possible, for example, by setting
+		<md><mrow>
+			k_1 \amp = -4 \text{,} \amp
+			k_2 \amp = -7 \text{,} \amp
+			k_3 \amp =  3 \text{,} \amp
+			k_4 \amp =  1 \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		  c_1 \begin{amatrix}{rr} 1 \amp 1 \\ 2 \amp 3 \\ -2 \amp 0 \end{amatrix}
+		+ c_2 \begin{amatrix}{rr} 1 \amp 2 \\ 1 \amp 3 \\  1 \amp 1 \end{amatrix}
+		+ c_3 \begin{amatrix}{rr} 1 \amp 3 \\ 1 \amp 3 \\  3 \amp 1 \end{amatrix}
+		= \zerovec
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		First compute the left-hand side to a single matrix:
+		<md>
+
+			<mrow>
+				\amp
+				  c_1 \begin{amatrix}{rr} 1 \amp 1 \\ 2 \amp 3 \\ -2 \amp 0 \end{amatrix}
+				+ c_2 \begin{amatrix}{rr} 1 \amp 2 \\ 1 \amp 3 \\  1 \amp 1 \end{amatrix}
+				+ c_3 \begin{amatrix}{rr} 1 \amp 3 \\ 1 \amp 3 \\  3 \amp 1 \end{amatrix}
+			</mrow>
+
+			<mrow>
+				\amp
+				= \begin{bmatrix} c_1 \amp  c_1  \\ 2 c_1 \amp 3 c_1 \\ -2 c_1 \amp  0  \end{bmatrix}
+				+ \begin{bmatrix} c_2 \amp 2 c_2 \\  c_2  \amp 3 c_2 \\   c_2  \amp c_2 \end{bmatrix}
+				+ \begin{bmatrix} c_3 \amp 3 c_3 \\  c_3  \amp 3 c_3 \\  3 c_3 \amp c_3 \end{bmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{bmatrix}
+					   c_1 +   c_2 +   c_3 \amp
+					   c_1 + 2 c_2 + 3 c_3 \\
+					 2 c_1 +   c_2 +   c_3 \amp
+					 3 c_1 + 3 c_2 + 3 c_3 \\
+					-2 c_1 +   c_2 + 3 c_3 \amp
+					           c_2 +   c_3
+				\end{bmatrix}
+			</mrow>
+
+		</md>.
+		In the context of the original matrix equality,
+		the <m>\zerovec</m> symbol on the right-hand side should represent the <m>3 \times 2</m> zero matrix,
+		and so our simplified matrix equality is now
+		<me>
+			\begin{bmatrix}
+				   c_1 +   c_2 +   c_3 \amp
+				   c_1 + 2 c_2 + 3 c_3 \\
+				 2 c_1 +   c_2 +   c_3 \amp
+				 3 c_1 + 3 c_2 + 3 c_3 \\
+				-2 c_1 +   c_2 + 3 c_3 \amp
+				           c_2 +   c_3
+			\end{bmatrix}
+			=
+			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+		</me>.
+		Comparing corresponding entries on each side of the matrix equality leads to homogeneous system of equations
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+				   c_1 \amp + \amp   c_2 \amp + \amp   c_3 \amp = \amp 0 \\
+				   c_1 \amp + \amp 2 c_2 \amp + \amp 3 c_3 \amp = \amp 0 \\
+				 2 c_1 \amp + \amp   c_2 \amp + \amp   c_3 \amp = \amp 0 \\
+				 3 c_1 \amp + \amp 3 c_2 \amp + \amp 3 c_3 \amp = \amp 0 \\
+				-2 c_1 \amp + \amp   c_2 \amp + \amp 3 c_3 \amp = \amp 0 \\
+				       \amp   \amp   c_2 \amp + \amp   c_3 \amp = \amp 0
+			\end{sysofeqns}
+		</me>.
+		Since the system is homogeneous,
+		we reduce only with the coefficient matrix:
+		<me>
+			\begin{amatrix}{rrr}
+				 1 \amp 1 \amp 1 \\
+				 1 \amp 2 \amp 3 \\
+				 2 \amp 1 \amp 1 \\
+				 3 \amp 3 \amp 3 \\
+				-2 \amp 1 \amp 3 \\
+				 0 \amp 1 \amp 1
+			\end{amatrix}
+			\longrightarrow
+			\begin{amatrix}{rrr}
+				1 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 1 \\
+				0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0
+			\end{amatrix}
+		</me>.
+		This system is consistent
+		(as all homogeneous systems are)
+		with one unique solution,
+		the trivial one:
+		<m>c_1 = 0</m>, <m>c_2 = 0</m>, and <m>c_3 = 0</m>.
+		</p>
+
+		<aside><title>Identify the pattern</title><p>
+			Compare the coefficient matrix we produced with the three <m>3 \times 2</m> matrices in the original matrix equality <mdash />
+			what do you notice?
+		</p></aside>
+
+		<p>
+		<alert>Careful:</alert>
+		We may have been misled by the zero matrix on the right-hand side of the original matrix equality,
+		and prematurely jumped to the conclusion that the <em>only</em> solution must be to set each of <m>c_1,c_2,c_3</m> to <m>0</m>
+		(the <term><xref ref="definition-row-red-trivial-sol" text="title" /></term>).
+		While that turned out to be the case this time,
+		it is important that we went through the full process of re-interpreting the matrix equation as a <em>system of (ordinary) equations</em> so that we could confirm that the trivial solution was indeed the <em>only</em> solution.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>

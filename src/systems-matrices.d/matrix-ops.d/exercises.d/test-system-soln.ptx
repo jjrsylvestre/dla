@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Testing system solutions</title>
+
+<introduction><p>
+	In each case,
+	use matrix multiplication to determine whether the variable values constitute a solution to the specified system of equations.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		System from <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-2eqns-2vars" text="type-local" />,
+		potential solution of <m> x = -4, y = 2 </m>.
+	</p></statement>
+
+	<solution><p>
+		As in the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-2eqns-2vars" text="type-local" />,
+		we have coefficient matrix
+		<me>
+			A =
+			\begin{amatrix}{rr}
+				1 \amp -1 \\
+				2 \amp -3
+			\end{amatrix}
+		</me>.
+		The potential solution can be expressed as column vector
+		<me> \uvec{x} = \begin{amatrix}{r} -4 \\ 2 \end{amatrix} </me>.
+		Multiply these together:
+		<me>
+			A \uvec{x} =
+			\begin{amatrix}{rr}
+				1 \amp -1 \\
+				2 \amp -3
+			\end{amatrix}
+			\begin{amatrix}{r} -4 \\ 2 \end{amatrix}
+			=
+			\begin{amatrix}{r} -6 \\ -14 \end{amatrix}
+		</me>.
+		This result matches the column of constants from the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-2eqns-2vars" text="type-local" />,
+		which verifies that the proposed solution is an actual solution.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		System from <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-3eqns-2vars" text="type-local" />,
+		potential solution of <m> s = 3, t = -3 </m>.
+	</p></statement>
+
+	<solution><p>
+		As in the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-3eqns-2vars" text="type-local" />,
+		we have coefficient matrix
+		<me>
+			A =
+			\begin{amatrix}{rr}
+				2 \amp -1 \\
+				8 \amp -2 \\
+				4 \amp -8
+			\end{amatrix}
+		</me>.
+		The potential solution can be expressed as column vector
+		<me> \uvec{x} = \begin{amatrix}{r} 3 \\ -3 \end{amatrix} </me>.
+		Multiply these together:
+		<me>
+			A \uvec{x} =
+			\begin{amatrix}{rr}
+				2 \amp -1 \\
+				8 \amp -2 \\
+				4 \amp -8
+			\end{amatrix}
+			\begin{amatrix}{r} 3 \\ -3 \end{amatrix}
+			=
+			\begin{bmatrix} 9 \\ 30 \\ 36 \end{bmatrix}
+		</me>.
+		This result does not match the column of constants
+		<me> \uvec{b} = \begin{amatrix}{r} 0 \\ -1 \\ 0 \end{amatrix} </me>
+		from the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-3eqns-2vars" text="type-local" />,
+		so the proposed solution is <em>not</em> an actual solution.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		System from <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-3eqns-3vars" text="type-local" />.
+		<ol>
+			<li> Potential solution of <m> x = 2, y = 1, z = 0 </m>. </li>
+			<li> Potential solution of <m> x = -1, y = 3, z = 1 </m>. </li>
+		</ol>
+	</p></statement>
+
+	<solution><p>
+		As in the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-3eqns-3vars" text="type-local" />,
+		we have coefficient matrix
+		<me>
+			A =
+			\begin{amatrix}{rrr}
+				2 \amp 5 \amp -4 \\
+				1 \amp 3 \amp -3 \\
+				3 \amp 7 \amp -5
+			\end{amatrix}
+		</me>.
+		The two potential solutions can be expressed as column vectors
+		<md><mrow>
+			\uvec{x}_1 \amp = \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} \text{,}
+			\amp
+			\uvec{x}_2 \amp = \begin{amatrix}{r} -1 \\ 3 \\ 1 \end{amatrix} \text{.}
+		</mrow></md>
+		Multiply each of these by the coefficient matrix:
+		<md>
+
+			<mrow>
+				A \uvec{x}_1 \amp =
+				\begin{amatrix}{rrr}
+					2 \amp 5 \amp -4 \\
+					1 \amp 3 \amp -3 \\
+					3 \amp 7 \amp -5
+				\end{amatrix}
+				\begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}
+				\amp
+				A \uvec{x}_2 \amp =
+				\begin{amatrix}{rrr}
+					2 \amp 5 \amp -4 \\
+					1 \amp 3 \amp -3 \\
+					3 \amp 7 \amp -5
+				\end{amatrix}
+				\begin{amatrix}{r} -1 \\ 3 \\ 1 \end{amatrix}
+			</mrow>
+
+			<mrow>
+				\amp = \begin{bmatrix} 9 \\ 5 \\ 13 \end{bmatrix} \text{,} \amp
+				\amp = \begin{bmatrix} 9 \\ 5 \\ 13 \end{bmatrix} \text{.}
+			</mrow>
+
+		</md>
+		In both cases, the multiplication result matches the column of constants from the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-3eqns-3vars" text="type-local" />,
+		which verifies that each of the proposed solutions is an actual solution.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		System from <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-2eqns-4vars" text="type-local" />.
+		<ol>
+			<li> Potential solution of <m> x_1 = -3, x_2 =  0, x_3 = 6, x_4 = 0 </m>. </li>
+			<li> Potential solution of <m> x_1 = -1, x_2 = -2, x_3 = 1, x_4 = 1 </m>. </li>
+			<li> Potential solution of <m> x_1 =  1, x_2 =  1, x_3 = 1, x_4 = 1 </m>. </li>
+		</ol>
+	</p></statement>
+
+	<solution><p>
+		As in the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-2eqns-4vars" text="type-local" />,
+		we have coefficient matrix
+		<me>
+			A =
+			\begin{amatrix}{rrrr}
+				2 \amp 6 \amp -1 \amp  3 \\
+				1 \amp 3 \amp -1 \amp -1
+			\end{amatrix}
+		</me>.
+		The three potential solutions can be expressed as column vectors
+		<md><mrow>
+			\uvec{x}_1 \amp = \begin{amatrix}{r} -3 \\  0 \\ 6 \\ 0 \end{amatrix} \text{,} \amp
+			\uvec{x}_2 \amp = \begin{amatrix}{r} -1 \\ -2 \\ 1 \\ 1 \end{amatrix} \text{,} \amp
+			\uvec{x}_3 \amp = \begin{amatrix}{r}  1 \\  1 \\ 1 \\ 1 \end{amatrix} \text{.}
+		</mrow></md>
+		Multiply each of these by the coefficient matrix in turn:
+		<md>
+
+			<mrow>
+				A \uvec{x}_1 \amp =
+				\begin{amatrix}{rrrr}
+					2 \amp 6 \amp -1 \amp  3 \\
+					1 \amp 3 \amp -1 \amp -1
+				\end{amatrix}
+				\begin{amatrix}{r} -3 \\ 0 \\ 6 \\ 0 \end{amatrix}
+				=
+				\begin{amatrix}{r} -12 \\ -9 \end{amatrix}
+			</mrow>
+
+			<mrow>
+				A \uvec{x}_2 \amp =
+				\begin{amatrix}{rrrr}
+					2 \amp 6 \amp -1 \amp  3 \\
+					1 \amp 3 \amp -1 \amp -1
+				\end{amatrix}
+				\begin{amatrix}{r} -1 \\ -2 \\ 1 \\ 1 \end{amatrix}
+				=
+				\begin{amatrix}{r} -12 \\ -9 \end{amatrix}
+			</mrow>
+
+			<mrow>
+				A \uvec{x}_3 \amp =
+				\begin{amatrix}{rrrr}
+					2 \amp 6 \amp -1 \amp  3 \\
+					1 \amp 3 \amp -1 \amp -1
+				\end{amatrix}
+				\begin{amatrix}{r} 1 \\ 1 \\ 1 \\ 1 \end{amatrix}
+				=
+				\begin{bmatrix} 10 \\ 2 \end{bmatrix}
+			</mrow>
+
+		</md>.
+		Each of the first two results matches the column of constants from the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-2eqns-4vars" text="type-local" />,
+		which verifies that these two proposed solution are both actual solutions.
+		However,
+		the third result does not match that column of constants,
+		and so the third proposed solution is <em>not</em> actually a solution.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		System from <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-4eqns-3vars" text="type-local" />,
+		potential solution of <m> p_1 = -6, p_2 = 4, p_3 = 1 </m>.
+	</p></statement>
+
+	<solution><p>
+		As in the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-4eqns-3vars" text="type-local" />,
+		we have coefficient matrix
+		<me>
+			A =
+			\begin{amatrix}{rrr}
+				3 \amp 5 \amp -2 \\
+				1 \amp 2 \amp -2 \\
+				4 \amp 5 \amp  4 \\
+				2 \amp 1 \amp  8
+			\end{amatrix}
+		</me>.
+		The potential solution can be expressed as column vector
+		<me> \uvec{p} = \begin{amatrix}{r} -6 \\ 4 \\ 1 \end{amatrix} </me>.
+		Multiply these together:
+		<me>
+			A \uvec{p} =
+			\begin{amatrix}{rrr}
+				3 \amp 5 \amp -2 \\
+				1 \amp 2 \amp -2 \\
+				4 \amp 5 \amp  4 \\
+				2 \amp 1 \amp  8
+			\end{amatrix}
+			\begin{amatrix}{r} -6 \\ 4 \\ 1 \end{amatrix}
+			=
+			\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+		</me>.
+		This result matches the (homogeneous) column of constants from the answer to <xref ref="exercise-matrix-ops-systems-as-matrix-eqns-4eqns-3vars" text="type-local" />,
+		which verifies that the proposed solution is an actual (and in this case, nontrivial) solution.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-matrix-ops" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<exercise>
+	<title>Rows and columns</title>
+
+	<introduction><p>
+		Consider matrix
+		<me>
+			A = \begin{amatrix}{rrrr}
+				 8 \amp -4 \amp -9 \amp -9 \\
+				-5 \amp  7 \amp  4 \amp  2 \\
+				 6 \amp -8 \amp  1 \amp -5
+			\end{amatrix}
+		</me>.
+	</p></introduction>
+
+	<task>
+		<statement><p> Identify the rows of <m>A</m> as individual row matrices. </p></statement>
+		<answer><p>
+			The rows of <m>A</m> are:
+			<md>
+				<mrow> \text{Row 1: } \amp \begin{bmatrix}  8 \amp -4 \amp -9 \amp -9 \end{bmatrix} \text{,} </mrow>
+				<mrow> \text{Row 2: } \amp \begin{bmatrix} -5 \amp  7 \amp  4 \amp  2 \end{bmatrix} \text{,} </mrow>
+				<mrow> \text{Row 3: } \amp \begin{bmatrix}  6 \amp -8 \amp  1 \amp -5 \end{bmatrix} \text{.} </mrow>
+			</md>
+		</p></answer>
+	</task>
+
+	<task>
+		<statement><p> Identify the columns of <m>A</m> as individual column matrices. </p></statement>
+		<answer><p>
+			The columns of <m>A</m> are
+			<md>
+				<mrow>
+					\amp \text{Column 1:} \amp
+					\amp \text{Column 2:} \amp
+					\amp \text{Column 3:} \amp
+					\amp \text{Column 4:}
+				</mrow>
+				<mrow>
+					\amp \begin{amatrix}{r}  8 \\ -5 \\  6 \end{amatrix} \text{,} \amp
+					\amp \begin{amatrix}{r} -4 \\  7 \\ -8 \end{amatrix} \text{,} \amp
+					\amp \begin{amatrix}{r} -9 \\  4 \\  1 \end{amatrix} \text{,} \amp
+					\amp \begin{amatrix}{r} -9 \\  2 \\ -5 \end{amatrix} \text{.}
+				</mrow>
+			</md>
+		</p></answer>
+	</task>
+
+	<task>
+		<statement><p> State the dimensions of <m>A</m>. </p></statement>
+		<answer><p> There are three rows and four columns, so the dimensions of <m>A</m> are <m>3 \times 4</m>. </p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+	<title>Indexing matrix entries</title>
+
+	<introduction><p>
+		Consider matrix
+		<me>
+			A = \begin{amatrix}{rrrr}
+				-2 \amp -1 \amp  5 \\
+				 9 \amp -8 \amp  7 \\
+				 1 \amp  4 \amp -3 \\
+				 3 \amp  6 \amp -5
+			\end{amatrix}
+		</me>.
+	</p></introduction>
+
+	<task>
+		<statement><p> Identify the value of entries <m>a_{12}, a_{33}, a_{41}</m>.</p></statement>
+		<answer><p> <m> a_{12} = -1 </m>, <m> a_{33} = -3 </m>, <m> a_{41} = 3 </m>. </p></answer>
+	</task>
+
+	<task>
+		<statement><p> Identify the indices of each of the positive entries of <m>A</m>. </p></statement>
+		<answer><p>
+			The positive entries are
+			<m> a_{13} = 5 </m>,
+			<m> a_{21} = 9 </m>,
+			<m> a_{23} = 7 </m>,
+			<m> a_{31} = 1 </m>,
+			<m> a_{32} = 4 </m>,
+			<m> a_{41} = 3 </m>,
+			<m> a_{42} = 6 </m>.
+		</p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+	<title>Matrix entries as a function of row and column indices</title>
+	<statement><p> Form the <m>4 \times 4</m> matrix <m>A</m> whose entries satisfy the formula <m>a_{ij} = i^2 - j^2</m>. </p></statement>
+	<answer><p><m>\displaystyle
+		A = \begin{amatrix}{rrrr}
+			 0 \amp -3 \amp -8 \amp -15 \\
+			 3 \amp  0 \amp -5 \amp -12 \\
+			 8 \amp  5 \amp  0 \amp - 7 \\
+			15 \amp 12 \amp  7 \amp   0
+		\end{amatrix}
+	</m></p></answer>
+</exercise>
+
+<exercise>
+	<title>Restricting matrix entries based on indices</title>
+	<statement><p>
+		As usual, let <m>i</m> represent the row index and <m>j</m> represent the column index of each entry in a matrix.
+		Create a <m>6 \times 6</m> matrix has the following properties:
+		<ul>
+			<li>
+				All entries with <m>i \gt j</m> are zero,
+				all other entries are nonzero.
+			</li>
+			<li> Each nonzero entry is positive if <m>i + j</m> is even and negative if <m>i + j</m> is odd. </li>
+			<li> No two nonzero entries have the same absolute value. </li>
+		</ul>
+	</p></statement>
+	<answer><p>
+		Here is one possible matrix that satisfies the stated restrictions:
+		<me>
+			\begin{amatrix}{rrrrrr}
+				1 \amp -2 \amp  3 \amp - 4 \amp   5 \amp - 6 \\
+				0 \amp  7 \amp -8 \amp   9 \amp -10 \amp  11 \\
+				0 \amp  0 \amp 12 \amp -13 \amp  14 \amp -15 \\
+				0 \amp  0 \amp  0 \amp  16 \amp -17 \amp  18 \\
+				0 \amp  0 \amp  0 \amp   0 \amp  19 \amp -20 \\
+				0 \amp  0 \amp  0 \amp   0 \amp   0 \amp  21
+			\end{amatrix}
+		</me>.
+	</p></answer>
+</exercise>
+
+<exercise>
+	<title>Matrix inequality</title>
+
+	<introduction><p>
+		For each example matrix <m>X</m> below,
+		give at least one reason why <m>X</m> is not equal to matrix
+		<me>
+			A = \begin{amatrix}{rrr}
+				1 \amp  1 \amp  8 \\
+				0 \amp -1 \amp -7
+			\end{amatrix}
+		</me>.
+	</p></introduction>
+
+	<task>
+		<statement><p><m>\displaystyle
+			X = \begin{amatrix}{rrrr}
+				1 \amp  1 \amp  8 \amp 0 \\
+				0 \amp -1 \amp -7 \amp 0
+			\end{amatrix}
+		</m></p></statement>
+		<answer><p> Matrix <m>X</m> is not equal to matrix <m>A</m> because <m>X</m> has a fourth column that <m>A</m> lacks. </p>
+		</answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			X = \begin{amatrix}{rrr}
+				1 \amp  1 \amp  8 \\
+				0 \amp -1 \amp -7 \\
+				0 \amp  0 \amp  0
+			\end{amatrix}
+		</m></p></statement>
+		<answer><p> Matrix <m>X</m> is not equal to matrix <m>A</m> because <m>X</m> has a third row that <m>A</m> lacks. </p>
+		</answer>
+	</task>
+
+	<task>
+		<statement><p><m>\displaystyle
+			X = \begin{amatrix}{rrr}
+				1 \amp  1 \amp  8 \\
+				0 \amp  1 \amp -7
+			\end{amatrix}
+		</m></p></statement>
+		<answer><p> Matrix <m>X</m> is not equal to matrix <m>A</m> because <m>x_{21} = 1</m> while <m>a_{21} = -1</m>. </p>
+		</answer>
+	</task>
+
+</exercise>
+
+<!-- TODO more in this group ... see TODO at end of included file -->
+<!-- Exercise group -->
+<xi:include href="./exercises.d/matrix-arithmetic.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/solve-matrix-equality-for-scalars.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/isolate-via-matrix-algebra.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/convert-system-to-matrix-eqn.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/test-system-soln.ptx" />
+
+</exercises>
