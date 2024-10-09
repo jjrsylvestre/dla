@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-matrix-ops-vector-form">
+<title>Expressing system solutions in vector form</title>
+
+<introduction><p>
+	In each case,
+	express the general solution to the system <m>A \uvec{x} = \uvec{b}</m> in <xref ref="definition-matrix-ops-vector-form" text="custom">vector form</xref>.
+	(See <xref ref="subsubsection-matrix-ops-examples-sys-sol-vector-forms" />.)
+	Then use your vector form of the solution to determine the specific solution obtained by setting all parameters to <m>0</m>,
+	as well as all possible specific solutions obtained by setting a single parameter to <m>1</m> while setting all other parameters to <m>0</m>.
+</p></introduction>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-2x2-nonhomog">
+
+	<statement><p>
+		<m>\displaystyle A = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 6 \end{bmatrix} </m>;
+		<m>\displaystyle \uvec{b} = \begin{bmatrix} 4 \\ 12 \end{bmatrix} </m>.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Form the augmented matrix and reduce:
+		<me>
+			\begin{abmatrix}{rr|r}
+				1 \amp 2 \amp  4 \\
+				3 \amp 6 \amp 12
+			\end{abmatrix}
+			\rowredarrow
+			\begin{abmatrix}{rr|r}
+				1 \amp 2 \amp 4 \\
+				0 \amp 0 \amp 0
+			\end{abmatrix}
+		</me>.
+		Using <m>x,y</m> as the variables,
+		variable <m>y</m> is free and we assign it a parameter:
+		<m>y = t</m>.
+		Interpreting the first row in the reduced matrix as an equation,
+		we can isolate <me> x = 4 - 2 t </me>.
+		</p>
+
+		<p>
+		Express the general solution in vector form:
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x \\ y \end{bmatrix}
+			= \begin{bmatrix} 4 - 2 t \\ t \end{bmatrix}
+			= \begin{bmatrix} 4 \\ 0 \end{bmatrix}
+			+ t \begin{abmatrix}{r} - 2 \\ 1 \end{abmatrix}
+		</me>.
+		Finally, the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \begin{bmatrix} 4 \\ 0 \end{bmatrix} \text{,}
+			\amp
+			\uvec{x}_1 \amp = \begin{bmatrix} 2 \\ 1 \end{bmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-2x2-homog">
+
+	<statement><p>
+		<m>\displaystyle A = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 6 \end{bmatrix} </m>;
+		<m>\displaystyle \uvec{b} = \zerovec </m>.
+	</p></statement>
+
+	<solution><p>
+		This is the homogeneous version of the system in <xref ref="exercise-matrix-ops-vector-form-2x2-nonhomog" text="type-local" />,
+		so we have general solution
+		<me> \uvec{x} = t \begin{abmatrix}{r} - 2 \\ 1 \end{abmatrix} </me>
+		and requested specific solution
+		<md><mrow>
+			\uvec{x}_0 \amp = \zerovec \text{,}
+			\amp
+			\uvec{x}_1 \amp = \begin{abmatrix}{r} -2 \\ 1 \end{abmatrix} \text{.}
+		</mrow></md>
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-1x2">
+
+	<statement><p>
+		<m>\displaystyle A = \begin{bmatrix} 1 \amp -8 \end{bmatrix} </m>;
+		<m>\displaystyle \uvec{b} = \begin{bmatrix} 7 \end{bmatrix} </m>.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Form the augmented matrix:
+		<me> \begin{abmatrix}{rr|r} 1 \amp -8 \amp  7 \end{abmatrix} </me>.
+		This matrix is already reduced.
+		Using <m>x,y</m> as the variables,
+		variable <m>y</m> is free and we assign it a parameter:
+		<m>y = t</m>.
+		Interpreting the row in the augmented matrix as an equation,
+		we can isolate <me> x = 7 + 8 t </me>.
+		</p>
+
+		<p>
+		Express the general solution in vector form:
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x \\ y \end{bmatrix}
+			= \begin{bmatrix} 7 + 8 t \\ t \end{bmatrix}
+			= \begin{bmatrix} 7 \\ 0 \end{bmatrix}
+			+ t \begin{bmatrix} 8 \\ 1 \end{bmatrix}
+		</me>.
+		Finally, the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \begin{bmatrix} 7 \\ 0 \end{bmatrix} \text{,}
+			\amp
+			\uvec{x}_1 \amp = \begin{bmatrix} 15 \\ 1 \end{bmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-3x3-nonhomog">
+
+	<statement><p>
+		<m>\displaystyle
+			A=
+			\begin{abmatrix}{rrr}
+				 0 \amp  1 \amp   4 \\
+				 1 \amp -2 \amp -12 \\
+				-3 \amp  4 \amp  28
+			\end{abmatrix}
+		</m>;
+		<m>\displaystyle \uvec{b} = \begin{abmatrix}{r} 2 \\ -4 \\ 8 \end{abmatrix} </m>.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Form the augmented matrix and reduce:
+		<me>
+			\begin{abmatrix}{rrr|r}
+				 0 \amp  1 \amp   4 \amp  2 \\
+				 1 \amp -2 \amp -12 \amp -4 \\
+				-3 \amp  4 \amp  28 \amp  8
+			\end{abmatrix}
+			\rowredarrow
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp -4 \amp 0 \\
+				0 \amp 1 \amp  4 \amp 2 \\
+				0 \amp 0 \amp  0 \amp 0
+			\end{abmatrix}
+		</me>.
+		Using <m>x,y,z</m> as the variables,
+		variable <m>z</m> is free and we assign it a parameter:
+		<m>z = t</m>.
+		Interpreting the nonzero rows of the reduced matrix as equations,
+		we can isolate
+		<md><mrow> x \amp = 4 t \text{,} \amp y \amp = 2 - 4 t \text{.} </mrow></md>
+		</p>
+
+		<p>
+		Express the general solution in vector form:
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x \\ y \\z \end{bmatrix}
+			= \begin{bmatrix} 4 t \\ 2 - 4 t \\ t \end{bmatrix}
+			= \begin{bmatrix} 0 \\ 2 \\ 0 \end{bmatrix}
+			+ t \begin{abmatrix}{r} 4 \\ -4 \\ 1 \end{abmatrix}
+		</me>.
+		Finally, the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \begin{bmatrix} 0 \\ 2 \\ 0 \end{bmatrix} \text{,}
+			\amp
+			\uvec{x}_1 \amp = \begin{abmatrix}{r} 4 \\ -2 \\ 1 \end{abmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-3x3-homog">
+
+	<statement><p>
+		<m>\displaystyle
+			A=
+			\begin{abmatrix}{rrr}
+				 0 \amp  1 \amp   4 \\
+				 1 \amp -2 \amp -12 \\
+				-3 \amp  4 \amp  28
+			\end{abmatrix}
+		</m>;
+		<m>\displaystyle \uvec{b} = \zerovec </m>.
+	</p></statement>
+
+	<solution><p>
+		This is the homogeneous version of the system in <xref ref="exercise-matrix-ops-vector-form-3x3-nonhomog" text="type-local" />,
+		so we have general solution
+		<me> \uvec{x} = t \begin{abmatrix}{r} 4 \\ -4 \\ 1 \end{abmatrix} </me>
+		and the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \zerovec \text{,}
+			\amp
+			\uvec{x}_1 \amp = \begin{abmatrix}{r} 4 \\ -4 \\ 1 \end{abmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-1x3">
+
+	<statement><p>
+		<m>\displaystyle A = \begin{bmatrix} 1 \amp 3 \amp -4 \end{bmatrix} </m>;
+		<m>\displaystyle \uvec{b} = \zerovec </m>.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		This is a homogeneous system with a coefficient matrix that is already reduced.
+		Using <m>x,y,z</m> as the variables,
+		variables <m>y</m> and <m>z</m> are free and we assign them parameters:
+		<m>y = s</m>, <m>z = t</m>.
+		Interpreting the row in <m>A</m> as coefficients in a homogeneous equation,
+		we can isolate <me> x = - 3 s + 4 t </me>.
+		</p>
+
+		<p>
+		Express the general solution in vector form:
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+			= \begin{bmatrix} -3 s + 4 t \\ s \\ t \end{bmatrix}
+			= s \begin{abmatrix}{r} -3 \\ 1 \\ 0 \end{abmatrix}
+			+ t \begin{bmatrix} 4 \\ 0 \\ 1 \end{bmatrix}
+		</me>.
+		Finally, the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \zerovec \text{,}
+			\amp
+			\uvec{x}_s \amp = \begin{abmatrix}{r} -3 \\ 1 \\ 0 \end{abmatrix} \text{,}
+			\amp
+			\uvec{x}_t \amp = \begin{abmatrix}{r} 4 \\ 0 \\ 1 \end{abmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-3x6-nonhomog">
+
+	<statement><p>
+		<m>\displaystyle
+			A=
+			\begin{abmatrix}{rrrrrr}
+				1 \amp -2 \amp 1 \amp 10 \amp 3 \amp  0 \\
+				0 \amp  0 \amp 1 \amp  4 \amp 2 \amp -1 \\
+				2 \amp -4 \amp 2 \amp 20 \amp 6 \amp  1
+			\end{abmatrix}
+		</m>;
+		<m>\displaystyle \uvec{b} = \begin{abmatrix}{r} -2 \\ -10 \\ 1 \end{abmatrix} </m>.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Form the augmented matrix and reduce:
+		<me>
+			\begin{abmatrix}{rrrrrr|r}
+				1 \amp -2 \amp 1 \amp 10 \amp 3 \amp  0 \amp - 2 \\
+				0 \amp  0 \amp 1 \amp  4 \amp 2 \amp -1 \amp -10 \\
+				2 \amp -4 \amp 2 \amp 20 \amp 6 \amp  1 \amp   1
+			\end{abmatrix}
+			\rowredarrow
+			\begin{abmatrix}{rrrrrr|r}
+				1 \amp -2 \amp 0 \amp 6 \amp 1 \amp 0 \amp  3 \\
+				0 \amp  0 \amp 1 \amp 4 \amp 2 \amp 0 \amp -5 \\
+				0 \amp  0 \amp 0 \amp 0 \amp 0 \amp 1 \amp  5
+			\end{abmatrix}
+		</me>.
+		Using <m>x_1,x_2,x_3,x_4,x_5,x_6</m> as the variables,
+		variables <m>x_2,x_4,x_5</m> are free and we assign parameters to them:
+		<md><mrow> x_2 \amp = r \text{,} \amp x_4 \amp = s \text{,} \amp x_5 \amp = t \text{.} </mrow></md>
+		Interpreting the rows of the reduced matrix as equations,
+		we can isolate
+		<md><mrow>
+			x_1 \amp = 3 + 2 r - 6 s - t \text{,} \amp
+			x_3 \amp = -5 - 4 s - 2 t  \text{,} \amp
+			x_6 \amp = 5 \text{.}
+		</mrow></md>
+		</p>
+
+		<p>
+		Express the general solution in vector form:
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \end{bmatrix}
+			= \begin{bmatrix} 3 + 2 r - 6 s - t \\ r \\ -5 - 4 s - 2 t \\ s \\ t \\ 5 \end{bmatrix}
+			= \begin{abmatrix}{r} 3 \\ 0 \\ -5 \\ 0 \\ 0 \\ 5 \end{abmatrix}
+			+ r \begin{bmatrix}      2 \\ 1 \\  0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+			+ s \begin{abmatrix}{r} -6 \\ 0 \\ -4 \\ 1 \\ 0 \\ 0 \end{abmatrix}
+			+ t \begin{abmatrix}{r} -1 \\ 0 \\ -2 \\ 0 \\ 1 \\ 0 \end{abmatrix}
+		</me>.
+		Finally, the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \begin{abmatrix}{r}  3 \\ 0 \\ -5 \\ 0 \\ 0 \\ 5 \end{abmatrix} \text{,}
+			\amp
+			\uvec{x}_1 \amp = \begin{abmatrix}{r}  5 \\ 1 \\ -5 \\ 0 \\ 0 \\ 5 \end{abmatrix} \text{,}
+			\amp
+			\uvec{x}_2 \amp = \begin{abmatrix}{r} -3 \\ 0 \\ -9 \\ 1 \\ 0 \\ 5 \end{abmatrix} \text{,}
+			\amp
+			\uvec{x}_3 \amp = \begin{abmatrix}{r}  2 \\ 0 \\ -7 \\ 0 \\ 1 \\ 5 \end{abmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-vector-form-3x6-homog">
+
+	<statement><p>
+		<m>\displaystyle
+			A=
+			\begin{abmatrix}{rrrrrr}
+				1 \amp -2 \amp 1 \amp 10 \amp 3 \amp  0 \\
+				0 \amp  0 \amp 1 \amp  4 \amp 2 \amp -1 \\
+				2 \amp -4 \amp 2 \amp 20 \amp 6 \amp  1
+			\end{abmatrix}
+		</m>;
+		<m>\displaystyle \uvec{b} = \zerovec </m>.
+	</p></statement>
+
+	<solution><p>
+		This is the homogeneous version of the system in <xref ref="exercise-matrix-ops-vector-form-3x6-nonhomog" text="type-local" />,
+		so we have general solution
+		<me>
+			\uvec{x}
+			= r \begin{bmatrix}      2 \\ 1 \\  0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+			+ s \begin{abmatrix}{r} -6 \\ 0 \\ -4 \\ 1 \\ 0 \\ 0 \end{abmatrix}
+			+ t \begin{abmatrix}{r} -1 \\ 0 \\ -2 \\ 0 \\ 1 \\ 0 \end{abmatrix}
+		</me>
+		and the requested specific solutions are
+		<md><mrow>
+			\uvec{x}_0 \amp = \zerovec \text{,}
+			\amp
+			\uvec{x}_r \amp = \begin{bmatrix}      2 \\ 1 \\  0 \\ 0 \\ 0 \\ 0 \end{bmatrix}  \text{,}
+			\amp
+			\uvec{x}_s \amp = \begin{abmatrix}{r} -6 \\ 0 \\ -4 \\ 1 \\ 0 \\ 0 \end{abmatrix} \text{,}
+			\amp
+			\uvec{x}_t \amp = \begin{abmatrix}{r} -1 \\ 0 \\ -2 \\ 0 \\ 1 \\ 0 \end{abmatrix} \text{.}
+		</mrow></md>
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>
