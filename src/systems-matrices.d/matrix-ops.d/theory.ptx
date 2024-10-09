@@ -41,7 +41,9 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 
 <proposition xml:id="proposition-matrix-ops-algebra-rules">
 	<title> Matrix algebra </title>
+
 	<statement>
+
 		<p>
 		The following are valid rules of matrix algebra.
 		In each statement, assume that <m>A,B,C</m> are arbitrary matrices and <m>\zerovec</m> is a zero matrix,
@@ -54,19 +56,19 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 				<title>Basic rules of addition and multiplication</title>
 				<p><ol>
 					<li xml:id="proposition-matrix-ops-algebra-rules-basic-add-commute">
-					<m>B+A = A+B</m>
+						<m> B + A = A + B </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-basic-add-assoc">
-					<m>A + (B + C) = (A + B) + C</m>
+						<m> A + (B + C) = (A + B) + C </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-basic-left-distrib">
-					<m>A(B+C) = AB + AC</m>
+						<m> A (B + C) = A B + A C </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-basic-right-distrib">
-					<m>(A+B)C = AC+BC</m>
+						<m> (A + B) C = A C + B C </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-basic-mult-assoc">
-					<m>A(BC) = (AB)C</m>
+						<m> A (B C) = (A B) C </m>
 					</li>
 				</ol></p>
 			</li>
@@ -74,23 +76,24 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 			<li xml:id="proposition-matrix-ops-algebra-rules-scalar-mul">
 				<title>Rules involving scalar multiplication</title>
 				<p><ol>
-					<li><m>k(A+B) = kA + kB</m></li>
+					<li xml:id="proposition-matrix-ops-algebra-rules-distrib-scalar-mul-over-add">
+						<m> k (A + B) = k A + k B </m></li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-scalar-mul-distrib">
-					<m>(k+m)A = kA + mA</m>
+						<m> (k + m) A = k A + m A </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">
-					<m>(kA)B = k(AB)</m>
+						<m> (k A) B = k (A B) </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-2">
-					<m>A(kB) = k(AB)</m>
+						<m> A (k B) = k (A B) </m>
 					</li>
 					<li
 						xml:id="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-scalar-mult-assoc"
 					>
-					<m>k(mA) = (km)A</m>
+						<m> k (m A) = (k m) A </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-scalar-mul-subtract-conv-add">
-					<m>A - B = A + (-1)B</m>
+						<m> A - B = A + (-1) B </m>
 					</li>
 				</ol></p>
 			</li>
@@ -99,16 +102,16 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 				<title>Rules involving a zero matrix</title>
 				<p><ol>
 					<li xml:id="proposition-matrix-ops-algebra-rules-zero-add">
-					<m>A + \zerovec = A</m>
+						<m> A + \zerovec = A </m>
 					</li>
-					<li> <m>A-A = \zerovec</m> </li>
+					<li> <m> A - A = \zerovec </m> </li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-zero-mult-right">
-					<m>A\zerovec = \zerovec</m>
+						<m> A \zerovec = \zerovec </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-zero-mult-left">
-					<m>\zerovec B = \zerovec</m>
+						<m> \zerovec B = \zerovec </m>
 					</li>
-					<li> <m>k\zerovec = \zerovec</m> </li>
+					<li> <m> k \zerovec = \zerovec </m> </li>
 				</ol></p>
 			</li>
 
@@ -116,13 +119,13 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 				<title>Rules involving matrix powers</title>
 				<p><ol>
 					<li xml:id="proposition-matrix-ops-algebra-rules-powers-mult">
-					<m>A^p A^q = A^{p+q}</m>
+						<m> A^p A^q = A^{p+q} </m>
 					</li>
-					<li> <m>(A^p)^q = A^{pq}</m> </li>
+					<li> <m> {(A^p)}^q = A^{pq} </m> </li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-powers-of-scalar-mul">
-					<m>(kA)^p = k^p A^p</m>
+						<m> {(k A)}^p = k^p A^p </m>
 					</li>
-					<li> <m>\zerovec^p = \zerovec</m> </li>
+					<li> <m> \zerovec^p = \zerovec </m> </li>
 				</ol></p>
 			</li>
 
@@ -130,39 +133,43 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 				<title>Rules involving the transpose</title>
 				<p><ol>
 					<li xml:id="proposition-matrix-ops-algebra-rules-transpose-transpose">
-						<m>\utrans{(\utrans{A})} = A</m>
+						<m> \utrans{(\utrans{A})} = A </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-transpose-add">
-						<m>\utrans{(A+B)} = \utrans{A} + \utrans{B}</m>
+						<m> \utrans{(A + B)} = \utrans{A} + \utrans{B} </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-transpose-smul">
-						<m>\utrans{(kA)} = k\utrans{A}</m>
+						<m> \utrans{(k A)} = k \utrans{A} </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-transpose-product">
-						<m>\utrans{(AB)} = \utrans{B}\utrans{A}</m>
+						<m> \utrans{(A B)} = \utrans{B} \utrans{A} </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-transpose-power">
-					<m>\utrans{(A^p)} = (\utrans{A})^p</m>
+						<m> \utrans{(A^p)} = {(\utrans{A})}^p </m>
 					</li>
 					<li xml:id="proposition-matrix-ops-algebra-rules-transpose-zero">
-					<m>\utrans{\zerovec} = \zerovec</m>
+						<m> \utrans{\zerovec} = \zerovec </m>
 					</li>
 				</ol></p>
 			</li>
 
 		</ol>
 		</p>
+
 	</statement>
 
 	<proof>
-		<title>Proof of <xref ref="proposition-matrix-ops-algebra-rules-basic-add-assoc">Rule</xref></title>
+		<title> Verification of <xref ref="proposition-matrix-ops-algebra-rules-basic-add-assoc">Rule</xref> </title>
+
 		<p>
 		First, it's important to remember what equality of matrices means,
 		so that we know what we should be verifying:
 		<em>two matrices are equal when they have the same size and the same entries</em>.
 		And to be sure, while the formulas on the left- and right-hand sides of the rule under consideration each <em>involve</em> three matrices,
 		the formulas themselves each represent a <em>single</em> matrix.
-		</p><p>
+		</p>
+
+		<p>
 		Let's also make sure we understand the difference between the left- and right-hand sides.
 		On the left, the brackets tell us that we should add <m>B</m> and <m>C</m> first,
 		and then add <m>A</m> to that result.
@@ -190,13 +197,15 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 		Since we know from high-school algebra that addition of ordinary numbers satisfies the associativity rule <me>a+(b+c)=(a+b)+c</me>,
 		we can see that the <m>\nth[(i,j)]</m> entries of the matrices represented by the formulas on the left- and right-hand sides of this rule will always match.
 		</p>
+
 	</proof>
 
 	<proof>
-	<title>
-		Proof of
-		<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
-	</title>
+		<title>
+			Verification of
+			<xref ref="proposition-matrix-ops-algebra-rules-scalar-mul-scalar-matrix-mult-assoc-1">Rule</xref>
+		</title>
+
 		<p>
 		First, since scalar multiplication does not change the size of a matrix,
 		if <m>A</m> and <m>B</m> are compatible sizes for multiplication,
@@ -241,10 +250,11 @@ but in all of the proofs we want to verify that the matrix on the left-hand side
 		</md>
 		We can now clearly see that the two sides will be equal using the associativity rule <m>(ka)b = k(ab)</m> for numbers from high-school algebra.
 		</p>
+
 	</proof>
 
 	<proof>
-		<title> Proof of <xref ref="proposition-matrix-ops-algebra-rules-powers-mult">Rule</xref></title>
+		<title> Verification of <xref ref="proposition-matrix-ops-algebra-rules-powers-mult">Rule</xref> </title>
 		<p>
 		We can prove this rule in the same manner as the corresponding rule for powers of numbers from high-school algebra,
 		without worrying about individual entries of the matrices on either side of the equality.
