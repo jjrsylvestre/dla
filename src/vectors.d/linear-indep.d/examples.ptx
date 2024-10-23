@@ -57,12 +57,12 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/
 	</me>
 	Now we'll solve this homogeneous system by row reducing its coefficient matrix.
 	<md><mrow xml:id="equation-linear-indep-examples-testing-R4-independence-homog-system" tag="star">
-		\left[\begin{array}{rrrr}
-			1 \amp 1 \amp 2 \amp 5 \\
-			0 \amp 1 \amp 1 \amp 1 \\
-			0 \amp 0 \amp 0 \amp 0 \\
+		\begin{abmatrix}{rrrr}
+			1 \amp  1 \amp 2 \amp 5 \\
+			0 \amp  1 \amp 1 \amp 1 \\
+			0 \amp  0 \amp 0 \amp 0 \\
 			1 \amp -1 \amp 0 \amp 5
-		\end{array}\right]
+		\end{abmatrix}
 		\qquad\rowredarrow\qquad
 		\begin{bmatrix}
 			1  \amp  0  \amp  1  \amp  0 \\
@@ -130,20 +130,20 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/
 		the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>
 		using the appropriate zero vector.
 		<me>
-			k_1 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} +
-			k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] +
-			k_3 \left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right] =
-			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+			k_1 \begin{bmatrix}      1 \amp 0 \\ 0 \amp  1 \end{bmatrix} +
+			k_2 \begin{abmatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{abmatrix} +
+			k_3 \begin{abmatrix}{rr} 3 \amp 0 \\ 0 \amp -2 \end{abmatrix} =
+			    \begin{bmatrix}      0 \amp 0 \\ 0 \amp  0 \end{bmatrix}
 		</me>
 		As before, this will lead to a homogeneous system of equations in the unknown scalars <m>k_1,k_2,k_3</m>,
 		and the coefficient matrix of this system will have the entries of the three vectors as columns:
 		<me>
-			\left[\begin{array}{rrr}
+			\begin{abmatrix}{rrr}
 				1 \amp 1 \amp 3 \\
 				0 \amp 0 \amp 0 \\
 				0 \amp 0 \amp 0 \\
 				1 \amp -1 \amp -2
-			\end{array}\right]
+			\end{abmatrix}
 			\qquad\rowredarrow\qquad
 			\begin{bmatrix}
 				1  \amp  0  \amp  1/2 \\
@@ -165,16 +165,30 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/
 		the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
 		we get
 		<md>
+
 			<mrow>
-				\left(-\frac{1}{2}\right)\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-				+ \left(-\frac{5}{2}\right)\left[\begin{array}{rr} 1 \amp 0\\0 \amp -1 \end{array}\right]
-				+ \left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right]
-				= \begin{bmatrix}0 \amp 0\\0 \amp 0\end{bmatrix}
-			</mrow><mrow></mrow><mrow>
+				\left(-\frac{1}{2}\right) \begin{bmatrix}      1 \amp 0 \\ 0 \amp  1 \end{bmatrix}  +
+				\left(-\frac{5}{2}\right) \begin{abmatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{abmatrix} +
+				                          \begin{abmatrix}{rr} 3 \amp 0 \\ 0 \amp -2 \end{abmatrix} =
+				                          \begin{bmatrix}      0 \amp 0 \\ 0 \amp  0 \end{bmatrix}
+			</mrow>
+
+			<mrow></mrow>
+
+			<mrow>
+				\left(-\frac{1}{2}\right) \begin{bmatrix}      1 \amp 0 \\ 0 \amp  1 \end{bmatrix}  +
+				\left(-\frac{5}{2}\right) \begin{abmatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{abmatrix} +
+				                          \begin{abmatrix}{rr} 3 \amp 0 \\ 0 \amp -2 \end{abmatrix} =
+				                          \begin{bmatrix}      0 \amp 0 \\ 0 \amp  0 \end{bmatrix}
+			</mrow>
+
+			<mrow></mrow>
+
+			<mrow>
 				\implies\quad
-				\left[\begin{array}{rr} 3 \amp 0 \\ 0 \amp -2 \end{array}\right] =
-				\frac{1}{2}\begin{bmatrix} 1 \amp 0\\0 \amp 1 \end{bmatrix} +
-				\frac{5}{2}\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
+				            \begin{abmatrix}{rr} 3 \amp 0 \\ 0 \amp -2 \end{abmatrix} =
+				\frac{1}{2} \begin{bmatrix}      1 \amp 0 \\ 0 \amp  1 \end{bmatrix}  +
+				\frac{5}{2} \begin{abmatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{abmatrix}
 			</mrow>
 		</md>.
 		From this we see exactly how one of the vectors in our collection can be expressed as a linear combination of others in the collection.
@@ -204,9 +218,9 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/
 	</me>
 	Once again, we reduce the coefficient matrix to determine if there are nontrivial solutions:
 	<me>
-		\left[\begin{array}{rrr} 1 \amp 1 \amp 2 \\ 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \end{array}\right]
+		\begin{abmatrix}{rrr} 1 \amp 1 \amp  2 \\ 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \end{abmatrix}
 		\qquad\rowredarrow\qquad
-		\begin{bmatrix} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 0 \end{bmatrix}
+		\begin{bmatrix}       1 \amp 0 \amp -1 \\ 0 \amp 1 \amp  3 \\ 0 \amp 0 \amp 0 \end{bmatrix}
 	</me>.
 	</p>
 

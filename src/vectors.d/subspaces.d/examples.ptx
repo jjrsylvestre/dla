@@ -410,7 +410,7 @@ For this to be true, that vector must be a linear combination of vectors in the 
 
 	<p>
 	There is an interesting pattern to note if we actually convert the system above into an augmented matrix:
-	<me> \left[\begin{array}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{array}\right] </me>.
+	<me> \begin{abmatrix}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{abmatrix} </me>.
 	Notice that
 	<alert>
 		the columns in the coefficient matrix are precisely the vectors in the spanning set,
@@ -446,7 +446,7 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	<p>
 	If we didn't notice this, we could carry out a similar procedure as in the previous example, beginning with the vector equation
 	<me>
-		\left[\begin{array}{rrr}  0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{array}\right]
+		\begin{abmatrix}{rrr}  0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{abmatrix}
 		=
 		r\begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp  0 \amp  0 \end{bmatrix} +
 		s\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp  1 \amp  0 \end{bmatrix} +
@@ -455,14 +455,14 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	 in the unknown scalars <m>r,s,t</m>.
 	 Combining the linear combination on the right into one matrix, and then comparing entries on each side, we get a linear system with augmented matrix
 	 <me>
-	 	\left[\begin{array}{rrr|r}
-	 		0 \amp 0 \amp 0 \amp 0 \\
-	 		1 \amp 0 \amp 0 \amp 2 \\
-	 		1 \amp 0 \amp 0 \amp 2 \\
-	 		0 \amp 1 \amp 0 \amp 3 \\
+	 	\begin{abmatrix}{rrr|r}
+	 		0 \amp 0 \amp 0 \amp  0 \\
+	 		1 \amp 0 \amp 0 \amp  2 \\
+	 		1 \amp 0 \amp 0 \amp  2 \\
+	 		0 \amp 1 \amp 0 \amp  3 \\
 	 		0 \amp 1 \amp 0 \amp -3 \\
 	 		0 \amp 0 \amp 1 \amp -3
-	 	\end{array}\right]
+	 	\end{abmatrix}
 	 </me>.
 	 </p>
 
@@ -492,11 +492,11 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	\end{array}</me>
 	which can be converted into augmented matrix
 	<me>
-		\left[\begin{array}{rrr|r}
-			1 \amp 1 \amp 1 \amp 2 \\
+		\begin{abmatrix}{rrr|r}
+			1 \amp 1 \amp 1 \amp  2 \\
 			0 \amp 1 \amp 0 \amp -1 \\
-			0 \amp 0 \amp 1 \amp 3
-		\end{array}\right]
+			0 \amp 0 \amp 1 \amp  3
+		\end{abmatrix}
 	</me>.
 	</p>
 
@@ -592,34 +592,35 @@ For
 <me>
 	S
 	= \left\{
-		\begin{bmatrix}[rrr] 1 \amp 1 \amp -1 \\ 2 \amp 3 \amp 0 \end{bmatrix},
-		\begin{bmatrix}[rrr] 0 \amp 1 \amp 4 \\ -5 \amp 6 \amp 8 \end{bmatrix},
-		\begin{bmatrix}[rrr] 3 \amp -4 \amp 3 \\ 3 \amp -4 \amp 3 \end{bmatrix},
-		\begin{bmatrix}[rrr] 1 \amp -4 \amp 5 \\ 5 \amp 5 \amp -1 \end{bmatrix},
-		\begin{bmatrix}[rrr] 0 \amp 0 \amp 1 \\ 4 \amp 7 \amp 7 \end{bmatrix},
-		\begin{bmatrix}[rrr] 1 \amp 2 \amp 3 \\ -4 \amp -5 \amp -6 \end{bmatrix}
+		\begin{abmatrix}{rrr} 1 \amp  1 \amp -1 \\  2 \amp  3 \amp  0 \end{abmatrix},
+		\begin{abmatrix}{rrr} 0 \amp  1 \amp  4 \\ -5 \amp  6 \amp  8 \end{abmatrix},
+		\begin{abmatrix}{rrr} 3 \amp -4 \amp  3 \\  3 \amp -4 \amp  3 \end{abmatrix},
+		\begin{abmatrix}{rrr} 1 \amp -4 \amp  5 \\  5 \amp  5 \amp -1 \end{abmatrix},
+		\begin{abmatrix}{rrr} 0 \amp  0 \amp  1 \\  4 \amp  7 \amp  7 \end{abmatrix},
+		\begin{abmatrix}{rrr} 1 \amp  2 \amp  3 \\ -4 \amp -5 \amp -6 \end{abmatrix}
 	\right\},
 </me>
 is <m>\Span S</m> equal to all of <m>\matrixring_{2 \times 3}(\R)</m>? To answer this question, we have to verify that the vector equation
 <me>
-	\begin{bmatrix}[rrr] a \amp b \amp c \\ d \amp e \amp f \end{bmatrix}
-	= m\begin{bmatrix}[rrr] 1 \amp 1 \amp -1 \\ 2 \amp 3 \amp 0 \end{bmatrix}
-	+ p\begin{bmatrix}[rrr] 0 \amp 1 \amp 4 \\ -5 \amp 6 \amp 8 \end{bmatrix}
-	+ q\begin{bmatrix}[rrr] 3 \amp -4 \amp 3 \\ 3 \amp -4 \amp 3 \end{bmatrix}
-	+ r\begin{bmatrix}[rrr] 1 \amp -4 \amp 5 \\ 5 \amp 5 \amp -1 \end{bmatrix}
-	+ s\begin{bmatrix}[rrr] 0 \amp 0 \amp 1 \\ 4 \amp 7 \amp 7 \end{bmatrix}
-	+ t\begin{bmatrix}[rrr] 1 \amp 2 \amp 3 \\ -4 \amp -5 \amp -6 \end{bmatrix}
+	  \begin{bmatrix}       a \amp  b \amp  c \\  d \amp  e \amp  f \end{bmatrix}
+	=
+	m \begin{abmatrix}{rrr} 1 \amp  1 \amp -1 \\  2 \amp  3 \amp  0 \end{abmatrix} +
+	p \begin{abmatrix}{rrr} 0 \amp  1 \amp  4 \\ -5 \amp  6 \amp  8 \end{abmatrix} +
+	q \begin{abmatrix}{rrr} 3 \amp -4 \amp  3 \\  3 \amp -4 \amp  3 \end{abmatrix} +
+	r \begin{abmatrix}{rrr} 1 \amp -4 \amp  5 \\  5 \amp  5 \amp -1 \end{abmatrix} +
+	s \begin{abmatrix}{rrr} 0 \amp  0 \amp  1 \\  4 \amp  7 \amp  7 \end{abmatrix} +
+	t \begin{abmatrix}{rrr} 1 \amp  2 \amp  3 \\ -4 \amp -5 \amp -6 \end{abmatrix}
 </me>
 has a solution in the unknown scalars <m>m,p,q,r,s,t</m>, for every possible combination of the unspecified matrix entries <m>a,b,c,d,e,f</m>. In other words, we need to verify that they system
 <me>
-	\begin{bmatrix}[rrrrrr|r]
-		1 \amp 0 \amp 3 \amp 1 \amp 0 \amp 1 \amp a \\
-		1 \amp 1 \amp -4 \amp -4 \amp 0 \amp 2 \amp b \\
-		-1 \amp 4 \amp 3 \amp 5 \amp 1 \amp 3 \amp c \\
-		2 \amp -5 \amp 3 \amp 5 \amp 4 \amp -4 \amp d \\
-		3 \amp 6 \amp -4 \amp 5 \amp 7 \amp -5 \amp e \\
-		0 \amp 8 \amp 3 \amp -1 \amp 7 \amp -6 \amp f
-	\end{bmatrix}
+	\begin{abmatrix}{rrrrrr|r}
+		 1 \amp  0 \amp  3 \amp  1 \amp 0 \amp  1 \amp a \\
+		 1 \amp  1 \amp -4 \amp -4 \amp 0 \amp  2 \amp b \\
+		-1 \amp  4 \amp  3 \amp  5 \amp 1 \amp  3 \amp c \\
+		 2 \amp -5 \amp  3 \amp  5 \amp 4 \amp -4 \amp d \\
+		 3 \amp  6 \amp -4 \amp  5 \amp 7 \amp -5 \amp e \\
+		 0 \amp  8 \amp  3 \amp -1 \amp 7 \amp -6 \amp f
+	\end{abmatrix}
 </me>
 is <em>always} consistent, <em>no matter the values of the unspecified constants <m>a,b,c,d,e,f</m>}. This system version of the question is not so easy to answer, but in future chapters we will make the original question of <q>Is <m>\Span S</m> equal to the whole space?</q> easier to answer by a deeper study of the structure of subspaces and their descriptions as generated by spanning sets. \begin{inlinenote}[See]\refCorollary[Dim]{basis.right.num.just.one.check}.\end{inlinenote}
 \end{exmp}
