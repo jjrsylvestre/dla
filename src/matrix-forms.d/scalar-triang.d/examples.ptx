@@ -23,7 +23,7 @@ respective owners.
 	<statement>
 		<p>
 		Is matrix
-		<me> A = \left[\begin{array}{rrr} -6 \amp -14 \amp 5\\ 1 \amp 2 \amp -1\\ -2 \amp -5 \amp 1 \end{array}\right] </me>
+		<me> A = \begin{amatrix}{rrr} -6 \amp -14 \amp 5\\ 1 \amp 2 \amp -1\\ -2 \amp -5 \amp 1 \end{amatrix} </me>
 		similar to some upper triangular matrix?
 		</p><p>
 		We begin by investigating the eigenvalues of <m>A</m>.
@@ -43,9 +43,9 @@ respective owners.
 		Next, compute a basis for the eigenspace <m>E_{-1}(A)</m>.
 		<md alignment="gather">
 			<mrow>
-				(-1)I-A = \left[\begin{array}{rrr} 5 \amp 14 \amp -5 \\ -1 \amp -3 \amp 1 \\ 2 \amp 5 \amp -2 \end{array}\right]
+				(-1)I-A = \begin{amatrix}{rrr} 5 \amp 14 \amp -5 \\ -1 \amp -3 \amp 1 \\ 2 \amp 5 \amp -2 \end{amatrix}
 				\qquad \rowredarrow \qquad
-				\left[\begin{array}{ccr} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right]
+				\begin{amatrix}{ccr} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{amatrix}
 			</mrow><mrow></mrow><mrow>
 				\implies \qquad
 				E_{-1}(A) = \Span \left\{ \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \right\}
@@ -60,14 +60,14 @@ respective owners.
 		Now compute a basis for the generalized eigensubspace of degree <m>2</m>:
 		<md alignment="gather">
 			<mrow>
-				(-I-A)^2 = \left[\begin{array}{ccr} 1 \amp 3 \amp -1 \\ 0 \amp 0 \amp 0 \\ 1 \amp 3 \amp -1 \end{array}\right]
+				(-I-A)^2 = \begin{amatrix}{ccr} 1 \amp 3 \amp -1 \\ 0 \amp 0 \amp 0 \\ 1 \amp 3 \amp -1 \end{amatrix}
 				\qquad \rowredarrow \qquad
-				\left[\begin{array}{ccr} 1 \amp 3 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right]
+				\begin{amatrix}{ccr} 1 \amp 3 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{amatrix}
 			</mrow><mrow></mrow><mrow>
 				\implies \qquad
 				E_{-1}^2(A) = \Span\left\{
 					\begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix},
-					\left[\begin{array}{r} -3 \\ 1 \\ 0 \end{array}\right]
+					\begin{amatrix}{r} -3 \\ 1 \\ 0 \end{amatrix}
 				\right\}
 			</mrow>
 		</md>.
@@ -92,10 +92,10 @@ respective owners.
 		We now have our column vectors for a suitable transition matrix <m>P</m>:
 		<md><mrow>
 			\uvec{p}_1 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}, \;
-			\uvec{p}_2 \amp = \left[\begin{array}{r} -3 \\ 1 \\ 0 \end{array}\right], \;
+			\uvec{p}_2 \amp = \begin{amatrix}{r} -3 \\ 1 \\ 0 \end{amatrix}, \;
 			\uvec{p}_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix},
 			\amp \amp\implies \amp
-			P \amp= \left[\begin{array}{crc} 1 \amp -3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 1 \end{array}\right]
+			P \amp= \begin{amatrix}{crc} 1 \amp -3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 1 \end{amatrix}
 		</mrow></md>.
 		</p><p>
 		Finally, let's determine the form matrix <m>\inv{P}AP</m>.
@@ -104,13 +104,13 @@ respective owners.
 		Next, compute <m>\bbrac{A-(-1)I}\uvec{p}_2</m> and you will find that it is equal to <m>\uvec{p}_1</m>.
 		Thus, the entry above the diagonal in the second column must be <m>1</m>. Lastly, compute
 		<me>
-			\left[\begin{array}{cc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \bigl( A - (-1) I \bigr) \uvec{p}_3 \end{array}\right]
-			= \left[\begin{array}{cr|r} 1 \amp -3 \amp 5 \\ 0 \amp 1 \amp -1 \\ 1 \amp 0 \amp 2 \end{array}\right]
+			\begin{amatrix}{cc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \bigl( A - (-1) I \bigr) \uvec{p}_3 \end{amatrix}
+			= \begin{amatrix}{cr|r} 1 \amp -3 \amp 5 \\ 0 \amp 1 \amp -1 \\ 1 \amp 0 \amp 2 \end{amatrix}
 			\qquad \rowredarrow \qquad
-			\left[\begin{array}{cc|r} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{array}\right]
+			\begin{amatrix}{cc|r} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{amatrix}
 		</me>.
 		Thus, the entries above the diagonal in the third column are <m>2</m>, <m>-1</m>. Putting all this together yields
-		<me> \inv{P}AP = \left[\begin{array}{rrr} -1 \amp 1 \amp 2 \\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp -1 \end{array}\right] </me>.
+		<me> \inv{P}AP = \begin{amatrix}{rrr} -1 \amp 1 \amp 2 \\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp -1 \end{amatrix} </me>.
 		</p>
 	</statement>
 </example>
@@ -122,13 +122,13 @@ respective owners.
 		<p>
 		Is matrix
 		<me>
-			A = \left[\begin{array}{rrrrr}
+			A = \begin{amatrix}{rrrrr}
 				3 \amp 1 \amp -8 \amp 8 \amp -3 \\
 				-2 \amp -5 \amp 0 \amp -2 \amp -5 \\
 				2 \amp 7 \amp 3 \amp 2 \amp 4 \\
 				3 \amp 11 \amp 1 \amp 5 \amp 7 \\
 				2 \amp 8 \amp 2 \amp 0 \amp 9
-			\end{array}\right]
+			\end{amatrix}
 		</me>
 		similar to some upper triangular matrix?
 		</p><p>
@@ -143,26 +143,26 @@ respective owners.
 		<md alignment="gather">
 			<mrow>
 				3 I - A =
-				\left[\begin{array}{rrrrr}
+				\begin{amatrix}{rrrrr}
 					0 \amp -1 \amp 8 \amp -8 \amp 3 \\
 					2 \amp 8 \amp 0 \amp 2 \amp 5 \\
 					-2 \amp -7 \amp 0 \amp -2 \amp -4 \\
 					-3 \amp -11 \amp -1 \amp -2 \amp -7 \\
 					-2 \amp -8 \amp -2 \amp 0 \amp -6
-				\end{array}\right]
+				\end{amatrix}
 				\quad \rowredarrow \quad
-				\left[\begin{array}{rrrrr}
+				\begin{amatrix}{rrrrr}
 					1 \amp 0 \amp 0 \amp 1 \amp -\frac{3}{2} \\
 					0 \amp 1 \amp 0 \amp 0 \amp 1 \\
 					0 \amp 0 \amp 1 \amp -1 \amp \frac{1}{2} \\
 					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
 					0 \amp 0 \amp 0 \amp 0 \amp 0
-				\end{array}\right]
+				\end{amatrix}
 			</mrow><mrow></mrow><mrow>
 				\implies \qquad
 				E_3(A) = \Span\left\{
-					\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{array}\right],
-					\left[\begin{array}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{array}\right]
+					\begin{amatrix}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{amatrix},
+					\begin{amatrix}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{amatrix}
 				\right\}
 			</mrow>
 		</md>
@@ -173,28 +173,28 @@ respective owners.
 		<md alignment="gather">
 			<mrow>
 				(3 I - A)^2 =
-				\left[\begin{array}{rrrrr}
+				\begin{amatrix}{rrrrr}
 					0 \amp 0 \amp 2 \amp -2 \amp 1 \\
 					0 \amp 0 \amp 4 \amp -4 \amp 2 \\
 					0 \amp 0 \amp -6 \amp 6 \amp -3 \\
 					0 \amp 0 \amp -8 \amp 8 \amp -4 \\
 					0 \amp 0 \amp -4 \amp 4 \amp -2
-				\end{array}\right]
+				\end{amatrix}
 				\quad \rowredarrow \quad
-				\left[\begin{array}{rrrrr}
+				\begin{amatrix}{rrrrr}
 					0 \amp 0 \amp 1 \amp -1 \amp \frac{1}{2} \\
 					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
 					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
 					0 \amp 0 \amp 0 \amp 0 \amp 0 \\
 					0 \amp 0 \amp 0 \amp 0 \amp 0
-				\end{array}\right]
+				\end{amatrix}
 			</mrow><mrow></mrow><mrow>
 				\implies \qquad
 				E_3^2(A) = \Span\left\{
 					\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 					\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 					\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 0 \end{bmatrix},
-					\left[\begin{array}{r} 0 \\ 0 \\ -1 \\ 0 \\ 2 \end{array}\right]
+					\begin{amatrix}{r} 0 \\ 0 \\ -1 \\ 0 \\ 2 \end{amatrix}
 				\right\}
 			</mrow>
 		</md>
@@ -205,8 +205,8 @@ respective owners.
 		so take
 		<me>
 			E_3^2(A) = \Span\left\{
-				\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{array}\right],
-				\left[\begin{array}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{array}\right],
+				\begin{amatrix}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{amatrix},
+				\begin{amatrix}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{amatrix},
 				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 				\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
 			\right\}
@@ -219,8 +219,8 @@ respective owners.
 		and we now have
 		<me>
 			E_3^3(A) = \Span\left\{
-				\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{array}\right],
-				\left[\begin{array}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{array}\right],
+				\begin{amatrix}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{amatrix},
+				\begin{amatrix}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{amatrix},
 				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 				\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 				\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
@@ -229,46 +229,46 @@ respective owners.
 		</p><p>
 		Now place these matrices in the transition matrix
 		<me>
-			P = \left[\begin{array}{rrrrr}
+			P = \begin{amatrix}{rrrrr}
 				-1 \amp 3 \amp 1 \amp 0 \amp 0 \\
 				0 \amp -2 \amp 0 \amp 1 \amp 0 \\
 				1 \amp -1 \amp 0 \amp 0 \amp 1 \\
 				1 \amp 0 \amp 0 \amp 0 \amp 0 \\
 				0 \amp 2 \amp 0 \amp 0 \amp 0
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 		To determine the form matrix,
-		we can reduce <m>\left[\begin{array}{c|c} P \amp AP \end{array}\right]</m> as
+		we can reduce <m>\begin{amatrix}{c|c} P \amp AP \end{amatrix}</m> as
 		<md alignment="gather">
 			<mrow>
-				\left[\begin{array}{rrrrr|rrrrr}
+				\begin{amatrix}{rrrrr|rrrrr}
 					-1 \amp 3 \amp 1 \amp 0 \amp 0 \amp -3 \amp 9 \amp 3 \amp 1 \amp -8 \\
 					0 \amp -2 \amp 0 \amp 1 \amp 0 \amp 0 \amp -6 \amp -2 \amp -5 \amp 0\\
 					1 \amp -1 \amp 0 \amp 0 \amp 1 \amp 3 \amp -3 \amp 2 \amp 7 \amp 3\\
 					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 0 \amp 3 \amp 11 \amp 1\\
 					0 \amp 2 \amp 0 \amp 0 \amp 0 \amp 0 \amp 6 \amp 2 \amp 8 \amp 2
-				\end{array}\right]
+				\end{amatrix}
 			</mrow><mrow></mrow><mrow>
 				\rowredarrow \qquad
-				\left[\begin{array}{rrrrr|rrrrr}
+				\begin{amatrix}{rrrrr|rrrrr}
 					1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 0 \amp 3 \amp 11 \amp 1 \\
 					0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 1 \amp 4 \amp 1 \\
 					0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 0 \amp -10 \\
 					0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp 2 \\
 					0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3
-				\end{array}\right]
+				\end{amatrix}
 			</mrow>
 		</md>,
 		obtaining
 		<me>
 			\inv{P} A P
-			= \left[\begin{array}{rrrrr}
+			= \begin{amatrix}{rrrrr}
 				3 \amp 0 \amp 3 \amp 11 \amp 1 \\
 				0 \amp 3 \amp 1 \amp 4 \amp 1 \\
 				0 \amp 0 \amp 3 \amp 0 \amp -10 \\
 				0 \amp 0 \amp 0 \amp 3 \amp 2 \\
 				0 \amp 0 \amp 0 \amp 0 \amp 3
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 		</p>
 	</statement>

@@ -342,9 +342,9 @@ which describes the pattern of
 <xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />.
 Here is that pattern again, but in abbreviated form:
 <me>
-	\left[\begin{array}{c|c} A \amp I \end{array}\right] \qquad \rowredarrow \qquad
-	\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{array}\right]
-	= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+	\begin{amatrix}{c|c} A \amp I \end{amatrix} \qquad \rowredarrow \qquad
+	\begin{amatrix}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{amatrix}
+	= \begin{amatrix}{c|c} I \amp \inv{A} \end{amatrix}
 </me>,
 where the <m>E_j</m> are the elementary matrices associated to a sequence of operations that reduces <m>A</m> to <m>I</m>.
 </p>
@@ -353,11 +353,11 @@ where the <m>E_j</m> are the elementary matrices associated to a sequence of ope
 What if we augmented <m>A</m> with a matrix other than <m>I</m> and row reduced?
 Then the pattern would be
 <md>
-	<mrow> \amp \left[\begin{array}{c|c} A \amp B \end{array}\right] </mrow>
+	<mrow> \amp \begin{amatrix}{c|c} A \amp B \end{amatrix} </mrow>
 	<mrow xml:id="equation-change-of-basis-concepts-row-red-aug-transfer-inv" tag="dmaltese">
 		\amp \qquad \rowredarrow \qquad
-		\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 B \end{array}\right]
-		= \left[\begin{array}{c|c} I \amp \inv{A} B \end{array}\right]
+		\begin{amatrix}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 B \end{amatrix}
+		= \begin{amatrix}{c|c} I \amp \inv{A} B \end{amatrix}
 	</mrow>
 </md>.
 This pattern reveals that we can also carry out an inverse-times-matrix computation by row reducing!
@@ -376,10 +376,10 @@ to compute a transition matrix for <m>\R^n</m>.
 		and row reduce until the identity matrix is obtained on the left.
 		The matrix on the right will now be <m>\ucobmtrx{B}{B'}</m>.
 		<me>
-			\left[\begin{array}{c|c} \ucobmtrx{B'}{S} \amp \ucobmtrx{B}{S} \end{array}\right]
+			\begin{amatrix}{c|c} \ucobmtrx{B'}{S} \amp \ucobmtrx{B}{S} \end{amatrix}
 			\qquad\rowredarrow\qquad
-			\left[\begin{array}{c|c} I \amp \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S} \end{array}\right]
-			= \left[\begin{array}{c|c} I \amp \ucobmtrx{B}{B'} \end{array}\right]
+			\begin{amatrix}{c|c} I \amp \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S} \end{amatrix}
+			= \begin{amatrix}{c|c} I \amp \ucobmtrx{B}{B'} \end{amatrix}
 		</me>
 	</p></statement>
 </algorithm>
@@ -393,18 +393,18 @@ to compute a transition matrix for <m>\R^n</m>.
 			<xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />
 			if we remove some of the transition matrix notation:
 			<me>
-				\left[\begin{array}{c|c} \basisfont{B}' \amp \basisfont{B} \end{array}\right]
+				\begin{amatrix}{c|c} \basisfont{B}' \amp \basisfont{B} \end{amatrix}
 				\qquad\rowredarrow\qquad
-				\left[\begin{array}{c|c} I \amp (\basisfont{B} \to \basisfont{B}') \end{array}\right]
+				\begin{amatrix}{c|c} I \amp (\basisfont{B} \to \basisfont{B}') \end{amatrix}
 			</me>
 			(where we even could write <m>\basisfont{S}</m> instead of <m>I</m> on the left of the reduced matrix,
 			if we wished).
 			</p><p>
 			Even better might be to express the pattern in words:
 			<me>
-				\left[\begin{array}{c|c} \text{New} \amp \text{Old} \end{array}\right]
+				\begin{amatrix}{c|c} \text{New} \amp \text{Old} \end{amatrix}
 				\qquad\rowredarrow\qquad
-				\left[\begin{array}{c|c} I \amp (\text{Old} \to \text{New}) \end{array}\right]
+				\begin{amatrix}{c|c} I \amp (\text{Old} \to \text{New}) \end{amatrix}
 			</me>.
 			</p>
 		</li>

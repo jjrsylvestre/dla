@@ -41,30 +41,30 @@ so we will only carry out an example of multiplication of block matrices.
 <example><title>Multiplying block matrices</title><p>
 	Consider matrices
 	<md><mrow>
-		A \amp= \left[\begin{array}{@{}crc|cc@{}}
+		A \amp= \begin{amatrix}{@{}crc|cc@{}}
 			1 \amp 0 \amp 1 \amp 1 \amp 1 \\
 			4 \amp -1 \amp 1 \amp 1 \amp 1 \\
 			2 \amp 2 \amp 0 \amp 1 \amp 1 \\
 			\hline
 			0 \amp 0 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 0 \amp 1
-		\end{array}\right]
+		\end{amatrix}
 		\text{,}
 		\amp
-		B \amp= \left[\begin{array}{@{}rrr|rc@{}}
+		B \amp= \begin{amatrix}{@{}rrr|rc@{}}
 			1 \amp 0 \amp 0 \amp 0 \amp 0 \\
 			0 \amp 1 \amp 0 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 1 \amp 0 \amp 0 \\
 			\hline
 			-1 \amp -1 \amp -1 \amp 1 \amp 0 \\
 			-1 \amp -1 \amp -1 \amp -4 \amp 9
-		\end{array}\right]
+		\end{amatrix}
 		\text{,}
 	</mrow></md>
 	subdivided into blocks
 	<md>
 		<mrow>
-			A_1 \amp= \left[\begin{array}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{array}\right] \text{,} \amp
+			A_1 \amp= \begin{amatrix}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{amatrix} \text{,} \amp
 			A_2 \amp= \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \\ 1 \amp 1 \end{bmatrix} \text{,} \amp
 			B_1 \amp= I_3 \text{,} \amp
 			B_2 \amp= \zerovec \text{,}
@@ -72,7 +72,7 @@ so we will only carry out an example of multiplication of block matrices.
 			A_3 \amp= \zerovec \text{,} \amp
 			A_4 \amp= I_2 \text{,} \amp
 			B_3 \amp= \begin{bmatrix} -1 \amp -1 \amp -1 \\ -1 \amp -1 \amp -1 \end{bmatrix} \text{,} \amp
-			B_4 \amp= \left[\begin{array}{rc} 1 \amp 0 \\ -4 \amp 9 \end{array}\right]  \text{,}
+			B_4 \amp= \begin{amatrix}{rc} 1 \amp 0 \\ -4 \amp 9 \end{amatrix}  \text{,}
 		</mrow>
 	</md>
 	where <m>I_2</m> is the <m>2 \times 2</m> identity matrix,
@@ -83,22 +83,22 @@ so we will only carry out an example of multiplication of block matrices.
 		<mrow>
 			A_1 B_1 + A_2 B_3
 			\amp = A_1 +
-			\left[\begin{array}{rrr}
+			\begin{amatrix}{rrr}
 				-2 \amp -2 \amp -2 \\
 				-2 \amp -2 \amp -2 \\
 				-2 \amp -2 \amp -2
-			\end{array}\right]
-			= \left[\begin{array}{rrr}
+			\end{amatrix}
+			= \begin{amatrix}{rrr}
 				-1 \amp -2 \amp -1 \\
 				2 \amp -3 \amp -1 \\
 				0 \amp 0 \amp -2
-			\end{array}\right]
+			\end{amatrix}
 			\text{,}
 		</mrow><mrow>
 			A_1 B_2 + A_2 B_4
 			\amp = \zerovec
-			+ \left[\begin{array}{rc} -3 \amp 9 \\ -3 \amp 9 \\ -3 \amp 9 \end{array}\right]
-			= \left[\begin{array}{rc} -3 \amp 9 \\ -3 \amp 9 \\ -3 \amp 9 \end{array}\right]
+			+ \begin{amatrix}{rc} -3 \amp 9 \\ -3 \amp 9 \\ -3 \amp 9 \end{amatrix}
+			= \begin{amatrix}{rc} -3 \amp 9 \\ -3 \amp 9 \\ -3 \amp 9 \end{amatrix}
 			\text{,}
 		</mrow>
 		<mrow> A_3 B_1 + A_4 B_3 \amp= \zerovec + B_3 = B_3 \text{,} </mrow>
@@ -118,14 +118,14 @@ so we will only carry out an example of multiplication of block matrices.
 				A_3 B_1 + A_4 B_3 \amp A_3 B_2 + A_4 B_4
 			\end{bmatrix}
 		</mrow><mrow>
-			\amp = \left[\begin{array}{@{}rrr|rc@{}}
+			\amp = \begin{amatrix}{@{}rrr|rc@{}}
 				-1 \amp -2 \amp -1 \amp -3 \amp 9 \\
 				2 \amp -3 \amp -1 \amp -3 \amp 9 \\
 				0 \amp 0 \amp -2 \amp -3 \amp 9 \\
 				\hline
 				-1 \amp -1 \amp -1 \amp 1 \amp 0 \\
 				-1 \amp -1 \amp -1 \amp -4 \amp 9
-			\end{array}\right]
+			\end{amatrix}
 		</mrow>
 	</md>.
 </p></example>
@@ -200,11 +200,11 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	<me>
 		A
 		= \frac{1}{2}
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			1 \amp 1 \amp \sqrt{2} \\
 			1 \amp 1 \amp -\sqrt{2} \\
 			-\sqrt{2} \amp \sqrt{2} \amp 0
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	on vectors in <m>\R^3</m> is to rotate around the line through the origin spanned by the vector
 	<m>\uvec{n} = (1, 1, 0)</m>.
@@ -218,15 +218,15 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	<me>
 		A \uvec{n}
 		= \frac{1}{2}
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			1 \amp 1 \amp \sqrt{2} \\
 			1 \amp 1 \amp -\sqrt{2} \\
 			-\sqrt{2} \amp \sqrt{2} \amp 0
-		\end{array}\right]
-		\left[\begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} 1 \\ 1 \\ 0 \end{amatrix}
 		= \frac{1}{2}
-		\left[\begin{array}{r} 2 \\ 2 \\ 0 \end{array}\right]
-		= \left[\begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right]
+		\begin{amatrix}{r} 2 \\ 2 \\ 0 \end{amatrix}
+		= \begin{amatrix}{r} 1 \\ 1 \\ 0 \end{amatrix}
 	</me>,
 	as expected.
 	</p><p>
@@ -241,15 +241,15 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	<me>
 		A \uvec{w}_1
 		= \frac{1}{2}
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			1 \amp 1 \amp \sqrt{2} \\
 			1 \amp 1 \amp -\sqrt{2} \\
 			-\sqrt{2} \amp \sqrt{2} \amp 0
-		\end{array}\right]
-		\left[\begin{array}{r} 0 \\ 0 \\ 1 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} 0 \\ 0 \\ 1 \end{amatrix}
 		= \frac{1}{2}
-		\left[\begin{array}{r} \sqrt{2} \\ -\sqrt{2} \\ 0 \end{array}\right]
-		= \left[\begin{array}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{array}\right]
+		\begin{amatrix}{r} \sqrt{2} \\ -\sqrt{2} \\ 0 \end{amatrix}
+		= \begin{amatrix}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{amatrix}
 	</me>.
 	The components of this transformed vector do indeed satisfy the plane equation <m>x + y = 0</m>.
 	Even better, then length of this vector is <m>1</m>,
@@ -267,15 +267,15 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	<me>
 		A \uvec{w}_2
 		= \frac{1}{2}
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			1 \amp 1 \amp \sqrt{2} \\
 			1 \amp 1 \amp -\sqrt{2} \\
 			-\sqrt{2} \amp \sqrt{2} \amp 0
-		\end{array}\right]
-		\left[\begin{array}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{amatrix}
 		= \frac{1}{2}
-		\left[\begin{array}{r} 0 \\ 0 \\ -2 \end{array}\right]
-		= \left[\begin{array}{r} 0 \\ 0 \\ -1 \end{array}\right]
+		\begin{amatrix}{r} 0 \\ 0 \\ -2 \end{amatrix}
+		= \begin{amatrix}{r} 0 \\ 0 \\ -1 \end{amatrix}
 	</me>.
 	So <m>A</m> transforms <m>\uvec{w}_2</m> into <m>-\uvec{w}_1</m>.
 	From our guess at the angle of rotation,
@@ -316,11 +316,11 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 			\uvec{n} \amp \uvec{w}_1 \amp \uvec{w}_2 \\
 			| \amp | \amp |
 		\end{bmatrix}
-		= \left[\begin{array}{rrr}
+		= \begin{amatrix}{rrr}
 			1 \amp 0 \amp \frac{1}{\sqrt{2}} \\
 			1 \amp 0 \amp -\frac{1}{\sqrt{2}} \\
 			0 \amp 1 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	</p><p>
 	There is no need to compute <m>\inv{P}</m> in order to know the form matrix <m>\inv{P} A P</m>.
@@ -347,12 +347,12 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	we obtain
 	<me>
 		\inv{P} A P =
-		\left[\begin{array}{@{}r|rr@{}}
+		\begin{amatrix}{@{}r|rr@{}}
 			1 \amp 0 \amp  0 \\
 			\hline
 			0 \amp 0 \amp -1 \\
 			0 \amp 1 \amp  0
-		\end{array}\right]
+		\end{amatrix}
 	</me>,
 	where the <m>1 \times 1</m> block in the upper left represents the trivial action of <m>A</m> on vectors in the axis <m>U</m>,
 	and the <m>2 \times 2</m> block in the lower right represents the rotation action of <m>A</m> on the vectors in the perpendicular plane <m>W</m>.
@@ -372,7 +372,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	<title>Diagonal form as block-diagonal form</title>
 	<p>
 	Consider the matrix
-	<me> A = \left[\begin{array}{rrr} 2 \amp 1 \amp -2 \\ 3 \amp 0 \amp 0 \\ -1 \amp 1 \amp -2 \end{array}\right] </me>.
+	<me> A = \begin{amatrix}{rrr} 2 \amp 1 \amp -2 \\ 3 \amp 0 \amp 0 \\ -1 \amp 1 \amp -2 \end{amatrix} </me>.
 	If you take the time to compute them,
 	you will find that <m>A</m> has three eigenvalues:
 	<m>\lambda_1 = 3</m>, <m>\lambda_2 = 0</m>, and <m>\lambda_3 = -3</m>.
@@ -394,7 +394,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	precisely what we need for the block-diagonalization procedure.
 	</p><p>
 	So we may form a suitable transition matrix <m>P</m> by taking the eigenvectors above as columns:
-	<me> P = \left[\begin{array}{rrr} 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp -1 \\ 0 \amp 1 \amp 2 \end{array}\right] </me>.
+	<me> P = \begin{amatrix}{rrr} 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp -1 \\ 0 \amp 1 \amp 2 \end{amatrix} </me>.
 	Each of our eigenspaces is one-dimensional,
 	so we need three <m>1 \times 1</m> blocks in our form matrix,
 	which agrees with our expectation that it be diagonal.
@@ -408,13 +408,13 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	tells us the form matrix
 	<me>
 		\inv{P} A P =
-		\left[\begin{array}{@{}r|r|r@{}}
+		\begin{amatrix}{@{}r|r|r@{}}
 			3 \amp 0 \amp  0 \\
 			\hline
 			0 \amp 0 \amp 0 \\
 			\hline
 			0 \amp 0 \amp  -3
-		\end{array}\right]
+		\end{amatrix}
 	</me>,
 	where the blocks along the diagonal are each <m>1 \times 1</m> (including the <m>1 \times 1</m> zero block in the middle).
 	</p><p>

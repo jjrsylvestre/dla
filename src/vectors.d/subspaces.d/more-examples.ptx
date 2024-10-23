@@ -49,7 +49,7 @@ respective owners.
 					\begin{bmatrix}1\\0\\0\end{bmatrix}
 					\amp= 0 \begin{bmatrix}1\\1\\0\end{bmatrix}
 					+ 1 \begin{bmatrix}1\\0\\0\end{bmatrix}
-					+ 0 \left[\begin{array}{r}1\\-1\\0\end{array}\right]
+					+ 0 \begin{amatrix}{r}1\\-1\\0\end{amatrix}
 					\text{,}
 				</mrow>
 
@@ -59,7 +59,7 @@ respective owners.
 					\begin{bmatrix}0\\1\\0\end{bmatrix}
 					\amp= \frac{1}{2} \begin{bmatrix}1\\1\\0\end{bmatrix}
 					+ 0 \begin{bmatrix}1\\0\\0\end{bmatrix}
-					+ \left(-\frac{1}{2}\right) \left[\begin{array}{r}1\\-1\\0\end{array}\right]
+					+ \left(-\frac{1}{2}\right) \begin{amatrix}{r}1\\-1\\0\end{amatrix}
 					\text{.}
 				</mrow>
 
@@ -90,7 +90,7 @@ respective owners.
 				<mrow></mrow>
 
 				<mrow>
-					\left[\begin{array}{r}1\\-1\\0\end{array}\right]
+					\begin{amatrix}{r}1\\-1\\0\end{amatrix}
 					\amp= 1 \begin{bmatrix}1\\0\\0\end{bmatrix}
 					+ (-1) \begin{bmatrix}0\\1\\0\end{bmatrix}
 					\text{.}
@@ -115,12 +115,12 @@ respective owners.
 	Consider the set of vectors <m>S = \{A_1,A_2,A_3,A_4\}</m> in <m>\matrixring_2(\R)</m>, where
 	<md>
 		<mrow>
-			A_1 \amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right], \amp
-			A_3 \amp= \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right], \amp
+			A_1 \amp= \begin{amatrix}{rr} 0 \amp -1 \\ 2 \amp 1 \end{amatrix}, \amp
+			A_3 \amp= \begin{amatrix}{rr} 0 \amp 1 \\ -2 \amp 0 \end{amatrix}, \amp
 		</mrow>
 		<mrow>
-			A_2 \amp= \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right], \amp
-			A_4 \amp= \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right].
+			A_2 \amp= \begin{amatrix}{rr} 1 \amp 2 \\ 4 \amp -1 \end{amatrix}, \amp
+			A_4 \amp= \begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -2 \end{amatrix}.
 		</mrow>
 	</md>
 	Is this set a spanning set for <em>all</em> of <m>\matrixring_2(\R)</m>?
@@ -153,10 +153,10 @@ respective owners.
 	<md>
 		<mrow>
 			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-			\amp= k_1 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-			 + k_2 \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right]
-			 + k_3 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-			 + k_4 \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right]
+			\amp= k_1 \begin{amatrix}{rr} 0 \amp -1 \\ 2 \amp 1 \end{amatrix}
+			 + k_2 \begin{amatrix}{rr} 1 \amp 2 \\ 4 \amp -1 \end{amatrix}
+			 + k_3 \begin{amatrix}{rr} 0 \amp 1 \\ -2 \amp 0 \end{amatrix}
+			 + k_4 \begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -2 \end{amatrix}
 		</mrow><mrow>
 			\amp= \begin{bmatrix} k_2 \amp -k_1+2k_2+k_3  \\ 2k_1+4k_2-2k_3+k_4  \amp k_1-k_2-2k_4 \end{bmatrix}
 		</mrow>
@@ -172,19 +172,19 @@ respective owners.
 	</me>
 	which can be put in an augmented matrix and reduced.
 	<me>
-		\left[\begin{array}{rrrr|r}
+		\begin{amatrix}{rrrr|r}
 			0 \amp 1 \amp 0 \amp 0 \amp 1 \\
 			-1 \amp 2 \amp 1 \amp 0 \amp 0 \\
 			2 \amp 4 \amp -2 \amp 1 \amp 0 \\
 			1 \amp -1 \amp 0 \amp -2 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rrrr|r}
+		\begin{amatrix}{rrrr|r}
 			1 \amp 0 \amp 0 \amp 0 \amp -15\\
 			0 \amp 1 \amp 0 \amp 0 \amp 1\\
 			0 \amp 0 \amp 1 \amp 0 \amp -17\\
 			0 \amp 0 \amp 0 \amp 1 \amp -8
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	</p>
 
@@ -198,10 +198,10 @@ respective owners.
 	and so
 	<me>
 		\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-		=-15 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-		+    \left[\begin{array}{rr} 1 \amp 2 \\ 4 \amp -1 \end{array}\right]
-		- 17 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-		- 8  \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
+		=-15 \begin{amatrix}{rr} 0 \amp -1 \\ 2 \amp 1 \end{amatrix}
+		+    \begin{amatrix}{rr} 1 \amp 2 \\ 4 \amp -1 \end{amatrix}
+		- 17 \begin{amatrix}{rr} 0 \amp 1 \\ -2 \amp 0 \end{amatrix}
+		- 8  \begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -2 \end{amatrix},
 	</me>
 	though we only cared about the <em>existence</em> of a solution, not the actual solution itself.
 	</p>
@@ -211,18 +211,18 @@ respective owners.
 	<md>
 		<mrow>
 			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
-			\amp= 4 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-			 + 5 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-			 + 2 \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
+			\amp= 4 \begin{amatrix}{rr} 0 \amp -1 \\ 2 \amp 1 \end{amatrix}
+			 + 5 \begin{amatrix}{rr} 0 \amp 1 \\ -2 \amp 0 \end{amatrix}
+			 + 2 \begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -2 \end{amatrix},
 		</mrow><mrow></mrow><mrow>
 			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
-			\amp= 2 \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-			 + 2 \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right]
-			 +   \left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -2 \end{array}\right],
+			\amp= 2 \begin{amatrix}{rr} 0 \amp -1 \\ 2 \amp 1 \end{amatrix}
+			 + 2 \begin{amatrix}{rr} 0 \amp 1 \\ -2 \amp 0 \end{amatrix}
+			 +   \begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -2 \end{amatrix},
 		 </mrow><mrow></mrow><mrow>
 			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-			\amp= \left[\begin{array}{rr} 0 \amp -1 \\ 2 \amp 1 \end{array}\right]
-			 + \left[\begin{array}{rr} 0 \amp 1 \\ -2 \amp 0 \end{array}\right].
+			\amp= \begin{amatrix}{rr} 0 \amp -1 \\ 2 \amp 1 \end{amatrix}
+			 + \begin{amatrix}{rr} 0 \amp 1 \\ -2 \amp 0 \end{amatrix}.
 		</mrow>
 	</md>
 	We have now verified that each vector in <m>\basisfont{B}</m> can be expressed as a linear combination of the vectors in <m>S</m>.

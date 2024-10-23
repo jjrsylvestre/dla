@@ -179,9 +179,9 @@ Let's first record an important property of elementary matrices we encountered i
 			that has one unique solution.
 			Imagine trying to solve this system by row reducing the associated augmented matrix:
 			<me>
-				\left[\begin{array}{c|c} A \amp \uvec{b} \end{array}\right]
+				\begin{amatrix}{c|c} A \amp \uvec{b} \end{amatrix}
 				\rowredarrow
-				\left[\begin{array}{c|c} \RREF(A) \amp \uvec{b}' \end{array}\right],
+				\begin{amatrix}{c|c} \RREF(A) \amp \uvec{b}' \end{amatrix},
 			</me>
 			where <m>\uvec{b}'</m> is whatever appears in the <q>equals</q> column after all of our row operations.
 			When we have arrived at the RREF of <m>A</m> in the coefficient matrix part on the left,
@@ -783,9 +783,9 @@ We repeat the theorem here, and include a proof.
 		<m>A_2\uvec{x} = \uvec{b}_2</m>,
 		where augmented matrices
 		<md><mrow>
-			A_1' \amp= \left[\begin{array}{c|c} A_1 \amp \uvec{b}_1 \end{array}\right],
+			A_1' \amp= \begin{amatrix}{c|c} A_1 \amp \uvec{b}_1 \end{amatrix},
 			\amp
-			A_2' \amp= \left[\begin{array}{c|c} A_2 \amp \uvec{b}_2 \end{array}\right]
+			A_2' \amp= \begin{amatrix}{c|c} A_2 \amp \uvec{b}_2 \end{amatrix}
 		</mrow></md>
 		are row equivalent.
 		Then there exists a sequence of elementary row operations that can be applied to <m>A_1'</m> to produce <m>A_2'</m>.
@@ -794,9 +794,9 @@ We repeat the theorem here, and include a proof.
 		Because of the way matrix multiplication acts on columns,
 		we then have
 		<me>
-			\left[\begin{array}{c|c} A_2 \amp \uvec{b}_2 \end{array}\right]
-			= E \left[\begin{array}{c|c} A_1 \amp \uvec{b}_1 \end{array}\right]
-			= \left[\begin{array}{c|c} EA_1 \amp E\uvec{b}_1 \end{array}\right],
+			\begin{amatrix}{c|c} A_2 \amp \uvec{b}_2 \end{amatrix}
+			= E \begin{amatrix}{c|c} A_1 \amp \uvec{b}_1 \end{amatrix}
+			= \begin{amatrix}{c|c} EA_1 \amp E\uvec{b}_1 \end{amatrix},
 		</me>
 		and so we also have
 		<md><mrow> A_2 \amp= EA_1, \amp \uvec{b}_2 \amp= E\uvec{b}_1. </mrow></md>

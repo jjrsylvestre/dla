@@ -158,12 +158,12 @@ Consider the system in
 We would like to replace these two equations by a single matrix equation,
 which is easy enough to do:
 <md><mrow xml:id="equation-matrix-ops-concepts-system-as-equal-cols" tag="dstar">
-	\left[\begin{array}{c}
+	\begin{amatrix}{c}
 		x_1 - 3 x_2 - x_3 \\
 		-2 x_1 + 7 x_2 + 2 x_3
-	\end{array}\right]
+	\end{amatrix}
 	=
-	\left[\begin{array}{r} -4 \\ 9 \end{array}\right]
+	\begin{amatrix}{r} -4 \\ 9 \end{amatrix}
 </mrow></md>.
 Note that both of these column matrices are <m>2 \times 1</m> matrices <mdash />
 even though the entries of the left-hand matrix seem to contain a lot of numbers,
@@ -177,13 +177,13 @@ we collect all the system coefficients into a <term>coefficient matrix</term>,
 all the variables into the <term>(column) vector of unknowns</term>,
 and all the right-hand constants into the <term>(column) vector of constants</term>:
 <md><mrow>
-	A  \amp = \left[\begin{array}{rrr}
+	A  \amp = \begin{amatrix}{rrr}
 		 1 \amp -3 \amp -1 \\
 		-2 \amp  7 \amp  2
-	\end{array}\right],
+	\end{amatrix},
 	\amp
 	\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}, \amp
-	\uvec{b} \amp = \left[\begin{array}{r} -4 \\ 9 \end{array}\right],
+	\uvec{b} \amp = \begin{amatrix}{r} -4 \\ 9 \end{amatrix},
 </mrow></md>
 respectively.
 </p>
@@ -202,23 +202,23 @@ But we already know how to represent the system as a single matrix equation
 so we should have
 <me>
 	A \uvec{x} =
-	\left[\begin{array}{c}
+	\begin{amatrix}{c}
 		x_1 - 3 x_2 - x_3 \\
 		-2 x_1 + 7 x_2 + 2 x_3
-	\end{array}\right]
+	\end{amatrix}
 </me>,
 or
 <me>
-	\left[\begin{array}{rrr}
+	\begin{amatrix}{rrr}
 		 1 \amp -3 \amp -1 \\
 		-2 \amp  7 \amp  2
-	\end{array}\right]
+	\end{amatrix}
 	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
 	=
-	\left[\begin{array}{c}
+	\begin{amatrix}{c}
 		x_1 - 3 x_2 - x_3 \\
 		-2 x_1 + 7 x_2 + 2 x_3
-	\end{array}\right]
+	\end{amatrix}
 </me>.
 We can now see how a matrix times a column should proceed:
 multiply the entries of the first row of the matrix against the corresponding entries in the column,

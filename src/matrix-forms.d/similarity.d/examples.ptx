@@ -40,23 +40,23 @@ respective owners.
 	</p><p>
 	Consider matrices
 	<md><mrow>
-		A \amp = \left[\begin{array}{rrr}
+		A \amp = \begin{amatrix}{rrr}
 			1 \amp 1 \amp 0 \\
 			2 \amp 7 \amp -1 \\
 			0 \amp 5 \amp 1
-		\end{array}\right]
+		\end{amatrix}
 		\text{,} \amp
-		B \amp = \left[\begin{array}{rrr}
+		B \amp = \begin{amatrix}{rrr}
 			-1 \amp 12 \amp -23 \\
 			2 \amp -1 \amp 8 \\
 			1 \amp -5 \amp 11
-		\end{array}\right]
+		\end{amatrix}
 		\text{,} \amp
-		P \amp = \left[\begin{array}{rrr}
+		P \amp = \begin{amatrix}{rrr}
 			1 \amp 0 \amp 2 \\
 			0 \amp 2 \amp -3 \\
 			1 \amp 1 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 		\text{.}
 	</mrow></md>
 	Let's verify that <m>A</m> and <m>B</m> are similar and that <m>P</m> is a transition matrix that realizes that similarity relationship using the aforementioned algebraic pattern of similarity.
@@ -81,31 +81,31 @@ respective owners.
 	<md><mrow>
 		\uvec{p}_1 \amp = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \text{,} \amp
 		\uvec{p}_2 \amp = \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} \text{,} \amp
-		\uvec{p}_3 \amp = \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right] \text{,}
+		\uvec{p}_3 \amp = \begin{amatrix}{r} 2 \\ -3 \\ 0 \end{amatrix} \text{,}
 	</mrow></md>
 	and we can compute
 	<md><mrow>
 		A \uvec{p}_1 \amp = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \text{,} \amp
 		A \uvec{p}_2 \amp = \begin{bmatrix} 2 \\ 13 \\ 11 \end{bmatrix} \text{,} \amp
-		A \uvec{p}_3 \amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{.}
+		A \uvec{p}_3 \amp = \begin{amatrix}{r} -1 \\ -17 \\ -15 \end{amatrix} \text{.}
 	</mrow></md>
 	On the other hand,
 	we have
 	<md>
 		<mrow>
 			- \uvec{p}_1 + 2 \uvec{p}_2 + \uvec{p}_3
-			= - \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} + 2 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} + \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right]
+			= - \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} + 2 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} + \begin{amatrix}{r} 2 \\ -3 \\ 0 \end{amatrix}
 			\amp = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \text{,}
 		</mrow>
 		<mrow>
 			12 \uvec{p}_1 - \uvec{p}_2 - 5 \uvec{p}_3
-			= 12 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} - \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} - 5 \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right]
+			= 12 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} - \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} - 5 \begin{amatrix}{r} 2 \\ -3 \\ 0 \end{amatrix}
 			\amp = \begin{bmatrix} 2 \\ 13 \\ 11 \end{bmatrix} \text{,}
 		</mrow>
 		<mrow>
 			-23 \uvec{p}_1 + 8 \uvec{p}_2 + 11 \uvec{p}_3
-			= -23 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} + 8 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} + 11 \left[\begin{array}{r} 2 \\ -3 \\ 0 \end{array}\right]
-			\amp = \left[\begin{array}{r} -1 \\ -17 \\ -15 \end{array}\right] \text{,}
+			= -23 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} + 8 \begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix} + 11 \begin{amatrix}{r} 2 \\ -3 \\ 0 \end{amatrix}
+			\amp = \begin{amatrix}{r} -1 \\ -17 \\ -15 \end{amatrix} \text{,}
 		</mrow>
 	</md>
 	each of which agree with the corresponding <m>A \uvec{p}_j</m> calculation above.
@@ -140,8 +140,8 @@ respective owners.
 	<xref ref="subsection-change-of-basis-concepts-in-Rn-by-row-red" />.)
 	The same modified pattern can be used to compute the product of <m>\inv{P}</m> and <m>AP</m>:
 	<me>
-		\left[\begin{array}{c|c} P \amp AP \end{array}\right] \qquad \rowredarrow \qquad
-		\left[\begin{array}{c|c} I \amp \inv{P}(AP) \end{array}\right]
+		\begin{amatrix}{c|c} P \amp AP \end{amatrix} \qquad \rowredarrow \qquad
+		\begin{amatrix}{c|c} I \amp \inv{P}(AP) \end{amatrix}
 	</me>.
 </p></introduction>
 
@@ -153,54 +153,54 @@ respective owners.
 	</p><p>
 	First, compute
 	<me>
-		AP = \left[\begin{array}{rrr}
+		AP = \begin{amatrix}{rrr}
 			1 \amp 2 \amp -1 \\
 			1 \amp 13 \amp -17 \\
 			1 \amp 11 \amp -15
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	Now augment <m>P</m> with <m>AP</m> and reduce:
 	<md>
 		<mrow>
-			\left[\begin{array}{c|c} P \amp AP \end{array}\right]
+			\begin{amatrix}{c|c} P \amp AP \end{amatrix}
 			= \amp
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
 				0 \amp 2 \amp -3 \amp 1 \amp 13 \amp -17 \\
 				1 \amp 1 \amp 0 \amp 1 \amp 11 \amp -15
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} \phantom{X} \\ \phantom{X} \\ R_3 - R_1 \end{matrix}
 		</mrow><mrow>
 			\longrightarrow \amp
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
 				0 \amp 2 \amp -3 \amp 1 \amp 13 \amp -17 \\
 				0 \amp 1 \amp -2 \amp 0 \amp 9 \amp -14
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} \phantom{X} \\ R_2 \leftrightarrow R_3 \end{matrix}
 		</mrow><mrow>
 			\longrightarrow \amp
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
 				0 \amp 1 \amp -2 \amp 0 \amp 9 \amp -14 \\
 				0 \amp 2 \amp -3 \amp 1 \amp 13 \amp -17
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} \phantom{X} \\ \phantom{X} \\ R_3 - 2R_2 \end{matrix}
 		</mrow><mrow>
 			\longrightarrow \amp
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 2 \amp 1 \amp 2 \amp -1 \\
 				0 \amp 1 \amp -2 \amp 0 \amp 9 \amp -14 \\
 				0 \amp 0 \amp 1 \amp 1 \amp -5 \amp 11
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} R_1 - 2R_3 \\ R_2 + 2R_3 \\ \phantom{X} \end{matrix}
 		</mrow><mrow>
 			\longrightarrow \amp
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 0 \amp -1 \amp 12 \amp -23 \\
 				0 \amp 1 \amp 0 \amp 2 \amp -1 \amp 8 \\
 				0 \amp 0 \amp 1 \amp 1 \amp -5 \amp 11
-			\end{array}\right]
+			\end{amatrix}
 		</mrow>
 	</md>.
 	Comparing with the matrix <m>B</m> from

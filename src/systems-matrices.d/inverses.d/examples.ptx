@@ -35,7 +35,7 @@ There is a general formula for the inverse of a <m>2\times 2</m> formula:
 <md><mrow>
 	A \amp = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 	\amp\amp\implies\amp
-	\inv{A} \amp = \frac{1}{ad-bc} \, \left[\begin{array}{rr} d \amp -b \\ -c \amp a \end{array}\right].
+	\inv{A} \amp = \frac{1}{ad-bc} \, \begin{amatrix}{rr} d \amp -b \\ -c \amp a \end{amatrix}.
 </mrow></md>
 The formula <m>ad-bc</m> in the denominator of the scalar multiple in this inverse formula is called the
 <term>determinant</term><idx><h>determinant</h></idx> of <m>A</m>.
@@ -56,16 +56,16 @@ We will study the general theory of determinants and related inversion formulas 
 	Watch for double negatives when computing <m>ad-bc</m>!
 	<md>
 		<mrow>
-			A \amp = \left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			A \amp = \begin{amatrix}{rr} -5 \amp 1 \\ -3 \amp 2 \end{amatrix}
 			\amp\amp\implies\amp
 			\inv{A} \amp = \frac{1}{(-5)(2) - (1)(-3)}\,
-			\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+			\begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix}
 		</mrow><mrow>
 			\amp\amp\amp\amp
-			\amp = -\frac{1}{7} \, \left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+			\amp = -\frac{1}{7} \, \begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix}
 		</mrow><mrow>
 			\amp\amp\amp\amp
-			\amp = \left[\begin{array}{rr} -2/7 \amp 1/7 \\ -3/7 \amp 5/7 \end{array}\right].
+			\amp = \begin{amatrix}{rr} -2/7 \amp 1/7 \\ -3/7 \amp 5/7 \end{amatrix}.
 		</mrow>
 	</md>
 	Let's check that we have the correct inverse.
@@ -75,22 +75,22 @@ We will study the general theory of determinants and related inversion formulas 
 		<mrow>
 			\inv{A}A
 			\amp =
-			\left( -\frac{1}{7} \, \left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right] \right)
-			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			\left( -\frac{1}{7} \, \begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix} \right)
+			\begin{amatrix}{rr} -5 \amp 1 \\ -3 \amp 2 \end{amatrix}
 			\amp
 			A\inv{A}
 			\amp =
-			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-			\left( -\frac{1}{7} \, \left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right] \right)
+			\begin{amatrix}{rr} -5 \amp 1 \\ -3 \amp 2 \end{amatrix}
+			\left( -\frac{1}{7} \, \begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix} \right)
 		</mrow><mrow>
 			\amp=
-			-\frac{1}{7} \, \left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
-			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
+			-\frac{1}{7} \, \begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix}
+			\begin{amatrix}{rr} -5 \amp 1 \\ -3 \amp 2 \end{amatrix}
 			\amp
 			\amp=
 			-\frac{1}{7}\,
-			\left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right]
-			\left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
+			\begin{amatrix}{rr} -5 \amp 1 \\ -3 \amp 2 \end{amatrix}
+			\begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix}
 		</mrow><mrow>
 			\amp=
 			-\frac{1}{7} \, \begin{bmatrix} -10+3 \amp 2-2 \\ -15+15 \amp 3-10 \end{bmatrix}
@@ -99,10 +99,10 @@ We will study the general theory of determinants and related inversion formulas 
 			-\frac{1}{7} \, \begin{bmatrix} -10+3 \amp 5-5 \\ -6+6 \amp 3-10 \end{bmatrix}
 		</mrow><mrow>
 			\amp=
-			-\frac{1}{7} \, \left[\begin{array}{rr} -7 \amp 0 \\ 0 \amp -7 \end{array}\right]
+			-\frac{1}{7} \, \begin{amatrix}{rr} -7 \amp 0 \\ 0 \amp -7 \end{amatrix}
 			\amp
 			\amp=
-			-\frac{1}{7} \, \left[\begin{array}{rr} -7 \amp 0 \\ 0 \amp -7 \end{array}\right]
+			-\frac{1}{7} \, \begin{amatrix}{rr} -7 \amp 0 \\ 0 \amp -7 \end{amatrix}
 		</mrow><mrow>
 			\amp= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 			\amp
@@ -140,7 +140,7 @@ we can solve a system of equations that is represented as a matrix equation <m>A
 		\end{sysofeqns}
 	</me>
 	The coefficient matrix for this system is
-	<me> A = \left[\begin{array}{rr} -5 \amp 1 \\ -3 \amp 2 \end{array}\right], </me>
+	<me> A = \begin{amatrix}{rr} -5 \amp 1 \\ -3 \amp 2 \end{amatrix}, </me>
 	which is conveniently the matrix for which we have already computed the inverse using the <m>2\times 2</m> inversion formula in
 	<xref ref="subsection-inverses-examples-2x2" />.
 	So we can solve the system as
@@ -151,18 +151,18 @@ we can solve a system of equations that is represented as a matrix equation <m>A
 			\uvec{x} \amp= \inv{A}\uvec{b}
 		</mrow><mrow>
 			\amp\amp\amp\amp
-			\amp = \left( -\frac{1}{7} \, \left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right] \right)
-			\left[\begin{array}{r} 3 \\ -2 \end{array}\right]
+			\amp = \left( -\frac{1}{7} \, \begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix} \right)
+			\begin{amatrix}{r} 3 \\ -2 \end{amatrix}
 		</mrow><mrow>
 			\amp\amp\amp\amp
-			\amp = -\frac{1}{7} \, \left[\begin{array}{rr} 2 \amp -1 \\ 3 \amp -5 \end{array}\right]
-			\left[\begin{array}{r} 3 \\ -2 \end{array}\right]
+			\amp = -\frac{1}{7} \, \begin{amatrix}{rr} 2 \amp -1 \\ 3 \amp -5 \end{amatrix}
+			\begin{amatrix}{r} 3 \\ -2 \end{amatrix}
 		</mrow><mrow>
 			\amp\amp\amp\amp
 			\amp = -\frac{1}{7} \, \begin{bmatrix} 8 \\ 19 \end{bmatrix}
 		</mrow><mrow>
 			\amp\amp\amp\amp
-			\amp = \left[\begin{array}{r} -8/7 \\ -19/7 \end{array}\right],
+			\amp = \begin{amatrix}{r} -8/7 \\ -19/7 \end{amatrix},
 		</mrow>
 	</md>
 	so that the system has one unique solution <m>x=-8/7</m>, <m>y=-19/7</m>.
@@ -178,8 +178,8 @@ we can solve a system of equations that is represented as a matrix equation <m>A
 <example xml:id="example-inverses-solving-alg-eqns"><statement><p>
 	Consider the matrix equation
 	<me>
-		3 \left[\begin{array}{rr} 1 \amp 1 \\ -1 \amp 2 \end{array}\right]
-		+ X \left[\begin{array}{rr} 0 \amp -3 \\ 2 \amp 1 \end{array}\right] = I.
+		3 \begin{amatrix}{rr} 1 \amp 1 \\ -1 \amp 2 \end{amatrix}
+		+ X \begin{amatrix}{rr} 0 \amp -3 \\ 2 \amp 1 \end{amatrix} = I.
 	</me>
 	Suppose we would like to solve this equation for the unknown <m>2\times 2</m> matrix <m>X</m>,
 	where <m>I</m> is the <m>2 \times 2</m> identity matrix.
@@ -191,8 +191,8 @@ we can solve a system of equations that is represented as a matrix equation <m>A
 	But it's easier just to use ordinary (matrix) algebra.
 	Set
 	<md><mrow>
-		W  \amp = \left[\begin{array}{rr} 1 \amp 1\\-1 \amp 2 \end{array}\right], \amp
-		Z  \amp = \left[\begin{array}{rr} 0 \amp -3\\2 \amp 1 \end{array}\right],
+		W  \amp = \begin{amatrix}{rr} 1 \amp 1\\-1 \amp 2 \end{amatrix}, \amp
+		Z  \amp = \begin{amatrix}{rr} 0 \amp -3\\2 \amp 1 \end{amatrix},
 	</mrow></md>
 	substitute these definitions into the given equation,
 	and isolate <m>X</m> algebraically:
@@ -209,27 +209,27 @@ we can solve a system of equations that is represented as a matrix equation <m>A
 	<md>
 		<mrow>
 			I - 3W  \amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-			- 3\left[\begin{array}{rr} 1 \amp 1 \\ -1 \amp 2 \end{array}\right]
+			- 3\begin{amatrix}{rr} 1 \amp 1 \\ -1 \amp 2 \end{amatrix}
 			\amp
 			\inv{Z} \amp = \frac{1}{0\cdot 1 - (-3)\cdot 2}
-			\left[\begin{array}{rr} 1 \amp 3 \\ -2 \amp 0 \end{array}\right]
+			\begin{amatrix}{rr} 1 \amp 3 \\ -2 \amp 0 \end{amatrix}
 		</mrow><mrow>
 			\amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-			- \left[\begin{array}{rr} 3 \amp 3 \\ -3 \amp 6 \end{array}\right]
+			- \begin{amatrix}{rr} 3 \amp 3 \\ -3 \amp 6 \end{amatrix}
 			\amp
-			\amp = \frac{1}{6} \left[\begin{array}{rr} 1 \amp 3\\-2 \amp 0 \end{array}\right].
+			\amp = \frac{1}{6} \begin{amatrix}{rr} 1 \amp 3\\-2 \amp 0 \end{amatrix}.
 		</mrow><mrow>
-	 		\amp = \left[\begin{array}{rr} -2 \amp -3 \\ 3 \amp -5 \end{array}\right],
+	 		\amp = \begin{amatrix}{rr} -2 \amp -3 \\ 3 \amp -5 \end{amatrix},
 		</mrow>
 	</md>
 	From this we obtain
 	<me>
 		X
 		= (I - 3W)\inv{Z}
-		= \left[\begin{array}{rr} -2  \amp  -3 \\ 3  \amp  -5 \end{array}\right]
-		\left( \frac{1}{6} \left[\begin{array}{rr} 1 \amp 3\\-2 \amp 0 \end{array}\right] \right)
-		= \frac{1}{6} \left[\begin{array}{rr} 4 \amp -6\\ 13 \amp 9 \end{array}\right]
-		= \left[\begin{array}{rr} 2/3 \amp -1 \\ 13/6 \amp 3/2 \end{array}\right].
+		= \begin{amatrix}{rr} -2  \amp  -3 \\ 3  \amp  -5 \end{amatrix}
+		\left( \frac{1}{6} \begin{amatrix}{rr} 1 \amp 3\\-2 \amp 0 \end{amatrix} \right)
+		= \frac{1}{6} \begin{amatrix}{rr} 4 \amp -6\\ 13 \amp 9 \end{amatrix}
+		= \begin{amatrix}{rr} 2/3 \amp -1 \\ 13/6 \amp 3/2 \end{amatrix}.
 	</me>
 </p></statement></example>
 

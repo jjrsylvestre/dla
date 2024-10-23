@@ -427,9 +427,9 @@ one operation at a time.
 		augment that matrix with the identity matrix and row reduce until the identity matrix is obtained on the left where there initially was <m>A</m>.
 		The matrix on the right where there was initially <m>I</m> will now be <m>\inv{A}</m>.
 		<me>
-			\left[\begin{array}{c|c} A \amp I \end{array}\right]
+			\begin{amatrix}{c|c} A \amp I \end{amatrix}
 			\qquad\rowredarrow\qquad
-			\left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+			\begin{amatrix}{c|c} I \amp \inv{A} \end{amatrix}
 		</me>
 		If it is not possible to obtain the identity on the left
 		(<ie /> if the RREF of <m>A</m> is not <m>I</m>),
@@ -456,18 +456,18 @@ and automatically applies them to the identity
 to produce the inverse on the right:
 <md>
 	<mrow>
-		\left[\begin{array}{c|c} A \amp I \end{array}\right]
+		\begin{amatrix}{c|c} A \amp I \end{amatrix}
 		\amp \xrightarrow[\text{operation}]{\text{first}}
-		\left[\begin{array}{c|c} E_1 A \amp E_1 I \end{array}\right]
+		\begin{amatrix}{c|c} E_1 A \amp E_1 I \end{amatrix}
 	</mrow><mrow></mrow><mrow>
 		\amp \xrightarrow[\text{operation}]{\text{second}}
-		\left[\begin{array}{c|c} E_2 E_1 A \amp E_2 E_1 I \end{array}\right]
+		\begin{amatrix}{c|c} E_2 E_1 A \amp E_2 E_1 I \end{amatrix}
 	</mrow><mrow></mrow><mrow>
 		\amp \qquad \vdots
 	</mrow><mrow></mrow><mrow xml:id="equation-elem-matrices-concepts-inversion-by-row-red-pattern" tag="star">
 		\amp \xrightarrow[\text{operation}]{\text{last}}
-		\left[\begin{array}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{array}\right]
-		= \left[\begin{array}{c|c} I \amp \inv{A} \end{array}\right]
+		\begin{amatrix}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{amatrix}
+		= \begin{amatrix}{c|c} I \amp \inv{A} \end{amatrix}
 	</mrow>
 </md>.
 </p></paragraphs>

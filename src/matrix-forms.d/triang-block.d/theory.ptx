@@ -72,7 +72,7 @@ and then from that fact deduce the required properties of generalized eigenspace
 			Choose a basis of <m>\R^{k+1}</m> that contains <m>\uvec{x}</m> as its first element,
 			and let <m>Q</m> be the invertible <m>(k+1) \times (k+1)</m> matrix made up of these basis vectors as columns.
 			Then <m>\inv{Q} A Q</m> has block form
-			<me> \inv{Q} A Q = \left[\begin{array}{@{}c|c@{}} \lambda_1 \amp B \\ \hline \zerovec \amp A' \end{array}\right] </me>,
+			<me> \inv{Q} A Q = \begin{amatrix}{@{}c|c@{}} \lambda_1 \amp B \\ \hline \zerovec \amp A' \end{amatrix} </me>,
 			where <m>A'</m> is <m>k \times k</m>,
 			and <m>B</m> is <m>1 \times k</m>.
 			</p><p>
@@ -96,29 +96,29 @@ and then from that fact deduce the required properties of generalized eigenspace
 			where each block <m>U'_j</m> has size <m>m_j \times m_j</m>,
 			except block <m>U'_1</m>, which has size <m>(m_1-1)\times(m_1-1)</m>.
 			Thus, if we set <m>P</m> to be the invertible <m>(k+1) \times (k+1)</m> matrix
-			<me> P = Q \left[ \begin{array}{c|c} 1 \amp \zerovec \\ \hline \zerovec \amp Q' \end{array} \right] </me>,
+			<me> P = Q \begin{amatrix}{c|c} 1 \amp \zerovec \\ \hline \zerovec \amp Q' \end{amatrix} </me>,
 			we get
 			<md>
 				<mrow>
 					\inv{P} A P
 					\amp =
-					\left[\begin{array}{@{}c|c@{}}
+					\begin{amatrix}{@{}c|c@{}}
 						\lambda_1 \amp BQ' \\ \hline
 						\zerovec \amp \inv{(Q')}A'Q'
-					\end{array}\right]
+					\end{amatrix}
 				</mrow><mrow>
-					\amp = \left[\begin{array}{@{}c|c@{}}
+					\amp = \begin{amatrix}{@{}c|c@{}}
 						\lambda_1 \amp BQ' \\ \hline
 						\zerovec \amp
 						\begin{matrix} U'_1 \\ \amp U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U'_\ell \end{matrix}
-					 \end{array}\right]
+					 \end{amatrix}
 				</mrow><mrow>
-					\amp = \left[\begin{array}{@{}c|c|c@{}}
+					\amp = \begin{amatrix}{@{}c|c|c@{}}
 						\lambda_1 \amp C_1 \amp C_2 \\ \hline
 						\zerovec \amp U'_1 \amp \zerovec \\ \hline
 						\zerovec \amp \zerovec \amp
 						\begin{matrix} U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U_\ell' \end{matrix}
-					 \end{array}\right]
+					 \end{amatrix}
 				</mrow>
 			</md>.
 			</p><p>

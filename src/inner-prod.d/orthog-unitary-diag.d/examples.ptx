@@ -47,12 +47,12 @@ respective owners.
  	Solving the homogeneous system <m>(2 I - S) \uvec{x} = \zerovec</m> leads to
 	<me> E_2(S) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} \right\} </me>.
 	Solving the homogeneous system <m>(-2 I - S) \uvec{x} = \zerovec</m> leads to
-	<me> E_{-2}(S) = \Span \left\{ \left[\begin{array}{r} 1 \\ -1 \\ 1 \\ -1 \end{array}\right] \right\} </me>.
+	<me> E_{-2}(S) = \Span \left\{ \begin{amatrix}{r} 1 \\ -1 \\ 1 \\ -1 \end{amatrix} \right\} </me>.
 	Solving the homogeneous system <m>(0 I - S) \uvec{x} = \zerovec</m> leads to
 	<me>
 		E_0(S) = \Span \left\{
-			\left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 0 \end{array}\right],
-			\left[\begin{array}{r} 0 \\ -1 \\ 0 \\ 1 \end{array}\right]
+			\begin{amatrix}{r} -1 \\ 0 \\ 1 \\ 0 \end{amatrix},
+			\begin{amatrix}{r} 0 \\ -1 \\ 0 \\ 1 \end{amatrix}
 		\right\}
 	</me>.
 	Notice that these four eigenvectors form an orthogonal set.
@@ -64,20 +64,20 @@ respective owners.
 	<me>
 		E_0(S) = \Span \left\{
 			\frac{1}{2} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix},
-			\frac{1}{2} \left[\begin{array}{r} 1 \\ -1 \\ 1 \\ -1 \end{array}\right],
-			\frac{1}{\sqrt{2}} \left[\begin{array}{r} -1 \\ 0 \\ 1 \\ 0 \end{array}\right],
-			\frac{1}{\sqrt{2}} \left[\begin{array}{r} 0 \\ -1 \\ 0 \\ 1 \end{array}\right]
+			\frac{1}{2} \begin{amatrix}{r} 1 \\ -1 \\ 1 \\ -1 \end{amatrix},
+			\frac{1}{\sqrt{2}} \begin{amatrix}{r} -1 \\ 0 \\ 1 \\ 0 \end{amatrix},
+			\frac{1}{\sqrt{2}} \begin{amatrix}{r} 0 \\ -1 \\ 0 \\ 1 \end{amatrix}
 		\right\}
 	</me>
 	for <m>\R^n</m>.
 	Placing these four orthonormal vectors into a transition matrix
 	<me>
-		P = \left[\begin{array}{crrr}
+		P = \begin{amatrix}{crrr}
 			\frac{1}{2} \amp   \frac{1}{2} \amp - \frac{1}{\sqrt{2}}  \amp   0 \\
 			\frac{1}{2} \amp - \frac{1}{2} \amp   0                   \amp - \frac{1}{\sqrt{2}} \\
 			\frac{1}{2} \amp   \frac{1}{2} \amp   \frac{1}{\sqrt{2}}  \amp   0 \\
 			\frac{1}{2} \amp - \frac{1}{2} \amp   0                   \amp   \frac{1}{\sqrt{2}}
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	allows us to orthogonally diagonalize <m>S</m> as
 	<me> \utrans{P} S P = \begin{bmatrix} 2 \\ \amp -2 \\ \amp \amp 0 \\ \amp \amp \amp 0 \end{bmatrix} </me>.
@@ -97,12 +97,12 @@ but it can be applied without modification to complex Hermitian matrices.
 <example xml:id="example-orthog-unitary-diag-hermitian">
 	<p>
 	Here we will attempt to unitarily diagonalize the Hermitian matrix
-	<me> H = \left[\begin{array}{rcr} 1 \amp 1 \amp \ci \\ 1 \amp 1 \amp -\ci \\ -\ci \amp \ci \amp 1 \end{array}\right] </me>.
+	<me> H = \begin{amatrix}{rcr} 1 \amp 1 \amp \ci \\ 1 \amp 1 \amp -\ci \\ -\ci \amp \ci \amp 1 \end{amatrix} </me>.
 	The characteristic polynomial is <me> c_H(\lambda) = (\lambda + 1) (\lambda - 2)^2 </me>,
 	so the eigenvalues are <m>\lambda_1 = -1</m>, <m>\lambda_2 = 2</m>.
 	</p><p>
 	Solving the homogeneous system <m>(- I - H) \uvec{x} = \zerovec</m> leads to
-	<me> E_{-1}(H) = \Span \left\{ \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right] \right\} </me>.
+	<me> E_{-1}(H) = \Span \left\{ \begin{amatrix}{r} -\ci \\ \ci \\ 1 \end{amatrix} \right\} </me>.
 	Solving the homogeneous system <m>(2 I - H) \uvec{x} = \zerovec</m> leads to
 	<me>
 		E_2(H) = \Span \left\{
@@ -127,7 +127,7 @@ but it can be applied without modification to complex Hermitian matrices.
 	We now have an orthogonal set of eigenvectors which we can normalize to obtain an orthonormal set
 	<me>
 		\left\{
-			\frac{1}{\sqrt{3}} \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right],
+			\frac{1}{\sqrt{3}} \begin{amatrix}{r} -\ci \\ \ci \\ 1 \end{amatrix},
 			\frac{1}{\sqrt{2}} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
 			\frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 2 \\ \ci \end{bmatrix}
 		\right\}
@@ -151,7 +151,7 @@ but it can be applied without modification to complex Hermitian matrices.
 	<title>Gram-Schmidt can't fix everything</title>
 	<p>
 	Let's attempt to unitarily diagonalize the matrix
-	<me> A = \left[\begin{array}{cr} \ci \amp 0 \\ 1 \amp -\ci \end{array}\right] </me>.
+	<me> A = \begin{amatrix}{cr} \ci \amp 0 \\ 1 \amp -\ci \end{amatrix} </me>.
 	The characteristic polynomial is <me> c_A(\lambda) = (\lambda - \ci)(\lambda + \ci) </me>,
 	so the eigenvalues are <m>\lambda_1 = \ci</m>, <m>\lambda_2 = - \ci</m>.
 	</p><p>
@@ -174,25 +174,25 @@ but it can be applied without modification to complex Hermitian matrices.
 	<me>
 		\left\{
 			\frac{1}{\sqrt{5}} \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix},
-			\frac{1}{\sqrt{5}} \left[\begin{array}{r} - \ci \\ 2 \end{array}\right]
+			\frac{1}{\sqrt{5}} \begin{amatrix}{r} - \ci \\ 2 \end{amatrix}
 		\right\}
 	</me>.
 	Using these vectors as columns,
 	we obtain unitary matrix
-	<me> U = \frac{1}{\sqrt{5}} \left[\begin{array}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{array}\right] </me>.
+	<me> U = \frac{1}{\sqrt{5}} \begin{amatrix}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{amatrix} </me>.
 	Check whether <m>U</m> unitarily diagonalizes <m>A</m>:
 	<md>
 		<mrow>
 			\inv{U} A U = \adjoint{U} A U
-			\amp = \frac{1}{\sqrt{5}} \left[\begin{array}{rc} 2 \ci \amp 1 \\ - \ci \amp 2 \end{array}\right]
+			\amp = \frac{1}{\sqrt{5}} \begin{amatrix}{rc} 2 \ci \amp 1 \\ - \ci \amp 2 \end{amatrix}
 			\cdot
-			\left[\begin{array}{cr} \ci \amp 0 \\ 1 \amp - \ci \end{array}\right]
+			\begin{amatrix}{cr} \ci \amp 0 \\ 1 \amp - \ci \end{amatrix}
 			\cdot
-			\frac{1}{\sqrt{5}} \left[\begin{array}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{array}\right]
+			\frac{1}{\sqrt{5}} \begin{amatrix}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{amatrix}
 		</mrow><mrow>
-			\amp = \frac{1}{5} \left[\begin{array}{cr} 5 \ci \amp -5 \ci \\ 0 \amp -5 \ci \end{array}\right]
+			\amp = \frac{1}{5} \begin{amatrix}{cr} 5 \ci \amp -5 \ci \\ 0 \amp -5 \ci \end{amatrix}
 		</mrow><mrow>
-			\amp = \left[\begin{array}{cr} i \amp -\ci \\ 0 \amp -\ci \end{array}\right]
+			\amp = \begin{amatrix}{cr} i \amp -\ci \\ 0 \amp -\ci \end{amatrix}
 		</mrow>
 	</md>.
 	What happened?
@@ -276,7 +276,7 @@ but it can be applied without modification to complex Hermitian matrices.
 		\right\}
 	</me>.
 	Solving the homogeneous system <m>(3 I - N) \uvec{x} = \zerovec</m> leads to
-	<me> E_{3 \ci}(N) = \Span \left\{ \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right] \right\} </me>.
+	<me> E_{3 \ci}(N) = \Span \left\{ \begin{amatrix}{r} -\ci \\ \ci \\ 1 \end{amatrix} \right\} </me>.
 	</p><p>
 	Notice that the basis vector for <m>E_{3 \ci}(N)</m> is already orthogonal to each of the basis vectors for <m>E_3(N)</m>,
 	as expected.
@@ -297,7 +297,7 @@ but it can be applied without modification to complex Hermitian matrices.
 		\left\{
 			\frac{1}{\sqrt{2}} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
 			\frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 2 \\ \ci \end{bmatrix},
-			\frac{1}{\sqrt{3}} \left[\begin{array}{r} -\ci \\ \ci \\ 1 \end{array}\right]
+			\frac{1}{\sqrt{3}} \begin{amatrix}{r} -\ci \\ \ci \\ 1 \end{amatrix}
 		\right\}
 	</me>.
 	</p><p>

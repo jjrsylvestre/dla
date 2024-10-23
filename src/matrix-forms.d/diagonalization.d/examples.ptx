@@ -63,11 +63,11 @@ respective owners.
 	Here are the results for this matrix:
 	<md><mrow>
 		(-1)I - A \amp=
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			0 \amp -9 \amp 0 \\
 			0 \amp -3 \amp 0 \\
 			0 \amp 3 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 		\amp \amp\rowredarrow \amp
 		\amp\begin{bmatrix}
 			0 \amp 1 \amp 0 \\
@@ -82,11 +82,11 @@ respective owners.
 	</me>
 	<md><mrow>
 		2I - A \amp=
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			3 \amp -9 \amp 0 \\
 			0 \amp 0 \amp 0 \\
 			0 \amp 3 \amp 3
-		\end{array}\right]
+		\end{amatrix}
 		\amp \amp\rowredarrow \amp
 		\amp\begin{bmatrix}
 			1 \amp 0 \amp 3 \\
@@ -96,7 +96,7 @@ respective owners.
 	</mrow></md>
 	<me>
 		\implies \qquad
-		E_{\lambda_2}(A) = \Span\left\{ \left[\begin{array}{r}-3 \\ -1 \\ 1\end{array}\right] \right\}.
+		E_{\lambda_2}(A) = \Span\left\{ \begin{amatrix}{r}-3 \\ -1 \\ 1\end{amatrix} \right\}.
 	</me>
 	Notice that <m>\dim\bbrac{E_{\lambda_1}(A)} = 2</m>,
 	so geometric multiplicity equals algebraic multiplicity for <m>\lambda_1</m>.
@@ -116,19 +116,19 @@ respective owners.
 	Returning to our procedure,
 	we can see by inspection that the eigenspace basis vector for <m>\lambda_2</m> is linearly independent from the ones for <m>\lambda_1</m>,
 	so when we form the transition matrix
-	<me> P = \left[\begin{array}{rrr} 1 \amp 0 \amp -3 \\ 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 1 \end{array}\right], </me>
+	<me> P = \begin{amatrix}{rrr} 1 \amp 0 \amp -3 \\ 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 1 \end{amatrix}, </me>
 	it will be invertible because its columns are linearly independent.
 	And we can determine the diagonal form matrix <m>\inv{P}AP</m> <em>without</em> calculating <m>\inv{P}</m>,
 	because its diagonal entries should be precisely the eigenvalues of <m>A</m>,
 	with the same multiplicities and order as the corresponding columns of <m>P</m>.
 	In this case,
-	<me> \inv{P}AP = \left[\begin{array}{rrr} -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp 2 \end{array}\right]. </me>
+	<me> \inv{P}AP = \begin{amatrix}{rrr} -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp 2 \end{amatrix}. </me>
 	Finally,
 	note that we could have analyzed the eigenvalues in the opposite order,
 	in which case we would have formed transition matrix
-	<me> Q = \left[\begin{array}{rrr} -3 \amp 1 \amp 0 \\ -1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 1 \end{array}\right], </me>
+	<me> Q = \begin{amatrix}{rrr} -3 \amp 1 \amp 0 \\ -1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 1 \end{amatrix}, </me>
 	obtaining diagonal form matrix
-	<me> \inv{Q}AQ = \left[\begin{array}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right]. </me>
+	<me> \inv{Q}AQ = \begin{amatrix}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -1 \end{amatrix}. </me>
 	</p>
 </statement></example>
 
@@ -141,11 +141,11 @@ respective owners.
 	Analyze the eigenspaces:
 	<md><mrow>
 		(-1)I - A \amp=
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			0 \amp -1 \amp 0 \\
 			0 \amp 0 \amp 0 \\
 			0 \amp 0 \amp -3
-		\end{array}\right]
+		\end{amatrix}
 		\amp \amp\rowredarrow \amp
 		\amp\begin{bmatrix}
 			0 \amp 1 \amp 0 \\
@@ -160,11 +160,11 @@ respective owners.
 	</me>
 	<md><mrow>
 		2I - A \amp=
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			3 \amp -1 \amp 0 \\
 			0 \amp 3 \amp 0 \\
 			0 \amp 0 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 		\amp \amp\rowredarrow \amp
 		\amp\begin{bmatrix}
 			1 \amp 0 \amp 0 \\
@@ -205,12 +205,12 @@ without attempting to build a transition matrix <m>P</m>.
 Is
 <me>
 	A =
-	\left[\begin{array}{rrrr}
+	\begin{amatrix}{rrrr}
 		-1 \amp 0 \amp -12 \amp 0 \\
 		0 \amp 1 \amp -8 \amp 0 \\
 		0 \amp 0 \amp 5 \amp 0 \\
 		4 \amp 0 \amp 4 \amp 3
-	\end{array}\right]
+	\end{amatrix}
 </me>
 diagonalizable?
 Compute the characteristic polynomial:
@@ -253,7 +253,7 @@ Therefore,
 
 <p>
 Is
-<me> A = \left[\begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array}\right] </me>
+<me> A = \begin{amatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{amatrix} </me>
 diagonalizable? Compute the characteristic polynomial:
 <me>
 	\det(\lambda I - A)

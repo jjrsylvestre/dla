@@ -42,12 +42,12 @@ respective owners.
 	<introduction><p>
 		Suppose <m>A</m> is a <m>4 \times 4</m> matrix that is similar to
 		<me>
-			B = \left[\begin{array}{rrrr}
+			B = \begin{amatrix}{rrrr}
 				1 \amp -1 \amp 0 \amp 0 \\
 				3 \amp 7 \amp 0 \amp 0 \\
 				0 \amp 0 \amp 4 \amp -2 \\
 				0 \amp 0 \amp -2 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 	</p></introduction>
 	<task xml:id="activity-block-diag-pattern-columns"><p>
@@ -152,12 +152,12 @@ we will explore the properties of block-diagonal matrices.
 		Consider again the matrix <m>B</m> from
 		<xref ref="activity-block-diag-pattern" />:
 		<me>
-			B = \left[\begin{array}{rrrr}
+			B = \begin{amatrix}{rrrr}
 				1 \amp -1 \amp 0 \amp 0 \\
 				3 \amp 7 \amp 0 \amp 0 \\
 				0 \amp 0 \amp 4 \amp -2 \\
 				0 \amp 0 \amp -2 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 	</p></introduction>
 	<task xml:id="activity-block-diag-null-space-one-block"><p>
@@ -165,10 +165,10 @@ we will explore the properties of block-diagonal matrices.
 		<m>\left[\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right]</m>
 		is in the null space of the lower-right <m>2 \times 2</m> block
 		<me>
-			\left[\begin{array}{rr}
+			\begin{amatrix}{rr}
 				4 \amp -2 \\
 				-2 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 		Can you use this knowledge to build a null space vector for <m>B</m>?
 	</p></task>
@@ -194,12 +194,12 @@ we will explore the properties of block-diagonal matrices.
 		Consider again the matrix <m>B</m> from
 		<xref ref="activity-block-diag-pattern" />:
 		<me>
-			B = \left[\begin{array}{rrrr}
+			B = \begin{amatrix}{rrrr}
 				1 \amp -1 \amp 0 \amp 0 \\
 				3 \amp 7 \amp 0 \amp 0 \\
 				0 \amp 0 \amp 4 \amp -2 \\
 				0 \amp 0 \amp -2 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 	</p></introduction>
 	<task xml:id="activity-block-diag-eigen-space-one-block">
@@ -208,10 +208,10 @@ we will explore the properties of block-diagonal matrices.
 		<m>\left[\begin{smallmatrix} -2 \\ 1 \end{smallmatrix}\right]</m>
 		is in the eigenspace of the lower-right <m>2 \times 2</m> block
 		<me>
-			\left[\begin{array}{rr}
+			\begin{amatrix}{rr}
 				4 \amp -2 \\
 				-2 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 		</me>
 		corresponding to the eigenvalue <m>\lambda = 5</m>.
 		(Verify this using the <em>definitions</em> of <term>eigenvector</term> and <term>eigenvalue</term> from
@@ -247,17 +247,17 @@ we will explore the properties of block-diagonal matrices.
 		and the pattern of how multiplying block-diagonal <m>B</m> against your constructed column vectors worked.
 		Use this experience to compute the product <m>MN</m> for the following two block-diagonal <m>3 \times 3</m> matrices.
 		<md><mrow>
-			M \amp = \left[\begin{array}{rrr}
+			M \amp = \begin{amatrix}{rrr}
 				2 \\
 				 \amp -1 \amp 3 \\
 				 \amp 2 \amp 2
-			\end{array}\right]
+			\end{amatrix}
 			\amp
-			N \amp = \left[\begin{array}{rrr}
+			N \amp = \begin{amatrix}{rrr}
 				-3 \\
 				 \amp 5 \amp 0 \\
 				 \amp 1 \amp 2
-			\end{array}\right]
+			\end{amatrix}
 		</mrow></md>
 		(Remember that unspecified entries are assumed to be zero.)
 	</p></task>
@@ -311,7 +311,7 @@ we will explore the properties of block-diagonal matrices.
 	we can reduce a block-diagonal matrix by reducing the blocks.
 	For example,
 	<me>
-		\left[\begin{array}{rrrrrrr}
+		\begin{amatrix}{rrrrrrr}
 			1 \amp 1 \amp 1 \\
 			2 \amp 2 \amp 2 \\
 			0 \amp 1 \amp 0 \\
@@ -319,9 +319,9 @@ we will explore the properties of block-diagonal matrices.
 			\amp \amp \amp 1 \amp 1 \\
 			\amp \amp \amp \amp \amp 1 \amp -1 \\
 			\amp \amp \amp \amp \amp 2 \amp -2
-		\end{array}\right]
+		\end{amatrix}
 		\to
-		\left[\begin{array}{rrrrrrr}
+		\begin{amatrix}{rrrrrrr}
 			1 \amp 0 \amp 1 \\
 			0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \\
@@ -329,7 +329,7 @@ we will explore the properties of block-diagonal matrices.
 			\amp \amp \amp 0 \amp 1 \\
 			\amp \amp \amp \amp \amp 1 \amp -1 \\
 			\amp \amp \amp \amp \amp 0 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	The reduced matrix is not technically in RREF,
 	because there is a row of zeros that is not at the bottom.
@@ -350,13 +350,13 @@ we will explore the properties of block-diagonal matrices.
 	<task xml:id="activity-block-diag-det-example"><p>
 		Compute the determinant of the block-diagonal matrix
 		<me>
-			A = \left[\begin{array}{rrrrr}
+			A = \begin{amatrix}{rrrrr}
 				1 \amp 1 \\
 				-1 \amp 1 \\
 				 \amp \amp -3 \\
 				 \amp \amp \amp 2 \amp 1 \\
 				 \amp \amp \amp 1 \amp 3
-			\end{array}\right]
+			\end{amatrix}
 		</me>.
 		Then compute the determinant of each individual block separately.
 		What is the relationship between all these determinant calculations?

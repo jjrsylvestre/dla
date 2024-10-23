@@ -124,7 +124,7 @@ respective owners.
 	<p>
 	Let's continue with the invertible transformation <m>T</m> from <xref ref="example-lintrans-iso-determining-invertible" />.
 	What is the inverse image
-	<me> \inv{T}\left(\left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]\right) </me>?
+	<me> \inv{T}\left(\begin{amatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{amatrix}\right) </me>?
 	First, recall that <m>\inv{T}</m> is only defined on <m>\im T</m>.
 	Is the matrix used as input to <m>\inv{T}</m> above actually in <m>\im T</m>?
 	Attempting to compute its inverse image will answer the question for us <mdash />
@@ -138,10 +138,10 @@ respective owners.
 	</p><p>
 	The inverse image we would like to calculate (if it exists) will be precisely the <m>\R^4</m> vector that satisfies
 	<md><mrow>
-		T(a,b,c,d) \amp = \left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]
+		T(a,b,c,d) \amp = \begin{amatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{amatrix}
 		\amp \amp \Longleftrightarrow \amp
 		\begin{bmatrix} a + d \amp b + c \amp a + d \\ b - c \amp a - d \amp b - c \end{bmatrix}
-		\amp = \left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]
+		\amp = \begin{amatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{amatrix}
 	</mrow></md>,
 	from which we obtain linear system
 	<md>
@@ -160,7 +160,7 @@ respective owners.
 	leading to one unique solution
 	<md><mrow> a \amp = 1 \text{,} \amp b \amp = 3 \text{,} \amp c \amp = -2 \text{,} \amp d \amp = 5 </mrow></md>,
 	hence
-	<me> \inv{T}\left(\left[\begin{array}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{array}\right]\right) = (1,3,-2,5) </me>.
+	<me> \inv{T}\left(\begin{amatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{amatrix}\right) = (1,3,-2,5) </me>.
 	</p>
 </example>
 
@@ -194,11 +194,11 @@ respective owners.
 	<md>
 		<mrow>
 			T(1,0,0,0) \amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \text{,} \amp
-			T(0,0,1,0) \amp = \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right] \text{,}
+			T(0,0,1,0) \amp = \begin{amatrix}{rc} 0 \amp 1 \\ -1 \amp 0 \end{amatrix} \text{,}
 		</mrow>
 		<mrow>
 			T(0,1,0,0) \amp = \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix} \text{,} \amp
-			T(0,0,0,1) \amp = \left[\begin{array}{cr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] \text{.}
+			T(0,0,0,1) \amp = \begin{amatrix}{cr} 1 \amp 0 \\ 0 \amp -1 \end{amatrix} \text{.}
 		</mrow>
 	</md>
 	We can determine an input-ouput formula for <m>T</m> by expanding an arbitrary input as a linear combination of the standard basis of <m>\R^4</m>,
@@ -209,8 +209,8 @@ respective owners.
 			\amp
 			= a \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 			+ b \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
-			+ c \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right]
-			+ d \left[\begin{array}{cr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
+			+ c \begin{amatrix}{rc} 0 \amp 1 \\ -1 \amp 0 \end{amatrix}
+			+ d \begin{amatrix}{cr} 1 \amp 0 \\ 0 \amp -1 \end{amatrix}
 		</mrow>
 		<mrow> \amp = \begin{bmatrix} a + d \amp b + c \\ b - c \amp a - d  \end{bmatrix} </mrow>
 	</md>.

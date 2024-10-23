@@ -45,8 +45,8 @@ In the matrix of cofactors for a <m>2 \times 2</m> matrix,
 the off-diagonal cofactors become negative,
 and then the adjoint is the transpose of that.
 <md><mrow>
-	C_A  \amp = \left[\begin{array}{rr} d \amp -c\\-b \amp a \end{array}\right]  \amp
-	\adj A  \amp = \left[\begin{array}{rr} d \amp -b\\-c \amp a \end{array}\right]
+	C_A  \amp = \begin{amatrix}{rr} d \amp -c\\-b \amp a \end{amatrix}  \amp
+	\adj A  \amp = \begin{amatrix}{rr} d \amp -b\\-c \amp a \end{amatrix}
 </mrow></md>
 </p>
 <aside><title>Compare</title><p>
@@ -57,7 +57,7 @@ and then the adjoint is the transpose of that.
 
 <p>
 The inverse of <m>A</m> is then the reciprocal of the determinant times the adjoint, so that
-<me> \inv{A} = \frac{1}{a d - b c} \, \left[\begin{array}{rr} d \amp -b \\ -c \amp a \end{array}\right] </me>,
+<me> \inv{A} = \frac{1}{a d - b c} \, \begin{amatrix}{rr} d \amp -b \\ -c \amp a \end{amatrix} </me>,
 as promised in <xref ref="proposition-inverses-2x2-inverse" />.
 </p>
 
@@ -177,12 +177,12 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 		</me>
 		with coefficient matrix and vector of constants,
 		<md><mrow>
-			A \amp= \left[\begin{array}{rrrr}
+			A \amp= \begin{amatrix}{rrrr}
 				1 \amp -1 \amp 2 \amp 1 \\
 				2 \amp 0 \amp 1 \amp 1 \\
 				0 \amp 1 \amp 0 \amp -3 \\
 				1 \amp -2 \amp -1 \amp 0
-			\end{array}\right],
+			\end{amatrix},
 			\amp
 			\uvec{b} \amp = \begin{bmatrix} 1 \\ 1 \\ 0 \\ 1 \end{bmatrix}.
 		</mrow></md>
@@ -194,12 +194,12 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 		Suppose we want to know the value of <m>x_2</m> in the solution.
 		We can form the matrix <m>A_2</m>, where the second column of <m>A</m> is replaced by <m>\uvec{b}</m>,
 		<me>
-			A_2 = \left[\begin{array}{rrrr}
+			A_2 = \begin{amatrix}{rrrr}
 				1 \amp 1 \amp 2 \amp 1 \\
 				2 \amp 1 \amp 1 \amp 1 \\
 				0 \amp 0 \amp 0 \amp -3 \\
 				1 \amp 1 \amp -1 \amp 0
-			\end{array}\right]
+			\end{amatrix}
 		</me>,
 		and compute <m>\det A_2</m> by a cofactor expansion along the third row
 		(expanding the corresponding <m>3\times 3</m> minor determinant along the first row),
@@ -226,28 +226,28 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 		If we also want to know the value of <m>x_4</m>, we form the matrix <m>A_4</m>,
 		where the fourth column of <m>A</m> is replaced by <m>\uvec{b}</m>,
 		<me>
-			A_4 = \left[\begin{array}{rrrr}
+			A_4 = \begin{amatrix}{rrrr}
 				1 \amp -1 \amp 2 \amp 1 \\
 				2 \amp 0 \amp 1 \amp 1 \\
 				0 \amp 1 \amp 0 \amp 0 \\
 				1 \amp -2 \amp -1 \amp 1
-			\end{array}\right],
+			\end{amatrix},
 		</me>
 		and compute <m>\det A_4</m>
 		(again by a cofactor expansion along the third row, followed by an expansion along the first row of the corresponding <m>3\times 3</m> minor determinant),
 		<md>
 			<mrow>
 				\det A_4 \amp
-				= -1 \left[\begin{array}{rrr}
+				= -1 \begin{amatrix}{rrr}
 					1 \amp 2 \amp 1 \\
 					2 \amp 1 \amp 1 \\
 					1 \amp -1 \amp 1
-				\end{array}\right]
+				\end{amatrix}
 			</mrow><mrow>
 				\amp = -1\left(
-					1 \left[\begin{array}{rr} 1 \amp 1 \\ -1 \amp  1 \end{array}\right]
-					- 2 \left[\begin{array}{rr} 2 \amp 1 \\  1 \amp  1 \end{array}\right]
-					+ 1 \left[\begin{array}{rr} 2 \amp 1 \\  1 \amp -1 \end{array}\right]
+					1 \begin{amatrix}{rr} 1 \amp 1 \\ -1 \amp  1 \end{amatrix}
+					- 2 \begin{amatrix}{rr} 2 \amp 1 \\  1 \amp  1 \end{amatrix}
+					+ 1 \begin{amatrix}{rr} 2 \amp 1 \\  1 \amp -1 \end{amatrix}
 				\right)
 			</mrow>
 			<mrow>\amp = -\bbrac{(1+1) - 2(2-1) + (-2-1)}</mrow>

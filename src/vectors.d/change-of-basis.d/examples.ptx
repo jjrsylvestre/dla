@@ -45,9 +45,9 @@ but we'll make it a little more involved by choosing a different basis than the 
 		<mrow>
 			\basisfont{B} \amp = \left\{
 				\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
-				\left[\begin{array}{rr} 1 \amp -1 \\ 0 \amp 0 \end{array}\right],
+				\begin{amatrix}{rr} 1 \amp -1 \\ 0 \amp 0 \end{amatrix},
 				\begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix},
-				\left[\begin{array}{rr} 0 \amp 0 \\ -1 \amp 1 \end{array}\right]
+				\begin{amatrix}{rr} 0 \amp 0 \\ -1 \amp 1 \end{amatrix}
 			\right\}
 			\text{,}
 		</mrow><mrow></mrow><mrow>
@@ -95,19 +95,19 @@ but we'll make it a little more involved by choosing a different basis than the 
 	</me>
 	Use an augmented matrix to reduce the system:
 	<me>
-		\left[\begin{array}{cccc|c}
+		\begin{amatrix}{cccc|c}
 			1 \amp 2 \amp 3 \amp 4 \amp 1 \\
 			0 \amp 1 \amp 2 \amp 3 \amp 1 \\
 			0 \amp 0 \amp 1 \amp 2 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 		\qquad \rowredarrow \qquad
-		\left[\begin{array}{cccc|r}
+		\begin{amatrix}{cccc|r}
 			1 \amp 0 \amp 0 \amp 0 \amp -1 \\
 			0 \amp 1 \amp 0 \amp 0 \amp 1 \\
 			0 \amp 0 \amp 1 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	The solution is
 	<md><mrow>
@@ -117,53 +117,53 @@ but we'll make it a little more involved by choosing a different basis than the 
 		k_4 \amp = 0 \text{,}
 	</mrow></md>
 	giving us coordinate vector
-	<me> \matrixOf{A_1}{B'} = \left[\begin{array}{r} -1 \\ 1 \\ 0 \\ 0 \end{array}\right] </me>
+	<me> \matrixOf{A_1}{B'} = \begin{amatrix}{r} -1 \\ 1 \\ 0 \\ 0 \end{amatrix} </me>
 	(where <m>A_1</m> represents the first vector in basis <m>\basisfont{B}</m>).
 	</p><p>
 	A similar procedure can be used to compute coordinate vectors for the other vectors in <m>\basisfont{B}</m>.
 	Here are the results:
 	<md><mrow>
-		\matrixOf{A_2}{B'} \amp = \left[\begin{array}{r} 3 \\ -1 \\ 0 \\ 0 \end{array}\right] \text{,} \amp
-		\matrixOf{A_3}{B'} \amp = \left[\begin{array}{r} 1 \\ -1 \\ -1 \\ 1 \end{array}\right] \text{,} \amp
-		\matrixOf{A_4}{B'} \amp = \left[\begin{array}{r} -1 \\ 3 \\ -3 \\ 1 \end{array}\right]
+		\matrixOf{A_2}{B'} \amp = \begin{amatrix}{r} 3 \\ -1 \\ 0 \\ 0 \end{amatrix} \text{,} \amp
+		\matrixOf{A_3}{B'} \amp = \begin{amatrix}{r} 1 \\ -1 \\ -1 \\ 1 \end{amatrix} \text{,} \amp
+		\matrixOf{A_4}{B'} \amp = \begin{amatrix}{r} -1 \\ 3 \\ -3 \\ 1 \end{amatrix}
 	</mrow></md>
 	(where again <m>A_2,A_3,A_4</m> represent the remaining vectors in <m>\basisfont{B}</m>).
 	</p><p>
 	Combine these four coordinate vectors into the transition matrix:
 	<me>
 		\ucobmtrx{B}{B'} =
-		\left[\begin{array}{rrrr}
+		\begin{amatrix}{rrrr}
 			-1 \amp 3 \amp 1 \amp -1 \\
 			1 \amp -1 \amp -1 \amp 3 \\
 			0 \amp 0 \amp -1 \amp -3 \\
 			0 \amp 0 \amp 1 \amp 1
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	</p><p>
 	Let's test this transition matrix against an example coordinate vector.
 	We'll start with a <m>\basisfont{B}</m>-coordinate vector
-	<me> \matrixOf{Y}{B} = \left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right] </me>,
+	<me> \matrixOf{Y}{B} = \begin{amatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{amatrix} </me>,
 	which corresponds to vector
 	<me>
 		Y =
 		2 \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
-		(-1) \left[\begin{array}{rr} 1 \amp -1 \\ 0 \amp 0 \end{array}\right] +
+		(-1) \begin{amatrix}{rr} 1 \amp -1 \\ 0 \amp 0 \end{amatrix} +
 		3 \begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix} +
-		(-2) \left[\begin{array}{rr} 0 \amp 0 \\ -1 \amp 1 \end{array}\right]
+		(-2) \begin{amatrix}{rr} 0 \amp 0 \\ -1 \amp 1 \end{amatrix}
 		=
 		\begin{bmatrix} 1 \amp 3 \\ 5 \amp 1 \end{bmatrix}
 	</me>.
 	Now convert to a <m>\basisfont{B}'</m>-coordinate vector:
 	<me>
 		\matrixOf{Y}{B'} = \ucobmtrx{B}{B'} \matrixOf{Y}{B}
-		= \left[\begin{array}{rrrr}
+		= \begin{amatrix}{rrrr}
 			-1 \amp 3 \amp 1 \amp -1 \\
 			1 \amp -1 \amp -1 \amp 3 \\
 			0 \amp 0 \amp -1 \amp -3 \\
 			0 \amp 0 \amp 1 \amp 1
-		\end{array}\right]
-		\left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right]
-		= \left[\begin{array}{r} 0 \\ -6 \\ 3 \\ 1 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{amatrix}
+		= \begin{amatrix}{r} 0 \\ -6 \\ 3 \\ 1 \end{amatrix}
 	</me>,
 	which corresponds to vector
 	<me>
@@ -198,9 +198,9 @@ to compute a transition matrix for <m>\R^4</m>.
 		<mrow>
 			\basisfont{B} \amp = \left\{
 				\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
-				\left[\begin{array}{r} 1 \\ -1 \\ 0 \\ 0 \end{array}\right],
+				\begin{amatrix}{r} 1 \\ -1 \\ 0 \\ 0 \end{amatrix},
 				\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \end{bmatrix},
-				\left[\begin{array}{r} 0 \\ 0 \\ -1 \\ 1 \end{array}\right]
+				\begin{amatrix}{r} 0 \\ 0 \\ -1 \\ 1 \end{amatrix}
 			\right\}
 			\text{,}
 		</mrow><mrow></mrow><mrow>
@@ -219,58 +219,58 @@ to compute a transition matrix for <m>\R^4</m>.
 	<md>
 		<mrow xml:id="equation-change-of-basis-examples-cob-by-row-red" tag="star">
 			\amp
-			\left[\begin{array}{rrrr|rrrr}
+			\begin{amatrix}{rrrr|rrrr}
 				1 \amp 2 \amp 3 \amp 4 \amp 1 \amp  1 \amp 0 \amp  0 \\
 				0 \amp 1 \amp 2 \amp 3 \amp 1 \amp -1 \amp 0 \amp  0 \\
 				0 \amp 0 \amp 1 \amp 2 \amp 0 \amp  0 \amp 1 \amp -1 \\
 				0 \amp 0 \amp 0 \amp 1 \amp 0 \amp  0 \amp 1 \amp  1
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow></mrow><mrow>
 			\rowredarrow \qquad
 			\amp
-			\left[\begin{array}{rrrr|rrrr}
+			\begin{amatrix}{rrrr|rrrr}
 				1 \amp 0 \amp 0 \amp 0 \amp -1 \amp  3 \amp  1 \amp -1 \\
 				0 \amp 1 \amp 0 \amp 0 \amp  1 \amp -1 \amp -1 \amp  3 \\
 				0 \amp 0 \amp 1 \amp 0 \amp  0 \amp  0 \amp -1 \amp -3 \\
 				0 \amp 0 \amp 0 \amp 1 \amp  0 \amp  0 \amp  1 \amp  1
-			\end{array}\right]
+			\end{amatrix}
 		</mrow>
 	</md>.
 	Our transition matrix is now on the right, and we can extract it as
 	<me>
 		\ucobmtrx{B}{B'} =
-		\left[\begin{array}{rrrr}
+		\begin{amatrix}{rrrr}
 			-1 \amp  3 \amp  1 \amp -1 \\
 			 1 \amp -1 \amp -1 \amp  3 \\
 			 0 \amp  0 \amp -1 \amp -3 \\
 			 0 \amp  0 \amp  1 \amp  1
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	</p><p>
 	Let's test this transition matrix against an example coordinate vector.
 	We'll start with a <m>\basisfont{B}</m>-coordinate vector
-	<me> \matrixOf{\uvec{v}}{B'} = \left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right] </me>,
+	<me> \matrixOf{\uvec{v}}{B'} = \begin{amatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{amatrix} </me>,
 	which corresponds to vector
 	<me>
 		\uvec{v} =
 		2 \begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix} +
-		(-1) \left[\begin{array}{rr} 1 \\ -1 \\ 0 \\ 0 \end{array}\right] +
+		(-1) \begin{amatrix}{rr} 1 \\ -1 \\ 0 \\ 0 \end{amatrix} +
 		3 \begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \end{bmatrix} +
-		(-2) \left[\begin{array}{rr} 0 \\ 0 \\ -1 \\ 1 \end{array}\right]
+		(-2) \begin{amatrix}{rr} 0 \\ 0 \\ -1 \\ 1 \end{amatrix}
 		=
 		\begin{bmatrix} 1 \\ 3 \\ 5 \\ 1 \end{bmatrix}
 	</me>.
 	Now convert to a <m>\basisfont{B}'</m>-coordinate vector:
 	<me>
 		\matrixOf{\uvec{v}}{B'} = \ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B}
-		= \left[\begin{array}{rrrr}
+		= \begin{amatrix}{rrrr}
 			-1 \amp 3 \amp 1 \amp -1 \\
 			1 \amp -1 \amp -1 \amp 3 \\
 			0 \amp 0 \amp -1 \amp -3 \\
 			0 \amp 0 \amp 1 \amp 1
-		\end{array}\right]
-		\left[\begin{array}{r} 2 \\ -1 \\ 3 \\ -2 \end{array}\right]
-		= \left[\begin{array}{r} 0 \\ -6 \\ 3 \\ 1 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{amatrix}
+		= \begin{amatrix}{r} 0 \\ -6 \\ 3 \\ 1 \end{amatrix}
 	</me>,
 	which corresponds to vector
 	<me>

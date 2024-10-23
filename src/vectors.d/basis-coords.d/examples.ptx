@@ -87,11 +87,11 @@ and that it forms a <term>spanning set</term> for the whole vector space.
 	the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
 	the above vector equation leads to a system of equations with augmented matrix
 	<me>
-		\left[\begin{array}{ccc|c}
+		\begin{amatrix}{ccc|c}
 			1 \amp 1 \amp 0 \amp x \\
 			0 \amp 1 \amp 0 \amp y \\
 			0 \amp 0 \amp 2 \amp z
-		\end{array}\right].
+		\end{amatrix}.
 	</me>
 	The same two operations as before will reduce the coefficient part of this matrix to <m>I</m>,
 	so that a solution always exists,
@@ -139,7 +139,7 @@ and that it forms a <term>spanning set</term> for the whole vector space.
 	</p><p>
 	It can't be a spanning set for the space <m>V</m> because a linear combination of these vectors will always have the same number in both diagonal entries.
 	In particular, the vector
-	<me> \left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right] </me>
+	<me> \begin{amatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{amatrix} </me>
 	is upper triangular,
 	so it is in <m>V</m>,
 	but it is not in <m>\Span S</m>.
@@ -322,7 +322,7 @@ and
 			Since <m>S</m> is the standard basis for <m>\matrixring_2(\R)</m>,
 			this can be done by inspection:
 			<me>
-				\left[\begin{array}{rr} -1 \amp 5 \\ 3 \amp -2 \end{array}\right]
+				\begin{amatrix}{rr} -1 \amp 5 \\ 3 \amp -2 \end{amatrix}
 				= (-1)\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
 				+ 5\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 				+ 3\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
@@ -346,7 +346,7 @@ and
 			and then simplify the linear combination:
 			<md>
 				<mrow>
-					\left[\begin{array}{rr} -1 \amp 5 \\ 3 \amp -2 \end{array}\right]
+					\begin{amatrix}{rr} -1 \amp 5 \\ 3 \amp -2 \end{amatrix}
 					 \amp = k_1\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
 					+ k_2\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 					+ k_3\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
@@ -420,17 +420,17 @@ and
 			We could probably solve by inspection again,
 			but let's form an augmented matrix and reduce:
 			<me>
-				\left[\begin{array}{rrr|r}
+				\begin{amatrix}{rrr|r}
 					-1 \amp 0 \amp 1 \amp 1 \\
 					0 \amp 2 \amp 1 \amp 1 \\
 					1 \amp 0 \amp 0 \amp 1
-				\end{array}\right]
+				\end{amatrix}
 				\qquad\rowredarrow\qquad
-				\left[\begin{array}{rrr|r}
+				\begin{amatrix}{rrr|r}
 					1  \amp  0  \amp  0  \amp  1 \\
 					0  \amp  1  \amp  0  \amp  -1/2 \\
 					0  \amp  0  \amp  1  \amp  2
-				\end{array}\right]
+				\end{amatrix}
 			</me>
 			Notice again how the columns in the initial augmented matrix,
 			including the column of constants,
@@ -506,7 +506,7 @@ and leave the rest to you.
 					+   1  \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
 					+   1  \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 				</mrow><mrow>
-					\amp= \left[\begin{array}{rr} 3 \amp -5 \\ 1 \amp 1 \end{array}\right]
+					\amp= \begin{amatrix}{rr} 3 \amp -5 \\ 1 \amp 1 \end{amatrix}
 				</mrow>
 			</md>.
 			This result should not be surprising,
@@ -529,7 +529,7 @@ and leave the rest to you.
 					+   1  \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
 					+   1  \begin{bmatrix} 0 \amp 0 \\ 1 \amp 1 \end{bmatrix}
 				</mrow><mrow>
-					\amp= \left[\begin{array}{rr} -2 \amp -5 \\ 2 \amp 1 \end{array}\right]
+					\amp= \begin{amatrix}{rr} -2 \amp -5 \\ 2 \amp 1 \end{amatrix}
 				</mrow>
 			</md>.
 			Even though we were working with the <em>same</em> coordinate vector as in the previous example,

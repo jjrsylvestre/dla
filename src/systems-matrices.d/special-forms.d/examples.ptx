@@ -35,16 +35,16 @@ Here we will concentrate mostly on computational patterns involving diagonal mat
 	Let's look at each of a sum, product, power, and inverse involving diagonal matrices, in the <m>3\times 3</m> case.
 	<me>
 		\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}
-		+ \left[\begin{array}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{array}\right]
+		+ \begin{amatrix}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{amatrix}
 		= \begin{bmatrix} 5 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 9 \end{bmatrix}
 	</me><me>
 		\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}
-		\left[\begin{array}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{array}\right]
-		= \left[\begin{array}{rrr}
+		\begin{amatrix}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{amatrix}
+		= \begin{amatrix}{rrr}
 			4 \amp 0 \amp 0 \\
 			0 \amp -4 \amp 0 \\
 			0 \amp 0 \amp 18
-		\end{array}\right]
+		\end{amatrix}
 	</me><me>
 		\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}^2
 		= \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 4 \amp 0 \\ 0 \amp 0 \amp 9 \end{bmatrix}
@@ -74,7 +74,7 @@ We'll demonstrate with some upper triangular example computations.
 	<me>
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
 		+
-		\left[\begin{array}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{array}\right]
+		\begin{amatrix}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{amatrix}
 		= \begin{bmatrix}
 			5 \amp 2 \amp 2 \\
 			0 \amp 0 \amp 2 \\
@@ -83,18 +83,18 @@ We'll demonstrate with some upper triangular example computations.
 	</me>
 	<md><mrow>
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
-		\left[\begin{array}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{array}\right]
+		\begin{amatrix}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{amatrix}
 		\amp = \begin{bmatrix}
 			4+0+0 \amp 1-2+0 \amp 1+1+0 \\
 			0+0+0 \amp 0-4+0 \amp 0+2+6 \\
 			0+0+0 \amp 0+0+0 \amp 0+0+18
 		\end{bmatrix}
 	</mrow><mrow>
-		\amp = \left[\begin{array}{rrr}
+		\amp = \begin{amatrix}{rrr}
 			4 \amp -1 \amp 2 \\
 			0 \amp -4 \amp 8 \\
 			0 \amp 0 \amp 18
-		\end{array}\right]
+		\end{amatrix}
 	</mrow></md>
 	<md><mrow>
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}^2
@@ -123,33 +123,33 @@ using <xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />.
 	Augment with the identity and reduce.
 	<md>
 		<mrow>
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 1 \amp 1  \amp  1 \amp 0 \amp 0 \\
 				0 \amp 2 \amp 2  \amp  0 \amp 1 \amp 0 \\
 				0 \amp 0 \amp 3  \amp  0 \amp 0 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} \phantom{x} \\ \frac{1}{2}R_2 \\ \frac{1}{3}R_3 \end{matrix}
 			\longrightarrow
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 1 \amp 1  \amp  1 \amp 0 \amp 0 \\
 				0 \amp 1 \amp 1  \amp  0 \amp \frac{1}{2} \amp 0 \\
 				0 \amp 0 \amp 1  \amp  0 \amp 0 \amp \frac{1}{3}
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} R_1-R_2 \\ \phantom{x} \\ \phantom{x} \end{matrix}
 		</mrow><mrow>
 			\longrightarrow
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 0  \amp  1 \amp -\frac{1}{2} \amp 0 \\
 				0 \amp 1 \amp 1  \amp  0 \amp \frac{1}{2} \amp 0 \\
 				0 \amp 0 \amp 1  \amp  0 \amp 0 \amp \frac{1}{3}
-			\end{array}\right]
+			\end{amatrix}
 			\begin{matrix} \phantom{x} \\ R_2-R_3 \\ \phantom{x} \end{matrix}
 			\longrightarrow
-			\left[\begin{array}{rrr|rrr}
+			\begin{amatrix}{rrr|rrr}
 				1 \amp 0 \amp 0  \amp  1 \amp -\frac{1}{2} \amp 0 \\
 				0 \amp 1 \amp 0  \amp  0 \amp \frac{1}{2} \amp -\frac{1}{3} \\
 				0 \amp 0 \amp 1  \amp  0 \amp 0 \amp \frac{1}{3}
-			\end{array}\right]
+			\end{amatrix}
 		</mrow>
 	</md>
 	With this reduction, we have calculated that
@@ -159,11 +159,11 @@ using <xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />.
 			0 \amp 2 \amp 2 \\
 			0 \amp 0 \amp 3
 		\end{bmatrix}} =
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			1 \amp -\frac{1}{2} \amp 0 \\
 			0 \amp \frac{1}{2} \amp -\frac{1}{3} \\
 			0 \amp 0 \amp \frac{1}{3}
-		 \end{array}\right].
+		 \end{amatrix}.
 	</me>
 </p></example>
 

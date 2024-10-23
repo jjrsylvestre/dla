@@ -44,9 +44,9 @@ respective owners.
 	The eigenspace <m>E_{\lambda_1}(A)</m> is the same as the null space of the matrix <m>\lambda_1 I - A</m>,
 	so we determine a basis for the eigenspace by row reducing:
 	<me>
-		(-1)I - A = \left[\begin{array}{rr} -8 \amp -8 \\ 4 \amp 4 \end{array}\right]
+		(-1)I - A = \begin{amatrix}{rr} -8 \amp -8 \\ 4 \amp 4 \end{amatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rr} 1 \amp 1 \\ 0 \amp 0 \end{array}\right].
+		\begin{amatrix}{rr} 1 \amp 1 \\ 0 \amp 0 \end{amatrix}.
 	</me>
 	This system requires one parameter to solve,
 	as <m>x_2</m> is free.
@@ -55,18 +55,18 @@ respective owners.
 	<me>
 		\uvec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
 		= \begin{bmatrix} -t \\ t \end{bmatrix}
-		= t \left[\begin{array}{r} -1 \\ 1 \end{array}\right].
+		= t \begin{amatrix}{r} -1 \\ 1 \end{amatrix}.
 	</me>
 	Associated to the single parameter we get a single basis vector,
 	so that
 	<me> \dim\bbrac{E_{\lambda_1}(A)} = 1 </me>.
 	In particular, we have
-	<me> E_{\lambda_1}(A) = \Span\left\{\left[\begin{array}{r} -1 \\ 1 \end{array}\right]\right\}\text{.} </me>
+	<me> E_{\lambda_1}(A) = \Span\left\{\begin{amatrix}{r} -1 \\ 1 \end{amatrix}\right\}\text{.} </me>
 	</p><p>
 	Now move on to the next eigenvalue.
 	Again, we determine a basis for <m>E_{\lambda_2}(A)</m> by row reducing <m>\lambda_2 I - A</m>:
 	<me>
-		3 I - A = \left[\begin{array}{rr} -4 \amp -8 \\ 4 \amp 8 \end{array}\right]
+		3 I - A = \begin{amatrix}{rr} -4 \amp -8 \\ 4 \amp 8 \end{amatrix}
 		\qquad\rowredarrow\qquad
 		\begin{bmatrix}1 \amp 2 \\ 0 \amp 0\end{bmatrix}.
 	</me>
@@ -76,7 +76,7 @@ respective owners.
 	<me> \dim\bbrac{E_{\lambda_2}(A)} = 1 </me>.
 	The first row of the reduced matrix says <m>x_1 = -2x_2</m>,
 	so we have
-	<me> E_{\lambda_2}(A) = \Span\left\{\left[\begin{array}{r} -2 \\ 1 \end{array}\right]\right\}\text{.} </me>
+	<me> E_{\lambda_2}(A) = \Span\left\{\begin{amatrix}{r} -2 \\ 1 \end{amatrix}\right\}\text{.} </me>
 	</p>
 </statement></example>
 
@@ -88,11 +88,11 @@ respective owners.
 	Start with
 	<me>
 		\lambda I - A
-		= \left[\begin{array}{rrr}
+		= \begin{amatrix}{rrr}
 			\lambda-2 \amp 4 \amp -4 \\
 			0 \amp \lambda+6 \amp -8 \\
 			0 \amp 6 \amp \lambda-8
-		\end{array}\right],
+		\end{amatrix},
 	</me>
 	and compute the characteristic polynomial,
 	<md>
@@ -105,13 +105,13 @@ respective owners.
 	</p><p>
 	The eigenspace <m>E_{\lambda_1}(A)</m> is the null space of <m>0I-A = -A</m>, so row reduce:
 	<me>
-		0I - A = \left[\begin{array}{rrr}
+		0I - A = \begin{amatrix}{rrr}
 			-2 \amp 4 \amp -4 \\
 			0 \amp 6 \amp -8 \\
 			0 \amp 6 \amp -8
-		\end{array}\right]
+		\end{amatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rrr} 1 \amp 0 \amp -2/3 \\ 0 \amp 1 \amp -4/3 \\ 0 \amp 0 \amp 0 \end{array}\right].
+		\begin{amatrix}{rrr} 1 \amp 0 \amp -2/3 \\ 0 \amp 1 \amp -4/3 \\ 0 \amp 0 \amp 0 \end{amatrix}.
 	</me>
 	Notice that the null space of <m>0I-A = -A</m> is the same as the null space of <m>A</m>,
 	since our first step in row reducing <m>-A</m> could be to multiply each row by <m>-1</m>.
@@ -145,9 +145,9 @@ respective owners.
 	</p><p>
 	Now row reduce <m>\lambda_2 I - A</m>:
 	<me>
-		2I - A = \left[\begin{array}{rrr} 0 \amp 4 \amp -4 \\ 0 \amp 8 \amp -8 \\ 0 \amp 6 \amp -6 \end{array}\right]
+		2I - A = \begin{amatrix}{rrr} 0 \amp 4 \amp -4 \\ 0 \amp 8 \amp -8 \\ 0 \amp 6 \amp -6 \end{amatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rrr} 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right].
+		\begin{amatrix}{rrr} 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{amatrix}.
 	</me>
 	This time we have two free variables,
 	so
@@ -187,7 +187,7 @@ respective owners.
 	For <m>\lambda = 1</m>:
 	<md>
 		<mrow>
-			1I-A = \left[\begin{array}{rrr} 0 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -2 \end{array}\right]
+			1I-A = \begin{amatrix}{rrr} 0 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -2 \end{amatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix}
 		</mrow><mrow></mrow><mrow>
@@ -199,7 +199,7 @@ respective owners.
 	For <m>\lambda = 2</m>:
 	<md>
 		<mrow>
-			2I-A = \left[\begin{array}{rrr} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp -1 \end{array}\right]
+			2I-A = \begin{amatrix}{rrr} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp -1 \end{amatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0\end{bmatrix}
 		</mrow><mrow></mrow><mrow>
@@ -211,7 +211,7 @@ respective owners.
 	For <m>\lambda = 3</m>:
 	<md>
 		<mrow>
-			3I-A = \left[\begin{array}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right]
+			3I-A = \begin{amatrix}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{amatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix}
 		</mrow><mrow></mrow><mrow>
@@ -246,7 +246,7 @@ respective owners.
 	For <m>\lambda_1 = 2</m>:
 	<md>
 		<mrow>
-			2I-A = \left[\begin{array}{rrr} 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 3 \end{array}\right]
+			2I-A = \begin{amatrix}{rrr} 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 3 \end{amatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix}
 		</mrow><mrow></mrow><mrow>
@@ -258,7 +258,7 @@ respective owners.
 	For <m>\lambda_2 = -1</m>:
 	<md>
 		<mrow>
-			(-1)I-A = \left[\begin{array}{rrr} -3 \amp -1 \amp 0 \\ 0 \amp -3 \amp 0 \\ 0 \amp 0 \amp 0 \end{array}\right]
+			(-1)I-A = \begin{amatrix}{rrr} -3 \amp -1 \amp 0 \\ 0 \amp -3 \amp 0 \\ 0 \amp 0 \amp 0 \end{amatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix}
 		</mrow><mrow></mrow><mrow>
@@ -280,12 +280,12 @@ respective owners.
 	Let's do a <m>4 \times 4</m> example to demonstrate.
 	Consider
 	<me>
-		A = \left[\begin{array}{rrrr}
+		A = \begin{amatrix}{rrrr}
 			5 \amp -4 \amp -27 \amp 46 \\
 			2 \amp -1 \amp -12 \amp 20 \\
 			2 \amp -2 \amp -8 \amp 14 \\
 			1 \amp -1 \amp -3 \amp 5
-		\end{array}\right].
+		\end{amatrix}.
 	</me>
 	To obtain the characteristic polynomial,
 	we want to compute the determinant of
@@ -405,19 +405,19 @@ respective owners.
 	For <m>\lambda_1 = 1</m>:
 	<md>
 		<mrow>
-			\left[\begin{array}{rrrr}
+			\begin{amatrix}{rrrr}
 				1 \amp -1 \amp -3 \amp   4 \\
 				0 \amp  0 \amp  6 \amp -12 \\
 				0 \amp  0 \amp  3 \amp - 6 \\
 				0 \amp  0 \amp  9 \amp -18
-			\end{array}\right]
+			\end{amatrix}
 			\qquad \rowredarrow \qquad
-			\left[\begin{array}{rrrr}
+			\begin{amatrix}{rrrr}
 				1 \amp -1 \amp 0 \amp -2 \\
 				0 \amp  0 \amp 1 \amp -2 \\
 				0 \amp  0 \amp 0 \amp  0 \\
 				0 \amp  0 \amp 0 \amp  0
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow></mrow><mrow>
 			\implies \qquad
 			E_{\lambda_1}(A) = \Span\left\{
@@ -432,19 +432,19 @@ respective owners.
 	<xref ref="equation-eigen-values-vectors-examples-4x4-reduced" />:
 	<md>
 		<mrow>
-			\left[\begin{array}{rrrr}
+			\begin{amatrix}{rrrr}
 				1 \amp -1 \amp -3 \amp  7 \\
 				0 \amp -3 \amp  6 \amp -6 \\
 				0 \amp  0 \amp  0 \amp  0 \\
 				0 \amp  0 \amp  0 \amp  9
-			\end{array}\right]
+			\end{amatrix}
 			\qquad \rowredarrow \qquad
-			\left[\begin{array}{rrrr}
+			\begin{amatrix}{rrrr}
 				1 \amp 0 \amp -5 \amp  0 \\
 				0 \amp 1 \amp -2 \amp  0 \\
 				0 \amp 0 \amp  0 \amp  1 \\
 				0 \amp 0 \amp  0 \amp  0
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow></mrow><mrow>
 			\implies \qquad
 			E_{\lambda_2}(A) = \Span\left\{ \begin{bmatrix} 5 \\ 2 \\ 1 \\ 0 \end{bmatrix} \right\}.

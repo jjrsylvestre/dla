@@ -49,11 +49,11 @@ as an initial value problem.
 	<me>
 		\ddt
 		\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}
-		= \left[\begin{array}{rrr}
+		= \begin{amatrix}{rrr}
 			-9 \amp -14 \amp 14 \\
 			9 \amp 16 \amp -13 \\
 			2 \amp 4 \amp -1
-		\end{array}\right]
+		\end{amatrix}
 		\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}
 	</me>.
 	The characteristic polynomial of the coefficient matrix is
@@ -67,22 +67,22 @@ as an initial value problem.
 	<md>
 		<mrow>
 			E_{\lambda_1}(A) =
-			\Span\left\{ \left[\begin{array}{r} -2 \\ 1 \\ 0 \end{array}\right] \right\} \text{,}
+			\Span\left\{ \begin{amatrix}{r} -2 \\ 1 \\ 0 \end{amatrix} \right\} \text{,}
 			\qquad
 			E_{\lambda_2}(A) =
 			\Span\left\{ \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} \right\} \text{,}
 		</mrow><mrow>
 			E_{\lambda_3}(A) =
-			\Span\left\{ \left[\begin{array}{r} -1 \\ 2 \\ 1 \end{array}\right] \right\} \text{.}
+			\Span\left\{ \begin{amatrix}{r} -1 \\ 2 \\ 1 \end{amatrix} \right\} \text{.}
 		</mrow>
 	</md>
 	So we can use the transition matrix
 	<me>
-		P = \left[\begin{array}{rrr}
+		P = \begin{amatrix}{rrr}
 			-2 \amp 0 \amp -1 \\
 			 1 \amp 1 \amp  2 \\
 			 0 \amp 1 \amp  1
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	and its inverse to convert between the original system and a decoupled one involving transformed functions
 	<me> \uvec{w}(t) = \inv{P} \uvec{y}(t) </me>.
@@ -101,7 +101,7 @@ as an initial value problem.
 	</me>
 	It's easier to work with the decoupled system to determine the parameter values that correspond to the initial values.
 	Convert the vector of initial values <m>\uvec{y}(0)</m> to a vector of initial values for the decoupled system:
-	<me> \uvec{w}(0) = \inv{P} \uvec{y}(0) = \left[\begin{array}{r} 2 \\ 14 \\ -10 \end{array}\right] </me>.
+	<me> \uvec{w}(0) = \inv{P} \uvec{y}(0) = \begin{amatrix}{r} 2 \\ 14 \\ -10 \end{amatrix} </me>.
 	These three transformed initial values are precisely the values of the parameters <m>c_1,c_2,c_3</m>
 	we need to create a particular solution that meets the initial values for <m>y_1(t),y_2(t),y_3(t)</m>
 	provided at the beginning of this example.

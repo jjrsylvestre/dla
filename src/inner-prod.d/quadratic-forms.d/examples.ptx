@@ -30,7 +30,7 @@ respective owners.
 
 <example><title>Determining the quadratic polynomial associated to a symmetric matrix</title><p>
 	The symmetric matrix
-	<me> A = \left[\begin{array}{rrr} 1 \amp 2 \amp 0 \\ 2 \amp -7 \amp -5 \\ 0 \amp -5 \amp 3 \end{array}\right] </me>
+	<me> A = \begin{amatrix}{rrr} 1 \amp 2 \amp 0 \\ 2 \amp -7 \amp -5 \\ 0 \amp -5 \amp 3 \end{amatrix} </me>
 	creates a quadratic form
 	<me> q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>.
 	We can use the correspondence between matrix entries and polynomial coefficients discussed in
@@ -51,7 +51,7 @@ respective owners.
 	To do create the matrix <m>A</m>,
 	each diagonal entry should be the coefficient on the corresponding squared term in the quadratic polynomial,
 	and each off-diagonal entry should be <em>one-half</em> of the coefficient of the corresponding cross term in the quadratic polynomial:
-	<me> A = \left[\begin{array}{rrr} 5 \amp \frac{3}{2} \amp -2 \\ \frac{3}{2} \amp 9 \amp 3 \\ -2 \amp 3 \amp -11 \end{array}\right] </me>.
+	<me> A = \begin{amatrix}{rrr} 5 \amp \frac{3}{2} \amp -2 \\ \frac{3}{2} \amp 9 \amp 3 \\ -2 \amp 3 \amp -11 \end{amatrix} </me>.
 	</p>
 </example>
 
@@ -65,7 +65,7 @@ respective owners.
 	Let's work through the example of
 	<xref ref="activity-quadratic-forms-rotate" />.
 	The symmetric matrix
-	<me> A = \left[\begin{array}{rr} 13 \amp -5 \\ -5 \amp 13 \end{array}\right] </me>.
+	<me> A = \begin{amatrix}{rr} 13 \amp -5 \\ -5 \amp 13 \end{amatrix} </me>.
 	creates quadratic form
 	<me> q_A(\uvec{x}) = 13 x^2 - 10 x y + 13 y^2 </me>,
 	using variables <m>x,y</m> instead of <m>x_1,x_2</m>.
@@ -79,15 +79,15 @@ respective owners.
 	<md alignment="gather">
 		<mrow>
 			8 I - A
-			= \left[\begin{array}{rr}
+			= \begin{amatrix}{rr}
 				-5 \amp  5 \\
 				 5 \amp -5
-			\end{array}\right]
+			\end{amatrix}
 			\quad \rowredarrow \quad
-			= \left[\begin{array}{rr}
+			= \begin{amatrix}{rr}
 				1 \amp -1 \\
 				0 \amp  0
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow></mrow><mrow>
 			\implies E_8(A) = \Span\left\{ \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right\}
 		</mrow>
@@ -96,17 +96,17 @@ respective owners.
 	<md alignment="gather">
 		<mrow>
 			18 I - A
-			= \left[\begin{array}{rr}
+			= \begin{amatrix}{rr}
 				5 \amp 5 \\
 				5 \amp 5
-			\end{array}\right]
+			\end{amatrix}
 			\quad \rowredarrow \quad
-			= \left[\begin{array}{rr}
+			= \begin{amatrix}{rr}
 				1 \amp 1 \\
 				0 \amp 0
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow></mrow><mrow>
-			\implies E_{18}(A) = \Span\left\{ \left[\begin{array}{r} -1 \\ 1 \end{array}\right] \right\}
+			\implies E_{18}(A) = \Span\left\{ \begin{amatrix}{r} -1 \\ 1 \end{amatrix} \right\}
 		</mrow>
 	</md>.
 	These two eigenvectors are orthogonal as expected
@@ -116,14 +116,14 @@ respective owners.
 	<md><mrow>
 		E_8(A) \amp = \Span\left\{ \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} \right\} \text{,}
 		\amp
-		E_{18}(A) \amp = \Span\left\{ \left[\begin{array}{r} -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{array}\right] \right\}
+		E_{18}(A) \amp = \Span\left\{ \begin{amatrix}{r} -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{amatrix} \right\}
 	</mrow></md>.
 	Use the normalized eigenvectors to create an orthogonal transition matrix
 	<me>
-		P = \left[\begin{array}{cr}
+		P = \begin{amatrix}{cr}
 			\frac{1}{\sqrt{2}} \amp - \frac{1}{\sqrt{2}} \\
 			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{2}}
-		\end{array}\right]
+		\end{amatrix}
 	</me>
 	which diagonalizes <m>A</m>:
 	<me> \utrans{P} A P = \begin{bmatrix} 8 \\ \amp 18 \end{bmatrix} </me>.
@@ -167,14 +167,14 @@ respective owners.
 	the ellipse has clearly been rotated by <m>\pi/4</m> counter-clockwise.
 	This is consistent with viewing <m>P</m> as a rotation matrix:
 	<me>
-		P = \left[\begin{array}{cr}
+		P = \begin{amatrix}{cr}
 			\frac{1}{\sqrt{2}} \amp - \frac{1}{\sqrt{2}} \\
 			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{2}}
-		\end{array}\right]
-		= \left[\begin{array}{cr}
+		\end{amatrix}
+		= \begin{amatrix}{cr}
 			\cos \frac{\pi}{4} \amp - \sin \frac{\pi}{4} \\
 		 	\sin \frac{\pi}{4} \amp \cos \frac{\pi}{4}
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	Also notice how the fact that the columns of <m>P</m> are ortho<em>normal</em> allow use to use multiples of those vectors to determine distances and positions along each of the <m>w</m>- and <m>z</m>-axes.
 	</p><p>
@@ -271,10 +271,10 @@ respective owners.
 	This transition matrix is of the form
 	<me>
 		P=
-		\left[\begin{array}{cr}
+		\begin{amatrix}{cr}
 			\cos \frac{\pi}{6} \amp \sin \frac{\pi}{6} \\
 		 	\sin \frac{\pi}{6} \amp - \cos \frac{\pi}{6}
-		\end{array}\right]
+		\end{amatrix}
 	</me>,
 	which represents a rotation followed by a reflection.
 	</p>
@@ -291,7 +291,7 @@ respective owners.
 	but then the <m>z</m>-axis has been reflected to the other side of the <m>w</m>-axis.
 	<em>However</em>, we could have chosen our eigenvectors so that <m>P</m> represented <em>only</em> a rotation,
 	if we had used
-	<me> E_{-36}(A) = \Span\left\{ \left[\begin{array}{r} -\frac{1}{2} \\ \frac{\sqrt{3}}{2} \end{array}\right] \right\} </me>
+	<me> E_{-36}(A) = \Span\left\{ \begin{amatrix}{r} -\frac{1}{2} \\ \frac{\sqrt{3}}{2} \end{amatrix} \right\} </me>
 	instead
 	(see <xref ref="theorem-quadratic-forms-2D-principal-axes" />).
 	</p>

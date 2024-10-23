@@ -34,28 +34,28 @@ respective owners.
 Consider the <m>4\times 5</m> matrix
 <me>
 	A =
-	\left[\begin{array}{rrrrr}
+	\begin{amatrix}{rrrrr}
 		-8 \amp 9 \amp 11 \amp 7 \amp 5 \\
 		1 \amp -1 \amp -1 \amp -3 \amp 6 \\
 		-2 \amp 2 \amp 2 \amp 5 \amp -9 \\
 		1 \amp -1 \amp -1 \amp 1 \amp -6
-	\end{array}\right].
+	\end{amatrix}.
 </me>
 Row reduce, as usual:
 <me>
-	\left[\begin{array}{rrrrr}
+	\begin{amatrix}{rrrrr}
 		-8 \amp 9 \amp 11 \amp 7 \amp 5 \\
 		1 \amp -1 \amp -1 \amp -3 \amp 6 \\
 		-2 \amp 2 \amp 2 \amp 5 \amp -9 \\
 		1 \amp -1 \amp -1 \amp 1 \amp -6
-	\end{array}\right]
+	\end{amatrix}
 	\qquad\rowredarrow\qquad
-	\left[\begin{array}{rrrrr}
+	\begin{amatrix}{rrrrr}
 		1 \amp 0 \amp 2 \amp 0 \amp -1 \\
 		0 \amp 1 \amp 3 \amp 0 \amp 2 \\
 		0 \amp 0 \amp 0 \amp 1 \amp -3 \\
 		0 \amp 0 \amp 0 \amp 0 \amp 0
-	\end{array}\right].
+	\end{amatrix}.
 </me>
 </p>
 </introduction>
@@ -67,9 +67,9 @@ we see that the first, second, and fourth columns of <m>A</m> are linearly indep
 so a basis for the column space of <m>A</m> is
 <me>
 	\basisfont{B}_{\mathrm{col}} = \left\{
-		\left[\begin{array}{r} -8 \\ 1 \\ -2 \\ 1 \end{array}\right],
-		\left[\begin{array}{r} 9 \\ -1 \\ 2 \\ -1 \end{array}\right],
-		\left[\begin{array}{r} 7 \\ -3 \\ 5 \\ 1 \end{array}\right]
+		\begin{amatrix}{r} -8 \\ 1 \\ -2 \\ 1 \end{amatrix},
+		\begin{amatrix}{r} 9 \\ -1 \\ 2 \\ -1 \end{amatrix},
+		\begin{amatrix}{r} 7 \\ -3 \\ 5 \\ 1 \end{amatrix}
 	\right\},
 </me>
 and the dimension of the column space of <m>A</m> is <m>3</m>.
@@ -94,15 +94,15 @@ Since row reducing does not change the row space,
 we get our basis for the row space of <m>A</m> from the reduced matrix:
 <me>
 	\basisfont{B}_{\mathrm{row}} = \{
-		\left[\begin{array}{rrrrr}
+		\begin{amatrix}{rrrrr}
 			1 \amp 0 \amp 2 \amp 0 \amp -1 \\
-		\end{array}\right],
-		\left[\begin{array}{rrrrr}
+		\end{amatrix},
+		\begin{amatrix}{rrrrr}
 			0 \amp 1 \amp 3 \amp 0 \amp 2 \\
-		\end{array}\right],
-		\left[\begin{array}{rrrrr}
+		\end{amatrix},
+		\begin{amatrix}{rrrrr}
 			0 \amp 0 \amp 0 \amp 1 \amp -3 \\
-		\end{array}\right]
+		\end{amatrix}
 	\}.
 </me>
 The dimension of the row space of <m>A</m> is again <m>3</m>.
@@ -129,13 +129,13 @@ In vector form, we have
 	= \begin{bmatrix} -2s+t \\ -3s-2t \\ s \\ 3t \\ t \end{bmatrix}
 	= \begin{bmatrix} -2s \\ -3s \\ s \\ 0 \\ 0 \end{bmatrix}
 	+ \begin{bmatrix} t \\ 2t \\ 0 \\ 3t \\ t \end{bmatrix}
-	= s\left[\begin{array}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{array}\right]
+	= s\begin{amatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{amatrix}
 	+ t\begin{bmatrix} 1 \\ 2 \\ 0 \\ 3 \\ 1 \end{bmatrix}.
 </me>
 So a basis for the null space of <m>A</m> is
 <me>
 	\basisfont{B}_{\mathrm{null}} = \left\{
-		\left[\begin{array}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{array}\right],
+		\begin{amatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{amatrix},
 		\begin{bmatrix} 1 \\ 2 \\ 0 \\ 3 \\ 1 \end{bmatrix}
 	\right\},
 </me>
@@ -183,10 +183,10 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 			2 \amp 6 \amp 1 \amp 1
 		\end{bmatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rrrr}
+		\begin{amatrix}{rrrr}
 			1 \amp 3 \amp 0 \amp \frac{2}{3} \\
 			0 \amp 0 \amp 1 \amp -\frac{1}{3}
-		\end{array}\right].
+		\end{amatrix}.
 	</me>
 	We can see from the pattern of leading ones in the reduced matrix that to span all of <m>\R^4</m>,
 	we need to introduce some <q>independence</q> in the second and fourth coordinates.

@@ -34,23 +34,23 @@ respective owners.
 	<p>
 	Using matrix
 	<me>
-		A = \left[\begin{array}{rrrrr}
+		A = \begin{amatrix}{rrrrr}
 			-1 \amp  0 \amp -2 \amp -2 \amp  7 \\
 			-5 \amp  1 \amp -7 \amp -3 \amp 16 \\
 			 1 \amp  0 \amp  2 \amp  1 \amp -4 \\
 			 2 \amp -2 \amp -2 \amp -1 \amp -3
-		\end{array}\right]
+		\end{amatrix}
 	</me>,
 	create the matrix transformation <m>\funcdef{T_A}{\R^5}{\R^4}</m> by
 	defining <m>T_A(\uvec{x}) = A \uvec{x}</m>, as usual.
 	The RREF of <m>A</m> is
 	<me>
-		\left[\begin{array}{rrrrr}
+		\begin{amatrix}{rrrrr}
 			1 \amp 0 \amp 2 \amp 0 \amp -1 \\
 			0 \amp 1 \amp 3 \amp 0 \amp  2 \\
 			0 \amp 0 \amp 0 \amp 1 \amp -3 \\
 			0 \amp 0 \amp 0 \amp 0 \amp  0
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	(This is the same RREF as
 	in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker-matrix">Discovery</xref>
@@ -63,14 +63,14 @@ respective owners.
 	<me>
 		\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
 		= \begin{bmatrix} -2 s + t \\ -3 s - 2 t \\ s \\ 3 t \\ t \end{bmatrix}
-		= s \left[\begin{array}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{array}\right]
-		+ t \left[\begin{array}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{array}\right]
+		= s \begin{amatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{amatrix}
+		+ t \begin{amatrix}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{amatrix}
 	</me>,
 	and so
 	<me>
 		\ker T_A = \Span \left\{
-			\left[\begin{array}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{array}\right],
-			\left[\begin{array}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{array}\right]
+			\begin{amatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{amatrix},
+			\begin{amatrix}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{amatrix}
 		\right\}
 	</me>.
 	</p><p>
@@ -82,9 +82,9 @@ respective owners.
 	so identifying leading ones in the first, second, and fourth columns of <m>\RREF(A)</m> leads to
 	<me>
 		\im T_A = \Span \left\{
-			\left[\begin{array}{r} -1 \\ -5 \\ 1 \\ 2 \end{array}\right],
-			\left[\begin{array}{r} 0 \\ 1 \\ 0 \\ -2 \end{array}\right],
-			\left[\begin{array}{r} -2 \\ -3 \\ 1 \\ -1 \end{array}\right]
+			\begin{amatrix}{r} -1 \\ -5 \\ 1 \\ 2 \end{amatrix},
+			\begin{amatrix}{r} 0 \\ 1 \\ 0 \\ -2 \end{amatrix},
+			\begin{amatrix}{r} -2 \\ -3 \\ 1 \\ -1 \end{amatrix}
 		\right\}
 	</me>.
 	</p><p>
@@ -148,13 +148,13 @@ respective owners.
 		T\left(\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}\right)
 		= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 		- \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
-		= \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right]
+		= \begin{amatrix}{rc} 0 \amp 1 \\ -1 \amp 0 \end{amatrix}
 	</me>,
 	so that
 	<me>
 		\im T
 		= \Span T(\basisfont{K}')
-		= \Span \left\{ \left[\begin{array}{rc} 0 \amp 1 \\ -1 \amp 0 \end{array}\right] \right\}
+		= \Span \left\{ \begin{amatrix}{rc} 0 \amp 1 \\ -1 \amp 0 \end{amatrix} \right\}
 	</me>.
 	Notice that <m>\im T</m> consists of the <term>skew-symmetric</term> <m>2 \times 2</m> matrices,
 	defined by the <q>skewed</q> symmetry condition <m>\utrans{A} = - A</m>.
@@ -187,23 +187,23 @@ respective owners.
 	Inserting these two conditions into the arbitrary matrix above,
 	we have
 	<me>
-		\left[\begin{array}{rr} a \amp b \\ -a \amp -b \end{array}\right]
-		= a \left[\begin{array}{rr} 1 \amp 0 \\ -1 \amp 0 \end{array}\right]
-		+ b \left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+		\begin{amatrix}{rr} a \amp b \\ -a \amp -b \end{amatrix}
+		= a \begin{amatrix}{rr} 1 \amp 0 \\ -1 \amp 0 \end{amatrix}
+		+ b \begin{amatrix}{rr} 0 \amp 1 \\ 0 \amp -1 \end{amatrix}
 	</me>,
 	so that
 	<me>
 		\ker L_B = \Span \left\{
-			\left[\begin{array}{rr} 1 \amp 0 \\ -1 \amp 0 \end{array}\right],
-			\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+			\begin{amatrix}{rr} 1 \amp 0 \\ -1 \amp 0 \end{amatrix},
+			\begin{amatrix}{rr} 0 \amp 1 \\ 0 \amp -1 \end{amatrix}
 		\right\}
 	</me>.
 	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
 	we take
 	<me>
 		\basisfont{K} = \left\{
-			\left[\begin{array}{rr} 1 \amp 0 \\ -1 \amp 0 \end{array}\right],
-			\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
+			\begin{amatrix}{rr} 1 \amp 0 \\ -1 \amp 0 \end{amatrix},
+			\begin{amatrix}{rr} 0 \amp 1 \\ 0 \amp -1 \end{amatrix}
 		\right\}
 	</me>.
 	Since <m>\dim \bigl(\matrixring_2(\R)\bigr) = 4</m>,

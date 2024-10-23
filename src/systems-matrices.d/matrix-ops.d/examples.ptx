@@ -41,23 +41,23 @@ For subtraction, watch out for double negatives!
 </p>
 
 <example xml:id="example-matrix-ops-add"><title>Matrix addition</title><p><me>
-	\left[\begin{array}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{array}\right]
-	+ \left[\begin{array}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{array}\right]
+	\begin{amatrix}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{amatrix}
+	+ \begin{amatrix}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{amatrix}
 	= \begin{bmatrix} 1+0 \amp -2+1 \\ 3+1 \amp 4+(-2) \\ -5+11 \amp 6+0 \end{bmatrix}
-	= \left[\begin{array}{rr} 1 \amp -1 \\ 4 \amp 2 \\ 6 \amp 6 \end{array}\right]
+	= \begin{amatrix}{rr} 1 \amp -1 \\ 4 \amp 2 \\ 6 \amp 6 \end{amatrix}
 </me></p></example>
 
 <example xml:id="example-matrix-ops-subtr"><title>Matrix subtraction</title><p><md><mrow>
-	\left[\begin{array}{rrr} 1 \amp -2 \amp 3 \\ 0 \amp -4 \amp -5 \end{array}\right]
-	- \left[\begin{array}{rrr} 0 \amp 1 \amp 1 \\ -2 \amp 11 \amp -1 \end{array}\right]
+	\begin{amatrix}{rrr} 1 \amp -2 \amp 3 \\ 0 \amp -4 \amp -5 \end{amatrix}
+	- \begin{amatrix}{rrr} 0 \amp 1 \amp 1 \\ -2 \amp 11 \amp -1 \end{amatrix}
 	\amp = \begin{bmatrix} 1-0 \amp -2-1 \amp 3-1 \\ 0-(-2) \amp -4-11 \amp -5-(-1) \end{bmatrix}
 	</mrow><mrow>
-	\amp = \left[\begin{array}{rrr} 1 \amp -3 \amp 2 \\ 2 \amp -15 \amp -4 \end{array}\right]
+	\amp = \begin{amatrix}{rrr} 1 \amp -3 \amp 2 \\ 2 \amp -15 \amp -4 \end{amatrix}
 </mrow></md></p></example>
 
 <example xml:id="example-matrix-ops-scalar-mul"><title>Scalar multiplication of a matrix</title><p><me>
-		(-5)\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
-		= \left[\begin{array}{rr} -5 \amp 10 \\ 15 \amp -20\end{array}\right]
+		(-5)\begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
+		= \begin{amatrix}{rr} -5 \amp 10 \\ 15 \amp -20\end{amatrix}
 </me></p></example>
 
 </subsection>
@@ -71,48 +71,48 @@ For subtraction, watch out for double negatives!
 	<p>
 	Let's compute the matrix product <m>AB</m>, for
 	<md><mrow>
-		A \amp = \left[\begin{array}{rr}
+		A \amp = \begin{amatrix}{rr}
 			3 \amp -2 \\
 			1 \amp 0 \\
 			-4 \amp 5\
-		\end{array}\right],
+		\end{amatrix},
 		\amp
-		B \amp = \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right].
+		B \amp = \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}.
 	</mrow></md>
 	Notice that the sizes of <m>A</m> (<m>3\times 2</m>) and <m>B</m> (<m>2\times 2</m>) are compatible for multiplication in the order <m>AB</m>,
 	and that the result will be size <m>3\times 2</m>.
 	First let's multiply <m>A</m> onto the columns of <m>B</m>.
 	<md>
 		<mrow>
-			\left[\begin{array}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{array}\right]
-			\left[\begin{array}{r} 1 \\ -3 \end{array}\right]
+			\begin{amatrix}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{amatrix}
+			\begin{amatrix}{r} 1 \\ -3 \end{amatrix}
 			=
 			\begin{bmatrix}
 				3\cdot 1 + (-2)\cdot(-3) \\
 				1 \cdot 1 + 0\cdot(-3) \\
 				-4\cdot 1 + 5\cdot(-3)
 			\end{bmatrix}
-			= \left[\begin{array}{r} 9 \\ 1 \\ -19 \end{array}\right]
+			= \begin{amatrix}{r} 9 \\ 1 \\ -19 \end{amatrix}
 		</mrow>
 		<mrow>
-			\left[\begin{array}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{array}\right]
-			\left[\begin{array}{r} -2 \\ 4 \end{array}\right]
+			\begin{amatrix}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{amatrix}
+			\begin{amatrix}{r} -2 \\ 4 \end{amatrix}
 			=
 			\begin{bmatrix}
 				3\cdot (-2) + (-2)\cdot 4 \\
 				1 \cdot (-2) + 0\cdot 4 \\
 				-4\cdot (-2) + 5\cdot 4
 			\end{bmatrix}
-			= \left[\begin{array}{r} -14 \\ -2 \\ 28 \end{array}\right]
+			= \begin{amatrix}{r} -14 \\ -2 \\ 28 \end{amatrix}
 		</mrow>
 	</md>
 	Combining these two computations, we get
 	<me>
 		A B =
-		\left[\begin{array}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{array}\right]
-		\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
+		\begin{amatrix}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{amatrix}
+		\begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
 		=
-		\left[\begin{array}{rr} 9 \amp -14 \\ 1 \amp -2 \\ -19 \amp 28 \end{array}\right].
+		\begin{amatrix}{rr} 9 \amp -14 \\ 1 \amp -2 \\ -19 \amp 28 \end{amatrix}.
 	</me>
 	With some practise at matrix multiplication,
 	you should be able to compute a product <m>A B</m> directly without doing separate computations for each column of the second matrix.
@@ -138,16 +138,16 @@ For subtraction, watch out for double negatives!
 	<md>
 		<mrow>
 			B^2 = B B \amp =
-			\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
-			\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
+			\begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
+			\begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
 		</mrow>
 		<mrow>
 			\amp =
-			\left[\begin{array}{rr}
+			\begin{amatrix}{rr}
 				1\cdot 1 + (-2)(-3) \amp 1(-2) + (-2)\cdot 4 \\
 				-3\cdot 1 + 4(-3) \amp (-3)(-2) + 4\cdot 4
-			\end{array}\right]
-			= \left[\begin{array}{rr} 7 \amp -10 \\ -15 \amp 22 \end{array}\right]
+			\end{amatrix}
+			= \begin{amatrix}{rr} 7 \amp -10 \\ -15 \amp 22 \end{amatrix}
 		</mrow>
 	</md>
 	To compute <m>B^3</m>, we can compute either of
@@ -156,32 +156,32 @@ For subtraction, watch out for double negatives!
 			B^3 = B B B = (B B) B
 			\amp= B^2 B
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 7 \amp -10 \\ -15 \amp 22 \end{array}\right]
-			\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
+			\amp= \begin{amatrix}{rr} 7 \amp -10 \\ -15 \amp 22 \end{amatrix}
+			\begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
 		</mrow><mrow>
 			\amp=
-			\left[\begin{array}{rr}
+			\begin{amatrix}{rr}
 				7\cdot1 + (-10)(-3) \amp 7(-2) + (-10)\cdot 4 \\
 				-15\cdot 1 + 22(-3) \amp -15(-2) + 22\cdot 4
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 37 \amp -54 \\ -81 \amp 118 \end{array}\right],
+			\amp= \begin{amatrix}{rr} 37 \amp -54 \\ -81 \amp 118 \end{amatrix},
 		</mrow>
 	<intertext>or</intertext>
 		<mrow>
 			B^3 = B B B = B (B B)
 			\amp= BB^2
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
-			\left[\begin{array}{rr} 7 \amp -10 \\ -15 \amp 22 \end{array}\right]
+			\amp= \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
+			\begin{amatrix}{rr} 7 \amp -10 \\ -15 \amp 22 \end{amatrix}
 		</mrow><mrow>
 			\amp=
-			\left[\begin{array}{rr}
+			\begin{amatrix}{rr}
 				1\cdot 7 + (-2)(-15) \amp 1(-10) + (-2)\cdot 22 \\
 				(-3)\cdot 7 + 4(-15) \amp -3(-10) + 4\cdot 22
-			\end{array}\right]
+			\end{amatrix}
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 37 \amp -54 \\ -81 \amp 118 \end{array}\right],
+			\amp= \begin{amatrix}{rr} 37 \amp -54 \\ -81 \amp 118 \end{amatrix},
 		</mrow>
 	</md>
 	and the result is the same.
@@ -195,9 +195,9 @@ For subtraction, watch out for double negatives!
 <example><title>Computing matrix formulas involving a combination of operations</title><p>
 	Let's compute both <m>A (B + k C)</m> and <m>A B + k (A C)</m>, for
 	<md><mrow>
-		A \amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right], \amp
-		B \amp= \left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right], \amp
-		C \amp= \left[\begin{array}{rr} 5 \amp 5 \\ -2 \amp -2 \end{array}\right], \amp
+		A \amp= \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}, \amp
+		B \amp= \begin{amatrix}{rr} 0 \amp 2 \\ 1 \amp -1 \end{amatrix}, \amp
+		C \amp= \begin{amatrix}{rr} 5 \amp 5 \\ -2 \amp -2 \end{amatrix}, \amp
 		k \amp= 3.
 	</mrow></md>
 	Keep in mind that <em>operations inside brackets should be performed first</em>,
@@ -206,41 +206,41 @@ For subtraction, watch out for double negatives!
 	<md>
 		<mrow>
 			A (B + k C)
-			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
+			\amp= \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
 			\left(
-				\left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right]
-				+ 3\left[\begin{array}{rr} 5 \amp 5 \\ -2 \amp -2 \end{array}\right]
+				\begin{amatrix}{rr} 0 \amp 2 \\ 1 \amp -1 \end{amatrix}
+				+ 3\begin{amatrix}{rr} 5 \amp 5 \\ -2 \amp -2 \end{amatrix}
 			\right)
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
+			\amp= \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
 			\left(
-				\left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right]
-				+ \left[\begin{array}{rr} 15 \amp 15 \\ -6 \amp -6 \end{array}\right]
+				\begin{amatrix}{rr} 0 \amp 2 \\ 1 \amp -1 \end{amatrix}
+				+ \begin{amatrix}{rr} 15 \amp 15 \\ -6 \amp -6 \end{amatrix}
 			\right)
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
-			\left[\begin{array}{rr} 15 \amp 17 \\ -5 \amp -7  \end{array}\right]
+			\amp= \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
+			\begin{amatrix}{rr} 15 \amp 17 \\ -5 \amp -7  \end{amatrix}
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 25 \amp 31 \\ -65 \amp -79 \end{array}\right]
+			\amp= \begin{amatrix}{rr} 25 \amp 31 \\ -65 \amp -79 \end{amatrix}
 		</mrow>
 	</md>
 	<md>
 		<mrow>
 			A B + k (A C)
-			\amp= \left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
-			\left[\begin{array}{rr} 0 \amp 2 \\ 1 \amp -1 \end{array}\right]
+			\amp= \begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
+			\begin{amatrix}{rr} 0 \amp 2 \\ 1 \amp -1 \end{amatrix}
 			+ 3\left(
-				\left[\begin{array}{rr} 1 \amp -2 \\ -3 \amp 4 \end{array}\right]
-				\left[\begin{array}{rr} 5 \amp 5 \\ -2 \amp -2  \end{array}\right]
+				\begin{amatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{amatrix}
+				\begin{amatrix}{rr} 5 \amp 5 \\ -2 \amp -2  \end{amatrix}
 			\right)
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} -2 \amp 4 \\ 4 \amp -10 \end{array}\right]
-			+ 3 \left[\begin{array}{rr} 9 \amp 9 \\ -23 \amp -23 \end{array}\right]
+			\amp= \begin{amatrix}{rr} -2 \amp 4 \\ 4 \amp -10 \end{amatrix}
+			+ 3 \begin{amatrix}{rr} 9 \amp 9 \\ -23 \amp -23 \end{amatrix}
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} -2 \amp 4 \\ 4 \amp -10 \end{array}\right]
-			+ \left[\begin{array}{rr} 27 \amp 27 \\ -69 \amp -69  \end{array}\right]
+			\amp= \begin{amatrix}{rr} -2 \amp 4 \\ 4 \amp -10 \end{amatrix}
+			+ \begin{amatrix}{rr} 27 \amp 27 \\ -69 \amp -69  \end{amatrix}
 		</mrow><mrow>
-			\amp= \left[\begin{array}{rr} 25 \amp 31 \\ -65 \amp -79  \end{array}\right]
+			\amp= \begin{amatrix}{rr} 25 \amp 31 \\ -65 \amp -79  \end{amatrix}
 		</mrow>
 	</md>
 </p></example>
@@ -278,16 +278,16 @@ and for some of the rules, in that same subsection we verify that they are indee
 	To solve, we row reduce the associated augmented matrix to RREF as usual.
 	<md><mrow>
 		\amp
-		\left[\begin{array}{rrr|r}
+		\begin{amatrix}{rrr|r}
 			 1 \amp -3 \amp -1 \amp -4 \\
 			-2 \amp  7 \amp  2 \amp  9
-		\end{array}\right]
+		\end{amatrix}
 		\amp\amp\rowredarrow\amp
 		\amp
-		\left[\begin{array}{rrr|r}
+		\begin{amatrix}{rrr|r}
 			1 \amp 0 \amp -1 \amp -1 \\
 			0 \amp 1 \amp  0 \amp  1
-		\end{array}\right]
+		\end{amatrix}
 	</mrow></md>
 	Variable <m>x_3</m> is free, so assign a parameter <m>x_3 = t</m>.
 	Then we can solve to obtain the general solution is parametric form,
@@ -310,13 +310,13 @@ and for some of the rules, in that same subsection we verify that they are indee
 	<me>
 		\text{LHS}
 		= A\uvec{x}
-		= \left[\begin{array}{rrr}
+		= \begin{amatrix}{rrr}
 			 1 \amp -3 \amp -1 \\
 			-2 \amp  7 \amp  2
-		\end{array}\right]
-		\left[\begin{array}{r} -1 \\ 1 \\ 0 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} -1 \\ 1 \\ 0 \end{amatrix}
 		= \begin{bmatrix} -1 - 3 + 0 \\ 2 + 7 + 0 \end{bmatrix}
-		= \left[\begin{array}{r} -4 \\ 9 \end{array}\right]
+		= \begin{amatrix}{r} -4 \\ 9 \end{amatrix}
 		= \uvec{b}
 		= \text{RHS}.
 	</me>
@@ -328,13 +328,13 @@ and for some of the rules, in that same subsection we verify that they are indee
 	<me>
 		\text{LHS}
 		= A\uvec{x}
-		= \left[\begin{array}{rrr}
+		= \begin{amatrix}{rrr}
 			 1 \amp -3 \amp -1 \\
 			-2 \amp  7 \amp  2
-		\end{array}\right]
-		\left[\begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} 2 \\ 1 \\ 3 \end{amatrix}
 		= \begin{bmatrix} 2 - 3 - 3 \\ -4 + 7 + 6 \end{bmatrix}
-		= \left[\begin{array}{r} -4 \\ 9 \end{array}\right]
+		= \begin{amatrix}{r} -4 \\ 9 \end{amatrix}
 		= \uvec{b}
 		= \text{RHS}.
 	</me>
@@ -371,11 +371,11 @@ and express their solutions in vector form.
 	The system from <xref ref="activity-row-red-system-unique-sol" /> can be expressed in the form <m>A\uvec{x} = \uvec{b}</m> for
 	<md><mrow>
 		A \amp =
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			2 \amp 0 \amp -2 \\
 			1 \amp -1 \amp 0 \\
 			4 \amp -2 \amp -3
-		\end{array}\right],
+		\end{amatrix},
 		\amp
 		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
 		\amp
@@ -388,7 +388,7 @@ and express their solutions in vector form.
 	In vector form, we write this solution as
 	<me>
 		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
-		= \left[\begin{array}{r} 5 \\ 2 \\ 3 \end{array}\right].
+		= \begin{amatrix}{r} 5 \\ 2 \\ 3 \end{amatrix}.
 	</me>
 	</p>
 </example>
@@ -399,15 +399,15 @@ and express their solutions in vector form.
 	The system from <xref ref="activity-row-red-system-infinite-sol" /> can be expressed in the form <m>A \uvec{x} = \uvec{b}</m> for
 	<md><mrow>
 		A \amp =
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			3 \amp 6 \amp 5 \\
 			2 \amp 4 \amp 3 \\
 			3 \amp 6 \amp 6
-		\end{array}\right],
+		\end{amatrix},
 		\amp
 		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
 		\amp
-		\uvec{b} \amp = \left[\begin{array}{r} -9 \\ -5 \\ -12 \end{array}\right].
+		\uvec{b} \amp = \begin{amatrix}{r} -9 \\ -5 \\ -12 \end{amatrix}.
 	</mrow></md>
 	We solved this system in
 	<xref ref="example-row-red-solving-infinite" />,
@@ -421,15 +421,15 @@ and express their solutions in vector form.
 		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{bmatrix}2-2t\\t\\-3\end{bmatrix}
 		= \begin{bmatrix}2-2t\\0+t\\-3+0t\end{bmatrix}
-		= \left[\begin{array}{r}2\\0\\-3\end{array}\right]
-		+ \left[\begin{array}{r}-2t\\t\\0t\end{array}\right]
-		= \left[\begin{array}{r}2\\0\\-3\end{array}\right]
-		+ t\left[\begin{array}{r}-2\\1\\0\end{array}\right].
+		= \begin{amatrix}{r}2\\0\\-3\end{amatrix}
+		+ \begin{amatrix}{r}-2t\\t\\0t\end{amatrix}
+		= \begin{amatrix}{r}2\\0\\-3\end{amatrix}
+		+ t\begin{amatrix}{r}-2\\1\\0\end{amatrix}.
 	</me>
 	Notice how the solution is the sum of a <term>constant part</term>
-	<me> \left[\begin{array}{r}2\\0\\-3\end{array}\right] </me>
+	<me> \begin{amatrix}{r}2\\0\\-3\end{amatrix} </me>
 	and a <term>variable part</term>
-	<me> t\left[\begin{array}{r}-2\\1\\0\end{array}\right]. </me>
+	<me> t\begin{amatrix}{r}-2\\1\\0\end{amatrix}. </me>
 	Further notice how the constant part is a particular solution to the system <mdash />
 	it is the <q>initial</q> particular solution associated to the parameter value <m>t=0</m>.
 	</p>
@@ -442,11 +442,11 @@ and express their solutions in vector form.
 	so it can be expressed in the form <m>A\uvec{x} = \zerovec</m> for
 	<md><mrow>
 		A \amp =
-		\left[\begin{array}{rrrr}
+		\begin{amatrix}{rrrr}
 			3 \amp 6 \amp -8 \amp 13 \\
 			1 \amp 2 \amp -2 \amp 3 \\
 			2 \amp 4 \amp -5 \amp 8
-		\end{array}\right],
+		\end{amatrix},
 		\amp
 		\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix},
 	</mrow></md>
@@ -460,16 +460,16 @@ and express their solutions in vector form.
 		\uvec{x} = \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
 		= \begin{bmatrix}-2s+t\\s\\2t\\t\end{bmatrix}
 		= \begin{bmatrix}-2s+t\\s+0t\\0s+2t\\0s+t\end{bmatrix}
-		= \left[\begin{array}{r}-2s\\s\\0s\\0s\end{array}\right]
-		+ \left[\begin{array}{r}t\\0t\\2t\\t\end{array}\right]
-		= s\left[\begin{array}{r}-2\\1\\0\\0\end{array}\right]
-		+ t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right].
+		= \begin{amatrix}{r}-2s\\s\\0s\\0s\end{amatrix}
+		+ \begin{amatrix}{r}t\\0t\\2t\\t\end{amatrix}
+		= s\begin{amatrix}{r}-2\\1\\0\\0\end{amatrix}
+		+ t\begin{amatrix}{r}1\\0\\2\\1\end{amatrix}.
 	</me>
 	This time, the solution is a sum of <em>two</em> variables parts,
 	<md><mrow>
-		\amp s\left[\begin{array}{r}-2\\1\\0\\0\end{array}\right]
+		\amp s\begin{amatrix}{r}-2\\1\\0\\0\end{amatrix}
 		\amp \amp\text{and}\amp
-		\amp t\left[\begin{array}{r}1\\0\\2\\1\end{array}\right]
+		\amp t\begin{amatrix}{r}1\\0\\2\\1\end{amatrix}
 	</mrow></md>,
 	since there are two parameters.
 	And there is <em>no</em> constant part to the general solution,
@@ -492,11 +492,11 @@ and express their solutions in vector form.
 	we solved a homogenous system <m>A\uvec{x} = \zerovec</m> with
 	<md><mrow>
 		A \amp =
-		\left[\begin{array}{rrr}
+		\begin{amatrix}{rrr}
 			3 \amp 6 \amp 5 \\
 			2 \amp 4 \amp 3 \\
 			3 \amp 6 \amp 6
-		\end{array}\right],
+		\end{amatrix},
 		\amp
 		\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix},
 	</mrow></md>
@@ -506,9 +506,9 @@ and express their solutions in vector form.
 	In vector form, we express this as
 	<me>
 		\uvec{x} = \begin{bmatrix}x\\y\\z\end{bmatrix}
-		= \left[\begin{array}{r}-2t\\t\\0\end{array}\right]
-		= \left[\begin{array}{r}-2t\\t\\0t\end{array}\right]
-		= t\left[\begin{array}{r}-2\\1\\0\end{array}\right]
+		= \begin{amatrix}{r}-2t\\t\\0\end{amatrix}
+		= \begin{amatrix}{r}-2t\\t\\0t\end{amatrix}
+		= t\begin{amatrix}{r}-2\\1\\0\end{amatrix}
 	</me>.
 	This homogeneous system has the same coefficient matrix as in
 	<xref ref="example-matrix-ops-sys-sol-vector-forms-infinite" />
@@ -541,11 +541,11 @@ and express their solutions in vector form.
 			A \amp = \begin{bmatrix} 1 \amp 2 \amp 3\\4 \amp 5 \amp 6 \end{bmatrix}
 			\amp
 			B \amp =
-			\left[\begin{array}{rrr}
+			\begin{amatrix}{rrr}
 				-1 \amp 2 \amp 3 \\
 				5 \amp 0 \amp 4 \\
 				6 \amp 7 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 			\amp
 			C \amp =
 			\begin{bmatrix}
@@ -556,11 +556,11 @@ and express their solutions in vector form.
 		</mrow><mrow>
 			\utrans{A} \amp = \begin{bmatrix} 1 \amp 4\\2 \amp 5 \\ 3 \amp 6 \end{bmatrix} \amp
 			\utrans{B} \amp =\
-			\left[\begin{array}{rrr}
+			\begin{amatrix}{rrr}
 				-1 \amp 5 \amp 6 \\
 				2 \amp 0 \amp 7 \\
 				3 \amp 4 \amp 1
-			\end{array}\right]
+			\end{amatrix}
 			\amp
 			\utrans{C} \amp =
 			\begin{bmatrix}

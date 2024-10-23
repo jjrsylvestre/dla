@@ -199,12 +199,12 @@ but others will not.
 	These formulas define a linear transformation <m>\funcdef{T}{\R^2}{\R^4}</m>.
 	If we set
 	<me>
-		A = \left[\begin{array}{rr}
+		A = \begin{amatrix}{rr}
 			 3 \amp -1 \\
 			 5 \amp  5 \\
 			 0 \amp  7 \\
 			-1 \amp  1
-		\end{array}\right]
+		\end{amatrix}
 	</me>,
 	then we will have
 	<me> T(\uvec{x}) = A \uvec{x} </me>
@@ -224,7 +224,7 @@ but others will not.
 	Consider the vectors
 	<md><mrow>
 		\uvec{a}_1 \amp = \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix}, \amp
-		\uvec{a}_2 \amp = \left[\begin{array}{r} 0 \\ -1 \\ 5 \end{array}\right]
+		\uvec{a}_2 \amp = \begin{amatrix}{r} 0 \\ -1 \\ 5 \end{amatrix}
 	</mrow></md>
 	in <m>\R^3</m>.
 	Define <m>\funcdef{T}{\R^3}{\R^2}</m> by
@@ -245,29 +245,29 @@ but others will not.
 			T(\uvec{e}_3) \amp = \begin{bmatrix} \dotprod{\uvec{e}_3}{\uvec{a}_1} \\ \dotprod{\uvec{e}_3}{\uvec{a}_2} \end{bmatrix}
 		</mrow><mrow>
 			\amp = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \text{,} \amp
-			\amp = \left[\begin{array}{r} 1 \\ -1 \end{array}\right] \text{,} \amp
+			\amp = \begin{amatrix}{r} 1 \\ -1 \end{amatrix} \text{,} \amp
 			\amp = \begin{bmatrix} 2 \\ 5 \end{bmatrix}
 		</mrow>
 	</md>.
 	Each of these results corresponds to a column of the standard matrix <m>\stdmatrixOf{T}</m>:
 	<me>
 		\stdmatrixOf{T} =
-		\left[\begin{array}{crc}
+		\begin{amatrix}{crc}
 			1 \amp  1 \amp 2 \\
 			0 \amp -1 \amp 5
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	Notice how the vectors <m>\uvec{a}_1,\uvec{a}_2</m> ended up as rows in <m>\stdmatrixOf{T}</m>,
 	so that multiplying a vector in <m>\R^3</m> by this matrix effectively computes the two dot products against <m>\uvec{a}_1,\uvec{a}_2</m>,
 	as in the definition of <m>T</m>.
 	For example,
 	<me>
-		T\left( \left[\begin{array}{r} 7 \\ -3 \\ 5 \end{array}\right] \right)
-		=  \left[\begin{array}{crc}
+		T\left( \begin{amatrix}{r} 7 \\ -3 \\ 5 \end{amatrix} \right)
+		=  \begin{amatrix}{crc}
 			1 \amp  1 \amp 2 \\
 			0 \amp -1 \amp 5
-		\end{array}\right]
-		\left[\begin{array}{r} 7 \\ -3 \\ 5 \end{array}\right]
+		\end{amatrix}
+		\begin{amatrix}{r} 7 \\ -3 \\ 5 \end{amatrix}
 		= \begin{bmatrix} 14 \\ 28 \end{bmatrix}
 	</me>.
 	</p>

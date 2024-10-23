@@ -68,24 +68,24 @@ respective owners.
 				<mrow> A \amp= \begin{bmatrix} a \amp b \\ c \amp -a-b-c \end{bmatrix} </mrow>
 				<mrow>
 					\amp
-					= \left[\begin{array}{rr} a \amp 0 \\ 0 \amp -a \end{array}\right]
-					+ \left[\begin{array}{rr} 0 \amp b \\ 0 \amp -b \end{array}\right]
-					+ \left[\begin{array}{rr} 0 \amp 0 \\ c \amp -c \end{array}\right]
+					= \begin{amatrix}{rr} a \amp 0 \\ 0 \amp -a \end{amatrix}
+					+ \begin{amatrix}{rr} 0 \amp b \\ 0 \amp -b \end{amatrix}
+					+ \begin{amatrix}{rr} 0 \amp 0 \\ c \amp -c \end{amatrix}
 				</mrow>
 				<mrow>
 					\amp
-					= a\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right]
-					+ b\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right]
-					+ c\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right].
+					= a\begin{amatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{amatrix}
+					+ b\begin{amatrix}{rr} 0 \amp 1 \\ 0 \amp -1 \end{amatrix}
+					+ c\begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -1 \end{amatrix}.
 				</mrow>
 			</md>
 			So this subspace of <m>\matrixring_2(\R)</m> has dimension <m>3</m>,
 			with basis
 			<me>
 				\basisfont{B} = \left\{
-					\left[\begin{array}{rr} 1 \amp 0 \\ 0 \amp -1 \end{array}\right],
-					\left[\begin{array}{rr} 0 \amp 1 \\ 0 \amp -1 \end{array}\right],
-					\left[\begin{array}{rr} 0 \amp 0 \\ 1 \amp -1 \end{array}\right]
+					\begin{amatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{amatrix},
+					\begin{amatrix}{rr} 0 \amp 1 \\ 0 \amp -1 \end{amatrix},
+					\begin{amatrix}{rr} 0 \amp 0 \\ 1 \amp -1 \end{amatrix}
 				\right\}.
 			</me>
 			</p>
@@ -182,17 +182,17 @@ respective owners.
 	<xref ref="activity-row-red-system-homog-sol" />
 	has a <m>4 \times 4</m> coefficient matrix that we reduced:
 	<me>
-		\left[\begin{array}{rrrr}
+		\begin{amatrix}{rrrr}
 			3 \amp 6 \amp -8 \amp 13 \\
 			1 \amp 2 \amp -2 \amp 3 \\
 			2 \amp 4 \amp -5 \amp 8
-		\end{array}\right]
+		\end{amatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rrrr}
+		\begin{amatrix}{rrrr}
 			1 \amp 2 \amp 0 \amp -1 \\
 			0 \amp 0 \amp 1 \amp -2 \\
 			0 \amp 0 \amp 0 \amp 0
-		\end{array}\right]
+		\end{amatrix}
 	</me>.
 	Assigning parameters to free variables <m>x_2,x_4</m>,
 	we obtained the general solution in parametric form:
@@ -207,7 +207,7 @@ respective owners.
 		= \begin{bmatrix} -2s + t \\ s \\ 2t \\ t \end{bmatrix}
 		= \begin{bmatrix} -2s \\ s \\ 0 \\ 0 \end{bmatrix}
 		+ \begin{bmatrix} t \\ 0 \\ 2t \\ t \end{bmatrix}
-		= s\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right]
+		= s\begin{amatrix}{r} -2 \\ 1 \\ 0 \\ 0 \end{amatrix}
 		+ t\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
 	</me>
 	Since two parameters are needed to describe the solution vectors for this system,
@@ -215,7 +215,7 @@ respective owners.
 	and a basis for this subspace is
 	<me>
 		\basisfont{B} = \left\{
-			\left[\begin{array}{r} -2 \\ 1 \\ 0 \\ 0 \end{array}\right],
+			\begin{amatrix}{r} -2 \\ 1 \\ 0 \\ 0 \end{amatrix},
 			\begin{bmatrix} 1 \\ 0 \\ 2 \\ 1 \end{bmatrix}
 		\right\}
 	</me>.
@@ -288,25 +288,25 @@ So let's start by checking whether <m>E_{11}</m> is in <m>\Span S</m>.
 The vector equation
 <me>
 	k_1 \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1\end{bmatrix}
-	+ k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 1 \amp -1\end{array}\right]
+	+ k_2 \begin{amatrix}{rr} 1 \amp 0 \\ 1 \amp -1\end{amatrix}
 	= \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0\end{bmatrix}
 </me>
 leads to a system of equations with augmented matrix as on the left below,
 which we can reduce:
 <me>
-	\left[\begin{array}{rr|r}
+	\begin{amatrix}{rr|r}
 		1 \amp 1 \amp 1 \\
 		1 \amp 0 \amp 0 \\
 		1 \amp 1 \amp 0 \\
 		1 \amp -1 \amp 0
-	\end{array}\right]
+	\end{amatrix}
 	\qquad\rowredarrow\qquad
-	\left[\begin{array}{rr|r}
+	\begin{amatrix}{rr|r}
 		1 \amp 0 \amp 0 \\
 		0 \amp 1 \amp 0 \\
 		0 \amp 0 \amp 1 \\
 		0 \amp 0 \amp 0
-	\end{array}\right].
+	\end{amatrix}.
 </me>
 The one in the last column indicates that the system is inconsistent,
 which is what we want <mdash />
@@ -319,25 +319,25 @@ Now let's check if <m>E_{12}</m> is in the span of these <em>three</em> linearly
 Our vector equation is now,
 <me>
 	k_1 \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \end{bmatrix}
-	+ k_2 \left[\begin{array}{rr} 1 \amp 0 \\ 1 \amp -1 \end{array}\right]
+	+ k_2 \begin{amatrix}{rr} 1 \amp 0 \\ 1 \amp -1 \end{amatrix}
 	+ k_3 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
 	= \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 </me>
 which leads to a system with augmented and reduced augmented matrices
 <me>
-	\left[\begin{array}{rrr|r}
+	\begin{amatrix}{rrr|r}
 		1 \amp 1 \amp 1 \amp 0 \\
 		1 \amp 0 \amp 0 \amp 1 \\
 		1 \amp 1 \amp 0 \amp 0 \\
 		1 \amp -1 \amp 0 \amp 0
-	\end{array}\right]
+	\end{amatrix}
 	\qquad\rowredarrow\qquad
-	\left[\begin{array}{rrr|r}
+	\begin{amatrix}{rrr|r}
 		1 \amp 0 \amp 0 \amp 0 \\
 		0 \amp 1 \amp 0 \amp 0 \\
 		0 \amp 0 \amp 1 \amp 0 \\
 		0 \amp 0 \amp 0 \amp 1
-	\end{array}\right].
+	\end{amatrix}.
 </me>
 Again, there is no solution,
 so <m>E_{12}</m> is not in <m>\Span S'</m>.
@@ -354,7 +354,7 @@ Our final basis is
 <me>
 	\left\{
 		\begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \end{bmatrix},
-		\left[\begin{array}{rr} 1 \amp 0 \\ 1 \amp -1 \end{array}\right],
+		\begin{amatrix}{rr} 1 \amp 0 \\ 1 \amp -1 \end{amatrix},
 		\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
 		\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 	\right\}.
@@ -367,19 +367,19 @@ Our final basis is
 	we could have augmented our initial spanning set vectors with <em>all</em> standard basis vectors,
 	and checked all of them all at once:
 	<me>
-		\left[\begin{array}{rr|rrrr}
+		\begin{amatrix}{rr|rrrr}
 			1 \amp 1 \amp 1 \amp 0 \amp 0 \amp 0 \\
 			1 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
 			1 \amp 1 \amp 0 \amp 0 \amp 1 \amp 0 \\
 			1 \amp -1 \amp 0 \amp 0 \amp 0 \amp 1
-	 	\end{array}\right]
+	 	\end{amatrix}
 		\qquad\rowredarrow\qquad
-		\left[\begin{array}{rr|rrrr}
+		\begin{amatrix}{rr|rrrr}
 			1 \amp 0 \amp 0 \amp 0 \amp 1/2 \amp 1/2 \\
 			0 \amp 1 \amp 0 \amp 0 \amp 1/2 \amp -1/2 \\
 			0 \amp 0 \amp 1 \amp 0 \amp -1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1 \amp -1/2 \amp -1/2
-		\end{array}\right].
+		\end{amatrix}.
 	</me>
 	By changing the position of the vertical line that indicates the separation of the coefficients from the column of constants one column at a time,
 	we can change our point of view on each augmented column from representing a vector to be achieved as a linear combination of the spanning vectors to a vector <em>included</em> as a spanning vector.
