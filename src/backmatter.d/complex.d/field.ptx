@@ -13,20 +13,20 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<section xml:id="section-complex-appendix-field">
+<section xml:id="section-complex-field">
 <title>The field of complex numbers</title>
 
 <introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-complex-appendix-field-def" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-field-def" /></em></li>
-<li><xref ref="subsection-complex-appendix-field-ops" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-field-ops" /></em></li>
-<li><xref ref="subsection-complex-appendix-field-div" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-field-div" /></em></li>
-<li><xref ref="subsection-complex-appendix-field-props" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-field-props" /></em></li>
-<li><xref ref="subsection-complex-appendix-field-poly" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-field-poly" /></em></li>
+<li><xref ref="subsection-complex-def" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-def" /></em></li>
+<li><xref ref="subsection-complex-ops" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-ops" /></em></li>
+<li><xref ref="subsection-complex-div" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-div" /></em></li>
+<li><xref ref="subsection-complex-props" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-props" /></em></li>
+<li><xref ref="subsection-complex-poly" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-poly" /></em></li>
 </ul></p></assemblage></introduction>
 
 <introduction><p>
@@ -34,7 +34,7 @@ respective owners.
 	let's let it out to play in the <term>field</term> with all the other numbers.
 </p></introduction>
 
-<subsection xml:id="subsection-complex-appendix-field-def">
+<subsection xml:id="subsection-complex-def">
 <title> Definition of the field </title>
 
 <example><statement><p>
@@ -124,7 +124,7 @@ in the following subsections.
 
 </subsection>
 
-<subsection xml:id="subsection-complex-appendix-field-ops">
+<subsection xml:id="subsection-complex-ops">
 <title>Basic operations with complex numbers</title>
 
 <p>
@@ -178,7 +178,7 @@ we'll give this partner a name.
 
 </subsection>
 
-<subsection xml:id="subsection-complex-appendix-field-div">
+<subsection xml:id="subsection-complex-div">
 <title>Division of complex nubers</title>
 
 <p> We can use complex conjugates to help us divide complex numbers. </p>
@@ -220,7 +220,7 @@ we'll give this partner a name.
 
 <p> Since we can divide, we can also reciprocate. </p>
 
-<example xml:id="example-complex-field-reciprocal"><title>Reciprocal of a complex number</title><statement><p>
+<example xml:id="example-complex-reciprocal"><title>Reciprocal of a complex number</title><statement><p>
 	Let's compute the reciprocal of <m>3+2\ci</m>.
 	<me> \inv{(3+2\ci)} = \frac{1}{3+2\ci} = \frac{1+0\ci}{3+2\ci} \cdot \frac{3-2\ci}{3-2\ci} = \frac{3}{13} - \frac{2}{13}\, \ci. </me>
 	If we multiply a number and its reciprocal,
@@ -247,12 +247,12 @@ we'll give this partner a name.
 <p>
 There is a pattern to this reciprocal example,
 but it will have to wait until after
-<xref ref="proposition-appendix-complex-field-modulus-properties" />.
+<xref ref="proposition-complex-modulus-props" />.
 </p>
 
 </subsection>
 
-<subsection xml:id="subsection-complex-appendix-field-props">
+<subsection xml:id="subsection-complex-props">
 <title> Properties of complex numbers </title>
 
 <p>
@@ -264,7 +264,7 @@ there is no need to restate all those usual algebra rules.
 So we will focus on the new operation of complex conjugation.
 </p>
 
-<proposition xml:id="proposition-appendix-complex-field-conjugate-properties">
+<proposition xml:id="proposition-complex-conj-props">
 	<title>Properties of complex conjugates</title>
 	<statement><p>
 		The following are valid rules of algebra involving the complex conjugation operation.
@@ -279,7 +279,7 @@ So we will focus on the new operation of complex conjugation.
 				The conjuate of a sum is the sum of the conjugates.
 				That is, <m>\lcconj{w+z} = \cconj{w} + \cconj{z}. </m>
 			</li>
-			<li xml:id="proposition-appendix-complex-field-conjugate-properties-product">
+			<li xml:id="proposition-complex-conj-props-product">
 				The conjugate of a product is the product of the conjugates.
 				That is, <m>\lcconj{wz} = \cconj{w}\cconj{z}. </m>
 			</li>
@@ -306,7 +306,7 @@ So we will focus on the new operation of complex conjugation.
 
 <p> Considering how a complex number interacts with its own conjugate yields several important patterns. </p>
 
-<proposition xml:id="proposition-appendix-complex-field-conjugate-relative-properties">
+<proposition xml:id="proposition-complex-conj-relative-props">
 	<title>Relative properties of complex conjugates</title>
 	<statement>
 		<p>
@@ -316,7 +316,7 @@ So we will focus on the new operation of complex conjugation.
 				The conjugate of a conjugate is the original complex number.
 				That is, <m>\lcconj{\cconj{z}} = z</m>.
 			</li>
-			<li xml:id="proposition-appendix-complex-field-conjugate-relative-properties-real-iff">
+			<li xml:id="proposition-complex-conj-relative-props-real-iff">
 				A complex number is actually real
 				(<ie /> has imaginary part <m>0</m>)
 				if and only if it is equal to its own conjugate.
@@ -337,7 +337,7 @@ So we will focus on the new operation of complex conjugation.
 					z - \cconj{z} = 2\cdot\Im(z)\cdot\ci.
 				</mrow></md>
 			</li>
-			<li xml:id="proposition-appendix-complex-field-conjugate-relative-properties-times">
+			<li xml:id="proposition-complex-conj-relative-props-times">
 				Multiplying a complex number and its complex conjugate always results in a real number,
 				equal to the sum of the squares of the real and imaginary parts.
 				That is, if <m>z = a + b\ci</m>,
@@ -350,11 +350,11 @@ So we will focus on the new operation of complex conjugation.
 
 <p>
 The sum-of-squares pattern in
-<xref ref="proposition-appendix-complex-field-conjugate-relative-properties-times">Statement</xref>
+<xref ref="proposition-complex-conj-relative-props-times">Statement</xref>
 of
-<xref ref="proposition-appendix-complex-field-conjugate-relative-properties" />
+<xref ref="proposition-complex-conj-relative-props" />
 has a connection to geometry via Pythagoras that we will explore in
-<xref ref="section-complex-appendix-plane" />.
+<xref ref="section-complex-plane" />.
 (And by the time you are reading this appendix,
 you may already have encountered the sum-of-squares formula's connection to geometry in a linear algebra context in
 <xref ref="chapter-vector-geom" />.)
@@ -376,18 +376,18 @@ For now, we will give a version of this formula a name.
 	</p></statement>
 </definition>
 
-<proposition xml:id="proposition-appendix-complex-field-modulus-properties">
+<proposition xml:id="proposition-complex-modulus-props">
 	<title>Properties of the complex modulus</title>
 	<statement><p>
 		The following are valid rules of algebra involving the complex modulus.
 		Let <m>w</m> and <m>z</m> represent arbitrary complex numbers,
 		and let <m>k</m> represent an arbitrary real number.
 		<ol>
-			<li xml:id="proposition-appendix-complex-field-modulus-properties-modulus-squared">
+			<li xml:id="proposition-complex-modulus-props-modulus-squared">
 				The square of the modulus is equal to the product of the complex number with its own conjugate.
 				That is, <m>\cmodulus{z}^2 = z\cconj{z}</m>.
 			</li>
-			<li xml:id="proposition-appendix-complex-field-modulus-properties-nonneg">
+			<li xml:id="proposition-complex-modulus-props-nonneg">
 				A modulus is never negative,
 				and only zero has modulus zero.
 				That is, <m>\cmodulus{z} \ge 0</m>,
@@ -415,7 +415,7 @@ For now, we will give a version of this formula a name.
 				The modulus of a reciprocal is the reciprocal of the modulus.
 				That is, <m>\cmodulus{1/z} = 1/\cmodulus{z}</m>.
 			</li>
-			<li xml:id="proposition-appendix-complex-field-modulus-properties-power">
+			<li xml:id="proposition-complex-modulus-props-power">
 				For every nonzero, integer exponent,
 				the modulus of that power is the power of the modulus.
 				That is, <m>\cmodulus{z^n} = \cmodulus{z}^n</m>.
@@ -430,9 +430,9 @@ For now, we will give a version of this formula a name.
 
 <paragraphs><title>Pattern</title><p>
 	We can use
-	<xref ref="proposition-appendix-complex-field-modulus-properties-modulus-squared">Statement</xref>
+	<xref ref="proposition-complex-modulus-props-modulus-squared">Statement</xref>
 	of
-	<xref ref="proposition-appendix-complex-field-modulus-properties" />
+	<xref ref="proposition-complex-modulus-props" />
 	to help us reciprocate:
 	<md><mrow>
 		\cmodulus{z}^2 \amp = z\cconj{z}
@@ -444,7 +444,7 @@ For now, we will give a version of this formula a name.
 <example><title>Reciprocal of a complex number, revisited</title><statement>
 	<p>
 	Let's recompute the reciprocal of <m>3+2\ci</m>
-	(from <xref ref="example-complex-field-reciprocal" />).
+	(from <xref ref="example-complex-reciprocal" />).
 	</p>
 	<p>
 	We have
@@ -452,13 +452,13 @@ For now, we will give a version of this formula a name.
 	and so
 	<me> \inv{(3+2\ci)} = \frac{\lcconj{3+2\ci}}{\cmodulus{3+2\ci}^2} = \frac{3-2\ci}{13} = \frac{3}{13} - \frac{2}{13}\, \ci, </me>
 	which is the same reciprocal as previously calculated in
-	<xref ref="example-complex-field-reciprocal" />.
+	<xref ref="example-complex-reciprocal" />.
 	</p>
 </statement></example>
 
 </subsection>
 
-<subsection xml:id="subsection-complex-appendix-field-poly">
+<subsection xml:id="subsection-complex-poly">
 <title> Complex polynomials </title>
 
 <introduction><p>
@@ -523,12 +523,12 @@ since a real polynomial can be considered to be a complex polynomial that just h
 	(and where again, repeated roots are counted multiple times).
 </p></statement></corollary>
 
-<example xml:id="example-complex-field-cubic-fully-factored">
+<example xml:id="example-complex-cubic-fully-factored">
 	<title>Roots of a cubic polynomial</title>
 	<statement><p>
 		Consider the cubic polynomial equation
 		<md>
-			<mrow xml:id="equation-complex-field-cubic-fully-factored" tag="star">
+			<mrow xml:id="equation-complex-cubic-fully-factored" tag="star">
 				x^3 + 3x^2 + 2x - 6 = 0.
 			</mrow>
 		</md>
@@ -541,7 +541,7 @@ since a real polynomial can be considered to be a complex polynomial that just h
 		so that
 		<me> x^3 + 3x^2 + 2x - 6 = (x-1)(x^2+4x+6). </me>
 		So to determine the other roots of
-		<xref ref="equation-complex-field-cubic-fully-factored" />,
+		<xref ref="equation-complex-cubic-fully-factored" />,
 		we only need to determine the roots of
 		<m>x^2+4x+6 = 0</m>.
 		As a <em>real</em> polynomial,
@@ -556,11 +556,11 @@ since a real polynomial can be considered to be a complex polynomial that just h
 			<mrow> \amp = -2 \pm \ci\sqrt{2}. </mrow>
 		</md>
 		Therefore, the degree-three polynomial equation in
-		<xref ref="equation-complex-field-cubic-fully-factored" />
+		<xref ref="equation-complex-cubic-fully-factored" />
 		does indeed have precisely three roots:
 		<me> x = -1, -2+\ci\sqrt{2}, -2-\ci\sqrt{2}. </me>
 		And the cubic polynomial in
-		<xref ref="equation-complex-field-cubic-fully-factored" />
+		<xref ref="equation-complex-cubic-fully-factored" />
 		can be fully factored as
 		<me> x^3 + 3x^2 + 2x - 6 = (x-1)\bbrac{x - (-2+\ci\sqrt{2})}\bbrac{x - (-2-\ci\sqrt{2})}. </me>
 	</p></statement>

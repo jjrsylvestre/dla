@@ -13,21 +13,21 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<section xml:id="section-complex-appendix-plane" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>The complex plane</title>
-<introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-complex-appendix-plane-plane" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-plane-plane" /></em></li>
-<li><xref ref="subsection-complex-appendix-plane-polar" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-plane-polar" /></em></li>
-<li><xref ref="subsection-complex-appendix-plane-roots-of-unity" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-complex-appendix-plane-roots-of-unity" /></em></li>
-</ul></p></assemblage></introduction>
-
-
-<subsection xml:id="subsection-complex-appendix-plane-plane">
+<section xml:id="section-complex-plane" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>The complex plane</title>
 <idx><h>complex</h><h>plane</h></idx>
+
+<introduction><assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-visualize" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-visualize" /></em></li>
+<li><xref ref="subsection-complex-polar" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-polar" /></em></li>
+<li><xref ref="subsection-complex-roots-of-unity" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-roots-of-unity" /></em></li>
+</ul></p></assemblage></introduction>
+
+<subsection xml:id="subsection-complex-visualize">
+<title>Visualizing the complex numbers</title>
 
 <p>
 We visualize the field of complex numbers geometrically by assigning geometric meanings to the two independent parameters that make up an arbitrary complex number
@@ -37,7 +37,7 @@ Let's interpret the real part
 <m>\Im(z) = b</m> as a <m>y</m>-coordinate in the plane.
 </p>
 
-<image width="73%" label="image-complex-appendix-plane-point">
+<image width="73%" label="image-complex-plane-point">
   <!-- description gets inserted as alt text in html img tag -->
   <description> A point in the complex plane. </description>
   <latex-image><xi:include href="plane.d/point.tex" parse="text" /></latex-image>
@@ -59,7 +59,7 @@ of <m>z</m>.
 Complex conjugation has a geometric interpretation <mdash />
 it is equivalent to reflection in the real axis.
 </p>
-<image width="73%" label="image-complex-appendix-plane-conj">
+<image width="73%" label="image-complex-plane-conj">
   <!-- description gets inserted as alt text in html img tag -->
   <description> Complex conjugation as a reflection in the complex plane. </description>
   <latex-image><xi:include href="plane.d/conj.tex" parse="text" /></latex-image>
@@ -76,7 +76,7 @@ has unit modulus due to the circle identity:
 Because of this,
 complex numbers of this form sit on the unit circle.
 </p>
-<image width="65%" label="image-complex-appendix-plane-circle">
+<image width="65%" label="image-complex-plane-circle">
   <!-- description gets inserted as alt text in html img tag -->
   <description> The unit circle in the complex plane. </description>
   <latex-image><xi:include href="plane.d/circle.tex" parse="text" /></latex-image>
@@ -94,7 +94,7 @@ The unit circle meets the axes at the four points
 
 </subsection>
 
-<subsection xml:id="subsection-complex-appendix-plane-polar">
+<subsection xml:id="subsection-complex-polar">
 <title>Polar coordinates</title>
 
 <p>
@@ -102,7 +102,7 @@ For reasons we won't go into here,
 it is reasonable to define complex exponentiation with
 natural base <m>e</m> (Euler's number)
 as
-<md><mrow xml:id="equation-complex-appendix-plane-euler" tag="star"> e^{\ci\theta} = \cos\theta + \ci\sin\theta </mrow></md>.
+<md><mrow xml:id="equation-complex-euler" tag="star"> e^{\ci\theta} = \cos\theta + \ci\sin\theta </mrow></md>.
 This is known as <term>Euler's formula</term><idx><h>Euler's formula</h></idx>.
 </p>
 <aside><title>A special case</title><statement><p>
@@ -126,7 +126,7 @@ we can describe a point in terms of
 a radius (the modulus) and
 an angle to the positive real axis (the argument).
 </p>
-<image width="70%" label="image-complex-appendix-plane-polar">
+<image width="70%" label="image-complex-plane-polar">
   <!-- description gets inserted as alt text in html img tag -->
   <description> Polar coordinates in the complex plane. </description>
   <latex-image><xi:include href="plane.d/polar.tex" parse="text" /></latex-image>
@@ -143,9 +143,8 @@ of the complex number <m>z</m>.
 While we usually take the argument <m>\theta</m> to be in the domain <m>0\le\theta\lt 2\pi</m>,
 it is useful in computations to allow it to take on any real value,
 but simplify complex polar expressions using the identity
-<me xml:id="equation-complex-appendix-plane-simplify-polar-argument" tag="dstar">
-	e^{\ci(\theta + 2m\pi)} = e^{\ci\theta},
-</me>
+<!-- <me xml:id="equation-complex-simplify-polar-arg" tag="dstar"> -->
+<me> e^{\ci(\theta + 2m\pi)} = e^{\ci\theta} </me>,
 valid for arbitrary integer <m>m</m>.
 </p>
 
@@ -160,7 +159,7 @@ We know an exponent law that would help us simplify the exponential part of the 
 but is it valid for complex exponentials?
 </p>
 
-<proposition xml:id="proposition-complex-appendix-plane-mult-exp">
+<proposition xml:id="proposition-complex-mult-exp">
 	<title>Complex arguments add</title>
 	<statement><p>
 		Multiplication on the complex unit circle corresponds to addition of the complex arguments.
@@ -191,7 +190,7 @@ but is it valid for complex exponentials?
 
 <p> We can directly obtain several more important facts about polar expressions from this proposition. </p>
 
-<corollary xml:id="corollary-complex-appendix-plane-mult-polar">
+<corollary xml:id="corollary-complex-mult-polar">
 	<title>Multiplication of polar expressions</title>
 	<statement>
 		<p>
@@ -206,7 +205,7 @@ but is it valid for complex exponentials?
 		<m>r e^{\ci\theta} </m>
 		scales <m>z</m> toward/away from the origin by scale factor <m>r</m>,
 		and rotates by <m>\theta</m> radians about the origin.
-		<image width="35%" label="image-complex-appendix-plane-polar-mult">
+		<image width="35%" label="image-complex-plane-polar-mult">
 		  <!-- description gets inserted as alt text in html img tag -->
 		  <description> Multiplying by a polar expression in the complex plane. </description>
 		  <latex-image><xi:include href="plane.d/polar-mult.tex" parse="text" /></latex-image>
@@ -215,7 +214,7 @@ but is it valid for complex exponentials?
 	</statement>
 </corollary>
 
-<corollary xml:id="corollary-complex-appendix-plane-inv-polar">
+<corollary xml:id="corollary-complex-inv-polar">
 	<title>Inverse of a polar expression</title>
 	<statement>
 		<p>
@@ -227,13 +226,13 @@ but is it valid for complex exponentials?
 	</statement>
 	<proof><title>Proof idea</title><p>
 		Just multiply <m>r e^{\ci\theta}</m> and <m>\inv{r} e^{-\ci\theta}</m> together and use
-		<xref ref="corollary-complex-appendix-plane-mult-polar" />
+		<xref ref="corollary-complex-mult-polar" />
 		to simplify.
 		You will find that the simplified product is equal to <m>1</m>.
 	</p></proof>
 </corollary>
 
-<corollary xml:id="corollary-complex-appendix-plane-demoivre">
+<corollary xml:id="corollary-complex-demoivre">
 	<title>DeMoivre's formula</title>
 	<idx><h>DeMoivre's formula</h></idx>
 	<statement><p>
@@ -249,12 +248,12 @@ but is it valid for complex exponentials?
 		then exponent <m>n</m> means multiplying <m>n</m> copies of the complex exponential:
 		<me> (e^{\ci\theta})^n = e^{\ci\theta} \cdot e^{\ci\theta} \cdot \dotsm \cdot e^{\ci\theta}. </me>
 		Using
-		<xref ref="proposition-complex-appendix-plane-mult-exp" />,
+		<xref ref="proposition-complex-mult-exp" />,
 		we can combine the expression on the right above into one complex exponential where <m>n</m> copies of the argument <m>\theta</m> are <em>added</em> together.
 		</p><p>
 		If <m>n</m> is a negative integer,
 		we can combine the positive case above with
-		<xref ref="corollary-complex-appendix-plane-inv-polar" />.
+		<xref ref="corollary-complex-inv-polar" />.
 		</p><p>
 		And if <m>n</m> is zero,
 		then both sides of the formula are equal to <m>1</m>
@@ -265,7 +264,7 @@ but is it valid for complex exponentials?
 
 </subsection>
 
-<subsection xml:id="subsection-complex-appendix-plane-roots-of-unity">
+<subsection xml:id="subsection-complex-roots-of-unity">
 <title>Roots of unity</title>
 
 <p>
@@ -285,15 +284,15 @@ Each solution is called an
 Suppose complex number <m>z</m> is an <m>\nth</m> root of unity,
 so that <m>z^n = 1</m> is true.
 Then
-<xref ref="proposition-appendix-complex-field-modulus-properties-power">Statement</xref>
+<xref ref="proposition-complex-modulus-props-power">Statement</xref>
 of
-<xref ref="proposition-appendix-complex-field-modulus-properties"/>
+<xref ref="proposition-complex-modulus-props"/>
 tells us that <m>\cmodulus{z}^n = 1</m>.
 But a modulus is always a real number,
 and cannot be negative
-(<xref ref="proposition-appendix-complex-field-modulus-properties-nonneg">Statement</xref>
+(<xref ref="proposition-complex-modulus-props-nonneg">Statement</xref>
 of
-<xref ref="proposition-appendix-complex-field-modulus-properties"/>).
+<xref ref="proposition-complex-modulus-props"/>).
 So there is only one way <m>\cmodulus{z}^n = 1</m> can be true,
 and that is if <m>\cmodulus{z} = 1</m>.
 </p>
@@ -312,7 +311,7 @@ and that is if <m>\cmodulus{z} = 1</m>.
 <example><title>Cubic roots of unity</title><statement><p>
 	Let's determine all three complex solutions to <m>x^3 = 1</m>.
 	As above, let's set <m>x = e^{\ci\theta}</m> and try to determine the values of <m>\theta</m> that lead to solutions.
-	From <xref ref="corollary-complex-appendix-plane-demoivre" text="title" />,
+	From <xref ref="corollary-complex-demoivre" text="title" />,
 	we have
 	<m> x^3 = e^{\ci(3\theta)} </m>,
 	which transforms our equation into
@@ -326,7 +325,7 @@ and that is if <m>\cmodulus{z} = 1</m>.
 	So our full slate of solutions could be expressed as
 	<me> e^{\ci(0\pi/3)}, \quad e^{\ci(2\pi/3)}, \quad e^{\ci(4\pi/3)}, </me>
 	and we can visualize these solutions as regularly placed around the unit circle in the complex plane.
-	<image width="60%" label="image-complex-appendix-plane-cubic-roots">
+	<image width="60%" label="image-complex-plane-cubic-roots">
 	  <!-- description gets inserted as alt text in html img tag -->
 	  <description> Cubic roots of unity on the complex unit circle. </description>
 	  <latex-image><xi:include href="plane.d/cubic-roots.tex" parse="text" /></latex-image>
