@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-inverses-solve-sys">
+<title>Solving systems using inverses</title>
+
+<introduction><p>
+	In each case,
+	solve the system using the inverse of the corresponding coefficient matrix.
+</p></introduction>
+
+<exercise xml:id="exercise-inverses-solve-sys-2x2-1a">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcr}
+			  x \amp - \amp   y \amp = \amp  0 \\
+			3 x \amp - \amp 2 y \amp = \amp -8
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system is represented in matrix form <m> A \uvec{x} = \uvec{b} </m> where
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rr}
+				1 \amp -1 \\
+				3 \amp -2
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{x} \amp = \begin{bmatrix} x \\ y \end{bmatrix} \text{,} \amp
+			\uvec{b} \amp = \begin{abmatrix}{r} 0 \\ -8 \end{abmatrix} \text{.}
+		</mrow></md>
+		The coefficient matrix is identical to the matrix of <xref ref="exercise-inverses-2x2-1" text="type-local" /> and has inverse
+		<me>
+			\begin{abmatrix}{rr}
+				-2 \amp 1 \\
+				-3 \amp 1
+			\end{abmatrix}
+		</me>.
+		The system therefore has unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rr}
+				-2 \amp 1 \\
+				-3 \amp 1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 0 \\ -8 \end{abmatrix}
+			= \begin{bmatrix} -8 \\ -8 \end{bmatrix}
+		</me>.
+		In this unique solution, <m>x = -8</m> and <m>y = -8</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-inverses-solve-sys-2x2-1b">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcr}
+			  x \amp - \amp   y \amp = \amp 6 \\
+			3 x \amp - \amp 2 y \amp = \amp 5
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system has the same coefficient matrix and variable column as <xref ref="exercise-inverses-solve-sys-2x2-1a" text="type-local" />,
+		but has column of constants
+		<me> \uvec{b} = \begin{bmatrix} 6 \\ 5 \end{bmatrix} </me>.
+		We can use the same inverse matrix computed in <xref ref="exercise-inverses-2x2-1" text="type-local" /> to compute the unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rr}
+				-2 \amp 1 \\
+				-3 \amp 1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 6 \\ 5 \end{abmatrix}
+			= \begin{bmatrix} 1 \\ 8 \end{bmatrix}
+		</me>.
+		In this unique solution, <m>x = 1</m> and <m>y = 8</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-inverses-solve-sys-2x2-2a">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcr}
+			 2 s \amp - \amp 3 t \amp = \amp -7 \\
+			-2 s \amp + \amp 4 t \amp = \amp  3
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system is represented in matrix form <m> A \uvec{x} = \uvec{b} </m> where
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rr}
+				 2 \amp -3 \\
+				-2 \amp  4
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{x} \amp = \begin{bmatrix} s \\ t \end{bmatrix} \text{,} \amp
+			\uvec{b} \amp = \begin{abmatrix}{r} -7 \\ 3 \end{abmatrix} \text{.}
+		</mrow></md>
+		The coefficient matrix is identical to the matrix of <xref ref="exercise-inverses-2x2-3" text="type-local" /> and has inverse
+		<me>
+			\begin{bmatrix}
+				2 \amp \frac{3}{2} \\
+				1 \amp      1
+			\end{bmatrix}
+		</me>.
+		The system therefore has unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{bmatrix}
+				2 \amp \frac{3}{2} \\
+				1 \amp      1
+			\end{bmatrix}
+			\begin{abmatrix}{r} -7 \\ 3 \end{abmatrix}
+			= \begin{abmatrix}{r} -\frac{19}{2} \\ -4 \end{abmatrix}
+		</me>.
+		In this unique solution, <m>s = -19/2</m> and <m>t = -4</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-inverses-solve-sys-2x2-2b">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcr}
+			 2 x_1 \amp - \amp 3 x_2 \amp = \amp 3 \\
+			-2 x_1 \amp + \amp 4 x_2 \amp = \amp 4
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system has the same coefficient matrix as <xref ref="exercise-inverses-solve-sys-2x2-2a" text="type-local" />,
+		but has variable and constant columns
+		<md><mrow>
+			\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \text{,}
+			\amp
+			\uvec{b} \amp = \begin{bmatrix} 3 \\ 4 \end{bmatrix} \text{.}
+		</mrow></md>
+		We can use the same inverse matrix computed in <xref ref="exercise-inverses-2x2-3" text="type-local" /> to compute the unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rr}
+				-2 \amp 1 \\
+				-3 \amp 1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 3 \\ 4 \end{abmatrix}
+			= \begin{bmatrix} 12 \\ 7 \end{bmatrix}
+		</me>.
+		In this unique solution, <m>x_1 = 1</m> and <m>x_2 = 7</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-inverses-solve-sys-3x3-1a">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcr}
+			 x \amp + \amp y \amp - \amp 3 z \amp =  3 \\
+			   \amp   \amp y \amp - \amp 3 z \amp =  8 \\
+			-x \amp + \amp y \amp - \amp 2 z \amp = -1
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<hint><p> First see <xref ref="exercise-inverses-as-system-3x3-invertible" text="type-local" />. </p></hint>
+
+	<solution><p>
+		This system is represented in matrix form <m> A \uvec{x} = \uvec{b} </m> where
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrr}
+				 1 \amp 1 \amp -3 \\
+				 0 \amp 1 \amp -3 \\
+				-1 \amp 1 \amp -2
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{x} \amp = \begin{bmatrix} x \\ y \\ z \end{bmatrix} \text{,} \amp
+			\uvec{b} \amp = \begin{abmatrix}{r} 3 \\ 8 \\ -1 \end{abmatrix} \text{.}
+		</mrow></md>
+		The coefficient matrix is identical to the matrix of <xref ref="exercise-inverses-as-system-3x3-invertible" text="type-local" /> and has inverse
+		<me>
+			\begin{abmatrix}{rrr}
+				1 \amp -1 \amp 0 \\
+				3 \amp -5 \amp 3 \\
+				1 \amp -2 \amp 1
+			\end{abmatrix}
+		</me>.
+		The system therefore has unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rrr}
+				1 \amp -1 \amp 0 \\
+				3 \amp -5 \amp 3 \\
+				1 \amp -2 \amp 1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 3 \\ 8 \\ -1 \end{abmatrix}
+			= \begin{abmatrix}{r} -5 \\ -34 \\ -14 \end{abmatrix}
+		</me>.
+		In this unique solution, <m>x = -5</m>, <m>y = -34</m>, and <m>z = -14</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-inverses-solve-sys-3x3-1b">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcr}
+			 x_1 \amp + \amp x_2 \amp - \amp 3 x_3 \amp = 3 \\
+			     \amp   \amp x_2 \amp - \amp 3 x_3 \amp = 5 \\
+			-x_1 \amp + \amp x_2 \amp - \amp 2 x_3 \amp = 4
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<hint><p> First see <xref ref="exercise-inverses-as-system-3x3-invertible" text="type-local" />. </p></hint>
+
+	<solution><p>
+		This system has the same coefficient matrix as <xref ref="exercise-inverses-solve-sys-3x3-1a" text="type-local" />,
+		but has variable and constant columns
+		<md><mrow>
+			\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} \text{,}
+			\amp
+			\uvec{b} \amp = \begin{bmatrix} 3 \\ 5 \\ 4 \end{bmatrix} \text{.}
+		</mrow></md>
+		We can use the same inverse matrix computed in <xref ref="exercise-inverses-as-system-3x3-invertible" text="type-local" /> to compute the unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rrr}
+				1 \amp -1 \amp 0 \\
+				3 \amp -5 \amp 3 \\
+				1 \amp -2 \amp 1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 3 \\ 5 \\ 4 \end{abmatrix}
+			= \begin{bmatrix} -2 \\ -4 \\ -3 \end{bmatrix}
+		</me>.
+		In this unique solution, <m>x_1 = -2</m>, <m>x_2 = -4</m>, and <m>x_3 = -3</m>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>
