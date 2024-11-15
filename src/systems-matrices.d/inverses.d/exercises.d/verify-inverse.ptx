@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-inverses-verify">
+<title>Verifying inverses</title>
+
+<introduction><p> In each case, determine whether the two matrices are inverses of each other. </p></introduction>
+
+<exercise xml:id="exercise-inverses-verify-2x2-yes">
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rr}
+				 2 \amp 7 \\
+				-1 \amp -4
+			\end{abmatrix}
+		</m>,
+		<m>\displaystyle
+			B = \begin{abmatrix}{rr}
+				 4 \amp  7 \\
+				-1 \amp -2
+			\end{abmatrix}
+		</m>.
+	</p></statement>
+
+	<solution><p>
+		Compute:
+		<md>
+
+			<mrow>
+				A B \amp =
+				\begin{abmatrix}{rr}
+					 2 \amp 7 \\
+					-1 \amp -4
+				\end{abmatrix}
+				\begin{abmatrix}{rr}
+					 4 \amp  7 \\
+					-1 \amp -2
+				\end{abmatrix}
+				= \bidentmattwo
+				\text{,}
+			</mrow>
+
+			<mrow>
+				B A \amp =
+				\begin{abmatrix}{rr}
+					 4 \amp  7 \\
+					-1 \amp -2
+				\end{abmatrix}
+				\begin{abmatrix}{rr}
+					 2 \amp 7 \\
+					-1 \amp -4
+				\end{abmatrix}
+				= \bidentmattwo
+				\text{.}
+			</mrow>
+
+		</md>
+		Since both <m>A B = I</m> and <m>B A = I</m> are true,
+		these matrices are inverses of each other.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rr}
+				-2 \amp 3 \\
+				-1 \amp 2
+			\end{abmatrix}
+		</m>,
+		<m>\displaystyle
+			C = \begin{abmatrix}{rr}
+				 4 \amp 7 \\
+				-1 \amp 0
+			\end{abmatrix}
+		</m>.
+	</p></statement>
+
+	<solution><p>
+		The matrix <m>A</m> is the same as in <xref ref="exercise-inverses-verify-2x2-yes" text="type-local" />,
+		and that exercise confirms that <m>\inv{A} = B</m>
+		(where <m>B</m> is also as in that exercise).
+		Therefore, the matrix <m>C</m> in the present exercise <em>cannot</em> be inverse with <m>A</m>,
+		according to <xref ref="theorem-inverses-unique" />.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rr}
+				0 \amp  1 \\
+				1 \amp -3
+			\end{abmatrix}
+		</m>,
+		<m>\displaystyle
+			B = \begin{abmatrix}{rrr}
+				3 \amp 1 \amp 0 \\
+				1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1
+			\end{abmatrix}
+		</m>.
+	</p></statement>
+
+	<solution><p> These matrices cannot be inverses of each other because the are not the same size. </p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rrr}
+				1 \amp  3 \amp 1 \\
+				0 \amp -2 \amp 3 \\
+				2 \amp  7 \amp 1
+			\end{abmatrix}
+		</m>,
+		<m>\displaystyle
+			B = \begin{abmatrix}{rrr}
+				23 \amp -4 \amp -11 \\
+				-6 \amp  1 \amp   3 \\
+				-4 \amp  1 \amp   2
+			\end{abmatrix}
+		</m>.
+	</p></statement>
+
+	<solution><p>
+		Compute:
+		<md>
+
+			<mrow>
+				A B \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp  3 \amp 1 \\
+					0 \amp -2 \amp 3 \\
+					2 \amp  7 \amp 1
+				\end{abmatrix}
+				\begin{abmatrix}{rrr}
+					23 \amp -4 \amp -11 \\
+					-6 \amp  1 \amp   3 \\
+					-4 \amp  1 \amp   2
+				\end{abmatrix}
+				= \bidentmatthree
+				\text{,}
+			</mrow>
+
+			<mrow>
+				B A \amp =
+				\begin{abmatrix}{rrr}
+					23 \amp -4 \amp -11 \\
+					-6 \amp  1 \amp   3 \\
+					-4 \amp  1 \amp   2
+				\end{abmatrix}
+				\begin{abmatrix}{rrr}
+					1 \amp  3 \amp 1 \\
+					0 \amp -2 \amp 3 \\
+					2 \amp  7 \amp 1
+				\end{abmatrix}
+				= \bidentmatthree
+				\text{.}
+			</mrow>
+
+		</md>
+		Since both <m>A B = I</m> and <m>B A = I</m> are true,
+		these matrices are inverses of each other.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rrr}
+				2 \amp -4 \amp  7 \\
+				1 \amp -2 \amp  3 \\
+				0 \amp  1 \amp -3
+			\end{abmatrix}
+		</m>,
+		<m>\displaystyle
+			B = \begin{abmatrix}{rrr}
+				3 \amp -5 \amp 2 \\
+				3 \amp -6 \amp 1 \\
+				1 \amp -2 \amp 1
+			\end{abmatrix}
+		</m>.
+	</p></statement>
+
+	<solution><p>
+		Compute:
+		<me>
+			A B =
+			\begin{abmatrix}{rrr}
+				2 \amp -4 \amp  7 \\
+				1 \amp -2 \amp  3 \\
+				0 \amp  1 \amp -3
+			\end{abmatrix}
+			\begin{abmatrix}{rrr}
+				3 \amp -5 \amp 2 \\
+				3 \amp -6 \amp 1 \\
+				1 \amp -2 \amp 1
+			\end{abmatrix}
+			=
+			\begin{abmatrix}{rrr}
+				1 \amp 0 \amp  7 \\
+				0 \amp 1 \amp  3 \\
+				0 \amp 0 \amp -2
+			\end{abmatrix}
+		</me>.
+		Since <m>A B</m> does not evaluate to <m>I</m>,
+		these matrices are not inverses of each other.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-inverses-verify-4x4">
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rrrr}
+				1 \amp 3 \amp -2 \amp  2 \\
+				0 \amp 0 \amp  0 \amp  1 \\
+				0 \amp 0 \amp  1 \amp  0 \\
+				1 \amp 4 \amp  2 \amp -1
+			\end{abmatrix}
+		</m>,
+		<m>\displaystyle
+			B = \begin{abmatrix}{rrrr}
+				 4 \amp -11 \amp 14 \amp -3 \\
+				-1 \amp   3 \amp -4 \amp  1 \\
+				 0 \amp   0 \amp  1 \amp  0 \\
+				 0 \amp   1 \amp  0 \amp  0
+			\end{abmatrix}
+		</m>.
+	</p></statement>
+
+	<solution><p>
+		Compute:
+		<md>
+
+			<mrow>
+				A B \amp =
+				\begin{abmatrix}{rrrr}
+					1 \amp 3 \amp -2 \amp  2 \\
+					0 \amp 0 \amp  0 \amp  1 \\
+					0 \amp 0 \amp  1 \amp  0 \\
+					1 \amp 4 \amp  2 \amp -1
+				\end{abmatrix}
+				\begin{abmatrix}{rrrr}
+					 4 \amp -11 \amp 14 \amp -3 \\
+					-1 \amp   3 \amp -4 \amp  1 \\
+					 0 \amp   0 \amp  1 \amp  0 \\
+					 0 \amp   1 \amp  0 \amp  0
+				\end{abmatrix}
+				= \bidentmatfour
+				\text{,}
+			</mrow>
+
+			<mrow>
+				B A \amp =
+				\begin{abmatrix}{rrrr}
+					 4 \amp -11 \amp 14 \amp -3 \\
+					-1 \amp   3 \amp -4 \amp  1 \\
+					 0 \amp   0 \amp  1 \amp  0 \\
+					 0 \amp   1 \amp  0 \amp  0
+				\end{abmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp 3 \amp -2 \amp  2 \\
+					0 \amp 0 \amp  0 \amp  1 \\
+					0 \amp 0 \amp  1 \amp  0 \\
+					1 \amp 4 \amp  2 \amp -1
+				\end{abmatrix}
+				= \bidentmatfour
+				\text{.}
+			</mrow>
+
+		</md>
+		Since both <m>A B = I</m> and <m>B A = I</m> are true,
+		these matrices are inverses of each other.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle A = \begin{bmatrix}      5      \end{bmatrix} </m>,
+		<m>\displaystyle B = \begin{bmatrix} \frac{1}{5} \end{bmatrix} </m>.
+	</p></statement>
+
+	<solution><p>
+		Compute:
+		<md><mrow>
+			A B \amp =
+			\begin{bmatrix}      5      \end{bmatrix}
+			\begin{bmatrix} \frac{1}{5} \end{bmatrix}
+			=
+			\begin{bmatrix}      1      \end{bmatrix}
+			\text{,}
+			\amp
+			B A \amp =
+			\begin{bmatrix} \frac{1}{5} \end{bmatrix}
+			\begin{bmatrix}      5      \end{bmatrix}
+			=
+			\begin{bmatrix}      1      \end{bmatrix}
+			\text{.}
+		</mrow></md>
+		Since both <m>A B = I</m> and <m>B A = I</m> are true,
+		these matrices are inverses of each other.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

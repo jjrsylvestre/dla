@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup>
+<title>Isolating via matrix algebra</title>
+
+<introduction><p>
+	In each case,
+	use matrix algebra to isolate and determine the unknown variable matrix.
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			4 \amp  1 \\
+			7 \amp -8
+		\end{abmatrix}
+		-
+		\begin{bmatrix}
+			1 \amp 3 \\
+			1 \amp 2
+		\end{bmatrix}
+		X
+		=
+		\begin{abmatrix}{rr}
+			 0 \amp 6 \\
+			-6 \amp 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		It's less messy to perform algebraic manipulations with letters,
+		so assign
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rr}
+				4 \amp  1 \\
+				7 \amp -8
+			\end{abmatrix}
+			\text{,}
+			\amp
+			B \amp =
+			\begin{bmatrix}
+				1 \amp 3 \\
+				1 \amp 2
+			\end{bmatrix}
+			\text{,}
+			\amp
+			C \amp =
+			\begin{abmatrix}{rr}
+				 0 \amp 6 \\
+				-6 \amp 1
+			\end{abmatrix}
+		</mrow></md>
+		Then we have
+		<md alignment="gather">
+			<mrow> A - B X = C </mrow>
+			<mrow> A - C = B X </mrow>
+			<mrow> \inv{B} (A - C) = \inv{B} B X </mrow>
+			<mrow> \inv{B} (A - C) = I X </mrow>
+			<mrow> X = \inv{B} (A - C) </mrow>
+		</md>,
+		assuming that <m>B</m> is invertible.
+		Applying <xref ref="proposition-inverses-2x2-inverse" />,
+		for <m>B</m> we have
+		<me> a d - b c = 1 \cdot 2 - 3 \cdot 1 = -1 </me>,
+		and so <m>B</m> is indeed invertible,
+		with inverse
+		<me>
+			\inv{B} =
+			\frac{1}{-1}
+			\begin{abmatrix}{rr}
+				 2 \amp -3 \\
+				-1 \amp  1
+			\end{abmatrix}
+			=
+			\begin{abmatrix}{rr}
+				-2 \amp  3 \\
+				 1 \amp -1
+			\end{abmatrix}
+		</me>.
+		With this inverse in hand,
+		we may calculate
+		<md>
+			<mrow>
+				A - C \amp =
+				\begin{abmatrix}{rr}
+					4 \amp  1 \\
+					7 \amp -8
+				\end{abmatrix}
+				-
+				\begin{abmatrix}{rr}
+					 0 \amp 6 \\
+					-6 \amp 1
+				\end{abmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rr}
+					 4 \amp -5 \\
+					13 \amp -9
+				\end{abmatrix}
+			</mrow>
+
+		</md>,
+		<md>
+
+			<mrow> X \amp = \inv{B} (A - C) </mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rr}
+					-2 \amp  3 \\
+					 1 \amp -1
+				\end{abmatrix}
+				\begin{abmatrix}{rr}
+					 4 \amp -5 \\
+					13 \amp -9
+				\end{abmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rr}
+					31 \amp -17 \\
+					-9 \amp   4
+				\end{abmatrix}
+			</mrow>
+
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\utrans{X}
+		\begin{abmatrix}{rr}
+			 1 \amp -3 \\
+			-3 \amp 10
+		\end{abmatrix}
+		+
+		\begin{abmatrix}{rr}
+			3 \amp 1 \\
+			3 \amp -3
+		\end{abmatrix}
+		=
+		I
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		It's less messy to perform algebraic manipulations with letters,
+		so assign
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rr}
+				 1 \amp -3 \\
+				-3 \amp 10
+			\end{abmatrix}
+			\text{,}
+			\amp
+			B \amp =
+			\begin{abmatrix}{rr}
+				3 \amp 1 \\
+				3 \amp -3
+			\end{abmatrix}
+			\text{.}
+		</mrow></md>
+		Then we have
+		<md alignment="gather">
+			<mrow> \utrans{X} A + B = I </mrow>
+			<mrow> \utrans{X} A = I - B </mrow>
+			<mrow> \utrans{X} A \inv{A} = (I - B) \inv{A} </mrow>
+			<mrow> \utrans{X} I = (I - B) \inv{A} </mrow>
+			<mrow> \utrans{X} = (I - B) \inv{A} </mrow>
+		</md>,
+		assuming that <m>A</m> is invertible.
+		</p>
+
+		<p>
+		<em>Note how we have multiplied by <m>\inv{A}</m> <alert>on the right</alert> on both sides of the second equality above to obtain the third.</em>
+		Since <alert>order of matrix multiplication matters</alert>,
+		multiplying by <m>\inv{A}</m> on the left would <em>not</em> cancel the <m>A</m> on the left-hand side of the equality.
+		</p>
+
+		<p>
+		The final algebraic step is to <q>undo</q> the transpose that has been applied to <m>X</m>,
+		but by <xref ref="proposition-matrix-ops-algebra-rules-transpose-transpose">Rule</xref>
+		of <xref ref="proposition-matrix-ops-algebra-rules" />,
+		transpose reverses itself:
+		<md alignment="gather">
+			<mrow> \utrans{X} = (I - B) \inv{A} </mrow>
+			<mrow> \utrans{(\utrans{X})} = \utrans{\bbrac{(I - B) \inv{A}}} </mrow>
+			<mrow> X = \utrans{\bbrac{(I - B) \inv{A}}} </mrow>
+		</md>.
+		(We could apply more <xref ref="proposition-matrix-ops-algebra-rules-transpose" text="title" />
+		from <xref ref="proposition-matrix-ops-algebra-rules" />
+		to further <q>simplify</q> the right-hand side of the last line above,
+		but it's probably easier to just calculate one final transpose at the end instead of several intermediate transposes along the way.)
+		</p>
+
+		<p>
+		Our first calculation should be to confirm that <m>A</m> is invertible.
+		Applying <xref ref="proposition-inverses-2x2-inverse" />,
+		for <m>A</m> we have
+		<me> a d - b c = 1 \cdot 10 - (-3) \cdot (-3) = 1 </me>,
+		and so <m>A</m> is indeed invertible,
+		with inverse
+		<me>
+			\inv{A} =
+			\begin{bmatrix}
+				10 \amp 3 \\
+				 3 \amp 1
+			\end{bmatrix}
+		</me>.
+		With this inverse in hand,
+		and noting that the <m>I</m> in our equality should be the <m>2 \times 2</m> <xref ref="definition-inverses-identity-matrix" text="title" /> to match the dimensions of the other matrices involved,
+		we may calculate
+		<md>
+
+			<mrow>
+				I - B \amp =
+				\bidentmattwo
+				-
+				\begin{abmatrix}{rr}
+					3 \amp 1 \\
+					3 \amp -3
+				\end{abmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rr}
+					-2 \amp -1 \\
+					-3 \amp  4
+				\end{abmatrix}
+			</mrow>
+
+		</md>,
+		<md>
+
+			<mrow>
+				(I - B) \inv{A} \amp =
+				\begin{abmatrix}{rr}
+					-2 \amp -1 \\
+					-3 \amp  4
+				\end{abmatrix}
+				\begin{bmatrix}
+					10 \amp 3 \\
+					 3 \amp 1
+				\end{bmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rr}
+					-23 \amp -7 \\
+					-18 \amp -5
+				\end{abmatrix}
+			</mrow>
+
+		</md>,
+		<md>
+
+			<mrow> X \amp = \utrans{\bbrac{(I - B) \inv{A}}} </mrow>
+
+			<mrow>
+				\amp =
+				\utrans{
+					\begin{abmatrix}{rr}
+						-23 \amp -7 \\
+						-18 \amp -5
+					\end{abmatrix}
+				}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rr}
+					-23 \amp -18 \\
+					- 7 \amp - 5
+				\end{abmatrix}
+			</mrow>
+
+		</md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			1 \amp 3 \amp -2 \amp  2 \\
+			0 \amp 0 \amp  0 \amp  1 \\
+			0 \amp 0 \amp  1 \amp  0 \\
+			1 \amp 4 \amp  2 \amp -1
+		\end{abmatrix}
+		X
+		\begin{abmatrix}{rrrr}
+			 4 \amp -11 \amp 14 \amp -3 \\
+			-1 \amp   3 \amp -4 \amp  1 \\
+			 0 \amp   0 \amp  1 \amp  0 \\
+			 0 \amp   1 \amp  0 \amp  0
+		\end{abmatrix}
+		- 5 I
+		=
+		\begin{abmatrix}{rrrr}
+			-8 \amp 2 \amp -9 \amp  7 \\
+			 7 \amp 1 \amp  3 \amp -5 \\
+			 2 \amp 6 \amp  6 \amp -4 \\
+			-8 \amp 1 \amp  9 \amp  3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<hint><p> First see <xref ref="exercise-inverses-verify-4x4" text="type-local" />. </p></hint>
+
+	<solution>
+
+		<p>
+		It's less messy to perform algebraic manipulations with letters,
+		so assign
+		<md>
+			<mrow>
+				A \amp =
+				\begin{abmatrix}{rrrr}
+					1 \amp 3 \amp -2 \amp  2 \\
+					0 \amp 0 \amp  0 \amp  1 \\
+					0 \amp 0 \amp  1 \amp  0 \\
+					1 \amp 4 \amp  2 \amp -1
+				\end{abmatrix}
+				\text{,}
+			</mrow>
+			<mrow>
+				B \amp =
+				\begin{abmatrix}{rrrr}
+					 4 \amp -11 \amp 14 \amp -3 \\
+					-1 \amp   3 \amp -4 \amp  1 \\
+					 0 \amp   0 \amp  1 \amp  0 \\
+					 0 \amp   1 \amp  0 \amp  0
+				\end{abmatrix}
+				\text{,}
+			</mrow>
+			<mrow>
+				C \amp =
+				\begin{abmatrix}{rrrr}
+					-8 \amp 2 \amp -9 \amp  7 \\
+					 7 \amp 1 \amp  3 \amp -5 \\
+					 2 \amp 6 \amp  6 \amp -4 \\
+					-8 \amp 1 \amp  9 \amp  3
+				\end{abmatrix}
+				\text{.}
+			</mrow>
+		</md>
+		Then we have
+		<md alignment="gather">
+			<mrow> A X B - 5 I = C </mrow>
+			<mrow> A X B = C + 5 I </mrow>
+			<mrow> \inv{A} (A X B) \inv{B} = \inv{A} (C + 5 I) \inv{B} </mrow>
+			<mrow> (\inv{A} A) X (B \inv{B}) = \inv{A} (C + 5 I) \inv{B} </mrow>
+			<mrow> I X I = \inv{A} (C + 5 I) \inv{B} </mrow>
+			<mrow> X = \inv{A} (C + 5 I) \inv{B} </mrow>
+		</md>,
+		assuming that both <m>A</m> and <m>B</m> are invertible.
+		</p>
+
+		<p>
+		Remember that <alert>order of matrix multiplication matters</alert>.
+		In particular,
+		we <em>cannot</em> rearrange <m>A X B</m> to either <m>A B X</m> or <m>X A B</m>,
+		and we have been careful to cancel <m>A</m> and <m>B</m> by multiplying by <m>\inv{A}</m> <em>on the left</em> and by <m>\inv{B}</m> <em>on the right</em> on both sides of the equality.
+		</p>
+
+		<p>
+		Now back to the question of the invertibility of <m>A</m> and <m>B</m>.
+		Per the hint,
+		matrices <m>A</m> and <m>B</m> in this exercise match the matrices in <xref ref="exercise-inverses-verify-4x4" />,
+		where we verified that they are inverses of each other;
+		that is,
+		<md><mrow> \inv{A} \amp = B \text{,} \amp \inv{B} \amp = A \text{.} </mrow></md>
+		While normally there is no calculation advantage to expanding the brackets in our last algebraic expression above,
+		in this case we might be able to further simplify our right-hand side a bit more:
+		<md alignment="gather">
+			<mrow> X = \inv{A} (C + 5 I) \inv{B} </mrow>
+			<mrow> X = \inv{A} (C + 5 I) A </mrow>
+			<mrow> X = \inv{A} C A + 5 \inv{A} I A </mrow>
+			<mrow> X = \inv{A} C A + 5 \inv{A} A </mrow>
+			<mrow> X = \inv{A} C A + 5 I </mrow>
+			<mrow> X = B C A + 5 I </mrow>
+		</md>.
+		Once again, remember that <alert>order of matrix multiplication matters</alert>,
+		and so while <m>\inv{A} I A = I</m> is true because first we may simplify <m>I A = A</m> before <q>cancelling</q> <m>A</m> with its inverse,
+		we <em>cannot</em> similarly simplify <m>\inv{A} C A</m> because the <m>A</m> is not right next to its inverse to <q>cancel.</q>
+		</p>
+
+		<p>
+		Our final algebraic expression above now tells us what to calculate:
+		<md>
+
+			<mrow>
+				B C \amp =
+				\begin{abmatrix}{rrrr}
+					 4 \amp -11 \amp 14 \amp -3 \\
+					-1 \amp   3 \amp -4 \amp  1 \\
+					 0 \amp   0 \amp  1 \amp  0 \\
+					 0 \amp   1 \amp  0 \amp  0
+				\end{abmatrix}
+				\begin{abmatrix}{rrrr}
+					-8 \amp 2 \amp -9 \amp  7 \\
+					 7 \amp 1 \amp  3 \amp -5 \\
+					 2 \amp 6 \amp  6 \amp -4 \\
+					-8 \amp 1 \amp  9 \amp  3
+				\end{abmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rrrr}
+					-57 \amp  78 \amp -12 \amp 18 \\
+					 13 \amp -22 \amp   3 \amp -3 \\
+					  2 \amp   6 \amp   6 \amp -4 \\
+					  7 \amp   1 \amp   3 \amp -5
+				\end{abmatrix}
+			</mrow>
+
+		</md>,
+		<md>
+
+			<mrow> B C A \amp = (B C) A </mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rrrr}
+					-57 \amp  78 \amp -12 \amp 18 \\
+					 13 \amp -22 \amp   3 \amp -3 \\
+					  2 \amp   6 \amp   6 \amp -4 \\
+					  7 \amp   1 \amp   3 \amp -5
+				\end{abmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp 3 \amp -2 \amp  2 \\
+					0 \amp 0 \amp  0 \amp  1 \\
+					0 \amp 0 \amp  1 \amp  0 \\
+					1 \amp 4 \amp  2 \amp -1
+				\end{abmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rrrr}
+					-39 \amp -99 \amp 138 \amp -54 \\
+					 10 \amp  27 \amp -29 \amp   7 \\
+					- 2 \amp -10 \amp - 6 \amp  14 \\
+					  2 \amp   1 \amp -21 \amp  20
+				\end{abmatrix}
+			</mrow>
+
+		</md>.
+		Taking the <m>I</m> in the equality to represent the <m>4 \times 4</m> <xref ref="definition-inverses-identity-matrix" text="title" /> to match the dimensions of the other matrices,
+		we also have
+		<me>
+			5 I =
+			5 \bidentmatfour =
+			\begin{bmatrix}
+				5 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 5 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 5 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 5 \\
+			\end{bmatrix}
+		</me>.
+		Finally,
+		<md>
+
+			<mrow> X \amp = B C A + 5 I </mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rrrr}
+					-39 \amp -99 \amp 138 \amp -54 \\
+					 10 \amp  27 \amp -29 \amp   7 \\
+					- 2 \amp -10 \amp - 6 \amp  14 \\
+					  2 \amp   1 \amp -21 \amp  20
+				\end{abmatrix}
+				+
+				\begin{bmatrix}
+					5 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 5 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 5 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 5 \\
+				\end{bmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\begin{abmatrix}{rrrr}
+					-34 \amp -99 \amp 138 \amp -54 \\
+					 10 \amp  32 \amp -29 \amp   7 \\
+					- 2 \amp -10 \amp - 1 \amp  14 \\
+					  2 \amp   1 \amp -21 \amp  25
+				\end{abmatrix}
+			</mrow>
+
+		</md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>
