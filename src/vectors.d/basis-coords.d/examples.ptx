@@ -147,10 +147,10 @@ and that it forms a <term>spanning set</term> for the whole vector space.
 	Also, we could use the test to determine that these vectors are linearly dependent,
 	but we can see directly that one of these vectors is a linear combination of others:
 	<me>
-		\begin{bmatrix}1 \amp 3\\0 \amp 1\end{bmatrix}
-		= \begin{bmatrix}1 \amp 1\\0 \amp 1\end{bmatrix}
-		+ \begin{bmatrix}1 \amp 2\\0 \amp 1\end{bmatrix}
-		- \begin{bmatrix}1 \amp 0\\0 \amp 1\end{bmatrix}.
+		\begin{bmatrix} 1 \amp 3 \\ 0 \amp 1 \end{bmatrix} =
+		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 1 \end{bmatrix} +
+		\begin{bmatrix} 1 \amp 2 \\ 0 \amp 1 \end{bmatrix} -
+		\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}.
 	</me>
 	</p>
 </statement></example>
@@ -166,18 +166,26 @@ and that it forms a <term>spanning set</term> for the whole vector space.
 	We might call these matrices the <q>standard basis vectors</q> for the space of <m>3\times 3</m> lower triangular matrices,
 	since when we simplify a linear combination of them, such as
 	<md>
+
 		<mrow>
-			  k_{11}\begin{bmatrix}1 \amp 0 \amp 0\\0 \amp 0 \amp 0\\0 \amp 0 \amp 0\end{bmatrix}
-			+ k_{21}\begin{bmatrix}0 \amp 0 \amp 0\\1 \amp 0 \amp 0\\0 \amp 0 \amp 0\end{bmatrix}
-			+ k_{22}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 1 \amp 0\\0 \amp 0 \amp 0\end{bmatrix}
-		</mrow><mrow>
-			+ k_{31}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 0 \amp 0\\1 \amp 0 \amp 0\end{bmatrix}
-			+ k_{32}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 0 \amp 0\\0 \amp 1 \amp 0\end{bmatrix}
-			+ k_{33}\begin{bmatrix}0 \amp 0 \amp 0\\0 \amp 0 \amp 0\\0 \amp 0 \amp 1\end{bmatrix}\\
-		</mrow><mrow tag="star" xml:id="list-basis-coords-examples-checking-M3-lower-tri-lin-comb">
-			= \begin{bmatrix}k_{11} \amp 0 \amp 0\\k_{21} \amp k_{22} \amp 0\\k_{31} \amp k_{32} \amp k_{33}\end{bmatrix},
+			k_{11} \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix} +
+			k_{21} \begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix} +
+			k_{22} \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix}
 		</mrow>
-	</md>
+
+		<mrow>
+			+
+			k_{31} \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \end{bmatrix} +
+			k_{32} \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{bmatrix} +
+			k_{33} \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+			\\
+		</mrow>
+
+		<mrow tag="star" xml:id="list-basis-coords-examples-checking-M3-lower-tri-lin-comb">
+			= \begin{bmatrix} k_{11} \amp 0 \amp 0 \\ k_{21} \amp k_{22} \amp 0 \\ k_{31} \amp k_{32} \amp k_{33} \end{bmatrix}
+		</mrow>
+
+	</md>,
 	we see that the coefficients in the linear combination on the left correspond directly to the entries in the resulting sum matrix on the right,
 	just as with other <q>standard</q> bases that we've encountered.
 	</p><p>
