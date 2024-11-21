@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<reading-questions xml:id="reflections-inverses">
+<title>Reflect on your understanding</title>
+
+<introduction><p>
+	In addition to the reflection activities below,
+	re-read <xref ref="section-inverses-terminology" text="type-global-title" />.
+	Be sure you understand each of the new definitions introduced in this chapter,
+	and spend some time committing them to memory.
+</p></introduction>
+
+<exercise>
+	<title>Identity matrices</title>
+	<p> Explain the role that <term>identity matrices</term> play in matrix algebra. </p>
+</exercise>
+
+<exercise>
+	<title>Inverse matrices</title>
+	<p> Explain the role that <term>inverse matrices</term> play in matrix algebra. </p>
+</exercise>
+
+<exercise>
+	<title>Fractions of matrices</title>
+	<p> Explain why fraction notation should <alert>not</alert> be used in matrix algebra. </p>
+</exercise>
+
+<exercise>
+	<title>Inverse of inverses, products, and powers</title>
+
+	<introduction><p> Assume that <m>M,N</m> are square and invertible matrices of the same size. </p></introduction>
+
+	<task><p>
+		Explain the meaning of the notation <m>\inv{(\inv{M})}</m>,
+		and give an explanation based on the definition of <term>inverse of a matrix</term> for why this formula must always compute to <m>M</m>.
+	</p></task>
+
+	<task><p>
+		Explain the meaning of the notation <m>\inv{(M N)}</m>,
+		and give an explanation based on the definition of <term>inverse of a matrix</term> for why the result of this formula is (in general) equal to <m>\inv{N} \inv{M}</m> and not <m>\inv{M} \inv{N}</m>.
+	</p></task>
+
+	<task><p>
+		Let <m>\ell</m> represent an arbitrary positive integer.
+		Explain the difference in the meaning of the notation <m>\inv{(M^\ell)}</m> versus the notation <m>{(\inv{M})}^\ell</m>,
+		and give an explanation based on the definition of <term>inverse of a matrix</term> for why the two formulas always compute to the same result.
+	</p></task>
+
+</exercise>
+
+<exercise>
+	<title>Order of multiplication involving inverses</title>
+	<p>
+	Suppose <m>A</m> and <m>P</m> are square matrices of the same size,
+	and that <m>P</m> is invertible.
+	Can the expression <m>\inv{P} A P</m> be simplified to just <m>A</m> in all such cases?
+	Explain why or why not.
+	</p>
+</exercise>
+
+<exercise xml:id="reflection-inverses-cancellation">
+	<title>Cancellation</title>
+
+	<introduction><p> Suppose <m>A,B,C</m> are square matrices of the same size. </p></introduction>
+
+	<task xml:id="reflection-inverses-cancellation-on-left"><p>
+		Is the <term>cancellation rule</term> <me> A B = A C \qquad \implies \qquad B = C </me>
+		always/sometimes/never valid?
+		Pick one and explain.
+	</p></task>
+
+	<task xml:id="reflection-inverses-cancellation-both-sides"><p>
+		Is the <term>cancellation rule</term> <me> A B = C A \qquad \implies \qquad B = C </me>
+		always/sometimes/never valid?
+		Pick one and explain.
+	</p></task>
+
+	<task><p>
+		For each of
+		<xref ref="reflection-inverses-cancellation-on-left" text="type-local" />
+		and
+		<xref ref="reflection-inverses-cancellation-both-sides" text="type-local" />:
+		if your answer is <q>sometimes,</q>
+		under what conditions is it valid?
+	</p></task>
+
+</exercise>
+
+<exercise>
+	<title>Systems with invertible coefficient matrix</title>
+	<introduction><p> Consider a system <m>A \uvec{x} = \uvec{b}</m> where the coefficient matrix <m>A</m> is square and invertible. </p></introduction>
+	<task><p>
+		Explain what conclusions can be drawn about the number of solutions to the system from the assumption that <m>A</m> is invertible.
+	</p></task>
+	<task><p>
+		What further can be said about the solution(s) in the case that the system is <em>homogeneous</em>
+		(that is, <m>\uvec{b} = \zerovec</m>)?
+	</p></task>
+</exercise>
+
+<exercise>
+	<title>Invertibility of RREF matrices</title>
+	<p>
+	Is a square matrix that is in RREF always/sometimes/never invertible?
+	Pick one and explain.
+	</p>
+</exercise>
+
+</reading-questions>
