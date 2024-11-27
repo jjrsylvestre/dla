@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-elem-matrices-compute-inverses">
+<title>Computing inverses and decomposing into elementary matrices</title>
+
+<introduction><p>
+	For each matrix:
+	<ol>
+
+		<li>
+			Use <xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />
+			to compute the inverse,
+			or to determine that the matrix is not invertible.
+		</li>
+
+		<li>
+			If the matrix is invertible,
+			use multiplication to verify that your inverse is correct.
+		</li>
+
+		<li>
+			If the matrix is invertible,
+			express both it and its inverse as a product of elementary matrices.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			 2 \amp  5 \\
+			-1 \amp -2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li><p>
+			We augment the matrix with the identity matrix and attempt to reduce to the identity on the left:
+			<me>
+				\begin{abmatrix}{rr|cc}
+					 2 \amp  5 \amp 1 \amp 0 \\
+					-1 \amp -2 \amp 0 \amp 0
+				\end{abmatrix}
+				\rowredarrow
+				\begin{abmatrix}{cc|rr}
+					1 \amp 0 \amp -2 \amp -5 \\
+					0 \amp 1 \amp  1 \amp  2
+				\end{abmatrix}
+			</me>.
+			To achieve the reduction above,
+			you can use the following sequence of operations
+			(following <xref ref="procedure-row-red-reduce-to-rref" />).
+			<ol>
+				<li><m> R_1 \leftrightarrow R_2 </m></li>
+				<li><m> - R_1                   </m></li>
+				<li><m> R_2 - 2 R_1             </m></li>
+				<li><m> R_1 - 2 R_2             </m></li>
+			</ol>
+			From the reduced augmented matrix,
+			we see that the inverse is
+			<me>
+				\begin{abmatrix}{rr}
+					-2 \amp -5 \\
+					 1 \amp  2
+				\end{abmatrix}
+			</me>.
+			Interestingly,
+			in this case the inverse is equal to the negative of the original.
+			That is, if we label the original matrix as <m>A</m>,
+			then <m>\inv{A} = - A</m>.
+			This also implies that <m>A^2 = - I</m>,
+			so that in some sense we could say that <m>A</m> is a <q>square root</q> of <m>-1</m>!
+		</p></li>
+
+		<li>
+			To verify that we have the correct inverse,
+			multiply it against the original matrix <mdash />
+			the resulting product should be the identity matrix.
+		</li>
+
+		<li>
+
+			<p>
+			Create the elementary matrix for each of the steps in our row reduction process,
+			in order:
+			<md><mrow>
+				E_1 \amp = \begin{bmatrix}       0 \amp  1 \\  1 \amp 0 \end{bmatrix}  \text{,} \amp
+				E_2 \amp = \begin{abmatrix}{rr} -1 \amp  0 \\  0 \amp 1 \end{abmatrix} \text{,} \amp
+				E_3 \amp = \begin{abmatrix}{rr}  1 \amp  0 \\ -2 \amp 1 \end{abmatrix} \text{,} \amp
+				E_4 \amp = \begin{abmatrix}{rr}  1 \amp -2 \\  0 \amp 1 \end{abmatrix} \text{.}
+			</mrow></md>
+			These elementary matrices,
+			in order from right to left,
+			generate the inverse matrix:
+			<md alignment="gather">
+				<mrow> \inv{A} = E_4 E_3 E_2 E_1 \text{,} </mrow>
+				<mrow /> <!-- TODO -->
+				<mrow>
+					\begin{abmatrix}{rr}
+						-2 \amp -5 \\
+						 1 \amp  2
+					\end{abmatrix}
+					=
+					\begin{bmatrix}       1 \amp -2 \\  0 \amp 1 \end{bmatrix}
+					\begin{abmatrix}{rr}  1 \amp  0 \\ -2 \amp 1 \end{abmatrix}
+					\begin{abmatrix}{rr} -1 \amp  0 \\  0 \amp 1 \end{abmatrix}
+					\begin{abmatrix}{rr}  0 \amp  1 \\  1 \amp 0 \end{abmatrix}
+					\text{.}
+				</mrow>
+			</md>
+			</p>
+
+			<p>
+			The inverses of the elementary matrices,
+			in the reverse order,
+			generate the original matrix.
+			To create those inverse elementary matrices, we use the reverse row operations.
+			(Keep in mind that some operations reverse themselves.)
+			<ol>
+				<li><m> R_1 \leftrightarrow R_2 </m> </li>
+				<li><m> - R_1                   </m> </li>
+				<li><m> R_2 + 2 R_1             </m> </li>
+				<li><m> R_1 + 2 R_2             </m>.</li>
+			</ol>
+			Therefore we have
+			<md><mrow>
+				\inv{E}_1 \amp = \begin{bmatrix}       0 \amp 1 \\ 1 \amp 0 \end{bmatrix}  \text{,} \amp
+				\inv{E}_2 \amp = \begin{abmatrix}{rr} -1 \amp 0 \\ 0 \amp 1 \end{abmatrix} \text{,} \amp
+				\inv{E}_3 \amp = \begin{bmatrix}       1 \amp 0 \\ 2 \amp 1 \end{bmatrix}  \text{,} \amp
+				\inv{E}_4 \amp = \begin{bmatrix}       1 \amp 2 \\ 0 \amp 1 \end{bmatrix}  \text{,}
+			</mrow></md>
+			and can decompose:
+			<md alignment="gather">
+				<mrow> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 \text{,} </mrow>
+				<mrow /> <!-- TODO -->
+				<mrow>
+					\begin{abmatrix}{rr}
+						 2 \amp  5 \\
+						-1 \amp -2
+					\end{abmatrix}
+					=
+					\begin{bmatrix}       0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
+					\begin{abmatrix}{rr} -1 \amp 0 \\ 0 \amp 1 \end{abmatrix}
+					\begin{bmatrix}       1 \amp 0 \\ 2 \amp 1 \end{bmatrix}
+					\begin{bmatrix}       1 \amp 2 \\ 0 \amp 1 \end{bmatrix}
+					\text{.}
+				</mrow>
+			</md>
+			</p>
+
+			<p>
+			<alert>Note:</alert>
+			since alternative sequences of row operations could be used to reduce the original matrix,
+			there exist alternative collections of elementary matrices that could be used to generate <m>A</m> and <m>\inv{A}</m>.
+			</p>
+
+		</li>
+
+	</ol></p></solution>
+</exercise>
+
+<exercise xml:id="exercise-elem-matrices-compute-inverse-3x3">
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			0 \amp   1 \amp   1 \\
+			1 \amp - 2 \amp - 1 \\
+			7 \amp -18 \amp -12
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li><p>
+			We augment the matrix with the identity matrix and attempt to reduce to the identity on the left:
+			<me>
+				\begin{abmatrix}{rrr|ccc}
+					0 \amp   1 \amp   1 \amp 1 \amp 0 \amp 0 \\
+					1 \amp - 2 \amp - 1 \amp 0 \amp 1 \amp 0 \\
+					7 \amp -18 \amp -12 \amp 0 \amp 0 \amp 1
+				\end{abmatrix}
+				\rowredarrow
+				\begin{abmatrix}{ccc|rrr}
+					1 \amp 0 \amp 0 \amp  6 \amp -6 \amp  1 \\
+					0 \amp 1 \amp 0 \amp  5 \amp -7 \amp  1 \\
+					0 \amp 0 \amp 1 \amp -4 \amp  7 \amp -1
+				\end{abmatrix}
+			</me>.
+			To achieve the reduction above,
+			you can use the following sequence of operations
+			(following <xref ref="procedure-row-red-reduce-to-rref" />).
+			<ol>
+				<li><m> R_1 \leftrightarrow R_2  </m></li>
+				<li><m> R_3 - 7 R_1              </m></li>
+				<li><m> R_1 + 2 R_2; R_3 + 4 R_2 </m></li>
+				<li><m> - R_3                    </m></li>
+				<li><m> R_1 - R_3; R_2 - R_3     </m></li>
+			</ol>
+			From the reduced augmented matrix,
+			we see that the inverse is
+			<me>
+				\begin{abmatrix}{rrr}
+					 6 \amp -6 \amp  1 \\
+					 5 \amp -7 \amp  1 \\
+					-4 \amp  7 \amp -1
+				\end{abmatrix}
+			</me>.
+		</p></li>
+
+		<li>
+			To verify that we have the correct inverse,
+			multiply it against the original matrix <mdash />
+			the resulting product should be the identity matrix.
+		</li>
+
+		<li>
+
+			<p>
+			Create the elementary matrix for each of the steps in our row reduction process,
+			in order:
+			<md><mrow>
+				E_1 \amp =
+				\begin{bmatrix}
+					0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,} \amp
+				E_2 \amp =
+				\begin{abmatrix}{rrr}
+					 1 \amp 0 \amp 0 \\
+					 0 \amp 1 \amp 0 \\
+					-7 \amp 0 \amp 1
+				\end{abmatrix}
+				\text{,} \amp
+				E_3 \amp =
+				\begin{bmatrix}
+					1 \amp 2 \amp 0 \\
+					0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,} \amp
+				E_4 \amp =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \\
+					0 \amp 4 \amp 1
+				\end{bmatrix}
+				\text{,}
+			</mrow></md>
+			<md><mrow>
+				E_5 \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp  0 \\
+					0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp -1
+				\end{abmatrix}
+				\text{,} \amp
+				E_6 \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp -1 \\
+					0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp  1
+				\end{abmatrix}
+				\text{,} \amp
+				E_7 \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp  0 \\
+					0 \amp 1 \amp -1 \\
+					0 \amp 0 \amp  1
+				\end{abmatrix}
+				\text{.}
+			</mrow></md>
+			These elementary matrices,
+			in order from right to left,
+			generate the inverse matrix:
+			<me> \inv{A} = E_7 E_6 E_5 E_4 E_3 E_2 E_1 </me>,
+			<md>
+
+				<mrow>
+					\begin{abmatrix}{rrr}
+						 6 \amp -6 \amp  1 \\
+						 5 \amp -7 \amp  1 \\
+						-4 \amp  7 \amp -1
+					\end{abmatrix}
+					=
+					\begin{abmatrix}{rrr}
+						1 \amp 0 \amp  0 \\
+						0 \amp 1 \amp -1 \\
+						0 \amp 0 \amp  1
+					\end{abmatrix}
+					\amp
+					\begin{abmatrix}{rrr}
+						1 \amp 0 \amp -1 \\
+						0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp  1
+					\end{abmatrix}
+					\begin{abmatrix}{rrr}
+						1 \amp 0 \amp  0 \\
+						0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp -1
+					\end{abmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \\
+						0 \amp 4 \amp 1
+					\end{bmatrix}
+				</mrow>
+
+				<mrow>
+					\amp
+					\begin{bmatrix}
+						1 \amp 2 \amp 0 \\
+						0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 1
+					\end{bmatrix}
+					\begin{abmatrix}{rrr}
+						 1 \amp 0 \amp 0 \\
+						 0 \amp 1 \amp 0 \\
+						-7 \amp 0 \amp 1
+					\end{abmatrix}
+					\begin{bmatrix}
+						0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1
+					\end{bmatrix}
+				</mrow>
+
+			</md>.
+			</p>
+
+			<p>
+			The inverses of the elementary matrices,
+			in the reverse order,
+			generate the original matrix.
+			To create those inverse elementary matrices, we use the reverse row operations.
+			(Keep in mind that some operations reverse themselves.)
+			<ol>
+				<li><m> R_1 \leftrightarrow R_2  </m></li>
+				<li><m> R_3 + 7 R_1              </m></li>
+				<li><m> R_1 - 2 R_2; R_3 - 4 R_2 </m></li>
+				<li><m> - R_3                    </m></li>
+				<li><m> R_1 + R_3; R_2 + R_3     </m></li>
+			</ol>
+			Therefore we have
+			<md><mrow>
+				\inv{E}_1 \amp =
+				\begin{bmatrix}
+					0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,} \amp
+				\inv{E}_2 \amp =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \\
+					7 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,} \amp
+				\inv{E}_3 \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp -2 \amp 0 \\
+					0 \amp  1 \amp 0 \\
+					0 \amp  0 \amp 1
+				\end{abmatrix}
+				\text{,} \amp
+				\inv{E}_4 \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp  0 \amp 0 \\
+					0 \amp  1 \amp 0 \\
+					0 \amp -4 \amp 1
+				\end{abmatrix}
+				\text{,}
+			</mrow></md>
+			<md><mrow>
+				\inv{E}_5 \amp =
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp  0 \\
+					0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp -1
+				\end{abmatrix}
+				\text{,} \amp
+				\inv{E}_6 \amp =
+				\begin{bmatrix}
+					1 \amp 0 \amp 1 \\
+					0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,} \amp
+				\inv{E}_7 \amp =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 1 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{.}
+			</mrow></md>
+			and can decompose:
+			<me> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 \inv{E}_5 \inv{E}_6 \inv{E}_7 </me>,
+			<md>
+
+				<mrow>
+					\begin{abmatrix}{rrr}
+						0 \amp   1 \amp   1 \\
+						1 \amp - 2 \amp - 1 \\
+						7 \amp -18 \amp -12
+					\end{abmatrix}
+					=
+					\begin{bmatrix}
+						0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1
+					\end{bmatrix}
+					\amp
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \\
+						7 \amp 0 \amp 1
+					\end{bmatrix}
+					\begin{abmatrix}{rrr}
+						1 \amp -2 \amp 0 \\
+						0 \amp  1 \amp 0 \\
+						0 \amp  0 \amp 1
+					\end{abmatrix}
+					\begin{abmatrix}{rrr}
+						1 \amp  0 \amp 0 \\
+						0 \amp  1 \amp 0 \\
+						0 \amp -4 \amp 1
+					\end{abmatrix}
+				</mrow>
+
+				<mrow>
+					\amp
+					\begin{abmatrix}{rrr}
+						1 \amp 0 \amp  0 \\
+						0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp -1
+					\end{abmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 1 \\
+						0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 1
+					\end{bmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 1 \\
+						0 \amp 0 \amp 1
+					\end{bmatrix}
+				</mrow>
+			</md>.
+			</p>
+
+			<p>
+			<alert>Note:</alert>
+			since alternative sequences of row operations could be used to reduce the original matrix,
+			there exist alternative collections of elementary matrices that could be used to generate <m>A</m> and <m>\inv{A}</m>.
+			</p>
+
+		</li>
+
+	</ol></p></solution>
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 1 \amp  4 \amp -1 \\
+			-2 \amp -8 \amp -5 \\
+			-1 \amp -4 \amp  3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		We augment the matrix with the identity matrix and attempt to reduce to the identity on the left:
+		<me>
+			\begin{abmatrix}{rrr|ccc}
+				 1 \amp  4 \amp -1 \amp 1 \amp 0 \amp 0 \\
+				-2 \amp -8 \amp -5 \amp 0 \amp 1 \amp 0 \\
+				-1 \amp -4 \amp  3 \amp 0 \amp 0 \amp 1
+			\end{abmatrix}
+			\rowredarrow
+			\begin{abmatrix}{ccc|ccc}
+				1 \amp 4 \amp 0 \amp \frac{ 3}{2} \amp 0 \amp \frac{1}{2} \\
+				0 \amp 0 \amp 1 \amp \frac{ 1}{2} \amp 0 \amp \frac{1}{2} \\
+				0 \amp 0 \amp 0 \amp \frac{11}{2} \amp 1 \amp \frac{7}{2}
+			\end{abmatrix}
+		</me>.
+		This matrix is not fully reduced,
+		but only on the right-hand side,
+		which is irrelevant to our purposes.
+		</p>
+
+		<p>
+		To achieve the reduction above,
+		you can use the following sequence of operations
+		(following <xref ref="procedure-row-red-reduce-to-rref" />).
+		<ol>
+			<li><m> R_2 + 2 R_1             </m></li>
+			<li><m> R_3 + R_1               </m></li>
+			<li><m> \frac{1}{2} R_3         </m></li>
+			<li><m> R_2 \leftrightarrow R_3 </m></li>
+			<li><m> R_1 + R_2; R_3 + 7 R_2  </m></li>
+		</ol>
+		Since the original matrix did not reduce to the identity,
+		it is not invertible.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise xml:id="exercise-elem-matrices-compute-inverse-4x4">
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			 1 \amp  3 \amp  5 \amp -4 \\
+			 0 \amp  1 \amp  4 \amp -2 \\
+			 0 \amp  0 \amp -1 \amp  3 \\
+			-1 \amp -3 \amp -4 \amp  2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p><ol>
+
+		<li><p>
+			We augment the matrix with the identity matrix and attempt to reduce to the identity on the left:
+			<md>
+
+				<mrow>
+					\amp
+					\begin{abmatrix}{rrrr|cccc}
+						 1 \amp  3 \amp  5 \amp -4 \amp 1 \amp 0 \amp 0 \amp 0 \\
+						 0 \amp  1 \amp  4 \amp -2 \amp 0 \amp 1 \amp 0 \amp 0 \\
+						 0 \amp  0 \amp -1 \amp  3 \amp 0 \amp 0 \amp 1 \amp 0 \\
+						-1 \amp -3 \amp -4 \amp  2 \amp 1 \amp 0 \amp 0 \amp 1
+					\end{abmatrix}
+				</mrow>
+
+				<mrow>
+					\amp \rowredarrow
+					\begin{abmatrix}{cccc|rrrr}
+						1 \amp 0 \amp 0 \amp 0 \amp  20 \amp -3 \amp 12 \amp  19 \\
+						0 \amp 1 \amp 0 \amp 0 \amp -10 \amp  1 \amp -6 \amp -10 \\
+						0 \amp 0 \amp 1 \amp 0 \amp   3 \amp  0 \amp  2 \amp   3 \\
+						0 \amp 0 \amp 0 \amp 1 \amp   1 \amp  0 \amp  1 \amp   1
+					\end{abmatrix}
+				</mrow>
+
+			</md>.
+			To achieve the reduction above,
+			you can use the following sequence of operations
+			(following <xref ref="procedure-row-red-reduce-to-rref" />).
+			<ol>
+				<li><m> R_4 + R_1                              </m></li>
+				<li><m> R_1 - 3 R_2                            </m></li>
+				<li><m> R_3 \leftrightarrow R_4                </m></li>
+				<li><m> R_1 + 7 R_3; R_2 - 4 R_3; R_4 + R_3    </m></li>
+				<li><m> R_1 + 12 R_4; R_2 - 6 R_4; R_3 + 2 R_4 </m></li>
+			</ol>
+			From the reduced augmented matrix,
+			we see that the inverse is
+			<me>
+				\begin{abmatrix}{rrrr}
+					 20 \amp -3 \amp 12 \amp  19 \\
+					-10 \amp  1 \amp -6 \amp -10 \\
+					  3 \amp  0 \amp  2 \amp   3 \\
+					  1 \amp  0 \amp  1 \amp   1
+				\end{abmatrix}
+			</me>.
+		</p></li>
+
+		<li>
+			To verify that we have the correct inverse,
+			multiply it against the original matrix <mdash />
+			the resulting product should be the identity matrix.
+		</li>
+
+		<li>
+
+			<p>
+			Create the elementary matrix for each of the steps in our row reduction process,
+			in order:
+			<md>
+
+				<mrow>
+					E_1 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\text{,} \amp
+					E_2 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp -3 \amp 0 \amp 0 \\
+						0 \amp  1 \amp 0 \amp 0 \\
+						0 \amp  0 \amp 1 \amp 0 \\
+						1 \amp  0 \amp 0 \amp 1
+					\end{abmatrix}
+					\text{,} \amp
+					E_3 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1 \\
+						0 \amp 0 \amp 1 \amp 0
+					\end{bmatrix}
+					\text{,}
+				</mrow>
+
+				<mrow>
+					E_4 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 7 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\text{,} \amp
+					E_5 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp  0 \amp 0 \\
+						0 \amp 1 \amp -4 \amp 0 \\
+						0 \amp 0 \amp  1 \amp 0 \\
+						1 \amp 0 \amp  0 \amp 1
+					\end{abmatrix}
+					\text{,} \amp
+					E_6 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 1
+					\end{bmatrix}
+					\text{,}
+				</mrow>
+
+				<mrow>
+					E_7 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp 12 \\
+						0 \amp 1 \amp 0 \amp  0 \\
+						0 \amp 0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp 0 \amp  1
+					\end{abmatrix}
+					\text{,} \amp
+					E_8 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp  0 \\
+						0 \amp 1 \amp 0 \amp -6 \\
+						0 \amp 0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp 0 \amp  1
+					\end{abmatrix}
+					\text{,} \amp
+					E_9 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 2 \\
+						0 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\text{.}
+				</mrow>
+
+			</md>
+			These elementary matrices,
+			in order from right to left,
+			generate the inverse matrix:
+			<me> \inv{A} = E_9 E_8 E_7 E_6 E_5 E_4 E_3 E_2 E_1 </me>,
+			<md>
+
+				<mrow>
+					\begin{abmatrix}{rrrr}
+						 20 \amp -3 \amp 12 \amp  19 \\
+						-10 \amp  1 \amp -6 \amp -10 \\
+						  3 \amp  0 \amp  2 \amp   3 \\
+						  1 \amp  0 \amp  1 \amp   1
+					\end{abmatrix}
+					=
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 2 \\
+						0 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\amp
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp  0 \\
+						0 \amp 1 \amp 0 \amp -6 \\
+						0 \amp 0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp 0 \amp  1
+					\end{abmatrix}
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp 12 \\
+						0 \amp 1 \amp 0 \amp  0 \\
+						0 \amp 0 \amp 1 \amp  0 \\
+						0 \amp 0 \amp 0 \amp  1
+					\end{abmatrix}
+				</mrow>
+
+				<mrow>
+					\amp
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 1
+					\end{abmatrix}
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp  0 \amp 0 \\
+						0 \amp 1 \amp -4 \amp 0 \\
+						0 \amp 0 \amp  1 \amp 0 \\
+						1 \amp 0 \amp  0 \amp 1
+					\end{abmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 7 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+				</mrow>
+
+				<mrow>
+					\amp
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1 \\
+						0 \amp 0 \amp 1 \amp 0
+					\end{bmatrix}
+					\begin{abmatrix}{rrrr}
+						1 \amp -3 \amp 0 \amp 0 \\
+						0 \amp  1 \amp 0 \amp 0 \\
+						0 \amp  0 \amp 1 \amp 0 \\
+						1 \amp  0 \amp 0 \amp 1
+					\end{abmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+				</mrow>
+
+			</md>.
+			</p>
+
+			<p>
+			The inverses of the elementary matrices,
+			in the reverse order,
+			generate the original matrix.
+			To create those inverse elementary matrices, we use the reverse row operations.
+			(Keep in mind that some operations reverse themselves.)
+			<ol>
+				<li><m> R_4 - R_1                              </m></li>
+				<li><m> R_1 + 3 R_2                            </m></li>
+				<li><m> R_3 \leftrightarrow R_4                </m></li>
+				<li><m> R_1 - 7 R_3; R_2 + 4 R_3; R_4 - R_3    </m></li>
+				<li><m> R_1 - 12 R_4; R_2 + 6 R_4; R_3 - 2 R_4 </m></li>
+			</ol>
+			Therefore we have
+			<md>
+
+				<mrow>
+					\inv{E}_1 \amp =
+					\begin{abmatrix}{rrrr}
+						 1 \amp 0 \amp 0 \amp 0 \\
+						 0 \amp 1 \amp 0 \amp 0 \\
+						 0 \amp 0 \amp 1 \amp 0 \\
+						-1 \amp 0 \amp 0 \amp 1
+					\end{abmatrix}
+					\text{,} \amp
+					\inv{E}_2 \amp =
+					\begin{bmatrix}
+						1 \amp 3 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\text{,} \amp
+					\inv{E}_3 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1 \\
+						0 \amp 0 \amp 1 \amp 0
+					\end{bmatrix}
+					\text{,}
+				</mrow>
+
+				<mrow>
+					\inv{E}_4 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp -7 \amp 0 \\
+						0 \amp 1 \amp  0 \amp 0 \\
+						0 \amp 0 \amp  1 \amp 0 \\
+						0 \amp 0 \amp  0 \amp 1
+					\end{abmatrix}
+					\text{,} \amp
+					\inv{E}_5 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 4 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\text{,} \amp
+					\inv{E}_6 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp  0 \amp 0 \\
+						0 \amp 1 \amp  0 \amp 0 \\
+						0 \amp 0 \amp  1 \amp 0 \\
+						0 \amp 0 \amp -1 \amp 1
+					\end{abmatrix}
+					\text{,}
+				</mrow>
+
+				<mrow>
+					\inv{E}_7 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp -12 \\
+						0 \amp 1 \amp 0 \amp   0 \\
+						0 \amp 0 \amp 1 \amp   0 \\
+						0 \amp 0 \amp 0 \amp   1
+					\end{abmatrix}
+					\text{,} \amp
+					\inv{E}_8 \amp =
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 6 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\text{,} \amp
+					\inv{E}_9 \amp =
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp  0 \\
+						0 \amp 1 \amp 0 \amp  0 \\
+						0 \amp 0 \amp 1 \amp -2 \\
+						0 \amp 0 \amp 0 \amp  1
+					\end{abmatrix}
+					\text{.}
+				</mrow>
+
+			</md>
+			and can decompose:
+			<me> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 \inv{E}_5 \inv{E}_6 \inv{E}_7 \inv{E}_8 \inv{E}_9 </me>,
+			<md>
+
+				<mrow>
+					\begin{abmatrix}{rrrr}
+						 1 \amp  3 \amp  5 \amp -4 \\
+						 0 \amp  1 \amp  4 \amp -2 \\
+						 0 \amp  0 \amp -1 \amp  3 \\
+						-1 \amp -3 \amp -4 \amp  2
+					\end{abmatrix}
+					=
+					\begin{abmatrix}{rrrr}
+						 1 \amp 0 \amp 0 \amp 0 \\
+						 0 \amp 1 \amp 0 \amp 0 \\
+						 0 \amp 0 \amp 1 \amp 0 \\
+						-1 \amp 0 \amp 0 \amp 1
+					\end{abmatrix}
+					\amp
+					\begin{bmatrix}
+						1 \amp 3 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1 \\
+						0 \amp 0 \amp 1 \amp 0
+					\end{bmatrix}
+				</mrow>
+
+				<mrow>
+					\amp
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp -7 \amp 0 \\
+						0 \amp 1 \amp  0 \amp 0 \\
+						0 \amp 0 \amp  1 \amp 0 \\
+						0 \amp 0 \amp  0 \amp 1
+					\end{abmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 4 \amp 0 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						1 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp  0 \amp 0 \\
+						0 \amp 1 \amp  0 \amp 0 \\
+						0 \amp 0 \amp  1 \amp 0 \\
+						0 \amp 0 \amp -1 \amp 1
+					\end{abmatrix}
+				</mrow>
+
+				<mrow>
+					\amp
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp -12 \\
+						0 \amp 1 \amp 0 \amp   0 \\
+						0 \amp 0 \amp 1 \amp   0 \\
+						0 \amp 0 \amp 0 \amp   1
+					\end{abmatrix}
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \amp 6 \\
+						0 \amp 0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 0 \amp 1
+					\end{bmatrix}
+					\begin{abmatrix}{rrrr}
+						1 \amp 0 \amp 0 \amp  0 \\
+						0 \amp 1 \amp 0 \amp  0 \\
+						0 \amp 0 \amp 1 \amp -2 \\
+						0 \amp 0 \amp 0 \amp  1
+					\end{abmatrix}
+				</mrow>
+
+			</md>.
+			</p>
+
+			<p>
+			<alert>Note:</alert>
+			since alternative sequences of row operations could be used to reduce the original matrix,
+			there exist alternative collections of elementary matrices that could be used to generate <m>A</m> and <m>\inv{A}</m>.
+			</p>
+
+		</li>
+
+	</ol></p></solution>
+</exercise>
+
+</exercisegroup>
