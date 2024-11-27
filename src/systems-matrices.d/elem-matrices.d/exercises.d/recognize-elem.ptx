@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Recognizing elementary matrices</title>
+
+<introduction><p>
+	Decide whether each matrix is elementary.
+	If it is, state the corresponding row operation.
+	If it is not, express it as a product of elementary matrices.
+</p></introduction>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			0 \amp 1 \amp 0 \\
+			1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p> Elementary: swap first and second rows. </p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp 0 \amp 5 \\
+			0 \amp 1 \amp 0 \\
+			0 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p> Elementary: add <m>5</m> times the third row to the first. </p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \\
+			5 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p> Elementary: add <m>5</m> times the first row to the third. </p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp 0 \amp 5 \\
+			0 \amp 1 \amp 0 \\
+			5 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p>
+		Not elementary:
+		<me>
+			\begin{bmatrix}
+				1 \amp 0 \amp 5 \\
+				0 \amp 1 \amp 0 \\
+				5 \amp 0 \amp 1
+			\end{bmatrix}
+			=
+			\begin{bmatrix}
+				1 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \\
+				5 \amp 0 \amp 1
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 \amp 0 \amp  0  \\
+				0 \amp 1 \amp  0  \\
+				0 \amp 0 \amp -24
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 \amp 0 \amp 5 \\
+				0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 1
+			\end{bmatrix}
+		</me>.
+	</p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp  0  \amp 0 \\
+			0 \amp \pi \amp 0 \\
+			0 \amp  0  \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p> Elementary: multiply the second row by <m>\pi</m>. </p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			2 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 3 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p>
+		Not elementary:
+		<me>
+			\begin{bmatrix}
+				2 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 3 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1
+			\end{bmatrix}
+			=
+			\begin{bmatrix}
+				2 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 3 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1
+			\end{bmatrix}
+		</me>.
+	</p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			1 \amp 0 \amp  0 \amp 0 \\
+			0 \amp 1 \amp -3 \amp 0 \\
+			0 \amp 0 \amp  1 \amp 0 \\
+			0 \amp 0 \amp  0 \amp 1
+		\end{abmatrix}
+	</m></p></statement>
+	<answer><p> Elementary: subtract <m>3</m> times the third row from the second. </p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			0 \amp 0 \amp 0 \amp 1 \\
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			1 \amp 0 \amp 0 \amp 0
+		\end{bmatrix}
+	</m></p></statement>
+	<answer><p>
+		Not elementary:
+		<me>
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 1 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+			=
+			\begin{bmatrix}
+				1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1
+			\end{bmatrix}
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 1 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+		</me>.
+	</p></answer>
+	<answer><p>
+		Not elementary:
+		<me>
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 1 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+			=
+			\begin{bmatrix}
+				0 \amp 0 \amp 0 \amp 1 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				1 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1
+			\end{bmatrix}
+		</me>.
+	</p></answer>
+</exercise>
+
+</exercisegroup>

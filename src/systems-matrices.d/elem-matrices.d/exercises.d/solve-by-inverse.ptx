@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-elem-matrices-solve-sys">
+<title>Solving systems using inverses</title>
+
+<introduction><p>
+	In each case,
+	solve the system using the inverse of the corresponding coefficient matrix.
+</p></introduction>
+
+<exercise xml:id="exercise-elem-matrices-solve-sys-3x3-1a">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcr}
+			    \amp   \amp    y \amp + \amp    z \amp = \amp  2 \\
+			  x \amp - \amp  2 y \amp - \amp    z \amp = \amp  6 \\
+			7 x \amp - \amp 18 y \amp - \amp 12 z \amp = \amp -4
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system is represented in matrix form <m> A \uvec{x} = \uvec{b} </m> where
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrr}
+				0 \amp   1 \amp   1 \\
+				1 \amp - 2 \amp - 1 \\
+				7 \amp -18 \amp -12
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{x} \amp = \begin{bmatrix}     x \\ y \\  z \end{bmatrix}  \text{,} \amp
+			\uvec{b} \amp = \begin{abmatrix}{r} 2 \\ 6 \\ -4 \end{abmatrix} \text{.}
+		</mrow></md>
+		The coefficient matrix is identical to the matrix of <xref ref="exercise-elem-matrices-compute-inverse-3x3" text="type-local" /> and has inverse
+		<me>
+			\begin{abmatrix}{rrr}
+				 6 \amp -6 \amp  1 \\
+				 5 \amp -7 \amp  1 \\
+				-4 \amp  7 \amp -1
+			\end{abmatrix}
+		</me>.
+		The system therefore has unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rrr}
+				 6 \amp -6 \amp  1 \\
+				 5 \amp -7 \amp  1 \\
+				-4 \amp  7 \amp -1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 2 \\ 6 \\ -4 \end{abmatrix}
+			= \begin{abmatrix}{r} -28 \\ -36 \\ 38 \end{abmatrix}
+		</me>.
+		In this unique solution, <m>x = -28</m>, <m>y = -36</m>, and <m>38</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-elem-matrices-solve-sys-3x3-1b">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcr}
+			    \amp   \amp    b \amp + \amp    c \amp = \amp  9 \\
+			  a \amp - \amp  2 b \amp - \amp    c \amp = \amp  8 \\
+			7 a \amp - \amp 18 b \amp - \amp 12 c \amp = \amp -3
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system has the same coefficient matrix as <xref ref="exercise-elem-matrices-solve-sys-3x3-1a" text="type-local" />,
+		but has variable column and column of constants
+		<md><mrow>
+			\uvec{x} \amp = \begin{bmatrix} a \\ b \\ c \end{bmatrix} \text{,}
+			\amp
+			\uvec{b} \amp = \begin{abmatrix}{r} 9 \\ 8 \\ -2 \end{abmatrix} \text{.}
+		</mrow></md>
+		We can use the same inverse matrix computed in <xref ref="exercise-elem-matrices-compute-inverse-3x3" text="type-local" /> to compute the unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rrr}
+				 6 \amp -6 \amp  1 \\
+				 5 \amp -7 \amp  1 \\
+				-4 \amp  7 \amp -1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 9 \\ 8 \\ -2 \end{abmatrix}
+			= \begin{abmatrix}{r} 3 \\ -14 \\ 23 \end{abmatrix}
+		</me>.
+		In this unique solution, <m>a = 3</m>, <m>b = -14</m>, and <m>c = 23</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-elem-matrices-solve-sys-4x4-1a">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcrcr}
+			 x_1 \amp + \amp 3 x_2 \amp + \amp 5 x_3 \amp - \amp 4 x_4 \amp = \amp  0 \\
+			     \amp   \amp   x_2 \amp + \amp 4 x_3 \amp - \amp 2 x_4 \amp = \amp -4 \\
+			     \amp   \amp       \amp - \amp   x_3 \amp + \amp 3 x_4 \amp = \amp  1 \\
+			-x_1 \amp - \amp 3 x_2 \amp - \amp 4 x_3 \amp + \amp 2 x_4 \amp = \amp -3
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system is represented in matrix form <m> A \uvec{x} = \uvec{b} </m> where
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrrr}
+				 1 \amp  3 \amp  5 \amp -4 \\
+				 0 \amp  1 \amp  4 \amp -2 \\
+				 0 \amp  0 \amp -1 \amp  3 \\
+				-1 \amp -3 \amp -4 \amp  2
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{x} \amp = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} \text{,} \amp
+			\uvec{b} \amp = \begin{abmatrix}{r} 0 \\ -4 \\ 1 \\ -3 \end{abmatrix} \text{.}
+		</mrow></md>
+		The coefficient matrix is identical to the matrix of <xref ref="exercise-elem-matrices-compute-inverse-4x4" text="type-local" /> and has inverse
+		<me>
+			\begin{abmatrix}{rrrr}
+				 20 \amp -3 \amp 12 \amp  19 \\
+				-10 \amp  1 \amp -6 \amp -10 \\
+				  3 \amp  0 \amp  2 \amp   3 \\
+				  1 \amp  0 \amp  1 \amp   1
+			\end{abmatrix}
+		</me>.
+		The system therefore has unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rrrr}
+				 20 \amp -3 \amp 12 \amp  19 \\
+				-10 \amp  1 \amp -6 \amp -10 \\
+				  3 \amp  0 \amp  2 \amp   3 \\
+				  1 \amp  0 \amp  1 \amp   1
+			\end{abmatrix}
+			\begin{abmatrix}{r} 0 \\ -4 \\ 1 \\ -3 \end{abmatrix}
+			= \begin{abmatrix}{r} -33 \\ 20 \\ -7 \\ -2 \end{abmatrix}
+		</me>.
+		In this unique solution, <m>x_1 = -33</m>, <m>x_2 = 20</m>, <m>x_3 = -7</m>, and <m>x_4 = -2</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-elem-matrices-solve-sys-4x4-1b">
+
+	<statement><p><m>\displaystyle
+		\begin{sysofeqns}{rcrcrcrcr}
+			 w \amp + \amp 3 x \amp + \amp 5 y \amp - \amp 4 z \amp = \amp -2 \\
+			   \amp   \amp   x \amp + \amp 4 y \amp - \amp 2 z \amp = \amp  1 \\
+			   \amp   \amp     \amp - \amp   y \amp + \amp 3 z \amp = \amp  3 \\
+			-w \amp - \amp 3 x \amp - \amp 4 y \amp + \amp 2 z \amp = \amp  0
+		\end{sysofeqns}
+	</m></p></statement>
+
+	<solution><p>
+		This system has the same coefficient matrix as <xref ref="exercise-elem-matrices-solve-sys-4x4-1a" text="type-local" />,
+		but has variable and constant columns
+		<md><mrow>
+			\uvec{x} \amp = \begin{bmatrix} w \\ x \\ y \\ z \end{bmatrix} \text{,}
+			\amp
+			\uvec{b} \amp = \begin{abmatrix}{r} -2 \\ 1 \\ 3 \\ 0 \end{abmatrix} \text{.}
+		</mrow></md>
+		We can use the same inverse matrix computed in <xref ref="exercise-elem-matrices-compute-inverse-4x4" text="type-local" /> to compute the unique solution
+		<me>
+			\uvec{x} =
+			\inv{A} \uvec{b} =
+			\begin{abmatrix}{rrrr}
+				 20 \amp -3 \amp 12 \amp  19 \\
+				-10 \amp  1 \amp -6 \amp -10 \\
+				  3 \amp  0 \amp  2 \amp   3 \\
+				  1 \amp  0 \amp  1 \amp   1
+			\end{abmatrix}
+			\begin{abmatrix}{r} -2 \\ 1 \\ 3 \\ 0 \end{abmatrix}
+			= \begin{abmatrix}{r} -7 \\ 3 \\ 0 \\ 1 \end{abmatrix}
+		</me>.
+		In this unique solution, <m>w = -7</m>, <m>x = 3</m>, <m>y = 0</m>, and <m>z = 1</m>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>
