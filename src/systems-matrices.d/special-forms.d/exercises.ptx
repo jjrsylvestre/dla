@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-special-forms" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<subexercises>
+
+	<!-- Exercise group -->
+	<xi:include href="./exercises.d/ops.ptx" />
+
+	<!-- Exercise group -->
+	<xi:include href="./exercises.d/inverses.ptx" />
+
+	<exercise xml:id="exercise-special-forms-verify-closure">
+		<title>Operation patterns involving special forms</title>
+
+		<introduction>
+
+			<p>
+			Verify all parts of <xref ref="proposition-special-forms-combinations" />,
+			not through examples,
+			but by <em>constructing a convincing, general argument based on the pattern of entries in the matrices involved</em>,
+			without assuming a specific size of matrix.
+			Refer to the two provided partial proofs of <xref ref="proposition-special-forms-combinations" /> as examples.
+			You may also wish to refer to your work on
+			<xref ref="activity-special-forms-prove-sum-diagonal" />
+			and
+			<xref ref="activity-special-forms-prove-sum-symmetric" />,
+			as well as some of your answers to
+			<xref first="exercise-matrix-ops-entry-patterns-add" last="exercise-matrix-ops-entry-patterns-power">Exercises</xref>.
+			</p>
+
+			<p>
+			Below, the statements of <xref ref="proposition-special-forms-combinations" /> have been separated but with the form of matrix left blank <mdash />
+			you should verify each statement once <em>for each</em> of the different forms of
+			<term>scalar</term>,
+			<term>diagonal</term>,
+			<term>upper triangular</term>,
+			<term>lower triangular</term>,
+			and
+			<term>symmetric</term>.
+			</p>
+
+		</introduction>
+
+		<task><p>
+			The result of adding two <fillin characters="8" /> matrices is always a <fillin characters="8" /> matrix.
+		</p></task>
+
+		<task><p>
+			The result of scalar multiplying a <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
+		</p></task>
+
+		<task>
+			<p> The result of multiplying two <fillin characters="8" /> matrices is always a <fillin characters="8" /> matrix. </p>
+			<p><alert>Note:</alert> omit this statement for <term>symmetric</term> matrices. </p>
+		</task>
+
+		<task><p>
+			The result of taking an inverse of an invertible <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
+		</p></task>
+
+		<task><p>
+			The result of taking a power (with positive or negative exponent) of a <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
+		</p></task>
+
+	</exercise>
+
+	<exercise xml:id="exercise-special-forms-prod-symm">
+		<title>Products of symmetric matrices</title>
+
+		<introduction><p>
+			<xref ref="proposition-special-forms-combinations-symm">Statement</xref>
+			of <xref ref="proposition-special-forms-combinations" /> explicitly states that it is <alert>not</alert> true in general that the product of two symmetric matrices is guaranteed to also be symmetric.
+			However, that does not mean it can <em>never</em> happen.
+		</p></introduction>
+
+		<task><p> Devise an example of two symmetric <m>2 \times 2</m> matrices whose product is <alert>not</alert> symmetric. </p></task>
+
+		<task><p> Devise an example of two symmetric <m>2 \times 2</m> matrices whose product <alert>is</alert> symmetric. </p></task>
+
+		<task xml:id="exercise-special-forms-prod-symm-if-commute"><p>
+			Prove that if two symmetric matrices of the same size <term>commute</term>
+			(that is, produce the same result when multiplied in either order),
+			then their product must also be symmetric.
+		</p></task>
+
+		<task xml:id="exercise-special-forms-prod-symm-then-commute"><p>
+			Prove that the condition of <xref ref="exercise-special-forms-prod-symm-if-commute" text="type-local" /> is the <em>only</em> way that symmetric matrices produce a symmetric product.
+			That is, prove that if <m>A</m> and <m>B</m> are symmetric matrices of the same size so that the product <m>A B</m> is also symmetric,
+			then the the two matrices must commute
+			(that is, it must be true that <m>B A = A B</m>).
+		</p></task>
+
+	</exercise>
+
+</subexercises>
+
+<subexercises>
+	<title>Skew-symmetric matrices</title>
+
+	<introduction>
+
+		<p>
+		A square matrix <m>A</m> is called <term>skew-symmetric</term> if <m>\utrans{A} = -A</m>.
+		(Compare with the definition of <term><xref ref="definition-special-forms-symmetric" text="title" /></term>.)
+		</p>
+
+		<p> The remaining exercises concern this new definition. </p>
+
+	</introduction>
+
+	<exercise xml:id="exercise-special-forms-skew-symmetric-patterns">
+		<title>Patterns</title>
+
+		<task xml:id="exercise-special-forms-skew-symmetric-patterns-general">
+			<p> What patterns in the entries <m>a_{ij}</m> of a matrix <m>A</m> does the condition <m>\utrans{A} = -A</m> imply? </p>
+		</task>
+
+		<task><p>
+			What further can you say about the diagonal entries of a skew-symmetric matrix,
+			based on the general pattern you identified in <xref ref="exercise-special-forms-skew-symmetric-patterns-general" text="type-local" />?
+		</p></task>
+
+	</exercise>
+
+	<exercise xml:id="exercise-special-forms-skew-symmetric-examples">
+		<title>Examples</title>
+		<p> Write down nonzero examples of skew-symmetric matrices of size <m>2 \times 2</m>, <m>3 \times 3</m>, and <m>4 \times 4</m>. </p>
+	</exercise>
+
+	<exercise>
+		<title>Properties</title>
+
+		<task><p>
+			Verify each of the following statements using general arguments in the same manner as in <xref ref="exercise-special-forms-verify-closure" />.
+			<ol marker="(i)">
+				<li><p> The result of adding two skew-symmetric matrices is always a skew-symmetric matrix.         </p></li>
+				<li><p> The result of scalar multiplying a skew-symmetric matrix is always a skew-symmetric matrix. </p></li>
+			</ol>
+		</p></task>
+
+		<task><p>
+			If a skew-symmetric matrix is also invertible,
+			must its inverse also be skew-symmetric?
+			If the answer is yes, provide a general argument verifying your claim.
+			If the answer is no, provide an example of a skew-symmetric matrix whose inverse is not skew-symmetric.
+		</p></task>
+
+	</exercise>
+
+	<exercise xml:id="exercise-special-forms-symm-skew-decomp">
+		<title>Symmetric/skew-symmetric decompositions</title>
+
+		<task xml:id="exercise-special-forms-symm-skew-decomp-symm-part"><p>
+			Verify that the sum <m>A + \utrans{A}</m> is always symmetric,
+			for every square matrix <m>A</m>.
+		</p></task>
+
+		<task xml:id="exercise-special-forms-symm-skew-decomp-skew-part"><p>
+			Verify that the difference <m>A - \utrans{A}</m> is always skew-symmetric,
+			for every square matrix <m>A</m>.
+		</p></task>
+
+		<task xml:id="exercise-special-forms-symm-skew-decomp-general"><p>
+			Combine <xref ref="exercise-special-forms-symm-skew-decomp-symm-part" text="type-local" />
+			and <xref ref="exercise-special-forms-symm-skew-decomp-skew-part" text="type-local" />
+			to devise a way in which every square matrix can be decomposed into the sum of a symmetric matrix and a skew-symmetric matrix.
+		</p></task>
+
+		<task xml:id="exercise-special-forms-symm-skew-decomp-specific"><p>
+			Apply your idea from <xref ref="exercise-special-forms-symm-skew-decomp-general" text="type-local" /> to the example matrices below.
+			That is,
+			for each matrix below,
+			create <em>two</em> matrices,
+			where the first is symmetric,
+			the second is skew-symmetric,
+			and the two sum to the original matrix.
+			<ol marker="(i)" cols="2">
+				<li><m>
+					\begin{abmatrix}{rr}
+						 1 \amp -1 \\
+						-4 \amp  3
+					\end{abmatrix}
+				</m></li>
+				<li><m>
+					\begin{abmatrix}{rrr}
+						 6 \amp 5 \amp  2 \\
+						 5 \amp 0 \amp -3 \\
+						-5 \amp 3 \amp  4
+					\end{abmatrix}
+				</m></li>
+			</ol>
+		</p></task>
+
+	</exercise>
+
+</subexercises>
+
+</exercises>
