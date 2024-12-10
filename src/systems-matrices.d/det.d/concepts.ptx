@@ -35,24 +35,24 @@ respective owners.
 
 <p>
 In <xref ref="activity-det-2by2-adj-motivate" />,
-we discovered that for every <m>2 \times 2</m> matrix <m>A</m> there is a related matrix <m>A'</m> so that the product <m>AA'</m> is a scalar multiple of the identity matrix.
+we discovered that for every <m>2 \times 2</m> matrix <m>A</m> there is a related matrix <m>A'</m> so that the product <m>A A'</m> is a scalar multiple of the identity matrix.
 Call this scalar <m>\delta</m> for now.
-If <m>\delta\neq 0</m>,
+If <m>\delta \neq 0</m>,
 we can do some algebra to get
-<me> AA' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I, </me>
+<me> A A' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I </me>,
 which means that <m>A</m> must be invertible with
-<m>\inv{A} = \inv{\delta}A'</m>
+<m>\inv{A} = \inv{\delta} A'</m>
 (<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
 </p>
 
 <heuristic xml:id="goal-det-concepts-matrix-times-adjoint"><statement><p> <!-- heuristic has been hijacked to "Goal" -->
 	For a square matrix <m>A</m> of <em>any</em> size,
-	determine a scalar <m>\delta</m> and a matrix <m>A'</m> so that <m>AA' = \delta I</m>.
+	determine a scalar <m>\delta</m> and a matrix <m>A'</m> so that <m>A A' = \delta I</m>.
 </p></statement></heuristic>
 
 <p>
 Now,
-we could achieve this goal by <em>always</em> choosing <m>\delta=0</m> and <m>A'=0</m>,
+we could achieve this goal by <em>always</em> choosing <m>\delta = 0</m> and <m>A'=0</m>,
 but that won't help us replicate for larger matrices the patterns we discovered in the <m>2 \times 2</m> case.
 We will find that there is a very particular procedure to achieve this goal that works for every square matrix <em>and</em> recovers the <m>2 \times 2</m> case above,
 so we will tackle the goal in two parts:
@@ -67,17 +67,17 @@ and usually write <m>\det A</m> instead of <m>\delta</m>.
 </p>
 
 <hypothesis><statement><p> <!-- hypothesis has been hijacked to "Idea" -->
-	If <m>AA' = (\det A) I</m>,
+	If <m>A A' = (\det A) I</m>,
 	then in the case that <m>\det A\neq 0</m>,
 	from
-	<me> A\bbrac{\inv{(\det A)}A'} = I </me>
+	<me> A \bbrac{\inv{(\det A)} A'} = I </me>
 	and
 	<xref ref="proposition-elem-matrices-check-only-right-inverse" />
-	we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)}A'</m>,
+	we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)} A'</m>,
 	as in the <m>2 \times 2</m> case discussed above.
 	Also, we will learn in
 	<xref ref="chapter-more-det" />
-	that when <m>\det A=0</m>,
+	that when <m>\det A = 0</m>,
 	then <m>A</m> <em>must</em> be singular.
 	So the value of the determinant of a matrix will <em>determine</em> whether or not it is invertible.
 </p></statement></hypothesis>
@@ -146,18 +146,18 @@ in direct computations we will stop there.
 
 <p>
 Consider the general <m>1 \times 1</m> matrix
-<m>A=\begin{bmatrix}a\end{bmatrix}</m>.
+<m> A = \begin{bmatrix} a \end{bmatrix}</m>.
 We should expect the invertibility of <m>A</m> to be completely <em>determined</em> by the value of the single entry <m>a</m>,
 since that is all the information that <m>A</m> contains.
 And that is precisely the case,
 as <m>A</m> is invertible when <m>a\neq 0</m>,
 with
-<m>\inv{A} = \begin{bmatrix}\inv{a}\end{bmatrix}</m>,
-and <m>A</m> is singular when <m>a=0</m>,
+<m>\inv{A} = \begin{bmatrix} \inv{a} \end{bmatrix}</m>,
+and <m>A</m> is singular when <m> a = 0</m>,
 because then <m>A</m> would be the zero matrix.
 Since entry <m>a</m> <em>determines</em> the invertibility of <m>A</m>,
 we set
-<m>\det \begin{bmatrix}a\end{bmatrix} = a</m>.
+<m>\det \begin{bmatrix} a \end{bmatrix} = a</m>.
 </p>
 
 </subsection>
@@ -168,7 +168,9 @@ we set
 <p>
 In <xref ref="activity-det-2by2-criss-cross-det-formula" />,
 we calculated the determinant of the general <m>2 \times 2</m> matrix to be
-<me> \det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = ad -bc, </me>
+<md><mrow xml:id="equation-det-concepts-2x2-det" tag="star">
+	\det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = a d - b c
+</mrow></md>,
 using a cofactor expansion along the first row.
 (We leave it up to you,
 the reader,
@@ -217,7 +219,7 @@ and <em>subtract</em> the product of the two entries along the arrow labelled <m
 In <xref first="activity-det-1by1-det" last="activity-det-3by3-det" />,
 we used an <term>inductive</term> process to build up from computing <m>1 \times 1</m> determinants to <m>3 \times 3</m> determinants.
 The inductive process continues for larger matrices to provide a formula for the determinant of an <m>n \times n</m> matrix for every <m>n</m> via a cofactor expansion along the first row:
-<md><mrow xml:id="equation-det-concepts-cofactor-exp" tag="star">
+<md><mrow xml:id="equation-det-concepts-cofactor-exp" tag="dagger">
 	\det A = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13} + \dotsb + a_{1n} C_{1n}
 </mrow></md>.
 And we saw in <xref ref="activity-det-3by3-det-other-rows-cols" /> that can replace the cofactor expansion in
@@ -248,10 +250,10 @@ Instead, for matrices larger than <m>2 \times 2</m>,
 computing a determinant for a specific matrix from a cofactor expansion is a <term>recursive</term> process,
 since cofactors are just minor determinants with some sign changes.
 A cofactor expansion for an <m>n \times n</m> matrix requires <m>n</m> cofactor calculations.
-Each of those cofactor calculations is a determinant calculation of some <m>(n-1) \times (n-1)</m> <q>submatrices</q>.
+Each of those cofactor calculations is a determinant calculation of some <m>(n - 1) \times (n - 1)</m> <q>submatrices</q>.
 Each of those determinants,
 if calculated by cofactor expansion,
-will require <m>n-1</m> determinant calculations of various <m>(n-2) \times (n-2)</m> <q>submatrices</q>.
+will require <m>n - 1</m> determinant calculations of various <m>(n - 2) \times (n - 2)</m> <q>submatrices</q>.
 And so on.
 As you can see, the number of calculations involved grows out of hand quite quickly,
 even for single-digit values of <m>n</m>.
@@ -264,15 +266,16 @@ For now,
 let's record the cofactor sign patterns from
 <xref ref="activity-det-cofactor-sign-patterns" />.
 Remember that a cofactor is equal to either the corresponding minor determinant or its negative,
-depending on whether the sum <m>i+j</m> of row and column indices is even or odd.
+depending on whether the sum <m>i + j</m> of row and column indices is even or odd.
 This extra <q>sign</q> portion of the cofactor formula in terms of minor determinants will alternate from entry to entry,
 since as we move along a row or along a column,
 only one of <m>i</m> or <m>j</m> will change,
-and so <m>i+j</m> will flip from even to odd or vice versa.
+and so <m>i + j</m> will flip from even to odd or vice versa.
 So the cofactor signs follow the patterns,
 <mdn><mrow xml:id="equation-det-concepts-cofactor-sign-patterns">
 	3 \times 3 \amp \colon \;
-	\left[\begin{smallmatrix} + \amp - \amp + \\ - \amp + \amp - \\ + \amp - \amp + \end{smallmatrix}\right],
+	\left[\begin{smallmatrix} + \amp - \amp + \\ - \amp + \amp - \\ + \amp - \amp + \end{smallmatrix}\right]
+	\text{,}
 	\amp
 	4 \times 4 \amp \colon \;
 	\left[\begin{smallmatrix}
@@ -280,7 +283,8 @@ So the cofactor signs follow the patterns,
 		- \amp + \amp - \amp + \\
 		+ \amp - \amp + \amp - \\
 		- \amp + \amp - \amp +
-	\end{smallmatrix}\right],
+	\end{smallmatrix}\right]
+	\text{,}
 	\amp
 	5 \times 5 \amp \colon \;
 	\left[\begin{smallmatrix}
@@ -289,7 +293,8 @@ So the cofactor signs follow the patterns,
 		+ \amp - \amp + \amp - \amp + \\
 		- \amp + \amp - \amp + \amp - \\
 		+ \amp - \amp + \amp - \amp +
-	\end{smallmatrix}\right],
+	\end{smallmatrix}\right]
+	\text{,}
 </mrow></mdn>
 and so on.
 </p>
@@ -306,14 +311,14 @@ Let's consider the case of a diagonal matrix:
 <me>
 	D =
 	\begin{bmatrix}
-		d_1 \amp 0 \amp \cdots \amp 0 \\
-		0 \amp d_2 \amp \ddots \amp \vdots \\
-		\vdots \amp \ddots \amp  \ddots \amp 0 \\
-		0 \amp \cdots \amp 0 \amp d_n
-	\end{bmatrix}.
-</me>
+		  d_1  \amp    0   \amp \cdots \amp    0   \\
+		   0   \amp   d_2  \amp \ddots \amp \vdots \\
+		\vdots \amp \ddots \amp \ddots \amp    0   \\
+		   0   \amp \cdots \amp    0   \amp   d_n
+	\end{bmatrix}
+</me>.
 A cofactor expansion along the first column will look like
-<me>d_1 C_{11} + 0 \cdot C_{21} + 0 \cdot C_{31} + \dotsb + 0 \cdot C_{n1}.</me>
+<me> d_1 C_{11} + 0 \cdot C_{21} + 0 \cdot C_{31} + \dotsb + 0 \cdot C_{n1}. </me>
 Because of all of those zero entries,
 the only cofactor we actually need to compute is <m>C_{11}</m>,
 and the cofactor expansion collapses to just the entry <m>d_1</m> times its cofactor.
@@ -321,28 +326,28 @@ But the cofactor sign of the <m>(1,1)</m> entry is positive,
 so we really just get <m>d_1</m> times its minor determinant:
 <me>
 	\det D =
-	d_1\,
+	d_1 \,
 	\begin{vmatrix}
 		  d_2  \amp    0   \amp \cdots \amp    0   \\
 		   0   \amp   d_3  \amp \ddots \amp \vdots \\
 		\vdots \amp \ddots \amp \ddots \amp    0   \\
 		   0   \amp \cdots \amp    0   \amp   d_n
-	\end{vmatrix}.
-</me>
+	\end{vmatrix}
+</me>.
 This minor determinant is again a diagonal matrix,
 so we can again expand along the first column to get a similar result.
 And the pattern will continue until we finally get down to a <m>1 \times 1</m> minor
 <md>
 	<mrow>
 		\det D
-		= d_1 d_2\,
+		= d_1 d_2 \,
 		\begin{vmatrix}
 			  d_3  \amp    0   \amp \cdots \amp    0   \\
 			   0   \amp   d_4  \amp \ddots \amp \vdots \\
 			\vdots \amp \ddots \amp \ddots \amp    0   \\
 			   0   \amp \cdots \amp    0   \amp   d_n
 		\end{vmatrix}
-		= d_1 d_2 d_3\,
+		= d_1 d_2 d_3 \,
 		\begin{vmatrix}
 			  d_4  \amp    0   \amp \cdots \amp    0   \\
 			   0   \amp   d_5  \amp \ddots \amp \vdots \\
@@ -354,9 +359,9 @@ And the pattern will continue until we finally get down to a <m>1 \times 1</m> m
 		= d_1 d_2 \dotsm d_{n-2} \begin{vmatrix} d_{n_1} \amp 0 \\ 0 \amp d_n \end{vmatrix}
 		= d_1 d_2 \dotsm d_{n-1} \begin{vmatrix} [d_n] \end{vmatrix}
 	</mrow><mrow>
-		= d_1 d_2 \dotsm d_{n-1} d_n.
+		= d_1 d_2 \dotsm d_{n-1} d_n
 	</mrow>
-</md>
+</md>.
 So <em>the determinant of a diagonal matrix is equal to the product of its diagonal entries</em>.
 </p>
 
@@ -367,7 +372,7 @@ the determinant will be <m>n</m> factors of <m>k</m> multiplied together,
 so that <m>\det (k I) = k^n</m>.
 Applying this formula to the zero matrix (<m>k = 0</m>) and the identity matrix (<m>k = 1</m>),
 we have
-<md><mrow> \det \zerovec \amp= 0, \amp \det I \amp= 1. </mrow></md>
+<md><mrow> \det \zerovec \amp= 0 \text{,} \amp \det I \amp= 1 \text{.} </mrow></md>
 </p>
 
 <p>
