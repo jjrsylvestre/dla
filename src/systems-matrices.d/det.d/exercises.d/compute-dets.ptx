@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Computing determinants</title>
+
+<introduction><p> Compute the determinant of each matrix. </p></introduction>
+
+<exercise>
+	<statement><p><m>\displaystyle \begin{bmatrix} -9 \end{bmatrix} </m></p></statement>
+	<answer><p><m>\displaystyle \det \begin{bmatrix} -9 \end{bmatrix} = -9 </m></p></answer>
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle \begin{bmatrix} 0 \end{bmatrix} </m></p></statement>
+	<answer><p><m>\displaystyle \det \begin{bmatrix} 0 \end{bmatrix} = 0 </m></p></answer>
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-5 \amp -4 \\
+			 1 \amp  2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Using the general <m>a d - b c</m> formula for the determinant of a <m>2 \times 2</m> matrix
+		(see <xref ref="subsection-det-concepts-2x2" />),
+		we have
+		<me>
+			\begin{avmatrix}{rr}
+				-5 \amp -4 \\
+				 1 \amp  2
+			\end{avmatrix}
+			= (-5) \cdot 2 - (-4) \cdot 1
+			= -6
+		</me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			2 \amp 5 \\
+			1 \amp 2
+		\end{bmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Using the general <m>a d - b c</m> formula for the determinant of a <m>2 \times 2</m> matrix
+		(see <xref ref="subsection-det-concepts-2x2" />),
+		we have
+		<me>
+			\begin{vmatrix}
+				2 \amp 5 \\
+				1 \amp 2
+			\end{vmatrix}
+			= 2 \cdot 2 - 5 \cdot 1
+			= -1
+		</me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-5 \amp 6 \\
+			 4 \amp 5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Using the general <m>a d - b c</m> formula for the determinant of a <m>2 \times 2</m> matrix
+		(see <xref ref="subsection-det-concepts-2x2" />),
+		we have
+		<me>
+			\begin{avmatrix}{rr}
+				-5 \amp 6 \\
+				 4 \amp 5
+			\end{avmatrix}
+			= (-5) \cdot 5 - 6 \cdot 4
+			= -49
+		</me>.
+	</p></solution>
+
+</exercise>
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp 6 \\
+			6 \amp 0
+		\end{bmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Using the general <m>a d - b c</m> formula for the determinant of a <m>2 \times 2</m> matrix
+		(see <xref ref="subsection-det-concepts-2x2" />),
+		we have
+		<me>
+			\begin{vmatrix}
+				1 \amp 6 \\
+				6 \amp 0
+			\end{vmatrix}
+			= 1 \cdot 0 - 6 \cdot 6
+			= -36
+		</me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 1 \amp -1 \amp  4 \\
+			-2 \amp  5 \amp -1 \\
+			 4 \amp -1 \amp -3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Expanding along the first row,
+		we have
+		<md>
+
+			<mrow>
+				\det A \amp =
+				\begin{avmatrix}{lll}
+					\phantom{-}{\color{red}\mathbf{1}}^+ \amp {\color{red}\mathbf{-1}}^- \amp \phantom{-}{\color{red}\mathbf{4}}^+ \\
+					               -2                    \amp        \phantom{-}5        \amp                 -1                   \\
+					           \phantom{-}4              \amp            -1              \amp                 -3
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				1 \cdot
+				\begin{avmatrix}{rr}
+					 5 \amp -1 \\
+					-1 \amp -3
+				\end{avmatrix}
+				- (-1) \cdot
+				\begin{avmatrix}{rr}
+					-2 \amp -1 \\
+					 4 \amp -3
+				\end{avmatrix}
+				+ 4 \cdot
+				\begin{avmatrix}{rr}
+					-2 \amp  5 \\
+					 4 \amp -1
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\bbrac{5 \cdot (-3) - (-1) \cdot (-1)}
+				+ \bbrac{(-2) \cdot (-3) - (-1) \cdot 4}
+			</mrow>
+
+			<mrow>
+				\amp \phantom{=} \quad
+				+ 4 \bbrac{(-2) \cdot (-1) - 5 \cdot 4}
+			</mrow>
+
+			<mrow> \amp = -78 </mrow>
+
+		</md>.
+		To compute the minor determinants in this cofactor expansion we have used the general <m>a d - b c</m> formula for the determinant of a <m>2 \times 2</m> matrix.
+		(See <xref ref="subsection-det-concepts-2x2" />.)
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 1 \amp  3 \amp   7 \\
+			 1 \amp  1 \amp   0 \\
+			-1 \amp -4 \amp -11
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Expand along the second row so that there are only two cofactors to compute:
+		<md>
+
+			<mrow>
+				\det A \amp =
+				\begin{avmatrix}{lll}
+					           \phantom{-}1              \amp            \phantom{-}3              \amp           \phantom{-1}7              \\
+					\phantom{-}{\color{red}\mathbf{1}}^- \amp \phantom{-}{\color{red}\mathbf{1}}^+ \amp \phantom{-}{\color{red}\mathbf{0}}^- \\
+					                -1                   \amp                 -4                   \amp                -11
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				-1 \cdot
+				\begin{avmatrix}{rr}
+					 3 \amp   7 \\
+					-4 \amp -11
+				\end{avmatrix}
+				+ 1 \cdot
+				\begin{avmatrix}{rr}
+					 1 \amp   7 \\
+					-1 \amp -11
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				- \bbrac{3 \cdot (-11) - 7 \cdot (-4)}
+				+ \bbrac{1 \cdot (-11) - 7 \cdot (-1)}
+			</mrow>
+
+			<mrow> \amp = 1 </mrow>
+
+		</md>.
+		To compute the minor determinants in this cofactor expansion we have used the general <m>a d - b c</m> formula for the determinant of a <m>2 \times 2</m> matrix.
+		(See <xref ref="subsection-det-concepts-2x2" />.)
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-2 \amp  0 \amp  3 \amp  7 \\
+			-3 \amp -1 \amp  2 \amp -2 \\
+			 3 \amp  1 \amp -2 \amp  3 \\
+			 1 \amp  0 \amp -1 \amp -3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Choose the second column for a cofactor expansion since it will involve the fewest minor determinant calculations:
+		<md>
+
+			<mrow>
+				\det A \amp =
+				\begin{avmatrix}{rrrr}
+					-2 \amp {\color{red}\mathbf{ 0}}^- \amp  3 \amp  7 \\
+					-3 \amp {\color{red}\mathbf{-1}}^+ \amp  2 \amp -2 \\
+					 3 \amp {\color{red}\mathbf{ 1}}^- \amp -2 \amp  3 \\
+					 1 \amp {\color{red}\mathbf{ 0}}^+ \amp -1 \amp -3
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				(-1) \cdot
+				\begin{avmatrix}{rrr}
+					-2 \amp  3 \amp  7 \\
+					 3 \amp -2 \amp  3 \\
+					 1 \amp -1 \amp -3
+				\end{avmatrix}
+				- 1 \cdot
+				\begin{avmatrix}{rrr}
+					-2 \amp  3 \amp  7 \\
+					-3 \amp  2 \amp -2 \\
+					 1 \amp -1 \amp -3
+				\end{avmatrix}
+			</mrow>
+
+		</md>
+		Let's compute these two <m>3 \times 3</m> minor determinants separately;
+		call the first matrix <m>A_1</m> and the second <m>A_2</m>.
+		Neither has any zero entries,
+		but the third row in each contains a couple of ones,
+		so we'll choose to expand along that row in each.
+		In both expansions,
+		we will use the general <m>a d - b c</m> formula for the resulting <m>2 \times 2</m> minor determinants
+		(see <xref ref="subsection-det-concepts-2x2" />).
+		<md>
+
+			<mrow>
+				\det A_1 \amp =
+				\begin{avmatrix}{lll}
+					           -2             \amp        \phantom{-}3        \amp       \phantom{-}7         \\
+					       \phantom{-}3       \amp            -2              \amp       \phantom{-}3         \\
+					{\color{red}\mathbf{1}}^+ \amp {\color{red}\mathbf{-1}}^- \amp {\color{red}\mathbf{-3}}^+
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				1 \cdot
+				\begin{avmatrix}{rr}
+					 3 \amp 7 \\
+					-2 \amp 3 \\
+				\end{avmatrix}
+				- (-1) \cdot
+				\begin{avmatrix}{rr}
+					-2 \amp 7 \\
+					 3 \amp 3 \\
+				\end{avmatrix}
+				+ (-3) \cdot
+				\begin{avmatrix}{rr}
+					-2 \amp  3 \\
+					 3 \amp -2
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\bbrac{3 \cdot 3 - 7 \cdot (-2)}
+				+ \bbrac{(-2) \cdot 3 - 7 \cdot 3}
+				-  3 \bbrac{(-2) \cdot (-2) - 3 \cdot 3}
+			</mrow>
+
+			<mrow> \amp = 11 </mrow>
+
+		</md>
+		<md>
+
+			<mrow>
+				\det A_2 \amp =
+				\begin{avmatrix}{lll}
+					                      -2             \amp        \phantom{-}3        \amp        \phantom{-}7        \\
+					                      -3             \amp        \phantom{-}2        \amp            -2              \\
+					\phantom{-}{\color{red}\mathbf{1}}^+ \amp {\color{red}\mathbf{-1}}^- \amp {\color{red}\mathbf{-3}}^+
+				\end{avmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				1 \cdot
+				\begin{avmatrix}{rr}
+					3 \amp  7 \\
+					2 \amp -2 \\
+				\end{avmatrix}
+				- (-1) \cdot
+				\begin{avmatrix}{rr}
+					-2 \amp  7 \\
+					-3 \amp -2 \\
+				\end{avmatrix}
+				+ (-3) \cdot
+				\begin{vmatrix}
+					-2 \amp 3 \\
+					-3 \amp 2
+				\end{vmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				\bbrac{3 \cdot (-2) - 7 \cdot 2}
+				+ \bbrac{(-2) \cdot (-2) - 7 \cdot (-3)}
+				- 3 \bbrac{(-2) \cdot 2 - 3 \cdot (-3)}
+			</mrow>
+
+			<mrow> \amp = -10 </mrow>
+
+		</md>
+		Substituting these results into our original cofactor expansion for <m>\det A</m>,
+		we have
+		<md>
+			<mrow> \det A \amp = (-1) \cdot \det A_1 - 1 \cdot \det A_2 </mrow>
+			<mrow> \amp = (-1) \cdot 11 - 1 \cdot (-10) </mrow>
+			<mrow> \amp = -1 </mrow>
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			1 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 1 \\
+			1 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Any row or column we choose will contain two zeros,
+		so just expand along the first row:
+		<md>
+
+			<mrow>
+				\det A \amp =
+				\begin{vmatrix}
+					{\color{red}\mathbf{1}}^+ \amp {\color{red}\mathbf{0}}^- \amp {\color{red}\mathbf{1}}^+ \amp {\color{red}\mathbf{0}}^- \\
+					            0             \amp             1             \amp             0             \amp             1             \\
+					            1             \amp             0             \amp             1             \amp             0             \\
+					            0             \amp             1             \amp             0             \amp             1
+				\end{vmatrix}
+			</mrow>
+
+			<mrow>
+				\amp =
+				1 \cdot
+				\begin{vmatrix}
+					1 \amp 0 \amp 1 \\
+					0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 1
+				\end{vmatrix}
+				+ 1 \cdot
+				\begin{vmatrix}
+					0 \amp 1 \amp 1 \\
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 1
+				\end{vmatrix}
+			</mrow>
+
+		</md>
+		Let's compute these two <m>3 \times 3</m> minor determinants separately;
+		call the first matrix <m>A_1</m> and the second <m>A_2</m>.
+		The second row in each contains a couple of zeros,
+		so we'll choose to expand along that row in each.
+		In both expansions,
+		we will use the general <m>a d - b c</m> formula for the resulting <m>2 \times 2</m> minor determinants
+		(see <xref ref="subsection-det-concepts-2x2" />).
+		<md>
+
+			<mrow>
+				\det A_1 \amp =
+				\begin{avmatrix}{lll}
+					            1             \amp             0             \amp             1             \\
+					{\color{red}\mathbf{0}}^- \amp {\color{red}\mathbf{1}}^+ \amp {\color{red}\mathbf{0}}^- \\
+					            1             \amp             0             \amp             1
+				\end{avmatrix}
+
+				\amp
+
+				\det A_2 \amp =
+				\begin{avmatrix}{lll}
+					            0             \amp             1             \amp             1             \\
+					{\color{red}\mathbf{1}}^- \amp {\color{red}\mathbf{0}}^+ \amp {\color{red}\mathbf{0}}^- \\
+					            0             \amp             1             \amp             1
+				\end{avmatrix}
+
+			</mrow>
+
+			<mrow>
+				\amp =
+				1 \cdot
+				\begin{vmatrix}
+					1 \amp 1 \\
+					1 \amp 1 \\
+				\end{vmatrix}
+
+				\amp
+
+				\amp =
+				-1 \cdot
+				\begin{vmatrix}
+					1 \amp 1 \\
+					1 \amp 1
+				\end{vmatrix}
+
+			</mrow>
+
+			<mrow>
+				\amp = (1 \cdot 1 - 1 \cdot 1)
+				\amp
+				\amp = - (1 \cdot 1 - 1 \cdot 1)
+			</mrow>
+
+			<mrow> \amp = 0 \amp \amp = 0 </mrow>
+
+		</md>
+		Substituting these results into our original cofactor expansion for <m>\det A</m>,
+		we have
+		<md>
+			<mrow> \det A \amp = 1 \cdot \det A_1 + 1 \cdot \det A_2 </mrow>
+			<mrow> \amp = 1 \cdot 0 + 1 \cdot 0 </mrow>
+			<mrow> \amp = 0 </mrow>
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrrr}
+			-4 \amp  0 \amp  0 \amp  0 \amp 0 \\
+			-1 \amp -1 \amp  0 \amp  0 \amp 0 \\
+			-6 \amp  4 \amp  2 \amp  0 \amp 0 \\
+			 1 \amp -2 \amp  0 \amp  1 \amp 0 \\
+			-5 \amp  6 \amp -2 \amp -4 \amp 2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Notice that <m>A</m> is lower triangular,
+		so by <xref ref="proposition-det-special-forms-triangular">Statement</xref>
+		of <xref ref="proposition-det-special-forms" /> its determinant is simply the product of its diagonal entries:
+		<me>
+			\det A
+			= (-4) \cdot (-1) \cdot 2 \cdot 1 \cdot 2
+			= 16
+		</me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrrrr}
+			4 \amp 5 \amp  0 \amp  2 \amp -5 \amp -1 \\
+			0 \amp 5 \amp -5 \amp  1 \amp -4 \amp -4 \\
+			0 \amp 0 \amp -1 \amp -2 \amp  0 \amp -3 \\
+			0 \amp 0 \amp  0 \amp  4 \amp  1 \amp  3 \\
+			0 \amp 0 \amp  0 \amp  0 \amp -3 \amp -4 \\
+			0 \amp 0 \amp  0 \amp  0 \amp  0 \amp  3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Notice that <m>A</m> is upper triangular,
+		so by <xref ref="proposition-det-special-forms-triangular">Statement</xref>
+		of <xref ref="proposition-det-special-forms" /> its determinant is simply the product of its diagonal entries:
+		<me>
+			\det A
+			= 4 \cdot 5 \cdot (-1) \cdot 4 \cdot (-3) \cdot 3
+			= 720
+		</me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{ccccccr}
+			2 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp  0 \\
+			0 \amp 2 \amp 0 \amp 0 \amp 0 \amp 0 \amp  0 \\
+			0 \amp 0 \amp 4 \amp 0 \amp 0 \amp 0 \amp  0 \\
+			0 \amp 0 \amp 0 \amp 5 \amp 0 \amp 0 \amp  0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 4 \amp 0 \amp  0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 3 \amp  0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp -5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Notice that <m>A</m> is diagonal,
+		so by <xref ref="proposition-det-special-forms-triangular">Statement</xref>
+		of <xref ref="proposition-det-special-forms" /> its determinant is simply the product of its diagonal entries:
+		<me>
+			\det A
+			= 2 \cdot 2 \cdot 4 \cdot 5 \cdot 4 \cdot 3 \cdot (-5)
+			= -4800
+		</me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{bmatrix}
+			5 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 5 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 5 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 5 \amp 0 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 5 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 5 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 5 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 5
+		\end{bmatrix}
+	</m></p></statement>
+
+	<solution><p>
+		Let <m>A</m> represent the matrix.
+		Notice that <m>A = 5 I</m> is scalar,
+		so by <xref ref="proposition-det-special-forms-scalar">Statement</xref>
+		of <xref ref="proposition-det-special-forms" /> its determinant is simply the power of the common diagonal entry value,
+		with exponent equal to the size of the square matrix:
+		<me> \det A = 5^8 = 390625 </me>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

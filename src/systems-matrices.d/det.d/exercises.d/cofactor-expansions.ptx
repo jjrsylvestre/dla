@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Cofactor expansions</title>
+
+<introduction><p>
+	In each case,
+	express the requested cofactor expansion as a linear combination of minor determinants,
+	bringing the cofactor signs to the front of each term.
+	For matrices larger than <m>2 \times 2</m>,
+	do not evaluate the minor determinants.
+</p></introduction>
+
+
+<!-- 2 x 2 -->
+
+<exercise>
+
+	<introduction><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-2 \amp 1 \\
+			 0 \amp 4
+		\end{abmatrix}
+	</m></p></introduction>
+
+	<task>
+		<statement><p> Along the first row. </p></statement>
+		<answer><p><m> -2 \cdot 4 - 1 \cdot 0 </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second row. </p></statement>
+		<answer><p><m> -0 \cdot 1 + 4 \cdot (-2) </m></p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+
+	<introduction><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			3 \amp -6 \\
+			8 \amp  7
+		\end{abmatrix}
+	</m></p></introduction>
+
+	<task>
+		<statement><p> Along the first column. </p></statement>
+		<answer><p><m> 3 \cdot 7 - 8 \cdot (-6) </m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second column. </p></statement>
+		<answer><p><m> - (-6) \cdot 8 + 7 \cdot 3 </m></p></answer>
+	</task>
+
+</exercise>
+
+<!-- 3 x 3 -->
+
+<exercise>
+
+	<introduction><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 0 \amp  5 \amp -3 \\
+			-2 \amp  2 \amp -6 \\
+			 1 \amp -1 \amp  2
+		\end{abmatrix}
+	</m></p></introduction>
+
+	<task>
+		<statement><p> Along the third row. </p></statement>
+		<answer><p><m>\displaystyle
+			1 \cdot
+			\begin{avmatrix}{rr}
+				5 \amp -3 \\
+				2 \amp -6
+			\end{avmatrix}
+			- (-1) \cdot
+			\begin{avmatrix}{rr}
+				 0 \amp -3 \\
+				-2 \amp -6
+			\end{avmatrix}
+			+ 2 \cdot
+			\begin{avmatrix}{rr}
+				 0 \amp  5 \\
+				-2 \amp  2
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second column. </p></statement>
+		<answer><p><m>\displaystyle
+			-5 \cdot
+			\begin{avmatrix}{rr}
+				-2 \amp -6 \\
+				 1 \amp  2
+			\end{avmatrix}
+			+ 2 \cdot
+			\begin{avmatrix}{rr}
+				 0 \amp -3 \\
+				 1 \amp  2
+			\end{avmatrix}
+			- (-1) \cdot
+			\begin{avmatrix}{rr}
+				 0 \amp -3 \\
+				-2 \amp -6
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the third column. </p></statement>
+		<answer><p><m>\displaystyle
+			-3 \cdot
+			\begin{avmatrix}{rr}
+				-2 \amp  2 \\
+				 1 \amp -1
+			\end{avmatrix}
+			- (-6) \cdot
+			\begin{avmatrix}{rr}
+				 0 \amp  5 \\
+				 1 \amp -1
+			\end{avmatrix}
+			+ 2 \cdot
+			\begin{avmatrix}{rr}
+				 0 \amp  5 \\
+				-2 \amp  2
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+
+	<introduction><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-2 \amp  2 \amp -1 \\
+			 3 \amp -3 \amp -4 \\
+			-2 \amp -3 \amp -2
+		\end{abmatrix}
+	</m></p></introduction>
+
+	<task>
+		<statement><p> Along the first row. </p></statement>
+		<answer><p><m>\displaystyle
+			-2 \cdot
+			\begin{avmatrix}{rr}
+				-3 \amp -4 \\
+				-3 \amp -2
+			\end{avmatrix}
+			- 2 \cdot
+			\begin{avmatrix}{rr}
+				 3 \amp -4 \\
+				-2 \amp -2
+			\end{avmatrix}
+			+ (-1) \cdot
+			\begin{avmatrix}{rr}
+				 3 \amp -3 \\
+				-2 \amp -3
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the first column. </p></statement>
+		<answer><p><m>\displaystyle
+			-2 \cdot
+			\begin{avmatrix}{rr}
+				-3 \amp -4 \\
+				-3 \amp -2
+			\end{avmatrix}
+			- 3 \cdot
+			\begin{avmatrix}{rr}
+				 2 \amp -1 \\
+				-3 \amp -2
+			\end{avmatrix}
+			+ (-2) \cdot
+			\begin{avmatrix}{rr}
+				 2 \amp -1 \\
+				-3 \amp -4 \\
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second column. </p></statement>
+		<answer><p><m>\displaystyle
+			-2 \cdot
+			\begin{avmatrix}{rr}
+				 3 \amp -4 \\
+				-2 \amp -2
+			\end{avmatrix}
+			+ (-3) \cdot
+			\begin{avmatrix}{rr}
+				-2 \amp -1 \\
+				-2 \amp -2
+			\end{avmatrix}
+			- (-3) \cdot
+			\begin{avmatrix}{rr}
+				-2 \amp -1 \\
+				 3 \amp -4 \\
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second row. </p></statement>
+		<answer><p><m>\displaystyle
+			-3 \cdot
+			\begin{avmatrix}{rr}
+				 2 \amp -1 \\
+				-3 \amp -2
+			\end{avmatrix}
+			+ (-3) \cdot
+			\begin{avmatrix}{rr}
+				-2 \amp -1 \\
+				-2 \amp -2
+			\end{avmatrix}
+			- (-4) \cdot
+			\begin{avmatrix}{rr}
+				-2 \amp  2 \\
+				-2 \amp -3
+			\end{avmatrix}
+		</m></p></answer>
+	</task>
+
+</exercise>
+
+<!-- 4 x 4 -->
+
+<exercise>
+
+	<introduction><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			 4 \amp -3 \amp  5 \amp 6 \\
+			-1 \amp -6 \amp  2 \amp 2 \\
+			 3 \amp  0 \amp  0 \amp 5 \\
+			 4 \amp  6 \amp -3 \amp 0
+		\end{abmatrix}
+	</m></p></introduction>
+
+	<task>
+		<statement><p> Along the first column. </p></statement>
+		<answer><p><me>
+			4 \cdot
+			\begin{avmatrix}{rrr}
+				-6 \amp  2 \amp 2 \\
+				 0 \amp  0 \amp 5 \\
+				 6 \amp -3 \amp 0
+			\end{avmatrix}
+			- (-1) \cdot
+			\begin{avmatrix}{rrr}
+				-3 \amp  5 \amp 6 \\
+				 0 \amp  0 \amp 5 \\
+				 6 \amp -3 \amp 0
+			\end{avmatrix}
+			+ 3 \cdot
+			\begin{avmatrix}{rrr}
+				-3 \amp  5 \amp 6 \\
+				-6 \amp  2 \amp 2 \\
+				 6 \amp -3 \amp 0
+			\end{avmatrix}
+			- 4 \cdot
+			\begin{avmatrix}{rrr}
+				-3 \amp  5 \amp 6 \\
+				-6 \amp  2 \amp 2 \\
+				 0 \amp  0 \amp 5 \\
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second row. </p></statement>
+		<answer><p><me>
+			- (-1) \cdot
+			\begin{avmatrix}{rrr}
+				-3 \amp  5 \amp 6 \\
+				 0 \amp  0 \amp 5 \\
+				 6 \amp -3 \amp 0
+			\end{avmatrix}
+			+ (-6) \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp  5 \amp 6 \\
+				 3 \amp  0 \amp 5 \\
+				 4 \amp -3 \amp 0
+			\end{avmatrix}
+			- 2 \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp 6 \\
+				 3 \amp  0 \amp 5 \\
+				 4 \amp  6 \amp 0
+			\end{avmatrix}
+			+ 2 \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp  5 \\
+				 3 \amp  0 \amp  0 \\
+				 4 \amp  6 \amp -3
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the third column. </p></statement>
+		<answer><p><me>
+			5 \cdot
+			\begin{avmatrix}{rrr}
+				-1 \amp -6 \amp 2 \\
+				 3 \amp  0 \amp 5 \\
+				 4 \amp  6 \amp 0
+			\end{avmatrix}
+			- 2 \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp 6 \\
+				 3 \amp  0 \amp 5 \\
+				 4 \amp  6 \amp 0
+			\end{avmatrix}
+			+ 0 \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp 6 \\
+				-1 \amp -6 \amp 2 \\
+				 4 \amp  6 \amp 0
+			\end{avmatrix}
+			- (-3) \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp 6 \\
+				-1 \amp -6 \amp 2 \\
+				 3 \amp  0 \amp 5
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the fourth row. </p></statement>
+		<answer><p><me>
+			-4 \cdot
+			\begin{avmatrix}{rrr}
+				-3 \amp  5 \amp 6 \\
+				-6 \amp  2 \amp 2 \\
+				 0 \amp  0 \amp 5
+			\end{avmatrix}
+			+ 6 \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp 5 \amp 6 \\
+				-1 \amp 2 \amp 2 \\
+				 3 \amp 0 \amp 5
+			\end{avmatrix}
+			- (-3) \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp 6 \\
+				-1 \amp -6 \amp 2 \\
+				 3 \amp  0 \amp 5
+			\end{avmatrix}
+			+ 0 \cdot
+			\begin{avmatrix}{rrr}
+				 4 \amp -3 \amp  5 \\
+				-1 \amp -6 \amp  2 \\
+				 3 \amp  0 \amp  0
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+</exercise>
+
+<exercise>
+
+	<introduction><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			 0 \amp  6 \amp  0 \amp 5 \\
+			-4 \amp  5 \amp  4 \amp 1 \\
+			 2 \amp -5 \amp  3 \amp 4 \\
+			-2 \amp  6 \amp -4 \amp 3
+		\end{abmatrix}
+	</m></p></introduction>
+
+	<task>
+		<statement><p> Along the first row. </p></statement>
+		<answer><p><me>
+			0 \cdot
+			\begin{avmatrix}{rrr}
+				 5 \amp  4 \amp 1 \\
+				-5 \amp  3 \amp 4 \\
+				 6 \amp -4 \amp 3
+			\end{avmatrix}
+			- 6 \cdot
+			\begin{avmatrix}{rrr}
+				-4 \amp  4 \amp 1 \\
+				 2 \amp  3 \amp 4 \\
+				-2 \amp -4 \amp 3
+			\end{avmatrix}
+			+ 0 \cdot
+			\begin{avmatrix}{rrr}
+				-4 \amp  5 \amp 1 \\
+				 2 \amp -5 \amp 4 \\
+				-2 \amp  6 \amp 3
+			\end{avmatrix}
+			- 5 \cdot
+			\begin{avmatrix}{rrr}
+				-4 \amp  5 \amp  4 \\
+				 2 \amp -5 \amp  3 \\
+				-2 \amp  6 \amp -4
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the second column. </p></statement>
+		<answer><p><me>
+			-6 \cdot
+			\begin{avmatrix}{rrr}
+				-4 \amp  4 \amp 1 \\
+				 2 \amp  3 \amp 4 \\
+				-2 \amp -4 \amp 3
+			\end{avmatrix}
+			+ 5 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  0 \amp 5 \\
+				 2 \amp  3 \amp 4 \\
+				-2 \amp -4 \amp 3
+			\end{avmatrix}
+			- (-5) \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  0 \amp 5 \\
+				-4 \amp  4 \amp 1 \\
+				-2 \amp -4 \amp 3
+			\end{avmatrix}
+			+ 6 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp 0 \amp 5 \\
+				-4 \amp 4 \amp 1 \\
+				 2 \amp 3 \amp 4
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the third row. </p></statement>
+		<answer><p><me>
+			2 \cdot
+			\begin{avmatrix}{rrr}
+				6 \amp  0 \amp 5 \\
+				5 \amp  4 \amp 1 \\
+				6 \amp -4 \amp 3
+			\end{avmatrix}
+			- (-5) \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  0 \amp 5 \\
+				-4 \amp  4 \amp 1 \\
+				-2 \amp -4 \amp 3
+			\end{avmatrix}
+			+ 3 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  6 \amp 5 \\
+				-4 \amp  5 \amp 1 \\
+				-2 \amp  6 \amp 3
+			\end{avmatrix}
+			- 4 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  6 \amp  0 \\
+				-4 \amp  5 \amp  4 \\
+				-2 \amp  6 \amp -4
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+	<task>
+		<statement><p> Along the fourth column. </p></statement>
+		<answer><p><me>
+			-5 \cdot
+			\begin{avmatrix}{rrr}
+				-4 \amp  5 \amp  4 \\
+				 2 \amp -5 \amp  3 \\
+				-2 \amp  6 \amp -4
+			\end{avmatrix}
+			+ 1 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  6 \amp  0 \\
+				 2 \amp -5 \amp  3 \\
+				-2 \amp  6 \amp -4
+			\end{avmatrix}
+			- 4 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  6 \amp  0 \\
+				-4 \amp  5 \amp  4 \\
+				-2 \amp  6 \amp -4
+			\end{avmatrix}
+			+ 3 \cdot
+			\begin{avmatrix}{rrr}
+				 0 \amp  6 \amp  0 \\
+				-4 \amp  5 \amp  4 \\
+				 2 \amp -5 \amp  3
+			\end{avmatrix}
+		</me></p></answer>
+	</task>
+
+</exercise>
+
+</exercisegroup>
