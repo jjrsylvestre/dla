@@ -155,6 +155,7 @@ ${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinal
 	@mkdir -p ${BUILDDIR}/html/${*}/images
 	@echo "...calling pretext to generate images"
+	@echo "...(restricted to ${ROOT_XMLID})"
 	@$(PRETEXT) \
 	  --verbose \
 	  --component latex-image \
@@ -173,6 +174,7 @@ ${BUILDDIR}/html-image-pdfs/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/.sentinal
 	@mkdir -p ${BUILDDIR}/html-image-pdfs/${*}
 	@echo "...calling pretext to generate images"
+	@echo "...(restricted to ${ROOT_XMLID})"
 	@$(PRETEXT) \
 	  --verbose \
 	  --component latex-image \
