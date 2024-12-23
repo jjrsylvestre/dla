@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2024 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title> Computing determinants using row operations </title>
+
+<introduction><p>
+	Use the row reduction method
+	(<xref ref="procedure-det-by-row-red" />)
+	to compute the determinant of each matrix.
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 0 \amp -2 \amp  1 \\
+			-8 \amp -5 \amp  4 \\
+			-2 \amp  7 \amp -4
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> R_1 \leftrightarrow R_3 </m></li>
+			<li><m> R_2 - 4 R_1             </m></li>
+			<li><m> R_2 \leftrightarrow R_3 </m></li>
+			<li><m> -\tfrac{1}{2} R_2       </m></li>
+			<li><m> R_3 + 33 R_2            </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrr}
+				-2 \amp 7 \amp       -4     \\
+				 0 \amp 1 \amp -\frac{1}{2} \\
+				 0 \amp 0 \amp  \frac{7}{2}
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>-7</m>.
+		From the sequence of operations,
+		if the original matrix has determinant <m>d</m> then the above upper triangular matrix has determinant <m>-d / 2</m>.
+		From <m>- d / 2 = -7</m> we conclude that the original matrix has determinant <m>d = 14</m>.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-6 \amp  7 \amp  4 \\
+			-8 \amp -4 \amp -6 \\
+			-6 \amp -9 \amp  1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> -\tfrac{1}{3} R_3        </m></li>
+			<li><m> R_1 \leftrightarrow R_3  </m></li>
+			<li><m> R_2 + 4 R_1; R_3 + 3 R_1 </m></li>
+			<li><m> R_3 - 2 R_2              </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrr}
+				2 \amp 3 \amp -\frac{ 1}{3} \\
+				0 \amp 8 \amp -\frac{22}{3} \\
+				0 \amp 0 \amp  \frac{53}{3}
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>848/3</m>.
+		From the sequence of operations,
+		if the original matrix has determinant <m>d</m> then the above upper triangular matrix has determinant <m>d / 3</m>.
+		From <m>d / 3 = 848 / 3</m> we conclude that the original matrix has determinant <m>d = 848</m>.
+		</p>
+
+d		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-3 \amp  0 \amp -4 \amp -4 \\
+			-4 \amp  2 \amp -3 \amp  1 \\
+			 1 \amp -2 \amp -5 \amp -3 \\
+			 5 \amp  4 \amp  2 \amp  3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> R_1 \leftrightarrow R_3               </m></li>
+			<li><m> R_2 + 4 R_1; R_3 + 3 R_1; R_4 - 5 R_1 </m></li>
+			<li><m> R_4 + 2 R_2; R_3 - R_2                </m></li>
+			<li><m> \frac{1}{2} R_4                       </m></li>
+			<li><m> R_2 \leftrightarrow R_4               </m></li>
+			<li><m> R_4 + 6 R_2                           </m></li>
+			<li><m> R_4 + 20 R_3                          </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrrr}
+				1 \amp -2 \amp      -5       \amp - 3 \\
+				0 \amp  1 \amp -\frac{19}{2} \amp - 2 \\
+				0 \amp  0 \amp       4       \amp - 2 \\
+				0 \amp  0 \amp       0       \amp -63
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>-252</m>.
+		From the sequence of operations,
+		if the original matrix has determinant <m>d</m> then the above upper triangular matrix has determinant <m>d / 2</m>.
+		From <m>d / 2 = -252</m> we conclude that the original matrix has determinant <m>d = -504</m>.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			 4 \amp  2 \amp 7 \amp  3 \\
+			-8 \amp  9 \amp 6 \amp  1 \\
+			 0 \amp -5 \amp 3 \amp -6 \\
+			-8 \amp -2 \amp 0 \amp -3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> R_2 + 2 R_1; R_4 + 2 R_1  </m></li>
+			<li><m> \frac{1}{2} R_2           </m></li>
+			<li><m> R_2 \leftrightarrow R_4   </m></li>
+			<li><m> R_3 + 5 R_2; R_4 - 13 R_2 </m></li>
+			<li><m> R_4 + 2 R_3               </m></li>
+			<li><m> \frac{1}{5} R_4           </m></li>
+			<li><m> R_3 \leftrightarrow R_4   </m></li>
+			<li><m> R_4 - 38 R_3              </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{cccr}
+				4 \amp 2 \amp 7 \amp        3        \\
+				0 \amp 1 \amp 7 \amp  \frac{  3}{ 2} \\
+				0 \amp 0 \amp 1 \amp -\frac{ 19}{10} \\
+				0 \amp 0 \amp 0 \amp  \frac{737}{10}
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>1474/5</m>.
+		From the sequence of operations,
+		if the original matrix has determinant <m>d</m> then the above upper triangular matrix has determinant <m>d / 10</m>.
+		From <m>d / 10 = 1474 / 5</m> we conclude that the original matrix has determinant <m>d = 2948</m>.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrrr}
+			-3 \amp  1 \amp  2 \amp -1 \amp  1 \\
+			 0 \amp  4 \amp  1 \amp  4 \amp  2 \\
+			-2 \amp  0 \amp -1 \amp -3 \amp  2 \\
+			-1 \amp -2 \amp  3 \amp  2 \amp  4 \\
+			 3 \amp  3 \amp -3 \amp  0 \amp -2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> - R_4  </m></li>
+			<li><m> R_1 \leftrightarrow R_4               </m></li>
+			<li><m> R_3 + 2 R_1; R_4 + 3 R_1; R_5 - 3 R_1 </m></li>
+			<li><m> R_2 + R_5                             </m></li>
+			<li><m> R_3 - 4 R_2; R_4 - 7 R_2; R_5 + 3 R_2 </m></li>
+			<li><m> R_4 + 2 R_5                           </m></li>
+			<li><m> -\frac{1}{2} R_4                      </m></li>
+			<li><m> R_3 \leftrightarrow R_4               </m></li>
+			<li><m> R_4 + 35 R_3; R_5 - 27 R_3            </m></li>
+			<li><m> R_4 + R_5                             </m></li>
+			<li><m> 2 R_5                                 </m></li>
+			<li><m> R_5 + 7 R_4                           </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrrrr}
+				1 \amp 2 \amp -3 \amp     -2      \amp     -4      \\
+				0 \amp 1 \amp  7 \amp     10      \amp     12      \\
+				0 \amp 0 \amp  1 \amp \frac{5}{2} \amp \frac{3}{2} \\
+				0 \amp 0 \amp  0 \amp      9      \amp      4      \\
+				0 \amp 0 \amp  0 \amp      0      \amp     39
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>351</m>.
+		The changes to the determinant from the sequence of operations above end up cancelling each other out,
+		and so the original matrix has the same determinant, <m>351</m>.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrrr}
+			5 \amp  2 \amp  5 \amp -1 \amp  0 \\
+			2 \amp  3 \amp  4 \amp  4 \amp  3 \\
+			5 \amp  1 \amp -2 \amp  4 \amp -3 \\
+			3 \amp -4 \amp  3 \amp -1 \amp  5 \\
+			0 \amp -3 \amp -1 \amp  4 \amp  0
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to <em>almost</em> upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> R_1 - 2 R_2                            </m></li>
+			<li><m> R_2 - 2 R_1; R_3 - 5 R_1; R_4 - 3 R_1  </m></li>
+			<li><m> R_2 + 4 R_5                            </m></li>
+			<li><m> - R_2                                  </m></li>
+			<li><m> R_3 - 21 R_2; R_4 - 8 R_2; R_5 + 3 R_2 </m></li>
+			<li><m> R_4 + 3 R_5                            </m></li>
+			<li><m> R_5 + 6 R_4                            </m></li>
+			<li><m> - R_5                                  </m></li>
+			<li><m> R_3 \leftrightarrow R_5                </m></li>
+			<li><m> R_4 - 3 R_3; R_5 - 139 R_3             </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrrrr}
+				1 \amp -4 \amp -3 \amp     -9 \amp  -6 \\
+				0 \amp  1 \amp -6 \amp    -38 \amp  15 \\
+				0 \amp  0 \amp  1 \amp    110 \amp  -3 \\
+				0 \amp  0 \amp  0 \amp   -330 \amp  17 \\
+				0 \amp  0 \amp  0 \amp -14443 \amp 759
+			\end{abmatrix}
+		</me>.
+		By repeatedly computing cofactor expansions along the first column,
+		we can compute
+		<md><mrow>
+			\amp
+			\det
+			\begin{abmatrix}{rrrrr}
+				1 \amp -4 \amp -3 \amp     -9 \amp  -6 \\
+				0 \amp  1 \amp -6 \amp    -38 \amp  15 \\
+				0 \amp  0 \amp  1 \amp    110 \amp  -3 \\
+				0 \amp  0 \amp  0 \amp   -330 \amp  17 \\
+				0 \amp  0 \amp  0 \amp -14443 \amp 759
+			\end{abmatrix}
+		</mrow><mrow>
+			\amp =
+			\begin{avmatrix}{rrrr}
+				1 \amp -6 \amp    -38 \amp  15 \\
+				0 \amp  1 \amp    110 \amp  -3 \\
+				0 \amp  0 \amp   -330 \amp  17 \\
+				0 \amp  0 \amp -14443 \amp 759
+			\end{avmatrix}
+		</mrow><mrow>
+			\amp =
+			\begin{avmatrix}{rrr}
+				1 \amp    110 \amp  -3 \\
+				0 \amp   -330 \amp  17 \\
+				0 \amp -14443 \amp 759
+			\end{avmatrix}
+		</mrow><mrow>
+			\amp =
+			\begin{avmatrix}{rr}
+				  -330 \amp  17 \\
+				-14443 \amp 759
+			\end{avmatrix}
+		</mrow><mrow>
+			\amp = -300 \cdot 759 - 17 \cdot -14443
+		</mrow><mrow>
+			\amp = -4939
+		</mrow></md>.
+		From the sequence of operations,
+		if the original matrix has determinant <m>d</m> then our final <em>almost</em> upper triangular matrix has determinant <m>-d</m>.
+		From <m>-d = -4939</m> we conclude that the original matrix has determinant <m>d = 4939</m>.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final reduced matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrrrr}
+			2 \amp 2 \amp -10 \amp 8 \amp -13 \amp -7 \\
+			1 \amp 1 \amp -5 \amp 5 \amp -3 \amp -4 \\
+			-1 \amp -1 \amp 5 \amp -4 \amp 7 \amp 3 \\
+			1 \amp 0 \amp -2 \amp 3 \amp 0 \amp -3 \\
+			2 \amp 2 \amp -10 \amp 8 \amp -14 \amp -5 \\
+			1 \amp 0 \amp -1 \amp 1 \amp 3 \amp -6
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> R_1 \leftrightarrow R_2                                   </m></li>
+			<li><m> R_2 - 2 R_1; R_3 + R_1; R_4 - R_1; R_5 - 2 R_1; R_6 - R_1 </m></li>
+			<li><m> R_2 \leftrightarrow R_4                                   </m></li>
+			<li><m> - R2                                                      </m></li>
+			<li><m> R_6 + R_2                                                 </m></li>
+			<li><m> R_3 \leftrightarrow R_6                                   </m></li>
+			<li><m> R_4 \leftrightarrow R_6                                   </m></li>
+			<li><m> R_5 + 2 R_4; R_6 + 2 R_2                                  </m></li>
+			<li><m> R_5 \leftrightarrow R_6                                   </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrrrrr}
+				1 \amp 1 \amp -5 \amp  5 \amp -3 \amp -4 \\
+				0 \amp 1 \amp -3 \amp  2 \amp -3 \amp -1 \\
+				0 \amp 0 \amp  1 \amp -2 \amp  3 \amp -3 \\
+				0 \amp 0 \amp  0 \amp  1 \amp  4 \amp -1 \\
+				0 \amp 0 \amp  0 \amp  0 \amp  1 \amp -1 \\
+				0 \amp 0 \amp  0 \amp  0 \amp  0 \amp  1
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>1</m>.
+		Our sequence of operations involves an odd number of row swaps,
+		but also a single instance of multiplying a row by <m>-1</m>,
+		so the original matrix and the simplified matrix have the same determinant value.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrrrr}
+			-3 \amp -2 \amp  3 \amp  1 \amp 1 \amp  0 \\
+			-2 \amp  1 \amp -2 \amp  1 \amp 2 \amp  2 \\
+			 3 \amp  1 \amp -3 \amp  2 \amp 0 \amp  2 \\
+			-3 \amp  3 \amp  1 \amp  1 \amp 3 \amp  3 \\
+			 3 \amp -3 \amp  3 \amp -1 \amp 0 \amp -3 \\
+			-2 \amp  0 \amp  1 \amp  1 \amp 0 \amp  3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<solution>
+
+		<p>
+		This matrix can be reduced to upper triangular using the sequence of operations
+		<ol marker="i.">
+			<li><m> R_1 - 2 R_2                                                     </m></li>
+			<li><m> R_2 + 2 R_1; R_3 - 3 R_1; R_4 + 3 R_1; R_5 - 3 R_1; R_6 + 2 R_1 </m></li>
+			<li><m> R_2 - R_6                                                       </m></li>
+			<li><m> R_3 - 13 R_2; R_4 + 9 R_2; R_5 - 9 R_2; R_6 + 8 R_2             </m></li>
+			<li><m> R_6 - 2 R_4                                                     </m></li>
+			<li><m> R_3 \leftrightarrow R_6                                         </m></li>
+			<li><m> R_4 + 5 R_3; R_5 - 9 R_3; R_6 - 15 R_3                          </m></li>
+			<li><m> R_5 + 2 R_4                                                     </m></li>
+			<li><m> R_4 \leftrightarrow R_5                                         </m></li>
+			<li><m> R_5 - 13 R_4; R_6 + 40 R_4                                      </m></li>
+			<li><m> R_6 + 3 R_5                                                     </m></li>
+			<li><m> \tfrac{1}{20} R_6                                               </m></li>
+			<li><m> R_5 \leftrightarrow R_6                                         </m></li>
+			<li><m> R_6 + 71 R_5                                                    </m>,</li>
+		</ol>
+		resulting in
+		<me>
+			\begin{abmatrix}{rrrrrr}
+				1 \amp -4 \amp  7 \amp -1 \amp  -3 \amp        -4       \\
+				0 \amp  1 \amp -3 \amp  0 \amp   2 \amp        -1       \\
+				0 \amp  0 \amp  1 \amp  3 \amp -14 \amp        23       \\
+				0 \amp  0 \amp  0 \amp  1 \amp   1 \amp         5       \\
+				0 \amp  0 \amp  0 \amp  0 \amp   1 \amp -\frac{ 11}{10} \\
+				0 \amp  0 \amp  0 \amp  0 \amp   0 \amp -\frac{461}{10}
+			\end{abmatrix}
+		</me>.
+		This matrix has determinant <m>- 461 / 10</m>.
+		From the sequence of operations,
+		if the original matrix has determinant <m>d</m> then the above upper triangular matrix has determinant <m>-d / 20</m>.
+		From <m>- d / 20 = - 461 / 10</m> we conclude that the original matrix has determinant <m>d = 922</m>.
+		</p>
+
+		<p><alert>Note:</alert>
+		If you chose a different sequence of row operations,
+		your final upper triangular matrix could be different,
+		with a different determinant,
+		and the relationship between that determinant and the determinant of the original matrix could be different.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>
