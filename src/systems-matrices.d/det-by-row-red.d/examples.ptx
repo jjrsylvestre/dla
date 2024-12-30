@@ -32,120 +32,345 @@ respective owners.
 As discussed in
 <xref ref="warning-det-concepts-cofactor-inefficient"/>,
 determinants by cofactor expansions are extremely inefficient for matrices larger than <m>3\times 3</m>.
-Here we provide an example of using the row reduction method to compute a determinant.
+Here we provide an example of using the row reduction method to compute a determinant
+(<xref ref="procedure-det-by-row-red" />).
 </p>
 
 <example xml:id="example-det-by-row-red-4x4">
 	<title>Using row reduction to compute a determinant</title>
-	<statement>
-		<p>
-		Let's recompute the determinant of
-		<me>
-			A = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				2 \amp 0 \amp 1 \amp 1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				1 \amp -2 \amp -1 \amp 0
-			\end{abmatrix},
-		</me>
-		the same matrix from <xref ref="example-det-4x4" />.
-		</p><p>
-		First, let's row reduce.
-		For the purposes of describing our thinking in using the matrix reduction calculation to determine the determinant of <m>A</m>,
-		we'll label our matrices as we go.
-		<md><mrow>
-			A = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				2 \amp 0 \amp 1 \amp 1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				1 \amp -2 \amp -1 \amp 0
-			\end{abmatrix}
-			\begin{array}{l} \phantom{x} \\ R_2 - 2R_1 \\ \phantom{x} \\ R_4-R_1 \end{array}
-			\longrightarrow
-			A_1 = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				0 \amp 2 \amp -3 \amp -1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				0 \amp -1 \amp -3 \amp -1
-			\end{abmatrix}
-			\begin{array}{l} \phantom{x} \\ R_2 \leftrightarrow R_3 \\ \phantom{x} \end{array}
-		</mrow><mrow>
-			\longrightarrow
-			A_2 = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				0 \amp 2 \amp -3 \amp -1 \\
-				0 \amp -1 \amp -3 \amp -1
-			\end{abmatrix}
-			\begin{array}{l} \phantom{x} \\ \phantom{x} \\ R_3 - 2R_2 \\ R_4+R_2 \end{array}
-			\longrightarrow
-			A_3 = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				0 \amp 0 \amp -3 \amp 5 \\
-				0 \amp 0 \amp -3 \amp -4
-			\end{abmatrix}
-			\begin{array}{l} \phantom{x} \\ \phantom{x} \\ -\frac{1}{3}R_3 \\ \phantom{x} \end{array}
-		</mrow><mrow>
-			\longrightarrow
-			A_4 = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				0 \amp 0 \amp 1 \amp -\frac{5}{3} \\
-				0 \amp 0 \amp -3 \amp -4
-			\end{abmatrix}
-			\begin{array}{l} \phantom{x} \\ \phantom{x} \\ \phantom{x} \\ R_4+3R_3 \end{array}
-			\longrightarrow
-			A_5 = \begin{abmatrix}{rrrr}
-				1 \amp -1 \amp 2 \amp 1 \\
-				0 \amp 1 \amp 0 \amp -3 \\
-				0 \amp 0 \amp 1 \amp -\frac{5}{3} \\
-				0 \amp 0 \amp 0 \amp -9
-			\end{abmatrix}
-		</mrow></md>
-		We would need one more operation to get to REF,
-		but we are already at upper triangular so we don't need to bother.
-		And notice that we didn't bother clearing entries <em>above</em> leading ones,
-		since our goal was to get to an upper triangular matrix,
-		which only requires entries <em>below</em> leading ones to be cleared.
-		</p><p>
-		Now we'll work backwards to determine <m>\det A</m>.
-		<dl width="narrow">
-			<li><title><m>A_5</m></title><p>
-				This last matrix is upper triangular,
-				so its determinant is equal to the product of the diagonal entries:
-				<m>\det A_5 = 1\cdot 1\cdot 1\cdot (-9) = -9</m>.
-			</p></li>
-			<li><title><m>A_4</m></title><p>
-				Matrix <m>A_5</m> was produced from <m>A_4</m> by an operation that does not change the determinant,
-				so <m>\det A_4</m> must be <m>-9</m> as well.
-			</p></li>
-			<li><title><m>A_3</m></title><p>
-				Matrix <m>A_4</m> was produced from <m>A_3</m> by multiplying a row,
-				so
-				<m>\det A_4 = -\frac{1}{3}\det A_3</m>.
-				Solving for <m>\det A_3</m>,
-				we get <m>\det A_3 = -3\cdot (-9) = 27</m>.
-			</p></li>
-			<li><title><m>A_2</m></title><p>
-				Matrix <m>A_3</m> was produced from <m>A_2</m> by an operation that does not change the determinant,
-				so <m>\det A_2</m> must be <m>27</m> as well.
-			</p></li>
-			<li><title><m>A_1</m></title><p>
-				Matrix <m>A_2</m> was produced from <m>A_1</m> by swapping rows,
-				so these two determinants have opposite signs.
-				Thus, <m>\det A_1 = -27</m>.
-			</p></li>
-			<li><title><m>A</m></title><p>
-				Matrix <m>A_1</m> was produced from <m>A</m> by a pair of operations,
-				neither of which changes the determinant,
-				so finally we have <m>\det A = -27</m>.
-			</p></li>
-		</dl>
-		This analysis agrees with the calculation of <m>\det A</m> by cofactor expansion in
-		<xref ref="example-det-4x4" />.
-		</p>
-	</statement>
+
+	<p>
+	Let's recompute the determinant of
+	<me>
+		A = \begin{abmatrix}{rrrr}
+			1 \amp -1 \amp 2 \amp 1 \\
+			2 \amp 0 \amp 1 \amp 1 \\
+			0 \amp 1 \amp 0 \amp -3 \\
+			1 \amp -2 \amp -1 \amp 0
+		\end{abmatrix},
+	</me>
+	the same matrix from <xref ref="example-det-4x4" />.
+	</p>
+
+	<p>
+	We will carry out the first two steps of <xref ref="procedure-det-by-row-red" /> simultaneously,
+	displaying the determinant of each matrix below it.
+	For the purposes of describing how the sequence of determinant values progresses afterward,
+	we'll label our matrices as we go.
+	As in the procedure,
+	let <m>d</m> represent the unknown determinant value of <m>A</m>.
+	<md><mrow>
+		\amp \phantom{\text{(i) }} \det A = d
+		\amp \amp\qquad
+		\amp \phantom{\longrightarrow} \quad \amp
+		A =
+		\begin{abmatrix}{rrrr}
+			1 \amp -1 \amp  2 \amp  1 \\
+			2 \amp  0 \amp  1 \amp  1 \\
+			0 \amp  1 \amp  0 \amp -3 \\
+			1 \amp -2 \amp -1 \amp  0
+		\end{abmatrix}
+		\begin{array}{l} \\ R_2 - 2 R_1 \\ \\ R_4 - R_1 \end{array}
+	</mrow><mrow>
+		\amp \text{(i) } \det A_1 = d
+		\amp \amp
+		\amp \longrightarrow \quad \amp
+		A_1 =
+		\begin{abmatrix}{rrrr}
+			1 \amp -1 \amp  2 \amp  1 \\
+			0 \amp  2 \amp -3 \amp -1 \\
+			0 \amp  1 \amp  0 \amp -3 \\
+			0 \amp -1 \amp -3 \amp -1
+		\end{abmatrix}
+		\begin{array}{l} \phantom{X} \\ R_2 \leftrightarrow R_3 \\ \phantom{X} \end{array}
+	</mrow><mrow>
+		\amp \text{(ii) } \det A_2 = -d
+		\amp \amp
+		\amp \longrightarrow \quad \amp
+		A_2 =
+		\begin{abmatrix}{rrrr}
+			1 \amp -1 \amp  2 \amp  1 \\
+			0 \amp  1 \amp  0 \amp -3 \\
+			0 \amp  2 \amp -3 \amp -1 \\
+			0 \amp -1 \amp -3 \amp -1
+		\end{abmatrix}
+		\begin{array}{l} \\ \\ R_3 - 2 R_2 \\ R_4 + R_2 \end{array}
+	</mrow><mrow>
+		\amp \text{(iii) } \det A_3 = -d
+		\amp \amp
+		\amp \longrightarrow \quad \amp
+		A_3 =
+		\begin{abmatrix}{rrrr}
+			1 \amp -1 \amp  2 \amp  1 \\
+			0 \amp  1 \amp  0 \amp -3 \\
+			0 \amp  0 \amp -3 \amp  5 \\
+			0 \amp  0 \amp -3 \amp -4
+		\end{abmatrix}
+		\begin{array}{l} \phantom{X} \\ \phantom{X} \\ -\frac{1}{3} R_3 \\ \phantom{X} \end{array}
+	</mrow><mrow>
+		\amp \text{(iv) } \det A_4 = \tfrac{d}{3}
+		\amp \amp
+		\amp \longrightarrow \quad \amp
+		A_4 =
+		\begin{abmatrix}{rrrr}
+			1 \amp -1 \amp  2 \amp       1      \\
+			0 \amp  1 \amp  0 \amp      -3      \\
+			0 \amp  0 \amp  1 \amp -\frac{5}{3} \\
+			0 \amp  0 \amp -3 \amp      -4
+		\end{abmatrix}
+		\begin{array}{l} \phantom{x} \\ \phantom{x} \\ \phantom{x} \\ R_4 + 3 R_3 \end{array}
+	</mrow><mrow>
+		\amp \text{(v) } \det A_5 = \tfrac{d}{3}
+		\amp \amp
+		\amp \longrightarrow \quad \amp
+		A_5 =
+		\begin{abmatrix}{rrrr}
+			1 \amp -1 \amp 2 \amp       1      \\
+			0 \amp  1 \amp 0 \amp      -3      \\
+			0 \amp  0 \amp 1 \amp -\frac{5}{3} \\
+			0 \amp  0 \amp 0 \amp      -9
+		\end{abmatrix}
+	</mrow></md>
+	We would need one more operation to get to REF,
+	but we are already at upper triangular so we don't need to bother.
+	And notice that we didn't bother clearing entries <em>above</em> leading ones,
+	since our goal was to get to an upper triangular matrix,
+	which only requires entries <em>below</em> leading ones to be cleared.
+	</p>
+
+	<p>
+	Here is how we arrived at our sequence of determinant formulas:
+	<ol marker="(i)">
+
+		<li><p>
+			Matrix <m>A_1</m> was produced from <m>A</m> by a pair of row combination operations,
+			but that type of operation does not change the determinant.
+			So <m>\det A_1 = \det A = d</m>.
+		</p></li>
+
+		<li><p>
+			Matrix <m>A_2</m> was produced from <m>A_1</m> by swapping rows,
+			so the determinants of those two matrices have opposite signs:
+			<m>\det A_2 = - \det A_1 = -d</m>.
+		</p></li>
+
+		<li><p>
+			Matrix <m>A_3</m> was produced from <m>A_2</m> by another pair of row combination operations,
+			so the determinants of those two matrices are equal:
+			<m>\det A_3 = \det A_2 = -d</m>.
+		</p></li>
+
+		<li><p>
+			Matrix <m>A_4</m> was produced from <m>A_3</m> by multiplying a row,
+			and so the determinants are related by the same multiplication factor:
+			<m> \det A_4 = -\frac{1}{3} \det A_3 = \frac{d}{3} </m>.
+		</p></li>
+
+		<li><p>
+			Matrix <m>A_5</m> was produced from <m>A_4</m> by another row combination operations,
+			so <m> \det A_5 = \det A_4 = \frac{d}{3} </m>.
+		</p></li>
+
+	</ol>
+	But since <m>A_5</m> is an upper triangular matrix,
+	we easily calculate its determinant as the product of its diagonal entries:
+	<me> \det A_5 = 1 \cdot 1 \cdot 1 \cdot (-9) = -9 </me>.
+	Equating this to our formula for <m>\det A_5</m> from our row operation analysis,
+	we obtain
+	<md alignment="gather">
+		<mrow> \frac{d}{3} = -9 </mrow>
+		<mrow> d = -27 </mrow>
+	</md>.
+	Therefore, <m>\det A = -27</m>,
+	which agrees with the result of the calculation of <m>\det A</m> by cofactor expansion in
+	<xref ref="example-det-4x4" />.
+	</p>
+
+</example>
+
+<example xml:id="example-det-by-row-red-simplify-cofactor-exp">
+	<title>A determinant of a matrix whose entries involve a variable</title>
+	<p>
+	Suppose we would like to know the values of the variable <m>x</m> that make the determinant of the matrix below equal to <m>0</m>.
+	<me>
+		C =
+		\begin{abmatrix}{rrrr}
+			x + 6 \amp   3   \amp   4   \amp  -7    \\
+			  2   \amp x + 5 \amp  -4   \amp  -13   \\
+			 -3   \amp  -3   \amp x - 1 \amp   7    \\
+			  6   \amp   6   \amp   0   \amp x - 14
+		\end{abmatrix}
+	</me>
+	Let <m>d</m> represent the determinant of this matrix.
+	We will reduce to upper triangular,
+	but we will not strictly follow <xref ref="procedure-row-red-reduce-to-rref" /> to do so.
+	In particular,
+	we will not worry too much about obtaining leading ones,
+	but will focus more on obtaining zeros.
+	The reasons for this are:
+	<ul>
+
+		<li>
+			A matrix with entries that contain a variable are complicated enough,
+			so we will avoid introducing fractions into our matrix.
+			To do this,
+			we will multiply other rows to match a leading <em>value</em> instead of dividing to obtain a leading one.
+		 </li>
+
+		 <li>
+		    We should not attempt to obtain a leading one by dividing a row by an expression involving <m>x</m>,
+		    since there may be values of <m>x</m> for which that operation would actually be dividing by zero.
+		</li>
+
+	</ul>
+	We will not explain each choice of row operation or the progression of determinant values <mdash />
+	see if you can fill in those details for yourself.
+	We will also simplify/factor entries as we go to make it easier to see potential simplifying row operations.
+	<md alignment="gather">
+
+		<mrow> \det C = d </mrow>
+		<mrow>
+			\phantom{\longrightarrow} \quad C =
+			\begin{bmatrix}
+				x + 6 \amp   3   \amp   4   \amp  -7    \\
+				  2   \amp x + 5 \amp  -4   \amp  -13   \\
+				 -3   \amp  -3   \amp x - 1 \amp   7    \\
+				  6   \amp   6   \amp   0   \amp x - 14
+			\end{bmatrix}
+			\begin{array}{l}  \phantom{X} \\ R_1 \leftrightarrow R_2 \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_1 = -d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_1 =
+			\begin{bmatrix}
+				  2   \amp x + 5 \amp  -4   \amp  -13   \\
+				x + 6 \amp   3   \amp   4   \amp  -7    \\
+				 -3   \amp  -3   \amp x - 1 \amp   7    \\
+				  6   \amp   6   \amp   0   \amp x - 14
+			\end{bmatrix}
+			\begin{array}{l} \\ 2 R_2 \\ 2 R_3 \\ \phantom{X} \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_2 = -4 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_2 =
+			\begin{bmatrix}
+				    2     \amp x + 5 \amp    -4     \amp  -13   \\
+				2 (x + 6) \amp   6   \amp     8     \amp  -14   \\
+				   -6     \amp  -6   \amp 2 (x - 1) \amp   7    \\
+				    6     \amp   6   \amp     0     \amp x - 14
+			\end{bmatrix}
+			\begin{array}{l} \\ R_2 - (x + 6) R_1 \\ R_3 + 3 R_1 \\ R_4 - 3 R_1 \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_3 = -4 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_3 =
+			\begin{bmatrix}
+				2 \amp        x + 5      \amp    -4     \amp    -13    \\
+				0 \amp - (x + 8) (x + 3) \amp 4 (x + 8) \amp 13 x + 64 \\
+				0 \amp     3 (x + 3)     \amp 2 (x - 7) \amp    -25    \\
+				0 \amp    -3 (x + 3)     \amp    12     \amp   x + 25
+			\end{bmatrix}
+			\begin{array}{l} \\ 3 R_2 \\ \phantom{X} \\ \phantom{X} \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_4 = -12 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_4 =
+			\begin{bmatrix}
+				2 \amp         x + 5      \amp     -4     \amp     -13     \\
+				0 \amp -3 (x + 8) (x + 3) \amp 12 (x + 8) \amp 39 x + 192 \\
+				0 \amp      3 (x + 3)     \amp  2 (x - 7) \amp     -25    \\
+				0 \amp     -3 (x + 3)     \amp     12     \amp    x + 25
+			\end{bmatrix}
+			\begin{array}{l} \\ R_2 + (x + 8) R_3 \\ \\ R_4 + R_3 \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_5 = -12 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_5 =
+			\begin{bmatrix}
+				2 \amp    x + 5  \amp         -4        \amp    -13   \\
+				0 \amp      0    \amp 2 (x - 1) (x + 8) \amp 14 x - 8 \\
+				0 \amp 3 (x + 3) \amp     2 (x - 7)     \amp    -25   \\
+				0 \amp      0    \amp     2 (x - 1)     \amp     x
+			\end{bmatrix}
+			\begin{array}{l}  \phantom{X} \\ R_2 \leftrightarrow R_3 \phantom{X} \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_6 = 12 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_6 =
+			\begin{bmatrix}
+				2 \amp    x + 5  \amp         -4        \amp    -13   \\
+				0 \amp 3 (x + 3) \amp     2 (x - 7)     \amp    -25   \\
+				0 \amp      0    \amp 2 (x - 1) (x + 8) \amp 14 x - 8 \\
+				0 \amp      0    \amp     2 (x - 1)     \amp     x
+			\end{bmatrix}
+			\begin{array}{l} \\ \\ R_3 \leftrightarrow R_4 \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_7 = -12 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_7 =
+			\begin{bmatrix}
+				2 \amp    x + 5  \amp         -4        \amp    -13   \\
+				0 \amp 3 (x + 3) \amp     2 (x - 7)     \amp    -25   \\
+				0 \amp      0    \amp     2 (x - 1)     \amp     x    \\
+				0 \amp      0    \amp 2 (x - 1) (x + 8) \amp 14 x - 8
+			\end{bmatrix}
+			\begin{array}{l} \\ \\ \\ R_4 - (x + 8) R_3 \end{array}
+		</mrow>
+
+		<mrow />
+
+		<mrow> \det C_8 = -12 d </mrow>
+		<mrow>
+			\longrightarrow \quad
+			C_8 =
+			\begin{bmatrix}
+				2 \amp    x + 5  \amp     -4    \amp        -13        \\
+				0 \amp 3 (x + 3) \amp 2 (x - 7) \amp        -25        \\
+				0 \amp      0    \amp 2 (x - 1) \amp         x         \\
+				0 \amp      0    \amp      0    \amp - (x - 2) (x - 4)
+			\end{bmatrix}
+		</mrow>
+
+	</md>
+	We can now calculate the determinant of upper triangular matrix <m>C_6</m> as the product of its diagonal entries:
+	<md>
+		<mrow> \det C_8 \amp = 2 \cdot 3 (x + 3) \cdot 2 (x - 1) \cdot \bbrac{- (x - 2) (x - 4)} </mrow>
+		<mrow> \amp = -12 (x + 3) (x - 1) (x - 2) (x - 4) </mrow>
+	</md>.
+	Since we also know <m>\det C_8 = -12 d</m>,
+	where <m>d</m> represents <m>\det C</m>,
+	we must have
+	<me> \det C = (x + 3) (x - 1) (x - 2) (x - 4) </me>,
+	and so we have <m>\det C = 0</m> precisely when <m>x</m> is one of the values <m>-3, 1, 2, 4</m>.
+	</p>
 </example>
 
 </subsection>

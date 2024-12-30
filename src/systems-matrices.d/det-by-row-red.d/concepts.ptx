@@ -19,12 +19,8 @@ respective owners.
 <title>Concepts</title>
 
 <introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-det-by-row-red-concepts-swap-rows" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-by-row-red-concepts-swap-rows" /></em></li>
-<li><xref ref="subsection-det-by-row-red-concepts-mul-row" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-by-row-red-concepts-mul-row" /></em></li>
-<li><xref ref="subsection-det-by-row-red-concepts-combine-rows" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-by-row-red-concepts-combine-rows" /></em></li>
+<li><xref ref="subsection-det-by-row-red-concepts-row-op-effects" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-det-by-row-red-concepts-row-op-effects" /></em></li>
 <li><xref ref="subsection-det-by-row-red-concepts-col-ops-trans" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-det-by-row-red-concepts-col-ops-trans" /></em></li>
 <li><xref ref="subsection-det-by-row-red-concepts-method" /><nbsp /><nbsp />
@@ -35,8 +31,11 @@ respective owners.
 	We would like to connect determinants to invertibility, and as always row operations are the way to do so.
 </p></introduction>
 
-<subsection xml:id="subsection-det-by-row-red-concepts-swap-rows">
-<title>Swapping rows: effect on determinant</title>
+<subsection xml:id="subsection-det-by-row-red-concepts-row-op-effects">
+<title>Effect of row operations on the determinant</title>
+
+<subsubsection xml:id="subsubsection-det-by-row-red-concepts-swap-rows">
+<title>Swapping rows</title>
 
 <paragraphs><title>Swapping adjacent rows</title><p>
 	In <xref ref="activity-det-by-row-red-det-swap-rows" />,
@@ -95,10 +94,10 @@ respective owners.
 	then that elementary matrix must have determinant <m>-1</m>.
 </p></paragraphs>
 
-</subsection>
+</subsubsection>
 
-<subsection xml:id="subsection-det-by-row-red-concepts-mul-row">
-<title>Multiplying rows: effect on determinant</title>
+<subsubsection xml:id="subsubsection-det-by-row-red-concepts-mul-row">
+<title>Multiplying rows</title>
 
 <paragraphs><title>Multiplying a single row by a scalar</title><p>
 	In <xref ref="activity-det-by-row-red-det-mul-row" />,
@@ -166,10 +165,10 @@ respective owners.
 	then that elementary matrix must have determinant <m>k\cdot 1 = k</m>.
 </p></paragraphs>
 
-</subsection>
+</subsubsection>
 
-<subsection xml:id="subsection-det-by-row-red-concepts-combine-rows">
-<title>Combining rows: effect on determinant</title>
+<subsubsection xml:id="subsubsection-det-by-row-red-concepts-combine-rows">
+<title>Combining rows</title>
 
 <p>
 Now we move to the operation of adding a multiple of one row to another,
@@ -263,6 +262,8 @@ while the two simpler row operations affected the determinant,
 	which is <m>1</m>.
 </p></paragraphs>
 
+</subsubsection>
+
 </subsection>
 
 <subsection xml:id="subsection-det-by-row-red-concepts-col-ops-trans">
@@ -317,15 +318,50 @@ we can row reduce to upper triangular,
 keeping track of how the determinant has changed at each step,
 and then work backwards from the determinant of the upper triangular matrix to determine the determinant of the original matrix.
 We'll save doing an example for
-<xref ref="subsection-det-by-row-red-examples-method" />.
+<xref ref="subsection-det-by-row-red-examples-method" />,
+but here is a step-by-step procedure.
+</p>
+
+<algorithm xml:id="procedure-det-by-row-red">
+	<!-- algorithm is hijacked to "Procedure" -->
+	<title> To use row operations to help compute a determinant </title>
+	<p>
+	Let <m>d</m> represent the unknown value of the determinant of the matrix.
+	<ol>
+		<li><p>
+			Follow <xref ref="procedure-row-red-reduce-to-rref" /> to reduce the matrix,
+			but stop after the first result that is an upper triangular matrix.
+			During this process,
+			you may choose to not bother with eliminating entries above leading ones.
+		</p></li>
+		<li xml:id="procedure-det-by-row-red-formula"><p>
+			Use the patterns from <xref ref="subsection-det-by-row-red-concepts-row-op-effects" /> to determine the determinant of each matrix in your sequence of row operations from the previous,
+			expressed as a formula in <m>d</m>.
+			Your final result will be a formula for the determinant of the final upper triangular matrix as a formula in <m>d</m>.
+		</p></li>
+		<li xml:id="procedure-det-by-row-red-value"><p>
+			Separately compute the value of the determinant of your final upper triangular matrix using
+			<xref ref="proposition-det-special-forms" />.
+		</p></li>
+		<li><p>
+			Set your final formula from <xref ref="procedure-det-by-row-red-formula" text="type-local">Step</xref>
+			equal to the determinant value from <xref ref="procedure-det-by-row-red-value" text="type-local">Step</xref>
+			and solve for <m>d</m>.
+		</p></li>
+	</ol></p>
+</algorithm>
+
+<p>
+See <xref ref="subsection-det-by-row-red-examples-method" /> for an example of using this procedure
+(<xref ref="example-det-by-row-red-4x4" />).
 </p>
 
 <warning><p>
 	When using this method,
-	it is really important to stick to <em>elementary</em> row operations.
-	In learning to row reduce,
+	it is very important to stick to <em>elementary</em> row operations.
+	In learning to row reduce to solve system of equations,
 	you may have discovered that you can perform operations of the kind
-	<m>R_i \to kR_i + mR_j</m>
+	<m>R_i \to k R_i + m R_j</m>
 	and still get the correct set of solutions to the corresponding system.
 	However,
 	this kind of operation is <em>not</em> elementary <mdash />
@@ -333,6 +369,17 @@ We'll save doing an example for
 	and <em>will</em> change the determinant.
 	It's best just to avoid operations of this kind for determinant calculations.
 </p></warning>
+
+<remark><p>
+	It is not necessary to reduce to upper triangular,
+	you may perform as many or as few operations as you wish.
+	In particular,
+	it may be difficult to reduce to upper triangular if your matrix contains variables in some of its entries.
+	The overall goal is to introduce as many zeros as possible so that a cofactor expansion of the reduced matrix is much simpler to compute,
+	and reducing to upper triangular simplifies the cofactor expansion as much as possible.
+	But you may stop before upper triangular if you wish and compute a cofactor expansion of your simplified matrix,
+	remembering to keep track of how the determinant of the simplified matrix relates to the determinant of the original matrix.
+</p></remark>
 
 </subsection>
 
