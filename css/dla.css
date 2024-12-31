@@ -1,3 +1,9 @@
+/******************************************************************************/
+/*                                   FONTS                                    */
+/******************************************************************************/
+
+/* Faces */
+
 @font-face {
   font-family: "STIX Two Text";
   src: url(./fonts/STIXTwoText-Regular.woff2) format("woff2");
@@ -47,138 +53,114 @@
   font-style: italic;
 }
 
-body.pretext,
-.ptx-content section .heading,
-.ptx-content article .heading
+/* Main body font */
+.ptx-content
+{ font-family: "STIX Two Text", "Times New Roman", Times, serif; }
+
+/* TOC Part titles */
+:is(.toc-part, .toc-frontmatter, .toc-backmatter) > .toc-title-box > .internal
 {
-  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+  font-family: var(--font-headings);
+  font-weight: bold;
 }
 
+/* Introduction assemblage secondary links */
+.introduction > .assemblage .emphasis > a.internal { font-weight: normal; }
+
+/* italics for definitions */
 dt {
   font-style: italic;
 }
 
-header.ptx-masthead span.title,
-header.ptx-masthead span.subtitle {
-  color: #09AB0D;
+/* Chapter root pages: section titles */
+.ptx-content .summary-links li:hover .title {
+  font-weight: normal;
 }
 
-.ptx-content .summary-links a {
-  color: #09AB0D;
+/******************************************************************************/
+/*                                  COLOURS                                   */
+/******************************************************************************/
+
+/*
+ *   primary:    #275d38 = 26% white  (UofA green)
+ *   secondary:  #f2cd00 = 47% white  (UofA gold)
+ *   (white percentages from https://www.w3schools.com/colors/colors_picker.asp)
+ */
+:root {
+  --uofa-green: #275d38;
+  --mono-green-complement: #36814E;
+  --analogous-blue: #275D53;
+  --complementary-mauve: #5D274C;
+  --complementary-mauve-white-10: #6d3b5c;
+  --lighter-green: #4bb46c;
+  --uofa-gold: #f2cd00;
+  --dark-gold: #4d4100;
+  --darker-gold: #332b00;
+  --darkest-gold: #1a1600;
 }
 
-.ptx-content .summary-links a:hover {
-  color: white;
-  background-color: #AB09A7;
+/* Light mode colour overrides */
+:root:not(.dark-mode) {
+  --primary-color: var(--uofa-green);
+  --secondary-color: var(--uofa-gold);
+  --banner-background: var(--primary-color-white-95);
+  --navbar-background: var(--primary-color-white-90);
+  --link-active-background: var(--primary-color-white-90);
+  --tocitem-active-text-color: var(--primary-color-black-20);
+  --toclevel3-background: var(--primary-color-white-90);
+  --summary-link-text-color: var(--primary-color);
+  --summary-link-hover-text-color: var(--primary-color);
+  --summary-link-hover-background: var(--secondary-color-white-50);
+  --button-hover-background: var(--secondary-color-white-50);
 }
 
-.ptx-toc.focused .toc-chapter > .toc-title-box {
-  background-color: #09AB0D;
+/* Dark mode colour overrides */
+:root.dark-mode {
+  --primary-color: var(--lighter-green);
+  --body-title-color: var(--primary-color-white-85);
+  --toclevel3-background: var(--background-color-gray-20);
 }
 
-.ptx-toc.focused .toc-chapter,
-.ptx-toc.focused .toc-section,
-.ptx-toc.focused .toc-worksheet
+/* "In this section" title links */
+.introduction > .assemblage .emphasis > a.internal { color: var(--body-text-color); }
+
+/* knowl link background */
+:root:not(.dark-mode) .knowl__link:is(:hover, :focus, [open]) {
+  background-color: var(--secondary-color-white-80);
+}
+:root.dark-mode .knowl__link:is(:hover, :focus, [open]) {
+  background-color: var(--dark-gold);
+}
+/* TODO dark mode version? */
+
+/*
+ * TOC tweaks
+*/
+
+/* change background of active chapter */
+:root:not(.dark-mode) .toc-item.toc-chapter.contains-active {
+  /* Surrounding toclevel2 items have background-color: var(--primary-color-white-10) */
+  background-color: var(--complementary-mauve-white-10);
+}
+:root.dark-mode .toc-item.toc-chapter.contains-active {
+  /*
+   * Surrounding toclevel2 items have background-color: var(--background-color-gray-10)
+   * And following toclevel3 items have background-color: var(--background-color-gray-20);
+   *   (set above)
+   */
+  background-color: var(--background-color-gray-40);
+}
+
+/* Get entire toc item bar to highlight (including chevron) on hover */
+:root:not(.dark-mode) .ptx-toc.focused .toc-item > .toc-title-box:hover,
+:root:not(.dark-mode) .ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
 {
-  border-color: #067409;
+  color: var(--primary-color-black-20);
+  background-color: var(--secondary-color-white-50);
 }
-
-.ptx-toc.focused :is(.toc-frontmatter, .toc-backmatter, .toc-part) > .toc-title-box {
-  background-color: #067409;
-}
-
-.ptx-toc.focused :is(
-  .toc-section,
-  .toc-worksheet,
-  .toc-colophon,
-  .toc-biography,
-  .toc-preface,
-  .toc-appendix,
-  .toc-index,
-  .toc-references
-) > .toc-title-box {
-  color: #AB09A7;
-}
-
-.ptx-toc.focused .toc-subsection > .toc-title-box {
-  color: #333333;
-  background-color: #FEEBFD;
-}
-
-.ptx-toc.focused :is(
-  .toc-chapter,
-  .toc-section,
-  .toc-worksheet,
-  .toc-frontmatter,
-  .toc-backmatter,
-  .toc-colophon,
-  .toc-biography,
-  .toc-preface,
-  .toc-appendix,
-  .toc-index,
-  .toc-references
-):is(.active, .contains-active) > .toc-title-box,
-.ptx-toc.focused :is(
-  .toc-chapter,
-  .toc-frontmatter,
-  .toc-backmatter,
-  .toc-section,
-  .toc-worksheet,
-  .toc-colophon,
-  .toc-biography,
-  .toc-preface,
-  .toc-appendix,
-  .toc-index,
-  .toc-references
-) > .toc-title-box:hover,
-.ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
+:root.dark-mode .ptx-toc.focused .toc-item > .toc-title-box:hover,
+:root.dark-mode .ptx-toc.focused .toc-title-box > a:is(:hover, :focus)
 {
-  color: white;
-  background-color: #AB09A7;
-}
-
-.ptx-toc.focused.depth4 .toc-title-box > .toc-expander:hover,
-.ptx-toc.focused.depth4 .toc-title-box > .toc-expander > .icon:hover
-{
-  color: #AB09A7;
-  background-color: #FEEBFD;
-}
-
-
-/* xrefs */
-.ptx-content [data-knowl],
-.ptx-content .para > a.internal
-{
-  color: #067409;
-}
-
-.ptx-content [data-knowl]:hover,
-.ptx-content .para > a.internal:hover
-{
-  background-color: #FEEBFD;
-}
-
-.ptx-content [data-knowl].active {
-  background-color: #d9fdda;
-}
-
-/* knowls */
-.ptx-content .knowl-output {
-  border-color: #d9fdda;
-  background-color: #f7fbff;
-}
-
-/* links for knowls */
-.ptx-content summary.knowl__link
-{
-  color: #067409;
-  margin-top: 10px;
-}
-
- /* colors for assemblage */
-.ptx-content .assemblage.assemblage-like {
-  border: solid 2px #AB09A7;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #FEF2FE;
+  color: var(--toclevel1-text-color);
+  background-color: var(--dark-gold);
 }
