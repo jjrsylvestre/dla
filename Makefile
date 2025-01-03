@@ -5,7 +5,7 @@ SOURCES = \
   $(wildcard src/*/*/*/*.ptx) $(wildcard src/*/*/*/*.tex)
 # I think that's as deep as things go...
 
-BRANDLOGO=AUG-Colour.png
+BRANDLOGO=UA_Logo_Stk_Green_RGB.png
 ROOTDOCNAME=book
 SERVEPORT=8080
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
