@@ -12,6 +12,7 @@ BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 #PRETEXT=/opt/pretext/pretext/pretext
 PRETEXT=./pretext/pretext/pretext
 ROOT_XMLID=discover-linear-algebra-book
+REMOTE_LOCATION=
 
 HTML_TARGETS = two-semester-html one-semester-html
 HTML_CLEAN_TARGETS = two-semester-html-clean one-semester-html-clean
@@ -19,13 +20,17 @@ IMAGE_TARGETS = two-semester-html-images one-semester-html-images
 IMAGE_PDF_TARGETS = two-semester-html-image-pdfs one-semester-html-image-pdfs
 IMAGE_CLEAN_TARGETS = two-semester-html-images-clean one-semester-html-images-clean
 LATEX_TARGETS = two-semester-latex one-semester-latex two-semester-print-latex one-semester-print-latex
+DEPLOY_TARGETS = two-semester-html-deploy one-semester-html-deploy
 .PHONY: ptx two-semester-html-all one-semester-html-all \
   $(HTML_TARGETS) $(HTML_CLEAN_TARGETS) \
   $(IMAGE_TARGETS) $(IMAGE_CLEAN_TARGETS) \
   $(LATEX_TARGETS) \
+  $(DEPLOY_TARGETS) \
   clean ptx-clean html-images-clean \
   html-serve validate-xml \
   help list
+
+log_error = (>&2 echo ">>>> $1" && exit 1)
 
 list: help
 help:
@@ -49,6 +54,12 @@ help:
 	@echo "                                  for a one-semester course."
 	@echo "> html-serve                    : Fire up a simple Python web server to locally host the HTML"
 	@echo "                                  output."
+	@echo "> two-semester-html-deploy      : rsync HTML files for the two-semester version to a remote server."
+	@echo "                                  Requires that the REMOTE_LOCATION parameter be set on the command"
+	@echo "                                  line."
+	@echo "> one-semester-html-deploy      : rsync HTML files for the one-semester version to a remote server."
+	@echo "                                  Requires that the REMOTE_LOCATION parameter be set on the command"
+	@echo "                                  line."
 	@echo "> two-semester-latex            : Output LaTeX file containing chapters for a two-semester course."
 	@echo "                                  (Electronic pdf version)"
 	@echo "> two-semester-print-latex      : Output LaTeX file containing chapters for a two-semester course."
@@ -66,17 +77,24 @@ help:
 	@echo "> two-semester-html-images-clean: Remove all accomanying SVG files."
 	@echo "> one-semester-html-images-clean: Ditto."
 	@echo "= PARAMETERS ======================================================================================="
-	@echo "> BUILDDIR : Root directory for all output files."
-	@echo "             [Default: $(BUILDDIR)]"
-	@echo "> BRANDLOGO: Filename of institutional logo. Needs to exist in images/."
-	@echo "             [Default: $(BRANDLOGO)]"
-	@echo "> PRETEXT  : Path to pretext compilation script."
-	@echo "             [Default: $(PRETEXT)]"
-	@echo "> SERVEPORT: Local port on which to serve HTML output when using the html-serve target."
-	@echo "             [Default: $(SERVEPORT)]"
+	@echo "> BUILDDIR       : Root directory for all output files."
+	@echo "                   [Default: $(BUILDDIR)]"
+	@echo "> BRANDLOGO      : Filename of institutional logo. Needs to exist in images/."
+	@echo "                   [Default: $(BRANDLOGO)]"
+	@echo "> PRETEXT        : Path to pretext compilation script."
+	@echo "                   [Default: $(PRETEXT)]"
+	@echo "> SERVEPORT      : Local port on which to serve HTML output when using the html-serve target."
+	@echo "                   [Default: $(SERVEPORT)]"
+	@echo "> REMOTE_LOCATION: Local port on which to serve HTML output when using the html-serve target."
+	@echo "                   [Default: unset]"
 
 two-semester-html-all: two-semester-html two-semester-html-images
 one-semester-html-all: one-semester-html one-semester-html-images
+
+$(DEPLOY_TARGETS): %-html-deploy: | %-html-all
+	@[ "$(REMOTE_LOCATION)" ] || $(call log_error, "REMOTE_LOCATION not set!")
+	@echo "Transferring ${BUILDDIR}/html/${*} to ${REMOTE_LOCATION} ..."
+	@./scripts/deploy.sh ${BUILDDIR}/html/${*} ${*}-html-deploy.exclude ${REMOTE_LOCATION}
 
 clean: ptx-clean html-clean html-images-clean
 
