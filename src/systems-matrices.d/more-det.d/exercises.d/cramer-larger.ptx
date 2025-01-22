@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2025 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2">
+<title>Cramer's rule for larger systems</title>
+
+<introduction><p>
+	For each system,
+	use <xref ref="theorem-more-det-cramers-rule" text="title" /> to determine the value of the specified variable in the solution to the system.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		Variable <m>x</m> in
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+				 3 x \amp   \amp 2 y \amp - \amp 9 z \amp = \amp 6 \\
+				-2 x \amp   \amp     \amp + \amp 3 z \amp = \amp 0 \\
+				   x \amp + \amp   y \amp - \amp 4 z \amp = \amp 9
+			\end{sysofeqns}
+		</me>.
+	</p></statement>
+
+	<solution><p>
+		Set
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrr}
+				 3 \amp 2 \amp -9 \\
+				-2 \amp 0 \amp  3 \\
+				 1 \amp 1 \amp -4
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{b} \amp =
+			\begin{abmatrix}{r} 6 \\ 0 \\ 9 \end{abmatrix}
+			\text{.}
+		</mrow></md>
+		Compute <m>\det A = -1</m>.
+		Since <m>\det A \neq 0</m>,
+		Cramer's rule can be applied.
+		Targeting variable <m>x</m>,
+		replace the first column in <m>A</m> with column <m>\uvec{b}</m> to obtain
+		<me>
+			A_x =
+			\begin{abmatrix}{rrr}
+				6 \amp 2 \amp -9 \\
+				0 \amp 0 \amp  3 \\
+				9 \amp 1 \amp -4
+			\end{abmatrix}
+		</me>.
+		Now compute <m>\det A_x = 36</m>.
+		Therefore,
+		the one unique solution to the system includes value
+		<me> x = \frac{\det A_x}{\det A} = \frac{36}{-1} = -36 </me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Variable <m>z</m> in
+		<me>
+			\begin{sysofeqns}{rcrcrcr}
+				 7 x \amp   \amp     \amp - \amp   z \amp = \amp   6 \\
+				-3 x \amp + \amp 3 y \amp + \amp   z \amp = \amp   9 \\
+				-4 x \amp - \amp 1 y \amp + \amp   z \amp = \amp -11
+			\end{sysofeqns}
+		</me>.
+	</p></statement>
+
+	<solution><p>
+		Set
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrr}
+				 7 \amp  0 \amp -1 \\
+				-3 \amp  3 \amp  1 \\
+				-4 \amp -1 \amp  1
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{b} \amp =
+			\begin{abmatrix}{r} 6 \\ 9 \\ -11 \end{bmatrix}
+			\text{.}
+		</mrow></md>
+		Compute <m>\det A = 13</m>.
+		Since <m>\det A \neq 0</m>,
+		Cramer's rule can be applied.
+		Targeting variable <m>z</m>,
+		replace the first third in <m>A</m> with column <m>\uvec{b}</m> to obtain
+		<me>
+			A_z =
+			\begin{abmatrix}{rrr}
+				 7 \amp  0 \amp   6 \\
+				-3 \amp  3 \amp   9 \\
+				-4 \amp -1 \amp -11
+			\end{abmatrix}
+		</me>.
+		Now compute <m>\det A_z = -78</m>.
+		Therefore,
+		the one unique solution to the system includes value
+		<me> z = \frac{\det A_z}{\det A} = \frac{-78}{13} = -6 </me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Variable <m>x_2</m> in
+		<me>
+			\begin{sysofeqns}{rcrcrcrcr}
+				  x_1 \amp + \amp   x_2 \amp   \amp     \amp - \amp  2 x_4 \amp = \amp -4 \\
+				2 x_1 \amp + \amp 3 x_2 \amp   \amp     \amp - \amp  6 x_4 \amp = \amp -1 \\
+				2 x_1 \amp + \amp 5 x_2 \amp + \amp x_3 \amp - \amp 11 x_4 \amp = \amp -5 \\
+				2 x_1 \amp + \amp 3 x_2 \amp   \amp     \amp - \amp  5 x_4 \amp = \amp  4
+			\end{sysofeqns}
+		</me>.
+	</p></statement>
+
+	<solution><p>
+		Set
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrrr}
+				1 \amp 1 \amp 0 \amp  -2 \\
+				2 \amp 3 \amp 0 \amp  -6 \\
+				2 \amp 5 \amp 1 \amp -11 \\
+				2 \amp 3 \amp 0 \amp  -5
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{b} \amp =
+			\begin{abmatrix}{r} -4 \\ -1 \\ -5 \\ 4 \end{abmatrix}
+			\text{.}
+		</mrow></md>
+		Compute <m>\det A = 1</m>.
+		Since <m>\det A \neq 0</m>,
+		Cramer's rule can be applied.
+		Targeting variable <m>x_2</m>,
+		replace the second column in <m>A</m> with column <m>\uvec{b}</m> to obtain
+		<me>
+			A_2 =
+			\begin{abmatrix}{rrrr}
+				1 \amp -4 \amp 0 \amp  -2 \\
+				2 \amp -1 \amp 0 \amp  -6 \\
+				2 \amp -5 \amp 1 \amp -11 \\
+				2 \amp  4 \amp 0 \amp  -5
+			\end{abmatrix}
+		</me>.
+		Now compute <m>\det A_2 = 17</m>.
+		Therefore,
+		the one unique solution to the system includes value
+		<me> x_2 = \frac{\det A_2}{\det A} = \frac{17}{1} = 17 </me>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		Variable <m>y</m> in
+		<me>
+			\begin{sysofeqns}{rcrcrcrcr}
+				3 w \amp + \amp 3 x \amp   \amp     \amp   \amp     \amp = \amp  1 \\
+				    \amp + \amp 2 x \amp - \amp 2 y \amp   \amp     \amp = \amp -4 \\
+				- w \amp + \amp 1 x \amp - \amp   y \amp - \amp 3 z \amp = \amp  2 \\
+				3 w \amp - \amp 3 x \amp   \amp     \amp - \amp 2 z \amp = \amp  0
+			\end{sysofeqns}
+		</me>.
+	</p></statement>
+
+	<solution><p>
+		Set
+		<md><mrow>
+			A \amp =
+			\begin{abmatrix}{rrrr}
+				 3 \amp  3 \amp  0 \amp  0 \\
+				 0 \amp  2 \amp -2 \amp  0 \\
+				-1 \amp  1 \amp -1 \amp -3 \\
+				 3 \amp -3 \amp  0 \amp -2
+			\end{abmatrix}
+			\text{,}
+			\amp
+			\uvec{b} \amp =
+			\begin{abmatrix}{r} 1 \\ -4 \\ 2 \\ 0 \end{abmatrix}
+			\text{.}
+		</mrow></md>
+		Compute <m>\det A = -120</m>.
+		Since <m>\det A \neq 0</m>,
+		Cramer's rule can be applied.
+		Targeting variable <m>y</m>,
+		replace the third column in <m>A</m> with column <m>\uvec{b}</m> to obtain
+		<me>
+			A_y =
+			\begin{abmatrix}{rrrr}
+				 3 \amp  3 \amp  1 \amp  0 \\
+				 0 \amp  2 \amp -4 \amp  0 \\
+				-1 \amp  1 \amp  2 \amp -3 \\
+				 3 \amp -3 \amp  0 \amp -2
+			\end{abmatrix}
+		</me>.
+		Now compute <m>\det A_y = -310</m>.
+		Therefore,
+		the one unique solution to the system includes value
+		<me> y = \frac{\det A_y}{\det A} = \frac{-310}{-120} = \frac{31}{12} </me>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>
