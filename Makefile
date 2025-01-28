@@ -10,7 +10,8 @@ ROOTDOCNAME=book
 SERVEPORT=8080
 BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 #PRETEXT=/opt/pretext/pretext/pretext
-PRETEXT=./pretext/pretext/pretext
+#PRETEXT=./pretext/pretext/pretext
+PRETEXTDIR=./pretext
 ROOT_XMLID=discover-linear-algebra-book
 REMOTE_LOCATION=
 
@@ -27,7 +28,7 @@ DEPLOY_TARGETS = two-semester-html-deploy one-semester-html-deploy
   $(LATEX_TARGETS) \
   $(DEPLOY_TARGETS) \
   clean ptx-clean html-images-clean \
-  html-serve validate-xml \
+  html-serve validate-xml validate-ptx \
   help list
 
 log_error = (>&2 echo ">>>> $1" && exit 1)
@@ -37,6 +38,7 @@ help:
 	@echo "= TARGETS =========================================================================================="
 	@echo "> validate-xml                  : Check for XML syntax/format errors."
 	@echo "                                  (Does not validate against PTX schema.)"
+	@echo "> validate-ptx                  : Check for PTX schema errors."
 	@echo "> two-semester-html-all         : Perform all steps necessary to create HTML version of the book"
 	@echo "                                  containing all chapters."
 	@echo "> one-semester-html-all         : Perform all steps necessary to create HTML version of the book"
@@ -81,8 +83,8 @@ help:
 	@echo "                   [Default: $(BUILDDIR)]"
 	@echo "> BRANDLOGO      : Filename of institutional logo. Needs to exist in images/."
 	@echo "                   [Default: $(BRANDLOGO)]"
-	@echo "> PRETEXT        : Path to pretext compilation script."
-	@echo "                   [Default: $(PRETEXT)]"
+	@echo "> PRETEXTDIR     : Path to PreTeXt installation."
+	@echo "                   [Default: $(PRETEXTDIR)]"
 	@echo "> SERVEPORT      : Local port on which to serve HTML output when using the html-serve target."
 	@echo "                   [Default: $(SERVEPORT)]"
 	@echo "> REMOTE_LOCATION: Local port on which to serve HTML output when using the html-serve target."
@@ -146,7 +148,7 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 #	@./make.d/html/fixups.sh ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 #	@mv ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx.html-fixup ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...calling pretext to compile PreTeXt document"
-	@$(PRETEXT) \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component all \
 	  --format html \
@@ -174,7 +176,7 @@ ${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@mkdir -p ${BUILDDIR}/html/${*}/images
 	@echo "...calling pretext to generate images"
 	@echo "...(restricted to ${ROOT_XMLID})"
-	@$(PRETEXT) \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component latex-image \
 	  --format svg \
@@ -193,7 +195,7 @@ ${BUILDDIR}/html-image-pdfs/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@mkdir -p ${BUILDDIR}/html-image-pdfs/${*}
 	@echo "...calling pretext to generate images"
 	@echo "...(restricted to ${ROOT_XMLID})"
-	@$(PRETEXT) \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --verbose \
 	  --component latex-image \
 	  --format pdf \
@@ -208,7 +210,7 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to LATEX for version: ${*}..."
 	@mkdir -p ${BUILDDIR}/latex
 	@echo "...calling pretext to compile PreTeXt document"
-	@${PRETEXT} \
+	@${PRETEXTDIR}/pretext/pretext \
 	  --XSL style-latex.xsl \
 	  --component all \
 	  --format latex \
@@ -228,5 +230,13 @@ html-serve:
 validate-xml: $(SOURCES)
 	@echo "Validating xml..."
 	@xmllint --xinclude src/${ROOTDOCNAME}.ptx | xmllint --noout -
+	@mkdir -p ${BUILDDIR}
+	@echo "...DONE"
+
+validate-ptx: ptx
+	@echo "Validating ptx..."
+	@jing ${PRETEXTDIR}/schema/pretext.rng ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx |\
+	  grep -v \
+	    -e "element \"worksheet\" not allowed anywhere"
 	@mkdir -p ${BUILDDIR}
 	@echo "...DONE"
