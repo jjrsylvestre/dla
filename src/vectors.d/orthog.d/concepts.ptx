@@ -49,8 +49,8 @@ So we come to the following conclusions.
 </p>
 
 <figure xml:id="figure-orthog-concepts-dot-prod-values">
-	<title>Values of the dot product for vectors at various angles.</title>
-	<tabular top="medium">
+	<caption>Values of the dot product for vectors at various angles.</caption>
+	<sidebyside><tabular top="medium">
 		<row>
 			<cell colspan="2" bottom="medium" halign="center"> <m>\theta</m> </cell>
 			<cell bottom="medium"> <m>\udotprod{u}{v}</m> </cell>
@@ -70,7 +70,7 @@ So we come to the following conclusions.
 			<cell> <m>\pi/2 \lt \theta \le \pi</m> </cell>
 			<cell> negative </cell>
 		</row>
-	</tabular>
+	</tabular></sidebyside>
 </figure>
 
 </subsection>
@@ -78,14 +78,14 @@ So we come to the following conclusions.
 <subsection xml:id="subsection-orthog-concepts-orthog">
 <title>Orthogonal vectors</title>
 
-<p>
-Right angles are extremely important in geometry,
-and from <xref ref="figure-orthog-concepts-dot-prod-values" /> we see that the dot product gives us a very convenient way to tell when the angle <m>\theta</m> between two nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is right:
-<alert>we have <m>\theta = \pi/2</m> precisely when <m>\udotprod{u}{v} = 0</m></alert>.
-In the plane or in space, <m>\uvec{u}</m> and <m>\uvec{v}</m> will be <term>perpendicular</term> when <m>\theta = \pi/2</m> and <m>\udotprod{u}{v} = 0</m>.
-Since we can't <q>see</q> right angles and perpendicular lines in higher dimensions,
-in general we say that <m>\uvec{u}</m> and <m>\uvec{v}</m> are <term>orthogonal</term> when <m>\udotprod{u}{v} = 0</m>.
-</p>
+<introduction><p>
+	Right angles are extremely important in geometry,
+	and from <xref ref="figure-orthog-concepts-dot-prod-values" /> we see that the dot product gives us a very convenient way to tell when the angle <m>\theta</m> between two nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is right:
+	<alert>we have <m>\theta = \pi/2</m> precisely when <m>\udotprod{u}{v} = 0</m></alert>.
+	In the plane or in space, <m>\uvec{u}</m> and <m>\uvec{v}</m> will be <term>perpendicular</term> when <m>\theta = \pi/2</m> and <m>\udotprod{u}{v} = 0</m>.
+	Since we can't <q>see</q> right angles and perpendicular lines in higher dimensions,
+	in general we say that <m>\uvec{u}</m> and <m>\uvec{v}</m> are <term>orthogonal</term> when <m>\udotprod{u}{v} = 0</m>.
+</p></introduction>
 
 <subsubsection xml:id="subsubsection-orthog-concepts-orthog-in-R2">
 <title>Orthogonal vectors in <m>\R^2</m></title>
@@ -147,10 +147,11 @@ making it farther from <m>Q</m> than <m>P</m>,
 since the distance <m>P'Q</m> is the length of the hypotenuse in the right triangle.
 </p>
 
-<image label="image-orthog-concepts-shortest-dist-to-line" width="48.8%">
-	<!-- description gets inserted as alt text in html img tag -->
-	<description>Diagram illustrating the shortest distance from a point to a line in the plane.</description>
-	<latex-image><xi:include href="concepts.d/shortest-dist-to-line.tex" parse="text" /></latex-image>
+<image width="48.8%">
+	<description><p> Diagram illustrating the shortest distance from a point to a line in the plane. </p></description>
+	<latex-image label="image-orthog-concepts-shortest-dist-to-line">
+		<xi:include href="concepts.d/shortest-dist-to-line.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -159,10 +160,11 @@ But if we introduce some vectors to help tackle this problem,
 then maybe we can use what we know about the dot product and right angles to help determine <m>P</m>.
 </p>
 
-<image label="image-orthog-concepts-proj" width="48.8%">
-	<!-- description gets inserted as alt text in html img tag -->
-	<description>Diagram illustrating orthogonal projection onto a line through the origin.</description>
-	<latex-image><xi:include href="concepts.d/proj.tex" parse="text" /></latex-image>
+<image width="48.8%">
+	<description><p> Diagram illustrating orthogonal projection onto a line through the origin. </p></description>
+	<latex-image label="image-orthog-concepts-proj">
+		<xi:include href="concepts.d/proj.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -266,18 +268,21 @@ will be true.
 	</p>
 </algorithm>
 
-<remark><ol>
+<remark><p><ol>
+
 	<li><p>
 		These procedures and calculations can be easily modified to work for lines that do not pass through the origin:
 		simply choose some arbitrary <q>initial</q> point <m>R</m> on the line to <q>act</q> as the origin.
 	</p></li>
+
 	<li><p>
 		All of these calculations can be performed in higher dimensions as well.
 		In higher dimensions,
 		it is true that there is no longer one unique perpendicular direction to a given vector <m>\uvec{a}</m>,
 		but the calculation of <m>\uvec{n}</m> as above will pick out the correction direction to extend from the line to the point <m>Q</m> at a right angle to the line.
 	</p></li>
-</ol></remark>
+
+</ol></p></remark>
 
 </subsection>
 
@@ -297,10 +302,11 @@ we could reinterpret equation <xref ref="equation-orthog-concepts-point-normal-l
 So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checking that the corresponding vector <m>\uvec{v} = (3,-2)</m> (with its tail at the origin) is orthogonal to the vector <m>\uvec{n} = (2,3)</m> whose components are the <em>coefficients</em> from our line equation.
 </p>
 
-<image label="image-orthog-concepts-normal-vec-line-homog" width="70%">
-	<!-- description gets inserted as alt text in html img tag -->
-	<description>Diagram of a normal vector to a line in the plane (homogeneous case).</description>
-	<latex-image><xi:include href="concepts.d/normal-vec-line-homog.tex" parse="text" /></latex-image>
+<image width="70%">
+	<description><p> Diagram of a normal vector to a line in the plane (homogeneous case). </p></description>
+	<latex-image label="image-orthog-concepts-normal-vec-line-homog">
+		<xi:include href="concepts.d/normal-vec-line-homog.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -320,10 +326,11 @@ This line has the same slope as the line defined by <m> 2 x + 3 y = 0</m> that w
 The constant <m>8</m> just changes the <m>y</m>-intercept.
 </p>
 
-<image label="image-orthog-concepts-normal-vec-line-nonhomog-1" width="74.1%">
-	<!-- description gets inserted as alt text in html img tag -->
-	<description>Diagram of a normal vector to a line in the plane (nonhomogeneous case).</description>
-	<latex-image><xi:include href="concepts.d/normal-vec-line-nonhomog-1.tex" parse="text" /></latex-image>
+<image width="74.1%">
+	<description><p> Diagram of a normal vector to a line in the plane (nonhomogeneous case). </p></description>
+	<latex-image label="image-orthog-concepts-normal-vec-line-nonhomog-1">
+		<xi:include href="concepts.d/normal-vec-line-nonhomog-1.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -343,10 +350,11 @@ We need <em>two</em> points on the line to create a parallel difference vector,
 but we could compare the variable vector <m>\uvec{x}</m> with a arbitrarily chosen <em>fixed</em> vector representing a point on the line (like <m>\uvec{x}_0</m>, say).
 </p>
 
-<image label="image-orthog-concepts-normal-vec-line-nonhomog-2" width="74.1%">
-	<!-- description gets inserted as alt text in html img tag -->
-	<description>Diagram of a normal vector to a line in the plane (nonhomogeneous case).</description>
-	<latex-image><xi:include href="concepts.d/normal-vec-line-nonhomog-2.tex" parse="text" /></latex-image>
+<image width="74.1%">
+	<description><p> Diagram of a normal vector to a line in the plane (nonhomogeneous case). </p></description>
+	<latex-image label="image-orthog-concepts-normal-vec-line-nonhomog-2">
+		<xi:include href="concepts.d/normal-vec-line-nonhomog-2.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -435,12 +443,13 @@ If we know two vectors that are parallel to the plane in question, the problem r
 	Given two nonzero, nonparallel vectors in <m>\R^3</m>, determine a third vector that is orthogonal to each of the first two.
 </p></question>
 
-<image label="image-orthog-concepts-cross-prod" width="17%">
-	<!-- description gets inserted as alt text in html img tag -->
-	<description>
+<image width="17%">
+	<description><p>
 		Diagram of the setup for the cross product problem (<xref ref="question-orthog-concepts-cross-prod" /> above).
-	</description>
-	<latex-image><xi:include href="concepts.d/cross-prod.tex" parse="text" /></latex-image>
+	</p></description>
+	<latex-image label="image-orthog-concepts-cross-prod">
+		<xi:include href="concepts.d/cross-prod.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>

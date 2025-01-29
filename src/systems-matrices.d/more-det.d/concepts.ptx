@@ -18,31 +18,35 @@ respective owners.
 
 <title>Concepts</title>
 
-<introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-more-det-concepts-adjoint" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-adjoint" /></em></li>
-<li><xref ref="subsection-more-det-concepts-det-vs-invert" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-det-vs-invert" /></em></li>
-<li><xref ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /></em></li>
-<li><xref ref="subsection-more-det-concepts-det-vs-mult-invertible" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-invertible" /></em></li>
-<li><xref ref="subsection-more-det-concepts-det-vs-mult-singular" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-singular" /></em></li>
-<li><xref ref="subsection-more-det-concepts-det-vs-mult-all" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-all" /></em></li>
-<li><xref ref="subsection-more-det-concepts-det-inverse" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-det-inverse" /></em></li>
-<li><xref ref="subsection-more-det-concepts-cramers-rule" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-more-det-concepts-cramers-rule" /></em></li>
-</ul></p></assemblage></introduction>
+<introduction>
 
-<introduction><p>
+	<assemblage><title>In this section</title><p><ul>
+		<li><xref ref="subsection-more-det-concepts-adjoint" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-adjoint" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-vs-invert" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-invert" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-vs-mult-invertible" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-invertible" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-vs-mult-singular" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-singular" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-vs-mult-all" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-all" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-inverse" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-inverse" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-cramers-rule" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-cramers-rule" /></em></li>
+	</ul></p></assemblage>
+
+	<p>
 	Recall that in <xref ref="section-det-concepts" /> we set a goal for ourselves:
 	given a square matrix <m>A</m>,
 	determine a matrix <m>A'</m> so that <m>A A'</m> is a scalar multiple of the identity (<xref ref="goal-det-concepts-matrix-times-adjoint" />).
 	The adjoint finally fulfills this goal.
-</p></introduction>
+	</p>
+
+</introduction>
 
 <subsection xml:id="subsection-more-det-concepts-adjoint">
 <title>The classical adjoint</title>
@@ -108,14 +112,14 @@ In particular, this gives us a formula for the inverse of any matrix that has no
 <me> \inv{A} = \frac{1}{\det A} \, \adj A </me>.
 </p>
 
-<remark><statement><p>
+<remark><p>
 	Just as cofactor expansions are an inefficient means to compute determinants,
 	calculating an inverse using the adjoint formula above is very inefficient,
 	since computing an adjoint for an <m>n\times n</m> matrix involves computing <m>n^2</m> determinants of <m>(n-1)\times(n-1)</m> matrices.
 	You are much better off computing an inverse by row reducing,
 	as in <xref ref="subsection-elem-matrices-concepts-invert-by-row-red" /> and <xref ref="subsection-elem-matrices-examples-inversion-procedure" />.
 	However, the above formula is useful for further developing the theory of solving systems by inverses, as we will soon see.
-</p></statement></remark>
+</p></remark>
 
 </subsection>
 
@@ -160,28 +164,28 @@ relying on our knowledge that a square matrix is invertible if and only if its R
 (<xref ref="theorem-elem-matrices-equiv-to-invertible" />)
 </p>
 
-<case><title>If <m>\det A = 0</m></title><p>
+<paragraphs><title>If <m>\det A = 0</m></title><p>
 	Since no elementary row operation can change a zero determinant to a nonzero one,
 	the RREF of <m>A</m> must also have determinant <m>0</m>.
 	But then the RREF of <m>A</m> cannot be <m>I</m>, since <m>\det I = 1</m>.
 	So <m>A</m> is not invertible.
-</p></case>
+</p></paragraphs>
 
-<case><title>If <m>A</m> is invertible</title><p>
+<paragraphs><title>If <m>A</m> is invertible</title><p>
 	Then <m>\det A</m> cannot be zero, since then <m>A</m> wouldn't be invertible, as we just argued in the previous point.
-</p></case>
+</p></paragraphs>
 
-<case><title>If <m>\det A</m> is nonzero</title><p>
+<paragraphs><title>If <m>\det A</m> is nonzero</title><p>
 	Since no elementary row operation can change a nonzero determinant to a zero determinant
 	(multiplying a row by <m>0</m> is not an elementary operation),
 	the RREF for <m>A</m> must also have nonzero determinant.
 	But then that RREF cannot have a row of zeros, because then its determinant would be <m>0</m>.
 	Since it is square, that RREF matrix must have all of its leading ones, making it the identity matrix, and so <m>A</m> is invertible.
-</p></case>
+</p></paragraphs>
 
-<case><title>If <m>A</m> is singular</title><p>
+<paragraphs><title>If <m>A</m> is singular</title><p>
 	Then <m>\det A</m> must be zero, since if it were nonzero then <m>A</m> would be invertible, as we just argued in the previous point.
-</p></case>
+</p></paragraphs>
 
 </subsection>
 

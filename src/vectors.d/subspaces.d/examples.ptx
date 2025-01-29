@@ -60,42 +60,47 @@ respective owners.
 	Note that any such vector must have a <m>0</m> as its <m>z</m>-component.
 	</p>
 
-	<p> Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />. </p>
+	<p>
+	Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />.
+	<ol marker="(i)">
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
-		<p>
-		We know that the <m>xy</m>-plane is nonempty;
-		in particular, it contains the zero vector since it contains the origin.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+			<p>
+			We know that the <m>xy</m>-plane is nonempty;
+			in particular, it contains the zero vector since it contains the origin.
+			</p>
+		</li>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
-		<p>
-		If vectors <m>\uvec{u}_1</m> and <m>\uvec{u}_2</m> are both in the <m>xy</m>-plane, then their <m>z</m>-components are both zero.
-		So we can write these vectors as
-		<md><mrow> \uvec{u}_1 \amp= (x_1,y_1,0), \amp \uvec{u}_2 \amp= (x_2,y_2,0) </mrow></md>.
-		Then,
-		<me> \uvec{u}_1 + \uvec{u}_2 = (x_1+x_2,y_1+y_2,0) </me>.
-		Since this sum vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+			<p>
+			If vectors <m>\uvec{u}_1</m> and <m>\uvec{u}_2</m> are both in the <m>xy</m>-plane, then their <m>z</m>-components are both zero.
+			So we can write these vectors as
+			<md><mrow> \uvec{u}_1 \amp= (x_1,y_1,0), \amp \uvec{u}_2 \amp= (x_2,y_2,0) </mrow></md>.
+			Then,
+			<me> \uvec{u}_1 + \uvec{u}_2 = (x_1+x_2,y_1+y_2,0) </me>.
+			Since this sum vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
+			</p>
+		</li>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
-		<p>
-		If vector <m>\uvec{u}</m> is in the <m>xy</m>-plane, then its <m>z</m>-component is zero,
-		so we can write it as <me> \uvec{u} = (x,y,0) </me>.
-		Then for every scalar <m>k</m>, we have <me> k\uvec{u} = (kx,ky,0) </me>.
-		Since this scaled vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
+			<p>
+			If vector <m>\uvec{u}</m> is in the <m>xy</m>-plane, then its <m>z</m>-component is zero,
+			so we can write it as <me> \uvec{u} = (x,y,0) </me>.
+			Then for every scalar <m>k</m>, we have <me> k\uvec{u} = (kx,ky,0) </me>.
+			Since this scaled vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
+			</p>
+		</li>
 
-	<case><title>Conclusion</title><p>
-		Since all parts of the <xref ref="procedure-subspaces-concepts-test" text="title" /> pass,
+	</ol>
+	</p>
+
+	<p><alert>Conclusion:</alert>
+		since all parts of the <xref ref="procedure-subspaces-concepts-test" text="title" /> pass,
 		the <m>xy</m>-plane is a subspace of <m>\R^3</m>.
-	</p></case>
+	</p>
 
 </example>
 
@@ -108,39 +113,44 @@ respective owners.
 	we considered the subcollection of <m>\matrixring_{12}(\R)</m> consisting of all those <m>12 \times 12</m> matrices that have a <m>7</m> in the <m>(1,1)</m> entry.
 	</p>
 
-	<p> Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />. </p>
+	<p>
+	Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />.
+	<ol marker="(i)">
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
 
-		<p>
-		This collection is clearly not empty,
-		since the <m>12 \times 12</m> matrix with <m>7</m> in <em>every</em> entry is in the collection.
-		</p>
+			<p>
+			This collection is clearly not empty,
+			since the <m>12 \times 12</m> matrix with <m>7</m> in <em>every</em> entry is in the collection.
+			</p>
 
-		<aside><title>Note</title><p>
-			The zero matrix is clearly <em>not</em> in the collection, so we could conclude right now that this subcollection is not a subspace.
-			But since the <xref ref="procedure-subspaces-concepts-test" text="title" /> itself has not yet failed,
-			we will continue.
-		</p></aside>
+			<aside><title>Note</title><p>
+				The zero matrix is clearly <em>not</em> in the collection, so we could conclude right now that this subcollection is not a subspace.
+				But since the <xref ref="procedure-subspaces-concepts-test" text="title" /> itself has not yet failed,
+				we will continue.
+			</p></aside>
 
-	</case>
+		</li>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
-		<p>
-		If matrices <m>A_1</m> and <m>A_2</m> are both in the subcollection, then they each have a <m>7</m> in the <m>(1,1)</m> entry.
-		But then <m>A_1+A_2</m> has <m>14</m> in the <m>(1,1)</m> entry, not <m>7</m>.
-		So the sum vector is <em>not</em> in the subcollection.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+			<p>
+			If matrices <m>A_1</m> and <m>A_2</m> are both in the subcollection, then they each have a <m>7</m> in the <m>(1,1)</m> entry.
+			But then <m>A_1+A_2</m> has <m>14</m> in the <m>(1,1)</m> entry, not <m>7</m>.
+			So the sum vector is <em>not</em> in the subcollection.
+			</p>
+		</li>
 
-	<case><title>Conclusion</title><p>
+	</ol>
+	</p>
+
+	<p><alert>Conclusion:</alert>
 		There is no need to check the third clause of the <xref ref="procedure-subspaces-concepts-test" text="title" />,
 		since the second has already failed to pass.
 		But it shouldn't be too difficult to see that scalar multiples of such a matrix will also fail to remain in the subcollection
 		(except when the scalar is <m>1</m>).
-	</p></case>
+	</p>
 
 </example>
 
@@ -154,64 +164,69 @@ respective owners.
 	we considered the subcollection of <m>\poly(\R)</m> consisting of those polynomials that have degree <m>2</m> or less.
 	</p>
 
-	<p> Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />. </p>
+	<p>
+	Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />.
+	<ol marker="(i)">
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
-		<p>
-		Clearly this subcollection is nonempty, as any constant polynomial has degree <m>0</m>,
-		which is less than <m>2</m>.
-		In particular, the zero polynomial <m>\zerovec(x)=0</m>
-		(which is the zero vector in this space) also has degree less than <m>2</m>.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+			<p>
+			Clearly this subcollection is nonempty, as any constant polynomial has degree <m>0</m>,
+			which is less than <m>2</m>.
+			In particular, the zero polynomial <m>\zerovec(x)=0</m>
+			(which is the zero vector in this space) also has degree less than <m>2</m>.
+			</p>
+		</li>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
 
-		<p>
-		Suppose <m>p_1</m> and <m>p_2</m> are two polynomials in this subcollection.
-		Then the degree of each of these polynomials is <m>2</m> or less, so we can write
-		<md><mrow>
-			p_1(x) \amp= a_1 x^2 + b_1 x + c_1, \amp
-			p_2(x) \amp= a_2 x^2 + b_2 x + c_2.
-		</mrow></md>
-		</p>
+			<p>
+			Suppose <m>p_1</m> and <m>p_2</m> are two polynomials in this subcollection.
+			Then the degree of each of these polynomials is <m>2</m> or less, so we can write
+			<md><mrow>
+				p_1(x) \amp= a_1 x^2 + b_1 x + c_1, \amp
+				p_2(x) \amp= a_2 x^2 + b_2 x + c_2.
+			</mrow></md>
+			</p>
 
-		<aside><title>Note</title><p>
-			Even though each expression has an <m>x^2</m> term,
-			the degree could still be less than <m>2</m> because the leading coefficient <m>a_i</m> could be zero.
-		</p></aside>
+			<aside><title>Note</title><p>
+				Even though each expression has an <m>x^2</m> term,
+				the degree could still be less than <m>2</m> because the leading coefficient <m>a_i</m> could be zero.
+			</p></aside>
 
-		<p>
-		Then,
-		<md>
-			<mrow> p_1(x) + p_2(x) \amp = (a_1 x^2 + b_1 x + c_1) + (a_2 x^2 + b_2 x + c_2) </mrow>
-			<mrow> \amp = (a_1 + a_2) x^2 + (b_1 + b_2) x + (c_1 + c_2) </mrow>
-		</md>.
-		Since this sum polynomial also has degree <m>2</m>
-		(or less, since <m>a_1</m> and <m>a_2</m> could cancel or could both be zero),
-		it is again in the subcollection, as required.
-		</p>
+			<p>
+			Then,
+			<md>
+				<mrow> p_1(x) + p_2(x) \amp = (a_1 x^2 + b_1 x + c_1) + (a_2 x^2 + b_2 x + c_2) </mrow>
+				<mrow> \amp = (a_1 + a_2) x^2 + (b_1 + b_2) x + (c_1 + c_2) </mrow>
+			</md>.
+			Since this sum polynomial also has degree <m>2</m>
+			(or less, since <m>a_1</m> and <m>a_2</m> could cancel or could both be zero),
+			it is again in the subcollection, as required.
+			</p>
 
-	</case>
+		</li>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
-		<p>
-		Suppose <m>p</m> is a polynomial in this subcollection.
-		Then the degree of this polynomial is <m>2</m> or less, so we can write <me> p(x) = a x^2 + b x + c </me>.
-		Then for every scalar <m>k</m>, we have <me> k p(x) = k a x^2 + k b x + k c </me>.
-		Since this scaled polynomial also has degree <m>2</m>
-		(or less, since either <m>k</m> or <m>a</m> could be zero),
-		it is again in the subcollection, as required.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
+			<p>
+			Suppose <m>p</m> is a polynomial in this subcollection.
+			Then the degree of this polynomial is <m>2</m> or less, so we can write <me> p(x) = a x^2 + b x + c </me>.
+			Then for every scalar <m>k</m>, we have <me> k p(x) = k a x^2 + k b x + k c </me>.
+			Since this scaled polynomial also has degree <m>2</m>
+			(or less, since either <m>k</m> or <m>a</m> could be zero),
+			it is again in the subcollection, as required.
+			</p>
+		</li>
 
-	<case><title>Conclusion</title><p>
+	</ol>
+	</p>
+
+	<p><alert>Conclusion</alert>
 		Since all parts of the <xref ref="procedure-subspaces-concepts-test" text="title" /> pass,
 		the collection of all polynomials of degree <m>2</m> or less is a subspace of <m>\poly(\R)</m>.
-	</p></case>
+	</p>
 
 </example>
 
@@ -257,62 +272,68 @@ respective owners.
 	Solutions to the homogeneous system <m>A\uvec{x} = \zerovec</m> can be considered as (column) vectors in <m>\R^n</m>,
 	so the solution set to this system is a subcollection of a vector space.
 	Is it a subspace?
-	Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />, similarly to
-	<xref ref="activity-subspaces-test-examples-solution-space">Discovery</xref>.
 	</p>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
-		<p>
-		Since a homogeneous system is always consistent, the solution set is nonempty.
-		In particular, the solution set contains the zero vector,
-		since this is the vector corresponding to the trivial solution.
-		</p>
-	</case>
+	<p>
+	Let's apply the <xref ref="procedure-subspaces-concepts-test" text="title" />, similarly to
+	<xref ref="activity-subspaces-test-examples-solution-space">Discovery</xref>.
+	<ol marker="(i)">
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
-		<p>
-		Suppose <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are two solutions to this system.
-		Then both
-		<md><mrow>
-			A\uvec{x}_1 \amp= \zerovec \amp
-			\amp\text{and} \amp
-			A\uvec{x}_2 \amp= \zerovec
-		</mrow></md>.
-		To check if the sum vector is also in the solution set,
-		we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-		<me>
-			A(\uvec{x}_1+\uvec{x}_2)
-			= A\uvec{x}_1 + A\uvec{x}_2
-			= \zerovec + \zerovec
-			= \zerovec
-		</me>.
-		So the sum vector is indeed in the solution set.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+			<p>
+			Since a homogeneous system is always consistent, the solution set is nonempty.
+			In particular, the solution set contains the zero vector,
+			since this is the vector corresponding to the trivial solution.
+			</p>
+		</li>
 
-	<case>
-		<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
-		<p>
-		Suppose <m>\uvec{x}_0</m> is a solution to this system.
-		Then <m>A\uvec{x}_0 = \zerovec</m>.
-		For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solution set,
-		we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-		<me>
-			A(k\uvec{x}_0)
-			= kA\uvec{x}_0
-			= k\zerovec
-			= \zerovec
-		</me>.
-		So the scaled vector is indeed in the solution set.
-		</p>
-	</case>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+			<p>
+			Suppose <m>\uvec{x}_1</m> and <m>\uvec{x}_2</m> are two solutions to this system.
+			Then both
+			<md><mrow>
+				A\uvec{x}_1 \amp= \zerovec \amp
+				\amp\text{and} \amp
+				A\uvec{x}_2 \amp= \zerovec
+			</mrow></md>.
+			To check if the sum vector is also in the solution set,
+			we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+			<me>
+				A(\uvec{x}_1+\uvec{x}_2)
+				= A\uvec{x}_1 + A\uvec{x}_2
+				= \zerovec + \zerovec
+				= \zerovec
+			</me>.
+			So the sum vector is indeed in the solution set.
+			</p>
+		</li>
 
-	<case><title>Conclusion</title><p>
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
+			<p>
+			Suppose <m>\uvec{x}_0</m> is a solution to this system.
+			Then <m>A\uvec{x}_0 = \zerovec</m>.
+			For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solution set,
+			we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
+			<me>
+				A(k\uvec{x}_0)
+				= kA\uvec{x}_0
+				= k\zerovec
+				= \zerovec
+			</me>.
+			So the scaled vector is indeed in the solution set.
+			</p>
+		</li>
+
+	</ol>
+	</p>
+
+	<p><alert>Conclusion</alert>
 		Since all parts of the <xref ref="procedure-subspaces-concepts-test" text="title" /> pass,
 		the solution set of the homogeneous system <m>A\uvec{x}=\zerovec</m> is a subspace of <m>\R^n</m>.
-	</p></case>
+	</p>
 
 </example>
 

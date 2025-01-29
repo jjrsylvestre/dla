@@ -65,48 +65,53 @@ respective owners.
 
 </activity>
 
+<p>
+<xref ref="activity-linear-indep-motivation" /> demonstrates a common pattern:
+when one of the vectors in a spanning set can be expressed as a linear combination of the others, that vector becomes <em>redundant</em>,
+and a smaller spanning set can be used in place of the original one.
+We'll give this situation a name:
+a set of vectors is called
+<term>linearly dependent</term><idx><h>linearly</h><h>dependent</h></idx>
+if (at least) one of the vectors in the set can be written as a linear combination of other vectors in the set;
+otherwise the set of vectors is called
+<term>linearly independent</term><idx><h>linearly</h><h>independent</h></idx>.
+However, it can be tedious to check each vector in a set one-by-one to see if it is a linear combination of others.
+Luckily, for a finite set of vectors, there is a way to check all of them all at once.
+</p>
+
+<paragraphs xml:id="paragraphs-linear-indep-discovery-test">
+	<title>Test for Linear Dependence/Independence</title>
+
+	<p>
+	To test whether vectors <me> \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m </me> are linearly dependent or independent,
+	set up the vector equation
+	<md><mrow tag="star" xml:id="equation-linear-indep-discovery-test">
+		k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec
+	</mrow></md>,
+	where the coefficients <m>k_1,k_2,\dotsc,k_m</m> are (scalar) variables.
+	</p>
+
+	<aside><title>Check your understanding</title><p>
+		Do you see why equation <xref ref="equation-linear-indep-discovery-test" /> always has <em>at least</em> the trivial solution?
+	</p></aside>
+
+	<p><ul>
+
+		<li>
+			If vector equation <xref ref="equation-linear-indep-discovery-test" /> has a nontrivial solution in the variables <m>k_1,k_2,\dotsc,k_m</m>,
+			then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are <term>linearly dependent</term>.
+		</li>
+
+		<li>
+			Otherwise, if vector equation <xref ref="equation-linear-indep-discovery-test" /> has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>,
+			then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are <term>linearly independent</term>.
+		</li>
+
+	</ul></p>
+
+</paragraphs>
+
 <activity xml:id="activity-linear-indep-test">
-
-	<prelude>
-
-		<p>
-		<xref ref="activity-linear-indep-motivation" /> demonstrates a common pattern:
-		when one of the vectors in a spanning set can be expressed as a linear combination of the others, that vector becomes <em>redundant</em>,
-		and a smaller spanning set can be used in place of the original one.
-		We'll give this situation a name:
-		a set of vectors is called
-		<term>linearly dependent</term><idx><h>linearly</h><h>dependent</h></idx>
-		if (at least) one of the vectors in the set can be written as a linear combination of other vectors in the set;
-		otherwise the set of vectors is called
-		<term>linearly independent</term><idx><h>linearly</h><h>independent</h></idx>.
-		However, it can be tedious to check each vector in a set one-by-one to see if it is a linear combination of others.
-		Luckily, for a finite set of vectors, there is a way to check all of them all at once.
-		</p>
-
-		<paragraphs><title>Test for Linear Dependence/Independence</title><p>
-			To test whether vectors <me> \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m </me> are linearly dependent or independent,
-			set up the vector equation
-			<md><mrow tag="star" xml:id="equation-linear-indep-discovery-test">
-				k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec
-			</mrow></md>,
-			where the coefficients <m>k_1,k_2,\dotsc,k_m</m> are (scalar) variables.
-			<ul>
-				<li>
-					If vector equation <xref ref="equation-linear-indep-discovery-test" /> has a nontrivial solution in the variables <m>k_1,k_2,\dotsc,k_m</m>,
-					then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are <term>linearly dependent</term>.
-				</li>
-				<li>
-					Otherwise, if vector equation <xref ref="equation-linear-indep-discovery-test" /> has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>,
-					then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are <term>linearly independent</term>.
-				</li>
-			</ul>
-		</p></paragraphs>
-
-		<aside><title>Check your understanding</title><p>
-			Do you see why equation <xref ref="equation-linear-indep-discovery-test" /> always has <em>at least</em> the trivial solution?
-		</p></aside>
-
-	</prelude>
 
 	<task xml:id="activity-linear-indep-test-R3">
 
@@ -137,7 +142,8 @@ respective owners.
 <activity xml:id="activity-linear-indep-understand-test">
 
 	<prelude><p>
-		The next discovery activity will help you understand the Test for Linear Independence/Dependence.
+		The next discovery activity will help you understand the
+		<xref ref="paragraphs-linear-indep-discovery-test" text="title" />.
 		To keep it simple, we'll consider just three vectors at a time.
 	</p></prelude>
 
@@ -189,7 +195,8 @@ respective owners.
 <activity xml:id="activity-linear-indep-using-indep-test">
 
 	<introduction><p>
-		In each of the following vector spaces, practise using the Test for Linear Dependence/Independence of the given set of vectors.
+		In each of the following vector spaces,
+		practise using the <xref ref="paragraphs-linear-indep-discovery-test" text="title" /> of the given set of vectors.
 	</p></introduction>
 
 	<task xml:id="activity-linear-indep-using-indep-test-M2-1"><p>
@@ -228,7 +235,7 @@ respective owners.
 
 	</task>
 
-	<task> <m>V = \poly(\R)</m>, <m>S = \{ 1, x, x^2, x^3 \}</m>. </task>
+	<task><p> <m>V = \poly(\R)</m>, <m>S = \{ 1, x, x^2, x^3 \}</m>. </p></task>
 
 </activity>
 

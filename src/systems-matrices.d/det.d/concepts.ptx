@@ -18,77 +18,78 @@ respective owners.
 
 <title>Concepts</title>
 
-<introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-det-concepts-det-defn" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-concepts-det-defn" /></em></li>
-<li><xref ref="subsection-det-concepts-1x1" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-concepts-1x1" /></em></li>
-<li><xref ref="subsection-det-concepts-2x2" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-concepts-2x2" /></em></li>
-<li><xref ref="subsection-det-concepts-nxn" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-concepts-nxn" /></em></li>
-<li><xref ref="subsection-det-concepts-special-forms" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-det-concepts-special-forms" /></em></li>
-</ul></p></assemblage></introduction>
-
 <introduction>
 
-<p>
-In <xref ref="activity-det-2by2-adj-motivate" />,
-we discovered that for every <m>2 \times 2</m> matrix <m>A</m> there is a related matrix <m>A'</m> so that the product <m>A A'</m> is a scalar multiple of the identity matrix.
-Call this scalar <m>\delta</m> for now.
-If <m>\delta \neq 0</m>,
-we can do some algebra to get
-<me> A A' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I </me>,
-which means that <m>A</m> must be invertible with
-<m>\inv{A} = \inv{\delta} A'</m>
-(<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
-</p>
+	<assemblage><title>In this section</title><p><ul>
+		<li><xref ref="subsection-det-concepts-det-defn" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-det-concepts-det-defn" /></em></li>
+		<li><xref ref="subsection-det-concepts-1x1" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-det-concepts-1x1" /></em></li>
+		<li><xref ref="subsection-det-concepts-2x2" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-det-concepts-2x2" /></em></li>
+		<li><xref ref="subsection-det-concepts-nxn" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-det-concepts-nxn" /></em></li>
+		<li><xref ref="subsection-det-concepts-special-forms" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-det-concepts-special-forms" /></em></li>
+		</ul></p>
+	</assemblage>
 
-<heuristic xml:id="goal-det-concepts-matrix-times-adjoint"><statement><p> <!-- heuristic has been hijacked to "Goal" -->
-	For a square matrix <m>A</m> of <em>any</em> size,
-	determine a scalar <m>\delta</m> and a matrix <m>A'</m> so that <m>A A' = \delta I</m>.
-</p></statement></heuristic>
+	<p>
+	In <xref ref="activity-det-2by2-adj-motivate" />,
+	we discovered that for every <m>2 \times 2</m> matrix <m>A</m> there is a related matrix <m>A'</m> so that the product <m>A A'</m> is a scalar multiple of the identity matrix.
+	Call this scalar <m>\delta</m> for now.
+	If <m>\delta \neq 0</m>,
+	we can do some algebra to get
+	<me> A A' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I </me>,
+	which means that <m>A</m> must be invertible with
+	<m>\inv{A} = \inv{\delta} A'</m>
+	(<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
+	</p>
 
-<p>
-Now,
-we could achieve this goal by <em>always</em> choosing <m>\delta = 0</m> and <m>A'=0</m>,
-but that won't help us replicate for larger matrices the patterns we discovered in the <m>2 \times 2</m> case.
-We will find that there is a very particular procedure to achieve this goal that works for every square matrix <em>and</em> recovers the <m>2 \times 2</m> case above,
-so we will tackle the goal in two parts:
-<ol>
-	<li> determine the scalar <m>\delta</m> for each square matrix <m>A</m>, and then </li>
-	<li> determine how to construct the matrix <m>A'</m> that goes along with it. </li>
-</ol>
-The process of producing the scalar <m>\delta</m> is then a <em>function</em> on square matrices.
-For a particular square matrix <m>A</m>,
-we will call the output <m>\delta</m> of this function the <term>determinant of <m>A</m></term>,
-and usually write <m>\det A</m> instead of <m>\delta</m>.
-</p>
+	<heuristic xml:id="goal-det-concepts-matrix-times-adjoint"><statement><p> <!-- heuristic has been hijacked to "Goal" -->
+		For a square matrix <m>A</m> of <em>any</em> size,
+		determine a scalar <m>\delta</m> and a matrix <m>A'</m> so that <m>A A' = \delta I</m>.
+	</p></statement></heuristic>
 
-<hypothesis><statement><p> <!-- hypothesis has been hijacked to "Idea" -->
-	If <m>A A' = (\det A) I</m>,
-	then in the case that <m>\det A\neq 0</m>,
-	from
-	<me> A \bbrac{\inv{(\det A)} A'} = I </me>
-	and
-	<xref ref="proposition-elem-matrices-check-only-right-inverse" />
-	we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)} A'</m>,
-	as in the <m>2 \times 2</m> case discussed above.
-	Also, we will learn in
-	<xref ref="chapter-more-det" />
-	that when <m>\det A = 0</m>,
-	then <m>A</m> <em>must</em> be singular.
-	So the value of the determinant of a matrix will <em>determine</em> whether or not it is invertible.
-</p></statement></hypothesis>
+	<p>
+	Now,
+	we could achieve this goal by <em>always</em> choosing <m>\delta = 0</m> and <m>A'=0</m>,
+	but that won't help us replicate for larger matrices the patterns we discovered in the <m>2 \times 2</m> case.
+	We will find that there is a very particular procedure to achieve this goal that works for every square matrix <em>and</em> recovers the <m>2 \times 2</m> case above,
+	so we will tackle the goal in two parts:
+	<ol>
+		<li> determine the scalar <m>\delta</m> for each square matrix <m>A</m>, and then </li>
+		<li> determine how to construct the matrix <m>A'</m> that goes along with it. </li>
+	</ol>
+	The process of producing the scalar <m>\delta</m> is then a <em>function</em> on square matrices.
+	For a particular square matrix <m>A</m>,
+	we will call the output <m>\delta</m> of this function the <term>determinant of <m>A</m></term>,
+	and usually write <m>\det A</m> instead of <m>\delta</m>.
+	</p>
 
-<p>
-For now,
-we will concentrate on the first step and learn how to compute determinants,
-as it turns out that the <q>companion</q> matrix <m>A'</m> will be constructed out of determinants of submatrices of <m>A</m>.
-We will discuss this special matrix and complete our goal in
-<xref ref="chapter-more-det" />.
-</p>
+	<hypothesis><statement><p> <!-- hypothesis has been hijacked to "Idea" -->
+		If <m>A A' = (\det A) I</m>,
+		then in the case that <m>\det A\neq 0</m>,
+		from
+		<me> A \bbrac{\inv{(\det A)} A'} = I </me>
+		and
+		<xref ref="proposition-elem-matrices-check-only-right-inverse" />
+		we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)} A'</m>,
+		as in the <m>2 \times 2</m> case discussed above.
+		Also, we will learn in
+		<xref ref="chapter-more-det" />
+		that when <m>\det A = 0</m>,
+		then <m>A</m> <em>must</em> be singular.
+		So the value of the determinant of a matrix will <em>determine</em> whether or not it is invertible.
+	</p></statement></hypothesis>
+
+	<p>
+	For now,
+	we will concentrate on the first step and learn how to compute determinants,
+	as it turns out that the <q>companion</q> matrix <m>A'</m> will be constructed out of determinants of submatrices of <m>A</m>.
+	We will discuss this special matrix and complete our goal in
+	<xref ref="chapter-more-det" />.
+	</p>
 
 </introduction>
 
@@ -188,15 +189,17 @@ as illustrated in <xref ref="figure-det-concepts-2x2-det-pattern" /> for general
 
 <figure xml:id="figure-det-concepts-2x2-det-pattern">
 	<caption> Determinant calculation pattern for <m>2 \times 2</m> matrices. </caption>
-	<image label="image-det-concepts-2x2-det-pattern" component="html" width="32%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>Determinant calculation pattern for <m>2 \times 2</m> matrices</description>
-		<latex-image><xi:include href="concepts.d/2x2-det-pattern.tex" parse="text" /></latex-image>
+	<image component="html" width="32%">
+		<description><p> Determinant calculation pattern for <m>2 \times 2</m> matrices. </p></description>
+		<latex-image label="image-det-concepts-2x2-det-pattern">
+			<xi:include href="concepts.d/2x2-det-pattern.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="33%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>Determinant calculation pattern for <m>2 \times 2</m> matrices</description>
-		<latex-image><xi:include href="concepts.d/2x2-det-pattern.tex" parse="text" /></latex-image>
+		<description><p> Determinant calculation pattern for <m>2 \times 2</m> matrices. </p></description>
+		<latex-image label="image-det-concepts-2x2-det-pattern">
+			<xi:include href="concepts.d/2x2-det-pattern.tex" parse="text" />
+		</latex-image>
 	</image>
 </figure>
 

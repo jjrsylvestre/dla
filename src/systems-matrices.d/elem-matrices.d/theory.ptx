@@ -18,22 +18,25 @@ respective owners.
 
 <title>Theory</title>
 
-<introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-elem-matrices-theory-elem-inverses" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-elem-matrices-theory-elem-inverses" /></em></li>
-<li><xref ref="subsection-elem-matrices-theory-inverses" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-elem-matrices-theory-inverses" /></em></li>
-<li><xref ref="subsection-elem-matrices-theory-more-inverses-props" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-elem-matrices-theory-more-inverses-props" /></em></li>
-<li><xref ref="subsection-elem-matrices-theory-sys-solution-sets" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-elem-matrices-theory-sys-solution-sets" /></em></li>
-</ul></p></assemblage></introduction>
+<introduction>
 
+	<assemblage><title>In this section</title><p><ul>
+		<li><xref ref="subsection-elem-matrices-theory-elem-inverses" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-elem-matrices-theory-elem-inverses" /></em></li>
+		<li><xref ref="subsection-elem-matrices-theory-inverses" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-elem-matrices-theory-inverses" /></em></li>
+		<li><xref ref="subsection-elem-matrices-theory-more-inverses-props" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-elem-matrices-theory-more-inverses-props" /></em></li>
+		<li><xref ref="subsection-elem-matrices-theory-sys-solution-sets" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-elem-matrices-theory-sys-solution-sets" /></em></li>
+	</ul></p></assemblage>
 
-<introduction><p>
+	<p>
 	As mentioned,
 	elementary matrices are precisely the connection we need between systems of equations and row operations on one hand and matrix multiplication and inverses on the other.
-</p></introduction>
+	</p>
+
+</introduction>
 
 <subsection xml:id="subsection-elem-matrices-theory-elem-inverses">
 <title>Inverses of elementary matrices</title>
@@ -303,7 +306,7 @@ Let's first record an important property of elementary matrices we encountered i
 			</p>
 		</case>
 
-		<paragraphs><title>Conclusion</title><p>
+		<case><title>Conclusion</title><p>
 			We now have a circle of logical deductions.
 			Starting with the knowledge that any one of the seven statements is true for a particular matrix <m>A</m>,
 			we can deduce from the logic above that the next statement is true for <m>A</m>,
@@ -316,13 +319,14 @@ Let's first record an important property of elementary matrices we encountered i
 			and so on,
 			until we are sure that <em>all</em> statements are true for <m>A</m>.
 			Therefore, the seven statements are equivalent.
-		</p></paragraphs>
+		</p></case>
 
 	</proof>
 
 </theorem>
 
 <remark><p><ul>
+
 	<li>
 		In this theorem,
 		the claim that these seven statements are equivalent for a particular matrix <m>A</m> means that if we know that any <em>one</em> of the statements is true for <m>A</m>,
@@ -339,6 +343,7 @@ Let's first record an important property of elementary matrices we encountered i
 		including the original statement that we already knew was false.
 		And a statement cannot be both true and false for a particular matrix <m>A</m>.
 	</li>
+
 	<li>
 		It may seem unneccessary or even redundant to have <em>all three</em> of
 		<xref
@@ -376,6 +381,7 @@ Let's first record an important property of elementary matrices we encountered i
 		tells you that once you know <em>one</em> example of a system with that particular coefficient matrix that has only one unique solution,
 		then you can conclude without checking that <em>every</em> system with that coefficient matrix has only one unique solution.
 	</li>
+
 	<li>
 		In the proof of
 		<xref ref="theorem-elem-matrices-equiv-to-invertible" />,
@@ -398,6 +404,7 @@ Let's first record an important property of elementary matrices we encountered i
 		as it will allow us to obtain further general properties of inverses.
 		In particular, these statements will figure into the proofs of the propositions in the next subsection.
 	</li>
+
 </ul></p></remark>
 
 </subsection>
@@ -420,6 +427,7 @@ we can expand our knowledge about inverses in general.
 	</p></statement>
 
 	<proof>
+
 		<p>
 		We are assuming that we have square matrices <m>A</m> and <m>B</m> so that <m>B A = I</m>.
 		We would first like to check that <m>A</m> is invertible.
@@ -462,7 +470,9 @@ we can expand our knowledge about inverses in general.
 		must have <em>only</em> the trivial solution,
 		and hence <m>A</m> is invertible
 		(<xref ref="theorem-elem-matrices-equiv-to-invertible" />).
-		</p><p>
+		</p>
+
+		<p>
 		Now that we know that <m>A</m> is invertible,
 		we can use its inverse to manipulate the equality <m> B A = I</m>:
 		<md>
@@ -475,6 +485,7 @@ we can expand our knowledge about inverses in general.
 		So, we have that <m>A</m> is invertible and <m>\inv{A} = B</m>,
 		as desired.
 		</p>
+
 	</proof>
 
 </proposition>
@@ -544,11 +555,13 @@ and a power of a matrix can <em>only</em> be invertible if the base matrix is in
 	<title> Invertible products have invertible factors </title>
 
 	<statement><p><ol>
+
 		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-product">
 			If the product <m>MN</m> is invertible,
 			where <m>M</m> and <m>N</m> are square matrices of the same size,
 			then both <m>M</m> and <m>N</m> must be invertible.
 		</li>
+
 		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-extended-product">
 			If the product
 			<me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me>
@@ -560,11 +573,13 @@ and a power of a matrix can <em>only</em> be invertible if the base matrix is in
 			<m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m>
 			must be invertible.
 		</li>
+
 		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-power">
 			If power <m>M^\ell</m> is invertible,
 			where <m>M</m> is a square matrix and <m>\ell</m> is positive integer,
 			then <m>M</m> must be invertible.
 		</li>
+
 	</ol></p></statement>
 
 	<proof>
@@ -629,11 +644,13 @@ related but <em>not</em> equivalent to the statements in
 	<title> Product of singular is singular </title>
 
 	<statement><p><ol>
+
 		<li	xml:id="proposition-elem-matrices-converse-props-of-singular-product">
 			If one or both of <m>M</m> or <m>N</m> are singular,
 			where <m>M</m> and <m>N</m> are square matrices of the same size,
 			then the product <m>MN</m> will also be singular.
 		</li>
+
 		<li	xml:id="proposition-elem-matrices-converse-props-of-singular-extended-product">
 			If one or more of the matrices
 			<m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m>
@@ -645,12 +662,14 @@ related but <em>not</em> equivalent to the statements in
 			<me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me>
 			will also be singular.
 		</li>
+
 		<li	xml:id="proposition-elem-matrices-converse-props-of-singular-power">
 			If <m>M</m> is a singular square matrix,
 			then every power
 			<m>M^\ell</m> (<m>\ell\ge 1</m>)
 			will also be singular.
 		</li>
+
 	</ol></p></statement>
 
 	<proof>
@@ -720,14 +739,6 @@ more precise.
 		and is singular if <m>a d - b c = 0</m>.
 	</p></statement>
 
-	<aside><title>A look ahead</title><p>
-		We will encounter a version of
-		<xref ref="proposition-elem-matrices-2x2-det-invertible" />
-		that is valid for <m>every</m> size of square matrix in
-		<xref ref="chapter-more-det" />
-		(see <xref ref="theorem-more-det-equiv-to-invertible" />).
-	</p></aside>
-
 	<proof><title>Proof outline</title>
 		<p>
 		We explored this in
@@ -754,6 +765,14 @@ more precise.
 	</p></proof>
 
 </proposition>
+
+<aside><title>A look ahead</title><p>
+	We will encounter a version of
+	<xref ref="proposition-elem-matrices-2x2-det-invertible" />
+	that is valid for <m>every</m> size of square matrix in
+	<xref ref="chapter-more-det" />
+	(see <xref ref="theorem-more-det-equiv-to-invertible" />).
+</p></aside>
 
 </subsection>
 
@@ -813,7 +832,7 @@ We repeat the theorem here, and include a proof.
 
 		<p> We are now in a position to verify that a solution to one system is also a solution to the other system. </p>
 
-		<paragraphs>
+		<case>
 			<title>
 				A solution to system
 				<m> A_1\uvec{x} = \uvec{b}_1 </m>
@@ -835,9 +854,9 @@ We repeat the theorem here, and include a proof.
 			is also a solution to system
 			<m>A_2\uvec{x} = \uvec{b}_2</m>.
 			</p>
-		</paragraphs>
+		</case>
 
-		<paragraphs>
+		<case>
 			<title>
 				A solution to system
 				<m>A_2\uvec{x} = \uvec{b}_2</m>
@@ -859,15 +878,12 @@ We repeat the theorem here, and include a proof.
 			is also a solution to system
 			<m>A_1\uvec{x} = \uvec{b}_1</m>.
 			</p>
-		</paragraphs>
+		</case>
 
-		<paragraphs>
-			<title> Conclusion </title>
-			<p>
+		<case><title> Conclusion </title><p>
 			Since we have now shown that every solution of one system is a solution to the other system,
 			both systems must have exactly the same solution set.
-			</p>
-		</paragraphs>
+		</p></case>
 
 	</proof>
 

@@ -40,8 +40,7 @@ respective owners.
 	without having to calculate out the matrix multiplication of <m> \utrans{\uvec{x}} A \uvec{x} </m>.
 </p></example>
 
-<example><title>Determining the symmetric matrix associated to a quadratic form</title>
-	<p>
+<example><title>Determining the symmetric matrix associated to a quadratic form</title><p>
 	The quadratic form
 	<me> q(x_1,x_2,x_3) = 5 x_1^2 + 3 x_1 x_2 - 4 x_1 x_3 + 9 x_2^2 + 6 x_2 x_3 - 11 x_3^2 </me>
 	can be represented by matrix multiplication
@@ -52,15 +51,16 @@ respective owners.
 	each diagonal entry should be the coefficient on the corresponding squared term in the quadratic polynomial,
 	and each off-diagonal entry should be <em>one-half</em> of the coefficient of the corresponding cross term in the quadratic polynomial:
 	<me> A = \begin{abmatrix}{rrr} 5 \amp \frac{3}{2} \amp -2 \\ \frac{3}{2} \amp 9 \amp 3 \\ -2 \amp 3 \amp -11 \end{abmatrix} </me>.
-	</p>
-</example>
+</p></example>
 
 </subsection>
 
 <subsection xml:id="subsection-quadratic-forms-examples-level-sets-R2">
 <title>Level curves of two-variable quadratic forms</title>
 
-<example><title>An ellipse in the <m>xy</m>-plane</title>
+<example>
+	<title>An ellipse in the <m>xy</m>-plane</title>
+
 	<p>
 	Let's work through the example of
 	<xref ref="activity-quadratic-forms-rotate" />.
@@ -139,14 +139,17 @@ respective owners.
 	<me> 8 w^2 + 18 z^2 = 72 </me>
 	is an ellipse with <m>w</m>-intercepts at <m>w = \pm 3</m> and <m>z</m>-intercepts at <m>z = \pm 2</m>.
 	</p>
-	<image width="50%" label="image-quadratic-forms-examples-wz-ellipse">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
+
+	<image width="50%">
+		<description><p>
 			Ellipse representing level set of a diagonalized quadratic form,
 			plotted on a set of principal axes
-		</description>
-		<latex-image><xi:include href="examples.d/wz-ellipse.tex" parse="text" /></latex-image>
+		</p></description>
+		<latex-image label="image-quadratic-forms-examples-wz-ellipse">
+			<xi:include href="examples.d/wz-ellipse.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Just as the orthonormal basis formed by the standard vectors
 	<m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>
@@ -154,14 +157,17 @@ respective owners.
 	the orthonormal basis formed by the columns of <m>P</m> represent the <m>w</m>- and <m>z</m>-axes,
 	and give us a way to plot the ellipse <m>q_A(\uvec{x}) = 72</m> on the <m>xy</m>-axes.
 	</p>
-	<image width="33%" label="image-quadratic-forms-examples-xy-ellipse">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
+
+	<image width="33%">
+		<description><p>
 			Ellipse representing level set of a diagonalized quadratic form,
 			plotted on standard axes but relative to a set of principal axes
-		</description>
-		<latex-image><xi:include href="examples.d/xy-ellipse.tex" parse="text" /></latex-image>
+		</p></description>
+		<latex-image label="image-quadratic-forms-examples-xy-ellipse">
+			<xi:include href="examples.d/xy-ellipse.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Relative to how it appears on the <m>wz</m>-axes,
 	the ellipse has clearly been rotated by <m>\pi/4</m> counter-clockwise.
@@ -177,7 +183,9 @@ respective owners.
 		\end{abmatrix}
 	</me>.
 	Also notice how the fact that the columns of <m>P</m> are ortho<em>normal</em> allow use to use multiples of those vectors to determine distances and positions along each of the <m>w</m>- and <m>z</m>-axes.
-	</p><p>
+	</p>
+
+	<p>
 	As our change of variables was
 	<md><mrow>
 		\uvec{x} \amp = P \uvec{w} \text{,} \amp
@@ -185,17 +193,21 @@ respective owners.
 	</mrow></md>,
 	points in <m>wz</m>-coordinates must be rotated by <m>\pi/4</m> to be converted into <m>xy</m>-coordinates.
 	</p>
-	<image width="70%" label="image-quadratic-forms-examples-ellipse">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			Transition matrix <m>P</m> as a rotation between
-			<m>wz</m>-coordinates and <m>xy</m>-coordinates
-	  </description>
-	  <latex-image><xi:include href="examples.d/ellipse.tex" parse="text" /></latex-image>
+
+	<image width="70%">
+		<description><p>
+			Transition matrix <m>P</m> as a rotation between <m>wz</m>-coordinates and <m>xy</m>-coordinates.
+		</p></description>
+		<latex-image label="image-quadratic-forms-examples-ellipse">
+			<xi:include href="examples.d/ellipse.tex" parse="text" />
+		</latex-image>
 	</image>
+
 </example>
 
-<example><title>A hyperbola in the <m>xy</m>-plane</title>
+<example>
+	<title>A hyperbola in the <m>xy</m>-plane</title>
+
 	<p>
 	Consider the quadratic form
 	<me> q(x,y) = 3 x^2 + 26 \sqrt{3} x y - 23 y^2 </me>.
@@ -215,14 +227,17 @@ respective owners.
 	<me> 16 w^2 - 36 z^2 = 4 </me>
 	has <m>w</m>-intercepts <m>w = \pm \frac{1}{2}</m> and asymptotes <m>z = \pm \frac{2}{3} w</m>.
 	</p>
-	<image width="40%" label="image-quadratic-forms-examples-wz-hyperbola">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
+
+	<image width="40%">
+		<description><p>
 			Hyperbola representing level set of a diagonalized quadratic form,
 			plotted on a set of principal axes
-	  </description>
-	  <latex-image><xi:include href="examples.d/wz-hyperbola.tex" parse="text" /></latex-image>
+		</p></description>
+		<latex-image label="image-quadratic-forms-examples-wz-hyperbola">
+			<xi:include href="examples.d/wz-hyperbola.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	But to determine how to plot this hyperbola on a set of <m>xy</m>-axes,
 	we need the transition matrix,
@@ -278,14 +293,17 @@ respective owners.
 	</me>,
 	which represents a rotation followed by a reflection.
 	</p>
-	<image width="45%" label="image-quadratic-forms-examples-xy-hyperbola">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
+
+	<image width="45%">
+		<description><p>
 			Hyperbola representing level set of a diagonalized quadratic form,
 			plotted on standard axes but relative to a set of principal axes
-	  </description>
-	  <latex-image><xi:include href="examples.d/xy-hyperbola.tex" parse="text" /></latex-image>
+		</p></description>
+		<latex-image label="image-quadratic-forms-examples-xy-hyperbola">
+			<xi:include href="examples.d/xy-hyperbola.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Notice how the <m>wz</m>-axes are rotated <m>\pi/6</m> counter-clockwise,
 	but then the <m>z</m>-axis has been reflected to the other side of the <m>w</m>-axis.
@@ -295,6 +313,7 @@ respective owners.
 	instead
 	(see <xref ref="theorem-quadratic-forms-2D-principal-axes" />).
 	</p>
+
 </example>
 
 <remark xml:id="remark-quadratic-forms-examples-2x2-choosing-second-evector"><p>

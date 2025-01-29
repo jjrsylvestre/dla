@@ -567,13 +567,13 @@ and then continued in
 		by the transitivity of logical equivalence.
 		</p>
 
-		<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-null-trivial">Statement</xref></title><p>
+		<case><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-null-trivial">Statement</xref></title><p>
 			This is just restatement of
 			<xref ref="theorem-col-row-null-space-equiv-to-invertible-homog-sys">Statement</xref>
 			using the concept of <term>null space</term>.
-		</p></paragraphs>
+		</p></case>
 
-		<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">Statement</xref></title><p>
+		<case><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">Statement</xref></title><p>
 		From our reinterpretation of
 		<xref ref="proposition-linear-indep-test" />,
 		stated in
@@ -581,17 +581,17 @@ and then continued in
 		we know that <em>all</em> of the columns of <m>A</m> will be linearly independent if and only if every column of <m>\RREF(A)</m> has a leading one.
 		Therefore, this statement is equivalent to
 		<xref ref="theorem-col-row-null-space-equiv-to-invertible-rank">Statement</xref>.
-		</p></paragraphs>
+		</p></case>
 
-		<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref></title><p>
+		<case><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref></title><p>
 		This statement is equivalent to
 		<xref ref="theorem-col-row-null-space-equiv-to-invertible-col-lin-indep">Statement</xref>,
 		since
 		<xref ref="proposition-dimension-right-num-indep-iff-spanning" />
 		tells us that we need exactly <m>n</m> linearly independent vectors to form a basis for <m>\R^n</m>.
-		</p></paragraphs>
+		</p></case>
 
-		<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">Statement</xref></title><p>
+		<case><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">Statement</xref></title><p>
 		From the row space version of
 		the <xref ref="proposition-linear-indep-test" text="title"/>
 		stated in
@@ -599,15 +599,15 @@ and then continued in
 		we know that <em>all</em> of the rows of <m>A</m> will be linearly independent if and only if every row of <m>\RREF(A)</m> is nonzero.
 		Therefore, this statement is also equivalent to
 		<xref ref="theorem-col-row-null-space-equiv-to-invertible-rank">Statement</xref>.
-		</p></paragraphs>
+		</p></case>
 
-		<paragraphs><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-basis">Statement</xref></title><p>
+		<case><title><xref ref="theorem-col-row-null-space-equiv-to-invertible-row-basis">Statement</xref></title><p>
 		This statement is equivalent to
 		<xref ref="theorem-col-row-null-space-equiv-to-invertible-row-lin-indep">Statement</xref>,
 		again since
 		<xref ref="proposition-dimension-right-num-indep-iff-spanning" />
 		tells us that we need exactly <m>n</m> linearly independent vectors to form a basis for <m>\R^n</m>.
-		</p></paragraphs>
+		</p></case>
 
 	</proof>
 
@@ -624,18 +624,23 @@ which is just a reframing of
 
 	<title>Rank-Nullity Theorem</title>
 
-	<statement><p>
-	If <m>A</m> is an <m>m \times n</m> matrix, then
-	<me> n = \rank(A) + \nullity(A). </me>
-	That is,
-	<me> \dim\R^n = \dim(\text{column space of } A) + \dim(\text{null space of } A). </me>
-	</p></statement>
-	<aside><title>Note</title><p>
-		The two spaces referenced in this theorem are connected through the matrix <m>A</m>,
-		but may be subspaces of <em>different</em> vector spaces <mdash />
-		the column space of <m>A</m> is a subspace of <m>\R^m</m>,
-		while the null space is a subspace of <m>\R^n</m>.
-	</p></aside>
+	<statement>
+
+		<aside><title>Note</title><p>
+			The two spaces referenced in this theorem are connected through the matrix <m>A</m>,
+			but may be subspaces of <em>different</em> vector spaces <mdash />
+			the column space of <m>A</m> is a subspace of <m>\R^m</m>,
+			while the null space is a subspace of <m>\R^n</m>.
+		</p></aside>
+
+		<p>
+		If <m>A</m> is an <m>m \times n</m> matrix, then
+		<me> n = \rank(A) + \nullity(A). </me>
+		That is,
+		<me> \dim\R^n = \dim(\text{column space of } A) + \dim(\text{null space of } A). </me>
+		</p>
+
+	</statement>
 
 	<proof><p>
 		The dimension of the column space of <m>A</m> is equal to the number of leading ones in its RREF,

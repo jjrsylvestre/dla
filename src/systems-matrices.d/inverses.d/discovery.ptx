@@ -19,6 +19,7 @@ respective owners.
 <title>Discovery guide</title>
 
 <activity xml:id="activity-inverses-identity-matrix">
+
 	<introduction><p>
 		The number one is important in algebra,
 		it lets us do things like
@@ -30,6 +31,7 @@ respective owners.
 		</md>
 		The critical step for us right now is the last simplification of the left-hand side: <me> 1 a = a </me>.
 	</p></introduction>
+
 	<task xml:id="activity-inverses-identity-matrix-2x2-guess"><p>
 		What matrix do you think will act similarly in matrix algebra for <m>2\times 2</m> matrices to how the number <m>1</m> acts in number algebra?
 		To answer this, try to fill in the first matrix below so that the matrix equality is always true,
@@ -41,33 +43,41 @@ respective owners.
 			\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 		</me>
 	</p></task>
+
 	<task>
+
 		<introduction><p>
 			Write <m>I</m> for your <m>2\times 2</m> matrix from
 			<xref ref="activity-inverses-identity-matrix-2x2-guess" text="type-local" />
 			(for the <alert>I</alert> in <term>Identity matrix</term>).
 		</p></introduction>
+
 		<task><p>
 			Does <m>IA=A</m> work for every <m>2 \times 2</m> matrix <m>A</m>?
 			For every  <m>2 \times 3</m> matrix <m>A</m>?
 			For every <m>2\times\ell</m> matrix <m>A</m>,
 			no matter the number <m>\ell</m> of columns?
 		</p></task>
+
 		<task><p>
 			Does <m>BI = B</m> also work for every <m>2\times 2</m> matrix <m>B</m>?
 			For every <m>\ell\times 2</m> matrix <m>B</m>?
 		</p></task>
+
 	</task>
+
 	<task><p>
 		<em>Extend:</em>
 		What is the <m>3\times 3</m> version of <m>I</m>?
 		The <m>4\times 4</m> version?
 		The <m>n\times n</m> version?
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-inverses-intro-to-inverse">
-	<introduction><p>
+
+	<prelude><p>
 		In the preamble to
 		<xref ref="activity-inverses-identity-matrix" />,
 		there were two ingredients necessary to make the algebra work:
@@ -80,7 +90,8 @@ respective owners.
 		</ul>
 		Multiplicative inverses are very useful in algebra,
 		so we would also like to have them in matrix algebra.
-	</p></introduction>
+	</p></prelude>
+
 	<task>
 		<p>
 		Consider <me> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 2 \end{abmatrix} </me>.
@@ -97,13 +108,16 @@ respective owners.
 			<m>a,b,c,d</m>.
 		</p></aside>
 	</task>
+
 	<task xml:id="activity-inverses-intro-to-inverse-singular"><p>
 		Consider <me> A = \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}. </me>
 		Can you determine
 		<me> B = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
 		so that <m>BA = I</m>?
 	</p></task>
+
 	<postlude>
+
 		<p>
 		<xref ref="activity-inverses-intro-to-inverse" />
 		demonstrates that some square matrices have multiplicative inverses
@@ -116,18 +130,20 @@ respective owners.
 		This inverse is <em>defined</em> by its relationship to <m>A</m> and <m>I</m>:
 		<m>\inv{A}</m> is the square matrix of the same size as <m>A</m> so that both <m>A\inv{A} = I</m> and <m>\inv{A}A = I</m> are true.
 		</p>
+
 		<aside><title>Check your understanding</title><p>
 			Do you understand why we must assert that <em>both</em> <m>A\inv{A} = I</m> and <m>\inv{A}A = I</m> are true in defining the inverse <m>\inv{A}</m>?
 			Maybe look back at
 			<xref ref="activity-matrix-ops-matrix-mult-order-matters" />.
 		</p></aside>
+
 	</postlude>
 
 </activity>
 
 <activity xml:id="activity-inverses-props-of-inverses">
-	<introduction>
-		<p>
+
+	<introduction><p>
 		In the following,
 		assume <m>A,B,C</m> are square <em>invertible</em> matrices,
 		all of the same dimension,
@@ -143,18 +159,20 @@ respective owners.
 		<md><mrow xml:id="equation-inverses-pattern-of-inverses" tag="star">
 			M \boxed{\phantom{X}} \amp = I \amp \boxed{\phantom{X}} M \amp = I
 		</mrow></md>
-		</p>
-	</introduction>
+	</p></introduction>
+
 	<task xml:id="activity-inverses-props-of-inverses-inverse-of-inverse"><p>
 		What do you think is the inverse of <m>\inv{A}</m>?
 		In other words, if you use <m>M = \inv{A}</m> in <xref ref="equation-inverses-pattern-of-inverses" />,
 		what single choice of matrix can be used to fill in both boxes?
 	</p></task>
+
 	<task><p>
 		Determine a formula for the inverse of <m>kA</m> in terms of <m>k</m> and <m>\inv{A}</m>.
 		In other words, if you use <m>M = kA</m> in <xref ref="equation-inverses-pattern-of-inverses" />,
 		what formula involving <m>k</m> and <m>\inv{A}</m> can be used to fill in both boxes?
 	</p></task>
+
 	<task><p>
 		Explain why the formula for the inverse of the product <m>AB</m> is <em>not</em> <m>\inv{A}\inv{B}</m>.
 		Then determine a correct formula in terms of <m>\inv{A}</m> and <m>\inv{B}</m>.
@@ -162,11 +180,13 @@ respective owners.
 		use <m>M = AB</m> in <xref ref="equation-inverses-pattern-of-inverses" />,
 		and then try to figure out what single formula you can enter into both boxes so that both left-hand sides reduce to <m>I</m>.)
 	</p></task>
+
 	<task><p>
 		<em>Extend:</em>
 		Determine a formula for the inverse of the product <m>ABC</m> in terms of the inverses
 		<m>\inv{A}</m>, <m>\inv{B}</m>, and <m>\inv{C}</m>.
 	</p></task>
+
 	<task xml:id="activity-inverses-props-of-inverses-inverse-powers"><p>
 		What do you think <m>A^{-2}</m> means?
 		There are two possibilities because the notation implies the application of two different processes:
@@ -179,10 +199,13 @@ respective owners.
 			\inv{A} \amp = \begin{abmatrix}{rr} 2 \amp 1 \\ -1 \amp 0 \end{abmatrix}
 		</mrow></md>
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-inverses-cancellation">
+
 	<task>
+
 		<statement><p>
 			In algebra,
 			when <m>AB=AC</m> we would usually conclude that <m>B=C</m>.
@@ -194,25 +217,29 @@ respective owners.
 			</mrow></md>
 			What is it about matrix <m>A</m> that is making the usual algebra of <q>cancellation</q> fail?
 		</p></statement>
+
 		<hint><p>
 			Think about the <q>hidden</q> algebra behind the cancellation
 			<m>ab=ac\Longrightarrow b=c</m>
 			for numbers.
 		</p></hint>
+
 	</task>
+
 	<task><p>
 		In what circumstance is the algebra
 		<m>AB=AC \implies B=C</m>
 		valid?
 		What explicit algebra steps go into this deduction?
 	</p></task>
+
 	<task xml:id="activity-inverses-cancellation-two-sides"><p>
 		Is the algebra <m>AB=CA \implies B=C</m> ever valid?
 	</p></task>
+
 </activity>
 
-<activity xml:id="activity-inverses-solve-by-inverse">
-	<p>
+<activity xml:id="activity-inverses-solve-by-inverse"><p>
 	If we have a linear system
 	<m>A\uvec{x}=\uvec{b}</m>
 	with a square and invertible coefficient matrix <m>A</m>,
@@ -241,10 +268,10 @@ respective owners.
 	<me> \uvec{b} = \begin{abmatrix}{r} -1 \\ 1 \\ 3 \end{abmatrix}. </me>
 	Now use the same method to solve the system <m>A\uvec{x} = \uvec{b}</m> for
 	<me> \uvec{b} = \begin{abmatrix}{r} -2 \\ 0 \\ 2 \end{abmatrix}. </me>
-	</p>
-</activity>
+</p></activity>
 
 <activity xml:id="activity-inverses-unique-sol-when-invertible-coeff-matrix">
+
 	<statement><p>
 		In general,
 		for system <m>A\uvec{x} = \uvec{b}</m>
@@ -252,12 +279,14 @@ respective owners.
 		how many solutions does the system have?
 		Justify your answer.
 	</p></statement>
+
 	<hint><p>
 		How many solutions did each of the systems in
 		<xref ref="activity-inverses-solve-by-inverse" />
 		have?
 		Why?
 	</p></hint>
+
 </activity>
 
 </worksheet>

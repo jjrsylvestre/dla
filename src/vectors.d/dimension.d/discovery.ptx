@@ -79,41 +79,40 @@ respective owners.
 
 </activity>
 
-<activity xml:id="activity-dimension-basis-via-parameters">
+<p>
+One way to obtain a basis for a space
+(and hence to determine its dimension)
+is to <em>assign parameters</em> <mdash />
+then each <em>independent</em> parameter corresponds to a basis vector.
+</p><p>
+For example,
+in <m>\R^2</m> we have natural parameters associated to the <m>x</m>- and <m>y</m>-coordinates:
+<m>\uvec{x} = (x,y)</m>.
+Expanding this into a linear combination,
+we get <m>\uvec{x} = x(1,0) + y(0,1)</m>.
+Parameter <m>x</m> corresponds to vector <m>(1,0)</m> and parameter <m>y</m> corresponds to vector <m>(0,1)</m>,
+and together the two corresponding vectors form a basis <m>\{(1,0),(0,1)\}</m> for <m>\R^2</m>.
+(In fact, the <term>standard basis</term> for <m>\R^2</m>!).
+Since there were <em>two</em> independent parameters required to described an arbitrary vector in the space,
+this led to <em>two</em> basis vectors,
+and so the dimension of <m>\R^2</m> is (surprise!) <m>2</m>.
+</p>
 
-	<prelude>
-		<p>
-		One way to obtain a basis for a space
-		(and hence to determine its dimension)
-		is to <em>assign parameters</em> <mdash />
-		then each <em>independent</em> parameter corresponds to a basis vector.
-		</p><p>
-		For example,
-		in <m>\R^2</m> we have natural parameters associated to the <m>x</m>- and <m>y</m>-coordinates:
-		<m>\uvec{x} = (x,y)</m>.
-		Expanding this into a linear combination,
-		we get <m>\uvec{x} = x(1,0) + y(0,1)</m>.
-		Parameter <m>x</m> corresponds to vector <m>(1,0)</m> and parameter <m>y</m> corresponds to vector <m>(0,1)</m>,
-		and together the two corresponding vectors form a basis <m>\{(1,0),(0,1)\}</m> for <m>\R^2</m>.
-		(In fact, the <term>standard basis</term> for <m>\R^2</m>!).
-		Since there were <em>two</em> independent parameters required to described an arbitrary vector in the space,
-		this led to <em>two</em> basis vectors,
-		and so the dimension of <m>\R^2</m> is (surprise!) <m>2</m>.
-		</p>
-		<paragraphs><title>Step-by-step procedure</title><p><ol>
-			<li> Express arbitrary elements in the space in terms of parameters. </li>
-			<li>
-				Use any extra conditions to reduce to the minimum number of <em>independent</em> parameters
-				(if necessary).
-			</li>
-			<li> Split up your parametric vector description into a linear combination based on the remaining parameters. </li>
-			<li> Extract the basis vector attached to each parameter. </li>
-			<li>
-				Count the basis vectors to determine the dimension of the space
-				(which should also correspond to the number of independent parameters required).
-			</li>
-		</ol></p></paragraphs>
-	</prelude>
+<paragraphs><title>Step-by-step procedure</title><p><ol>
+	<li> Express arbitrary elements in the space in terms of parameters. </li>
+	<li>
+		Use any extra conditions to reduce to the minimum number of <em>independent</em> parameters
+		(if necessary).
+	</li>
+	<li> Split up your parametric vector description into a linear combination based on the remaining parameters. </li>
+	<li> Extract the basis vector attached to each parameter. </li>
+	<li>
+		Count the basis vectors to determine the dimension of the space
+		(which should also correspond to the number of independent parameters required).
+	</li>
+</ol></p></paragraphs>
+
+<activity xml:id="activity-dimension-basis-via-parameters">
 
 	<introduction><p>
 		In each of the following,
@@ -180,6 +179,7 @@ respective owners.
 </activity>
 
 <activity xml:id="activity-dimension-enlarge-indep">
+
 	<prelude><p>
 		We've already seen that a linearly dependent spanning set can be reduced to a basis
 		(<xref ref="proposition-basis-coords-reduce-span-to-basis" />).
@@ -195,21 +195,27 @@ respective owners.
 		the new vector to be included should not be in the span of the old
 		(<ie /> the new should not be any linear combination of the old).
 	</p></prelude>
+
 	<introduction>
+
 		<p>
 		In each of the following,
 		enlarge the provided linearly independent set into a basis for the space.
 		</p>
-		<paragraphs><title>Hint</title><p>
+
+		<p><alert>Hint:</alert>
 			Since we now know the dimensions of these spaces,
 			we know how many linearly independent vectors are required to form a basis.
 			Just guess <em>simple</em> new vectors to include in the given set,
 			one at a time,
 			and for each make sure your new vector is not a linear combination of the vectors you already have.
 			(You can check this by trying to solve an appropriate system of linear equations.)
-		</p></paragraphs>
+		</p>
+
 	</introduction>
+
 	<task><p> <m>V=\R^3</m>,  <m>S = \{(1,1,0),(1,0,1)\}</m>. </p></task>
+
 	<task xml:id="activity-dimension-enlarge-indep-matrices"><p>
 		<m>V = \matrixring_2(\R)</m>,
 		<m>
@@ -219,6 +225,7 @@ respective owners.
 			\;\right\}
 		</m>.
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-dimension-dim-subspace">

@@ -18,27 +18,36 @@ respective owners.
 <title>Discovery guide</title>
 
 <introduction>
+
 	<p>
 	If <m>P</m> is a square matrix,
 	write <m>\uvec{p}_1, \uvec{p}_2, \dotsc, \uvec{p}_n</m> for the columns of <m>P</m>,
 	so that
 	<m> P = \begin{bmatrix} \uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_n \end{bmatrix} </m>.
-	</p><p>
+	</p>
+
+	<p>
 	For this set of guided discovery activities,
 	we will need to recall a few important things.
 	<ul>
+
 		<li>
 			An <m>n \times n</m> matrix is invertible if and only if its columns form a basis of <m>\R^n</m>
 			(<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
 		</li>
+
 		<li>
 			Similarity relation <m>\inv{P} A P = B</m> holds if and only if each column of <m>B</m> consists of coefficients for expressing the corresponding transformed vector <m>A \uvec{p}_j</m> as a linear combination of the columns of <m>P</m>
 			(<xref ref="subsection-similarity-concepts-algebra" />).
 		</li>
+
 	</ul>
-</p></introduction>
+	</p>
+
+</introduction>
 
 <activity xml:id="activity-block-diag-pattern">
+
 	<introduction><p>
 		Suppose <m>A</m> is a <m>4 \times 4</m> matrix that is similar to
 		<me>
@@ -50,11 +59,13 @@ respective owners.
 			\end{abmatrix}
 		</me>.
 	</p></introduction>
+
 	<task xml:id="activity-block-diag-pattern-columns"><p>
 		Use the characterization of similarity in the introduction of this discovery guide to write down conditions on
 		<m>\uvec{p}_1, \uvec{p}_2, \uvec{p}_3, \uvec{p}_4</m>
 		for <m>\inv{P}AP = B</m> to be true.
 	</p></task>
+
 	<task xml:id="activity-block-diag-pattern-basis-invariance">
 		<p>
 		We want to turn the conditions from
@@ -70,6 +81,7 @@ respective owners.
 		Repeat for <m>A\uvec{p}_2</m>, <m>A\uvec{p}_3</m>, and <m>A\uvec{p}_4</m>.
 		</p>
 	</task>
+
 	<task>
 		<p>
 		Columns <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> must satisfy a similar condition relative to <m>A</m>.
@@ -80,6 +92,7 @@ respective owners.
 		Will combinations of <m>\uvec{p}_3</m> and <m>\uvec{p}_4</m> work similarly?
 		</p>
 	</task>
+
 </activity>
 
 <p>
@@ -91,16 +104,24 @@ a subspace of <m>\R^n</m> (or <m>\C^n</m>) is called <term><m>A</m>-invariant</t
 </em>.
 </p>
 
-<activity xml:id="activity-block-diag-invariant-geom"><p>
+<activity xml:id="activity-block-diag-invariant-geom">
+
+	<p>
 	Suppose that <m>A</m> is a <m>3 \times 3</m> matrix.
 	Recall that multiplication by <m>A</m> can be regarded as geometrically <term>transforming</term> vectors in <m>\R^3</m>.
-	</p><p>
+	</p>
+
+	<p>
 	In each of the following,
 	decide whether any proper, nontrivial subspaces of <m>\R^3</m> are invariant under the described geometric transformation.
 	That is, determine whether any subspaces have the property that the described transformation returns vectors from the subspace back into the subspace.
-	</p><p>
+	</p>
+
+	<p>
 	(Recall that the only proper, nontrivial subspaces of <m>\R^3</m> are lines through the origin and planes through the origin.)
-	</p><p><ol>
+	</p>
+
+	<p><ol>
 		<li> Rotation around some arbitrary line (assume the line passes through the origin). </li>
 		<li> Reflection in some arbitrary plane (assume the plane pass through the origin). </li>
 		<li>
@@ -110,8 +131,9 @@ a subspace of <m>\R^n</m> (or <m>\C^n</m>) is called <term><m>A</m>-invariant</t
 			drop a perpendicular from the head of <m>\uvec{u}</m> onto the plane,
 			and where that perpendicular lands on the plane will be considered the <q>transformed image</q> of <m>\uvec{u}</m>.
 		</li>
-	</ol>
-</p></activity>
+	</ol></p>
+
+</activity>
 
 <activity xml:id="activity-block-diag-abstract-invariant-examples"><p>
 	Prove that for every <m>n \times n</m> matrix <m>A</m>,
@@ -129,6 +151,7 @@ a subspace of <m>\R^n</m> (or <m>\C^n</m>) is called <term><m>A</m>-invariant</t
 </p></activity>
 
 <activity>
+
 	<p>
 	Hopefully by now you've discovered that for <m>\inv{P}AP</m> to be in block-diagonal form,
 	it must be possible to partition the columns of <m>P</m> into subcollections,
@@ -136,11 +159,15 @@ a subspace of <m>\R^n</m> (or <m>\C^n</m>) is called <term><m>A</m>-invariant</t
 	But when we try to put a matrix into block-diagonal form,
 	we won't know the transition matrix ahead of time,
 	so we'll be looking for <m>A</m>-invariant subspaces from which to take vectors to form the columns of <m>P</m>.
-	</p><p>
+	</p>
+
+	<p>
 	But what about the additional requirement that the columns of <m>P</m> form a basis of <m>\R^n</m>?
 	When we determine some <m>A</m>-invariant subspaces,
 	what relationship to each other will they need to satisfy for this extra condition on the columns of <m>P</m> to be satisfied?
-</p></activity>
+	</p>
+
+</activity>
 
 <p>
 In the remaining discovery activities,
@@ -148,6 +175,7 @@ we will explore the properties of block-diagonal matrices.
 </p>
 
 <activity xml:id="activity-block-diag-null-space">
+
 	<introduction><p>
 		Consider again the matrix <m>B</m> from
 		<xref ref="activity-block-diag-pattern" />:
@@ -160,6 +188,7 @@ we will explore the properties of block-diagonal matrices.
 			\end{abmatrix}
 		</me>.
 	</p></introduction>
+
 	<task xml:id="activity-block-diag-null-space-one-block"><p>
 		Verify that the vector
 		<m>\left[\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right]</m>
@@ -172,10 +201,15 @@ we will explore the properties of block-diagonal matrices.
 		</me>.
 		Can you use this knowledge to build a null space vector for <m>B</m>?
 	</p></task>
-	<task xml:id="activity-block-diag-null-space-decompose"><p>
+
+	<task xml:id="activity-block-diag-null-space-decompose">
+
+		<p>
 		Use the pattern from
 		<xref ref="activity-block-diag-null-space-one-block" text="type-local" />
 		to justify the following statement.
+		</p>
+
 		<blockquote><p>
 			Every null space vector of <m>B</m> can be split into a sum of
 			a null space vector
@@ -186,10 +220,12 @@ we will explore the properties of block-diagonal matrices.
 			(suitably embedded from <m>\R^2</m> into <m>\R^4</m>)
 			of the lower-right block.
 		</p></blockquote>
-	</p></task>
+	</task>
+
 </activity>
 
 <activity xml:id="activity-block-diag-eigen-space">
+
 	<introduction><p>
 		Consider again the matrix <m>B</m> from
 		<xref ref="activity-block-diag-pattern" />:
@@ -202,7 +238,9 @@ we will explore the properties of block-diagonal matrices.
 			\end{abmatrix}
 		</me>.
 	</p></introduction>
+
 	<task xml:id="activity-block-diag-eigen-space-one-block">
+
 		<p>
 		Verify that the vector
 		<m>\left[\begin{smallmatrix} -2 \\ 1 \end{smallmatrix}\right]</m>
@@ -220,11 +258,15 @@ we will explore the properties of block-diagonal matrices.
 		<xref ref="subsection-eigen-values-vectors-concepts-compute-evalues" />
 		and
 		<xref ref="subsection-eigen-values-vectors-concepts-compute-evectors" />.)
-		</p><p>
+		</p>
+
+		<p>
 		Can you use this knowledge to build a eigenvector for <m>B</m>,
 		and thereby verify that <m>\lambda = 5</m> is also an eigenvalue for <m>B</m>?
 		</p>
+
 	</task>
+
 	<task xml:id="activity-block-diag-eigen-space-decompose"><p>
 		Will the same sort of pattern as for null space vectors of <m>B</m> in
 		<xref ref="activity-block-diag-null-space-decompose" />
@@ -232,9 +274,11 @@ we will explore the properties of block-diagonal matrices.
 		That is, is an eigenvector for <m>B</m> somehow the sum of two (nonzero) vectors,
 		each of which corresponds to an eigenvector of one of the blocks of <m>B</m>?
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-block-diag-product">
+
 	<task xml:id="activity-block-diag-product-example"><p>
 		Recall that <em>matrix-times-matrix</em> can be thought of as <em>matrix-times-collection-of-columns</em>.
 		(See pattern <xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
@@ -261,6 +305,7 @@ we will explore the properties of block-diagonal matrices.
 		</mrow></md>
 		(Remember that unspecified entries are assumed to be zero.)
 	</p></task>
+
 	<task xml:id="activity-block-diag-product-pattern"><p>
 		Describe the pattern of
 		<xref ref="activity-block-diag-product-example" />:
@@ -280,6 +325,7 @@ we will explore the properties of block-diagonal matrices.
 			 \end{bmatrix}
 		</me>.
 	</p></task>
+
 	<task><p>
 		Apply the pattern of
 		<xref ref="activity-block-diag-product-pattern" text="type-local" />
@@ -304,6 +350,7 @@ we will explore the properties of block-diagonal matrices.
  			 \text{.}
 		</mrow></md>
 	</p></task>
+
 </activity>
 
 <activity><p>
@@ -347,6 +394,7 @@ we will explore the properties of block-diagonal matrices.
 </p></activity>
 
 <activity xml:id="activity-block-diag-det">
+
 	<task xml:id="activity-block-diag-det-example"><p>
 		Compute the determinant of the block-diagonal matrix
 		<me>
@@ -361,6 +409,7 @@ we will explore the properties of block-diagonal matrices.
 		Then compute the determinant of each individual block separately.
 		What is the relationship between all these determinant calculations?
 	</p></task>
+
 	<task xml:id="activity-block-diag-det-pattern"><p>
 		Describe the pattern of
 		<xref ref="activity-block-diag-det-example" text="type-local" />:
@@ -369,9 +418,11 @@ we will explore the properties of block-diagonal matrices.
 		then its determinant is
 		<me> \det M = <fillin characters="30" /> </me>.
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-block-diag-eigenvalues">
+
 	<task xml:id="activity-block-diag-eigenvalues-lambda-I-minus-pattern"><p>
 		Fill in the pattern:
 		if <m>M</m> is a block-diagonal matrix
@@ -387,6 +438,7 @@ we will explore the properties of block-diagonal matrices.
 			\end{bmatrix}
 		</me>.
 	</p></task>
+
 	<task xml:id="activity-block-diag-eigenvalues-char-poly"><p>
 		Combine
 		<xref ref="activity-block-diag-eigenvalues-lambda-I-minus-pattern" text="type-local" />
@@ -395,6 +447,7 @@ we will explore the properties of block-diagonal matrices.
 		to determine the relationship between the characteristic polynomial of a block-diagonal matrix
 		and the characteristic polynomials of its blocks.
 	</p></task>
+
 	<task><p>
 		Use
 		<xref ref="activity-block-diag-eigenvalues-char-poly" text="type-local" />
@@ -402,6 +455,7 @@ we will explore the properties of block-diagonal matrices.
 		and the eigenvalues of its blocks.
 		What about the algebraic multiplicities of eigenvalues?
 	</p></task>
+
 </activity>
 
 </worksheet>

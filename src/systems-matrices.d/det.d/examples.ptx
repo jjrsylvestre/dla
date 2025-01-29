@@ -38,46 +38,58 @@ respective owners.
 Recall the pattern of the <m>2 \times 2</m> determinant formula from <xref ref="figure-det-concepts-2x2-det-pattern" />.
 </p>
 
-<example><title>Determinant of a <m>2 \times 2</m> matrix</title><statement>
+<example>
+	<title>Determinant of a <m>2 \times 2</m> matrix</title>
+
 	<p>
 	For
 	<m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ 3 \amp 4 \end{smallmatrix}\right]</m>,
 	we have
 	</p>
-	<image label="image-det-examples-2x2-det-ex1" component="html" width="55.5%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>2 \times 2</m> determinant calculation example</description>
-		<latex-image><xi:include href="examples.d/2x2-det-ex1.tex" parse="text" /></latex-image>
+
+	<image component="html" width="55.5%">
+		<description><p> A <m>2 \times 2</m> determinant calculation example. </p></description>
+		<latex-image label="image-det-examples-2x2-det-ex1">
+			<xi:include href="examples.d/2x2-det-ex1.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="50%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>2 \times 2</m> determinant calculation example</description>
-		<latex-image><xi:include href="examples.d/2x2-det-ex1.tex" parse="text" /></latex-image>
+		<description><p> A <m>2 \times 2</m> determinant calculation example. </p></description>
+		<latex-image label="image-det-examples-2x2-det-ex1">
+			<xi:include href="examples.d/2x2-det-ex1.tex" parse="text" />
+		</latex-image>
 	</image>
-</statement></example>
+
+</example>
 
 <p>
 Watch out for double negatives!
 The next example illustrates the occurrence of a double negative in a determinant calculation.
 </p>
 
-<example><title>Another <m>2 \times 2</m> determinant</title><statement>
+<example>
+	<title>Another <m>2 \times 2</m> determinant</title>
+
 	<p>
 	For
 	<m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ -3 \amp 4 \end{smallmatrix}\right]</m>,
 	we have
 	</p>
-	<image label="image-det-examples-2x2-det-ex2" component="html" width="61.4%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>Another <m>2 \times 2</m> determinant calculation example</description>
-		<latex-image><xi:include href="examples.d/2x2-det-ex2.tex" parse="text" /></latex-image>
+
+	<image component="html" width="61.4%">
+		<description><p> Another <m>2 \times 2</m> determinant calculation example. </p></description>
+		<latex-image label="image-det-examples-2x2-det-ex2">
+			<xi:include href="examples.d/2x2-det-ex2.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="56%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>Another <m>2 \times 2</m> determinant calculation example</description>
-		<latex-image><xi:include href="examples.d/2x2-det-ex2.tex" parse="text" /></latex-image>
+		<description><p> Another <m>2 \times 2</m> determinant calculation example. </p></description>
+		<latex-image label="image-det-examples-2x2-det-ex2">
+			<xi:include href="examples.d/2x2-det-ex2.tex" parse="text" />
+		</latex-image>
 	</image>
-</statement></example>
+
+</example>
 
 </subsection>
 
@@ -85,67 +97,83 @@ The next example illustrates the occurrence of a double negative in a determinan
 <title>Minors and cofactors of <m>3 \times 3</m> matrices</title>
 
 <subsubsection>
-	<title>Minors</title>
+<title>Minors</title>
+
+<p>
+A minor determinant is just a <em>one-size-smaller</em> determinant.
+To obtain that smaller matrix,
+we remove one row and one column.
+Usually we specify which to remove by focusing on a single entry and removing the row and column that contain the entry.
+</p>
+
+<example xml:id="example-det-minor-in-3x3">
+	<title>Minor determinants in a <m>3 \times 3</m> matrix</title>
 
 	<p>
-	A minor determinant is just a <em>one-size-smaller</em> determinant.
-	To obtain that smaller matrix,
-	we remove one row and one column.
-	Usually we specify which to remove by focusing on a single entry and removing the row and column that contain the entry.
+	Let's compute a couple of minor determinants in the matrix from
+	<xref ref="activity-det-3by3-det" />:
+	<me>
+		\begin{abmatrix}{rrr}
+			3 \amp 1 \amp 0 \\
+			-2 \amp -2 \amp 1 \\
+			0 \amp 1 \amp -1
+		\end{abmatrix}
+	</me>.
+	The notation <m>M_{11}</m> means the minor associated to the <m>(1,1)</m> entry,
+	so we should remove both the first row and the first column,
+	leaving behind a <m>2 \times 2</m> matrix.
 	</p>
 
-	<example xml:id="example-det-minor-in-3x3"><title>Minor determinants in a <m>3 \times 3</m> matrix</title><statement>
-		<p>
-		Let's compute a couple of minor determinants in the matrix from
-		<xref ref="activity-det-3by3-det" />:
-		<me>
-			\begin{abmatrix}{rrr}
-				3 \amp 1 \amp 0 \\
-				-2 \amp -2 \amp 1 \\
-				0 \amp 1 \amp -1
-			\end{abmatrix}
-		</me>.
-		The notation <m>M_{11}</m> means the minor associated to the <m>(1,1)</m> entry,
-		so we should remove both the first row and the first column,
-		leaving behind a <m>2 \times 2</m> matrix.
-		</p>
-		<image label="image-det-examples-3x3-minor-det-1-1" width="46.1%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>3 \times 3</m> minor determinant calculation example: remove associated row and column</description>
-			<latex-image><xi:include href="examples.d/3x3-minor-det-1-1.tex" parse="text" /></latex-image>
-		</image>
-		<p> We can now compute this minor determinant using the <m>a d - b c</m> pattern for <m>2 \times 2</m> determinants. </p>
-		<image label="image-det-examples-3x3-minor-det-1-1-calc" component="html" width="65.5%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant</description>
-			<latex-image><xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" /></latex-image>
-		</image>
-		<image component="latex" width="58%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant</description>
-			<latex-image><xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" /></latex-image>
-		</image>
-		<p>
-		Now let's try the <m>M_{23}</m> minor determinant.
-		This time we should remove the second row and the third column.
-		</p>
-		<image label="image-det-examples-3x3-minor-det-2-3" width="41.7%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>3 \times 3</m> minor determinant calculation example: remove associated row and column</description>
-			<latex-image><xi:include href="examples.d/3x3-minor-det-2-3.tex" parse="text" /></latex-image>
-		</image>
-		<p> Again, from here we compute this minor determinant using the <m>a d - b c</m> pattern. </p>
-		<image label="image-det-examples-3x3-minor-det-2-3-calc" component="html" width="51.7%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant</description>
-			<latex-image><xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" /></latex-image>
-		</image>
-		<image component="latex" width="47%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant</description>
-			<latex-image><xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" /></latex-image>
-		</image>
-	</statement></example>
+	<image width="46.1%">
+		<description><p> <m>3 \times 3</m> minor determinant calculation example: remove associated row and column. </p></description>
+		<latex-image label="image-det-examples-3x3-minor-det-1-1">
+			<xi:include href="examples.d/3x3-minor-det-1-1.tex" parse="text" />
+		</latex-image>
+	</image>
+
+	<p> We can now compute this minor determinant using the <m>a d - b c</m> pattern for <m>2 \times 2</m> determinants. </p>
+
+	<image component="html" width="65.5%">
+		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
+		<latex-image label="image-det-examples-3x3-minor-det-1-1-calc">
+			<xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" />
+		</latex-image>
+	</image>
+	<image component="latex" width="58%">
+		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
+		<latex-image label="image-det-examples-3x3-minor-det-1-1-calc">
+			<xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" />
+		</latex-image>
+	</image>
+
+	<p>
+	Now let's try the <m>M_{23}</m> minor determinant.
+	This time we should remove the second row and the third column.
+	</p>
+
+	<image width="41.7%">
+		<description><p> <m>3 \times 3</m> minor determinant calculation example: remove associated row and column. </p></description>
+		<latex-image label="image-det-examples-3x3-minor-det-2-3">
+			<xi:include href="examples.d/3x3-minor-det-2-3.tex" parse="text" />
+		</latex-image>
+	</image>
+
+	<p> Again, from here we compute this minor determinant using the <m>a d - b c</m> pattern. </p>
+
+	<image component="html" width="51.7%">
+		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
+		<latex-image label="image-det-examples-3x3-minor-det-2-3-calc">
+			<xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" />
+		</latex-image>
+	</image>
+	<image component="latex" width="47%">
+		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
+		<latex-image label="image-det-examples-3x3-minor-det-2-3-calc">
+			<xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" />
+		</latex-image>
+	</image>
+
+</example>
 
 </subsubsection>
 
@@ -196,7 +224,9 @@ Also, we will use our cofactor sign patterns from
 instead of calculating <m>(-1)^{i+j}</m> explicitly.
 </p>
 
-<example><title>Determinant of a <m>3 \times 3</m> matrix along a row</title><statement>
+<example>
+	<title>Determinant of a <m>3 \times 3</m> matrix along a row</title>
+
 	<p>
 	Let's compute the determinant of the matrix from
 	<xref ref="activity-det-3by3-det" />:
@@ -213,22 +243,29 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 	which will simplify things a bit.
 	Notice how we have also annotated that row with the cofactor sign pattern.
 	</p>
-	<image label="image-det-examples-3x3-det-choose-row" width="34.7%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>3 \times 3</m> determinant calculation example: choose a row</description>
-		<latex-image><xi:include href="examples.d/3x3-det-choose-row.tex" parse="text" /></latex-image>
+
+	<image width="34.7%">
+		<description><p> <m>3 \times 3</m> determinant calculation example: choose a row. </p></description>
+		<latex-image label="image-det-examples-3x3-det-choose-row">
+			<xi:include href="examples.d/3x3-det-choose-row.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p> Now expand along that third row. </p>
-	<image label="image-det-examples-3x3-det-byrow-cofactor-exp" component="html" width="90.8%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>3 \times 3</m> determinant calculation example: expand</description>
-		<latex-image><xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" /></latex-image>
+
+	<image component="html" width="90.8%">
+		<description><p> <m>3 \times 3</m> determinant calculation example: expand. </p></description>
+		<latex-image label="image-det-examples-3x3-det-byrow-cofactor-exp">
+			<xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="83%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>3 \times 3</m> determinant calculation example: expand</description>
-		<latex-image><xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" /></latex-image>
+		<description><p> <m>3 \times 3</m> determinant calculation example: expand. </p></description>
+		<latex-image label="image-det-examples-3x3-det-byrow-cofactor-exp">
+			<xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	The minus sign between the first two terms in the expansion is the proper cofactor sign for the middle entry of the third row.
 	Also, recall that a cofactor for an entry involves the minor for that entry <mdash />
@@ -240,20 +277,24 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 	since the <m>(3,1)</m> entry is <m>0</m>,
 	there is no need to compute the <m>(3,1)</m> minor.
 	</p>
-	<image label="image-det-examples-3x3-det-byrow-2x2-minors" component="html" width="61.1%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/3x3-det-byrow-2x2-minors.tex" parse="text" /></latex-image>
+
+	<image component="html" width="61.1%">
+		<description><p>
+			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-3x3-det-byrow-2x2-minors">
+			<xi:include href="examples.d/3x3-det-byrow-2x2-minors.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="52%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/3x3-det-byrow-2x2-minors.tex" parse="text" /></latex-image>
+		<description><p>
+			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-3x3-det-byrow-2x2-minors">
+			<xi:include href="examples.d/3x3-det-byrow-2x2-minors.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Using our crisscross pattern for <m>2 \times 2</m> determinants,
 	we can now compute
@@ -266,55 +307,69 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 		<mrow>\amp = 1.</mrow>
 	</md>
 	</p>
-</statement></example>
+
+</example>
 
 <p>
 Just to check,
 let's compute the determinant in the above example again using a cofactor expansion along the second column.
 </p>
 
-<example><title>Determinant of a <m>3 \times 3</m> matrix along a column</title><statement>
+<example>
+	<title>Determinant of a <m>3 \times 3</m> matrix along a column</title>
+
 	<p>
 	Let's again compute the determinant of the matrix from
 	<xref ref="activity-det-3by3-det" />,
 	but this time along the middle column.
 	</p>
-	<image label="image-det-examples-3x3-det-choose-col" width="30.8%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>3 \times 3</m> determinant calculation example revisited: choose a column</description>
-		<latex-image><xi:include href="examples.d/3x3-det-choose-col.tex" parse="text" /></latex-image>
+
+	<image width="30.8%">
+		<description><p> <m>3 \times 3</m> determinant calculation example revisited: choose a column. </p></description>
+		<latex-image label="image-det-examples-3x3-det-choose-col">
+			<xi:include href="examples.d/3x3-det-choose-col.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p> Expand along the chosen column. </p>
-	<image label="image-det-examples-3x3-det-bycol-cofactor-exp" component="html" width="93.8%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>3 \times 3</m> determinant calculation example revisited: expand</description>
-		<latex-image><xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" /></latex-image>
+
+	<image component="html" width="93.8%">
+		<description><p> <m>3 \times 3</m> determinant calculation example revisited: expand. </p></description>
+		<latex-image label="image-det-examples-3x3-det-bycol-cofactor-exp">
+			<xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="85%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>3 \times 3</m> determinant calculation example revisited: expand</description>
-		<latex-image><xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" /></latex-image>
+		<description><p> <m>3 \times 3</m> determinant calculation example revisited: expand. </p></description>
+		<latex-image label="image-det-examples-3x3-det-bycol-cofactor-exp">
+			<xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	In the expansion,
 	the negative sign in front of the first term and the minus sign between the second and third terms are from the cofactor sign pattern for the second column.
-	</p><p>
-	Now reduce to a combination of <m>2 \times 2</m> determinants.
 	</p>
-	<image label="image-det-examples-3x3-det-bycol-2x2-minors" component="html" width="74.7%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/3x3-det-bycol-2x2-minors.tex" parse="text" /></latex-image>
+
+	<p> Now reduce to a combination of <m>2 \times 2</m> determinants. </p>
+
+	<image component="html" width="74.7%">
+		<description><p>
+			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-3x3-det-bycol-2x2-minors">
+			<xi:include href="examples.d/3x3-det-bycol-2x2-minors.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="65%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/3x3-det-bycol-2x2-minors.tex" parse="text" /></latex-image>
+		<description><p>
+			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-3x3-det-bycol-2x2-minors">
+			<xi:include href="examples.d/3x3-det-bycol-2x2-minors.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Apply the <m>2 \times 2</m> crisscross pattern.
 	<md>
@@ -326,7 +381,8 @@ let's compute the determinant in the above example again using a cofactor expans
 		<mrow>\amp = 1.</mrow>
 	</md>
 	</p>
-</statement></example>
+
+</example>
 
 <p>
 In the end,
@@ -339,44 +395,47 @@ see
 </subsection>
 
 <subsection xml:id="subsection-det-examples-4x4-minor-cofactor">
-	<title>Minors and cofactors of <m>4 \times 4</m> matrices</title>
+<title>Minors and cofactors of <m>4 \times 4</m> matrices</title>
+
+<p>
+Applying the <em>one-size-smaller</em> pattern again,
+a minor determinant in a <m>4 \times 4</m> matrix is the determinant of a <m>3 \times 3</m> matrix obtained by removing one row and one column.
+And again cofactor values are equal to minor determinant values,
+except that we flip the signs for values associated to <q>odd</q> positions with the <m>4 \times 4</m> matrix.
+</p>
+
+<example>
 
 	<p>
-	Applying the <em>one-size-smaller</em> pattern again,
-	a minor determinant in a <m>4 \times 4</m> matrix is the determinant of a <m>3 \times 3</m> matrix obtained by removing one row and one column.
-	And again cofactor values are equal to minor determinant values,
-	except that we flip the signs for values associated to <q>odd</q> positions with the <m>4 \times 4</m> matrix.
+	Consider the matrix
+	<me>
+		\begin{abmatrix}{rrrr}
+			-1 \amp 3 \amp 1 \amp 0 \\
+			-5 \amp 6 \amp 7 \amp 8 \\
+			2 \amp -2 \amp -2 \amp 1 \\
+			2 \amp 0 \amp 1 \amp -1
+		\end{abmatrix}
+	</me>.
+	To compute the <m>M_{21}</m> minor determinant,
+	we remove the second row and the first column.
 	</p>
 
-	<example>
+	<image width="57.6%">
+		<description><p> <m>4 \times 4</m> minor determinant calculation example: remove associated row and column. </p></description>
+		<latex-image label="image-det-examples-4x4-minor-det-2-1">
+			<xi:include href="examples.d/4x4-minor-det-2-1.tex" parse="text" />
+		</latex-image>
+	</image>
 
-		<p>
-		Consider the matrix
-		<me>
-			\begin{abmatrix}{rrrr}
-				-1 \amp 3 \amp 1 \amp 0 \\
-				-5 \amp 6 \amp 7 \amp 8 \\
-				2 \amp -2 \amp -2 \amp 1 \\
-				2 \amp 0 \amp 1 \amp -1
-			\end{abmatrix}
-		</me>.
-		To compute the <m>M_{21}</m> minor determinant,
-		we remove the second row and the first column.
-		</p>
-		<image label="image-det-examples-4x4-minor-det-2-1" width="57.6%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><m>4 \times 4</m> minor determinant calculation example: remove associated row and column</description>
-			<latex-image><xi:include href="examples.d/4x4-minor-det-2-1.tex" parse="text" /></latex-image>
-		</image>
-		<p>
-		You might recognize this <m>3 \times 3</m> matrix as the same as the one from the examples in <xref ref="subsection-det-examples-3x3"/>,
-		so we already know its determinant.
-		Also, the <m>(2,1)</m> entry in the original <m>4 \times 4</m> matrix is in an <q>odd</q> position since <m>2 + 1 = 3</m> is odd,
-		so must flip the sign to obtain the <m>C_{21}</m> cofactor value from the <m>M_{21}</m> minor determinant value:
-		<md> <mrow> M_{21} \amp = 1 \text{,} \amp C_{21} \amp = - M_{21} = -1 \text{.} </mrow> </md>
-		</p>
+	<p>
+	You might recognize this <m>3 \times 3</m> matrix as the same as the one from the examples in <xref ref="subsection-det-examples-3x3"/>,
+	so we already know its determinant.
+	Also, the <m>(2,1)</m> entry in the original <m>4 \times 4</m> matrix is in an <q>odd</q> position since <m>2 + 1 = 3</m> is odd,
+	so must flip the sign to obtain the <m>C_{21}</m> cofactor value from the <m>M_{21}</m> minor determinant value:
+	<md> <mrow> M_{21} \amp = 1 \text{,} \amp C_{21} \amp = - M_{21} = -1 \text{.} </mrow> </md>
+	</p>
 
-	</example>
+</example>
 
 </subsection>
 
@@ -391,7 +450,7 @@ so that it doesn't get too out of hand.
 
 <example xml:id="example-det-4x4">
 	<title>Determinant of a <m>4 \times 4</m> matrix</title>
-	<statement>
+
 	<p>
 	Consider
 	<me>
@@ -405,81 +464,99 @@ so that it doesn't get too out of hand.
 	Let's choose the third row,
 	as that has two zero entries.
 	</p>
-	<image label="image-det-examples-4x4-det-choose-row" component="html" width="40.8%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>4 \times 4</m> determinant calculation example: choose a row</description>
-		<latex-image><xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" /></latex-image>
+
+	<image component="html" width="40.8%">
+		<description><p> <m>4 \times 4</m> determinant calculation example: choose a row. </p></description>
+		<latex-image label="image-det-examples-4x4-det-choose-row">
+			<xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="38%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>4 \times 4</m> determinant calculation example: choose a row</description>
-		<latex-image><xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" /></latex-image>
+		<description><p> <m>4 \times 4</m> determinant calculation example: choose a row. </p></description>
+		<latex-image label="image-det-examples-4x4-det-choose-row">
+			<xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	The cofactor expansion along the chosen row will involve only two <m>3 \times 3</m> minor determinant calculations <mdash />
 	minor determinants <m>M_{31}</m> and <m>M_{33}</m> will not be needed,
 	since their corresponding entries are <m>0</m>.
 	</p>
-	<image label="image-det-examples-4x4-det-cofactor-exp" component="html" width="99.1%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>4 \times 4</m> determinant calculation example: expand</description>
-		<latex-image><xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" /></latex-image>
+
+	<image component="html" width="99.1%">
+		<description><p> <m>4 \times 4</m> determinant calculation example: expand. </p></description>
+		<latex-image label="image-det-examples-4x4-det-cofactor-exp">
+			<xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="87%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description><m>4 \times 4</m> determinant calculation example: expand</description>
-		<latex-image><xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" /></latex-image>
+		<description><p> <m>4 \times 4</m> determinant calculation example: expand. </p></description>
+		<latex-image label="image-det-examples-4x4-det-cofactor-exp">
+			<xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p> Next we choose a row or column in each of the remaining minor determinants. </p>
-	<image label="image-det-examples-4x4-det-3x3-minors" component="html" width="61.1%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors.tex" parse="text" /></latex-image>
+
+	<image component="html" width="61.1%">
+		<description><p>
+			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-4x4-det-3x3-minors">
+			<xi:include href="examples.d/4x4-det-3x3-minors.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="57%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors.tex" parse="text" /></latex-image>
+		<description><p>
+			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-4x4-det-3x3-minors">
+			<xi:include href="examples.d/4x4-det-3x3-minors.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Notice how the cofactor signs in the chosen row/column follow the <m>3 \times 3</m> pattern,
 	<em>not</em> the <m>4 \times 4</m> pattern from the original matrix.
 	</p><p>
 	Now expand each of these <m>3 \times 3</m> minor determinants.
 	</p>
-	<image label="image-det-examples-4x4-det-3x3-minors-cofactor-exp" component="html" width="74.4%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" /></latex-image>
+
+	<image component="html" width="74.4%">
+		<description><p>
+			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-4x4-det-3x3-minors-cofactor-exp">
+			<xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
 	<image component="latex" width="70%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" /></latex-image>
+		<description><p>
+			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-4x4-det-3x3-minors-cofactor-exp">
+			<xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p> Now reduce to a combination of <m>2 \times 2</m> determinants. </p>
-	<image label="image-det-examples-4x4-det-3x3-minors-2x2-minors" component="html" width="88.2%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" /></latex-image>
+
+	<image component="html" width="88.2%">
+		<description><p>
+			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-4x4-det-3x3-minors-2x2-minors"><xi:include href="examples.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" /></latex-image>
 	</image>
 	<image component="latex" width="80%">
-		<!-- description gets inserted as alt text in html img tag -->
-		<description>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors
-		</description>
-		<latex-image><xi:include href="examples.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" /></latex-image>
+		<description><p>
+			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
+		</p></description>
+		<latex-image label="image-det-examples-4x4-det-3x3-minors-2x2-minors">
+			<xi:include href="examples.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" />
+		</latex-image>
 	</image>
+
 	<p>
 	Finally, we can apply the <m>2 \times 2</m> criss-cross pattern as illustrated above.
 	<md>
@@ -491,7 +568,8 @@ so that it doesn't get too out of hand.
 		<mrow>\amp = -27.</mrow>
 	</md>
 	</p>
-</statement></example>
+
+</example>
 
 </subsection>
 

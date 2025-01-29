@@ -18,41 +18,49 @@ respective owners.
 
 <title>Examples</title>
 
-<introduction><assemblage><title>In this section</title><p><ul>
-<li><xref ref="subsection-row-red-examples-solving" /><nbsp /><nbsp />
-<em><xref text="title" ref="subsection-row-red-examples-solving" /></em></li>
-</ul></p></assemblage></introduction>
+<introduction>
 
-<introduction><p>
+	<assemblage><title>In this section</title><p><ul>
+		<li><xref ref="subsection-row-red-examples-solving" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-row-red-examples-solving" /></em></li>
+	</ul></p></assemblage>
+
+	<p>
 	Here we use our procedures to use matrices to reduce and solve the systems from
 	<xref ref="worksheet-row-red" />.
 	Here are a few things to note about our method.
 	<ul>
+
 		<li>
 			We only use the three <em>elementary</em> row operations.
 			It sometimes is possible to reduce a bit faster using nonelementary operations such as adding a multiple of a row to a multiple of another row,
 			but remember we are not interested in short-cuts,
 			and using nonelementary operations will get us into trouble in later topics.
 		</li>
+
 		<li>
 			We sometimes perform more than one operation at the same time.
 			This is an acceptable short-cut,
 			as long as we <alert>never simultaneously modify a row and also use that row to modify another row</alert>.
 		</li>
+
 		<li>
 			We write down the row operation(s) we are using in the next reduction step to the right of the previous matrix,
 			to keep track of what we are doing.
 		</li>
+
 		<li>
 			We don't always have to multiply a row by a fraction to get a leading one <mdash />
 			we can sometimes use a difference between entries in a column, and avoid fractions that way.
 		</li>
+
 		<li>
 			There are many different sequences of operations one could use to get from initial matrix to its RREF matrix.
 			The reductions in the examples below are not the only way, nor are they necessarily the <em>most efficient</em> way to proceed.
 			We choose <em>systematicity over speed/cleverness</em> and adhere to <xref ref="procedure-row-red-reduce-to-rref" />,
 			which will always lead to RREF in a direct manner.
 		</li>
+
 		<li>
 			We never write an equals sign between matrices when row reducing.
 			We will explore what it means for two matrices to be equal in
@@ -63,8 +71,11 @@ respective owners.
 			and the two matrices represent <em>different</em> systems of equations.
 			However, the two matrices <em>are</em> related, and it is to express this relationship that we have the terminology <term><xref ref="definition-row-red-row-equiv" text="title" /></term>.
 		</li>
+
 	</ul>
-</p></introduction>
+	</p>
+
+</introduction>
 
 <subsection xml:id="subsection-row-red-examples-solving">
 <title>Worked examples from the discovery guide</title>
@@ -394,6 +405,7 @@ when the matrix already exhibits the pattern in the goal of that step.)
 
 <example xml:id="example-row-red-solving-corresponding-homog">
 	<title>Correspondence between the solutions to homogeneous and nonhomogeneous systems with the same coefficient matrix</title>
+
 	<p>
 	Consider the homogeneous system
 	<me>
@@ -433,6 +445,8 @@ when the matrix already exhibits the pattern in the goal of that step.)
 	to solve for <m>x = -2t</m> and <m>z=0</m>.
 	Let's compare the parametric forms of the solutions to the original nonhomogeneous system from
 	<xref ref="activity-row-red-system-infinite-sol" /> and the corresponding homogeneous system solved here.
+	</p>
+
 	<tabular>
 		<row bottom="medium">
 			<cell><em>Nonhomogeneous</em></cell>
@@ -463,6 +477,8 @@ when the matrix already exhibits the pattern in the goal of that step.)
 			<cell><nbsp /></cell>
 		</row>
 	</tabular>
+
+	<p>
 	We have added some zeros and <m>t</m>s to emphasize the similarity between the solutions.
 	To interpret this similarity, remember that every value of <m>t</m> provides a particular solution to the systems.
 	When <m>t=0</m>, the corresponding solutions are <m>\{x=2,y=0,z=-3\}</m> for the nonhomogeneous system and the trivial solution for the homogeneous system.
@@ -471,6 +487,7 @@ when the matrix already exhibits the pattern in the goal of that step.)
 	<xref ref="chapter-matrix-ops" /> we will see that this pattern emerges in every nonhomogeneous system
 	(see <xref ref="lemma-matrix-ops-particular-sol-plus-homog-sol" />).
 	</p>
+
 </example>
 
 </subsection>

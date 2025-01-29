@@ -37,10 +37,11 @@ Let's interpret the real part
 <m>\Im(z) = b</m> as a <m>y</m>-coordinate in the plane.
 </p>
 
-<image width="73%" label="image-complex-plane-point">
-  <!-- description gets inserted as alt text in html img tag -->
-  <description> A point in the complex plane. </description>
-  <latex-image><xi:include href="plane.d/point.tex" parse="text" /></latex-image>
+<image width="73%">
+	<description><p> A point in the complex plane. </p></description>
+	<latex-image label="image-complex-plane-point">
+		<xi:include href="plane.d/point.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -59,10 +60,11 @@ of <m>z</m>.
 Complex conjugation has a geometric interpretation <mdash />
 it is equivalent to reflection in the real axis.
 </p>
-<image width="73%" label="image-complex-plane-conj">
-  <!-- description gets inserted as alt text in html img tag -->
-  <description> Complex conjugation as a reflection in the complex plane. </description>
-  <latex-image><xi:include href="plane.d/conj.tex" parse="text" /></latex-image>
+<image width="73%">
+	<description><p> Complex conjugation as a reflection in the complex plane. </p></description>
+	<latex-image label="image-complex-plane-conj">
+		<xi:include href="plane.d/conj.tex" parse="text" />
+	</latex-image>
 </image>
 
 <p>
@@ -76,10 +78,11 @@ has unit modulus due to the circle identity:
 Because of this,
 complex numbers of this form sit on the unit circle.
 </p>
-<image width="65%" label="image-complex-plane-circle">
-  <!-- description gets inserted as alt text in html img tag -->
-  <description> The unit circle in the complex plane. </description>
-  <latex-image><xi:include href="plane.d/circle.tex" parse="text" /></latex-image>
+<image width="65%">
+	<description><p> The unit circle in the complex plane. </p></description>
+	<latex-image label="image-complex-plane-circle">
+		<xi:include href="plane.d/circle.tex" parse="text" />
+	</latex-image>
 </image>
 <p>
 The unit circle meets the axes at the four points
@@ -95,7 +98,7 @@ The unit circle meets the axes at the four points
 </subsection>
 
 <subsection xml:id="subsection-complex-polar">
-<title>Polar coordinates</title>
+<title> Polar coordinates </title>
 
 <p>
 For reasons we won't go into here,
@@ -105,11 +108,13 @@ as
 <md><mrow xml:id="equation-complex-euler" tag="star"> e^{\ci\theta} = \cos\theta + \ci\sin\theta </mrow></md>.
 This is known as <term>Euler's formula</term><idx><h>Euler's formula</h></idx>.
 </p>
-<aside><title>A special case</title><statement><p>
+
+<aside><title>A special case</title><p>
 	From Euler's formula,
 	we get a famous identity relating some of the most important numbers in math:
 	<me> e^{\ci\pi} = -1. </me>
-</p></statement></aside>
+</p></aside>
+
 <p>
 As in the previous subsection,
 these points all have modulus
@@ -126,11 +131,14 @@ we can describe a point in terms of
 a radius (the modulus) and
 an angle to the positive real axis (the argument).
 </p>
-<image width="70%" label="image-complex-plane-polar">
-  <!-- description gets inserted as alt text in html img tag -->
-  <description> Polar coordinates in the complex plane. </description>
-  <latex-image><xi:include href="plane.d/polar.tex" parse="text" /></latex-image>
+
+<image width="70%">
+	<description><p> Polar coordinates in the complex plane. </p></description>
+	<latex-image label="image-complex-plane-polar">
+		<xi:include href="plane.d/polar.tex" parse="text" />
+	</latex-image>
 </image>
+
 <p>
 An expression <m>z = re^{\ci\theta}</m> is called the
 <term>polar form</term>
@@ -192,26 +200,30 @@ but is it valid for complex exponentials?
 
 <corollary xml:id="corollary-complex-mult-polar">
 	<title>Multiplication of polar expressions</title>
-	<statement>
-		<p>
-		If <m>z_1 = r_1 e^{\ci\theta_1}</m>
-		and <m>z_2 = r_2 e^{\ci\theta_2}</m>,
-		then
-		<me> z_1 z_2 = (r_1 r_2) e^{\ci(\theta_1 + \theta_2)}. </me>
-		</p><p>
-		Geometrically,
-		if <m>z</m> is a point in the complex plane,
-		then multiplying <m>z</m> by the polar expression
-		<m>r e^{\ci\theta} </m>
-		scales <m>z</m> toward/away from the origin by scale factor <m>r</m>,
-		and rotates by <m>\theta</m> radians about the origin.
-		<image width="35%" label="image-complex-plane-polar-mult">
-		  <!-- description gets inserted as alt text in html img tag -->
-		  <description> Multiplying by a polar expression in the complex plane. </description>
-		  <latex-image><xi:include href="plane.d/polar-mult.tex" parse="text" /></latex-image>
-		</image>
-		</p>
-	</statement>
+
+	<p>
+	If <m>z_1 = r_1 e^{\ci\theta_1}</m>
+	and <m>z_2 = r_2 e^{\ci\theta_2}</m>,
+	then
+	<me> z_1 z_2 = (r_1 r_2) e^{\ci(\theta_1 + \theta_2)}. </me>
+	</p>
+
+	<p>
+	Geometrically,
+	if <m>z</m> is a point in the complex plane,
+	then multiplying <m>z</m> by the polar expression
+	<m>r e^{\ci\theta} </m>
+	scales <m>z</m> toward/away from the origin by scale factor <m>r</m>,
+	and rotates by <m>\theta</m> radians about the origin.
+	</p>
+
+	<image width="35%">
+		<description><p> Multiplying by a polar expression in the complex plane. </p></description>
+		<latex-image label="image-complex-plane-polar-mult">
+			<xi:include href="plane.d/polar-mult.tex" parse="text" />
+		</latex-image>
+	</image>
+
 </corollary>
 
 <corollary xml:id="corollary-complex-inv-polar">
@@ -308,7 +320,9 @@ and that is if <m>\cmodulus{z} = 1</m>.
 	<m>z = e^{\ci\theta}</m>
 </p>
 
-<example><title>Cubic roots of unity</title><statement><p>
+<example><title>Cubic roots of unity</title>
+
+	<p>
 	Let's determine all three complex solutions to <m>x^3 = 1</m>.
 	As above, let's set <m>x = e^{\ci\theta}</m> and try to determine the values of <m>\theta</m> that lead to solutions.
 	From <xref ref="corollary-complex-demoivre" text="title" />,
@@ -325,12 +339,16 @@ and that is if <m>\cmodulus{z} = 1</m>.
 	So our full slate of solutions could be expressed as
 	<me> e^{\ci(0\pi/3)}, \quad e^{\ci(2\pi/3)}, \quad e^{\ci(4\pi/3)}, </me>
 	and we can visualize these solutions as regularly placed around the unit circle in the complex plane.
-	<image width="60%" label="image-complex-plane-cubic-roots">
-	  <!-- description gets inserted as alt text in html img tag -->
-	  <description> Cubic roots of unity on the complex unit circle. </description>
-	  <latex-image><xi:include href="plane.d/cubic-roots.tex" parse="text" /></latex-image>
+	</p>
+
+	<image width="60%">
+		<description><p> Cubic roots of unity on the complex unit circle. </p></description>
+		<latex-image label="image-complex-plane-cubic-roots">
+			<xi:include href="plane.d/cubic-roots.tex" parse="text" />
+		</latex-image>
 	</image>
-</p></statement></example>
+
+</example>
 
 <p> The pattern of the previous example continues for higher-order roots of unity. </p>
 
