@@ -18,10 +18,75 @@ respective owners.
 
 <title>Examples</title>
 
-<introduction><p>
-	In this section,
-	we carry out some common vector space calculations in the complex context.
-</p></introduction>
+<introduction><assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-complex-vspaces-examples-instances" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-vspaces-examples-instances" /></em></li>
+<li><xref ref="subsection-complex-vspaces-examples-calculations" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-complex-vspaces-examples-calculations" /></em></li>
+</ul></p></assemblage></introduction>
+
+<subsection xml:id="subsection-complex-vspaces-examples-instances">
+<title>Instances of complex vector spaces</title>
+
+<p>
+Bringing complex numbers into the mix lets us convert some familiar examples into ew complex examples.
+</p>
+
+<example><title>The vector space <m>\C^n</m></title><p>
+We have already discussed this space in
+<xref ref="subsection-complex-vspaces-concepts-complex-n-space" />,
+and just as we view <m>\R^n</m> as the model example of the abstract concept of <term>real vector space</term>,
+we view <m>\C^n</m> as the model example of the abstract concept of <term>complex vector space</term>.
+This space still has the familiar zero vector
+<m>\zerovec = (0,0,\dotsc,0)</m>,
+and still has the familiar standard basis consisting of the vectors <m>\uvec{e}_j</m> that have all components equal to zero except for a single <m>1</m> in the <m>\nth[j]</m> position.
+Just like <m>\R^n</m>,
+when convenient we will realize vectors in <m>\C^n</m> as (complex) column matrices.
+</p></example>
+
+<example><title>Spaces of complex matrices (<m>\matrixring_{m \times n}(\C)</m>)</title><p>
+Just as with <m>\C^n</m> versus <m>\R^n</m>,
+there is little new in <m>\matrixring_{m \times n}(\C)</m> versus <m>\matrixring_{m \times n}(\R)</m>,
+except that of course we allow complex entries in the matrices and allow multiplication by complex scalars.
+The space <m>\matrixring_{m \times n}(\C)</m> still has the zero matrix as the zero vector,
+and still has the familiar standard basis consisting of the matrices <m>E_{ij}</m> that have all entries equal to zero except for a single <m>1</m> in the <m>(i,j)</m> entry.
+</p></example>
+
+<example><title>Spaces of complex polynomials</title><p>
+Similar to the real case, we write <m>\poly(\C)</m> for the space of <em>all</em> complex polynomials,
+and write <m>\poly_n(\C)</m> for the space of those polynomials of degree <m>n</m> or less.
+To help distinguish between the real and complex contexts,
+we will continue to use <m>x</m> as the indeterminate in real polynomials
+(<eg /> <m>p(x) = 2 x^2 - x + 1</m>),
+but will use <m>z</m> as the indeterminate in complex polynomials
+(<eg /> <m>p(z) = \ci z^2 - (5 - \ci) z + (1 + 2 \ci)</m>).
+Again, there is nothing really new here in <m>\poly(\C)</m> versus <m>\poly(\R)</m>,
+except for the switch to allowing complex coefficients and to considering the indeterminate <m>z</m> as representing an indeterminate complex number.
+These spaces still have the familiar zero polynomial <m>\zerovec(z) = 0</m> as zero vector,
+and each space <m>\poly_n(\C)</m> still has familiar standard basis
+<m>\{1,z,z^2,\dotsc,z^n\}</m>.
+</p></example>
+
+<!-- Why bother to include this, just extra "complexity" for very little "linear algebra" gain.
+     See corresponding commented-out passages in terminology.ptx.
+<example><title>Spaces of complex functions (<m>F(D)</m>)</title><p>
+Once again, from a linear algebra point of view there is nothing really new to consider here versus the real case.
+Just as with polynomials,
+we will use variable <m>x</m> in function notation <m>f(x)</m> to mean a real-valued function,
+and variable <m>z</m> in function notation <m>f(z)</m>
+A space of complex functions still has the familiar zero function <m>\zero(z) = 0</m>.
+</p></example>
+-->
+
+</subsection>
+
+<subsection xml:id="subsection-complex-vspaces-examples-calculations">
+<title>Calculations in complex vector spaces</title>
+
+<p>
+In this subsection,
+we carry out some common vector space calculations in the complex context.
+</p>
 
 <example xml:id="example-complex-vspaces-Cn-ops">
 	<title>Algebraic operations involving <m>n</m>-dimensional complex vectors</title>
@@ -332,5 +397,7 @@ respective owners.
 		\right\}
 	</me>.
 </p></example>
+
+</subsection>
 
 </section>
