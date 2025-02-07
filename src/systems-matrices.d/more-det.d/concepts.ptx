@@ -25,14 +25,8 @@ respective owners.
 		<em><xref text="title" ref="subsection-more-det-concepts-adjoint" /></em></li>
 		<li><xref ref="subsection-more-det-concepts-det-vs-invert" /><nbsp /><nbsp />
 		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-invert" /></em></li>
-		<li><xref ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /><nbsp /><nbsp />
-		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /></em></li>
-		<li><xref ref="subsection-more-det-concepts-det-vs-mult-invertible" /><nbsp /><nbsp />
-		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-invertible" /></em></li>
-		<li><xref ref="subsection-more-det-concepts-det-vs-mult-singular" /><nbsp /><nbsp />
-		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-singular" /></em></li>
-		<li><xref ref="subsection-more-det-concepts-det-vs-mult-all" /><nbsp /><nbsp />
-		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult-all" /></em></li>
+		<li><xref ref="subsection-more-det-concepts-det-vs-mult" /><nbsp /><nbsp />
+		<em><xref text="title" ref="subsection-more-det-concepts-det-vs-mult" /></em></li>
 		<li><xref ref="subsection-more-det-concepts-det-inverse" /><nbsp /><nbsp />
 		<em><xref text="title" ref="subsection-more-det-concepts-det-inverse" /></em></li>
 		<li><xref ref="subsection-more-det-concepts-cramers-rule" /><nbsp /><nbsp />
@@ -190,8 +184,11 @@ relying on our knowledge that a square matrix is invertible if and only if its R
 </subsection>
 
 
-<subsection xml:id="subsection-more-det-concepts-det-vs-mult-elem-matrices">
-<title>Determinants versus matrix multiplication: case of elementary matrices</title>
+<subsection xml:id="subsection-more-det-concepts-det-vs-mult">
+<title>Determinants versus matrix multiplication</title>
+
+<subsubsection xml:id="subsubsection-more-det-concepts-det-vs-mult-elem-matrices">
+<title>Case of elementary matrices</title>
 
 <p>
 In <xref ref="activity-more-det-multiplicative-elem-version" />,
@@ -218,11 +215,11 @@ Expressed in words, the equality above represents the pattern that
 at least in the case where the first matrix in the product is elementary (for now).
 </p>
 
-</subsection>
+</subsubsection>
 
 
-<subsection xml:id="subsection-more-det-concepts-det-vs-mult-invertible">
-<title>Determinants versus matrix multiplication: invertible case</title>
+<subsubsection xml:id="subsubsection-more-det-concepts-det-vs-mult-invertible">
+<title>Invertible case</title>
 
 <p>
 In <xref ref="activity-more-det-multiplicative-product-elem" />,
@@ -237,7 +234,7 @@ using the result of the previous subsection at each step.
 As in <xref ref="activity-more-det-multiplicative-product-elem" />,
 consider matrix <m>N</m> and invertible matrix <m>M</m>, where <m>M</m> can be expressed as a product of <em>three</em> elementary matrices,
 <m>M = E_1 E_2 E_3</m>.
-The we can repeatedly use our rule <xref ref="equation-more-det-concepts-multiplicative-elem-version" /> from the elementary matrix case in <xref ref="subsection-more-det-concepts-det-vs-mult-elem-matrices" /> above to obtain
+The we can repeatedly use our rule <xref ref="equation-more-det-concepts-multiplicative-elem-version" /> from the elementary matrix case in <xref ref="subsubsection-more-det-concepts-det-vs-mult-elem-matrices" /> above to obtain
 <md>
 	<mrow>
 		\det (M N)
@@ -270,11 +267,11 @@ So we can make our final statement of the last subsection a little stronger:
 at least in the case where the first matrix in the product is invertible (for now).
 </p>
 
-</subsection>
+</subsubsection>
 
 
-<subsection xml:id="subsection-more-det-concepts-det-vs-mult-singular">
-<title>Determinants versus matrix multiplication: singular case</title>
+<subsubsection xml:id="subsubsection-more-det-concepts-det-vs-mult-singular">
+<title>Singular case</title>
 
 <p>
 Finally, in <xref ref="activity-more-det-det-multiplicative-first-factor-singular" /> we considered the determinant of a product of matrices where the first matrix in the product is singular.
@@ -291,17 +288,17 @@ which will appear in
 <xref ref="subsection-more-det-theory-det-formulas" />.)
 </p>
 
-</subsection>
+</subsubsection>
 
 
-<subsection xml:id="subsection-more-det-concepts-det-vs-mult-all">
-<title>Determinants versus matrix multiplication: all cases</title>
+<subsubsection xml:id="subsubsection-more-det-concepts-det-vs-mult-all">
+<title>All cases</title>
 
 <p>
 The considerations in
-<xref ref="subsection-more-det-concepts-det-vs-mult-invertible" />
+<xref ref="subsubsection-more-det-concepts-det-vs-mult-invertible" />
 and
-<xref ref="subsection-more-det-concepts-det-vs-mult-singular" />
+<xref ref="subsubsection-more-det-concepts-det-vs-mult-singular" />
 together verify the universal pattern
 <me> \det (M N) = (\det M) (\det N) </me>
 for square matrices <m>M</m> and <m>N</m> of the same size,
@@ -311,6 +308,8 @@ and so the pattern that
 is true in <em>all</em> cases.
 In more sophisticated mathematical language, we say that the determinant function is <term>multiplicative</term>.
 </p>
+
+</subsubsection>
 
 </subsection>
 
