@@ -388,6 +388,76 @@ and provide the accompanying diagrams.
 
 </example>
 
+<example xml:id="example-vectors-lin-comb">
+	<title>Determining linear combinations</title>
+
+	<p>
+	In <m> \R^3 </m>,
+	can the vector <m> \uvec{w} = (5,8,-5) </m> be expressed as a <term><xref ref="definition-vectors-linear-combination" text="custom">linear combination</xref></term> of the vectors
+	<md>
+		<mrow>
+			\uvec{v}_1 \amp = ( 0, 1,-1) \text{,} \amp
+			\uvec{v}_2 \amp = (-2,-4, 3) \text{,} \amp
+			\uvec{v}_3 \amp = (-1,-7, 7) \text{?}
+		</mrow>
+	</md>
+	A linear combination of these vectors is of the form <m> k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + k_3 \uvec{v}_3 </m> for some collection of scalars <m> k_1, k_2, k_3 </m>.
+	So we are asking if it is possible to determine values of these scalars so that
+	<md><mrow xml:id="equation-vectors-lin-comb-exmp" tag="star"> k_1 (0,1,-1) + k_2 (-2,-4,3) + k_3 (-1,-7,7) = (5,8,-5) </mrow></md>
+	becomes true.
+	</p>
+
+	<p>
+	In the aspirational equality <xref ref="equation-vectors-lin-comb-exmp" />,
+	the right-hand side is a single vector.
+	So let's also compute the left-hand side to a single vector so that we can properly compare:
+	<md>
+		<mrow> \text{LHS} \amp = k_1 (0,1,-1) + k_2 (-2,-4,3) + k_3 (-1,-7,7) </mrow>
+		<mrow> \amp = (0, k_1, -k_1) + (-2 k_2, -4 k_2, 3 k_2) + (-k_3, -7 k_3, 7 k_3) </mrow>
+		<mrow> \amp = (-2 k_2 - k_3, k_1 - 4 k_2 - 7 k_3, -k_1 + 3 k_2 + 7 k_3) </mrow>
+	</md>.
+	This three-dimensional vector and the three-dimensional vector <m> (5,8,-5) </m> can only be equal if each of their individual components are equal:
+	<md>
+		\begin{sysofeqns}{rcrcrcr}
+			      \amp   \amp -2 k_2 \amp - \amp   k_3 \amp = \amp  5 \\
+			  k_1 \amp - \amp  4 k_2 \amp - \amp 7 k_3 \amp = \amp  8 \\
+			- k_1 \amp + \amp  3 k_2 \amp + \amp 7 k_3 \amp = \amp -5
+		\end{sysofeqns}
+	</md>.
+	</p>
+
+	<p>
+	Our question about linear combinations has now turned into a question about a linear system:
+	does the above system have solutions?
+	We'll turn it into an augmented matrix and reduce to answer this new question:
+	<md>
+		\begin{abmatrix}{rrr|r}
+			 0 \amp -2 \amp -1 \amp  5 \\
+			 1 \amp -4 \amp -7 \amp  8 \\
+			-1 \amp  3 \amp  7 \amp -5
+		\end{abmatrix}
+		\qquad\rowredarrow\qquad
+		\begin{abmatrix}{rrr|r}
+			1 \amp 0 \amp 0 \amp  3 \\
+			0 \amp 1 \amp 0 \amp -3 \\
+			0 \amp 0 \amp 1 \amp  1
+		\end{abmatrix}
+	</md>.
+	We now have our answer.
+	Since the system has one unique solution,
+	there is exactly one way to express <m> \uvec{w} </m> as a linear combination of <m> \uvec{v}_1, \uvec{v}_2, \uvec{v}_3 </m>:
+	<md> (5,8,-5) = 3 (0,1,-1) + (-3) (-2,-4,3) + 1 (-1,-7,7) </md>.
+	</p>
+
+</example>
+
+<remark><p>
+	In the previous example,
+	notice how the vectors <m> \uvec{v}_1, \uvec{v}_2, \uvec{v}_3, \uvec{w} </m> became the columns of the augmented system matrix.
+	Think about why this happened;
+	this is a pattern that we will see repeated when we explore linear combinations in more abstract settings in <xref ref="chapter-subspaces" /> and beyond.
+</p></remark>
+
 </subsection>
 
 <subsection xml:id="subsection-vectors-examples-lines-planes">
