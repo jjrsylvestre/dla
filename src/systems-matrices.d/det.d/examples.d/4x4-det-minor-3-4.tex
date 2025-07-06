@@ -12,20 +12,20 @@
 %
 % *********************************************************************
 \begin{tikzpicture}[
-	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
-	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
+	every left delimiter/.style={xshift=.5em,yscale=0.9,yshift=0.33em},
+	every right delimiter/.style={xshift=-.5em,yscale=0.9,yshift=0.33em},
 	every node/.style={anchor=base east},
-	crisscross/.style={black!65!white}
 ]
 	\matrix (A)[
 		matrix of math nodes,
 		left delimiter={\lvert},
 		right delimiter={\rvert}
-	]{ 1 \amp 2 \\ - 3 \amp 4 \\ };
-	\node[crisscross, above left=-0.5em of A] {$+$};
-	\node[crisscross, above right=-0.5em of A] {$-$};
-	\begin{scope}[-latex,on background layer]
-		\draw[crisscross] (A.north west) to (A.south east);
-		\draw[crisscross] (A.north east) to (A.south west);
-	\end{scope}
+	]{
+		1 \amp -1 \amp 2 \amp 1 \\
+		2 \amp 0 \amp 1 \amp 1 \\
+		0 \amp 1 \amp 0 \amp -3 \\
+		1 \amp -2 \amp -1 \amp 0 \\
+	};
+	\draw[thin] (A-1-4.north) to (A-4-4.south);
+	\draw[thin] (A-3-1.west) to (A-3-4.east);
 \end{tikzpicture}

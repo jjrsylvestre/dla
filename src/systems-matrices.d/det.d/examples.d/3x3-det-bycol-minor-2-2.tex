@@ -11,21 +11,23 @@
 % their respective owners.
 %
 % *********************************************************************
-\begin{tikzpicture}[
-	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
-	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
-	every node/.style={anchor=base east},
-	crisscross/.style={black!65!white}
-]
-	\matrix (A)[
-		matrix of math nodes,
-		left delimiter={\lvert},
-		right delimiter={\rvert}
-	]{ 1 \amp 2 \\ - 3 \amp 4 \\ };
-	\node[crisscross, above left=-0.5em of A] {$+$};
-	\node[crisscross, above right=-0.5em of A] {$-$};
-	\begin{scope}[-latex,on background layer]
-		\draw[crisscross] (A.north west) to (A.south east);
-		\draw[crisscross] (A.north east) to (A.south west);
+\begin{tikzpicture}
+	\begin{scope}[
+		every left delimiter/.style={xshift=.5em,yscale=0.9,yshift=0.15em},
+		every right delimiter/.style={xshift=-.5em,yscale=0.9,yshift=0.15em},
+		every node/.style={anchor=base east},
+	]
+		\matrix (A)[
+			matrix of math nodes,
+			left delimiter={\lvert},
+			right delimiter={\rvert}
+		]
+		{
+			 3 \amp 1 \amp 0 \\
+			-2 \amp -2 \amp 1 \\
+			 0 \amp 1 \amp -1 \\
+		};
 	\end{scope}
+	\draw[thin] (A-1-2.north) to (A-3-2.south);
+	\draw[thin] (A-2-1.west) to (A-2-3.east);
 \end{tikzpicture}

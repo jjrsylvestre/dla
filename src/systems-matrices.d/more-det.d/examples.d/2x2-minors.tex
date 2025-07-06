@@ -15,48 +15,43 @@
 	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
 	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em}
 ]
-
-	\matrix (A1)[
+	% M_{11}
+	\matrix (A11)[
 		matrix of math nodes,
-		left delimiter={\lvert},
-		right delimiter={\rvert}
+		left delimiter={[},
+		right delimiter={]}
 	]{ a \amp b \\ c \amp d \\ };
-	\node[left=-0.25em of A1] (req) {$M_{11} =$};
-	\node[right=-0.25em of A1] (leq) {$= d$};
-	\draw[thin] (A1-1-1.north) to (A1-2-1.south);
-	\draw[thin] ([yshift=0.07em]A1-1-1.west) to ([yshift=-0.07em]A1-1-2.east);
+	\draw[thin] (A11-1-1.north) to (A11-2-1.south);
+	\draw[thin] ([yshift=0.07em]A11-1-1.west) to ([yshift=-0.07em]A11-1-2.east);
 
-	\matrix (A)[
-		below=1em of A1,
+	% M_{12}
+	\matrix (A12)[
+		right=3em of A11,
 		matrix of math nodes,
-		left delimiter={\lvert},
-		right delimiter={\rvert}
+		left delimiter={[},
+		right delimiter={]}
 	]{ a \amp b \\ c \amp d \\ };
-	\node[left=-0.25em of A] (req) {$M_{21} =$};
-	\node[right=-0.25em of A] (leq) {$= b$};
-	\draw[thin] (A-1-1.north) to (A-2-1.south);
-	\draw[thin] ([yshift=0.06em]A-2-1.west) to ([yshift=-0.07em]A-2-2.east);
+	\draw[thin] (A12-1-2.north) to (A12-2-2.south);
+	\draw[thin] ([yshift=0.07em]A12-1-1.west) to ([yshift=-0.07em]A12-1-2.east);
 
-	\matrix (A2)[
-		right=7em of A1,
+	% M_{21}
+	\matrix (A21)[
+		right=3em of A12,
 		matrix of math nodes,
-		left delimiter={\lvert},
-		right delimiter={\rvert}
+		left delimiter={[},
+		right delimiter={]}
 	]{ a \amp b \\ c \amp d \\ };
-	\node[left=-0.25em of A2] (req) {$M_{12} =$};
-	\node[right=-0.25em of A2] (leq) {$= c$};
-	\draw[thin] (A2-1-2.north) to (A2-2-2.south);
-	\draw[thin] ([yshift=0.07em]A2-1-1.west) to ([yshift=-0.07em]A2-1-2.east);
+	\draw[thin] (A21-1-1.north) to (A21-2-1.south);
+	\draw[thin] ([yshift=0.06em]A21-2-1.west) to ([yshift=-0.07em]A21-2-2.east);
 
-	\matrix (A)[
-		below=1em of A2,
+	% M_{22}
+	\matrix (A22)[
+		right=3em of A21,
 		matrix of math nodes,
-		left delimiter={\lvert},
-		right delimiter={\rvert}
+		left delimiter={[},
+		right delimiter={]}
 	]{ a \amp b \\ c \amp d \\ };
-	\node[left=-0.25em of A] (req) {$M_{22} =$};
-	\node[right=-0.25em of A] (leq) {$= a$};
-	\draw[thin] (A-1-2.north) to (A-2-2.south);
-	\draw[thin] ([yshift=0.06em]A-2-1.west) to ([yshift=-0.07em]A-2-2.east);
+	\draw[thin] (A22-1-2.north) to (A22-2-2.south);
+	\draw[thin] ([yshift=0.06em]A22-2-1.west) to ([yshift=-0.07em]A22-2-2.east);
 
 \end{tikzpicture}

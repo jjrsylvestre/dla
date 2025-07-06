@@ -13,17 +13,18 @@
 % *********************************************************************
 \begin{tikzpicture}[
 	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
-	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em}
+	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
+	crisscross/.style={black!65!white}
 ]
 	\matrix (A)[
 		matrix of math nodes,
 		left delimiter={\lvert},
 		right delimiter={\rvert}
 	]{ 1 \amp 2 \\ 3 \amp 4 \\ };
-	\node[left=-0.25em of A] (eq) {$\det A =$};
-	\node[right=-0.25em of A] (eq) {$= 1\cdot 4 - 2 \cdot 3 = 4-6 = -2$.};
-	\node[above left=-0.5em of A] {$+$};
-	\node[above right=-0.5em of A] {$-$};
-	\draw[-latex] (A.north west) to (A.south east);
-	\draw[-latex] (A.north east) to (A.south west);
+	\node[crisscross, above left=-0.5em of A] {$+$};
+	\node[crisscross, above right=-0.5em of A] {$-$};
+	\begin{scope}[-latex,on background layer]
+		\draw[crisscross] (A.north west) to (A.south east);
+		\draw[crisscross] (A.north east) to (A.south west);
+	\end{scope}
 \end{tikzpicture}
