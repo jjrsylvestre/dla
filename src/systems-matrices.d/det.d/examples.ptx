@@ -41,24 +41,33 @@ Recall the pattern of the <m>2 \times 2</m> determinant formula from <xref ref="
 <example>
 	<title>Determinant of a <m>2 \times 2</m> matrix</title>
 
-	<p>
-	For
-	<m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ 3 \amp 4 \end{smallmatrix}\right]</m>,
-	we have
-	</p>
+	<p> Here is a <m>2 \times 2</m> matrix along with its determinant calculation pattern. </p>
 
-	<image component="html" width="55.5%">
-		<description><p> A <m>2 \times 2</m> determinant calculation example. </p></description>
-		<latex-image label="image-det-examples-2x2-det-ex1">
-			<xi:include href="examples.d/2x2-det-ex1.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="50%">
-		<description><p> A <m>2 \times 2</m> determinant calculation example. </p></description>
-		<latex-image label="image-det-examples-2x2-det-ex1">
-			<xi:include href="examples.d/2x2-det-ex1.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO CHECK LATEX IMAGE WIDTH -->
+	<sidebyside widths="25% 14.1%" margins="25% 25%" valign="middle">
+
+		<p><m>\displaystyle A = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix} </m></p>
+
+		<image>  <!-- width="14.1%" -->
+			<latex-image label="image-det-examples-2x2-det-ex1">
+				<xi:include href="examples.d/2x2-det-ex1.tex" parse="text" />
+			</latex-image>
+			<shortdescription> A 2-by-2 determinant calculation example. </shortdescription>
+			<description><p>
+				A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+				<me> A = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix} </me>.
+				The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+				and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+			</p></description>
+		</image>
+
+	</sidebyside>
+
+	<p>
+	Using this pattern,
+	we calculate
+	<me> \det A = 1 \cdot 4 - 2 \cdot 3 = 4 - 6 = -2 </me>.
+	</p>
 
 </example>
 
@@ -70,24 +79,24 @@ The next example illustrates the occurrence of a double negative in a determinan
 <example>
 	<title>Another <m>2 \times 2</m> determinant</title>
 
-	<p>
-	For
-	<m>A = \left[\begin{smallmatrix} 1 \amp 2 \\ -3 \amp 4 \end{smallmatrix}\right]</m>,
-	we have
-	</p>
+	<!-- TODO CHECK LATEX IMAGE WIDTH -->
+	<sidebyside widths="25% 16.1%" margins="25% 25%" valign="middle">
+		<p><m>\displaystyle A = \begin{abmatrix}{rr} 1 \amp 2 \\ -3 \amp 4 \end{abmatrix} </m></p>
+		<image>  <!-- width="16.1%" -->
+			<latex-image label="image-det-examples-2x2-det-ex2">
+				<xi:include href="examples.d/2x2-det-ex2.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Another 2-by-2 determinant calculation example. </shortdescription>
+			<description><p>
+				A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+				<me> A = \begin{abmatrix}{rr} 1 \amp 2 \\ -3 \amp 4 \end{abmatrix} </me>.
+				The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+				and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+			</p></description>
+		</image>
+	</sidebyside>
 
-	<image component="html" width="61.4%">
-		<description><p> Another <m>2 \times 2</m> determinant calculation example. </p></description>
-		<latex-image label="image-det-examples-2x2-det-ex2">
-			<xi:include href="examples.d/2x2-det-ex2.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="56%">
-		<description><p> Another <m>2 \times 2</m> determinant calculation example. </p></description>
-		<latex-image label="image-det-examples-2x2-det-ex2">
-			<xi:include href="examples.d/2x2-det-ex2.tex" parse="text" />
-		</latex-image>
-	</image>
+	<p><me> \det A = 1 \cdot 4 - 2 \cdot (-3) = 4 + 6 = 10 </me>.</p>
 
 </example>
 
@@ -124,54 +133,142 @@ Usually we specify which to remove by focusing on a single entry and removing th
 	leaving behind a <m>2 \times 2</m> matrix.
 	</p>
 
-	<image width="46.1%">
-		<description><p> <m>3 \times 3</m> minor determinant calculation example: remove associated row and column. </p></description>
-		<latex-image label="image-det-examples-3x3-minor-det-1-1">
-			<xi:include href="examples.d/3x3-minor-det-1-1.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO CHECK LATEX IMAGE WIDTH -->
+	<sidebyside widths="19.1% 25%" margins="25% 25%" valign="middle">
+
+		<image>  <!-- width="19.1%" -->
+			<latex-image label="image-det-examples-3x3-minor-det-1-1">
+				<xi:include href="examples.d/3x3-minor-det-1-1.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+			</shortdescription>
+			<description><p>
+				A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+				The goal is to calculate the <m>M_{11}</m> minor determinant of the matrix
+				<me>
+					\begin{abmatrix}{rrr}
+						3 \amp 1 \amp 0 \\
+						-2 \amp -2 \amp 1 \\
+						0 \amp 1 \amp -1
+					\end{abmatrix}
+				</me>,
+				so the first row has been crossed out by a horizontal line running through its entries and the first column has been crossed out by a vertical line running through its entries.
+			</p></description>
+		</image>
+
+		<p><m>\displaystyle
+			M_{11} =
+			\begin{avmatrix}{rr}
+				-2 \amp  1 \\
+				 1 \amp -1
+			\end{avmatrix}
+		</m></p>
+
+	</sidebyside>
+
 
 	<p> We can now compute this minor determinant using the <m>a d - b c</m> pattern for <m>2 \times 2</m> determinants. </p>
 
-	<image component="html" width="65.5%">
-		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
-		<latex-image label="image-det-examples-3x3-minor-det-1-1-calc">
-			<xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="58%">
-		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
-		<latex-image label="image-det-examples-3x3-minor-det-1-1-calc">
-			<xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO CHECK LATEX IMAGE WIDTH -->
+	<sidebyside widths="18.5% 25%" margins="25% 25%" valign="middle">
+
+		<image>  <!-- width="18.5%" -->
+			<latex-image label="image-det-examples-3x3-minor-det-1-1-calc">
+				<xi:include href="examples.d/3x3-minor-det-1-1-calc.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+			<description><p>
+				A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+				<me>
+					\begin{abmatrix}{rr}
+						-2 \amp  1 \\
+						 1 \amp -1
+					\end{abmatrix}
+				</me>.
+				The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+				and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+			</p></description>
+		</image>
+
+		<p><md>
+			<mrow> M_{11} \amp = (-2) \cdot (-1) - 1 \cdot 1 </mrow>
+			<mrow> \amp = 2 - 1 </mrow>
+			<mrow> \amp = 1 </mrow>
+		</md></p>
+
+	</sidebyside>
 
 	<p>
 	Now let's try the <m>M_{23}</m> minor determinant.
 	This time we should remove the second row and the third column.
 	</p>
 
-	<image width="41.7%">
-		<description><p> <m>3 \times 3</m> minor determinant calculation example: remove associated row and column. </p></description>
-		<latex-image label="image-det-examples-3x3-minor-det-2-3">
-			<xi:include href="examples.d/3x3-minor-det-2-3.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO CHECK LATEX IMAGE WIDTH -->
+	<sidebyside widths="19.1% 25%" margins="25% 25%" valign="middle">
+
+		<image>  <!-- width="19.1%" -->
+			<latex-image label="image-det-examples-3x3-minor-det-2-3">
+				<xi:include href="examples.d/3x3-minor-det-2-3.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+			</shortdescription>
+			<description><p>
+				A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+				The goal is to calculate the <m>M_{23}</m> minor determinant of the matrix
+				<me>
+					\begin{abmatrix}{rrr}
+						 3 \amp  1 \amp  0 \\
+						-2 \amp -2 \amp  1 \\
+						 0 \amp  1 \amp -1
+					\end{abmatrix}
+				</me>,
+				so the second row has been crossed out by a horizontal line running through its entries and the third column has been crossed out by a vertical line running through its entries.
+			</p></description>
+		</image>
+
+		<p><m>\displaystyle
+			M_{23} =
+			\begin{vmatrix}
+				3 \amp 1 \\
+				0 \amp 1
+			\end{vmatrix}
+		</m></p>
+
+	</sidebyside>
 
 	<p> Again, from here we compute this minor determinant using the <m>a d - b c</m> pattern. </p>
 
-	<image component="html" width="51.7%">
-		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
-		<latex-image label="image-det-examples-3x3-minor-det-2-3-calc">
-			<xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="47%">
-		<description><p> <m>3 \times 3</m> minor determinant calculation example: calculate associated <m>2 \times 2</m> determinant. </p></description>
-		<latex-image label="image-det-examples-3x3-minor-det-2-3-calc">
-			<xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO CHECK LATEX IMAGE WIDTH -->
+	<sidebyside widths="14.1% 25%" margins="25% 25%" valign="middle">
+
+		<image>  <!-- width="14.1%" -->
+			<latex-image label="image-det-examples-3x3-minor-det-2-3-calc">
+				<xi:include href="examples.d/3x3-minor-det-2-3-calc.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+			<description><p>
+				A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+				<me>
+					\begin{bmatrix}
+						3 \amp 1 \\
+						0 \amp 1
+					\end{bmatrix}
+				</me>.
+				The matrix has entries <m>3, 1</m> in the first row and entries <m>0, 1</m> in the second row.
+				The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+				and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+			</p></description>
+		</image>
+
+		<p><md>
+			<mrow> M_{23} \amp = 3 \cdot 1 - 1 \cdot 0 </mrow>
+			<mrow> \amp = 3 - 0 </mrow>
+			<mrow> \amp = 3 </mrow>
+		</md></p>
+
+	</sidebyside>
 
 </example>
 
@@ -231,6 +328,7 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 	Let's compute the determinant of the matrix from
 	<xref ref="activity-det-3by3-det" />:
 	<me>
+		A =
 		\begin{abmatrix}{rrr}
 			 3 \amp  1 \amp  0 \\
 			-2 \amp -2 \amp  1 \\
@@ -240,80 +338,130 @@ instead of calculating <m>(-1)^{i+j}</m> explicitly.
 	Any of the first row or column or the third row or column would be good choices as they all contain a zero entry.
 	Let's choose the third row,
 	since it also contains some <m>1</m>s,
-	which will simplify things a bit.
+	which will simplify things a bit:
+	<me>
+		\begin{abmatrix}{rrr}
+			 3\phantom{{}^+} \amp  1\phantom{{}^-} \amp  0\phantom{{}^+} \\
+			-2\phantom{{}^+} \amp -2\phantom{{}^-} \amp  1\phantom{{}^+} \\
+			{\color{red}\mathbf{0^+}} \amp {\color{red}\mathbf{1^-}} \amp {\color{red}\mathbf{{-1}^+}}
+		\end{abmatrix}
+	</me>.
 	Notice how we have also annotated that row with the cofactor sign pattern.
 	</p>
 
-	<image width="34.7%">
-		<description><p> <m>3 \times 3</m> determinant calculation example: choose a row. </p></description>
-		<latex-image label="image-det-examples-3x3-det-choose-row">
-			<xi:include href="examples.d/3x3-det-choose-row.tex" parse="text" />
-		</latex-image>
-	</image>
-
-	<p> Now expand along that third row. </p>
-
-	<image component="html" width="90.8%">
-		<description><p> <m>3 \times 3</m> determinant calculation example: expand. </p></description>
-		<latex-image label="image-det-examples-3x3-det-byrow-cofactor-exp">
-			<xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="83%">
-		<description><p> <m>3 \times 3</m> determinant calculation example: expand. </p></description>
-		<latex-image label="image-det-examples-3x3-det-byrow-cofactor-exp">
-			<xi:include href="examples.d/3x3-det-byrow-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
-
 	<p>
-	The minus sign between the first two terms in the expansion is the proper cofactor sign for the middle entry of the third row.
-	Also, recall that a cofactor for an entry involves the minor for that entry <mdash />
-	the determinant of the smaller matrix obtained by removing the row and column in which that entry sits.
-	We have indicated each removal of a row or column by a strike-through.
-	Since <m>A</m> is <m>3 \times 3</m>,
-	all of its minors are <m>2 \times 2</m> determinants that we can compute with our crisscross pattern.
-	However,
-	since the <m>(3,1)</m> entry is <m>0</m>,
-	there is no need to compute the <m>(3,1)</m> minor.
+	Proceed with computing <m>M_{32}</m> and <m>M_{33}</m>.
+	(Since the <m>(3,1)</m> entry is <m>0</m>, there is no need to compute <m>M_{31}</m>.)
 	</p>
 
-	<image component="html" width="61.1%">
-		<description><p>
-			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-3x3-det-byrow-2x2-minors">
-			<xi:include href="examples.d/3x3-det-byrow-2x2-minors.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="52%">
-		<description><p>
-			<m>3 \times 3</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-3x3-det-byrow-2x2-minors">
-			<xi:include href="examples.d/3x3-det-byrow-2x2-minors.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO LATEX IMAGE WIDTHS -->
+	<sbsgroup>
+
+		<sidebyside widths="10% 17.9% 16.1%" margins="15% 20%" valign="middle">
+
+			<p><m>M_{32}</m>:</p>
+
+			<image>  <!-- width="17.9%" -->
+				<latex-image label="image-det-examples-3x3-det-byrow-minor-3-2">
+					<xi:include href="examples.d/3x3-det-byrow-minor-3-2.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{32}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrr}
+							 3 \amp  1 \amp  0 \\
+							-2 \amp -2 \amp  1 \\
+							 0 \amp  1 \amp -1
+						\end{abmatrix}
+					</me>,
+					so the third row has been crossed out by a horizontal line running through its entries and the second column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<image>  <!-- width="16.1%" -->
+				<latex-image label="image-det-examples-3x3-det-byrow-minor-3-2-calc">
+					<xi:include href="examples.d/3x3-det-byrow-minor-3-2-calc.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+				<description><p>
+					A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+					<me>
+						\begin{abmatrix}{rr}
+							 3 \amp 0 \\
+							-2 \amp 1
+						\end{abmatrix}
+					</me>.
+					The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+					and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+				</p></description>
+			</image>
+
+		</sidebyside>
+
+		<sidebyside widths="10% 17.9% 18.5%" margins="15% 20%" valign="middle">
+
+			<p><m>M_{33}</m>:</p>
+
+			<image>  <!-- width="17.9%" -->
+				<latex-image label="image-det-examples-3x3-det-byrow-minor-3-3">
+					<xi:include href="examples.d/3x3-det-byrow-minor-3-3.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{33}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrr}
+							 3 \amp  1 \amp  0 \\
+							-2 \amp -2 \amp  1 \\
+							 0 \amp  1 \amp -1
+						\end{abmatrix}
+					</me>.
+					so the third row has been crossed out by a horizontal line running through its entries and the third column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<image>  <!-- width="18.5%" -->
+				<latex-image label="image-det-examples-3x3-det-byrow-minor-3-3-calc">
+					<xi:include href="examples.d/3x3-det-byrow-minor-3-3-calc.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+				<description><p>
+					A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+					<me>
+						\begin{abmatrix}{rr}
+							 3 \amp  1 \\
+							-2 \amp -2
+						\end{abmatrix}
+					</me>.
+					The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+					and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+				</p></description>
+			</image>
+
+		</sidebyside>
+
+	</sbsgroup>
 
 	<p>
-	Using our crisscross pattern for <m>2 \times 2</m> determinants,
-	we can now compute
+	Now compute the cofactor expansion along that third row:
 	<md>
-		<mrow>
-			\det A
-			\amp = 0 - 1 \cdot \bigl[3\cdot 1 - 0 \cdot (-2)\bigr] + (-1) \cdot \bigl[3\cdot(-2) - 1\cdot(-2)\bigr]
-		</mrow>
-		<mrow>\amp = -3 + (-1)(-4)</mrow>
-		<mrow>\amp = 1.</mrow>
-	</md>
+		<mrow> \det A \amp = a_{31} C_{31} + a_{32} C_{32} + a_{33} C_{33} </mrow>
+		<mrow> \amp = a_{31} M_{31} - a_{32} M_{32} + a_{33} M_{33} </mrow>
+		<mrow> \amp = 0 - 1 \cdot \bigl[ 3 \cdot 1 - 0 \cdot (-2) \bigr] + (-1) \cdot \bigl[ 3 \cdot(-2) - 1 \cdot(-2) \bigr] </mrow>
+		<mrow> \amp = -3 + (-1)(-4) </mrow>
+		<mrow> \amp = 1 </mrow>
+	</md>.
+	Note that the plus sign between the first two terms in the initial expansion became a minus sign when cofactors were replaced by minors due to the cofactor sign pattern in the chosen third row of the matrix.
 	</p>
 
 </example>
-
-<p>
-Just to check,
-let's compute the determinant in the above example again using a cofactor expansion along the second column.
-</p>
 
 <example>
 	<title>Determinant of a <m>3 \times 3</m> matrix along a column</title>
@@ -322,64 +470,170 @@ let's compute the determinant in the above example again using a cofactor expans
 	Let's again compute the determinant of the matrix from
 	<xref ref="activity-det-3by3-det" />,
 	but this time along the middle column.
+	<me>
+		\begin{abmatrix}{rrr}
+			 3 \amp {\color{red}\mathbf{1^-}} \amp  0 \\
+			-2 \amp {\color{red}\mathbf{-2^+}} \amp  1 \\
+			 0 \amp {\color{red}\mathbf{1^-}} \amp -1
+		\end{abmatrix}
+	</me>
 	</p>
 
-	<image width="30.8%">
-		<description><p> <m>3 \times 3</m> determinant calculation example revisited: choose a column. </p></description>
-		<latex-image label="image-det-examples-3x3-det-choose-col">
-			<xi:include href="examples.d/3x3-det-choose-col.tex" parse="text" />
-		</latex-image>
-	</image>
+	<p> Here we need to compute all three associated minor determinants. </p>
 
-	<p> Expand along the chosen column. </p>
+	<!-- TODO LATEX IMAGE WIDTHS -->
+	<sbsgroup>
 
-	<image component="html" width="93.8%">
-		<description><p> <m>3 \times 3</m> determinant calculation example revisited: expand. </p></description>
-		<latex-image label="image-det-examples-3x3-det-bycol-cofactor-exp">
-			<xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="85%">
-		<description><p> <m>3 \times 3</m> determinant calculation example revisited: expand. </p></description>
-		<latex-image label="image-det-examples-3x3-det-bycol-cofactor-exp">
-			<xi:include href="examples.d/3x3-det-bycol-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
+		<sidebyside widths="10% 17.9% 18.5%" margins="15% 20%" valign="middle">
+
+			<p><m>M_{12}</m>:</p>
+
+			<image>  <!-- width="17.9%" -->
+				<latex-image label="image-det-examples-3x3-det-bycol-minor-1-2">
+					<xi:include href="examples.d/3x3-det-bycol-minor-1-2.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{12}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrr}
+							 3 \amp  1 \amp  0 \\
+							-2 \amp -2 \amp  1 \\
+							 0 \amp  1 \amp -1
+						\end{abmatrix}
+					</me>,
+					so the first row has been crossed out by a horizontal line running through its entries and the second column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<image>  <!-- width="18.5%" -->
+				<latex-image label="image-det-examples-3x3-det-bycol-minor-1-2-calc">
+					<xi:include href="examples.d/3x3-det-bycol-minor-1-2-calc.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+				<description><p>
+					A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+					<me>
+						\begin{abmatrix}{rr}
+							-2 \amp  1 \\
+							 0 \amp -1
+						\end{abmatrix}
+					</me>.
+					The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+					and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+				</p></description>
+			</image>
+
+		</sidebyside>
+
+		<sidebyside widths="10% 18.8% 16.1%" margins="15% 20%" valign="middle">
+
+			<p><m>M_{22}</m>:</p>
+
+			<image>  <!-- width="18.8%" -->
+				<latex-image label="image-det-examples-3x3-det-bycol-minor-2-2">
+					<xi:include href="examples.d/3x3-det-bycol-minor-2-2.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{22}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrr}
+							 3 \amp  1 \amp  0 \\
+							-2 \amp -2 \amp  1 \\
+							 0 \amp  1 \amp -1
+						\end{abmatrix}
+					</me>,
+					so the second row has been crossed out by a horizontal line running through its entries and the second column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<image>  <!-- width="16.1%" -->
+				<latex-image label="image-det-examples-3x3-det-bycol-minor-2-2-calc">
+					<xi:include href="examples.d/3x3-det-bycol-minor-2-2-calc.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+				<description><p>
+					A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+					<me>
+						\begin{abmatrix}{rr}
+							 3 \amp  0 \\
+							 0 \amp -1
+						\end{abmatrix}
+					</me>.
+					The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+					and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+				</p></description>
+			</image>
+
+		</sidebyside>
+
+		<sidebyside widths="10% 17.9% 16.1%" margins="15% 20%" valign="middle">
+
+			<p><m>M_{32}</m>:</p>
+
+			<image>  <!-- width="17.9%" -->
+				<latex-image label="image-det-examples-3x3-det-bycol-minor-3-2">
+					<xi:include href="examples.d/3x3-det-bycol-minor-3-2.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 2-by-2 submatrix for a minor determinant calculation in a 3-by-3 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>3 \times 3</m> matrix to create a <m>2 \times 2</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{32}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrr}
+							 3 \amp  1 \amp  0 \\
+							-2 \amp -2 \amp  1 \\
+							 0 \amp  1 \amp -1
+						\end{abmatrix}
+					</me>,
+					so the third row has been crossed out by a horizontal line running through its entries and the second column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<image>  <!-- width="16.1%" -->
+				<latex-image label="image-det-examples-3x3-det-bycol-minor-3-2-calc">
+					<xi:include href="examples.d/3x3-det-bycol-minor-3-2-calc.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Criss-cross pattern for a 2-by-2 determinant calculation example. </shortdescription>
+				<description><p>
+					A diagram illustrating the determinant calculation pattern for the <m>2 \times 2</m> matrix
+					<me>
+						\begin{abmatrix}{rr}
+							 3 \amp 0 \\
+							-2 \amp 1
+						\end{abmatrix}
+					</me>.
+					The matrix has entries <m>3, 0</m> in the first row and entries <m>-2, 1</m> in the second row.
+					The crisscross pattern is illustrated by an arrow marked with a positive sign running through the diagonal <m>(1,1)</m> and <m>(2,2)</m> entries
+					and another arrow marked with a negative sign running through the antidiagonal <m>(1,2)</m> and <m>(2,1)</m> entries.
+				</p></description>
+			</image>
+
+		</sidebyside>
+
+	</sbsgroup>
 
 	<p>
-	In the expansion,
-	the negative sign in front of the first term and the minus sign between the second and third terms are from the cofactor sign pattern for the second column.
-	</p>
-
-	<p> Now reduce to a combination of <m>2 \times 2</m> determinants. </p>
-
-	<image component="html" width="74.7%">
-		<description><p>
-			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-3x3-det-bycol-2x2-minors">
-			<xi:include href="examples.d/3x3-det-bycol-2x2-minors.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="65%">
-		<description><p>
-			<m>3 \times 3</m> determinant calculation example revisited: reduce to <m>2 \times 2</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-3x3-det-bycol-2x2-minors">
-			<xi:include href="examples.d/3x3-det-bycol-2x2-minors.tex" parse="text" />
-		</latex-image>
-	</image>
-
-	<p>
-	Apply the <m>2 \times 2</m> crisscross pattern.
+	Now compute the cofactor expansion along that second column:
 	<md>
-		<mrow>
-			\det A
-			\amp = (-1)(2-0) + (-2)(-3-0) - 1 \cdot (3-0)
-		</mrow>
-		<mrow>\amp = -2 + 6 - 3</mrow>
-		<mrow>\amp = 1.</mrow>
-	</md>
+		<mrow> \det A \amp = a_{12} C_{12} + a_{22} C_{22} + a_{32} C_{32} </mrow>
+		<mrow> \amp = - a_{12} M_{12} + a_{22} M_{22} - a_{32} M_{32} </mrow>
+		<mrow> \amp = - 1 \cdot \bigl[ (-2) \cdot (-1) - 1 \cdot 0 \bigr] </mrow>
+		<mrow> \amp \phantom{=} + (-2) \cdot \bigl[ 3 \cdot (-1) - 0 \cdot 0 \bigr] </mrow>
+		<mrow> \amp \phantom{=} - 1 \cdot \bigl[ 3 \cdot 1 - 0 \cdot (-2) \bigr] </mrow>
+		<mrow> \amp = -2 + 6 - 3 </mrow>
+		<mrow> \amp = 1 </mrow>
+	</md>.
+	Again, note that minus signs in the second line of the calculation appear due to the cofactor sign pattern in the chosen second row of the matrix.
 	</p>
 
 </example>
@@ -410,22 +664,49 @@ except that we flip the signs for values associated to <q>odd</q> positions with
 	Consider the matrix
 	<me>
 		\begin{abmatrix}{rrrr}
-			-1 \amp 3 \amp 1 \amp 0 \\
-			-5 \amp 6 \amp 7 \amp 8 \\
-			2 \amp -2 \amp -2 \amp 1 \\
-			2 \amp 0 \amp 1 \amp -1
+			-1 \amp  3 \amp  1 \amp  0 \\
+			-5 \amp  6 \amp  7 \amp  8 \\
+			 2 \amp -2 \amp -2 \amp  1 \\
+			 2 \amp  0 \amp  1 \amp -1
 		\end{abmatrix}
 	</me>.
 	To compute the <m>M_{21}</m> minor determinant,
 	we remove the second row and the first column.
 	</p>
 
-	<image width="57.6%">
-		<description><p> <m>4 \times 4</m> minor determinant calculation example: remove associated row and column. </p></description>
-		<latex-image label="image-det-examples-4x4-minor-det-2-1">
-			<xi:include href="examples.d/4x4-minor-det-2-1.tex" parse="text" />
-		</latex-image>
-	</image>
+	<sidebyside widths="24.7% 30%" margins="15% 15%" valign="middle">
+
+		<image>  <!-- width="24.7%" -->
+			<latex-image label="image-det-examples-4x4-minor-det-2-1">
+				<xi:include href="examples.d/4x4-minor-det-2-1.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Determining the 3-by-3 submatrix for a minor determinant calculation in a 4-by-4 matrix by removing the associated row and column.
+			</shortdescription>
+			<description><p>
+				A diagram illustrating removing a row and a column in a <m>4 \times 4</m> matrix to create a <m>3 \times 3</m> submatrix for a minor determinant calculation.
+				The goal is to calculate the <m>M_{21}</m> minor determinant of the matrix
+				<me>
+					\begin{abmatrix}{rrrr}
+						-1 \amp  3 \amp  1 \amp  0 \\
+						-5 \amp  6 \amp  7 \amp  8 \\
+						 2 \amp -2 \amp -2 \amp  1 \\
+						 2 \amp  0 \amp  1 \amp -1
+					\end{abmatrix}
+				</me>,
+				so the second row has been crossed out by a horizontal line running through its entries and the first column has been crossed out by a vertical line running through its entries.
+			</p></description>
+		</image>
+
+		<p><m>\displaystyle
+			M_{21} = \begin{avmatrix}{rrr}
+				 3 \amp  1 \amp  0 \\
+				-2 \amp -2 \amp  1 \\
+				 0 \amp  1 \amp -1
+			\end{avmatrix}
+		</m></p>
+
+	</sidebyside>
 
 	<p>
 	You might recognize this <m>3 \times 3</m> matrix as the same as the one from the examples in <xref ref="subsection-det-examples-3x3"/>,
@@ -452,121 +733,164 @@ so that it doesn't get too out of hand.
 	<title>Determinant of a <m>4 \times 4</m> matrix</title>
 
 	<p>
-	Consider
+	In the matrix below we'll choose to compute the determinant by cofactor expansion along the third row,
+	as that row has two zero entries.
 	<me>
 		A = \begin{abmatrix}{rrrr}
-			1 \amp -1 \amp 2 \amp 1 \\
-			2 \amp 0 \amp 1 \amp 1 \\
-			0 \amp 1 \amp 0 \amp -3 \\
-			1 \amp -2 \amp -1 \amp 0
-		\end{abmatrix}.
-	</me>
-	Let's choose the third row,
-	as that has two zero entries.
+			1\phantom{{}^+} \amp -1\phantom{{}^-} \amp  2\phantom{{}^+} \amp 1\phantom{{}^-} \\
+			2\phantom{{}^+} \amp  0\phantom{{}^-} \amp  1\phantom{{}^+} \amp 1\phantom{{}^-} \\
+			{\color{red}\mathbf{0^+}} \amp {\color{red}\mathbf{1^-}} \amp {\color{red}\mathbf{0^+}} \amp {\color{red}\mathbf{{-3}^-}} \\
+			1\phantom{{}^+} \amp -2\phantom{{}^-} \amp -1\phantom{{}^+} \amp 0\phantom{{}^-}
+		\end{abmatrix}
+	</me>.
 	</p>
 
-	<image component="html" width="40.8%">
-		<description><p> <m>4 \times 4</m> determinant calculation example: choose a row. </p></description>
-		<latex-image label="image-det-examples-4x4-det-choose-row">
-			<xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="38%">
-		<description><p> <m>4 \times 4</m> determinant calculation example: choose a row. </p></description>
-		<latex-image label="image-det-examples-4x4-det-choose-row">
-			<xi:include href="examples.d/4x4-det-choose-row.tex" parse="text" />
-		</latex-image>
-	</image>
-
 	<p>
-	The cofactor expansion along the chosen row will involve only two <m>3 \times 3</m> minor determinant calculations <mdash />
-	minor determinants <m>M_{31}</m> and <m>M_{33}</m> will not be needed,
-	since their corresponding entries are <m>0</m>.
+	Because of the two zeros in the third row,
+	we will only need to compute minor determinants <m>M_{32}</m> and <m>M_{34}</m>.
 	</p>
 
-	<image component="html" width="99.1%">
-		<description><p> <m>4 \times 4</m> determinant calculation example: expand. </p></description>
-		<latex-image label="image-det-examples-4x4-det-cofactor-exp">
-			<xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="87%">
-		<description><p> <m>4 \times 4</m> determinant calculation example: expand. </p></description>
-		<latex-image label="image-det-examples-4x4-det-cofactor-exp">
-			<xi:include href="examples.d/4x4-det-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
+	<!-- TODO LATEX IMAGE WIDTHS -->
+	<sbsgroup>
 
-	<p> Next we choose a row or column in each of the remaining minor determinants. </p>
+		<sidebyside widths="10% 22.3% 25%" margins="10% 15%" valign="middle">
 
-	<image component="html" width="61.1%">
-		<description><p>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-4x4-det-3x3-minors">
-			<xi:include href="examples.d/4x4-det-3x3-minors.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="57%">
-		<description><p>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>3 \times 3</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-4x4-det-3x3-minors">
-			<xi:include href="examples.d/4x4-det-3x3-minors.tex" parse="text" />
-		</latex-image>
-	</image>
+			<p><m>M_{32}</m>:</p>
+
+			<image>  <!-- width="22.3%" -->
+				<latex-image label="image-det-examples-4x4-det-minor-3-2">
+					<xi:include href="examples.d/4x4-det-minor-3-2.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 3-by-3 submatrix for a minor determinant calculation in a 4-by-4 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>4 \times 4</m> matrix to create a <m>3 \times 3</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{32}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrrr}
+							1 \amp -1 \amp  2 \amp  1 \\
+							2 \amp  0 \amp  1 \amp  1 \\
+							0 \amp  1 \amp  0 \amp -3 \\
+							1 \amp -2 \amp -1 \amp  0
+						\end{abmatrix}
+					</me>,
+					so the third row has been crossed out by a horizontal line running through its entries and the second column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<p><m>\displaystyle
+				M_{32} = \begin{avmatrix}{rrr}
+					1 \amp  2 \amp 1 \\
+					2 \amp  1 \amp 1 \\
+					1 \amp -1 \amp 0
+				\end{avmatrix}
+			</m></p>
+
+		</sidebyside>
+
+		<sidebyside widths="10% 22.3% 25%" margins="10% 15%" valign="middle">
+
+			<p><m>M_{34}</m>:</p>
+
+			<image>  <!-- width="22.3%" -->
+				<latex-image label="image-det-examples-4x4-det-minor-3-4">
+					<xi:include href="examples.d/4x4-det-minor-3-4.tex" parse="text" />
+				</latex-image>
+				<shortdescription>
+					Determining the 3-by-3 submatrix for a minor determinant calculation in a 4-by-4 matrix by removing the associated row and column.
+				</shortdescription>
+				<description><p>
+					A diagram illustrating removing a row and a column in a <m>4 \times 4</m> matrix to create a <m>3 \times 3</m> submatrix for a minor determinant calculation.
+					The goal is to calculate the <m>M_{34}</m> minor determinant of the matrix
+					<me>
+						\begin{abmatrix}{rrrr}
+							1 \amp -1 \amp  2 \amp  1 \\
+							2 \amp  0 \amp  1 \amp  1 \\
+							0 \amp  1 \amp  0 \amp -3 \\
+							1 \amp -2 \amp -1 \amp  0
+						\end{abmatrix}
+					</me>,
+					so the third row has been crossed out by a horizontal line running through its entries and the fourth column has been crossed out by a vertical line running through its entries.
+				</p></description>
+			</image>
+
+			<p><me>
+				M_{34} = \begin{avmatrix}{rrr}
+					1 \amp -1 \amp  2 \\
+					2 \amp  0 \amp  1 \\
+					1 \amp -2 \amp -1
+				\end{avmatrix}
+			</me></p>
+
+		</sidebyside>
+
+	</sbsgroup>
 
 	<p>
-	Notice how the cofactor signs in the chosen row/column follow the <m>3 \times 3</m> pattern,
-	<em>not</em> the <m>4 \times 4</m> pattern from the original matrix.
-	</p><p>
-	Now expand each of these <m>3 \times 3</m> minor determinants.
-	</p>
-
-	<image component="html" width="74.4%">
-		<description><p>
-			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-4x4-det-3x3-minors-cofactor-exp">
-			<xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
-	<image component="latex" width="70%">
-		<description><p>
-			<m>4 \times 4</m> determinant calculation example: expand <m>3 \times 3</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-4x4-det-3x3-minors-cofactor-exp">
-			<xi:include href="examples.d/4x4-det-3x3-minors-cofactor-exp.tex" parse="text" />
-		</latex-image>
-	</image>
-
-	<p> Now reduce to a combination of <m>2 \times 2</m> determinants. </p>
-
-	<image component="html" width="88.2%">
-		<description><p>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-4x4-det-3x3-minors-2x2-minors"><xi:include href="examples.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" /></latex-image>
-	</image>
-	<image component="latex" width="80%">
-		<description><p>
-			<m>4 \times 4</m> determinant calculation example: reduce to <m>2 \times 2</m> minors.
-		</p></description>
-		<latex-image label="image-det-examples-4x4-det-3x3-minors-2x2-minors">
-			<xi:include href="examples.d/4x4-det-3x3-minors-2x2-minors.tex" parse="text" />
-		</latex-image>
-	</image>
-
-	<p>
-	Finally, we can apply the <m>2 \times 2</m> criss-cross pattern as illustrated above.
+	Now we'll compute the two minor determinants.
+	Remember that these are entirely new determinant calculations,
+	so that when we choose a row or column to expand along,
+	the pattern of cofactor signs is specific to that <m>3 \times 3</m> matrix and does <em>not</em> come from the original <m>4 \times 4</m> matrix.
+	After choosing a row or column,
+	we expand as a combination of <m>2 \times 2</m> determinants,
+	and then apply the crisscross <m>a d - b c</m> pattern in each.
 	<md>
 		<mrow>
-			\det A
-			\amp = -\bbrac{(-2-1)-(-1-2)} + 3\Bbrac{-2\bbrac{1-(-4)}-\bbrac{-2-(-1)}}
+			M_{32}
+			\amp = \begin{avmatrix}{rrr}
+				1\phantom{{}^+} \amp  2\phantom{{}^-} \amp 1\phantom{{}^+} \\
+				2\phantom{{}^+} \amp  1\phantom{{}^-} \amp 1\phantom{{}^+} \\
+				{\color{red}\mathbf{1^+}} \amp {\color{red}\mathbf{{-1}^-}} \amp {\color{red}\mathbf{0^+}}
+			\end{avmatrix}
 		</mrow>
-		<mrow>\amp = -(-3+3) + 3(-10 + 1)</mrow>
-		<mrow>\amp = -27.</mrow>
-	</md>
+		<mrow>
+			\amp =
+			1 \cdot \begin{avmatrix}{rr}
+				2 \amp 1 \\
+				1 \amp 1
+			\end{avmatrix}
+			- (-1) \cdot \begin{avmatrix}{rr}
+				1 \amp 1 \\
+				2 \amp 1
+			\end{avmatrix}
+			+ 0
+		</mrow>
+		<mrow> \amp = ( 2 \cdot 1 - 1 \cdot 1 ) + ( 1 \cdot 1 - 2 \cdot 1 ) </mrow>
+		<mrow> \amp = 1 + (-1) </mrow>
+		<mrow> \amp = 0 \text{,} </mrow>
+		<mrow />
+		<mrow>
+			M_{34}
+			\amp = \begin{avmatrix}{rrr}
+				1\phantom{{}^-} \amp -1\phantom{{}^+} \amp  2\phantom{{}^-} \\
+				{\color{red}\mathbf{2^-}} \amp  {\color{red}\mathbf{0^+}} \amp  {\color{red}\mathbf{1^-}} \\
+				1\phantom{{}^-} \amp -2\phantom{{}^+} \amp -1\phantom{{}^-}
+			\end{avmatrix}
+		</mrow>
+		<mrow>
+			\amp =
+			-2 \cdot \begin{avmatrix}{rr}
+				-1 \amp  2 \\
+				-2 \amp -1
+			\end{avmatrix}
+			+ 0
+			- 1 \cdot \begin{avmatrix}{rr}
+				1 \amp -1 \\
+				1 \amp -2
+			\end{avmatrix}
+		</mrow>
+		<mrow> \amp = -2 \bigl[ (-1) \cdot (-1) - 2 \cdot (-2) \bigr] - \bigl[ 1 \cdot (-2) - (-1) \cdot 1 \bigr] </mrow>
+		<mrow> \amp = -2 \cdot 5 - (-1) </mrow>
+		<mrow> \amp - -9 </mrow>
+	</md>.
+	Finally, we can compute <m>\det A</m> via cofactor expansion along our chosen row:
+	<md>
+		<mrow> \det A \amp = a_{31} C_{31} + a_{32} C_{32} + a_{33} C_{33} + a_{34} C_{34} </mrow>
+		<mrow> \amp = 0 \cdot M_{31} - 1 \cdot M_{32} + 0 \cdot M_{33} - (-3) \cdot M_{34} </mrow>
+		<mrow> \amp = - 1 \cdot 0 + 3 \cdot (-9) </mrow>
+		<mrow> \amp = - 27 </mrow>
+	</md>.
 	</p>
 
 </example>

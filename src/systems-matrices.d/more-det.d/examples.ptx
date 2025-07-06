@@ -35,12 +35,47 @@ Let's compute the adjoint of the general <m>2\times 2</m> matrix
 <m> A = \left[\begin{smallmatrix} a \amp b \\ c \amp d \end{smallmatrix}\right] </m>.
 First, the minors.
 </p>
-<image width="53%">
-	<description><p> Minor determinants for <m>2 \times 2</m> matrices. </p></description>
+<!-- TODO CHECK LATEX WIDTH -->
+<image width="63.2%">
 	<latex-image label="image-more-det-examples-2x2-minors">
 		<xi:include href="examples.d/2x2-minors.tex" parse="text" />
 	</latex-image>
+	<shortdescription> Minor determinants for 2-by-2 matrices. </shortdescription>
+	<description><p>
+		Minor determinants for the general <m>2 \times 2</m> matrix
+		<me> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+		are determined.
+		Four instances of this general <m>2 \times 2</m> matrix are displayed:
+		<ol>
+			<li><p>
+				In the first instance the <m>(1,1)</m> entry is targeted,
+				with a horizontal line crossing through the entries in the first row and a vertical line crossing through the entries in the first column,
+				so that only the <m>(2,2)</m> entry <m>d</m> remains uncovered.
+			</p></li>
+			<li><p>
+				In the second instance the <m>(1,2)</m> entry is targeted,
+				with a horizontal line crossing through the entries in the first row and a vertical line crossing through the entries in the second column,
+				so that only the <m>(2,1)</m> entry <m>c</m> remains uncovered.
+			</p></li>
+			<li><p>
+				In the third instance the <m>(2,1)</m> entry is targeted,
+				with a horizontal line crossing through the entries in the second row and a vertical line crossing through the entries in the first column,
+				so that only the <m>(1,2)</m> entry <m>b</m> remains uncovered.
+			</p></li>
+			<li><p>
+				In the fourth instance the <m>(2,2)</m> entry is targeted,
+				with a horizontal line crossing through the entries in the second row and a vertical line crossing through the entries in the second column,
+				so that only the <m>(1,1)</m> entry <m>a</m> remains uncovered.
+			</p></li>
+		</ol>
+	</p></description>
 </image>
+<p><md><mrow>
+	M_{11} \amp = d \text{,} \amp
+	M_{12} \amp = c \text{,} \amp
+	M_{21} \amp = b \text{,} \amp
+	M_{22} \amp = a \text{.}
+</mrow></md></p>
 <p>
 In the matrix of cofactors for a <m>2 \times 2</m> matrix,
 the off-diagonal cofactors become negative,

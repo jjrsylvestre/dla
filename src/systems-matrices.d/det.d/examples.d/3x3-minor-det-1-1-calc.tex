@@ -15,16 +15,17 @@
 	every left delimiter/.style={xshift=.5em,yscale=0.75,yshift=0.4em},
 	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
 	every node/.style={anchor=base east},
+	crisscross/.style={black!65!white}
 ]
 	\matrix (A)[
 		matrix of math nodes,
 		left delimiter={\lvert},
 		right delimiter={\rvert}
 	]{ -2 \amp 1 \\ 1 \amp -1 \\ };
-	\node[left=-0.25em of A] (eq) {$M_{11} =$};
-	\node[right=-0.25em of A] (eq) {$= (-2) \cdot (-1) - 1 \cdot 1 = 2 - 1 = 1$.};
-	\node[above left=-0.5em of A] {$+$};
-	\node[above right=-0.5em of A] {$-$};
-	\draw[-latex] (A.north west) to (A.south east);
-	\draw[-latex] (A.north east) to (A.south west);
+	\node[crisscross, above left=-0.5em of A] {$+$};
+	\node[crisscross, above right=-0.5em of A] {$-$};
+	\begin{scope}[-latex,on background layer]
+		\draw[crisscross] (A.north west) to (A.south east);
+		\draw[crisscross] (A.north east) to (A.south west);
+	\end{scope}
 \end{tikzpicture}
