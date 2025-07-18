@@ -17,15 +17,26 @@
 ]
 
 	\draw[->] (-3.5,0) to (5,0) node[below right] {$x$};
-	\draw[->] (0,-0.5) to (0,5.75) node[above right] {$y$};
+	\draw[->] (0,-0.75) to (0,5.5) node[above right] {$y$};
 
 	\draw[dashed] (-3.5,5) to (4.5,-0.333);
 	\node[point] at (1,2) (q) {};
-	\node[point] at (-2,4) (x) {};
-	\draw[vector,thick] (q) to node[above,sloped,near end] {$\uvec{x}-\uvec{x}_0$} (x);
+	\node[point] at (-2.75,4.5) (x) {};
+	\draw[vector,thick] (q) to node[above,sloped,near end] {$\uvec{x} - \uvec{x}_0$} (x);
 	\draw[vector,thick] (q) to node[below right] {$\uvec{n}$} (3,5);
-	\draw[vector,thick] (0,0) to node[below right] {$\uvec{x}_0$} (q);
+	\draw[vector,thick] (0,0) to node[right] {$\uvec{x}_0$} (q);
 	\draw[vector,thick] (0,0) to node[left] {$\uvec{x}$} (x);
 	\draw (1.2,2.3) to (0.9,2.5) to (0.7,2.2);
+
+	% some points not on the line
+	\node[point,red] at (4,2) (s) {};
+	\draw[vector,thick,red] (q) to node[above, sloped, near end] {$\scriptstyle \uvec{x} - \uvec{x}_0$} (s);
+	\draw[vector,thick,red] (0,0) to node[below] {$\scriptstyle \uvec{x}$} (s);
+	\draw[red] (q) ++(56.3:0.4cm) arc (56.3:0:0.4cm);
+	\node[point,red] at (-0.75,2.5) (t) {};
+	\draw[vector,thick,red] (q) to (t);
+	\draw[vector,thick,red] (q) to node[below, sloped] {$\scriptstyle \uvec{x} - \uvec{x}_0$} (t);
+	\draw[vector,thick,red] (0,0) to node[right] {$\scriptstyle \uvec{x}$} (t);
+	\draw[red] (q) ++(56.3:0.8cm) arc (56.3:164.05:0.8cm);
 
 \end{tikzpicture}

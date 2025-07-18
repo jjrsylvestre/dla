@@ -54,18 +54,35 @@ Continuing our example,
 <em>every</em> change in position between some initial and terminal points in the plane that requires moving two units right and three units down can be represented by the same vector.
 </p>
 
-<image width="100%">
-	<description><p> Example of a vector associated to several equivalent directed line segements. </p></description>
-	<latex-image label="image-vectors-concepts-vec-as-equiv-directed-segments">
-		<xi:include href="concepts.d/vec-as-equiv-directed-segments.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> A specific vector in the plane can be associated to many equivalent directed line segments. </caption>
+	<image width="85.2%">
+		<latex-image label="image-vectors-concepts-vec-as-equiv-directed-segments">
+			<xi:include href="concepts.d/vec-as-equiv-directed-segments.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Example of a vector associated to several equivalent directed line segments in the plane. </shortdescription>
+		<description><p>
+			A diagram consisting of four right triangles in the <m>xy</m>-plane,
+			each with a directed line segment for the hypotenuse.
+			The triangles are all identical,
+			both in that they are all congruent but also that they are similarly oriented in the plane.
+			Each triangle can identically be described as follows.
+			A directed line segment extends downwards and rightwards from an initial point <m>P_i</m> to a terminal point <m>Q_i</m>
+			(with <m>i = 1, 2, 3, 4</m> indexing the triangles),
+			representing a vector labelled <m>\uvec{u}</m>.
+			(This vector label is identical, without indexing subscript, for each triangle.)
+			A dashed line segment extends horizontally <m>2</m> units rightwards of <m>P_i</m>,
+			and from there another dashed line segment extends vertically <m>3</m> units downwards where it precisely meets <m>Q_i</m> to complete the triangle.
+			These two line segments necessarily meet at a right angle.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 We describe a two-dimensional vector in the plane with a pair of numerical <term>components</term>:
 the change in <m>x</m> and the change in <m>y</m>.
 If <m>P(x_1,y_1)</m> and <m>Q(x_2,y_2)</m> are points in the plane,
-then the vector associated to the directed line segment <m>\abray{PQ}</m> has components <m>\uvec{v} = (\Delta x,\Delta y) = (x_2-x_1,y_2-y_1)</m>.
+then the vector associated to the directed line segment <m>\abray{PQ}</m> has components <m>\uvec{v} = (\change{x},\change{y}) = (x_2 - x_1, y_2 - y_1)</m>.
 (A three-dimensional vector in space requires a third component as well: the change in <m>z</m>.)
 </p>
 
@@ -90,7 +107,7 @@ For example, if we had two points <m>P</m> and <m>Q</m> in an imaginary four-dim
 they would each require four coordinates,
 so we would describe them as <m>P(w_1,x_1,y_1,z_1)</m> and <m>Q(w_2,x_2,y_2,z_2)</m>.
 Then the vector corresponding to the directed line segment <m>\abray{PQ}</m> would have four components and we would compute it as
-<m>\uvec{v} = (\Delta w, \Delta x, \Delta y, \Delta z) = (w_2-w_1,x_2-x_1,y_2-y_1,z_2-z_1)</m>.
+<m>\uvec{v} = (\change{w}, \change{x}, \change{y}, \change{z}) = (w_2 - w_1, x_2 - x_1, y_2 - y_1, z_2 - z_1)</m>.
 </p>
 
 </subsection>
@@ -106,59 +123,147 @@ by making the initial point of the second vector the same as the terminal point 
 then we could consider the overall change in position.
 </p>
 
-<image width="50%">
-	<description><p>
-		Moving directly from the initial point of one vector to the terminal point of another vector, when the two vectors are <q>chained</q> together, tail-to-head.
-	</p></description>
-	<latex-image label="image-vectors-concepts-vec-add-1">
-		<xi:include href="concepts.d/vec-add-1.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-vectors-concepts-vec-add-1">
+	<caption> Traversing the plane by chaining vectors together. </caption>
+	<image width="50.2%">
+		<latex-image label="image-vectors-concepts-vec-add-1">
+			<xi:include href="concepts.d/vec-add-1.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			A vector triangle with the initial point of the second vector placed at the terminal point of the first,
+			and an unknown third vector extending from the initial point of the first to the terminal point of the second completing the triangle.
+		</shortdescription>
+		<description><p>
+			A diagram of three vectors in a triangular configuration.
+			Three points are plotted:
+			<m>P</m> in the lower-left of the diagram,
+			<m>Q</m> at the top of the diagram, just left of centre,
+			and <m>R</m> at the far right of the diagram, slightly above centre.
+			Between these points are drawn three directed line segments:
+			<m>\abray{PQ}</m> representing a vector labelled <m>\uvec{u}</m>,
+			<m>\abray{QR}</m> representing a vector labelled <m>\uvec{v}</m>,
+			and <m>\abray{PR}</m> drawn with a dashed-line shaft and labelled with a question mark.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 If these are points and vectors in the plane,
 then clearly the change in position from <m>P</m> to <m>R</m> will be described by the <em>total net</em> change in <m>x</m> and the <em>total net</em> change in <m>y</m>,
 as we discovered in <xref ref="activity-vectors-geom-vec-add" />.
-So, in the diagram above, we obtain the components for the vector corresponding to <m>\abray{PR}</m> by adding corresponding components of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+So, in <xref ref="figure-vectors-concepts-vec-add-1" />,
+we obtain the components for the vector corresponding to <m>\abray{PR}</m> by adding corresponding components of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 That is, if <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>,
 then the components of the dashed arrow labelled with a question mark are <m>(u_1+v_1,u_2+v_2)</m>.
 For obvious reasons, we call this the <term>sum</term> of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 </p>
 
-<image width="50%">
-	<description><p> Diagram of a vector sum. </p></description>
-	<latex-image label="image-vectors-concepts-vec-add-2">
-		<xi:include href="concepts.d/vec-add-2.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-vectors-concepts-vec-add-2">
+	<caption>
+		A <term>vector-addition triangle</term>.
+		Note that in this configuration,
+		<m>v_2</m> would be a negative value.
+	</caption>
+	<image width="53.8%">
+
+		<latex-image label="image-vectors-concepts-vec-add-2">
+			<xi:include href="concepts.d/vec-add-2.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription> Diagram of a vector-addition triangle. </shortdescription>
+
+		<description>
+
+			<p>
+			A diagram of three vectors arranged in a triangular configuration to illustrate vector addition.
+			The diagram of <xref ref="figure-vectors-concepts-vec-add-1" /> is reproduced,
+			except that <m>\abray{PR}</m> is drawn with a solid-line shaft and represents the sum vector <m>\uvec{u} + \uvec{v}</m>.
+			</p>
+
+			<p>
+			Also, below the vector triangle appears a horizontal bar extending from the horizontal position of <m>P</m> to the horizontal position of <m>Q</m> and labelled <m>u_1</m>,
+			and adjacent to it appears another bar extending from the horizontal position of <m>Q</m> to the horizontal position of <m>R</m> and labelled <m>v_1</m>.
+			Below these is a third horizontal bar extending from the horizontal position of <m>P</m> all the way to the horizontal position of <m>R</m> and labelled <m>u_1 + v_1</m>.
+			</p>
+
+			<p>
+			Similarly,
+			to the right of the vector triangle appears a vertical bar extending from the vertical position of <m>Q</m> to the vertical position of <m>R</m> and labelled <m>\abs{v_2}</m>,
+			and adjacent to it appears another bar extending from the vertical position of <m>R</m> to the vertical position of <m>P</m> and labelled <m>u_2 + v_2</m>.
+			Further to the right is a third vertical bar extending from the vertical position of <m>Q</m> all the way down to the vertical position of <m>P</m> and labelled <m>u_2</m>.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 In <xref ref="activity-vectors-geom-vec-add" />
 we also considered the result of interchanging the order of a pair of vectors that have been chained together.
 </p>
 
-<image width="50%">
-	<description><p> Diagram of the commutivity of vector sums. </p></description>
-	<latex-image label="image-vectors-concepts-vec-add-3">
-		<xi:include href="concepts.d/vec-add-3.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-vectors-concepts-vec-add-3">
+	<caption> The parallelogram rule for vector addition. </caption>
+	<image width="50.2%">
+
+		<latex-image label="image-vectors-concepts-vec-add-3">
+			<xi:include href="concepts.d/vec-add-3.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			Diagram of the commutativity of vector sums,
+			consisting three arrows in a triangular vector sum configuration,
+			along with a mirror image vector sum triangle,
+			with the two sum vectors aligned together as a common diagonal in a parallelogram formed by the four outside vectors.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram of six vectors arranged into a pair of mirror-image vector-addition triangles.
+			Four points <m>P, Q, R, Q'</m> are plotted so that they form the vertices of a parallelogram <m>\abcdquad{PQRQ'}</m>.
+			Six directed line segments are drawn between these points:
+			<ul>
+				<li>
+					Parallel segments <m>\abray{PQ}</m> and <m>\abray{Q'R}</m> forming opposite sides of parallelogram <m>\abcdquad{PQRQ'}</m>,
+					both representing the same vector <m>\uvec{u}</m>.
+				</li>
+				<li>
+					Parallel segments <m>\abray{PQ'}</m> and <m>\abray{QR}</m> forming opposite sides of parallelogram <m>\abcdquad{PQRQ'}</m>,
+					both representing the same vector <m>\uvec{v}</m>.
+				</li>
+				<li>
+					The directed line segment <m>\abray{PR}</m>,
+					a diagonal in parallelogram <m>\abcdquad{PQRQ'}</m>,
+					is drawn twice:
+					one copy representing the sum vector <m>\uvec{u} + \uvec{v}</m> as part of the vector-addition triangle <m>\abctriangle{PQR}</m>,
+					and the other copy representing the sum vector <m>\uvec{v} + \uvec{u}</m> as part of the vector-addition triangle <m>\abctriangle{PQ'R}</m>.
+				</li>
+			</ul>
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
-In the diagram above, the vector for <m>\abray{PQ'}</m> is the same as that for <m>\abray{QR}</m>,
+In <xref ref="figure-vectors-concepts-vec-add-3" />,
+the vector for <m>\abray{PQ'}</m> is the same as that for <m>\abray{QR}</m>,
 because they represent the same change in position, just with a different initial point.
 Accordingly, we have labelled both vectors with <m>\uvec{v}</m>.
 And the same applies to <m>\uvec{u}</m> with respect to <m>\abray{PQ}</m> and <m>\abray{Q'R}</m>.
 </p>
 
 <p>
-The diagram illustrates that if we start at <m>P</m> and chain together the change-of-position instructions contained in vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+The diagram in <xref ref="figure-vectors-concepts-vec-add-3" /> illustrates that if we start at <m>P</m> and chain together the change-of-position instructions contained in vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>,
 the order that we do so does not matter <mdash />
 the overall change in position will be from <m>P</m> to <m>R</m>.
 Thus, <em>the order of vector addition doesn't matter</em>.
 Algebraically, we could have predicted that this would be the case because it doesn't matter what order you add components:
 the identities <m>u_1 + v_1 = v_1 + u_1</m> and <m>u_2 + v_2 = v_2 + v_2</m> are both valid.
-But it's useful conceptually to have the above geometric picture of vector addition because,
+But it's useful conceptually to have these geometric pictures of vector addition because,
 whether you believe this about yourself or not,
 <em>humans are spatial thinkers</em>.
 And the geometric version of the vector identity <m>\uvec{v} + \uvec{u} = \uvec{u} + \uvec{v}</m> makes a pretty picture of a parallelogram,
@@ -166,7 +271,9 @@ so we call it the <term>parallelogram rule</term><idx><h>parallelogram rule</h><
 </p>
 
 <p>
-For three-dimensional vectors, we can imagine diagrams like the ones we have drawn above floating in space,
+For three-dimensional vectors, we can imagine diagrams like the ones in
+<xref ref="figure-vectors-concepts-vec-add-2" /> and <xref ref="figure-vectors-concepts-vec-add-3" />
+floating in space,
 and the parallelogram rule would hold there as well.
 In higher dimensions, we cannot draw pictures, but we could imagine that they are similar.
 At any rate, the algebra of vector addition is the same in any dimension:
@@ -208,6 +315,9 @@ and also <m>\zerovec + \uvec{v} = \uvec{v}</m>.
 <subsection xml:id="subsection-vectors-concepts-vec-neg-vec-subtract">
 <title>Vector negatives and vector subtraction</title>
 
+<subsubsection xml:id="subsubsection-vectors-concepts-vec-neg">
+<title>Negatives</title>
+
 <p>
 If we move from <m>P</m> to <m>Q</m>, and from there move from <m>Q</m> back to <m>P</m>,
 the net result is no change in position, which is represented by the zero vector.
@@ -217,14 +327,8 @@ So if we label the vector for <m>\abray{PQ}</m> as <m>\uvec{v}</m>,
 it seems reasonable to label the vector for <m>\abray{QP}</m> as <m>-\uvec{v}</m>,
 the <term>negative</term> of <m>\uvec{v}</m>,
 so that we have <m>\uvec{v} + (-\uvec{v}) = \zerovec</m>.
+(See <xref ref="figure-vectors-concepts-two-neg-visualizations-add" />.)
 </p>
-
-<image width="25%">
-	<description><p> Diagram of a vector and its negative. </p></description>
-	<latex-image label="image-vectors-concepts-vec-neg-1">
-		<xi:include href="concepts.d/vec-neg-1.tex" parse="text" />
-	</latex-image>
-</image>
 
 <p>
 If we are to have <m>\uvec{v} + (-\uvec{v}) = \zerovec</m>,
@@ -239,8 +343,8 @@ In any dimension, we have
 	\amp\implies \amp
 	-\uvec{v} \amp= (-v_1,-v_2,\dotsc,-v_n)
 </mrow></md>.
-This relationship between the components of <m>\uvec{v}</m> and <m>-\uvec{v}</m> will lead to an identity between the negative and a certain scalar multiple of a vector in
-<xref ref="subsection-vectors-concepts-scalar-mul" /> below.
+This relationship between the components of <m>\uvec{v}</m> and <m>-\uvec{v}</m> will later lead to an identity between the negative and a certain scalar multiple of a vector in
+<xref ref="subsection-vectors-concepts-scalar-mul" />.
 </p>
 
 <aside><title>A look ahead</title><p>
@@ -251,62 +355,204 @@ This relationship between the components of <m>\uvec{v}</m> and <m>-\uvec{v}</m>
 	so we will need to rely on the algebraic condition <m>\uvec{v} + (-\uvec{v}) = \zerovec</m> to know what a <q>negative vector</q> should be.
 </p></aside>
 
+<figure xml:id="figure-vectors-concepts-two-neg-visualizations">
+	<caption> Two visualizations of a negative vector. </caption>
+
+	<sidebyside widths="25.2% 42.6%">
+
+		<figure xml:id="figure-vectors-concepts-two-neg-visualizations-add">
+			<caption> A vector and its negative summing to the zero vector. </caption>
+			<image>  <!-- width="25.2%" -->
+				<latex-image label="image-vectors-concepts-vec-neg-1">
+					<xi:include href="concepts.d/vec-neg-1.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram of a vector and its negative arranged in a vector addition <q>triangle.</q> </shortdescription>
+				<description><p>
+					A diagram illustrating a negative vector as the vector that sums with the original to the zero vector.
+					Points <m>P</m> and <m>Q</m> are plotted,
+					and directed line segment <m>\abray{PQ}</m> is drawn,
+					representing a vector labelled <m>\uvec{v}</m>.
+					The directed line segment <m>\abray{QP}</m> is drawn in parallel,
+					representing the negative vector <m>- \uvec{v}</m>.
+					If the point <m>P</m> can be thought of as representing the zero vector,
+					completing the vector addition <q>triangle</q> <m>\abctriangle{PQP}</m>.
+				</p></description>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-vectors-concepts-two-neg-visualizations-opp">
+			<caption> A negative vector as an <q>opposite</q>. </caption>
+			<image>  <!-- width="42.6% "-->
+				<latex-image label="image-vectors-concepts-vec-neg-2">
+					<xi:include href="concepts.d/vec-neg-2.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram of a vector arrow with the opposite vector extend reversely from a shared initial point. </shortdescription>
+				<description><p>
+					A diagram illustrating a negative vector as an oppositely directed line segment.
+					Collinear points <m>R', O, R</m> are plotted so that <m>O</m> is the midpoint between <m>R</m> and <m>R'</m>.
+					Directed line segments <m>\abray{OR}</m> and <m>\abray{OR'}</m> are drawn,
+					with <m>\abray{OR}</m> representing a vector <m>\uvec{v}</m> and <m>\abray{OR'}</m> representing the negative vector <m>- \uvec{v}</m>.
+				</p></description>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
 <p>
 Remembering that the <q>natural</q> position for a vector is with its tail at the origin,
-it's useful to visualize negatives in the following manner.
+it's useful to visualize negatives as in <xref ref="figure-vectors-concepts-two-neg-visualizations-opp" />.
+That is, the negative of a vector will change positions by the same distance but in the opposite direction.
 </p>
 
-<image width="43%">
-	<description><p> Diagram of a vector and its negative. </p></description>
-	<latex-image label="image-vectors-concepts-vec-neg-2">
-		<xi:include href="concepts.d/vec-neg-2.tex" parse="text" />
-	</latex-image>
-</image>
+</subsubsection>
 
-<p> That is, the negative of a vector will change positions by the same distance but in the opposite direction. </p>
-
-<p> To subtract vectors, we add to a vector the negative of another. </p>
-
-<image width="59%">
-	<description><p> Diagram of vector subtraction. </p></description>
-	<latex-image label="image-vectors-concepts-vec-subtract-1">
-		<xi:include href="concepts.d/vec-subtract-1.tex" parse="text" />
-	</latex-image>
-</image>
+<subsubsection xml:id="subsubsection-vectors-concepts-vec-subtract">
+<title>Subtraction</title>
 
 <p>
-Here, the diagonal vector labelled <m>\uvec{u} - \uvec{v}</m> is obtained by adding <m>\uvec{u}</m> and <m>-\uvec{v}</m>.
+To subtract vectors, we add to a vector the negative of another.
+In <xref ref="figure-vectors-concepts-vec-subtract-1" />,
+the vector arrows forming triangle <m>\abctriangle{OPQ}</m> represent a vector-addition triangle,
+so that the vector labelled <m>\uvec{u} - \uvec{v}</m> is obtained by adding <m>\uvec{u}</m> and <m>-\uvec{v}</m>.
+</p>
+
+<figure xml:id="figure-vectors-concepts-vec-subtract-1">
+	<caption> Vector subtraction via vector addition with a negative. </caption>
+	<image width="53.5%">
+		<latex-image label="image-vectors-concepts-vec-subtract-1">
+			<xi:include href="concepts.d/vec-subtract-1.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			Diagram of vector subtraction,
+			consisting of three arrows arranged in a vector-addition triangle,
+			along with a a pair of oppositely directed arrows emanating from one of the vertices of the triangle.
+		</shortdescription>
+		<description><p>
+			A diagram illustrating vector subtraction as vector addition of a vector and the negative of another.
+			Collinear points <m>R', O, R</m> are plotted so that <m>O</m> is the midpoint between <m>R</m> and <m>R'</m>.
+			Directed line segments <m>\abray{OR}</m> and <m>\abray{OR'}</m> are drawn,
+			with <m>\abray{OR}</m> representing a vector <m>\uvec{v}</m> and <m>\abray{OR'}</m> representing the negative vector <m>- \uvec{v}</m>.
+			External to the line through those three points are plotted two more points <m>P</m> and <m>Q</m> so that <m>\abcdquad{O P Q R'}</m> is a parallelogram.
+			The directed line segment <m>\abray{PQ}</m> is drawn,
+			again representing the negative vector <m>- \uvec{v}</m>,
+			as it is the side of parallelogram <m>\abcdquad{O P Q R'}</m> opposite <m>\abray{OR'}</m>.
+			The directed line segment <m>\abray{OP}</m> is also drawn,
+			forming another side of parallelogram <m>\abcdquad{O P Q R'}</m> and representing a vector labelled <m>\uvec{u}</m>.
+			Finally, the directed line segment <m>\abray{OQ}</m> is drawn,
+			forming a diagonal of parallelogram <m>\abcdquad{O P Q R'}</m> and completing the vector-addition triangle <m>\abctriangle{OPQ}</m>.
+			This final directed line segment represents the difference vector <m>\uvec{u} - \uvec{v}</m>.
+		</p></description>
+	</image>
+</figure>
+
+<p>
 As we explored in <xref ref="activity-vectors-diff-vec-between-heads" />,
 we get an interesting pattern if we draw in another copy of the vector labelled <m>\uvec{u} - \uvec{v}</m> with its initial point at <m>R</m>.
-</p>
-
-<image width="71.7%">
-	<description><p> Diagram showing the connection between vector subtraction, addition, and negative. </p></description>
-	<latex-image label="image-vectors-concepts-vec-subtract-2">
-		<xi:include href="concepts.d/vec-subtract-2.tex" parse="text" />
-	</latex-image>
-</image>
-
-<p>
-Triangle <m>\abctriangle{RP'P}</m> creates the vector addition pattern <m>\uvec{u} + (-\uvec{v}) = \uvec{u} - \uvec{v}</m>.
+In <xref ref="figure-vectors-concepts-vec-subtract-2" />,
+triangle <m>\abctriangle{RP'P}</m> creates the vector addition pattern <m>\uvec{u} + (-\uvec{v}) = \uvec{u} - \uvec{v}</m>.
 But notice that <m>\abctriangle{ORP}</m> creates a vector addition pattern starting at <m>O</m> and ending up at <m>P</m>,
-by <m>\uvec{v} + (\uvec{u}-\uvec{v}) = \uvec{u}</m>.
+by <m>\uvec{v} + (\uvec{u} - \uvec{v}) = \uvec{u}</m>.
 So we can think of a difference of two vectors as <em>a vector that runs between the heads of the two vectors in the difference when they share the same initial point</em>.
 Algebraically, we can think of the <m>\uvec{v}</m> and <m>-\uvec{v}</m> cancelling in the expression <m>\uvec{v} + (\uvec{u} - \uvec{v})</m>,
 leaving just <m>\uvec{u}</m>.
 </p>
 
+<figure xml:id="figure-vectors-concepts-vec-subtract-2">
+	<caption>
+		A <term>vector-subtraction triangle</term>.
+		Vector subtraction can be interpreted as the displacement between the two terminal points of the vectors in the subtraction operation.
+	</caption>
+	<image width="73.5%">
+
+		<latex-image label="image-vectors-concepts-vec-subtract-2">
+			<xi:include href="concepts.d/vec-subtract-2.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			A parallelogram split into two triangles by a diagonal representing a difference vector,
+			illustrating both vector subtraction as vector addition with a negative vector in one triangle,
+			and vector subtraction as displacement between terminal points in the other triangle.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram using a parallelogram to simultaneously illustrate vector subtraction interpreted as vector addition with a negative vector and as the displacement between the two terminal points of the vectors in the subtraction operation.
+			The diagram from <xref ref="figure-vectors-concepts-vec-subtract-1" /> is replicated,
+			except that the directed line segments <m>\abray{OR'}</m> and <m>\abray{PQ}</m>,
+			both representing the negative vector <m>- \uvec{v}</m>,
+			as well the directed line segment <m>\abray{OQ}</m>,
+			representing the difference vector <m>\uvec{u} - \uvec{v}</m>,
+			all have shafts drawn as dashed lines.
+			</p>
+
+			<p>
+			In addition,
+			a point <m>P'</m> is plotted collinear with <m>P</m> and <m>Q</m> so that <m>P</m> is the midpoint between <m>Q</m> and <m>P'</m>,
+			making <m>\abcdquad{ORP'P}</m> a parallelogram congruent to <m>\abcdquad{OPQR'}</m>.
+			Directed line segment <m>\abray{P'P}</m> is drawn with a dashed-line shaft,
+			again representing the negative vector <m>- \uvec{v}</m>,
+			as it has the same direction and length as <m>\abray{PQ}</m>.
+			Directed line segment <m>\abray{RP'}</m> is also drawn with a dashed-line shaft,
+			and again represents the vector <m>\uvec{u}</m>,
+			as it forms the side of parallelogram <m>\abcdquad{ORP'P}</m> opposite <m>\abray{OP}</m>.
+			Directed line segment <m>\abray{P'P}</m> is drawn with a dashed-line shaft,
+			again representing the vector <m>\uvec{u}</m> as it forms the side of parallelogram <m>\abcdquad{ORP'P}</m> opposite <m>\abray{OP}</m>.
+			Finally, the directed line segment <m>\abray{RP}</m> is drawn,
+			forming a diagonal of parallelogram <m>\abcdquad{ORP'P}</m> and completing the vector-addition triangle <m>\abctriangle{RP'P}</m>.
+			This final directed line segment again represents the difference vector <m>\uvec{u} - \uvec{v}</m>,
+			but this time is placed so that its initial point <m>R</m> coincides with the terminal point of the <m>\abray{OR}</m> representation of <m>\uvec{v}</m>
+			and its terminal point <m>P</m> coincides with the terminal point of the <m>\abray{OP}</m> representation of <m>\uvec{u}</m>.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 <p>
-Of course, there are two vectors that run between the heads of <m>\uvec{u}</m> and <m>\uvec{v}</m>,
-namely <m>\uvec{u}-\uvec{v}</m> and its negative.
 </p>
 
-<image width="63.8%">
-	<description><p> Diagram showing the connection between vector subtraction, addition, and negative. </p></description>
-	<latex-image label="image-vectors-concepts-vec-subtract-3">
-		<xi:include href="concepts.d/vec-subtract-3.tex" parse="text" />
-	</latex-image>
-</image>
+<p>
+Of course, there are two vectors that run between the heads of <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+namely <m>\uvec{u} - \uvec{v}</m> and its negative.
+</p>
+
+<figure>
+	<caption> A <term>vector-subtraction triangle</term> with the oppositely-oriented difference vector. </caption>
+	<image width="50.8%">
+		<latex-image label="image-vectors-concepts-vec-subtract-3">
+			<xi:include href="concepts.d/vec-subtract-3.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			A parallelogram split into two triangles by a diagonal representing the oppositely-oriented difference vector as in a previous diagram.
+		</shortdescription>
+		<description><p>
+			A diagram placing a difference vector as a directed line segment between the terminal points of the two vectors in the subtraction operation,
+			oppositely oriented compared to <xref ref="figure-vectors-concepts-vec-subtract-2" />.
+			Four points <m>O, P, P', R</m> are plotted to form a parallelogram.
+			The four sides are drawn as directed line segments:
+			<ul>
+				<li>
+					<m>\abray{OP}</m> to represent a vector labelled <m>\uvec{u}</m>,
+					and the opposite side <m>\abray{P'R}</m>
+					(drawn with a dashed-line shaft)
+					to represent the negative vector <m>- \uvec{v}</m>.
+				</li>
+				<li>
+					<m>\abray{OR}</m> and opposite side <m>\abray{PP'}</m>
+					(the latter drawn with a dashed-line shaft),
+					both representing a vector labelled <m>\uvec{v}</m>.
+				</li>
+			</ul>
+			Finally,
+			the directed line segment <m>\abray{PR}</m> is drawn to form a diagonal in the parallelogram,
+			running from the terminal point of <m>\uvec{u}</m> at <m>P</m> to the terminal point of <m>\uvec{v}</m> at <m>R</m>,
+			and representing the difference vector <m>\uvec{v} - \uvec{u}</m>.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 Now <m>\abctriangle{PP'R}</m> creates a vector addition pattern starting at <m>P</m> and ending up at <m>R</m>,
@@ -318,6 +564,8 @@ but in opposite directions,
 verifies geometrically that <m>-(\uvec{u} - \uvec{v}) = \uvec{v} - \uvec{u}</m>,
 as we would expect algebraically.
 </p>
+
+</subsubsection>
 
 </subsection>
 
@@ -331,15 +579,41 @@ Geometrically, when we scalar multiply a vector we <q>stretch</q> or <em>scale</
 Here are some examples.
 </p>
 
-<image width="44.4%">
-	<description><p> Diagram of a scalar multiple of a vector. </p></description>
-	<latex-image label="image-vectors-concepts-vec-scalar-mul">
-		<xi:include href="concepts.d/vec-scalar-mul.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-vectors-concepts-vec-scalar-mul">
+	<caption> Examples of scalar multiples of a vector. </caption>
+	<image width="43.5%">
+		<latex-image label="image-vectors-concepts-vec-scalar-mul">
+			<xi:include href="concepts.d/vec-scalar-mul.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of a vector and several example scalar multiples of it. </shortdescription>
+		<description><p>
+			A point is plotted near the centre of the diagram,
+			an from it emanate several parallel directed line segments:
+			<ul>
+				<li> A directed line segment representing a vector labelled <m>\uvec{v}</m>. </li>
+				<li>
+					A directed line segment in the same direction as <m>\uvec{v}</m> but twice as long,
+					representing the scalar multiple vector <m>2 \uvec{v}</m>.
+				</li>
+				<li>
+					A directed line segment in the same direction as <m>\uvec{v}</m> but half as long,
+					representing the scalar multiple vector <m>\frac{1}{2} \uvec{v}</m>.
+				</li>
+				<li>
+					A directed line segment the same length as <m>\uvec{v}</m> but in the opposite direction,
+					representing the scalar multiple vector <m>(-1) \uvec{v}</m>.
+				</li>
+				<li>
+					A directed line segment in the opposite direction to <m>\uvec{v}</m> and close to one-and-a-half times as long,
+					representing the scalar multiple vector <m>(-\sqrt{2}) \uvec{v}</m>.
+				</li>
+			</ul>
+		</p></description>
+	</image>
+</figure>
 
 <p>
-Notice how each of these vectors either points in the same direction as or in the opposite direction to <m>\uvec{v}</m>.
+Notice how each of the vectors in <xref ref="figure-vectors-concepts-vec-scalar-mul" /> either points in the same direction as or in the opposite direction to <m>\uvec{v}</m>.
 In particular, they are all
 <term>parallel</term>
 <idx><h>parallel vectors</h></idx>
@@ -349,17 +623,51 @@ This happens precisely when the vectors are scalar multiples of one another.
 </p>
 
 <p>
-Thinking of the vectors in the diagram above as vectors in the plane,
+Thinking of the vectors in <xref ref="figure-vectors-concepts-vec-scalar-mul" /> as vectors in the plane,
 if we scale <m>\uvec{v}</m> by a factor of <m>2</m>,
 then our knowledge of similar triangles tells us that the change in both <m>x</m> and <m>y</m> must be double.
 </p>
 
-<image width="32.3%">
-	<description><p> Diagram of scalar multiplication as stretching the length of a vector. </p></description>
-	<latex-image label="image-vectors-concepts-vec-scalar-mul-similar-tri">
-		<xi:include href="concepts.d/vec-scalar-mul-similar-tri.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption>
+		Geometric confirmation that the components of a scalar multiple vector are just the scaled components of the original vector,
+		in the case of a plane vector and a scale factor of <m>2</m>.
+	</caption>
+	<image width="32.3%">
+
+		<latex-image label="image-vectors-concepts-vec-scalar-mul-similar-tri">
+			<xi:include href="concepts.d/vec-scalar-mul-similar-tri.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription> Diagram illustrating the scaling of the <m>x</m>- and <m>y</m>-components of a two-dimensional vector when the vector is scaled by <m>2</m>. </shortdescription>
+
+		<description>
+
+			<p>
+			A directed line segment representing a vector labelled <m>\uvec{v}</m> runs upwards and rightwards from a point at the left edge of the diagram,
+			just below centre,
+			to a point just above and left of the centre of the diagram.
+			A second directed line segment representing the scalar multiple vector <m>2 \uvec{v}</m> runs parallel to and from the same initial point as <m>\uvec{v}</m>,
+			but is twice as long,
+			reaching to the top of the diagram.
+			</p>
+
+			<p>
+			A dashed horizontal line runs from the initial point of <m>\uvec{v}</m> to the point directly below the terminal point of the scalar multiple <m>2 \uvec{v}</m>.
+			A dashed vertical line runs from each of the the terminal points of <m>\uvec{v}</m> and <m>2 \uvec{v}</m> down to this horizontal line,
+			creating two right triangles,
+			one inside the other,
+			with the vectors <m>\uvec{v}</m> and <m>2 \uvec{v}</m> as the hypotenuses.
+			The horizontal and vertical legs of the smaller right triangle (with <m>\uvec{x}</m> as hypotenuse) are labelled <m>\change{x}</m> and <m>\change{y}</m>,
+			respectively,
+			and the horizontal and vertical legs of the larger right triangle (with <m>2 \uvec{x}</m> as hypotenuse) are labelled <m>2 \change{x}</m> and <m>2 \change{y}</m>,
+			respectively.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 So if <m>\uvec{v} = (v_1,v_2)</m>, then <m>2\uvec{v} = (2v_1,2v_2)</m>.
@@ -391,17 +699,29 @@ We can connect scalar multiplication to addition,
 as we explored in
 <xref ref="activity-vectors-scalar-mul" />.
 If we add a vector to itself,
-then the sum vector will be twice as long as the original.
+then the sum vector will be twice as long as the original,
+so that <m>\uvec{v} + \uvec{v} = 2 \uvec{v}</m>.
 </p>
 
-<image width="41.7%">
-	<description><p> Diagram relating scalar multiplication to vector addition. </p></description>
-	<latex-image label="image-vectors-concepts-vec-scalar-mul-vs-add">
-		<xi:include href="concepts.d/vec-scalar-mul-vs-add.tex" parse="text" />
-	</latex-image>
-</image>
-
-<p> So we have <m>\uvec{v} + \uvec{v} = 2 \uvec{v}</m>. </p>
+<figure>
+	<caption> Adding a vector to itself produces the same result as multiplying the vector by scale factor <m>2</m>. </caption>
+	<image width="41.7%">
+		<latex-image label="image-vectors-concepts-vec-scalar-mul-vs-add">
+			<xi:include href="concepts.d/vec-scalar-mul-vs-add.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram illustrating how adding a vector to itself relates scalar multiplication to vector addition. </shortdescription>
+		<description><p>
+			A diagram of a vector added to itself.
+			Collinear points <m>P, Q, R</m> are plotted so that <m>Q</m> is the midpoint of <m>P</m> and <m>R</m>.
+			Directed line segments <m>\abray{PQ}</m> and <m>\abray{QR}</m> are plotted,
+			both representing the same vector <m>\uvec{v}</m>.
+			The directed line segment <m>\abray{PR}</m> is drawn in parallel,
+			completing the vector addition <q>triangle</q> <m>\abctriangle{PQR}</m>
+			(which is not actually a triangle as the three points are collinear).
+			This third directed line segment represents both the sum vector <m>\uvec{v} + \uvec{v}</m> and the scalar multiple vector <m>2 \uvec{v}</m>.
+		</p></description>
+	</image>
+</figure>
 
 </subsection>
 
@@ -421,12 +741,78 @@ In <xref ref="activity-vectors-scalar-mul-distrib" />,
 we explored a version of the distributive rule <m>k (\uvec{u} + \uvec{v}) = k \uvec{u} + k \uvec{v}</m> in the case <m>k=2</m>.
 </p>
 
-<image width="85.5%">
-	<description><p> Diagram illustrating distribution of scalar multiplication over vector addition. </p></description>
-	<latex-image label="image-vectors-concepts-vec-scalar-mul-distrib">
-		<xi:include href="concepts.d/vec-scalar-mul-distrib.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption>
+		Geometric confirmation that scalar multiplication distributes over vector addition,
+		in the case of scale factor <m>2</m>.
+	</caption>
+	<image width="86.7%">
+
+		<latex-image label="image-vectors-concepts-vec-scalar-mul-distrib">
+			<xi:include href="concepts.d/vec-scalar-mul-distrib.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			Diagram illustrating that scalar multiplication distributes over vector addition in the case of a scale factor of <m>2</m>,
+			via two vector-addition triangles and a parallogram sitting inside a large vector-addition triangle.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			Points <m>P, Q', R'</m> are arranged in a triangular configuration.
+			Points <m>Q, S, R</m> are plotted so that
+			<m>Q</m> is the midpoint between <m>P</m> and <m>Q'</m>,
+			<m>S</m> is the midpoint between <m>Q'</m> and <m>R'</m>,
+			and <m>R</m> is the midpoint between <m>P</m> and <m>R'</m>.
+			Directed line segments <m>\abray{PQ}</m>, <m>\abray{QR}</m>, and <m>\abray{PR}</m> are drawn to form a vector-addition triangle,
+			with <m>\abray{PQ}</m> representing a vector labelled <m>\uvec{u}</m>,
+			<m>\abray{QR}</m> representing a vector labelled <m>\uvec{v}</m>,
+			and <m>\abray{PR}</m> representing the sum vector <m>\uvec{u} + \uvec{v}</m>.
+			An identical vector-addition triangle is formed by directed line segments <m>\abray{RS}</m>, <m>\abray{SR}'</m>, and <m>\abray{RR'}</m>,
+			with <m>\abray{RS}</m> again representing <m>\uvec{u}</m>,
+			<m>\abray{SR'}</m> again representing <m>\uvec{v}</m>,
+			and <m>\abray{RR'}</m> again representing the sum vector <m>\uvec{u} + \uvec{v}</m>.
+			Directed line segments <m>\abray{QQ'}</m> and <m>\abray{Q'S}</m> are drawn to complete the parallelogram <m>\abcdquad{QQ'SR}</m>,
+			with <m>\abray{QQ'}</m> again representing <m>\uvec{u}</m>
+			and <m>\abray{Q'S}</m> again representing <m>\uvec{v}</m>.
+			</p>
+
+			<p>
+			Directed line segments <m>\abray{PQ'}</m>, <m>\abray{Q'R'}</m>, and <m>\abray{PR'}</m> are drawn to represent the scalar multiple vectors <m>2 \uvec{u}</m>, <m>2 \uvec{v}</m>, and <m>2 (\uvec{u} + \uvec{v})</m>:
+			<ul>
+				<li><p>
+					Points <m>P, Q, Q'</m> are collinear,
+					with <m>Q</m> the midpoint between the other two points,
+					and directed segments <m>\abray{PQ}</m> and <m>\abray{QQ'}</m> both represent the same vector <m>\uvec{u}</m>.
+					Hence directed segment <m>\abray{PQ'}</m> represents the scalar multiple vector <m>2 \uvec{u}</m>.
+				</p></li>
+				<li><p>
+					Points <m>Q', S, R'</m> are collinear,
+					with <m>S</m> the midpoint between the other two points,
+					and directed segments <m>\abray{Q'S}</m> and <m>\abray{SR'}</m> both represent the same vector <m>\uvec{v}</m>.
+					Hence directed segment <m>\abray{Q'R'}</m> represents the scalar multiple vector <m>2 \uvec{v}</m>.
+				</p></li>
+				<li><p>
+					Points <m>P, R, R'</m> are collinear,
+					with <m>R</m> the midpoint between the other two points,
+					and directed segments <m>\abray{PR}</m> and <m>\abray{RR'}</m> both represent the sum vector <m>\uvec{u} + \uvec{v}</m>.
+					Hence directed segment <m>\abray{PR'}</m> represents the scalar multiple vector <m>2 (\uvec{u} + \uvec{v})</m>.
+				</p></li>
+			</ul>
+			</p>
+
+			<p>
+			With <m>\abray{PQ'}</m> and <m>\abray{Q'R'}</m> representing vectors <m>2 \uvec{u}</m> and <m>2 \uvec{v}</m>,
+			triangle <m>\abctriangle{PQ'R'}</m> now forms a vector-addition triangle,
+			so that directed segment <m>\abray{PR'}</m> represents sum vector <m>2 \uvec{u} + 2 \uvec{v}</m>
+			(as well as representing <m>2 (\uvec{u} + \uvec{v})</m>).
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 We will provide more rules of vector algebra as
@@ -485,12 +871,23 @@ These two vectors could be considered the <em>fundamental</em> changes in positi
 and <m>\uvec{e}_2</m> represents a change by one unit up.
 </p>
 
-<image width="28.2%">
-	<description><p> Diagram of the standard basis vectors in <m>\R^2</m>. </p></description>
-	<latex-image label="image-vectors-concepts-standard-basis-R2">
-		<xi:include href="concepts.d/standard-basis-R2.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> The standard basis vectors in <m>\R^2</m>. </caption>
+	<image width="28.2%">
+		<latex-image label="image-vectors-concepts-standard-basis-R2">
+			<xi:include href="concepts.d/standard-basis-R2.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			Diagram of the standard two-dimensional basis vectors,
+			drawn as directed line segments in the plane with initial points at the origin.
+		</shortdescription>
+		<description><p>
+			The standard basis vectors <m>\uvec{e}_1 = (1,0)</m> and <m>\uvec{e}_2 = (0,1)</m> are drawn as directed line segments on a set of <m>xy</m>-axes,
+			with initial points at the origin and terminal points at <m>(1,0)</m> and <m>(0,1)</m>, respectively,
+			so that <m>\uvec{e}_1</m> lies along the <m>x</m>-axis and <m>\uvec{e}_2</m> lies along the <m>y</m>-axis.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 Any change in position can be built out of these two fundamental changes in position.
@@ -502,12 +899,35 @@ To get the total change in position represented by <m>\uvec{v}</m>,
 we can combine these two building blocks in the <term>linear combination</term> <m>\uvec{v} = 5 \uvec{e}_1 + 2 \uvec{e}_2</m>.
 </p>
 
-<image width="45.8%">
-	<description><p> Diagram of a vector decomposition in terms of the standard basis vectors in <m>\R^2</m>. </p></description>
-	<latex-image label="image-vectors-concepts-standard-basis-R2-vec-decomp">
-		<xi:include href="concepts.d/standard-basis-R2-vec-decomp.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> An example of decomposing a vector in <m>\R^2</m> as a linear combination of the standard basis vectors. </caption>
+	<image width="45.8%">
+		<latex-image label="image-vectors-concepts-standard-basis-R2-vec-decomp">
+			<xi:include href="concepts.d/standard-basis-R2-vec-decomp.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			Diagram illustrating a vector decomposition as a linear combination of the standard two-dimensional basis vectors.
+			A right triangle is drawn with a directed line segment (representing a vector) as the hypotenuse,
+			and head-to-tail chains of directed line segments as the legs.
+		</shortdescription>
+		<description><p>
+			Diagram illustrating a vector decomposition as a linear combination of standard basis vectors <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> in <m>\R^2</m>.
+			A right triangle appears,
+			with a slant hypotenuse and the right angle between a horizontal leg and a vertical leg.
+			The hypotenuse is a directed line segment representing the vector <m>\uvec{v} = (5,2)</m>,
+			so that its terminal point is <m>5</m> units to the right and <m>2</m> units up from its initial point.
+			The horizontal leg is a chain of five directed line segments,
+			each representing the standard basis vector <m>\uvec{e}_1</m>,
+			where the first in the chain shares its initial point with <m>\uvec{v}</m>,
+			and each subsequent segment in the chain as its initial point at the terminal point of the previous.
+			Similarly,
+			the vertical leg is a chain of two directed line segments,
+			each representing the standard basis vector <m>\uvec{e}_2</m>,
+			where the first has its initial point at the terminal point of the last segment in the horizontal chain,
+			and the second has its initial point at the terminal point of the first and shares its terminal point with <m>\uvec{v}</m>.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 As you can imagine, every vector in the plane can be decomposed into a linear combination of <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m> in this manner:
@@ -539,18 +959,32 @@ So we need <em>three</em> standard basis vectors in <m>\R^3</m>,
 	\uvec{e}_2 \amp= (0,1,0), \amp
 	\uvec{e}_3 \amp= (0,0,1),
 </mrow></md>
-which we can visualize as below.
+which we can visualize as in <xref ref="figure-vectors-concepts-standard-basis-R3" />.
 </p>
 
-<image width="29.4%">
-	<description><p> Diagram of the standard basis vectors in <m>\R^3</m>. </p></description>
-	<latex-image label="image-vectors-concepts-standard-basis-R3">
-		<xi:include href="concepts.d/standard-basis-R3.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-vectors-concepts-standard-basis-R3">
+	<caption> The standard basis vectors in <m>\R^3</m>. </caption>
+	<image width="29.4%">
+		<latex-image label="image-vectors-concepts-standard-basis-R3">
+			<xi:include href="concepts.d/standard-basis-R3.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			Diagram of the standard three-dimensional basis vectors,
+			drawn as directed line segments in three-dimensional space with initial points at the origin.
+		</shortdescription>
+		<description><p>
+			The standard basis vectors <m>\uvec{e}_1 = (1,0,0)</m>, <m>\uvec{e}_2 = (0,1,0)</m>, and <m>\uvec{e}_3 = (0,0,1)</m> are drawn as directed line segments on a set of <m>xyz</m>-axes,
+			with initial points at the origin and terminal points at <m>(1,0,0)</m>, <m>(0,1,0)</m>, and <m>(0,0,1)</m>, respectively,
+			so that <m>\uvec{e}_1</m> lies along the <m>x</m>-axis,
+			<m>\uvec{e}_2</m> lies along the <m>y</m>-axis,
+			and <m>\uvec{e}_3</m> lies along the <m>z</m>-axis.
+		</p></description>
+	</image>
+</figure>
 
 <aside><title>Note</title><p>
-  In this diagram, you should view the <m>z</m>-axis as coming straight up out of the <m>xy</m>-plane.
+  In <xref ref="figure-vectors-concepts-standard-basis-R3" />,
+  you should view the <m>z</m>-axis as coming straight up out of the <m>xy</m>-plane.
 </p></aside>
 
 <p>

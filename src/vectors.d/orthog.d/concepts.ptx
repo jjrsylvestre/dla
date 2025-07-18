@@ -147,12 +147,27 @@ making it farther from <m>Q</m> than <m>P</m>,
 since the distance <m>P'Q</m> is the length of the hypotenuse in the right triangle.
 </p>
 
-<image width="48.8%">
-	<description><p> Diagram illustrating the shortest distance from a point to a line in the plane. </p></description>
-	<latex-image label="image-orthog-concepts-shortest-dist-to-line">
-		<xi:include href="concepts.d/shortest-dist-to-line.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> Diagram illustrating the shortest distance from a point to a line in the plane. </caption>
+	<image width="48.8%">
+		<latex-image label="image-orthog-concepts-shortest-dist-to-line">
+			<xi:include href="concepts.d/shortest-dist-to-line.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram illustrating the shortest distance from a point to a line in the plane. </shortdescription>
+		<description><p>
+			A diagram illustrating the shortest distance from a point <m>Q</m> to a line <m>\ell</m> in the plane.
+			A dashed line runs from the bottom-left to the top-right of the diagram,
+			representing line <m>\ell</m>,
+			and a point labelled <m>Q</m> appears above <m>\ell</m> at the top-centre-right of the diagram.
+			A point labelled <m>O</m> representing the origin is plotted on <m>\ell</m> at the lower-left of the diagram.
+			Two more points labelled <m>P'</m> and <m>P</m> are plotted along <m>\ell</m>,
+			both above and further to the right along <m>\ell</m> from <m>O</m>,
+			with <m>P'</m> closer to <m>O</m>,
+			and <m>P</m> placed so that <m>\abctriangle{P' P Q}</m> is a right triangle with the right angle at vertex <m>P</m>.
+			The segments <m>\absegment{P'P}, \absegment{PQ}, \absegment{QP'}</m> are drawn with solid black lines to emphasize this right triangle.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 All we know about <m>P</m> is that it is on line <m>\ell</m> and it is at the vertex of a right angle with <m>\ell</m> and <m>Q</m>.
@@ -160,15 +175,45 @@ But if we introduce some vectors to help tackle this problem,
 then maybe we can use what we know about the dot product and right angles to help determine <m>P</m>.
 </p>
 
-<image width="48.8%">
-	<description><p> Diagram illustrating orthogonal projection onto a line through the origin. </p></description>
-	<latex-image label="image-orthog-concepts-proj">
-		<xi:include href="concepts.d/proj.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-orthog-concepts-vectorized-distance-point-to-line">
+	<caption> Vectorized diagram illustrating the shortest distance from a point to a line in the plane. </caption>
+	<image width="48.8%">
+
+		<latex-image label="image-orthog-concepts-proj">
+			<xi:include href="concepts.d/proj.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription> Vectorized diagram illustrating the shortest distance from a point to a line in the plane. </shortdescription>
+
+		<description>
+
+			<p>
+			A diagram illustrating the use of vectors to determine the shortest distance from a point <m>Q</m> to a line <m>\ell</m> in the plane.
+			A dashed line runs from the bottom-left to the top-right of the diagram,
+			representing line <m>\ell</m>,
+			and a point external to <m>\ell</m> labelled <m>Q</m> appears above <m>\ell</m> at the top-centre-right of the diagram.
+			Two points are plotted on <m>\ell</m>:
+			one at the lower-left of the diagram,
+			labelled <m>O</m> and representing the origin,
+			and another nearer to the upper-right of the diagram,
+			labelled <m>P</m> and positioned on <m>\ell</m> so that <m>\abctriangle{O P Q}</m> is a right triangle with the right angle at vertex <m>P</m>.
+			</p>
+
+			<p>
+			A directed line segment with initial point at <m>O</m> lies along <m>\ell</m> pointing towards <m>P</m>,
+			but with terminal point falling well short of <m>P</m>.
+			Three more directed line segments are drawn: <m>\abray{OQ}</m>, <m>\abray{PQ}</m>, and <m>\abray{OP}</m>.
+			Together, these three segments form the sides of right triangle <m>\abctriangle{O P Q}</m>.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
-In this diagram, <m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m>,
+In <xref ref="figure-orthog-concepts-vectorized-distance-point-to-line" />,
+<m>\uvec{u}</m> is the vector corresponding to directed line segment <m>\abray{OQ}</m>,
 and <m>\uvec{p}</m> is the vector corresponding to the directed line segment <m>\abray{OP}</m>,
 where <m>P</m> is our unknown closest point.
 Since <m>\uvec{p}</m> is placed with its tail at the origin,
@@ -189,10 +234,9 @@ we have reduced our problem from determining the <em>two</em> unknown components
 <p>
 As mentioned, since <m>P</m> is the closest point,
 the directed line segment <m>\abray{PQ}</m> must be perpendicular to <m>\ell</m>.
-On the diagram above,
-we have used the vector <m>\uvec{n}</m> to represent this direct line segment.
-As in
-<xref ref="activity-orthog-proj-dot-prod-condition">Discovery</xref>,
+In <xref ref="figure-orthog-concepts-vectorized-distance-point-to-line" />,
+we have labelled this directed line segment as the vector <m>\uvec{n}</m>.
+As in <xref ref="activity-orthog-proj-dot-prod-condition">Discovery</xref>,
 we know that <m>\udotprod{n}{a}</m> must be zero <mdash />
 this is the perpendicular condition.
 However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.
@@ -238,7 +282,8 @@ and we write <m>\uproj{u}{a}</m> to represent it.
 </p></remark>
 
 <p>
-The normal vector <m>\uvec{n}</m> in the diagram above is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>.
+The normal vector <m>\uvec{n}</m> in <xref ref="figure-orthog-concepts-vectorized-distance-point-to-line" />
+is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>.
 Together, the projection vector and corresponding normal vector are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
 <me> \uvec{u} = \uvec{p} + \uvec{n} </me>,
 where <m>\uvec{p}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}</m> is orthogonal to <m>\uvec{a}</m>.
@@ -291,7 +336,7 @@ will be true.
 <title>Normal vectors of lines in the plane</title>
 
 <p>
-Consider the line <m>2x+3y=0</m> that we investigated in <xref ref="activity-orthog-point-normal-lines-1" />.
+Consider the line <m> 2 x + 3 y = 0 </m> that we investigated in <xref ref="activity-orthog-point-normal-lines-1" />.
 The point <m>(3,-2)</m> is on this line, since
 <md><mrow tag="dstar" xml:id="equation-orthog-concepts-point-normal-lines-1-point-calc">
 	2\cdot 3 + 3\cdot (-2) = 0
@@ -299,15 +344,34 @@ The point <m>(3,-2)</m> is on this line, since
 The left-hand side of this calculation looks a lot like a dot product <mdash />
 we could reinterpret equation <xref ref="equation-orthog-concepts-point-normal-lines-1-point-calc" /> as
 <me> \dotprod{(2,3)}{(3,-2)} = 0 </me>.
-So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checking that the corresponding vector <m>\uvec{v} = (3,-2)</m> (with its tail at the origin) is orthogonal to the vector <m>\uvec{n} = (2,3)</m> whose components are the <em>coefficients</em> from our line equation.
+So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checking that the corresponding vector <m>\uvec{p} = (3,-2)</m> (with its tail at the origin) is orthogonal to the vector <m>\uvec{n} = (2,3)</m> whose components are the <em>coefficients</em> from our line equation.
 </p>
 
-<image width="70%">
-	<description><p> Diagram of a normal vector to a line in the plane (homogeneous case). </p></description>
-	<latex-image label="image-orthog-concepts-normal-vec-line-homog">
-		<xi:include href="concepts.d/normal-vec-line-homog.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-orthog-concepts-homog-line-normal-vector">
+	<caption> Diagram of the normal vector <m>\uvec{n} = (2,3)</m> to the line <m> 2 x + 3 y = 0 </m> in the plane. </caption>
+	<image width="70%">
+		<latex-image label="image-orthog-concepts-normal-vec-line-homog">
+			<xi:include href="concepts.d/normal-vec-line-homog.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of a normal vector to a line in the plane (homogeneous case). </shortdescription>
+		<description><p>
+			A diagram of a normal vector <m>\uvec{n}</m> to a line through the origin in the plane.
+			The line <m> 2 x + 3 y = 0 </m> is plotted as a dashed line on a set of <m>xy</m>-axes.
+			Point <m>P(3,-2)</m> is plotted on this line in the fourth quadrant,
+			and directed line segment <m>\abray{OP}</m>
+			(with <m>O</m> representing the origin)
+			is drawn, representing a vector labelled <m>\uvec{p}</m>.
+			As both <m>O</m> and <m>P</m> lie on the dashed line,
+			this vector runs along it.
+			Point <m>S(2,3)</m>,
+			external to the dashed line,
+			is plotted in the first quadrant.
+			The directed line segment <m>\abray{OS}</m> is drawn, representing a vector labelled <m>\uvec{n}</m>,
+			forming a right angle with <m>\uvec{p}</m>,
+			and hence also with the dashed line.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 Every other point <m>\uvec{x} = (x,y)</m> on the line satisfies the same relationship, as the equation for the line could be rewritten in a vector form as
@@ -326,21 +390,57 @@ This line has the same slope as the line defined by <m> 2 x + 3 y = 0</m> that w
 The constant <m>8</m> just changes the <m>y</m>-intercept.
 </p>
 
-<image width="74.1%">
-	<description><p> Diagram of a normal vector to a line in the plane (nonhomogeneous case). </p></description>
-	<latex-image label="image-orthog-concepts-normal-vec-line-nonhomog-1">
-		<xi:include href="concepts.d/normal-vec-line-nonhomog-1.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-orthog-concepts-nonhomog-line-normal-vector">
+	<caption> Diagram of the normal vector <m>\uvec{n} = (2,3)</m> to the line <m> 2 x + 3 y = 8 </m> in the plane. </caption>
+	<image width="74.1%">
+
+		<latex-image label="image-orthog-concepts-normal-vec-line-nonhomog-1">
+			<xi:include href="concepts.d/normal-vec-line-nonhomog-1.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription> Diagram of a normal vector to a line in the plane (non-homogeneous case). </shortdescription>
+
+		<description>
+
+			<p>
+			A diagram of a normal vector <m>\uvec{n}</m> to a line in the plane that does not pass through the origin.
+			The line <m> 2 x + 3 y = 8 </m> is plotted as a dashed line on a set of <m>xy</m>-axes.
+			Points <m>Q(1,2)</m> and <m>R(4,0)</m> are plotted on this line,
+			with <m>Q</m> in the first quadrant and <m>R</m> on the <m>x</m>-axis.
+			The directed line segments <m>\abray{OQ}</m> and <m>\abray{OR}</m>
+			(with <m>O</m> representing the origin)
+			are drawn, representing vectors labelled <m>\uvec{x}_0</m> and <m>\uvec{x}_1</m>,
+			respectively.
+			(Note that <m>\uvec{x}_1</m> runs along the <m>x</m>-axis.)
+			Directed line segment <m>\abray{QR}</m> is also drawn, representing a vector labelled <m>\uvec{p}</m>,
+			completing triangle <m>\abstriangle{O Q R}</m>.
+			As both <m>Q</m> to <m>R</m> lie on the dashed line,
+			vector <m>\uvec{p}</m> runs along it.
+			</p>
+
+			<p>
+			Point <m>T(3,5)</m>,
+			external to the dashed line,
+			is plotted in the first quadrant.
+			Directed line segment <m>\abray{QT}</m> is drawn, representing a vector labelled <m>\uvec{n}</m>,
+			forming a right angle with <m>\uvec{p}</m>,
+			and hence also with the dashed line.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 In the homogeneous case, vectors from the origin determined by a point on the line were also <em>parallel</em> to the line.
 Since things have shifted away from the origin in the nonhomogeneous case, to get a vector parallel to the line we need to consider <em>two</em> vectors from the origin to points on the line.
 Two convenient points for this the line are <m>Q(1,2)</m> and <m>R(4,0)</m>, with corresponding vectors <m>\uvec{x}_0 = (1,2)</m> and <m>\uvec{x}_1 = (4,0)</m>.
 Then the difference vector
-<me> \uvec{v} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </me>
-is parallel to the line, as in the diagram above.
-In fact, this vector <m>\uvec{v}</m> is the same as previous vector <m>\uvec{v}</m> that appears parallel to the line through the origin in the diagram for the homogeneous case above, so we know it satisfies <m>\udotprod{n}{v} = 0</m>.
+<me> \uvec{p} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </me>
+is parallel to the line, as in <xref ref="figure-orthog-concepts-nonhomog-line-normal-vector" />.
+In fact, this vector <m>\uvec{p}</m> is the same as previous vector <m>\uvec{p}</m> that appears parallel to the line through the origin in <xref ref="figure-orthog-concepts-homog-line-normal-vector" />,
+so we know it satisfies <m>\udotprod{n}{p} = 0</m>.
 </p>
 
 <p>
@@ -350,23 +450,75 @@ We need <em>two</em> points on the line to create a parallel difference vector,
 but we could compare the variable vector <m>\uvec{x}</m> with a arbitrarily chosen <em>fixed</em> vector representing a point on the line (like <m>\uvec{x}_0</m>, say).
 </p>
 
-<image width="74.1%">
-	<description><p> Diagram of a normal vector to a line in the plane (nonhomogeneous case). </p></description>
-	<latex-image label="image-orthog-concepts-normal-vec-line-nonhomog-2">
-		<xi:include href="concepts.d/normal-vec-line-nonhomog-2.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption>
+		Characterizing points on a line as those that create a parallel vector relative to a fixed base point on the line,
+		where vectors parallel to the line are characterized as being perpendicular to a fixed normal vector.
+		Several instances of a variable vector <m>\uvec{x}</m> with initial point at the origin are drawn,
+		one where the terminal point is on the line and two where the terminal point is not on the line.
+	</caption>
+	<image width="74.1%">
+
+		<latex-image label="image-orthog-concepts-normal-vec-line-nonhomog-2">
+			<xi:include href="concepts.d/normal-vec-line-nonhomog-2.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription> Diagram of a parallel vector and a normal vector for a line in the plane (nonhomogeneous case). </shortdescription>
+
+		<description>
+
+			<p>
+			A diagram of line in the plane and a normal vector for it with initial point at a fixed choice of <q>base</q> point on the line,
+			demonstrating how any other point on the line creates a vector with the <q>base</q> point that is parallel to the line and perpendicular to normal vector,
+			while any points not on the line create a vector with the <q>base</q> point that is neither.
+			</p>
+
+			<p>
+			The line <m> 2 x + 3 y = 8 </m> is plotted as a dashed line on a set of <m>xy</m>-axes.
+			Two unlabelled points are plotted on this line,
+			one in the first quadrant of the plane and one in the second quadrant,
+			and directed line segments representing vectors labelled <m>\uvec{x}_0</m> and <m>\uvec{x}</m>,
+			respectively,
+			extend from the origin to these points.
+			A third directed line segment representing the difference vector <m>\uvec{x} - \uvec{x}_0</m> completes the triangle by extending from the terminal point of <m>\uvec{x}_0</m> to the terminal point of <m>\uvec{x}</m>,
+			along the dashed line.
+			A fourth directed line segment representing a normal vector labelled <m>\uvec{n}</m> extends upwards and rightwards from its initial point on the line at the terminal point of <m>\uvec{x}_0</m>,
+			forming a right angle with the difference vector <m>\uvec{x} - \uvec{x}_0</m>,
+			and hence also with the dashed line.
+			</p>
+
+			<p>
+			Finally, two alternative versions of the variable vector <m>\uvec{x}</m> (with initial point at the origin) and the correponding difference vector <m>\uvec{x} - \uvec{x}_0</m> (with initial point at the terminal point of <m>\uvec{x}_0</m>) are drawn:
+			<ul>
+				<li>
+					One where the terminal point of <m>\uvec{x}</m> is in the first quandrant above (and so external to) the dashed line,
+					so that an acute angle is formed between <m>\uvec{n}</m> and <m>\uvec{x} - \uvec{x}_0</m> at their common initial point at the terminal point of <m>\uvec{x}_0</m>.
+				</li>
+				<li>
+					One where the terminal point of <m>\uvec{x}</m> is in the second quandrant below (and so external to) the dashed line,
+					so that an obtuse angle is formed between <m>\uvec{n}</m> and <m>\uvec{x} - \uvec{x}_0</m> at their common initial point at the terminal point of <m>\uvec{x}_0</m>.
+				</li>
+			</ul>
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
-Every such difference vector <m>\uvec{x}-\uvec{x}_0</m> is parallel to the line and hence orthogonal to the normal vector <m>\uvec{n}</m>,
-so that we can describe the line as all points where the corresponding vector <m>\uvec{x}</m> satisfies
+When the vector <m>\uvec{x}</m> has terminal point on the line (with initial point at the origin),
+the difference vector <m>\uvec{x}-\uvec{x}_0</m> is parallel to the line and hence orthogonal to the normal vector <m>\uvec{n}</m>.
+But when the vector <m>\uvec{x}</m> has terminal point <em>not</em> on the line (again with initial point at the origin),
+the difference vector <m>\uvec{x}-\uvec{x}_0</m> is <em>neither</em> parallel to the line <em>nor</em> orthogonal to the normal vector <m>\uvec{n}</m>.
+So we can describe the line as all points where the corresponding vector <m>\uvec{x}</m> (from the origin) satisfies
 <md><mrow tag="dagger" xml:id="equation-orthog-concepts-point-normal-form">
 	\dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0
 </mrow></md>.
 This is called the
 <term>point-normal form</term>
 <idx><h>point-normal form</h><h>for a line</h></idx>
-for the line, referring to the <em>point</em> on the line at the terminal point of <m>\uvec{x}_0</m> and the <em>normal</em> vector <m>\uvec{n}</m>.
+for the line, referring to the <q>base</q> <em>point</em> on the line at the terminal point of <m>\uvec{x}_0</m> and the <em>normal</em> vector <m>\uvec{n}</m>.
 </p>
 
 <convention>
@@ -381,7 +533,7 @@ for the line, referring to the <em>point</em> on the line at the terminal point 
 
 <remark><p>
 	It may seem like the line parameter <m>d</m> has disappeared in converting from algebraic form <m>a x + b y = d</m> to point-normal form.
-	But it has merely be replaced by the point <m>(x_0,y_0)</m>,
+	But it has merely been replaced by the point <m>(x_0,y_0)</m>,
 	since <m>d = a x_0 + b y_0</m>.
 	In fact, if we use the algebraic properties of the dot product to expand the left-hand side of the point-normal form equation,
 	we can recover the original algebraic equation:
@@ -439,39 +591,50 @@ a basic problem is how to quickly obtain a normal vector.
 If we know two vectors that are parallel to the plane in question, the problem reduces to the following.
 </p>
 
-<question xml:id="question-orthog-concepts-cross-prod"><p>
-	Given two nonzero, nonparallel vectors in <m>\R^3</m>, determine a third vector that is orthogonal to each of the first two.
-</p></question>
+<question xml:id="question-orthog-concepts-cross-prod">
 
-<image width="17%">
-	<description><p>
-		Diagram of the setup for the cross product problem (<xref ref="question-orthog-concepts-cross-prod" /> above).
-	</p></description>
-	<latex-image label="image-orthog-concepts-cross-prod">
-		<xi:include href="concepts.d/cross-prod.tex" parse="text" />
-	</latex-image>
-</image>
+	<p> Given two nonzero, nonparallel vectors in <m>\R^3</m>, determine a third vector that is orthogonal to each of the first two. </p>
+
+	<image width="14.1%">
+		<latex-image label="image-orthog-concepts-cross-prod">
+			<xi:include href="concepts.d/cross-prod.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of the setup for the cross product problem. </shortdescription>
+		<description><p>
+			A three-dimensional diagram of the setup for the cross product problem:
+			two nonparallel directed line segments with the same initial point,
+			one pointing downwards and leftwards and representing a vector labelled <m>\uvec{u}</m>,
+			and the other pointing downwards and rightwards and representing a vector labelled <m>\uvec{v}</m>,
+			along with a third directed line segment with the same initial point as the first two and a dashed-line shaft pointing upwards so that a right angle is formed with both <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+			representing an unknown vector labelled <m>\uvec{x}</m>.
+		</p></description>
+	</image>
+
+</question>
 
 <p>
-So if <m>\uvec{u} = (u_1,u_2,u_3)</m> and <m>\uvec{v} = (v_1,v_2,v_3)</m> are our starting vectors, we would like to simultaneously solve the equations
-<md><mrow>
-	\udotprod{u}{x} \amp= 0, \amp \udotprod{v}{x} \amp= 0,
-</mrow></md>
+Suppose <m>\uvec{u} = (u_1,u_2,u_3)</m> and <m>\uvec{v} = (v_1,v_2,v_3)</m> are our starting vectors.
+We would like to simultaneously solve the equations
+<md><mrow> \udotprod{u}{x} \amp= 0 \text{,} \amp \udotprod{v}{x} \amp= 0 \text{,} </mrow></md>
 for the unknown vector <m>\uvec{x} = (x,y,z)</m>.
 Expanding out the dot products, we get (surprise!) a system of linear equations:
 <me>
 	\left\{
 		\begin{array}{lclclcr}
-			u_1 x \amp + \amp u_2 y \amp + \amp u_3 z \amp = \amp 0, \\
-			v_1 x \amp + \amp v_2 y \amp + \amp v_3 z \amp = \amp 0.
+			u_1 x \amp + \amp u_2 y \amp + \amp u_3 z \amp = \amp 0 \text{,} \\
+			v_1 x \amp + \amp v_2 y \amp + \amp v_3 z \amp = \amp 0 \text{.}
 		\end{array}
 	\right.
 </me>
 Specifically, we get a homogeneous system of two equations in the three unknown coordinates <m>x,y,z</m>.
 Now, since this system is homogeneous, it is consistent.
 But its general solution will also require at least one parameter, since its rank is at most <m>2</m>, while we have three variables.
-In the diagram above, we can see what the <q>freedom</q> of a parameter corresponds to <mdash />
-we can make <m>\uvec{x}</m> longer or shorter, or turn it around to be opposite of the way it is pictured, and it will remain orthogonal to <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+In the diagram accompanying <xref ref="question-orthog-concepts-cross-prod" />,
+we can see the <q>freedom</q> that a parameter affords:
+the freedom to make <m>\uvec{x}</m> longer or shorter,
+and/or turn it around to be opposite of the way it is pictured
+(in this case, point down instead of up),
+and it will remain orthogonal to <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 Our end goal is a calculation formula and procedure that will compute one particular solution to this problem, so let's introduce a somewhat arbitrary additional equation to eliminate the need for a parameter in the solution.
 <me>
 	\left\{
