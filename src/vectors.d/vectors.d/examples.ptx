@@ -28,79 +28,110 @@ respective owners.
 <subsection xml:id="subsection-vectors-examples-in-Rn">
 <title>Vectors in <m>\R^n</m></title>
 
-<p>
-Following <xref ref="activity-vectors-directed-line-segments" />,
-consider the vector <m>\uvec{v}</m> in <m>\R^2</m>
-(that is, in the plane)
-that represents changing position from <m>P(1,2)</m> to <m>Q(3,-1)</m>.
-</p>
+<example>
+	<title>Computing components of a vector from displacement in <m>\R^2</m></title>
 
-<image width="42.9%">
-	<description><p> Diagram of a directed line segment in the plane. </p></description>
-	<latex-image label="image-vectors-examples-dir-line-seg-1">
-		<xi:include href="examples.d/dir-line-seg-1.tex" parse="text" />
-	</latex-image>
-</image>
+	<p>
+	Following <xref ref="activity-vectors-directed-line-segments" />,
+	consider the vector <m>\uvec{v}</m> in <m>\R^2</m>
+	(that is, in the <m>xy</m>-plane)
+	that represents displacement from position <m>P(1,2)</m> to position <m>Q(3,-1)</m>.
+	</p>
 
-<p>
-We can compute the components of <m>\uvec{v}</m> by computing the change in <m>x</m> and the change in <m>y</m> in moving from <m>P</m> to <m>Q</m>:
-<me> \uvec{v} = (\Delta x,\Delta y) = (3-1,-1-2) = (2,-3) </me>.
-We can see by looking at their coordinates that moving from point <m>P</m> to <m>Q</m> requires
-moving <m>2</m> units right to get from <m>x=1</m> to <m>x=3</m>
-and
-moving <m>3</m> units down to get from <m>y=2</m> to <m>y=-1</m>,
-and our calculation of <m>\uvec{v}</m> above agrees.
-</p>
+	<image width="42.9%">
+		<latex-image label="image-vectors-examples-dir-line-seg-1">
+			<xi:include href="examples.d/dir-line-seg-1.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of a directed line segment in the plane. </shortdescription>
+		<description><p>
+			The points <m>P(1,2)</m> and <m>Q(3,-1)</m> are plotted in the <m>xy</m>-plane,
+			with <m>P</m> in the first quadrant and <m>Q</m> in the fourth.
+			The directed line segment <m>\abray{PQ}</m> is drawn and is labelled as representing the vector <m>\uvec{v}</m>.
+		</p></description>
+	</image>
 
-<p>
-The same vector with some other initial point will also have a terminal point that is <m>2</m> units to the right and <m>3</m> units down from the initial point.
-In particular, if we take the initial point to be the origin,
-then the terminal point will have coordinates <m>(2,-3)</m>,
-same as the components of <m>\uvec{v}</m>.
-</p>
+	<p>
+	We can compute the components of <m>\uvec{v}</m> by computing the change in <m>x</m> and the change in <m>y</m> in moving from <m>P</m> to <m>Q</m>:
+	<me> \uvec{v} = (\change{x}, \change{y}) = (3 - 1, -1 - 2) = (2, -3) </me>.
+	We can see by looking at their coordinates that moving from point <m>P</m> to <m>Q</m> requires
+	moving <m>2</m> units right to get from <m>x=1</m> to <m>x=3</m>
+	and
+	moving <m>3</m> units down to get from <m>y=2</m> to <m>y=-1</m>,
+	and our calculation of <m>\uvec{v}</m> above agrees.
+	</p>
 
-<image width="67.3%">
-	<description><p> Diagram of a directed line segment in the plane with its tail at the origin. </p></description>
-	<latex-image label="image-vectors-examples-dir-line-seg-2">
-		<xi:include href="examples.d/dir-line-seg-2.tex" parse="text" />
-	</latex-image>
-</image>
+	<p>
+	The same vector with some other initial point will also have a terminal point that is <m>2</m> units to the right and <m>3</m> units down from the initial point.
+	The diagram below illustrates several such examples.
+	</p>
 
-<p> Notice that these different representations of the vector <m>\uvec{v}</m> are parallel and have the same length. </p>
+	<image width="67.3%">
+		<latex-image label="image-vectors-examples-dir-line-seg-2">
+			<xi:include href="examples.d/dir-line-seg-2.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of three directed line segments in the plane, all of which represent the same vector. </shortdescription>
+		<description><p>
+			Points <m>P(1,2)</m> and <m>Q(3,-1)</m> are plotted in the <m>xy</m>-plane,
+			and the corresponding directed line segment <m>\abray{PQ}</m> is again drawn and labelled as representing vector <m>\uvec{v}</m>.
+			The following pairs of points and corresponding directed line segments are also drawn:
+			<ul>
+				<li> Points <m>O(0,0)</m> and <m>R(2,-3)</m>, along with directed segment <m>\abray{OR}</m>. </li>
+				<li> Points <m>S(-2,1)</m> and <m>T(0,-2)</m>, along with directed segment <m>\abray{ST}</m>. </li>
+			</ul>
+			Both of these new directed segments are also labelled as representing vector <m>\uvec{v}</m>.
+		</p></description>
+	</image>
 
-<p>
-Vectors can be similarly computed from pairs of points by subtracting coordinates in any dimension.
-For example, we compute the vector that represents changing position in space from <m>P(1,2,-3)</m> to <m>Q(3,-1,0)</m> by
-<md>
-	<mrow> \uvec{v} \amp = (\Delta x, \Delta y, \Delta z) </mrow>
-	<mrow> \amp = \bbrac{3-1, -1-2, 0-(-3)} </mrow>
-	<mrow> \amp = (2,-3, 3) </mrow>
-</md>.
-<!--  This is a not-very-good attempt at a 3D diagram of the above directed line segment.
-TODO FILLER TEXT
-<image width="100%">
-	TODOCOMMENTTAG description gets inserted as alt text in html img tag TODOCOMMENTTAG
-	<description><p> TODO </p></description>
-	<latex-image label="image-vectors-examples-dir-line-seg-3D">
-		<xi:include href="examples.d/dir-line-seg-3D.tex" parse="text" />
-	</latex-image>
-</image>
--->
-Another example in four-dimensional space, with
-<md>
-	<mrow>
-		P \amp (1,2,-3,-4) \text{,}
-		\amp
-		Q \amp (1,-1,1,-1) \text{,}
-	</mrow>
-</md>
-yields
-<md>
-	<mrow> \uvec{v} = \abray{PQ} \amp = (\Delta x_1, \Delta x_2, \Delta x_3, \Delta x_4) </mrow>
-	<mrow> \amp = \bbrac{1-1, -1-2, 1-(-3), -1-(-4)} </mrow>
-	<mrow> \amp	= (0,-3, 4, 3) </mrow>
-</md>.
-</p>
+	<p>
+	For example, if we take the initial point to be the origin,
+	to create a directed line segment <m>\abray{OR}</m> that again represents <m>\uvec{v}</m>,
+	the terminal point should have coordinates <m>(2,-3)</m> so that
+	<me> (\change{x}, \change{y}) = (2 - 0, -3 - 0) = (2, -3) = \uvec{v} </me>.
+	Similarly, if we again compute the components of the vector represented by directed line segment <m>\abray{ST}</m> by computing displacement from position <m>S(-2,1)</m> to position <m>T(0,-2)</m>,
+	we obtain
+	<me> (\change{x}, \change{y}) = \bbrac{0 - (-2), -2 - 1} = (2, -3) = \uvec{v} </me>.
+	These calculations verify that directed line segments <m>\abray{PQ}</m>, <m>\abray{OR}</m>, and <m>\abray{ST}</m> do indeed all represent the same vector.
+	</p>
+
+	<p> Notice that these different representations of the vector <m>\uvec{v}</m> are parallel and have the same length. </p>
+
+</example>
+
+<p> Vectors can be similarly computed from pairs of points in any dimension by subtracting coordinates. </p>
+
+<example>
+	<title>Computing components of a vector from displacement in <m>\R^3</m></title>
+	<p>
+	We compute the vector associated to the directed line segment <m>\abray{PQ}</m> that represents displacement in space from position <m>P(1,2,-3)</m> to position <m>Q(3,-1,0)</m> by
+	<md>
+		<mrow> \uvec{v} \amp = (\change{x}, \change{y}, \change{z}) </mrow>
+		<mrow> \amp = \bbrac{3-1, -1-2, 0-(-3)} </mrow>
+		<mrow> \amp = (2,-3, 3) </mrow>
+	</md>.
+	</p>
+	<!--  This is a not-very-good attempt at a 3D diagram of the above directed line segment.
+	TODO FILLER TEXT
+	<image width="100%">
+		<latex-image label="image-vectors-examples-dir-line-seg-3D">
+			<xi:include href="examples.d/dir-line-seg-3D.tex" parse="text" />
+		</latex-image>
+		<shortdescription> TODO </shortdescription>
+		<description><p> TODO </p></description>
+	</image>
+	-->
+</example>
+
+<example>
+	<title>Computing components of a vector from displacement in <m>\R^4</m></title>
+	<p>
+	We compute the vector associated to the directed line segment <m>\abray{PQ}</m> that represents displacement in space from <q>position</q> <m>P(1,2,-3,-4)</m> to <q>position</q> <m>Q(1,-1,1,-1)</m> by
+	<md>
+		<mrow> \uvec{v} = \abray{PQ} \amp = (\change{x_1}, \change{x_2}, \change{x_3}, \change{x_4}) </mrow>
+		<mrow> \amp = \bbrac{1-1, -1-2, 1-(-3), -1-(-4)} </mrow>
+		<mrow> \amp	= (0,-3, 4, 3) </mrow>
+	</md>.
+	</p>
+</example>
 
 </subsection>
 
@@ -123,10 +154,16 @@ and provide the accompanying diagrams.
 	</p>
 
 	<image width="65%">
-		<description><p> Diagram of vector addition in the plane. </p></description>
 		<latex-image label="image-vectors-examples-vec-add">
 			<xi:include href="examples.d/vec-add.tex" parse="text" />
 		</latex-image>
+		<shortdescription> A vector-addition triangle in the first quadrant of the plane. </shortdescription>
+		<description><p>
+			A diagram of a vector-addition triangle in the first quadrant of the plane.
+			Points <m>P(1,1)</m>, <m>Q(3,4)</m>, and <m>R(6,3)</m> are plotted on a set of <m>xy</m>-axes.
+			Directed line segments <m>\abray{PQ}</m> and <m>\abray{QR}</m> are drawn and labelled as representing vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+			The directed line segment <m>\abray{PR}</m> is drawn with a dashed-line shaft and is labelled as representing the sum vector <m>\uvec{u} + \uvec{v}</m>.
+		</p></description>
 	</image>
 
 	<p>
@@ -173,10 +210,23 @@ and provide the accompanying diagrams.
 	</p>
 
 	<image width="31.4%">
-		<description><p> Diagram of a vector and its negative in the plane. </p></description>
 		<latex-image label="image-vectors-examples-vec-neg-1">
 			<xi:include href="examples.d/vec-neg-1.tex" parse="text" />
 		</latex-image>
+		<shortdescription>
+			Diagram of a directed line segment in the plane representing a vector,
+			with its initial point at the origin,
+			along with the oppositely-directed line segment in parallel,
+			with its terminal point at the origin and its initial point at the terminal point of the first directed line segment.
+		</shortdescription>
+		<description><p>
+			The point <m>R(2,1)</m> is plotted on a set of <m>xy</m>-axes.
+			The directed line segment <m>\abray{OR}</m> is drawn,
+			where <m>O</m> represents the origin,
+			to represent vector <m>\uvec{v}</m>.
+			The opposite directed line segment <m>\abray{RO}</m> is also drawn,
+			and is labelled as representing the negative vector <m>- \uvec{v}</m>.
+		</p></description>
 	</image>
 
 	<p>
@@ -194,10 +244,23 @@ and provide the accompanying diagrams.
 	</p>
 
 	<image width="59.7%">
-		<description><p> Another diagram of a vector and its negative in the plane. </p></description>
 		<latex-image label="image-vectors-examples-vec-neg-2">
 			<xi:include href="examples.d/vec-neg-2.tex" parse="text" />
 		</latex-image>
+		<shortdescription>
+			Diagram of a directed line segment and the corresponding oppositely-directed line segment in the plane,
+			both with their initial points at the origin.
+			The first represents a vector and the second represents the negative vector.
+		</shortdescription>
+		<description><p>
+			On a set of <m>xy</m>-axes,
+			the point <m>R(2,1)</m> is plotted in the first quadrant of the plane and the <q>mirror</q> point <m>R'(-2,-1)</m> is plotted in the third quadrant.
+			The directed line segment <m>\abray{OR}</m> is drawn,
+			where <m>O</m> represents the origin,
+			to represent vector <m>\uvec{v}</m>.
+			The oppositely-directed line segment <m>\abray{OR'}</m> is also drawn,
+			and is labelled as representing the negative vector <m>- \uvec{v}</m>.
+		</p></description>
 	</image>
 
 </example>
@@ -212,10 +275,21 @@ and provide the accompanying diagrams.
 	</p>
 
 	<image width="49.1%">
-		<description><p> Diagram of scalar multiplication of a vector in the plane. </p></description>
 		<latex-image label="image-vectors-examples-vec-scalar-mul">
 			<xi:include href="examples.d/vec-scalar-mul.tex" parse="text" />
 		</latex-image>
+		<shortdescription>
+			A diagram illustrating scalar multiplication as repeated addition,
+			with two directed line segments of equal length chained together head-to-tail,
+			and a third directed line segment that traverses the combined path of the first two.
+		</shortdescription>
+		<description><p>
+			Points <m>R(2,1)</m> and <m>R'(4,2)</m> are plotted on a set of <m>xy</m>-axes.
+			These two points are collinear with the origin <m>O</m>,
+			and the directed line segments <m>\abray{OR}</m> and <m>\abray{RR'}</m> are drawn.
+			Both segments are labelled as representing the vector <m>\uvec{v}</m>.
+			Directed line segment <m>\abray{OR'}</m> is drawn in parallel and is labelled as representing the scalar multiple vector <m>2 \uvec{v}</m>.
+		</p></description>
 	</image>
 
 	<p>
@@ -233,46 +307,45 @@ and provide the accompanying diagrams.
 	Additionally, a negative scalar multiple flips the vector around in the opposite direction.
 	</p>
 
-	<!-- <sidebyside widths="44% 45%" valign="middle"> -->
+	<image width="95%">
+		<latex-image label="image-vectors-examples-vec-integer-scalar-mul">
+			<xi:include href="examples.d/vec-integer-scalar-mul.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			A directed line segment in the plane representing a vector,
+			along with two parallel directed line segments representing examples of integer scalar multiples of the first vector.
+		</shortdescription>
+		<description><p>
+			Points <m>R(2,1)</m> and <m>S(6,3)</m> are plotted in the first quadrant of the <m>xy</m>-plane,
+			and point <m>S'(-4, -2)</m> is plotted in the third quadrant of the <m>xy</m>-plane.
+			The directed line segment <m>\abray{OR}</m> is drawn and labelled as representing the vector <m>\uvec{v}</m>
+			(where <m>O</m> is the origin).
+			Parallel directed line segments <m>\abray{OS}</m> and <m>\abray{OS'}</m> are also drawn and labelled as representing the scalar multiple vectors <m>3 \uvec{v}</m> and <m>(-2) \uvec{v}</m>,
+			respectively.
+		</p></description>
+	</image>
 
-		<image width="65.8%">
-			<!-- description gets inserted as alt text in html img tag -->
-			<description><p> Several diagrams of scalar multiplication examples in the plane. </p></description>
-			<latex-image label="image-vectors-examples-vec-scalar-mul-triple">
-				<xi:include href="examples.d/vec-scalar-mul-triple.tex" parse="text" />
-			</latex-image>
-		</image>
-
-		<image width="67.9%">
-			<description><p> Several more diagrams of scalar multiplication examples in the plane. </p></description>
-			<latex-image label="image-vectors-examples-vec-scalar-mul-neg-double">
-				<xi:include href="examples.d/vec-scalar-mul-neg-double.tex" parse="text" />
-			</latex-image>
-		</image>
-
-	<!-- </sidebyside>
-
-	<sidebyside widths="28% 44%" valign="middle"> -->
-
-		<image width="53.2%">
-			<description><p> Several diagrams of scalar multiplication examples in the plane. </p></description>
-			<latex-image label="image-vectors-examples-vec-scalar-mul-half">
-				<xi:include href="examples.d/vec-scalar-mul-half.tex" parse="text" />
-			</latex-image>
-		</image>
-
-		<image width="59.4%">
-			<description><p> Several more diagrams of scalar multiplication examples in the plane. </p></description>
-			<latex-image label="image-vectors-examples-vec-scalar-mul-neg-frac">
-				<xi:include href="examples.d/vec-scalar-mul-neg-frac.tex" parse="text" />
-			</latex-image>
-		</image>
-
-	<!-- </sidebyside> -->
+	<image width="95%">
+		<latex-image label="image-vectors-examples-vec-fractional-scalar-mul">
+			<xi:include href="examples.d/vec-fractional-scalar-mul.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			A directed line segment in the plane representing a vector,
+			along with two parallel directed line segments representing examples of fractional scalar multiples of the first vector.
+		</shortdescription>
+		<description><p>
+			Points <m>R(2,1)</m> and <m>T(1,1/2)</m> are plotted in the first quadrant of the <m>xy</m>-plane,
+			and point <m>T'(-5/2, -5/4)</m> is plotted in the third quadrant of the <m>xy</m>-plane.
+			The directed line segment <m>\abray{OR}</m> is drawn and labelled as representing the vector <m>\uvec{v}</m>
+			(where <m>O</m> is the origin).
+			Parallel directed line segments <m>\abray{OT}</m> and <m>\abray{OT'}</m> are also drawn and labelled as representing the scalar multiple vectors <m>\frac{1}{2} \uvec{v}</m> and <m>\left(- \frac{5}{4}\right) \uvec{v}</m>,
+			respectively.
+		</p></description>
+	</image>
 
 	<p>
 	Since the initial point is the origin,
-	each vector above has components equal to the coordinates of its terminal point.
+	each vector in the diagram above has components equal to the coordinates of its terminal point.
 	In particular, we have
 	<md>
 		<mrow>

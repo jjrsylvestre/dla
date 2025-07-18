@@ -16,34 +16,34 @@
 ]
 
 	% center boxes
-	\node[draw, fit={(0,0) (2,1)}, inner sep=0pt, label={[align=center]center:Abstract\\System}] (AS) {};
+	\node[draw, fit={(0,0) (2,1)}, inner sep=0pt, label={[align=center]center:abstract\\system}] (AS) {};
 	\node[
 		draw, yshift=-3.75cm,
 		fit={(0,0) (2,2)}, inner sep=0pt,
-		label=center:Properties
+		label=center:properties
 	] (P) {};
 	\draw[vector] (AS.south) to node[sloped,above] {logic} (P.north);
 
 	% LHS boxes
-	\node[
-		draw, xshift=-4cm, yshift=2.5cm,
-		fit={(0,0) (2,1)}, inner sep=0pt,
-		label={[align=center]center:Specific\\System}
-	] (SS1) {};
+	\begin{scope}[xshift=-3.5cm]
+		\node[
+			draw, yshift=2.5cm,
+			fit={(0,0) (2,1)}, inner sep=0pt,
+			label={[align=center]center:specific\\system}
+		] (SS1) {};
+		\node[
+			draw, yshift=0.75cm,
+			fit={(0,0) (2,1)}, inner sep=0pt,
+			label={[align=center]center:specific\\system}
+		] (SS2) {};
+		\node[
+			draw, yshift=-1.75cm,
+			fit={(0,0) (2,1)}, inner sep=0pt,
+			label={[align=center]center:specific\\system}
+		] (SS3) {};
+	\end{scope}
 	\draw[vector] (SS1.east) to node[sloped,above] {\scriptsize patterns} (AS.north west);
-
-	\node[
-		draw, xshift=-4cm, yshift=0.75cm,
-		fit={(0,0) (2,1)}, inner sep=0pt,
-		label={[align=center]center:Specific\\System}
-	] (SS2) {};
 	\draw[vector] (SS2.east) to node[sloped,above] {\scriptsize same} node[sloped,below] {\scriptsize patterns} (AS.west);
-
-	\node[
-		draw, xshift=-4cm, yshift=-1.75cm,
-		fit={(0,0) (2,1)}, inner sep=0pt,
-		label={[align=center]center:Specific\\System}
-	] (SS3) {};
 	\draw[vector] (SS3.east) to node[sloped,above] {\scriptsize same} node[sloped,below] {\scriptsize patterns} (AS.south west);
 
 	\node[below=of SS2, yshift=1cm] (vdot) {$\vdots$};
@@ -70,25 +70,25 @@
 		(SS1.west);
 
 	% RHS boxes
-	\node[
-		draw, xshift=4cm, yshift=2.5cm,
-		fit={(0,0) (2,1)}, inner sep=0pt,
-		label={[align=center]center:Specific\\System}
-	] (SS1) {};
+	\begin{scope}[xshift=3.5cm]
+		\node[
+			draw, yshift=2.5cm,
+			fit={(0,0) (2,1)}, inner sep=0pt,
+			label={[align=center]center:specific\\system}
+		] (SS1) {};
+		\node[
+			draw, yshift=0.75cm,
+			fit={(0,0) (2,1)}, inner sep=0pt,
+			label={[align=center]center:specific\\system}
+		] (SS2) {};
+		\node[
+			draw, yshift=-1.75cm,
+			fit={(0,0) (2,1)}, inner sep=0pt,
+			label={[align=center]center:specific\\system}
+		] (SS3) {};
+	\end{scope}
 	\draw[vector] (AS.north east) to node[sloped,above] {\scriptsize same} node[sloped,below] {\scriptsize patterns} (SS1.west);
-
-	\node[
-		draw, xshift=4cm, yshift=0.75cm,
-		fit={(0,0) (2,1)}, inner sep=0pt,
-		label={[align=center]center:Specific\\System}
-	] (SS2) {};
 	\draw[vector] (AS.east) to node[sloped,above] {\scriptsize same} node[sloped,below] {\scriptsize patterns} (SS2.west);
-
-	\node[
-		draw, xshift=4cm, yshift=-1.75cm,
-		fit={(0,0) (2,1)}, inner sep=0pt,
-		label={[align=center]center:Specific\\System}
-	] (SS3) {};
 	\draw[vector] (AS.south east) to node[sloped,above] {\scriptsize same} node[sloped,below] {\scriptsize patterns} (SS3.west);
 
 	\node[below=of SS2, yshift=1cm] (vdot) {$\vdots$};

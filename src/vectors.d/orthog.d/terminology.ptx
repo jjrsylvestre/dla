@@ -43,7 +43,7 @@ respective owners.
 	<p>
 	the special scalar multiple of <m>\uvec{a}</m>,
 	<md><mrow>
-		\proj_{\uvec{a}}\uvec{u} \amp= k\uvec{a}, \amp
+		\uproj{u}{a} \amp= k\uvec{a}, \amp
 		\amp\text{where} \amp
 		k \amp= \frac{\udotprod{u}{a}}{\unorm{a}^2};
 	</mrow></md>
@@ -57,15 +57,49 @@ respective owners.
 </dl></p>
 
 <p>
-When the initial point of <m>\proj_{\uvec{a}}\uvec{u}</m> is placed at the origin, the terminal point will be the point closest to <m>\uvec{u}</m> on the line passing through the origin and parallel to <m>\uvec{a}</m>.
+When the initial point of <m>\uproj{u}{a}</m> is placed at the origin, the terminal point will be the point closest to <m>\uvec{u}</m> on the line passing through the origin and parallel to <m>\uvec{a}</m>.
 </p>
 
-<image width="51%">
-	<description><p> Diagram of an orthogonal projection. </p></description>
-	<latex-image label="image-orthog-terminology-proj">
-		<xi:include href="terminology.d/proj.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-orthog-terminology-proj">
+	<caption> Diagram illustrating an orthogonal projection vector. </caption>
+	<image width="50.8%">
+
+		<latex-image label="image-orthog-terminology-proj">
+			<xi:include href="terminology.d/proj.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription> Diagram of an orthogonal projection. </shortdescription>
+
+		<description>
+
+			<p>
+			A diagram consisting of several vectors in a triangular configuration to illustrate the creation of an orthogonal projection vector.
+			The zero vector is represented by a point,
+			and two directed line segments representing vectors labelled <m>\uvec{a}</m> and <m>\uvec{u}</m> emanate from it upwards and rightwards,
+			with the segment for <m>\uvec{u}</m> longer and at a steeper ascent compared to that for <m>\uvec{a}</m>,
+			so that the terminal point of <m>\uvec{u}</m> is higher and further to the right relative to the terminal point of <m>\uvec{a}</m>.
+			In the background, a dashed line runs parallel to <m>\uvec{a}</m> and through the point zero vector,
+			so that the directed line segment for vector <m>\uvec{a}</m> lies <em>along</em> the line.
+			</p>
+
+			<p>
+			A directed line segment representing a third vector runs from a point on the dashed line to the terminal point of <m>\uvec{u}</m> so that a right angle is formed at the initial point of this new vector,
+			at the dashed line.
+			Because the directed line segment for <m>\uvec{u}</m> is longer and steeper than that for <m>\uvec{a}</m>,
+			in this scenario the initial point of the new vector necessarily falls past the terminal point of <m>\uvec{a}</m> on the dashed line.
+			This new vector is labelled <m>\uvec{u} - \uproj{u}{a}</m>.
+			A final directed line segment representing a vector labelled <m>\uproj{u}{a}</m> extends along the dashed line from the point zero vector to the initial point of <m>\uvec{u} - \uproj{u}{a}</m>.
+			The three vectors <m>\uvec{u}, \uproj{u}{a}, \uvec{u} - \uproj{u}{a}</m> together create a right triangle.
+			</p>
+
+			<p>
+			Finally, a dotted arrow points placed inside the triangle runs from the shaft of <m>\uvec{u}</m> to the shaft of <m>\uproj{u}{a}</m>,
+			representing the process of projecting <m>\uvec{u}</m> perpendicularly onto the dashed line parallel to <m>\uvec{a}</m> to create <m>\uproj{u}{a}</m>.
+			</p>
+
+		</description>
+	</image>
+</figure>
 
 <p><dl width="narrow">
 
@@ -73,16 +107,16 @@ When the initial point of <m>\proj_{\uvec{a}}\uvec{u}</m> is placed at the origi
 	<title>vector component of a vector <m>\uvec{u}</m> orthogonal to a second vector <m>\uvec{a}</m></title>
 	<idx><h>orthogonal</h><h>component (to a vector in <m>\R^n</m>)</h></idx>
 	<idx><h>component</h><h>orthogonal (to a vector in <m>\R^n</m>)</h></idx>
-	<p>the vector <m>\uvec{u} - \proj_{\uvec{a}}\uvec{u}</m></p>
+	<p>the vector <m>\uvec{u} - \uproj{u}{a}</m></p>
 	</li>
 
 </dl></p>
 
 <p>
-When the initial point of the vector <m>\uvec{u} - \proj_{\uvec{a}}\uvec{u}</m> is placed at the terminal point of <m>\proj_{\uvec{a}}\uvec{u}</m>,
+When the initial point of the vector <m>\uvec{u} - \uproj{u}{a}</m> is placed at the terminal point of <m>\uproj{u}{a}</m>,
 it points towards the terminal point of <m>\uvec{u}</m>,
 at a right angle to the line that passes through the origin and is parallel to <m>\uvec{a}</m>.
-(See the diagram above.)
+(See <xref ref="figure-orthog-terminology-proj" />.)
 </p>
 
 <p><dl width="narrow">
