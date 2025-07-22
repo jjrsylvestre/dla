@@ -15,11 +15,11 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-	\draw[->] (-1.5,0) to (1.5,0) node[below right] {$x$};
-	\draw[->] (0,-0.25) -- (0,1.5) node[above right] {$y$};
+	\draw[->] (-1.25,0) to (2.25,0) node[below] {$x$};
+	\draw[->] (0,-0.25) -- (0,2.25) node[right] {$y$};
 	\node[point] at (0,0) {};
 
-	\draw[vector,thick] (0,0) to node[below right, at end] {$\uvec{x}$} (1,1);
-	\draw[vector,thick] (0,0) to node[below left, at end] {$\uvec{y} = A\uvec{x}$} (-1,1);
-	\draw[dashed,->] (0.636,0.636) arc (45:135:0.9cm);
+	\draw[vector,thick] (0,0) to node[above left, near end] {$\uvec{x}$} (2,1);
+	\draw[vector,thick] (0,0) to node[below left, near end] {$\uvec{y} = A\uvec{x}$} (-1,2);
+	\draw[dashed,->] (0,0) ++(26.6:0.8cm) arc (26.6:116.6:0.8cm);
 \end{tikzpicture}

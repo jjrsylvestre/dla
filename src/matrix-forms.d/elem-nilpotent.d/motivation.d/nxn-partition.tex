@@ -13,14 +13,16 @@
 % *********************************************************************
 \begin{tikzpicture}
 
+% cross-hatch in invertible matrix block
+% three cases based on which edges it must run between
 \foreach \x in {0.00,0.25,0.50,...,3.00} {
-	\draw[very thin,color=black!5!gray] (\x,4) to (4+\x,8);
+	\draw[very thin,color=black!35!white] (\x,4) to (4+\x,8);
 }
 \foreach \x in {0.25,0.50,0.75,...,3.75} {
-	\draw[very thin,color=black!5!gray] (3+\x,4) to (7,8-\x);
+	\draw[very thin,color=black!35!white] (3+\x,4) to (7,8-\x);
 }
 \foreach \y in {0.25,0.50,0.75,...,3.75} {
-	\draw[very thin,color=black!5!gray] (0,4+\y) to (4-\y,8);
+	\draw[very thin,color=black!35!white] (0,4+\y) to (4-\y,8);
 }
 \draw (0,0) to (7,0) to (7,8) to (0,8) to cycle;
 \node at (3.5,8.25) {\textit{all $n \times n$ matrices}};
@@ -32,7 +34,8 @@
 \node at (3.5,2.5) {matrices with $\lambda = 0$ of multiplicity $2$};
 \draw (0,4) to (7,4);
 \node at (3.5,3.5) {matrices with $\lambda = 0$ of multiplicity $1$};
-\draw[semithick,decoration={brace,mirror,raise=6pt},decorate] (7,0.1) -- node[right=12pt] {\textit{singular $n \times n$ matrices}} (7,3.9);
-\draw[semithick,decoration={brace,mirror,raise=6pt},decorate] (7,4.1) -- node[right=12pt] {\textit{invertible $n \times n$ matrices}} (7,7.9);
+\draw[semithick,decoration={brace,mirror,raise=6pt},decorate] (7,0.1) -- node[right=12pt,align=center] {\textit{singular $n \times n$} \\ \textit{matrices}} (7,3.9);
+\draw[semithick,decoration={brace,mirror,raise=6pt},decorate] (7,4.1) -- node[right=12pt,align=center] {\textit{invertible $n \times n$} \\ \textit{matrices}} (7,7.9);
+\node at (3.5,5.95) {matrices with $\lambda = 0$ of multiplicity $0$};
 
 \end{tikzpicture}

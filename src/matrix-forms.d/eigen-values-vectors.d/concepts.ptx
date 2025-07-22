@@ -235,15 +235,23 @@ for an example of this geometric transformation point of view.
 		Example matrix function with
 		<m> A = \left[\begin{smallmatrix} 0 \amp -1 \\ 1 \amp 0 \end{smallmatrix}\right] </m>
 		applied to input vector
-		<m>\uvec{x} = \left[\begin{smallmatrix} 1 \\ 1 \end{smallmatrix}\right]</m>
+		<m>\uvec{x} = \left[\begin{smallmatrix} 2 \\ 1 \end{smallmatrix}\right]</m>
 		to produce output vector
 		<m>\uvec{y} = A\uvec{x}</m>.
 	</caption>
-	<image width="35%">
-		<description><p> Example of matrix multiplication as a function, considered geometrically in the plane. </p></description>
+	<image width="37.3%">
 		<latex-image label="image-eigen-values-vectors-concepts-rotate">
 			<xi:include href="concepts.d/rotate.tex" parse="text" />
 		</latex-image>
+		<shortdescription> Geometric interpretation of matrix multiplication as a function on vectors in the plane. </shortdescription>
+		<description><p>
+			A diagram of a vector in the plane and its transformation after matrix multiplication.
+			The vector <m>\uvec{x} = (2,1)</m> and the corresponding transformed vector <m>\uvec{y} = A \uvec{x}</m>,
+			after multiplication by matrix
+			<me> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </me>,
+			are drawn as directed line segments with shared initial point at the origin.
+			A curved arrow with a dashed-line shaft is drawn from the shaft of <m>\uvec{x}</m> to the shaft of <m>\uvec{y}</m> to emphasize the input-output relationship between the two vectors.
+		</p></description>
 	</image>
 </figure>
 
@@ -257,33 +265,56 @@ for a geometric example of this view of eigenvectors.
 
 <figure xml:id="figure-eigen-values-vectors-concepts-eigen-transformation-example">
 	<caption>
-		Two input-output examples using the same transformation matrix
+		Two input-output examples,
+		both using the transformation matrix
 		<m> A = \left[\begin{smallmatrix} 7 \amp 8 \\ -4 \amp -5 \end{smallmatrix}\right] </m>
-		(from <xref ref="activity-eigen-values-vectors-eigen-motivation"/>).
+		from <xref ref="activity-eigen-values-vectors-eigen-motivation"/>.
 	</caption>
 	<sidebyside widths="33.8% 36.1%">
 
 		<figure>
 			<caption>
-				With eigenvector <m>\uvec{u}</m>
-				(again from <xref ref="activity-eigen-values-vectors-eigen-motivation"/>)
-				as input vector.
+				With eigenvector <m>\uvec{u}</m> from <xref ref="activity-eigen-values-vectors-eigen-motivation"/> as input vector.
 			</caption>
-			<image>
-				<description><p> Example of a matrix transformation of an eigenvector and a noneigenvector. </p></description>
+			<image>  <!-- width="33.8%" -->
 				<latex-image label="image-eigen-values-vectors-concepts-eigen-transformed">
 					<xi:include href="concepts.d/eigen-transformed.tex" parse="text" />
 				</latex-image>
+				<shortdescription>
+					A vector and its corresponding transformed vector under matrix multiplication,
+					where input vector is an eigenvector and the transformed vector is a scalar multiple of the input vector.
+				</shortdescription>
+				<description><p>
+					A diagram of an eigenvector for a matrix and its corresponding transformed vector under multiplication by the matrix.
+					The eigenvector <m>\uvec{u} = (-1,1)</m> from <xref ref="activity-eigen-values-vectors-eigen-motivation"/>
+					and its corresponding transformed vector <m>\uvec{y}_1 = A \uvec{u}</m>
+					are drawn as directed line segments in the plane with shared initial point at the origin.
+					As the eigenvalue for <m>\uvec{u}</m> is <m>\lambda = -1</m>,
+					the transformed vector is precisely the negative vector <m>- \uvec{u}</m>.
+				</p></description>
 			</image>
 		</figure>
 
 		<figure>
 			<caption> With a noneigenvector <m>\uvec{x}</m> as input vector. </caption>
-			<image>
-				<description><p> Example of a matrix transformation of an eigenvector and a noneigenvector. </p></description>
+			<image>  <!-- width="36.1%" -->
 				<latex-image label="image-eigen-values-vectors-concepts-noneigen-transformed">
 					<xi:include href="concepts.d/noneigen-transformed.tex" parse="text" />
 				</latex-image>
+				<shortdescription>
+					A vector and its corresponding transformed vector under matrix multiplication,
+					where input vector is not an eigenvector and the transformed vector is not a scalar multiple of the input vector.
+				</shortdescription>
+				<description><p>
+					A diagram of a vector that is <em>not</em> an eigenvector for a matrix and its corresponding transformed vector under multiplication by the matrix.
+					The vector <m>\uvec{u} = (-2,3/2)</m> and its corresponding transformed vector <m>\uvec{y}_2 = A \uvec{u}</m>
+					are drawn as directed line segments in the plane with shared initial point at the origin.
+					In this example,
+					both directed line segments have terminal points in the second quadrant of plane,
+					and in fact have the same <m>x</m>-coordinates,
+					but they have different <m>y</m>-coordinates.
+					So <m>\uvec{y}_2</m> cannot be a scalar multiple of <m>\uvec{u}</m> as it is not even parallel to <m>\uvec{u}</m>.
+				</p></description>
 			</image>
 		</figure>
 
