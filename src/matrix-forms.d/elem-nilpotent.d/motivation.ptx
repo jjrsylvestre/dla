@@ -54,12 +54,23 @@ we will consider first consider a special case of nilpotent matrix.
 	in analogy with a cusp point on the graph of a function.
 	</p>
 
-	<image width="50%">
-		<description><p> Visualization of a cusp point. </p></description>
-		<latex-image label="image-elem-nilpotent-motivation-cusp">
-			<xi:include href="motivation.d/cusp.tex" parse="text" />
-		</latex-image>
-	</image>
+	<figure>
+		<caption> Visualization of a cusp point. </caption>
+		<image width="36.1%">
+			<latex-image label="image-elem-nilpotent-motivation-cusp">
+				<xi:include href="motivation.d/cusp.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Visualization of a cusp point as a cusp in the graph of a function. </shortdescription>
+			<description><p>
+				The graph of an unspecified function appears on a set of axes.
+				Initially the graph is increasing and concave up,
+				halfway through the diagram it abruptly changes to decreasing and concave up,
+				creating a sharp <q>corner</q> in the graph at the point of transition between these two behaviours.
+				A vertical dashed line is drawn from this sharp point to the horizontal axis,
+				and that location on the horizontal axis is labelled <m>c</m>.
+			</p></description>
+		</image>
+	</figure>
 
 	<p> A cusp is often where interesting things happen or where special patterns are revealed. </p>
 
@@ -81,14 +92,52 @@ the algebraic multiplicity of <m>\lambda = 0</m> for a singular matrix measures 
 
 <figure>
 	<caption>
-		Partition of the set of <m>n \times n</m> matrices into invertible and singular,
-		with the set of singular matrices further partitioned by multiplicity of the eigenvalue <m>\lambda = 0</m>.
+		Partition of the set of <m>n \times n</m> matrices according to the multiplicity of the eigenvalue <m>\lambda = 0</m>.
+		By <q>matrices with <m>\lambda = 0</m> of multiplicity <m>0</m>,</q>
+		we mean those matrices where <m>\lambda = 0</m> is <em>not</em> an eigenvalue of the matrix.
 	</caption>
-	<image width="75%">
-		<description><p> Diagram of a partition of the set of <m>n \times n</m> matrices. </p></description>
+	<image width="83.8%">
+
 		<latex-image label="image-elem-nilpotent-motivation-nxn-partition">
 			<xi:include href="motivation.d/nxn-partition.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			A Venn diagram illustrating a partition of the set of square matrices of a specific size based on the multiplicity of eigenvalue 0.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A Venn diagram illustrating a partition of the set of <m>n \times n</m> matrices based on the multiplicity of eigenvalue 0.
+			A large rectangle, taller than it is wide, is labelled as representing the collection of all <m>n \times n</m> matrices.
+			A horizontal line through the middle of the rectangle divides it into two smaller rectangles,
+			with the upper half labelled as representing the collection of <em>invertible</em> <m>n \times n</m> matrices
+			and the lower half labelled as representing the collection of <em>singular</em> <m>n \times n</m> matrices.
+			Inside the upper half is the additional label <q>matrices with <m>\lambda = 0</m> of multiplicity <m>0</m>.</q>
+			</p>
+
+			<p>
+			The lower half of the large rectangle is further subdivided into four rectangular cells:
+			<ul>
+				<li>
+					The first cell is labelled as representing the collection of singular <m>n \times n</m> matrices with eigenvalue <m>\lambda = 0</m> of multiplicity <m>1</m>.
+				</li>
+				<li>
+					The second cell is labelled as representing the collection of singular <m>n \times n</m> matrices with eigenvalue <m>\lambda = 0</m> of multiplicity <m>2</m>.
+				</li>
+				<li>
+					The third cell contains three dots in vertical line,
+					suggesting that there are more un-visualized cells in which the pattern continues.
+				</li>
+				<li>
+					The last cell is labelled as representing the collection of singular <m>n \times n</m> matrices with eigenvalue <m>\lambda = 0</m> of multiplicity <m>n</m>.
+				</li>
+			</ul>
+			</p>
+
+		</description>
+
 	</image>
 </figure>
 
@@ -108,11 +157,66 @@ as it is the only matrix with degree of nilpotency equal to <m>1</m>
 
 <figure>
 	<caption> Partition of the set of <m>n \times n</m> singular matrices by <term>degree of nilpotency</term>. </caption>
-	<image width="100%">
-		<description><p> Diagram of a partition of the set of nilpotent <m>n \times n</m> matrices. </p></description>
+	<image width="97.3%">
+
 		<latex-image label="image-elem-nilpotent-motivation-nilpotent-nxn-partition">
 			<xi:include href="motivation.d/nilpotent-nxn-partition.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			A Venn diagram illustrating a partition of the set of nilpotent square matrices of a specific size based on degree of nilpotency.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A Venn diagram illustrating a partition of the set of nilpotent <m>n \times n</m> matrices based on the degree of nilpotency.
+			On the left side of the diagram is a large rectangle labelled as representing the collection of singular <m>n \times n</m> matrices.
+			This rectangle is subdivided into four rectangular cells:
+			<ul>
+				<li>
+					The first cell is labelled as representing the collection of singular <m>n \times n</m> matrices with eigenvalue <m>\lambda = 0</m> of multiplicity <m>1</m>.
+				</li>
+				<li>
+					The second cell is labelled as representing the collection of singular <m>n \times n</m> matrices with eigenvalue <m>\lambda = 0</m> of multiplicity <m>2</m>.
+				</li>
+				<li>
+					The third cell contains three dots in vertical line,
+					suggesting that there are more un-visualized cells in which the pattern continues.
+				</li>
+				<li>
+					The last cell is outlined in bold and labelled as representing the collection of singular <m>n \times n</m> matrices with eigenvalue <m>\lambda = 0</m> of multiplicity <m>n</m>.
+				</li>
+			</ul>
+			</p>
+
+			<p>
+			On the right side of the diagram is a second large rectangle representing an exploded view of the multiplicity-<m>n</m> cell of the first large rectangle,
+			and also labelled as representing the collection of nilpotent <m>n \times n</m> matrices.
+			This second large rectangle is further subdivided into five rectangular cells:
+			<ul>
+				<li>
+					The first cell is labelled as representing the collection of those nilpotent <m>n \times n</m> matrices <m>A</m> satisfying <m>A^n = \zerovec</m> but <m>A^{n - 1} \neq \zerovec</m>.
+				</li>
+				<li>
+					The second cell is labelled as representing the collection of those nilpotent <m>n \times n</m> matrices <m>A</m> satisfying <m>A^{n - 1} = \zerovec</m> but <m>A^{n - 2} \neq \zerovec</m>.
+				</li>
+				<li>
+					The third cell contains three dots in vertical line,
+					suggesting that there are more un-visualized cells in which the pattern continues.
+				</li>
+				<li>
+					The second-to-last cell is labelled as representing the collection of those nilpotent <m>n \times n</m> matrices <m>A</m> satisfying <m>A^2 = \zerovec</m> but <m>A \neq \zerovec</m>.
+				</li>
+				<li>
+					The last cell is labelled as representing the collection of consisting solely of the <m>n \times n</m> zero matrix.
+				</li>
+			</ul>
+			</p>
+
+
+		</description>
+
 	</image>
 </figure>
 

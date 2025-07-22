@@ -13,33 +13,39 @@
 % *********************************************************************
 \begin{tikzpicture}
 
-\node at (3.5,4.25) {\textit{singular $n \times n$ matrices}};
-\draw (0,4) to (7,4);
-\node at (3.5,3.5) {matrices with $\lambda = 0$ of multiplicity $1$};
-\draw[dashed] (0,3) to (7,3);
-\node at (3.5,2.5) {matrices with $\lambda = 0$ of multiplicity $2$};
-\draw[dashed] (0,2) to (7,2);
-\node at (3.5,1.6) {$\vdots$};
-\draw[dashed] (0,1) to (7,1);
-\node at (3.5,0.5) {matrices with $\lambda = 0$ of multiplicity $n$};
-\draw (0,0) to (7,0) to (7,4) to (0,4) to cycle;
+% exploding lines
+% slope over 11, up 4
+\draw[densely dotted,thick] (6,1) to (6.5,1.182);
+\draw[densely dotted,thick,black!20!white] (6.5,1.182) to (11.5,3);
+% slope over 11, down 4
+\draw[densely dotted,thick] (6,0) to (6.5,-0.182);
+\draw[densely dotted,thick,black!20!white] (6.5,-0.182) to (11.5,-2);
 
-\draw[ultra thick] (0,0) to (7,0) to (7,1) to (0,1) to cycle;
-\begin{scope}[xshift=9cm,yshift=-2cm]
-	\node at (2,5.25) {\textit{nilpotent $n \times n$ matrices}};
-	\node at (2,4.5) {$A^n = 0$, $A^{n-1} \neq 0$};
-	\draw[dashed] (0,4) to (4,4);
-	\node at (2,3.5) {$A^{n-1} = 0$, $A^{n-2} \neq 0$};
-	\draw[dashed] (0,3) to (4,3);
-	\node at (2,2.6) {$\vdots$};
-	\draw[dashed] (0,2) to (4,2);
-	\node at (2,1.5) {$A^2 = 0$, $A \neq 0$};
-	\draw[dashed] (0,1) to (4,1);
-	\node at (2,0.5) {$A = 0$};
-	\draw[ultra thick] (0,0) to (4,0) to (4,5) to (0,5) to cycle;
+\node at (3,4.25) {\textit{singular $n \times n$ matrices}};
+\node at (3,3.5) {matrices with $\lambda = 0$ of multiplicity $1$};
+\draw[dashed] (0,3) to (6,3);
+\node at (3,2.5) {matrices with $\lambda = 0$ of multiplicity $2$};
+\draw[dashed] (0,2) to (6,2);
+\node at (3,1.6) {$\vdots$};
+\node at (3,0.5) {matrices with $\lambda = 0$ of multiplicity $n$};
+\draw (0,0) to (6,0) to (6,4) to (0,4) to cycle;
+\draw[ultra thick] (0,0) to (6,0) to (6,1) to (0,1) to cycle;
+
+\draw[densely dotted,thick] (0,1.05) to (6.5,3);
+\draw[densely dotted,thick] (0,-0.05) to (6.5,-2);
+
+\begin{scope}[xshift=6.5cm,yshift=-2cm]
+	\node[align=center] at (2.5,5.5) {\textit{nilpotent $n \times n$} \\ \textit{matrices}};
+	\node at (2.5,4.5) {$A^n = \zerovec$, $A^{n-1} \neq \zerovec$};
+	\draw[dashed] (0,4) to (5,4);
+	\node at (2.5,3.5) {$A^{n-1} = \zerovec$, $A^{n-2} \neq \zerovec$};
+	\draw[dashed] (0,3) to (5,3);
+	\node at (2.5,2.6) {$\vdots$};
+	\draw[dashed] (0,2) to (5,2);
+	\node at (2.5,1.5) {$A^2 = \zerovec$, $A \neq \zerovec$};
+	\draw[dashed] (0,1) to (5,1);
+	\node at (2.5,0.5) {$A = \zerovec$};
+	\draw[ultra thick] (0,0) to (5,0) to (5,5) to (0,5) to cycle;
 \end{scope}
-
-\draw (7,0.9) to (9,3);
-\draw (7,0.1) to (9,-2);
 
 \end{tikzpicture}
