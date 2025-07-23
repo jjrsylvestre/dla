@@ -16,17 +16,17 @@
 	vector/.style={-latex},
 ]
 
-	\draw[->] (-2.75,0) to (2.75,0) node[below right] {$\scriptstyle x$};
-	\draw[->] (0,-2.75) to (0,2.75) node[above right] {$\scriptstyle y$};
+	\draw[->] (-2.75,0) to (2.75,0) node[below] {$x$};
+	\draw[->] (0,-2.75) to (0,2.75) node[left] {$y$};
 
-	\draw[dashed,->] (2.5,-2.5) to (-2.5,2.5) node[above right] {$\scriptstyle z$};
-	\draw[dashed,->] (-2.5,-2.5) to (2.5,2.5) node[below right] {$\scriptstyle w$};
+	\draw[dashed,->] (2.5,-2.5) to (-2.5,2.5) node[above right] {$z$};
+	\draw[dashed,->] (-2.5,-2.5) to (2.5,2.5) node[below right] {$w$};
 
-	\draw[red,thick,vector] (0,0) to (2.121,2.121) node[left] {$\scriptstyle 3 \uvec{p}_1$};
-	\draw[red,thick,vector] (0,0) to (-1.414,1.414) node[right] {$\scriptstyle 2 \uvec{p}_2$};
+	\draw[red,thick,vector] (0,0) to node[left,at end,xshift=-0.2cm,yshift=-0.1cm] {$3 \uvec{p}_1$} (2.121,2.121);
+	\draw[red,thick,vector] (0,0) to node[right,at end,xshift=0.2cm,yshift=-0.1cm] {$2 \uvec{p}_2$} (-1.414,1.414);
 
-	\draw[thick,vector] (0,0) to (0.707,0.707) node[right] {$\scriptstyle \uvec{p}_1$};
-	\draw[thick,vector] (0,0) to (-0.707,0.707) node[left] {$\scriptstyle \uvec{p}_2$};
+	\draw[thick,vector] (0,0) to node[below,at end,yshift=-0.1cm,xshift=0.1cm] {$\uvec{p}_1$} (0.707,0.707);
+	\draw[thick,vector] (0,0) to node[below,at end,yshift=-0.1cm,xshift=-0.1cm] {$\uvec{p}_2$} (-0.707,0.707);
 
 	\draw[rotate=45] (0,0) ellipse (3cm and 2cm);
 

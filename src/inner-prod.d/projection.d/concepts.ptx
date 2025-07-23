@@ -46,12 +46,56 @@ one in <m>U</m> and one in <m>\orthogcmp{U}</m>
 with <m>\uvec{u}</m> in <m>U</m> and <m>\uvec{u}'</m> in <m>\orthogcmp{U}</m>.
 </p>
 
-<image width="65%">
-	<description><p> Diagram illustrating an orthogonal projection in <m>\R^3</m>. </p></description>
-	<latex-image label="image-projection-concepts-orthog-proj">
-		<xi:include href="concepts.d/orthog-proj.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> Geometrically decomposing a vector in <m>\R^3</m> relative to a plane and its orthogonal complement. </caption>
+	<image width="67%">
+
+		<latex-image label="image-projection-concepts-orthog-proj">
+			<xi:include href="concepts.d/orthog-proj.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			Diagram of geometrically decomposing a vector relative to a plane subspace and the line that forms its orthogonal complement in three-dimensional space.
+			The plane, line, and a vector external to both are pictured,
+			and a vector-addition triangle is drawn for this vector.
+			This triangle is right:
+			the external vector as the hypotenuse,
+			one of the two legs runs along (hence parallel to) the plane,
+			and the other leg is parallel to the planes' orthogonal complement line (hence perpendicular to the plane).
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram in three-dimensions of a vector-addition triangle sitting atop a plane to illustrate the geometric decomposition a vector relative to a plane subspace and the line that forms its orthogonal complement.
+			A parallelogram with a shaded-in interior is drawn.
+			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+			(similar to a tabletop <q>suspended</q> above the floor in a room),
+			but viewed at an angle from above.
+			Embedded within this two-dimensional surface is a point representing the zero vector,
+			and this surface is labelled as representing the plane subspace <m>U</m>.
+			A line is drawn through the point zero vector at a right angle,
+			and is labelled as representing the orthogonal complement subspace <m>\orthogcmp{U}</m>.
+			</p>
+
+			<p>
+			A directed line segment representing a vector <m>\uvec{v}</m> is drawn with initial point at the point zero vector,
+			but rising up out of the shaded surface at an acute angle.
+			Two more directed line segments are drawn with their initial points at the point zero vector:
+			one along (and parallel to) the shaded surface,
+			labelled as representing the vector <m>\uvec{u}</m>,
+			and one along (and parallel to) the line perpendicular to the surface,
+			labelled as representing the vector <m>\uvec{u}'</m>.
+			Another directed line segment,
+			labelled as also representing vector <m>\uvec{u}'</m>,
+			runs from the terminal point of <m>\uvec{u}</m> to the terminal point of <m>\uvec{v}</m> to complete a vector-addition triangle with those two vectors where <m>\uvec{v}</m> represents the sum vector.
+			Finally, a dashed line between the terminal points of the two copies of <m>\uvec{u}'</m> completes a rectangle where the other three sides are <m>\uvec{u}</m> and the two copies of <m>\uvec{u}'</m> and <m>\uvec{v}</m> is a diagonal.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 The vector <m>\uvec{u}</m> in the decomposition is called
@@ -139,8 +183,6 @@ agrees with our previous formula for <m>\proj_{\uvec{a}} \uvec{v}</m>.
 </subsection>
 
 
-
-
 <subsection xml:id="subsection-projection-concepts-gram-schmidt">
 <title>Gram-Schmidt process versus orthogonal projection</title>
 
@@ -151,7 +193,12 @@ create a sequence of orthogonal bases
 for a nested sequence of subspaces
 <me> U_1 \subseteq U_2 \subseteq \dotsb \subseteq U_n = V </me>,
 where <m>\dim U_j = j</m> for each index <m>j</m>.
-To enlarge basis <m>\basisfont{B}_{U_j}</m> to basis <m>\basisfont{B}_{U_{j+1}}</m>,
+The process begins with <m>\uvec{e}_1 = \uvec{v}_1</m>,
+where we set the first result vector to be simply the first vector in the starting (possibly non-orthogonal) basis for the space.
+So, set <m>\basisfont{B}_{U_1} = \{\uvec{e}_1\}</m>,
+so that <m>U_1 = \Span \{\uvec{e}_1\}</m>.
+Continuing inductively,
+to enlarge basis <m>\basisfont{B}_{U_j}</m> to basis <m>\basisfont{B}_{U_{j+1}}</m>,
 the process appends the vector
 <me>
 	\uvec{e}_{j+1} = \uvec{v}_{j+1} - \left[
@@ -179,12 +226,59 @@ we see that
 		Visualization of the result of the third step of
 		the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
 		as an orthogonal projection.
+		In the pictured example,
+		<m>U_2 = \Span \{\uvec{e}_1, \uvec{e}_2\}</m>,
+		the plane spanned by the first two result vectors of the process,
+		and <m>\uvec{e}_3 = \proj_{\orthogcmp{U}_2} \uvec{v}_3</m>,
+		the new result vector of the third step of the process.
 	</caption>
-	<image width="65%">
-		<description><p> Diagram illustrating an orthogonal projection in <m>\R^3</m>. </p></description>
+	<image width="55.2%">
+
 		<latex-image label="image-projection-concepts-gram-schmidt-3rdstep">
 			<xi:include href="concepts.d/gram-schmidt-3rdstep.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			Diagram of a plane representing the span of the first two result vectors in the Gram-Schmidt process and a line representing the orthogonal complement of that plane (assuming the whole space is three-dimensional).
+			The third vector of the original basis is represented as a vector external to the plane,
+			and the result of the third step in the Gram-Schmidt process is represented as a projection onto the orthogonal complement space.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram in three-dimensions illustrating how the Gram-Schmidt process is ultimately a process of repeated orthogonal projections.
+			A parallelogram with a shaded-in interior is drawn.
+			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+			(similar to a tabletop <q>suspended</q> above the floor in a room),
+			but viewed at an angle from above.
+			Embedded within this two-dimensional surface is a point representing the zero vector,
+			and two directed line segments parallel to the shaded surface,
+			representing the vectors <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>,
+			emanate from this point,
+			so that they appear to lie along the shaded surface.
+			Within the shaded surface,
+			these two vectors are at a right angle,
+			and the shaded surface represents a portion of the plane spanned by them,
+			which is labelled as <m>U_2</m>.
+			A line is drawn through the point zero vector at a right angle,
+			and is labelled as representing the orthogonal complement subspace <m>\orthogcmp{U}_2</m>.
+			</p>
+
+			<p>
+			A directed line segment representing the third vector <m>\uvec{v}_3</m> of the original input basis for the space is drawn with initial point at the point zero vector,
+			but rising up out of the shaded surface at an acute angle.
+			Another directed line segment runs along (and parallel to) the shaded surface from the point zero vector to the point directly below the terminal point of <m>uvec{v}_3</m>,
+			and is labelled as representing <m>\proj_{U_2} \uvec{v}_3</m>.
+			A final directed line segment representing vector <m>\uvec{e}_3</m> is drawn along (and parallel to) the line for <m>\orthogcmp{U}_2</m>,
+			with initial point at the point zero vector and terminal point at the same height above the shaded surface as the terminal point of <m>\uvec{v}_3</m>.
+			Dashed lines are drawn from the terminal point of <m>\uvec{v}_3</m> to the terminal points of <m>\uvec{e}_3</m> and <m>\proj_{U_2} \uvec{v}_3</m>,
+			completing a rectangle where those two vectors are the other two sides,
+			and <m>\uvec{v}_3</m> is a diagonal.
+			</p>
+
+		</description>
+
 	</image>
 </figure>
 
@@ -203,12 +297,28 @@ we can measure distance between vectors by measuring the norm of a difference ve
 </p>
 
 <figure>
-	<caption>Visualization of the distance between vectors in an inner product space.</caption>
-	<image width="40%">
-		<description><p> Diagram illustrating distance in an inner product space. </p></description>
+	<caption> Visualization of the distance between vectors in an inner product space. </caption>
+	<image width="35.5%">
 		<latex-image label="image-projection-concepts-vec-dist">
 			<xi:include href="concepts.d/vec-dist.tex" parse="text" />
 		</latex-image>
+		<shortdescription>
+			Diagram illustrating distance in an inner product space using a vector-subtraction triangle.
+		</shortdescription>
+		<description><p>
+			Three non-collinear points are plotted in the plane:
+			one in the lower-left corner of the diagram,
+			one at the top edge of the diagram but left of center,
+			and one at the right edge of the diagram but below center.
+			Two directed line segments with initial point at the point in the lower left corner are drawn,
+			representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+			Vector <m>\uvec{u}</m> has its terminal point at the plotted point at the top edge of the diagram,
+			and vector <m>\uvec{v}</m> has its terminal point at the plotted point at the right edge of the diagram.
+			A third vector is drawn from the terminal point of <m>\uvec{v}</m> to the terminal point of <m>\uvec{u}</m> to complete the vector-subtraction triangle,
+			and so is labelled as representing the difference vector <m>\uvec{u} - \uvec{v}</m>.
+			A dashed line is drawn in parallel with this difference vector to represent the distance between those points,
+			and is labelled <m>\dist(\uvec{u},\uvec{v})</m>.
+		</p></description>
 	</image>
 </figure>
 
@@ -227,12 +337,51 @@ will be minimized at <me> \uvec{u} = \proj_U \uvec{v} </me>.
 
 <p> For this reason, the vector <m>\proj_U \uvec{v}</m> is called the <term>best approximation to <m>\uvec{v}</m> in <m>U</m></term>. </p>
 
-<image width="65%">
-	<description><p> Diagram illustrating an orthogonal projection in <m>\R^3</m> as a best approximation. </p></description>
-	<latex-image label="image-projection-concepts-min-dist">
-		<xi:include href="concepts.d/min-dist.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> The orthogonal distance from a point to a subspace is the shortest distance. </caption>
+	<image width="62.9%">
+
+		<latex-image label="image-projection-concepts-min-dist">
+			<xi:include href="concepts.d/min-dist.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			Diagram of a plane subspace and a vector external to that subspace,
+			illustrating that the distance between a vector and its orthogonal projection onto a subspace is the shortest distance between the vector and the subspace.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram in three-dimensions illustrating how an orthogonal projection onto a subspace relates to the minimum distance between the vector being projected and the subspace.
+			A parallelogram with a shaded-in interior is drawn.
+			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+			(similar to a tabletop <q>suspended</q> above the floor in a room),
+			but viewed at an angle from above.
+			Embedded within this two-dimensional surface is a point representing the zero vector,
+			and the shaded surface is labelled as representing a portion of a plane subspace <m>U</m> of <m>\R^3</m>.
+			</p>
+
+			<p>
+			A directed line segment representing a vector <m>\uvec{v}</m> is drawn with initial point at the point zero vector,
+			but rising up out of the shaded surface at an acute angle.
+			Another directed line segment runs along (and parallel to) the shaded surface from the point zero vector to the point directly below the terminal point of <m>uvec{v}</m>,
+			and is labelled as representing <m>\proj_U \uvec{v}</m>.
+			A dashed line is drawn between the terminal points of these two vectors,
+			so that it meets the shaded surface at the terminal point of the projection vector at a right angle.
+			This dashed line is labelled as representing the minimum distance from the terminal point of <m>\uvec{v}</m> to the plane.
+			</p>
+
+			<p>
+			An arbitrary third point is plotted in the shaded surface,
+			and a dashed line is drawn from it to each of the terminal points of the two vectors,
+			creating a right triangle where the hypotenuse is the dashed line from this arbitrary point to the terminal point of <m>\uvec{v}</m>.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 Because of this, orthogonal projection can be used to solve approximation and optimization problems.
@@ -268,8 +417,6 @@ and so <m>\uvec{u} = \proj_U \uvec{v}</m> could be called the <term>least square
 
 
 </subsection>
-
-
 
 
 <subsection xml:id="subsection-projection-concepts-least-sq">
@@ -323,12 +470,51 @@ any vector <m>\uvec{x}_0</m> so that
 where <m>U</m> is the column space of <m>A</m> in <m>\R^m</m>.
 </p>
 
-<image width="65%">
-	<description><p> Diagram illustrating an orthogonal projection in <m>\R^3</m>. </p></description>
-	<latex-image label="image-projection-concepts-least-sq">
-		<xi:include href="concepts.d/least-sq.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption>
+		A system <m>A \uvec{x} = \uvec{b}_0</m> is inconsistent precisely when the column vector of constants <m>\uvec{b}_0</m> lies outside of the column space of the coefficient matrix <m>A</m>.
+		But we can still look for an <m>\uvec{x}_0</m> so that the column space vector <m>A \uvec{x}_0</m> is <em>approximately</em> equal to <m>\uvec{b}_0</m>.
+	</caption>
+	<image width="70.8%">
+
+		<latex-image label="image-projection-concepts-least-sq">
+			<xi:include href="concepts.d/least-sq.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			Diagram illustrating a geometrically approximate solution to an inconsistent system.
+			A plane represents the columns space of a coefficient matrix,
+			a vector external to the plane represents the column vector of constants for an inconsistent system,
+			and a vector parallel to the plane represents the column space vector corresponding to an approximate solution.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram in three-dimensions illustrating a geometrically approximate solution to an inconsistent system.
+			A parallelogram with a shaded-in interior is drawn.
+			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+			(similar to a tabletop <q>suspended</q> above the floor in a room),
+			but viewed at an angle from above.
+			Embedded within this two-dimensional surface is a point representing the zero vector,
+			and the shaded surface is labelled as representing the column space of a <m>3 \times n</m> matrix <m>A</m> in <m>\R^3</m>.
+			</p>
+
+			<p>
+			A directed line segment representing a vector <m>\uvec{b}_0</m> is drawn with initial point at the point zero vector,
+			but rising up out of the shaded surface at an acute angle.
+			Another directed line segment runs along (and parallel to) the shaded surface from the point zero vector to the point directly below the terminal point of <m>uvec{b}_0</m>,
+			and is labelled as representing a column space vector <m>A \uvec{x}_0</m>.
+			A dashed line is drawn between the terminal points of these two vectors,
+			so that it meets the shaded surface at the terminal point of the column space vector at a right angle.
+			Because of this right angle,
+			it is appropriate to write <m>A \uvec{x}_0 \approx \uvec{b}_0</m>.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
 
 <p>
 One way to solve this problem is to use <xref ref="procedure-col-row-null-space-concepts-col-space-basis" />

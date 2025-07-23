@@ -39,15 +39,19 @@ And, since the provided eigenvectors were already orthogonal,
 to convert <m>P</m> into a unitary matrix <m>U</m> so that <m>\adjoint{U} H U</m> was diagonal,
 all that was required was to normalize the eigenvectors to unit vectors.
 </p>
+
 <aside><title>Note</title><p>
 	Since <m>\adjoint{U} = \inv{U}</m> for a unitary matrix <m>U</m>,
 	the similarity-like formula <m>\adjoint{U} H U</m> really is a similarity formula.
 </p></aside>
+
 <p>
 As considered in <xref ref="activity-orthog-unitary-diag-hermitian-exmp-what-if-not-orthog">Discovery</xref>,
 the crucial fact to make this work was that the eigenvectors were orthogonal,
 since unit vectors are then easy to produce by normalization.
-</p><p>
+</p>
+
+<p>
 Now, it may seem that lack of orthogonality is also easy to <q>fix</q> using the Gram-Schmidt process,
 and indeed we could use that process to convert an eigenspace basis into an orthogonal one.
 But as we found in the non-Hermitian example of <xref ref="activity-orthog-unitary-diag-non-exmp" />,
@@ -55,15 +59,64 @@ it won't work to fix eigenvectors from <em>different</em> eigenspaces that are n
 In trying to correct a lack of one crucial property (orthogonality of basis vectors),
 Gram-Schmidt may affect the other crucial property for diagonalization: basis vectors must be eigenvectors.
 </p>
+
 <figure>
-	<caption> Applying the Gram-Schmidt process to eigenvectors from different eigenspaces may result in noneigenvectors. </caption>
-	<image width="65%">
-		<description><p> Diagram of a change of variables via transition matrix. </p></description>
+	<caption>
+		Applying the Gram-Schmidt process to eigenvectors from different eigenspaces may result in noneigenvectors.
+		In the pictured example,
+		we have a two-dimensional eigenspace <m>E_{\lambda_1} = \Span \{\uvec{e}_1, \uvec{e}_2\}</m>
+		and a separate one-dimensional eigenspace <m>E_{\lambda_2} = \Span \{\uvec{v}\}</m>.
+		If the Gram-Schmidt process is applied to the linearly independent set <m>\Span \{\uvec{e}_1, \uvec{e}_2, \uvec{v}\}</m>,
+		then the third step produces result <m>\uvec{e}_3 = \proj_{\orthogcmp{E}_{\lambda_1}} \uvec{v}</m>.
+	</caption>
+	<image width="56.1%">
+
 		<latex-image label="image-orthog-unitary-diag-concepts-gs-evecs">
 			<xi:include href="concepts.d/gs-evecs.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			Diagram of a plane representing one eigenspace of a matrix and a line independent from the plane representing a different eigenspace,
+			so that when the Gram-Schmidt process is applied to a spanning vector for the line,
+			the result is a vector that is orthogonal to the plane but is not an eigenvector for the matrix.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram in three-dimensions illustrating that when Gram-Schmidt is applied to a set of eigenvectors from different eigenspaces,
+			the resulting vectors are orthogonal but not necessarily eigenvectors.
+			A parallelogram with a shaded-in interior is drawn.
+			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+			(similar to a tabletop <q>suspended</q> above the floor in a room),
+			but viewed at an angle from above.
+			Embedded within this two-dimensional surface is a point representing the zero vector,
+			and two directed line segments parallel to the shaded surface,
+			representing the vectors <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>,
+			emanate from this point,
+			so that they appear to lie along the shaded surface.
+			Within the shaded surface,
+			these two vectors are at a right angle,
+			and the shaded surface represents a portion of the plane spanned by them.
+			This plane is labelled as representing a two-dimensional eigenspace <m>E_{\lambda_1}</m> for some matrix.
+			</p>
+
+			<p>
+			A directed line segment representing a third vector <m>\uvec{v}</m> is drawn with initial point at point zero vector,
+			but rising up out of the shaded surface at an acute angle.
+			A line is drawn <q>through</q> and parallel to this vector and labelled as representing a one-dimensional eigenspace <m>E_{\lambda_2}</m> for the matrix.
+			A final directed line segment representing vector <m>\uvec{e}_3</m> is drawn with initial point at point zero vector,
+			rising up out of the shaded surface at a right angle so that its terminal point is at the same height above the shaded surface as the terminal point of <m>\uvec{v}</m>.
+			A rectangle is drawn in dashed lines sitting vertically atop the shaded surface,
+			with vertices at the point zero vector, the terminal points of <m>\uvec{e}_3</m> and <m>\uvec{v}</m>,
+			and the point on the plane where the projection of <m>\uvec{v}</m> onto the plane would land.
+			</p>
+
+		</description>
+
 	</image>
 </figure>
+
 <p>
 Just as the fact that eigenvectors from different eigenspaces are automatically linearly independent
 (<xref ref="proposition-diagonalization-indep-e-vectors" />)
@@ -74,7 +127,9 @@ but in <xref ref="activity-orthog-unitary-diag-hermitian-orthog-evecs" /> we dis
 And, in fact,
 we will prove in <xref ref="subsection-orthog-unitary-diag-theory-diag" /> that
 <alert>every self-adjoint matrix is orthogonally/unitarily diagonalizable</alert>.
-</p><p>
+</p>
+
+<p>
 It turns out that this is the end of the story in the real case <mdash />
 a real matrix is orthogonally diagonalizable if and only if it is symmetric
 (<xref ref="theorem-orthog-unitary-diag-symmetric-is-orthog-diag" />).

@@ -11,11 +11,15 @@
 % their respective owners.
 %
 % *********************************************************************
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.5]
 
-	\draw[->] (-1.25,0) to (1.25,0) node[below right] {$\scriptstyle x$};
-	\draw[->] (0,-1.25) to (0,1.25) node[above right] {$\scriptstyle y$};
+	\draw[->] (-1.25,0) to (1.25,0) node[below] {$x$};
+	\draw[->] (0,-1) to (0,1) node[right] {$y$};
 
 	\draw (0,0) ellipse (1cm and 0.707cm);
+	\draw (1,-0.1) to (1,0.1);
+	\draw[dotted] (1,0.1) -- (1,0.5) node[yshift=0.15cm] {$\scriptstyle 1$};
+	\draw (0.1,0.71) -- (-0.1,0.71);
+	\draw[dotted] (-0.1,0.71) -- (-0.7,0.71) node[xshift=-0.2cm] {$\scriptstyle \frac{1}{\sqrt{2}}$};
 
 \end{tikzpicture}

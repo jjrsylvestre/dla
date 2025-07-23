@@ -222,12 +222,33 @@ the portion of <m>\uvec{v}_2</m> parallel to <m>\uvec{e}_1</m> is
 <me> \widetilde{\uvec{v}}_2 = \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>.
 </p>
 
-<image width="30%">
-	<description><p> Diagram illustrating second step in Gram-Schmidt process. </p></description>
-	<latex-image label="image-inprod-orthog-concepts-gram-schmidt-1">
-		<xi:include href="concepts.d/gram-schmidt-1.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-inprod-orthog-concpets-gram-schmidt-1">
+	<caption>
+		Visualizing the second step of the Gram-Schmidt process:
+		projecting the second vector onto the first.
+	</caption>
+	<image width="34.1%">
+		<latex-image label="image-inprod-orthog-concepts-gram-schmidt-1">
+			<xi:include href="concepts.d/gram-schmidt-1.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			Diagram to geometrically visualize the scalar multiple term in the second step of Gram-Schmidt process as a projection vector.
+		</shortdescription>
+		<description><p>
+			A diagram illustrating the geometric relationship between the second vector in the input basis and the scalar multiple term in the second step of Gram-Schmidt process.
+			A point representing the zero vector is plotted,
+			and two nonparallel directed line segments emanate from it:
+			one labelled as representing <m>\uvec{v}_2</m>,
+			the second vector in the input basis for the Gram-Schmidt process,
+			and one labelled as representing <m>\uvec{e}_1</m>,
+			the first vector in the basis resulting from the Gram-Schmidt process.
+			A third directed line segment is drawn with initial point at the point zero vector,
+			parallel to but longer than <m>\uvec{e}_1</m>,
+			so that its terminal point forms a right triangle with the point zero vector and the terminal point of <m>\uvec{v}_2</m>.
+			This third vector is labelled as representing vector <m>\widetilde{\uvec{v}}_2</m>.
+		</p></description>
+	</image>
+</figure>
 
 <p>
 This diagram should look familiar <mdash /> it is essentially the same diagram that we used to illustrate orthogonal projection in <m>\R^2</m>.
@@ -237,27 +258,58 @@ And from our experience with orthogonal projection onto a line,
 the vector running from the head of <m> \widetilde{\uvec{v}}_2 </m> to the head of <m>\uvec{v}_2</m> should be both a difference vector
 <me> \uvec{v}_2 - \widetilde{\uvec{v}}_2 </me>
 and a normal vector to the line spanned by <m>\uvec{e}_1</m>.
+We can also visualize this normal vector stemming from the origin.
 </p>
 
-<image width="50%">
-	<description><p> Diagram illustrating second step in Gram-Schmidt process. </p></description>
-	<latex-image label="image-inprod-orthog-concepts-gram-schmidt-2">
-		<xi:include href="concepts.d/gram-schmidt-2.tex" parse="text" />
-	</latex-image>
-</image>
+<figure xml:id="figure-inprod-orthog-concpets-gram-schmidt-2">
+	<caption>
+		Visualizing the second step of the Gram-Schmidt process:
+		the new vector as a normal vector.
+		The vector <m>\uvec{v}_2</m> splits the rectangle sitting atop <m>\ell</m> into two right triangles,
+		and these two triangles can be thought of as vector-addition and vector-subtraction triangles for the new result vector <m>\uvec{e}_2</m>.
+	</caption>
+	<image width="48.8%">
 
-<p> We can also visualize this normal vector stemming from the origin. </p>
+		<latex-image label="image-inprod-orthog-concepts-gram-schmidt-2">
+			<xi:include href="concepts.d/gram-schmidt-2.tex" parse="text" />
+		</latex-image>
 
-<image width="60%">
+		<shortdescription>
+			Diagram to geometrically visualize the second result vector from the Gram-Schmidt process as a normal vector to the line spanned by the first result vector.
+		</shortdescription>
+
+		<description><p>
+			A diagram to geometrically visualize the second result vector from the Gram-Schmidt process as a normal vector to the line spanned by the first result vector.
+			A slant rectangle is drawn,
+			with a point representing the zero vector plotted at the lower left vertex.
+			The two rectangle sides adjacent to that vertex are directed line segments with initial points at the point zero vector representing vectors <m>\widetilde{\uvec{v}}_2</m> and <m>\uvec{e}_2</m>.
+			A shorter directed line segment with initial point at the point zero vector is drawn in parallel to <m>\widetilde{\uvec{v}}_2</m>,
+			and labelled as representing the vector <m>\uvec{e}_1</m>.
+			The side of the rectangle opposite <m>\uvec{e}_2</m> is another directed line segment,
+			and is labelled as also representing <m>\uvec{e}_2</m>,
+			while the side of the rectangle opposite <m>\widetilde{\uvec{v}}_2</m> is the oppositely-directed line segment and is labelled as representing the negative vector <m>- \widetilde{\uvec{v}}_2</m>.
+			A diagonal is drawn in the rectangle as a directed line segment from the point zero vector to the opposite vertex,
+			and labeleled as representing the vector <m>\uvec{v}_2</m>.
+			Finally,
+			a dashed line labelled <m>\ell</m> runs <q>through</q> and parallel to vectors <m>\uvec{e}_1</m> and <m>\widetilde{\uvec{v}}_2</m>,
+			emphasizing that <m>\widetilde{\uvec{v}}_2</m> is,
+			in fact,
+			the orthogonal projection of <m>\uvec{v}_2</m> onto the line spanned by <m>\uvec{e}_1</m>.
+		</p></description>
+
+	</image>
+</figure>
+
+<!-- <image width="60%">
 	<description><p> Diagram illustrating second step in Gram-Schmidt process. </p></description>
 	<latex-image label="image-inprod-orthog-concepts-gram-schmidt-2b">
 		<xi:include href="concepts.d/gram-schmidt-2b.tex" parse="text" />
 	</latex-image>
-</image>
+</image> -->
 
 <p>
 Since we wanted <m>\uvec{e}_2</m> to be orthogonal to <m>\uvec{e}_1</m>,
-it would appear from the diagram that we have succeeded in that goal.
+it would appear from <xref ref="figure-inprod-orthog-concpets-gram-schmidt-2" /> that we have succeeded in that goal.
 </p>
 
 <p>
@@ -273,32 +325,74 @@ the vector
 represents the portion of <m>\uvec{v}_3</m> that lies parallel to that plane.
 </p>
 
-<image width="65%">
+<figure>
+	<caption>
+		Visualizing the third step of the Gram-Schmidt process.
+		The vector <m>\uvec{v}_3</m> splits the rectangle sitting atop the shaded plane into two right triangles,
+		and these two triangles can be thought of as vector-addition and vector-subtraction triangles for the new result vector <m>\uvec{e}_3</m>.
+	</caption>
+	<image width="49.7%">
+
+		<latex-image label="image-inprod-orthog-concepts-gram-schmidt-3">
+			<xi:include href="concepts.d/gram-schmidt-3.tex" parse="text" />
+		</latex-image>
+
+		<shortdescription>
+			Diagram to geometrically visualize the third result vector from the Gram-Schmidt process as a normal vector to the plane spanned by the first two result vectors.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram to geometrically visualize the third result vector from the Gram-Schmidt process as a normal vector to the plane spanned by the first two result vectors.
+			A parallelogram with a shaded-in interior is drawn.
+			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+			(similar to a tabletop <q>suspended</q> above the floor in a room),
+			but viewed at an angle from above.
+			Embedded within this two-dimensional surface is a point representing the zero vector,
+			and two directed line segments parallel to the shaded surface,
+			representing the vectors <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>,
+			emanate from this point,
+			so that they appear to lie along the shaded surface.
+			Within the shaded surface,
+			these two vectors are at a right angle,
+			and the shaded surface represents a portion of the plane spanned by them.
+			</p>
+
+			<p>
+			A third directed line segment lying along the shaded surface with initial point at the point zero vector is drawn and is labelled as representing the vector <m>\widetilde{\uvec{v}}_3</m>,
+			so that this vector is parallel to the shaded surface.
+			A rectangle sits atop <m>\widetilde{\uvec{v}}_3</m>,
+			perpendicular to the shaded surface.
+			The side of the rectangle opposite to <m>\widetilde{\uvec{v}}_3</m> is drawn as the oppositely-directed line segment and is labelled as representing the negative vector <m>- \widetilde{\uvec{v}}_3</m>,
+			while the other two sides are drawn as directed line segments perpendicular to and with initial points within the shaded surface
+			(at either end of the segment for <m>\widetilde{\uvec{v}}_3</m>),
+			and both are labelled as representing the vector <m>\uvec{e}_3</m>.
+			Finally, a diagonal is drawn in the rectangle as a directed line segment from the point zero vector to the opposite vertex,
+			and labeleled as representing the vector <m>\uvec{v}_3</m>.
+			</p>
+
+		</description>
+
+	</image>
+</figure>
+
+<!-- <image width="65%">
 	<description><p> Diagram illustrating third step in Gram-Schmidt process. </p></description>
-	<latex-image label="image-inprod-orthog-concepts-graph-schmidt-3">
-		<xi:include href="concepts.d/gram-schmidt-3.tex" parse="text" />
+	<latex-image label="image-inprod-orthog-concepts-gram-schmidt-3b">
+		<xi:include href="concepts.d/gram-schmidt-3b.tex" parse="text" />
 	</latex-image>
-</image>
+</image> -->
 
 <p>
 The vector <m>\widetilde{\uvec{v}}_3</m> also appears to be some sort of <q>orthogonal projection</q>,
 but this time onto a plane instead of a line.
 (While we have only studied orthogonal projection onto a line in <m>\R^n</m> up to this point,
 we will study orthogonal projection more generally in the next chapter.)
-And the difference vector <m>\uvec{e}_3 = \uvec{v}_3 - \widetilde{\uvec{v}}_3</m> appears to normal to the plane,
+And the difference vector <m>\uvec{e}_3 = \uvec{v}_3 - \widetilde{\uvec{v}}_3</m> appears to be normal to the plane,
 hence orthogonal to <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>, as desired.
+And again, we can also visualize this normal vector as stemming from the origin.
 </p>
-
-<p>
-Once again, we can also visualize this normal vector as stemming from the origin.
-</p>
-
-<image width="65%">
-	<description><p> Diagram illustrating third step in Gram-Schmidt process. </p></description>
-	<latex-image label="image-inprod-orthog-concepts-gram-schmidt-3b">
-		<xi:include href="concepts.d/gram-schmidt-3b.tex" parse="text" />
-	</latex-image>
-</image>
 
 <p>
 We of course cannot draw a picture of the next step in the Gram-Schmidt process,

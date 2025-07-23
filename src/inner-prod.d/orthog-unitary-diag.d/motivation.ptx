@@ -26,7 +26,9 @@ where <m>\basisfont{S}</m> is the standard basis
 (of either <m>\R^n</m> or <m>\C^n</m>, as appropriate)
 and <m>\basisfont{B}</m> is the basis formed by the columns of <m>P</m>.
 And then also <me>\inv{P} = \ucobmtrx{S}{B}</me>.
-</p><p>
+</p>
+
+<p>
 So if we have
 <me> A = P D \inv{P} </me>
 for some diagonal matrix <m>D</m>,
@@ -34,43 +36,155 @@ and we consider how <m>A</m> transforms column vectors by multiplication,
 we can instead think of <m>\inv{P}</m> as first converting standard coordinates to <m>\basisfont{B}</m>-coordinates,
 the diagonal matrix <m>D</m> transforming those converted <m>\basisfont{B}</m>-column vectors by simply scaling each coordinate by the corresponding diagonal entry,
 and then <m>P</m> converting the result back to standard coordinates.
-</p><p>
+</p>
+
+<p>
 We explored this in detail for real <m>2 \times 2</m> matrix in <xref ref="activity-similarity-geometric" />,
 where we used the columns of <m>P</m> to represent a new set of <m>wz</m>-axes
 (just as standard vectors in <m>\R^2</m> represent the <m>xy</m>-axes).
 </p>
+
 <figure>
 	<caption>
 		A transition matrix as change-of-variables.
 		For each vector <m>\uvec{x}</m> on the <m>xy</m>-axes,
-		the corresponding vector <m>\widetilde{\uvec{x}}</m> on the <m>wz</m>-axes indicates the converted vector <m>\inv{P} \uvec{x}</m>.
+		<m>\widetilde{\uvec{x}}</m> represents the corresponding transformed vector <m>\inv{P} \uvec{x}</m> on the <m>wz</m>-axes.
 	</caption>
-	<image width="100%">
-		<description><p> Diagram of a change of variables via transition matrix. </p></description>
+	<image width="93.2%">
+
 		<latex-image label="image-orthog-unitary-diag-motivation-cob-1">
 			<xi:include href="motivation.d/cob-1.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			Diagram of a change of variables via transition from one set of two-dimensional axes to another set.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram illustrating how a <m>2 \times 2</m> transition matrix <m>P</m> can be used to transform geometry from one set two-dimensional axes to another.
+			</p>
+
+			<p>
+			On the left appears a set of <m>xy</m>-axes along with their representative standard basis vectors <m>\uvec{e}_1, \uvec{e}_2</m>.
+			Another set of orthogonal vectors <m>\uvec{p}_1, \uvec{p}_2</m> is drawn with their initial points at the origin,
+			representing the columns of <m>P</m>.
+			Underneath and in parallel with <m>\uvec{p}_1</m> is drawn a slant axis using a dashed line,
+			labelled as the <m>w</m>-axis,
+			and similarly,
+			Underneath and in parallel with <m>\uvec{p}_2</m> is drawn another slant axis using a dashed line,
+			labelled as the <m>z</m>-axis.
+			In this example, these slant axes are perpendicular to each other.
+			An arbitrary vector <m>\uvec{v}</m> is also pictured,
+			with its initial point at the origin,
+			and a rectangle is drawn with two sides along the <m>wz</m>-axes so that <m>\uvec{v}</m> is a diagonal within the rectangle,
+			indicating the representation of <m>\uvec{v}</m> in <m>wz</m>-coordinates.
+			</p>
+
+			<p>
+			On the right appears another set of perpendicular axes,
+			but now the horizontal axis is labelled as the <m>w</m>-axis and the vertical axis is labelled as the <m>z</m>-axis.
+			A unit vector with initial point at the origin points along each of these axes,
+			labelled as representing vectors <m>{\widetilde{\uvec{p}}}_1 = \inv{P} \uvec{p}_1</m> and <m>{\widetilde{\uvec{p}}}_2 = \inv{P} \uvec{p}_2</m>,
+			respectively.
+			The transformed vectors <m>{\widetilde{\uvec{e}}}_1 = \inv{P} \uvec{e}_1</m> and <m>{\widetilde{\uvec{e}}}_2 = \inv{P} \uvec{e}_2</m> are also drawn with their initial points at the origin.
+			Slant axes using dashed lines are drawn <q>through</q> and in parallel with these vectors,
+			with the axis parallel to <m>{\widetilde{\uvec{e}}}_1</m> labelled as the <m>x</m>-axis
+			and the axis parallel to <m>{\widetilde{\uvec{e}}}_2</m> labelled as the <m>y</m>-axis.
+			Again, in this example,
+			these slant axes are perpendicular to each other.
+			The transformed vector <m>\widetilde{\uvec{v}} = \inv{P} \uvec{v}</m> is also drawn with its initial point at the origin,
+			and again a rectangle is drawn with two sides along the <m>wz</m>-axes so that <m>\uvec{v}</m> is a diagonal within the rectangle.
+			This rectangle represents the transformed result of the parallelogram from the set of axes on the left of the diagram.
+			</p>
+
+			<p>
+			Finally, curved arrows appear between the two sets of axes on each side of the diagram,
+			one pointing left-to-right and labelled <m>\inv{P}</m>,
+			and on point right-to-left and labelled <m>P</m>,
+			representing how the transition matrix and its inverse transform from one set of axes to the other.
+			</p>
+
+		</description>
+
 	</image>
 </figure>
+
 <p>
 One problem with this geometric analysis is that,
 while the geometric effect of multiplication by the diagonal matrix <m>D</m> is much simpler to analyze,
 the transition matrix <m>P</m> and its inverse might have complicated geometric effects in the conversion between standard and <m>\basisfont{B}</m>-coordinates.
 The axes that the columns of <m>P</m> represent might not even be perpendicular!
 </p>
+
 <figure>
 	<caption>
 		A transition matrix as geometry-skewing change-of-variables.
 		For each vector <m>\uvec{x}</m> on the <m>xy</m>-axes,
-		the corresponding vector <m>\widetilde{\uvec{x}}</m> on the <m>wz</m>-axes indicates the converted vector <m>\inv{P} \uvec{x}</m>.
+		<m>\widetilde{\uvec{x}}</m> represents the corresponding transformed vector <m>\inv{P} \uvec{x}</m> on the <m>wz</m>-axes.
 	</caption>
-	<image width="100%">
-		<description><p> Diagram of a change of variables via transition matrix that skews geometry. </p></description>
+	<image width="82.6%">
+
 		<latex-image label="image-orthog-unitary-diag-motivation-cob-2">
 			<xi:include href="motivation.d/cob-2.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			Diagram of a change of variables via transition matrix that skews geometry from one set of two-dimensional axes to another set.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram illustrating how a <m>2 \times 2</m> transition matrix <m>P</m> can be used to transform yet skew geometry from one set two-dimensional axes to another.
+			</p>
+
+			<p>
+			On the left appears a set of <m>xy</m>-axes along with their representative standard basis vectors <m>\uvec{e}_1, \uvec{e}_2</m>.
+			Another set of linearly independent vectors <m>\uvec{p}_1, \uvec{p}_2</m> is drawn with their initial points at the origin,
+			representing the columns of <m>P</m>.
+			Underneath and in parallel with <m>\uvec{p}_1</m> is drawn a slant axis using a dashed line,
+			labelled as the <m>w</m>-axis,
+			and similarly,
+			Underneath and in parallel with <m>\uvec{p}_2</m> is drawn another slant axis using a dashed line,
+			labelled as the <m>z</m>-axis.
+			In this example, these slant axes are not perpendicular to each other.
+			An arbitrary vector <m>\uvec{v}</m> is also pictured,
+			with its initial point at the origin,
+			and a parallelogram is drawn with two sides along the <m>wz</m>-axes so that <m>\uvec{v}</m> is a diagonal within the parallelogram,
+			indicating the representation of <m>\uvec{v}</m> in <m>wz</m>-coordinates.
+			</p>
+
+			<p>
+			On the right appears another set of perpendicular axes,
+			but now the horizontal axis is labelled as the <m>w</m>-axis and the vertical axis is labelled as the <m>z</m>-axis.
+			A unit vector with initial point at the origin points along each of these axes,
+			labelled as representing vectors <m>{\widetilde{\uvec{p}}}_1 = \inv{P} \uvec{p}_1</m> and <m>{\widetilde{\uvec{p}}}_2 = \inv{P} \uvec{p}_2</m>,
+			respectively.
+			The transformed vectors <m>{\widetilde{\uvec{e}}}_1 = \inv{P} \uvec{e}_1</m> and <m>{\widetilde{\uvec{e}}}_2 = \inv{P} \uvec{e}_2</m> are also drawn with their initial points at the origin.
+			Slant axes using dashed lines are drawn <q>through</q> and in parallel with these vectors,
+			with the axis parallel to <m>{\widetilde{\uvec{e}}}_1</m> labelled as the <m>x</m>-axis
+			and the axis parallel to <m>{\widetilde{\uvec{e}}}_2</m> labelled as the <m>y</m>-axis.
+			Again, in this example,
+			these slant axes are not perpendicular to each other.
+			The transformed vector <m>\widetilde{\uvec{v}} = \inv{P} \uvec{v}</m> is also drawn with its initial point at the origin,
+			and a rectangle is drawn with two sides along the <m>wz</m>-axes so that <m>\uvec{v}</m> is a diagonal within the rectangle.
+			This rectangle represents the transformed result of the parallelogram from the set of axes on the left of the diagram.
+			</p>
+
+			<p>
+			Finally, curved arrows appear between the two sets of axes on each side of the diagram,
+			one pointing left-to-right and labelled <m>\inv{P}</m>,
+			and on point right-to-left and labelled <m>P</m>,
+			representing how the transition matrix and its inverse transform from one set of axes to the other.
+			</p>
+
+		</description>
+
 	</image>
 </figure>
+
 <p>
 But if <m>P</m> is a <em>product-preserving</em> matrix
 (<ie /> orthogonal in the real case or unitary in the complex case),
@@ -81,7 +195,9 @@ And since the columns of <m>P</m> will form an <em>orthonormal</em> basis
 the system of axes these columns represent will be an orthogonal system,
 with each basis vector representing displacement by exactly one unit along its corresponding axis,
 just as the standard basis vectors do.
-</p><p>
+</p>
+
+<p>
 With the advantages of a orthogonal/unitary transition matrix in mind, in the remainder of this chapter we attempt to answer the following.
 </p>
 

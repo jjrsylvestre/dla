@@ -18,35 +18,53 @@
 	tdplot_main_coords
 ]
 
-	% plane through the origin with normal vector (1,-1,2)
-	% orthog basis used to draw sides: (1,1,0) and (1,1,-1)
-
-	% fill for plane
-	\filldraw[opacity=0.25,gray] (-1.5,-0.5,0.5) to (4,5,0.5) to (6.5,2.5,-2) to (1,-3,-2) to cycle;
-
-	% plane border
-	\draw[dotted] (-1.5,-0.5,0.5) to (4,5,0.5) to (6.5,2.5,-2) to (1,-3,-2) to cycle;
-
-	% plane label
-	\node at (6.75,2.75,-2) {$U$};
+	% plane through the origin with normal vector n = (1,-1,2)
+	% orthog basis used to draw sides: e_1 = (1,1,0) and e_2 = (1,-1,-1)
 
 	% origin
 	\node[point] at (0,0,0) (o) [label=left:{$\zerovec$}] {};
+	% plane corners
+	% sides of plane are vectors (5,5,0) and (3,-3,-3)
+	\coordinate (P1) at (-2,0,1);
+	\coordinate (P2) at (3,5,1);
+	\coordinate (P3) at (6,2,-2);
+	\coordinate (P4) at (1,-3,-2);
+	% normal vector for plane
+	\coordinate (n) at (1,-1,2);
+	% perp space line endpoints
+	%   (-3/4) n
+	\coordinate (neg_n) at (-0.75,0.75,-1.5);
+	%   (-1/2) n
+	\coordinate (neg_n_plane) at (-0.5,0.5,-1);
+	%   (4/3) n
+	\coordinate (n_upper) at (1.333,-1.333,2.667);
+	% external vector
+	% v = 3 e_1 + 1 e_2 + 1 n
+	\coordinate (v) at (5,1,1);
+	% proj v onto plane, equal to 3 e_1 + 1 e_2
+	\coordinate (v_plane) at (4,2,-1);
+	% NOTE: proj v onto normal vector is equal to normal vector n
+
+	% fill/border/label for plane
+	\filldraw[opacity=0.25,gray] (P1) to (P2) to (P3) to (P4) to cycle;
+	\draw[dotted]  (P1) to (P2) to (P3) to (P4) to cycle;
+	\node[xshift=-0.5cm,yshift=0.25cm] at (P3) {$U$};
 
 	% perp space
-	\draw (o) to (1.5,-1.5,3) node[right] {$\orthogcmp{U}$};
-	\draw[dashed] (o) -- (-0.5,0.5,-1);
-	\draw (-0.5,0.5,-1) -- (-0.75,0.75,-1.5);
+	\draw (o) to (n_upper) node[right] {$\orthogcmp{U}$};
+	\draw[dashed] (o) -- (neg_n_plane);
+	\draw (neg_n) -- (neg_n_plane);
 
 	% plane vectors
-	\draw[vector,thick] (o) to node[below] {$\uvec{u}$} (4.2,2.4,-0.9);
-	\draw[vector,thick] (o) to node[above left] {$\uvec{v}$} (5.2,1.4,1.1);
-	\draw[vector,thick,dashed] (4.2,2.4,-0.9) to node[right] {$\uvec{u}'$} (5.2,1.4,1.1);
-	\draw[vector,thick] (o) to node[left] {$\uvec{u}'$} (1,-1,2);
-	\draw[dashed] (5.2,1.4,1.1) to (1,-1,2);
+	\draw[vector,thick] (o) to node[below] {$\uvec{u}$} (v_plane);
+	\draw[vector,thick] (o) to node[left, near end] {$\uvec{u}'$} (n);
 
-	% perp symbols
-	\draw[thin] (3.99,2.28,-0.855) to (4.09,2.18,-0.655) to (4.3,2.3,-0.7);
-	\draw[thin] (0.21,0.12,-0.045) to (0.31,0.02,0.155) to (0.1,-0.1,0.2);
+	% external vector and rectangle sides
+	\draw[vector,thick] (o) to node[above] {$\uvec{v}$} (v);
+	\draw[vector,thick,dashed] (v_plane) to node[right, near end] {$\uvec{u}'$} (v);
+	\draw[dashed] (n) to (v);
+
+	% perp symbol: 10% in n direction, 5% in -u direction
+	\draw[thin] (4.1,1.9,-0.8) to (3.9,1.8,-0.75) to (3.8, 1.9, -0.95);
 
 \end{tikzpicture}
