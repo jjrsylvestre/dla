@@ -16,35 +16,40 @@
 	vector/.style={-latex},
 ]
 
-	\draw[->] (-2.5,0) to (2.5,0) node[below right] {$\scriptstyle x$};
-	\draw[->] (0,-2.5) to (0,2.5) node[above right] {$\scriptstyle y$};
+	\draw[->] (-1.5,0) to (2.5,0) node[below] {$\scriptstyle x$};
+	\draw[->] (0,-1.5) to (0,2) node[left] {$\scriptstyle y$};
 
-	\draw[dashed,->] (-0.833,-2.5) to (0.833,2.5) node[above right] {$\scriptstyle z$};
-	\draw[dashed,->] (-2.5,-1.667) to (2.5,1.667) node[above] {$\scriptstyle w$};
+	% slope: 1 over, 3 up
+	\draw[dashed,->] (-0.5,-1.5) to (0.667,2) node[right] {$\scriptstyle z$};
+	% slope: 3 over, 2 up
+	\draw[dashed,->] (-1.5,-1) to (2.5,1.667) node[above] {$\scriptstyle w$};
 
 	\draw[red,dashed] (2.357,1.571) to (2,0.5) to (-0.357,-1.071);
-	\draw[vector] (0,0) to (2,0.5) node[above right] {$\uvec{v}$};
+	% slope: over 2 up 1
+	\draw[vector] (0,0) to node[above, near end, xshift=0.3cm, yshift=0.15cm] {$\uvec{v}$} (2,0.5);
 
-	\draw[vector] (0,0) to (1,0) node[below left] {$\scriptstyle \uvec{e}_1$};
-	\draw[vector] (0,0) to (0,1) node[left] {$\scriptstyle \uvec{e}_2$};
+	\draw[vector] (0,0) to node[below] {$\scriptstyle \uvec{e}_1$} (1,0);
+	\draw[vector] (0,0) to node[left] {$\scriptstyle \uvec{e}_2$} (0,1);
 
-	\draw[vector] (0,0) to (1.5,1) node[above] {$\scriptstyle \uvec{p}_1$};
-	\draw[vector] (0,0) to (0.5,1.5) node[left] {$\scriptstyle \uvec{p}_2$};
+	\draw[vector] (0,0) to node[above, near end] {$\scriptstyle \uvec{p}_1$} (1.5,1);
+	\draw[vector] (0,0) to node[right, near end] {$\scriptstyle \uvec{p}_2$} (0.5,1.5);
 
-	\begin{scope}[xshift=7cm]
-		\draw[->] (-2.5,0) to (2.5,0) node[below right] {$\scriptstyle w$};
-		\draw[->] (0,-2.5) to (0,2.5) node[above right] {$\scriptstyle z$};
-		\draw[dashed,->] (-2.357,1.571) to (2.357,-1.571) node[below right] {$\scriptstyle x$};
-		\draw[dashed,->] (0.786,-2.357) to (-0.786,2.357) node[above left] {$\scriptstyle y$};
+	\begin{scope}[xshift=6.25cm]
+		\draw[->] (-1.5,0) to (2,0) node[above] {$\scriptstyle w$};
+		\draw[->] (0,-1.5) to (0,2) node[right] {$\scriptstyle z$};
+		% slope: 3 over, 2 up
+		\draw[dashed,->] (-1.5,1) to (2,-1.333) node[below] {$\scriptstyle x$};
+		% slope: 1 over, 3 up
+		\draw[dashed,->] (0.5,-1.5) to (-0.667,2) node[left] {$\scriptstyle y$};
 		\draw[vector] (0,0) to (0.857,-0.571) node[left] {$\scriptstyle \widetilde{\uvec{e}}_1$};
 		\draw[vector] (0,0) to (-0.286,0.857) node[left] {$\scriptstyle \widetilde{\uvec{e}}_2$};
-		\draw[vector] (0,0) to (1,0) node[above] {$\scriptstyle \widetilde{\uvec{p}}_1$};
-		\draw[vector] (0,0) to (0,1) node[right] {$\scriptstyle \widetilde{\uvec{p}}_2$};
+		\draw[vector] (0,0) to node[above, near end] {$\scriptstyle \widetilde{\uvec{p}}_1$} (1,0);
+		\draw[vector] (0,0) to node[right, near end] {$\scriptstyle \widetilde{\uvec{p}}_2$} (0,1);
 		\draw[red,dashed] (1.571,0) to (1.571,-0.714) to (0,-0.714);
 		\draw[vector] (0,0) to (1.571,-0.714) node[right] {$\widetilde{\uvec{v}}$};
 	\end{scope}
 
 	\draw[->] (2.5,1.25) to [out=30,in=150] node[above] {$\inv{P}$} (4.5,1.25);
-	\draw[->] (4.5,-1.25) to [out=-150,in=-30] node[below] {$P$} (2.5,-1.25);
+	\draw[->] (4.5,-0.75) to [out=-150,in=-30] node[below] {$P$} (2.5,-0.75);
 
 \end{tikzpicture}

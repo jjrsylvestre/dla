@@ -121,11 +121,14 @@ are easier to analyze,
 we can determine the shape in terms of <m>\uvec{w}</m>-variables and then use the transformation
 <me> \uvec{x} = P \uvec{w} </me>
 to obtain the shape in <m>\uvec{x}</m>-variables.
-</p><p>
+</p>
+
+<p>
 Just as discussed in <xref ref="section-orthog-unitary-diag-motivation" />,
 the orthonormal basis of <m>\R^n</m> formed by the columns of the orthogonal transition matrix <m>P</m> creates a new set of axes,
 called a set of <term>principal axes</term> for the quadratic form.
 </p>
+
 <figure>
 	<caption>
 		An orthogonal transition matrix as change-of-variables,
@@ -133,13 +136,60 @@ called a set of <term>principal axes</term> for the quadratic form.
 		For each vector <m>\uvec{x}</m> on the <m>xy</m>-axes,
 		the corresponding vector <m>\widetilde{\uvec{x}}</m> on the <m>wz</m>-axes indicates the converted vector <m>\inv{P} \uvec{x}</m>.
 	</caption>
-	<image width="100%">
-		<description><p> Diagram of an orthogonal change of variables via transition matrix. </p></description>
+	<image width="99.4%">
+
 		<latex-image label="image-quadratic-forms-concepts-principal-axes">
 			<xi:include href="concepts.d/principal-axes.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription>
+			Diagram of a change of variables via transition from one set of two-dimensional axes to another set.
+		</shortdescription>
+
+		<description>
+
+			<p>
+			A diagram illustrating how a <m>2 \times 2</m> transition matrix <m>P</m> can be used to transform geometry from one set two-dimensional axes to another.
+			</p>
+
+			<p>
+			On the left appears a set of <m>xy</m>-axes along with their representative standard basis vectors <m>\uvec{e}_1, \uvec{e}_2</m>.
+			Another set of orthogonal vectors <m>\uvec{p}_1, \uvec{p}_2</m> is drawn with their initial points at the origin,
+			representing the columns of <m>P</m>.
+			Underneath and in parallel with <m>\uvec{p}_1</m> is drawn a slant axis using a dashed line,
+			labelled as the <m>w</m>-axis,
+			and similarly,
+			Underneath and in parallel with <m>\uvec{p}_2</m> is drawn another slant axis using a dashed line,
+			labelled as the <m>z</m>-axis.
+			In this example, these slant axes are perpendicular to each other.
+			</p>
+
+			<p>
+			On the right appears another set of perpendicular axes,
+			but now the horizontal axis is labelled as the <m>w</m>-axis and the vertical axis is labelled as the <m>z</m>-axis.
+			A unit vector with initial point at the origin points along each of these axes,
+			labelled as representing vectors <m>{\widetilde{\uvec{p}}}_1 = \inv{P} \uvec{p}_1</m> and <m>{\widetilde{\uvec{p}}}_2 = \inv{P} \uvec{p}_2</m>,
+			respectively.
+			The transformed vectors <m>{\widetilde{\uvec{e}}}_1 = \inv{P} \uvec{e}_1</m> and <m>{\widetilde{\uvec{e}}}_2 = \inv{P} \uvec{e}_2</m> are also drawn with their initial points at the origin.
+			Slant axes using dashed lines are drawn <q>through</q> and in parallel with these vectors,
+			with the axis parallel to <m>{\widetilde{\uvec{e}}}_1</m> labelled as the <m>x</m>-axis
+			and the axis parallel to <m>{\widetilde{\uvec{e}}}_2</m> labelled as the <m>y</m>-axis.
+			Again, in this example,
+			these slant axes are perpendicular to each other.
+			</p>
+
+			<p>
+			Finally, curved arrows appear between the two sets of axes on each side of the diagram,
+			one pointing left-to-right and labelled <m>\inv{P}</m>,
+			and on point right-to-left and labelled <m>P</m>,
+			representing how the transition matrix and its inverse transform from one set of axes to the other.
+			</p>
+
+		</description>
+
 	</image>
 </figure>
+
 <p>
 See <xref ref="subsection-quadratic-forms-examples-level-sets-R2" />
 for examples of visualizing a level set of a two-variable quadratic form first on a transformed set of axes,

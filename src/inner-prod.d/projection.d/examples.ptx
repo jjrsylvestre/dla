@@ -116,10 +116,11 @@ respective owners.
 	Let's plot <m>f(x)</m> and <m>p_1(x)</m> on the same set of axes to compare.
 	</p>
 	<image width="50%">
-		<description><p> A naive approximation of a cubic by a quadratic. </p></description>
 		<latex-image label="TODO">
 			<xi:include href="examples.d/best-approx-cubic-graph-1.tex" parse="text" />
 		</latex-image>
+		<shortdescription> A graph of an attempt at approximating a cubic by a quadratic. </shortdescription>
+		<description><p> TODO </p></description>
 	</image>
 	<p>
 	We might be able to get a better result by forcing the parabola to have its peak at <m>\left(\frac{1}{2}, 1\right)</m>,
@@ -161,10 +162,11 @@ respective owners.
 	Again, let's plot <m>f(x)</m> and <m>(\proj_U f)(x)</m> on the same set of axes to compare.
 	</p>
 	<image width="50%">
-		<description><p> A best approximation of a cubic by a quadratic. </p></description>
 		<latex-image label="TODO">
 			<xi:include href="examples.d/best-approx-cubic-graph-2.tex" parse="text" />
 		</latex-image>
+		<shortdescription> A plot of both a cubic and its best approximation by a quadratic. </shortdescription>
+		<description<p> TODO </p></description>
 	</image>
 	<p> TODO comment on graph </p>
 </example>
@@ -172,11 +174,14 @@ respective owners.
 
 <example xml:id="example-projection-approx-sine-by-quadratic">
 	<title>Approximating sine with a quadratic polynomial</title>
+
 	<p>
 	Consider the horizontally compressed sine function
 	<me> f(x) = \sin (\pi x) </me>.
 	What quadratic polynomial best approximates <m>f(x)</m> over the interval <m>0 \le x \le 1</m>?
-	</p><p>
+	</p>
+
+	<p>
 	Looking at the graph of <m>f(x)</m>,
 	one <q>naive</q> guess would be to choose the parabola that passes through the points
 	<me> (0,0) \text{,} \quad (1/2, 1) \text{,} \quad (1, 0) </me>.
@@ -184,12 +189,38 @@ respective owners.
 	<me> q(x) = 4 x - 4 x^2 </me>.
 	Let's plot <m>f(x)</m> and <m>q(x)</m> on the same set of axes to compare.
 	</p>
-	<image width="50%">
-		<description><p> A naive approximation of sine by a quadratic. </p></description>
+
+	<image width="40.8%">
+
 		<latex-image label="image-projection-examples-best-approx-sin-graph-1">
 			<xi:include href="examples.d/best-approx-sin-graph-1.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription> An attempt at approximating the graph of sine about its first peak by a quadratic. </shortdescription>
+
+		<description>
+
+			<p>
+			The graph of <m>y = \sin (\pi x)</m> is plotted on a set of <m>xy</m>-axes,
+			from its intercept at the origin,
+			rising up to its first peak at the point <m>(1/2, 1)</m>,
+			and then falling back to its next <m>x</m>-intercept at <m>x = 1</m>.
+			</p>
+
+			<p>
+			On the same set of axes is plotted the graph of the concave-down parabola <m>y = 4 x - 4 x^2</m>,
+			which similarly begins at an intercept at the origin,
+			rises up to its peak at the point <m>(1/2, 1)</m>,
+			and then falls back to its other <m>x</m>-intercept at <m>x = 1</m>.
+			However,
+			while the two graphs are fairly similar,
+			outside of those three points of intersection the graph of the parabola is consistently and noticeably above the graph of that sine function over the plotted domain <m>0 \le x \le 1</m>.
+			</p>
+
+		</description>
+
 	</image>
+
 	<p>
 	Let's see what kind of result we can get using <term>best approximation</term>.
 	Our domain of interest is <m>0 \le x \le 1</m>,
@@ -218,7 +249,9 @@ respective owners.
 		<mrow> \norm{e_3}^2 \amp = \inprod{e_3}{e_3} = \integral{0}{1}{\bigl[e_3(x)\bigr]^2}{x} = \frac{1}{180} \text{.} </mrow>
 	</md>
 	Note that we skipped calculating <m>\norm{e_2}^2</m> since <m>\inprod{f}{e_2} = 0</m>.
-	</p><p>
+	</p>
+
+	<p>
 	Now compute
 	<md>
 		<mrow>
@@ -232,16 +265,43 @@ respective owners.
 	</md>.
 	Again, let's plot <m>f(x)</m> and <m>(\proj_U f)(x)</m> on the same set of axes to compare.
 	</p>
-	<image width="50%">
-		<description><p> A best approximation of a cubic by a quadratic. </p></description>
+
+	<image width="53.2%">
+
 		<latex-image label="image-projection-examples-best-approx-sin-graph-2">
 			<xi:include href="examples.d/best-approx-sin-graph-2.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription> A plot of both a sine graph and its best approximation by a quadratic. </shortdescription>
+
+		<description>
+
+			<p>
+			The graph of <m>y = f(x)</m> for <m>f(x) = \sin (\pi x)</m> is plotted on a set of <m>xy</m>-axes,
+			from its intercept at the origin,
+			rising up to its first peak at the point <m>(1/2, 1)</m>,
+			and then falling back to its next <m>x</m>-intercept at <m>x = 1</m>.
+			</p>
+
+			<p>
+			On the same set of axes is plotted the graph of the concave-down best-approximation parabola <m>y = (\proj_U f)(x)</m>.
+			This graph begins slightly below the <m>x</m>-axis at <m>x = 0</m>,
+			rises to its peak just below that of <m>y = f(x)</m> at <m>x = 1/2</m>,
+			and then descends again to a point slightly below the <m>x</m>-axis at <m>x = 1</m>.
+			Even though this parabola is below the graph of <m>y = f(x)</m> at the three points <m>x = 0, 1/2, 1</m>,
+			it does cross over to be above the graph of that sine function for short periods between them,
+			and overall the two graphs appear extremely similar.
+			</p>
+
+		</description>
+
 	</image>
+
 	<p>
 	You can see that while this parabola does not hit the same peak as the sine graph,
 	it stays much closer to the curve over our domain than the previous <q>naive</q> approximation.
 	</p>
+
 </example>
 
 </subsection>

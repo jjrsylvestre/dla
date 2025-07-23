@@ -16,12 +16,16 @@
 	vector/.style={-latex},
 ]
 
-	\node[point] at (0,0) (o) [label=above left:{$\zerovec$}] {};
+	\node[point] at (0,0) (o) [label=below:{$\zerovec$}] {};
 	\draw[dashed] (-1,-0.5) to node[below right,at end] {$\ell$} (4.5,2.25);
-	\draw[vector,thick] (o) to node[above left] {$\uvec{v}_2$} (3,3);
+	\draw[vector,thick] (o) to node[below right,near end] {$\uvec{v}_2$} (3,3);
 	\draw[vector,thick] (o) to node[below right] {$\uvec{e}_1$} (2,1);
 	\draw[vector] (o) to node[below right,near end] {$\widetilde{\uvec{v}}_2$} (3.6,1.8);
-	\draw[vector] (3.6,1.8) to node[right,near end] {$\uvec{e}_2 = \uvec{v}_2 - \widetilde{\uvec{v}}_2$} (3,3);
+	\draw[vector] (3,3) to node[above left] {$-\widetilde{\uvec{v}}_2$} (-0.6,1.2);
+	\draw[vector] (o) to node[left] {$\uvec{e}_2$} (-0.6,1.2);
+	\draw[vector] (3.6,1.8) to node[right,near end] {$\uvec{e}_2$} (3,3);
+	% perp symbols
+	\draw (0.2,0.1) to (0.1,0.3) to (-0.1,0.2);
 	\draw (3.4,1.7) to (3.3,1.9) to (3.5,2);
 
 \end{tikzpicture}
