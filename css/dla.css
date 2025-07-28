@@ -161,6 +161,10 @@ article:has(.case)>*:not(:first-child):has(.heading) {
   /* Surrounding toclevel2 items have background-color: var(--primary-color-white-10) */
   background-color: var(--complementary-mauve-white-10);
 }
+:root:not(.dark-mode) .toc-item.toc-part.contains-active {
+  /* Surrounding toclevel2 items have background-color: var(--primary-color-white-10) */
+  background-color: var(--primary-color-black-20);
+}
 :root.dark-mode .toc-item.toc-chapter.contains-active {
   /*
    * Surrounding toclevel2 items have background-color: var(--background-color-gray-10)
@@ -168,6 +172,9 @@ article:has(.case)>*:not(:first-child):has(.heading) {
    *   (set above)
    */
   background-color: var(--background-color-gray-40);
+}
+:root.dark-mode .toc-item.toc-part.contains-active {
+  background-color: var(--background-color-black-10);
 }
 
 /* Get entire toc item bar to highlight (including chevron) on hover */
@@ -184,6 +191,10 @@ article:has(.case)>*:not(:first-child):has(.heading) {
   background-color: var(--dark-gold);
 }
 
+/* use drop-down arrows for expand/collapse instead of chevrons */
+.ptx-toc.focused .toc-item > .toc-title-box > .toc-expander > .icon:before { content: "arrow_drop_down"; }
+.ptx-toc.focused .toc-item.expanded > .toc-title-box > .toc-expander > .icon:before { content: "arrow_drop_up"; }
+.ptx-toc.focused .toc-item.expanded > .toc-title-box > .toc-expander > .icon { transform: none; }
 
 /******************************************************************************/
 /*                                  SPACING                                   */
