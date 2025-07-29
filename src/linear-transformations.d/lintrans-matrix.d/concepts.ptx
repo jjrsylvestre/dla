@@ -53,11 +53,31 @@ with <m>V \iso \R^n</m> and <m>W \iso \R^m</m>,
 then effectively we have a linear transformation <m>\funcdef{\widetilde{T}}{\R^n}{\R^m}</m>.
 </p>
 
-<image width="18%">
-	<description><p> Diagram of transformations <m>\R^n \to V \to W \to \R^m</m>. </p></description>
+<image width="18.2%">
 	<latex-image label="image-lintrans-matrix-concepts-square-diagram">
 		<xi:include href="concepts.d/square-diagram.tex" parse="text" />
 	</latex-image>
+	<shortdescription> Diagram of the transformation between Euclidean spaces induced by a linear transformation between abstract real spaces via some choice of isomorphisms between the abstract and Euclidean spaces. </shortdescription>
+	<description><p>
+		A diagram of linear transformations arranged in a square.
+		Beginning on the left and working clockwise,
+		the sides of this square are:
+		<ul>
+			<li>
+				An upwards arrow from vertex <m>\R^n</m> to vertex <m>V</m>,
+				adorned with a <m>\sim</m> symbol to indicate that it represents an isomorphism.
+			</li>
+			<li> A rightwards arrow labelled <m>T</m> from vertex <m>V</m> to vertex <m>W</m>. </li>
+			<li>
+				A downwards arrow from vertex <m>W</m> to vertex <m>\R^m</m>,
+				adorned with a <m>\sim</m> symbol to indicate that it represents an isomorphism.
+			</li>
+			<li>
+				A rightwards arrow labelled <m>\widetilde{T}</m> from vertex <m>\R^n</m> to vertex <m>\R^m</m>.
+				This arrow is drawn with a dotted shaft to indicate that the transformation it represents is induced by the other three.
+			</li>
+		</ul>
+	</p></description>
 </image>
 
 <p>
@@ -72,16 +92,37 @@ However, we know how to realize isomorphisms <m>V \to \R^n</m> and <m>W \to \R^m
 through coordinate maps!
 (See <xref ref="corollary-lintrans-iso-coord-map-is-iso" />.)
 So all we have to do is choose a basis <m>\basisfont{B}</m> for <m>V</m> and a basis <m>\basisfont{B}'</m> for <m>W</m>,
-and take
-<me> \widetilde{T} = \coordmap{B'} T \invcoordmap{B} </me>.
+and take <m>\widetilde{T}</m> to be a composition with the associated coordinate maps.
 </p>
 
-<image width="22%">
-	<description><p> Diagram of using coordinate maps to extend a transformation <m>V \to W</m> to a transform <m>\R^n \to V \to W \to \R^m</m>. </p></description>
-	<latex-image label="image-lintrans-matrix-concepts-square-diagram-coord-maps">
-		<xi:include href="concepts.d/square-diagram-coord-maps.tex" parse="text" />
-	</latex-image>
-</image>
+<sidebyside widths="25% 23.8%" margins="20% 20%" valign="middle">
+	<p><m> \widetilde{T} = \coordmap{B'} T \invcoordmap{B} </m></p>
+	<image> <!-- width="23.8%" -->
+		<latex-image label="image-lintrans-matrix-concepts-square-diagram-coord-maps">
+			<xi:include href="concepts.d/square-diagram-coord-maps.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of the transformation between Euclidean spaces induced by a linear transformation between abstract real spaces via coordinate maps between the abstract and Euclidean spaces. </shortdescription>
+	<description><p>
+		A diagram of linear transformations arranged in a square.
+		Beginning on the left and working clockwise,
+		the sides of this square are:
+		<ul>
+			<li>
+				An upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B}</m>,
+				from vertex <m>\R^n</m> to vertex <m>V</m>.
+			</li>
+			<li> A rightwards arrow labelled <m>T</m> from vertex <m>V</m> to vertex <m>W</m>. </li>
+			<li>
+				A downwards arrow labelled as the coordinate map <m>\coordmap{B'}</m> from vertex <m>W</m> to vertex <m>\R^m</m>.
+			</li>
+			<li>
+				A rightwards arrow labelled <m>\widetilde{T}</m> from vertex <m>\R^n</m> to vertex <m>\R^m</m>.
+				This arrow is drawn with a dotted shaft to indicate that the transformation it represents is induced by the other three.
+			</li>
+		</ul>
+	</p></description>
+	</image>
+</sidebyside>
 
 <p>
 We know that every transformation <m>\R^n \to \R^m</m> is a matrix transformation by
@@ -100,24 +141,59 @@ as usual.
 What use is this matrix?
 By reversing the relationship between <m>T</m> and <m>\widetilde{T}</m> to
 <me> T = \invcoordmap{B'} \widetilde{T} \coordmap{B} </me>,
-we can use matrix multiplication to compute outputs for <m>T</m>.
+we can use matrix multiplication to compute outputs for <m>T</m>,
+as visualized in the diagram on the left below.
+But computationally,
+it is more instructive to split the four transformations into two pairs,
+as visualized in the diagram on the right below.
 </p>
 
-<image width="22%">
-	<description><p> Diagram of realizing a transformation through its matrix. </p></description>
-	<latex-image label="image-lintrans-matrix-concepts-square-diagram-coord-maps-reverse">
-		<xi:include href="concepts.d/square-diagram-coord-maps-reverse.tex" parse="text" />
-	</latex-image>
-</image>
+<sidebyside widths="23.2% 22.6%" margins="20% 20%" valign="middle">
 
-<p> Computationally, it is more instructive to split the four transformations into two pairs. </p>
+	<image> <!-- width="23.2%" -->
+		<latex-image label="image-lintrans-matrix-concepts-square-diagram-coord-maps-reverse">
+			<xi:include href="concepts.d/square-diagram-coord-maps-reverse.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of the matrix transformation between Euclidean spaces induced by a linear transformation between abstract real spaces via coordinate maps between the abstract and Euclidean spaces. </shortdescription>
+		<description><p>
+			A diagram of linear transformations arranged in a square.
+			Beginning on the left and working counterclockwise,
+			the sides of this square are:
+			<ul>
+				<li>
+					A downwards arrow labelled as the coordinate map <m>\coordmap{B}</m> from vertex <m>V</m> to vertex <m>\R^n</m>.
+				</li>
+				<li>
+					A rightwards arrow labelled as the matrix transformation <m>\matrixOf{T}{B'B}</m> from vertex <m>\R^n</m> to vertex <m>\R^m</m>.
+				</li>
+				<li>
+					An upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B'}</m> from vertex <m>\R^m</m> to vertex <m>W</m>.
+				</li>
+				<li>
+					A rightwards arrow labelled <m>T</m> from vertex <m>V</m> to vertex <m>W</m>.
+					This arrow is drawn with a dotted shaft to indicate that the transformation it represents will be interpreted as the composition of the other three.
+				</li>
+			</ul>
+		</p></description>
+	</image>
 
-<image width="22%">
-	<description><p> Diagram of tracing a transformation from domain space to coordinate space of its image. </p></description>
-	<latex-image label="image-lintrans-matrix-concepts-square-diagram-coord-maps-split">
-		<xi:include href="concepts.d/square-diagram-coord-maps-split.tex" parse="text" />
-	</latex-image>
-</image>
+	<image> <!-- width="22.6%" -->
+		<latex-image label="image-lintrans-matrix-concepts-square-diagram-coord-maps-split">
+			<xi:include href="concepts.d/square-diagram-coord-maps-split.tex" parse="text" />
+		</latex-image>
+		<shortdescription> Diagram of the equivalence between an abstract transformation and its induced Euclidean transformation when each is composed with a coordinate map. </shortdescription>
+		<description><p>
+			A diagram of linear transformations arranged in a square.
+			The top and right sides of this square are
+			a rightwards arrow labelled <m>T</m> from vertex <m>V</m> to vertex <m>W</m>,
+			followed by a downwards arrow labelled as the coordinate map <m>\coordmap{B'}</m> from vertex <m>W</m> to vertex <m>\R^m</m>.
+			The left and bottom sides of this square are
+			a downwards arrow labelled as the coordinate map <m>\coordmap{B}</m> from vertex <m>V</m> to vertex <m>\R^n</m>,
+			followed by a rightwards arrow labelled as the induced transformation <m>\widetilde{T}</m> from vertex <m>\R^n</m> to vertex <m>\R^m</m>.
+		</p></description>
+	</image>
+
+</sidebyside>
 
 <p>
 Equating the two legs in this diagram, we have <me> \coordmap{B'} T = \widetilde{T} \coordmap{B} </me>.
@@ -159,11 +235,20 @@ With this choice we simply write <m>\matrixOf{T}{B}</m> for the matrix of <m>T</
 instead of the redundant <m>\matrixOf{T}{BB}</m>.
 </p>
 
-<image width="22%">
-	<description><p> Diagram of realizing an operator through its matrix. </p></description>
+<image width="21.4%">
 	<latex-image label="image-lintrans-matrix-concepts-square-diagram-operator">
 		<xi:include href="concepts.d/square-diagram-operator.tex" parse="text" />
 	</latex-image>
+	<shortdescription> Diagram of the equivalence between an abstract linear operator and its induced Euclidean operator when each is composed with a coordinate map. </shortdescription>
+	<description><p>
+		A diagram of linear transformations arranged in a square.
+		The left and bottom sides of this square are
+		a downwards arrow labelled as the coordinate map <m>\coordmap{B}</m> from vertex <m>V</m> to vertex <m>\R^n</m>,
+		followed by a rightwards arrow labelled as the matrix transformation <m>\matrixOf{T}{B}</m> from vertex <m>\R^n</m> to a second vertex <m>\R^n</m>.
+		The top and right sides of this square are
+		a rightwards arrow labelled <m>T</m> from vertex <m>V</m> to a second vertex <m>V</m>,
+		followed by a downwards arrow labelled again as the coordinate map <m>\coordmap{B}</m> from that second vertex <m>V</m> to the second vertex <m>\R^m</m>.
+	</p></description>
 </image>
 
 <p>
@@ -450,11 +535,50 @@ then
 	Then we can create compositions both of <m>S,T</m> and of the induced transformations <m>\R^\ell \to \R^n</m>,  <m>\R^n \to \R^m</m>.
 	</p>
 
-	<image width="40%">
-		<description><p> Diagram of a composition of transformations and the corresponding composition of matrix transformations. </p></description>
+	<image width="47.6%">
+
 		<latex-image label="image-lintrans-matrix-concepts-rect-diagram-composition">
 			<xi:include href="concepts.d/rect-diagram-composition.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription> Diagram of a composition of transformations and the corresponding composition of induced matrix transformations. </shortdescription>
+
+		<description>
+
+			<p>
+			A rectangle of linear transformations illustrating that the matrix transformation induced by a composition of transformations is the composition of the matrix transformations.
+			The top row of this rectangle is an arrow labelled <m>T</m> from corner vertex <m>U</m> to midpoint node <m>V</m>,
+			followed by an arrow labelled <m>S</m> from midpoint node <m>V</m> to corner vertex <m>W</m>.
+			Arching over these two arrows is a long, curved arrow labelled as the product transformation <m>ST</m> from corner vertex <m>U</m> to corner vertex <m>W</m>.
+			The bottom row of this rectangle is an arrow labelled as matrix transformation <m>\matrixOf{T}{B'B}</m> from corner vertex <m>\R^\ell</m> to midpoint node <m>\R^n</m>,
+			followed by an arrow labelled as matrix transformation <m>\matrixOf{S}{B''B'}</m> from midpoint node <m>\R^n</m> to corner vertex <m>\R^m</m>.
+			Arching below these two arrows is a long, curved arrow labelled as the matrix transformation <m>\matrixOf{ST}{B''B}</m> from corner vertex <m>\R^\ell</m> to corner vertex <m>\R^m</m>.
+			</p>
+
+			<p>
+			Finally,
+			between these two rows are three pairs of upwards/downwards arrows:
+			<ul>
+				<li>
+					A pair between leftmost corner vertices <m>U</m> and <m>\R^\ell</m>,
+					with the downwards arrow labelled as the coordinate map <m>\coordmap{B}</m>
+					and the upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B}</m>.
+				</li>
+				<li>
+					A pair between midpoint nodes <m>V</m> and <m>\R^n</m>,
+					with the downwards arrow labelled as the coordinate map <m>\coordmap{B'}</m>
+					and the upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B'}</m>.
+				</li>
+				<li>
+					A pair between rightmost corner vertices <m>W</m> and <m>\R^m</m>,
+					with the downwards arrow labelled as the coordinate map <m>\coordmap{B''}</m>
+					and the upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B''}</m>.
+				</li>
+			</ul>
+			</p>
+
+		</description>
+
 	</image>
 
 	<p>
@@ -526,11 +650,47 @@ then
 	Then we can compose <m>T</m> with its inverse to get <m>\inv{T} T = I_V</m>, the identity operator on <m>V</m>.
 	</p>
 
-	<image width="40%">
-		<description><p> Diagram of a composition of an isomorphism and its inverse. </p></description>
+	<image width="46.1%">
+
 		<latex-image label="image-lintrans-matrix-concepts-rect-diagram-compose-inverse">
 			<xi:include href="concepts.d/rect-diagram-compose-inverse.tex" parse="text" />
 		</latex-image>
+
+		<shortdescription> Diagram relating the composition of an invertible transformation with its inverse to the corresponding composition of the induced matrix transformations. </shortdescription>
+
+		<description>
+
+			<p>
+			A rectangle of linear transformations relating the composition of an invertible transformation with its inverse to the corresponding composition of the induced matrix transformations.
+			The top row of this rectangle is an arrow labelled <m>T</m> from corner vertex <m>V</m> to midpoint node <m>W</m>,
+			followed by an arrow labelled <m>\inv{T}</m> from midpoint node <m>W</m> to a second corner vertex <m>V</m>.
+			Arching over these two arrows is a long, curved arrow labelled as the product transformation <m>\inv{T} T</m> from the top-left corner vertex <m>V</m> to the top-right corner vertex <m>V</m>.
+			In the bottom row of this rectangle, all three nodes (corners and midpoint) are labelled as <m>\R^n</m>,
+			with an arrow labelled as matrix transformation <m>\matrixOf{T}{B'B}</m> from the bottom-left corner vertex to the midpoint node,
+			followed by an arrow labelled as matrix transformation <m>\matrixOf{\inv{T}}{BB'}</m> from the midpoint node to the bottom-right corner vertex.
+			Arching below these two arrows is a long, curved arrow labelled as the matrix transformation <m>\matrixOf{\inv{T}}{B}</m> from the bottom-left corner vertex to the bottom-right corner vertex.
+			</p>
+
+			<p>
+			Finally,
+			between these two rows are three pairs of upwards/downwards arrows:
+			<ul>
+				<li>
+					A pair between each of the leftmost corner vertices and the rightmost corner vertices
+					(in both cases labelled <m>V</m> and <m>\R^n</m>),
+					with the downwards arrow labelled as the coordinate map <m>\coordmap{B}</m>
+					and the upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B}</m>.
+				</li>
+				<li>
+					A pair between midpoint nodes <m>W</m> and <m>\R^n</m>,
+					with the downwards arrow labelled as the coordinate map <m>\coordmap{B'}</m>
+					and the upwards arrow labelled as the inverse coordinate map <m>\invcoordmap{B'}</m>.
+				</li>
+			</ul>
+			</p>
+
+		</description>
+
 	</image>
 
 	<p>
