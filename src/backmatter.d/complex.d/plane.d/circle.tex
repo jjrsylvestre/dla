@@ -12,22 +12,23 @@
 %
 % *********************************************************************
 \begin{tikzpicture}[
-	scale=2,
+	scale=1.5,
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 ]
-	\draw[->] (-1.5,0) to (1.5,0) node[below right] {$\Re$};
-	\draw[->] (0,-1.5) to (0,1.5) node[above right] {$\Im$};
+	\draw[->] (-1.25,0) to (1.333,0) node[below right] {$\Re$};
+	\draw[->] (0,-1.25) to (0,1.333) node[above right] {$\Im$};
 
 	\node[point] at (1,0) [label=below right:{$1$}] {};
 	\node[point] at (0,1) [label=above right:{$\ci$}] {};
 	\node[point] at (-1,0) [label=above left:{$-1$}] {};
 	\node[point] at (0,-1) [label=below left:{$-\ci$}] {};
 
+	% slope is 3/4
 	\node[point] at (0.8,0.6) (z) [label=above right:{$z = \cos\theta + \ci\sin\theta$}] {};
 
-	\draw[dashed] (0,0) to node[above,sloped] {$\scriptstyle\cmodulus{z} = 1$} (z);
+	\draw[dashed] (0,0) to node[above,sloped,xshift=0.2cm] {$\scriptstyle\cmodulus{z} = 1$} (z);
 
-	\draw (0.25,0) arc (0:37:0.25cm) node[midway,xshift=0.25cm,yshift=0.1cm] {$\theta$};
+	\draw (0,0) ++(0:0.37cm) arc (0:36.87:0.37cm) node[midway,xshift=0.25cm,yshift=0.1cm] {$\theta$};
 
 	\draw (0,0) circle (1cm);
 

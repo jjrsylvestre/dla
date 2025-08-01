@@ -12,21 +12,17 @@
 %
 % *********************************************************************
 \begin{tikzpicture}[
-	scale=2,
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 ]
-	\draw[->] (-1,0) to (3,0) node[below right] {$\Re$};
-	\draw[->] (0,-1) to (0,2.5) node[above right] {$\Im$};
+	\draw[->] (-0.25,0) to (2.5,0) node[below right] {$\Re$};
+	\draw[->] (0,-0.25) to (0,2) node[above right] {$\Im$};
 
-	%\node[point] at (1,0) [label=below:{$1$}] {};
-	%\node[point] at (0,1) [label=left:{$\ci$}] {};
+	\node[point] at (2,1.5) (z) [label=above right:{$z = a + b \ci$}] {};
 
-	\node[point] at (2,1.5) (z) [label=above right:{$z = a + b\ci$}] {};
+	\draw[densely dotted] (z) to (2,0) node[below] {$a$} ;
+	\draw[densely dotted] (z) to (0,1.5) node[left] {$b$};
+	\draw[dashed] (0,0) to node[above,sloped] {$\cmodulus{z}$} (z);
 
-	\draw[dashed] (z) to node[right] {$b$} (2,0);
-	\draw[dashed] (z) to node[above] {$a$} (0,1.5);
-	\draw[dashed] (0,0) to node[above] {$\cmodulus{z}$} (z);
-
-	\draw (0.25,0) arc (0:37:0.25cm) node[midway,xshift=0.25cm,yshift=0.1cm] {$\theta$};
+	\draw (0,0) ++(0:0.75cm) arc (0:36.87:0.75cm) node[midway,xshift=0.25cm,yshift=0.08cm] {$\theta$};
 
 \end{tikzpicture}

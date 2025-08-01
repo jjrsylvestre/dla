@@ -31,25 +31,17 @@ respective owners.
 
 <p>
 We visualize the field of complex numbers geometrically by assigning geometric meanings to the two independent parameters that make up an arbitrary complex number
-<m>z = a + bi</m>.
+<m>z = a + b \ci</m>.
 Let's interpret the real part
 <m>\Re(z) = a</m> as an <m>x</m>-coordinate and
 <m>\Im(z) = b</m> as a <m>y</m>-coordinate in the plane.
-</p>
-
-<image width="73%">
-	<description><p> A point in the complex plane. </p></description>
-	<latex-image label="image-complex-plane-point">
-		<xi:include href="plane.d/point.tex" parse="text" />
-	</latex-image>
-</image>
-
-<p>
+(See <xref ref="figure-complex-plane-point" />.)
 In this version of the plane,
 the <m>x</m>-axis is referred to as the
 <term>real axis</term><idx><h>real</h><h>axis</h></idx><idx><h>axis</h><h>real</h></idx>
 and the <m>y</m>-axis is referred to as the
-<term>imaginary axis</term><idx><h>imaginary</h><h>axis</h></idx><idx><h>axis</h><h>imaginary</h></idx>.
+<term>imaginary axis</term><idx><h>imaginary</h><h>axis</h></idx><idx><h>axis</h><h>imaginary</h></idx>,
+and the entire plane is referred to as the <term>complex plane</term>.
 Pythagoras tells us that the distance from the origin to the complex point <m>z</m> is equal its modulus <m>\cmodulus{z}</m>.
 The angle <m>\theta</m> formed by the ray from the origin through <m>z</m> and the positive real axis is called the
 <term>argument</term><idx><h>complex</h><h>argument</h></idx><idx><h>argument (of a complex number)</h></idx>
@@ -59,38 +51,105 @@ of <m>z</m>.
 <p>
 Complex conjugation has a geometric interpretation <mdash />
 it is equivalent to reflection in the real axis.
+(See <xref ref="figure-complex-plane-conj" />.)
 </p>
-<image width="73%">
-	<description><p> Complex conjugation as a reflection in the complex plane. </p></description>
-	<latex-image label="image-complex-plane-conj">
-		<xi:include href="plane.d/conj.tex" parse="text" />
-	</latex-image>
-</image>
+
+<sidebyside widths="33.8% 39.1%" margins="5% 5%" valign="middle">
+
+	<figure xml:id="figure-complex-plane-point">
+		<caption> Visualizing complex numbers as points in the Cartesian plane. </caption>
+		<image>  <!-- width="33.8%" -->
+			<latex-image label="image-complex-plane-point">
+				<xi:include href="plane.d/point.tex" parse="text" />
+			</latex-image>
+			<shortdescription> A diagram of a complex number plotted as a point in the Cartesian plane. </shortdescription>
+			<description><p>
+				The complex number <m>z = a + b \ci</m> is plotted as the point <m>(a,b)</m> in the Cartesian plane.
+				In this example,
+				the point is plotted in the first quadrant,
+				as if both <m>a</m> and <m>b</m> are positive.
+				The horizontal axis is labelled <m>\Re</m> and the vertical axis is labelled <m>\Im</m>.
+				A dashed line segment labelled <m>\cmodulus{z}</m> is drawn from the origin to the plotted point,
+				and the angle between this line segment and the positive horizontal axis is labelled <m>\theta</m>.
+			</p></description>
+		</image>
+	</figure>
+
+	<figure xml:id="figure-complex-plane-conj">
+		<caption> The algebraic operation of complex conjugation visualized as a geometric reflection. </caption>
+		<image>  <!-- width="39.1%" -->
+			<latex-image label="image-complex-plane-conj">
+				<xi:include href="plane.d/conj.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				A diagram of a complex number plotted as a point in the first quadrant of the Cartesian plane,
+				and the conjugate complex number plotted as the reflected point in the fourth quadrant.
+			</shortdescription>
+			<description><p>
+				The complex number <m>z = a + b \ci</m> and its conjugate <m>\cconj{z} = a - b \ci</m> are plotted as points in the complex plane.
+				In this example,
+				the point for <m>z</m> is plotted in the first quadrant,
+				as if both <m>a</m> and <m>b</m> are positive.
+				The point for the conjugate <m>\cconj{z}</m> is plotted in the fourth quadrant and directly below the point for <m>z</m>.
+				These two points are equidistant from the horizontal axis,
+				and a dotted line with arrowheads at each end runs between them to illustrate that these points are vertical reflections of each other.
+				In addition,
+				a dashed line is drawn from the origin to each of the points for <m>z</m> and <m>\cconj{z}</m>,
+				and each of these dashed lines forms the same angle <m>\theta</m> with the positive horizontal axis.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 <p>
 <idx><h>complex</h><h>unit circle</h></idx>
 <idx><h>unit</h><h>circle</h><h>complex</h></idx>
 For every angle <m>\theta</m>,
 a complex number of the form
-<m>\cos\theta + \ci\sin\theta</m>
+<m>\cos\theta + \ci \sin\theta</m>
 has unit modulus due to the circle identity:
-<me> \cmodulus{\cos\theta + \ci\sin\theta} = \sqrt{\cos^2\theta + \sin^2\theta} = \sqrt{1} = 1. </me>
+<me> \cmodulus{\cos\theta + \ci \sin\theta} = \sqrt{\cos^2\theta + \sin^2\theta} = \sqrt{1} = 1. </me>
 Because of this,
 complex numbers of this form sit on the unit circle.
 </p>
-<image width="65%">
-	<description><p> The unit circle in the complex plane. </p></description>
-	<latex-image label="image-complex-plane-circle">
-		<xi:include href="plane.d/circle.tex" parse="text" />
-	</latex-image>
-</image>
+
+<figure>
+	<caption> The unit circle in the complex plane. </caption>
+	<image width="51.1%">
+		<latex-image label="image-complex-plane-circle">
+			<xi:include href="plane.d/circle.tex" parse="text" />
+		</latex-image>
+		<shortdescription> The unit circle is drawn in the complex plane as a circle centred at the origin of unit radius. </shortdescription>
+		<description>
+
+			<p>
+			A circle of radius <m>1</m> and centred at the origin is drawn in the complex plane.
+			The circle's intercepts with the horizontal axis are labelled as <m>\pm 1</m>,
+			with <m>1</m> on the positive side and <m>-1</m> on the negative side.
+			The circle's intercepts with the vertical axis are labelled as <m>\pm \ci</m>,
+			with <m>\ci</m> on the positive side and <m>-\ci</m> on the negative side.
+			</p>
+
+			<p>
+			An arbitrary point on the circle in the first is plotted,
+			and a dashed line segment is drawn from the origin to this point.
+			The angle between this dashed line segment and the positive horizontal axis is labelled <m>\theta</m>,
+			and that plotted point on the circle at the end of the dashed line segment is labelled <m>z = \cos \theta + \ci \sin \theta</m>.
+			The length of that dashed line segment is labelled <m>\cmodulus{z} = 1</m>.
+			</p>
+
+		</description>
+	</image>
+</figure>
+
 <p>
 The unit circle meets the axes at the four points
 <md>
 	<mrow>
-		1 \amp = \cos 0 + \ci\sin 0, \amp \ci \amp = \cos\frac{\pi}{2} + \ci\sin\frac{\pi}{2},
+		1 \amp = \cos 0 + \ci \sin 0, \amp \ci \amp = \cos\frac{\pi}{2} + \ci \sin\frac{\pi}{2},
 	</mrow><mrow>
-		-1 \amp = \cos \pi + \ci\sin \pi, \amp -\ci \amp = \cos\frac{3\pi}{2} + \ci\sin\frac{3\pi}{2}.
+		-1 \amp = \cos \pi + \ci \sin \pi, \amp -\ci \amp = \cos\frac{3\pi}{2} + \ci \sin\frac{3\pi}{2}.
 	</mrow>
 </md>
 </p>
@@ -105,7 +164,7 @@ For reasons we won't go into here,
 it is reasonable to define complex exponentiation with
 natural base <m>e</m> (Euler's number)
 as
-<md><mrow xml:id="equation-complex-euler" tag="star"> e^{\ci\theta} = \cos\theta + \ci\sin\theta </mrow></md>.
+<md><mrow xml:id="equation-complex-euler" tag="star"> e^{\ci \theta} = \cos\theta + \ci \sin\theta </mrow></md>.
 This is known as <term>Euler's formula</term><idx><h>Euler's formula</h></idx>.
 </p>
 
@@ -118,12 +177,12 @@ This is known as <term>Euler's formula</term><idx><h>Euler's formula</h></idx>.
 <p>
 As in the previous subsection,
 these points all have modulus
-<m>\cmodulus{e^{\ci\theta}} = 1</m>
+<m>\cmodulus{e^{\ci \theta}} = 1</m>
 and sit on the unit circle in the complex plane.
 We can use these points to describe every point in the complex plane in terms of a
 <term>radius</term> and <term>angle</term>.
-If <m>r</m> is a nonnegative real number, then for <m>z = r e^{\ci\theta}</m> we have
-<me> \cmodulus{z} = \cmodulus{r}\cmodulus{e^{\ci\theta}} = r. </me>
+If <m>r</m> is a nonnegative real number, then for <m>z = r e^{\ci \theta}</m> we have
+<me> \cmodulus{z} = \cmodulus{r}\cmodulus{e^{\ci \theta}} = r. </me>
 Thus, instead of describing a point in the complex plane in terms of
 a horizontal component (the real part) and
 a vertical component (the imaginary part),
@@ -132,15 +191,39 @@ a radius (the modulus) and
 an angle to the positive real axis (the argument).
 </p>
 
-<image width="70%">
-	<description><p> Polar coordinates in the complex plane. </p></description>
-	<latex-image label="image-complex-plane-polar">
-		<xi:include href="plane.d/polar.tex" parse="text" />
-	</latex-image>
-</image>
+<figure>
+	<caption> A geometric visualization of polar form in the complex plane. </caption>
+	<image width="44.7%">
+		<latex-image label="image-complex-plane-polar">
+			<xi:include href="plane.d/polar.tex" parse="text" />
+		</latex-image>
+		<shortdescription>
+			A diagram interpreting the polar form of a complex number as radius and angle in the complex plane.
+		</shortdescription>
+		<description>
+
+			<p>
+			A point is plotted in the first quadrant of the complex plane,
+			and a dashed line segment is drawn from the origin to the point.
+			The length of this dashed line segment is labelled <m>r</m>,
+			and the angle it forms with the positive horizontal axis is labelled <m>\theta</m>.
+			Correspondingly, the plotted point is labelled <m>z = r e^{\ci \theta}</m>.
+			</p>
+
+			<p>
+			A dotted-line circle is drawn, centered at the origin,
+			representing the unit circle.
+			The point where this circle intersects the positive horizontal axis is plotted and labelled <m>1</m>.
+			The point for <m>z</m> is outside this circle,
+			and the point where the circle intersects the dashed line segment between the origin and the point for <m>z</m> is plotted and labelled <m>z_0 = e^{\ci \theta}</m>.
+			</p>
+
+		</description>
+	</image>
+</figure>
 
 <p>
-An expression <m>z = re^{\ci\theta}</m> is called the
+An expression <m>z = re^{\ci \theta}</m> is called the
 <term>polar form</term>
 <idx><h>polar form (of a complex number)</h></idx>
 <idx><h>complex</h><h>number</h><h>polar form</h></idx>
@@ -152,16 +235,16 @@ While we usually take the argument <m>\theta</m> to be in the domain <m>0\le\the
 it is useful in computations to allow it to take on any real value,
 but simplify complex polar expressions using the identity
 <!-- <me xml:id="equation-complex-simplify-polar-arg" tag="dstar"> -->
-<me> e^{\ci(\theta + 2m\pi)} = e^{\ci\theta} </me>,
+<me> e^{\ci(\theta + 2m\pi)} = e^{\ci \theta} </me>,
 valid for arbitrary integer <m>m</m>.
 </p>
 
 <p>
-Consider what happens when we multiply complex numbers in polar coordinates:
-if <m>z_1 = r_1 e^{\ci\theta_1}</m>
-and <m>z_2 = r_2 e^{\ci\theta_2}</m>,
+Consider what happens when we multiply complex numbers in polar form:
+if <m>z_1 = r_1 e^{\ci \theta_1}</m>
+and <m>z_2 = r_2 e^{\ci \theta_2}</m>,
 then
-<me> z_1 z_2 = (r_1 r_2) (e^{\ci\theta_1} e^{\ci\theta_2}). </me>
+<me> z_1 z_2 = (r_1 r_2) (e^{\ci \theta_1} e^{\ci \theta_2}). </me>
 Notice that the radii multiply as well.
 We know an exponent law that would help us simplify the exponential part of the product expression above,
 but is it valid for complex exponentials?
@@ -172,13 +255,13 @@ but is it valid for complex exponentials?
 	<statement><p>
 		Multiplication on the complex unit circle corresponds to addition of the complex arguments.
 		That is,
-		<me> e^{\ci\theta_1} e^{\ci\theta_2} = e^{\ci(\theta_1 + \theta_2)}. </me>
+		<me> e^{\ci \theta_1} e^{\ci \theta_2} = e^{\ci(\theta_1 + \theta_2)}. </me>
 	</p></statement>
 	<proof><title>Proof idea</title><p>
 		By definition (<ie /> Euler's formula),
 		we have
 		<me>
-			e^{\ci\theta_1} e^{\ci\theta_2}
+			e^{\ci \theta_1} e^{\ci \theta_2}
 			= (\cos\theta_1 + \ci \sin\theta_1)(\cos\theta_2 + \ci \sin\theta_2).
 		</me>
 		Expanding this out using FOIL, you will find that the real part is
@@ -188,8 +271,8 @@ but is it valid for complex exponentials?
 		So by the addition identities for <m>\sin</m> and <m>\cos</m>,
 		we have
 		<me>
-			e^{\ci\theta_1} e^{\ci\theta_2}
-			= \cos(\theta_1 + \theta_2) + \ci\sin(\theta_1 + \theta_2)
+			e^{\ci \theta_1} e^{\ci \theta_2}
+			= \cos(\theta_1 + \theta_2) + \ci \sin(\theta_1 + \theta_2)
 			= e^{\ci(\theta_1 + \theta_2)},
 		</me>
 		as desired.
@@ -202,8 +285,8 @@ but is it valid for complex exponentials?
 	<title>Multiplication of polar expressions</title>
 
 	<p>
-	If <m>z_1 = r_1 e^{\ci\theta_1}</m>
-	and <m>z_2 = r_2 e^{\ci\theta_2}</m>,
+	If <m>z_1 = r_1 e^{\ci \theta_1}</m>
+	and <m>z_2 = r_2 e^{\ci \theta_2}</m>,
 	then
 	<me> z_1 z_2 = (r_1 r_2) e^{\ci(\theta_1 + \theta_2)}. </me>
 	</p>
@@ -212,17 +295,27 @@ but is it valid for complex exponentials?
 	Geometrically,
 	if <m>z</m> is a point in the complex plane,
 	then multiplying <m>z</m> by the polar expression
-	<m>r e^{\ci\theta} </m>
-	scales <m>z</m> toward/away from the origin by scale factor <m>r</m>,
-	and rotates by <m>\theta</m> radians about the origin.
+	<m>r e^{\ci \theta} </m>
+	scales its distance from the origin by scale factor <m>r</m>,
+	and rotates it by <m>\theta</m> radians about the origin.
 	</p>
 
-	<image width="35%">
-		<description><p> Multiplying by a polar expression in the complex plane. </p></description>
-		<latex-image label="image-complex-plane-polar-mult">
-			<xi:include href="plane.d/polar-mult.tex" parse="text" />
-		</latex-image>
-	</image>
+	<figure>
+		<caption> Interpreting multiplication of complex numbers geometrically as a combination of scaling and rotation. </caption>
+		<image width="28.2%">
+			<latex-image label="image-complex-plane-polar-mult">
+				<xi:include href="plane.d/polar-mult.tex" parse="text" />
+			</latex-image>
+			<shortdescription> A diagram relating scaling and rotation of a point in the complex plane to multiplication by a complex number in polar form. </shortdescription>
+			<description><p>
+				Two points are plotted in the complex plane,
+				one labelled as the complex number <m>z</m> and the other labelled as the product number <m>(r e^{\ci\theta}) \cdot z</m>.
+				A dashed line segments is drawn from the origin to each of the two points,
+				with the length of the segment ending at <m>z</m> labelled <m>\cmodulus{z}</m> and the length of the segment ending at the product-number point labelled as <m>r \cmodulus{z}</m>.
+				Finally, the angle between these two dashed line segments is labelled as <m>\theta</m>.
+			</p></description>
+		</image>
+	</figure>
 
 </corollary>
 
@@ -230,14 +323,14 @@ but is it valid for complex exponentials?
 	<title>Inverse of a polar expression</title>
 	<statement>
 		<p>
-		If <m>z = r e^{\ci\theta}</m>
-		then <m>\inv{z} = \inv{r} e^{-\ci\theta}</m>.
+		If <m>z = r e^{\ci \theta}</m>
+		then <m>\inv{z} = \inv{r} e^{-\ci \theta}</m>.
 		</p><p>
-		In particular, <m>\inv{(e^{\ci\theta})} = e^{-\ci\theta}</m>.
+		In particular, <m>\inv{(e^{\ci \theta})} = e^{-\ci \theta}</m>.
 		</p>
 	</statement>
 	<proof><title>Proof idea</title><p>
-		Just multiply <m>r e^{\ci\theta}</m> and <m>\inv{r} e^{-\ci\theta}</m> together and use
+		Just multiply <m>r e^{\ci \theta}</m> and <m>\inv{r} e^{-\ci \theta}</m> together and use
 		<xref ref="corollary-complex-mult-polar" />
 		to simplify.
 		You will find that the simplified product is equal to <m>1</m>.
@@ -249,7 +342,7 @@ but is it valid for complex exponentials?
 	<idx><h>DeMoivre's formula</h></idx>
 	<statement><p>
 		For every <alert>integer</alert> <m>n</m>,
-		we have <m>(e^{\ci\theta})^n = e^{\ci n \theta}</m>.
+		we have <m>(e^{\ci \theta})^n = e^{\ci n \theta}</m>.
 	</p></statement>
 	<proof><title>Proof idea</title>
 		<p>
@@ -258,7 +351,7 @@ but is it valid for complex exponentials?
 		</p><p>
 		If <m>n</m> is a postive integer,
 		then exponent <m>n</m> means multiplying <m>n</m> copies of the complex exponential:
-		<me> (e^{\ci\theta})^n = e^{\ci\theta} \cdot e^{\ci\theta} \cdot \dotsm \cdot e^{\ci\theta}. </me>
+		<me> (e^{\ci \theta})^n = e^{\ci \theta} \cdot e^{\ci \theta} \cdot \dotsm \cdot e^{\ci \theta}. </me>
 		Using
 		<xref ref="proposition-complex-mult-exp" />,
 		we can combine the expression on the right above into one complex exponential where <m>n</m> copies of the argument <m>\theta</m> are <em>added</em> together.
@@ -316,15 +409,15 @@ and that is if <m>\cmodulus{z} = 1</m>.
 
 <p>
 	In light of the proposition,
-	in polar coordinates we can represent a root of unity purely in terms of its argument:
-	<m>z = e^{\ci\theta}</m>
+	in polar form we can represent a root of unity purely in terms of its argument:
+	<m>z = e^{\ci \theta}</m>
 </p>
 
 <example><title>Cubic roots of unity</title>
 
 	<p>
 	Let's determine all three complex solutions to <m>x^3 = 1</m>.
-	As above, let's set <m>x = e^{\ci\theta}</m> and try to determine the values of <m>\theta</m> that lead to solutions.
+	As above, let's set <m>x = e^{\ci \theta}</m> and try to determine the values of <m>\theta</m> that lead to solutions.
 	From <xref ref="corollary-complex-demoivre" text="title" />,
 	we have
 	<m> x^3 = e^{\ci(3\theta)} </m>,
@@ -341,11 +434,30 @@ and that is if <m>\cmodulus{z} = 1</m>.
 	and we can visualize these solutions as regularly placed around the unit circle in the complex plane.
 	</p>
 
-	<image width="60%">
-		<description><p> Cubic roots of unity on the complex unit circle. </p></description>
+	<image width="27%">
 		<latex-image label="image-complex-plane-cubic-roots">
 			<xi:include href="plane.d/cubic-roots.tex" parse="text" />
 		</latex-image>
+		<shortdescription> A diagram of the cubic roots of unity interpreted as equally-spaced points on the unit circle in the complex plane. </shortdescription>
+		<description><p>
+			The unit circle (centred at the origin) is drawn in the complex plane,
+			and three points are plotted on it:
+			<ul>
+				<li>
+					One point at the point of intersection with the positive horizontal axis,
+					labelled <m>e^{0 \pi \ci / 3}</m>.
+				</li>
+				<li>
+					One point in the second quadrant at an angle of sixty degrees to the negative horizontal axis,
+					labelled <m>e^{2 \pi \ci / 3}</m>.
+				</li>
+				<li>
+					One point in the third quadrant at an angle of sixty degrees to the negative horizontal axis,
+					labelled <m>e^{4 \pi \ci / 3}</m>.
+				</li>
+			</ul>
+			The two plotted points in the left half of the plane are directly above/below one another vertically.
+		</p></description>
 	</image>
 
 </example>

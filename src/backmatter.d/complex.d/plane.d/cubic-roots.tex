@@ -12,15 +12,14 @@
 %
 % *********************************************************************
 \begin{tikzpicture}[
-	scale=2,
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 ]
-	\draw[->] (-1.5,0) to (1.5,0) node[below right] {$\Re$};
-	\draw[->] (0,-1.5) to (0,1.5) node[above right] {$\Im$};
+	\draw[->] (-1.25,0) to (1.5,0) node[below right] {$\Re$};
+	\draw[->] (0,-1.25) to (0,1.5) node[above right] {$\Im$};
 
-	\node[point] at (1,0) [label=above right:{$e^{0\pi\ci/3}$}] {};
-	\node[point] at (120:1) (r1) [label=above left:{$e^{2\pi\ci/3}$}] {};
-	\node[point] at (240:1) (r2) [label=below left:{$e^{4\pi\ci/3}$}] {};
+	\node[point] at (1,0) [label={[xshift=0.5cm]above:{$e^{0\pi\ci/3}$}}] {};
+	\node[point] at (120:1) (r1) [label={[xshift=-0.2cm]above:{$e^{2\pi\ci/3}$}}] {};
+	\node[point] at (240:1) (r2) [label={[xshift=-0.2cm]below:{$e^{4\pi\ci/3}$}}] {};
 
 	\draw[dashed] (0,0) to (r1);
 	\draw[dashed] (0,0) to (r2);

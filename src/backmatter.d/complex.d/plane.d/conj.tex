@@ -12,17 +12,19 @@
 %
 % *********************************************************************
 \begin{tikzpicture}[
-	scale=2,
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 ]
-	\draw[->] (-1,0) to (3,0) node[below right] {$\Re$};
-	\draw[->] (0,-2) to (0,2) node[above right] {$\Im$};
+	\draw[->] (-0.25,0) to (2.5,0) node[below right] {$\Re$};
+	\draw[->] (0,-1.75) to (0,1.75) node[above right] {$\Im$};
 
-	\node[point] at (2,1.5) (z) [label=right:{$z = a + b\ci = \lcconj{\cconj{z}}$}] {};
-	\node[point] at (2,-1.5) (cz) [label=right:{$\cconj{z} = a - b\ci$}] {};
+	\node[point] at (2,1.5) (z) [label=above right:{$z = a + b\ci = \lcconj{\cconj{z}}$}] {};
+	\node[point] at (2,-1.5) (cz) [label=below right:{$\cconj{z} = a - b\ci$}] {};
 
 	\draw[dashed] (0,0) to (z);
 	\draw[dashed] (0,0) to (cz);
-	\draw[dotted,latex-latex] (z) to (cz);
+	\draw[densely dotted,thick,latex-latex] (z) to (cz);
+
+	\draw (0,0) ++(0:0.75cm) arc (0:36.87:0.75cm) node[midway,xshift=0.25cm,yshift=0.08cm] {$\theta$};
+	\draw (0,0) ++(0:0.75cm) arc (0:-36.87:0.75cm) node[midway,xshift=0.25cm,yshift=-0.08cm] {$\theta$};
 
 \end{tikzpicture}
