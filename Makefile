@@ -87,7 +87,7 @@ help:
 	@echo "                   [Default: $(PRETEXTDIR)]"
 	@echo "> SERVEPORT      : Local port on which to serve HTML output when using the html-serve target."
 	@echo "                   [Default: $(SERVEPORT)]"
-	@echo "> REMOTE_LOCATION: Local port on which to serve HTML output when using the html-serve target."
+	@echo "> REMOTE_LOCATION: Remote path to use as rsync target for HTML output."
 	@echo "                   [Default: unset]"
 
 two-semester-html-all: two-semester-html two-semester-html-images
