@@ -1,0 +1,144 @@
+##
+## BASED ON:
+## Library/Rochester/setLinearAlgebra22SymmetricMatrices/ur_la_22_6.pg
+##
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+  "PGchoicemacros.pl",  # for shuffle, NchooseK
+  "MatrixCheckers.pl",  # for unit_basis_checker_one_column
+  "parserMultiAnswer.pl",
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+
+#####################################################################################33
+## Constructing 4x4 symmetric out of 2 identical symmetric 2x2 blocks
+## For the 2x2 blocks see section 12 of Steele, "Setting Linear Algebra Problems"
+$a = non_zero_random(-2,2);
+$a2 = $a * $a;
+do { $b = non_zero_random(-3,3); } until ($b != $a);
+$b2 = $b * $b;
+$k_sign = random(-1,1,2);
+$k = random(2,5) * $k_sign;
+$bka = $b * $k * $a;
+$e_shift = random(-3,0) * $k_sign;
+
+$a[0][0] = $b2*$k + $e_shift; $a[0][1] = $bka; $a[0][2] = 0; $a[0][3] = 0;
+$a[1][0] = $bka; $a[1][1] = $a2*$k + $e_shift; $a[1][2] = 0; $a[1][3] = 0;
+$a[2][0] = 0; $a[2][1] = 0; $a[2][2] = $a[0][0]; $a[2][3] = $a[0][1];
+$a[3][0] = 0; $a[3][1] = 0; $a[3][2] = $a[1][0]; $a[3][3] = $a[1][1];
+
+$A1 = Matrix(@a);
+
+# now conjugate by another orthogonal matrix
+$q[0][0] = 1;  $q[0][1] = -1;  $q[0][2] = -1;  $q[0][3] = -1;
+$q[1][0] = 1;  $q[1][1] = -1;  $q[1][2] = 1;   $q[1][3] = 1;
+$q[2][0] = 1;  $q[2][1] = 1;   $q[2][2] = -1;  $q[2][3] = 1;
+$q[3][0] = 1;  $q[3][1] = 1;   $q[3][2] = 1;   $q[3][3] = -1;
+
+# scramble columns and rows: 
+@slice1 = NchooseK(4,4);
+@slice2 = NchooseK(4,4);
+foreach $i (0..3) { 
+	foreach $j (0..3) { 
+		$qq[$i][$j] = $q[$slice1[$i]][$slice2[$j]];
+	}
+}
+$Q = Matrix(@qq);
+
+$A = $Q * $A1 * $Q->transpose;
+
+# Q wasn't really orthogonal because its columns are not unit,
+# so eigenvalues get multiplied by 2^2 = 4
+$eigvals[0] = Compute("4 * $e_shift");
+$eigvals[1] = Compute("4 * ($k * ($a2 + $b2) + $e_shift)");
+
+# build orthogonal matrix of eigenvectors for answers
+# columns 1 and 3 are for $eigvals[0]
+# columns 2 and 4 are for $eigvals[1]
+$P = Matrix([
+  [  $a, $b,   0,  0 ],
+  [ -$b, $a,   0,  0 ],
+  [   0,  0,  $a, $b ],
+  [   0,  0, -$b, $a ],
+]);
+
+
+$P = (1/2) * (1/sqrt($a2 + $b2)) * $Q * $P;
+
+if ($k_sign == -1) {
+	($eigvals[0],$eigvals[1]) = ($eigvals[1],$eigvals[0]);
+	$P = $P * Matrix([[0,1,0,0],[1,0,0,0],[0,0,0,1],[0,0,1,0]]);
+}
+
+$multians[0] = MultiAnswer($P->column(1), $P->column(3))->with(
+  singleResult => 1,
+  separator => ', ',
+  tex_separator => ', ',
+  allowBlankAnswers=>0,
+  checker => ~~&orthonormal_basis_checker_columns,
+);
+$multians[1] = MultiAnswer($P->column(2), $P->column(4))->with(
+  singleResult => 1,
+  separator => ', ',
+  tex_separator => ', ',
+  allowBlankAnswers=>0,
+  checker => ~~&orthonormal_basis_checker_columns,
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+The symmetric matrix \(A=$A\) has two distinct eigenvalues \(\lambda_1 < \lambda_2\).
+$PAR
+\{ mbox(
+ '\(\lambda_1=\) ', $eigvals[0]->ans_rule ,
+ ' $SPACE$SPACE$SPACE$SPACE \(\lambda_2=\) ', $eigvals[1]->ans_rule
+) \}
+$PAR
+To achieve
+\(
+  P^{\mathrm{T}} AP =
+  \{display_matrix_mm([
+    ['\lambda_1','','',''],
+    ['','\lambda_1','',''],
+    ['','','\lambda_2',''],
+    ['','','','\lambda_2']
+  ])\}
+\),
+we could use
+\(
+  P =
+  \{display_matrix_mm([
+    ['\mathbf{p}_1','\mathbf{p}_2','\mathbf{p}_3','\mathbf{p}_4'],
+  ])\}
+\),
+\{mbox(
+  'where \(\mathbf{p}_1 = \)',
+  $multians[0]->ans_array(10),
+  ', \(\mathbf{p}_2 = \)',
+  $multians[0]->ans_array(10),
+  ', \(\mathbf{p}_3 = \)',
+  $multians[1]->ans_array(10),
+  ', \(\mathbf{p}_4 = \)',
+  $multians[1]->ans_array(10),
+  '.'
+)\}
+END_TEXT
+Context()->normalStrings;
+
+ANS($eigvals[0]->cmp);
+ANS($eigvals[1]->cmp);
+ANS($multians[0]->cmp);
+ANS($multians[1]->cmp);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

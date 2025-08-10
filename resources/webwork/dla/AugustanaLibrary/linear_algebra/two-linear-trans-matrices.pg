@@ -1,0 +1,88 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','linear transformation','upper triangular')
+## Tagged by cmd6a 5/3/06
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Linear Transformations')
+## Date('2013/04/10')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## Frankensteined from
+## NationalProblemLibrary/Rochester/setLinearAlgebra15TransfOfLinSpaces/ur_la_15_5.pg
+## NationalProblemLibrary/Rochester/setLinearAlgebra15TransfOfLinSpaces/ur_la_15_6.pg
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGmatrixmacros.pl", 
+"PGnumericalmacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+@c = NchooseK(9,9);
+foreach $i (0..8) { 
+	$c[$i] = $c[$i]+1;
+}
+
+$c_mat = display_matrix_mm([[$c[0], $c[1]], [0, $c[2]]]);
+
+BEGIN_TEXT
+Let \(U\) be the vector space of all \(2 \times 2\) upper triangular matrices. The set
+\[ B = \left\lbrace
+   \{display_matrix_mm([[1, 0], [0, 0]])\},
+   \{display_matrix_mm([[1, 1], [0, 0]])\},
+   \{display_matrix_mm([[0, 0], [0, 1]])\}
+\right\rbrace \]
+forms a basis for \(U\).
+$PAR
+$BBOLD (a) $EBOLD
+If \(T\colon U \rightarrow U\) is the linear operator defined by
+$BR
+\( T(M)= \{display_matrix_mm([[$c[0], $c[1]], [0, $c[2]]])\} M \) 
+$BR
+then the matrix of \(T\) with respect to \(B\) is $BR
+\{ mbox( '\([T]_B=\)', answer_matrix(3,3,5) ) \}
+END_TEXT
+
+ANS(num_cmp($c[0])); ANS(num_cmp(0));     ANS(num_cmp(- $c[1]));
+ANS(num_cmp(0));     ANS(num_cmp($c[0])); ANS(num_cmp($c[1]));
+ANS(num_cmp(0));     ANS(num_cmp(0));     ANS(num_cmp($c[2]));
+
+
+BEGIN_TEXT
+$PAR
+$BBOLD (b) $EBOLD
+If \(S\colon U \rightarrow U\) is the linear operator defined by
+$BR
+\( S(M)= \{display_matrix_mm([[$c[0], $c[1]], [0, $c[2]]])\} M {\{display_matrix_mm([[$c[0], $c[1]], [0, $c[2]]])\}}^{-1} \) 
+$BR
+then the matrix of \(S\) with respect to \(B\) is $BR
+\{ mbox( '\([S]_B=\)', answer_matrix(3,3,5) ) \}
+END_TEXT
+
+ANS(num_cmp(1+$c[1]/$c[2])); ANS(num_cmp(1+($c[1]-$c[0])/$c[2])); ANS(num_cmp(- $c[1]/$c[2]));
+ANS(num_cmp(-$c[1]/$c[2]));  ANS(num_cmp(($c[0]-$c[1])/$c[2]));   ANS(num_cmp($c[1]/$c[2]));
+ANS(num_cmp(0));             ANS(num_cmp(0));                     ANS(num_cmp(1));
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

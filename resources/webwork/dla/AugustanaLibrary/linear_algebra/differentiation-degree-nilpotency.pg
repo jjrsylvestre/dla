@@ -1,0 +1,23 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl"
+);
+
+TEXT(beginproblem());
+$ShowPartialCorrectAnswers = 1;
+
+Context("Numeric")->variables->add(n => 'Real');
+
+$answer = Formula("n+1");
+
+BEGIN_PGML
+
+What is the degree of nilpotency of the differential operator
+[`\frac{d}{dx} \colon \operatorname{P}_n(\mathbb{R}) \to \operatorname{P}_n(\mathbb{R})`]
+?
+
+Answer: [___________]{$answer}
+
+END_PGML
+ENDDOCUMENT();

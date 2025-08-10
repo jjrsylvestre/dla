@@ -1,0 +1,194 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix', 'transformation', 'invariant subspace')
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrix forms)
+## DBsection(Invariant subspaces)
+## Date(Feb 2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "answerHints.pl",     # answer post-filter to give student messages about his/her answer
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$n = 5;
+$n1 = 3;
+
+@s = (
+	[random(-5,5),random(-5,5),random(-5,5),0,0],
+	[random(-5,5),random(-5,5),random(-5,5),0,0],
+	[random(-5,5),random(-5,5),random(-5,5),0,0],
+	[0,0,0,random(-5,5),random(-5,5)],
+	[0,0,0,random(-5,5),random(-5,5)]
+);
+$S = Matrix(@s);
+
+# Form $A by conjugating $S by random elementary matrices of det +/- 1.
+# Stop when $A has at most $maxzeros off-diagonal zeros
+$nzeros = 12;
+$maxzeros = 7;
+$count = 0;
+@e = Value::Matrix->I($n)->value;
+@elems = ();
+while ( ($nzeros > $maxzeros) && ($count < 100) ) {
+	$i = random(0,$n-1);
+	do { $j = random(0,$n-1); } until ($j != $i);
+	if (random(0,1)) {
+		# conjugate by elementary matrix of the 
+		# "add mult of one row to another" variety
+		$m = non_zero_random(-5,5);
+		foreach $k (0..$n-1) {
+			$s[$i][$k] += $m * $s[$j][$k];
+		}
+		foreach $k (0..$n-1) {
+			$s[$k][$j] -= $m * $s[$k][$i];
+		}
+		$e[$i][$j] = $m;
+		push (@elems, Matrix(@e));
+		$e[$i][$j] = 0;
+	} else {
+		# conjugate by elementary matrix of the
+		# "swap two rows" variety
+		($s[$i],$s[$j]) = ($s[$j],$s[$i]);
+		foreach $k (0..$n-1) {
+			($s[$k][$i],$s[$k][$j]) = ($s[$k][$j],$s[$k][$i]);
+		}
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+		push (@elems, Matrix(@e));
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+	}
+	$count++;
+	$nzeros = 0;
+	foreach $i (0..$n-1) {
+		foreach $j (0..$n-1) {
+			$nzeros++ if ( ($i != $j) && ($s[$i][$j] == 0) );
+		}
+	}
+}
+warn "There seems to be a problem generating a random matrix for you --- please contact your instructor" if ($count == 100);
+$P = Value::Matrix->I($n);
+foreach (@elems) {
+	$P = $_ * $P;
+}
+$A = Matrix(@s);
+
+BEGIN_TEXT
+Let \( A = \{$A->TeX\} \),$BR$BR and let
+\(\mathbf{w}_1 = \{$P->column(1)->TeX\}\),
+\(\mathbf{w}_2 = \{$P->column(2)->TeX\}\),
+\(\mathbf{w}_3 = \{$P->column(3)->TeX\}\),
+\(\mathbf{w}_4 = \{$P->column(4)->TeX\}\),
+\(\mathbf{w}_5 = \{$P->column(5)->TeX\}\).
+$PAR
+If you are using the Sage mathematics program to perform the calculations in this question,
+here are some ready made input lines that you can copy-and-paste into Sage.
+END_TEXT
+
+$sage_str[0] = "A = matrix(" . $A->string . ")";
+
+foreach $j (1..$n) {
+	$sage_str[$j] = "w$j = vector((" . $P->column($j)->string . "))";
+	$sage_str[$j] =~ tr/\[\]//d;
+}
+
+BEGIN_TEXT
+$PAR
+$sage_str[0] $BR
+$sage_str[1] $BR
+$sage_str[2] $BR
+$sage_str[3] $BR
+$sage_str[4] $BR
+$sage_str[5]
+END_TEXT
+
+BEGIN_TEXT
+$PAR
+The spaces \(W_1 = \operatorname{Span}\lbrace \mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3 \rbrace\) and \(W_2 = \operatorname{Span}\lbrace \mathbf{w}_4, \mathbf{w}_5 \rbrace\) are both \(A\)-invariant.
+$PAR
+Compute the result of multiplying each basis vector of \(W_1\) by \(A\).
+END_TEXT
+
+$j = 1;
+BEGIN_TEXT
+$BR
+\{mbox([ '\(A\mathbf{w}_{$j} =\)', ans_rule(5), '\(\mathbf{w}_1 + \)', ans_rule(5), '\(\mathbf{w}_2 + \)', ans_rule(5), '\(\mathbf{w}_3\).'])\}
+END_TEXT
+foreach $i (1..3) { ANS($S->element($i,$j)->cmp); }
+
+$j = 2;
+BEGIN_TEXT
+$BR
+\{mbox([ '\(A\mathbf{w}_{$j} =\)', ans_rule(5), '\(\mathbf{w}_1 + \)', ans_rule(5), '\(\mathbf{w}_2 + \)', ans_rule(5), '\(\mathbf{w}_3\).'])\}
+END_TEXT
+foreach $i (1..3) { ANS($S->element($i,$j)->cmp); }
+
+$j = 3;
+BEGIN_TEXT
+$BR
+\{mbox([ '\(A\mathbf{w}_{$j} =\)', ans_rule(5), '\(\mathbf{w}_1 + \)', ans_rule(5), '\(\mathbf{w}_2 + \)', ans_rule(5), '\(\mathbf{w}_3\).'])\}
+END_TEXT
+foreach $i (1..3) { ANS($S->element($i,$j)->cmp); }
+
+BEGIN_TEXT
+$PAR
+Now compute the result of multiplying each basis vector of \(W_2\) by \(A\).
+END_TEXT
+
+$j = 4;
+BEGIN_TEXT
+$BR
+\{mbox([ '\(A\mathbf{w}_{$j} =\)', ans_rule(5), '\(\mathbf{w}_4 + \)', ans_rule(5), '\(\mathbf{w}_5\).'])\}
+END_TEXT
+foreach $i (4,5) { ANS($S->element($i,$j)->cmp); }
+
+$j = 5;
+BEGIN_TEXT
+$BR
+\{mbox([ '\(A\mathbf{w}_{$j} =\)', ans_rule(5), '\(\mathbf{w}_4 + \)', ans_rule(5), '\(\mathbf{w}_5\).'])\}
+END_TEXT
+foreach $i (4,5) { ANS($S->element($i,$j)->cmp); }
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+Not only are the subspaces \(W_1\) and \(W_2\) \(A\)-invariant, but together they form a complete set of independent subspaces of \(\mathbb{R}^5\). Thus, if we use change-of-basis matrix $BR
+\{mbox(
+	'\(P=\)',
+	display_matrix([
+		[ '\(|\)', '\(|\)', '\(|\)', '\(|\)', '\(|\)' ],
+		[
+			'\(\mathbf{w}_1\)',
+			'\(\mathbf{w}_2\)',
+			'\(\mathbf{w}_3\)',
+			'\(\mathbf{w}_4\)',
+			'\(\mathbf{w}_5\)'
+		],
+		[ '\(|\)', '\(|\)', '\(|\)', '\(|\)', '\(|\)' ]
+	]),
+	',',
+)\}
+$BR
+the similar matrix \(P^{-1}AP\) will be in block diagonal form. Recall that each column of this form matrix will consist of the coefficients required to express the vector \(A\mathbf{w}_j\) as a linear combination in the basis vectors \(\lbrace\mathbf{w}_1,\mathbf{w}_2,\mathbf{w}_3,\mathbf{w}_4,\mathbf{w}_5\rbrace\). So, from the computations already performed above,
+$PAR
+\{mbox([ '\(P^{-1}AP = \)', $S->ans_array ])\}
+END_TEXT
+Context()->normalStrings;
+ANS($S->cmp);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

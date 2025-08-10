@@ -1,0 +1,118 @@
+## EDIT REASON
+## Remove one part
+
+# DESCRIPTION
+# Find a coordinate vector with respect to a specific basis and then find a coordinate matrix.
+# ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Abstract vector spaces)
+## DBsection(Coordinate vectors and change of basis)
+## Institution(Rochester)
+## Level(3)
+## Tagged by cmd6a 4/29/06
+
+
+###########################################################################
+# initialization 
+###########################################################################
+DOCUMENT();        
+loadMacros(
+  "PGstandard.pl",
+  "PGmatrixmacros.pl",
+  "PGmorematrixmacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+###########################################################################
+# setup contexts and variables 
+###########################################################################
+$b11 = random(3,5,1);
+$b12 = non_zero_random(-2,2,1);
+$b21 = random(-3,3,1);
+$b22 = random(3,5,2);
+
+## matrix b is invertible
+$r11 = random(-2,2,4);
+$r12 = random(-3,3,2);
+$r21 = 3/$r12;
+$r22 = $r11;
+
+## determinant of matrix r is 1.
+$i11 = $r11;
+$i12 = - $r12;
+$i21 = - $r21; 
+$i22 = $r11;
+
+$p11 = $i11*$b11 + $i12*$b21;
+$p12 = $i11*$b12 + $i12*$b22;
+$p21 = $i21*$b11 + $i22*$b21;
+$p22 = $i21*$b12 + $i22*$b22;
+
+
+###########################################################################
+# state the problem 
+###########################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Let \(F_1\) be the ordered basis of \( {\mathbb R}^2 \) given by 
+$PAR
+\[ F_1 = \left\{'$LBRACE'\} \{ display_matrix_mm([[$b11], [$b21]])\}, \{ display_matrix_mm([[$b12], [$b22]]) \} \right $RBRACE \]
+$PAR
+and let \(F_2\) be the ordered basis given by
+$PAR
+\[ F_2 = \left${LBRACE}\{ display_matrix_mm([[$r11], [$r21]])\}, \{display_matrix_mm([[$r12], [$r22]])\} \right${RBRACE}\]
+$BR
+Find the transition matrix \( P_{F_1 \to F_2}\),
+that is, the matrix such that \( [x]_{F_2} = P_{F_1 \to F_2} [x]_{F_1} \) for all \(x\) in \( {\mathbb R}^2 \): 
+$PAR
+$BCENTER
+\{ mbox( '\(P=\)', answer_matrix(2,2,10) ) \}
+$ECENTER
+END_TEXT
+Context()->normalStrings;
+
+
+###########################################################################
+# check the answer  
+###########################################################################
+ANS(num_cmp($p11));
+ANS(num_cmp($p12));
+ANS(num_cmp($p21));
+ANS(num_cmp($p22));
+
+
+###########################################################################
+# solution
+###########################################################################
+Context()->texStrings;
+BEGIN_SOLUTION
+${BBOLD}Solution:${EBOLD} 
+Let \(\vec{u}_1,\vec{u}_2\) be the two columns in \(F_1\) in order and let \(\vec{v}_1, \vec{v}_2\) be the two columns in \(F_2\) in order. Let \(A\) and \(B\) be the matrices defined by \(A = [\vec{u}_1, \vec{u}_2]\) and \(B = [\vec{v}_1,\vec{v}_2]\).
+Then \(A = P_{F_1 \to S}\) and \(B = P_{F_2 \to S}\),
+where \(S\) is the standard basis of \(\mathbb{R}^2\).
+$PAR
+So
+\[
+P_{F_1 \to F_2}
+= P_{S \to F_2} P_{F_1 \to S}
+= P_{F_2 \to S}^{-1} P_{F_1 \to S}
+= B^{-1} A,
+\]
+and \(P\) is given by $PAR
+\[
+P = B^{-1} A = \left[\begin{array}{cc} $i11 & $i12 \\ $i21 & $i22 \end{array}\right] 
+\left[\begin{array}{cc} $b11 & $b12 \\ $b21 & $b22 \end{array}\right]
+= \left[\begin{array}{cc} $p11 & $p12 \\ $p21 & $p22 \end{array}\right]
+\]
+END_SOLUTION
+Context()->normalStrings;
+
+# Edited and updated in 2012/2013 by Rick Lynch @ Mizzou. Originally taken from NPL.
+# Desc: Find a coordinate vector with respect to a specific basis and then find a coordinate matrix.
+ENDDOCUMENT();

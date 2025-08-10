@@ -1,0 +1,108 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','basis')
+## Tagged by cmd6a 4/29/06
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Bases')
+## Date('')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## FRANKENSTEINED FROM
+## NationProblemLibrary/Rochester/setLinearAlgebra10Bases/ur_la_10_5.pg
+## NationProblemLibrary/Rochester/setLinearAlgebra10Bases/ur_la_10_6.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGmatrixmacros.pl",
+"PGnumericalmacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+# create polynomial basis members
+$a1 = non_zero_random(-4,4,1);
+$a2 = 0;
+$a3 = non_zero_random(-4,4,1);
+
+$k = random(2,5,1);
+$d = non_zero_random(-4,4,1);
+
+$b1 = $a1 * $k;
+$b2 = $a2 * $k + $d;
+$b3 = $a3 * $k;
+
+$m = random(2,3,1);
+$sign = random(-1,1,2);
+$m = $m * $sign;
+
+$n = non_zero_random(-3,3,1);
+
+$e = random(1,2,1);
+
+$c1 = $a1 * $n + $b1 * $m + $e;
+if ( $c1 == 0) { $e = $e+1; $c1 = $a1 * $n + $b1 * $m + $e;}
+
+$c2 = $a2 * $n + $b2 * $m; 
+$c3 = $a3 * $n + $b3 * $m;
+
+$p1 = FEQ("$a1 + $a3 x^2");
+$p2 = FEQ("$b1 + $b2 x + $b3 x^2");
+$p3 = FEQ("$c1 + $c2 x + $c3 x^2");
+
+$q11=$a1;
+$q21=$a2-$q11;
+$q31=$a3-$q21;
+$q12=$b1;
+$q22=$b2-$q12;
+$q32=$b3-$q22;
+$q13=$c1;
+$q23=$c2-$q13;
+$q33=$c3-$q23;
+
+
+BEGIN_TEXT
+Each of the sets
+$PAR
+\( B=$LB \, $p1, \, $p2, \, $p3 \, $RB \)
+$PAR
+and
+$PAR
+\( R=$LB \, 1+x, \, x+x^2, \, x^2 \, $RB \)
+$PAR
+is a basis for \(P_2\).
+$PAR
+Find a matrix \(Q\) such that \( [p(x)]_R = Q [p(x)]_B \) for all \(p(x) \in P_2 \).
+$BR
+\{ mbox( '\(Q=\)', answer_matrix(3,3,5) ) \}
+
+END_TEXT
+
+ANS(num_cmp($q11));
+ANS(num_cmp($q12));
+ANS(num_cmp($q13));
+ANS(num_cmp($q21));
+ANS(num_cmp($q22));
+ANS(num_cmp($q23));
+ANS(num_cmp($q31));
+ANS(num_cmp($q32));
+ANS(num_cmp($q33));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

@@ -1,0 +1,178 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix forms','matrices','elementary nilpotent form')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Matrix Forms')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+  "MatrixCheckers.pl",  # for concatenate_columns_into_matrix
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$n = 3;
+
+@s = (
+	[0,0,0],
+	[1,0,0],
+	[0,1,0],
+);
+
+$S = Matrix(@s);
+
+# using these instead of ->inverse to avoid divisions
+# which can cause round-off errors for zero entries
+sub unimodular_upper_tri_inverse {
+	my @u = (shift)->value;
+	my @I = Value::Matrix->I($n)->value;
+	foreach my $d (1..$n) {
+		$dd = $n - $d;
+		foreach my $i (0..$dd-1) {
+			foreach my $j ($n-$d..$n-1) {
+				$I[$i][$j] -= $u[$i][$dd] * $I[$dd][$j];
+			}
+		}
+	}
+	return Matrix(@I);
+}
+sub unimodular_lower_tri_inverse {
+	return (unimodular_upper_tri_inverse(shift->transpose))->transpose;
+}
+
+# Form $A by conjugating $S by matrices of det +/- 1.
+# First an upper triangular, then a lower triangular, then a permutation matrix
+$nperms = $n;
+$randrange = 2;
+foreach $i (0..$n-1) {
+	foreach $j (0..$n-1) {
+		if ($i == $j) {
+			$upper[$i][$j] = 1;
+		} elsif ($i < $j) {
+			$upper[$i][$j] = random(-$randrange,$randrange);
+		} else {
+			$upper[$i][$j] = 0;
+		}
+	}
+}
+$Upper = Matrix(@upper);
+foreach $i (0..$n-1) {
+	foreach $j (0..$n-1) {
+		if ($i == $j) {
+			$lower[$i][$j] = 1;
+		} elsif ($i > $j) {
+			$lower[$i][$j] = random(-$randrange,$randrange);
+		} else {
+			$lower[$i][$j] = 0;
+		}
+	}
+}
+$Lower = Matrix(@lower);
+@perm = Value::Matrix->I($n)->value;
+@perm_tracking = ();
+foreach (1..$nperms) {
+	$i = random(0,$n-1);
+	do { $j = random(0,$n-1); } until ($j != $i);
+	($perm[$i],$perm[$j]) = ($perm[$j],$perm[$i]);
+	push(@perm_tracking,$i,$j);
+}
+$Perm = Matrix(@perm);
+@perm = Value::Matrix->I($n)->value;
+foreach $k (0..$nperms-1) {
+	$j = pop @perm_tracking;
+	$i = pop @perm_tracking;
+	($perm[$i],$perm[$j]) = ($perm[$j],$perm[$i]);
+}
+$PermI = Matrix(@perm);
+
+$P = $Perm * $Lower * $Upper;
+$A = $P * $S * unimodular_upper_tri_inverse($Upper) * unimodular_lower_tri_inverse($Lower) * $PermI;
+
+
+Context()->texStrings;
+BEGIN_TEXT
+The matrix \(A = $A\) is nilpotent, and is similar to one in elementary nilpotent form.
+$PAR
+Determine an invertible matrix \(P\) such that \(P^{-1}AP\) is a lower triangular matrix in elementary nilpotent form.
+$PAR
+\{ mbox( '\(P = \)', $P->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+
+sub pmatrix_checker {
+	my ($correct,$student,$ansHash) = @_;  # get correct and student MathObjects
+	return 0 if ($ansHash->{isPreview});
+
+	if ($student->det->isZero) {
+		$ansHash->{ans_message} = "Your answer is not invertible, which means that you haven't chosen linearly independent columns.";
+		return 0;
+	}
+
+	## first check that student has made a good choice for the first column of P
+	my $testCol = $student->column(1);
+	foreach (1..$n-1) {
+		$testCol = $A * $testCol;
+		if ($testCol->isZero) {
+			$ansHash->{ans_message} = "You have not made a good choice for your first column.";
+			return 0;
+		}
+	}
+
+	## now check that columns of P follow the pattern:
+	## Ap_i = p_{i+1}
+	## don't need to check last column, since if all others follow pattern then
+	## automatically Ap_n = 0 by nilpotency of A
+	my @columns = ();
+	push(@columns,$student->column($_)) for (2..$n);
+	my @zcol = ([]);
+	push(@{$zcol[0]},0) for (1..$n);
+	push(@columns,Matrix(@zcol)->transpose);
+	my $testMatrix = $A * $student - concatenate_columns_into_matrix(@columns);
+	# any column in $testMatrix that is not zero corresponds to an incorrect column in $student
+	my $partscore = 1.0/$n;
+	my $score = $partscore; # we made it past the initial first column check
+	my $col = 0;
+	COLCHECK: {
+		foreach $col (2..$n) {
+			if ($testMatrix->column($col-1)->isZero) {
+				$score += $partscore;
+			} else {
+				$ansHash->{ans_message} = "Your columns don't follow the correct pattern. First column found that doesn't follow the pattern is column $col.";
+				last COLCHECK;
+			}
+		}
+	}
+	my $correct = 0;
+	if ($score > (($n-1.0)/$n)) {
+		$score = 1.0;
+		$correct = 1;
+	}
+	$ansHash->{score} = $score;
+	return $correct;
+}
+
+ANS($P->cmp(checker=>~~&pmatrix_checker));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

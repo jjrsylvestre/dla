@@ -1,0 +1,107 @@
+## EDIT REASONS:
+## 1. Remove ridiculous apology.
+## 2. Clean up a bit.
+
+## DESCRIPTION
+## Working with Complex Numbers
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/20/06
+
+
+## DBsubject(Complex analysis)
+## DBchapter(Arithmetic)
+## DBsection(Conversion to/from polar form)
+## Institution(Rochester)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('24')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('25')
+## Problem2('')
+
+DOCUMENT() ;
+loadMacros(
+	"PG.pl",
+	"PGbasicmacros.pl",
+	"PGchoicemacros.pl",
+	"PGanswermacros.pl",
+	"PGauxiliaryFunctions.pl",
+	"PGgraphmacros.pl",
+	"PGcomplexmacros.pl"
+) ;
+#sub i ();  #make i act like the imaginary unit.
+$showPartialCorrectAnswers=1;
+TEXT(beginproblem()) ;
+
+$a =random(1,7,1) + non_zero_random(-7,7,1)*i;
+$b = random(-7,-1,1) + non_zero_random(-7,7,1)*i;
+
+$graph = init_graph(-8, -8, 8, 8,grid=>[16,16],axes=>[0,0]);
+$point1 = closed_circle(Re($a), Im($a), 'red');
+$point2 = closed_circle(Re($b), Im($b), 'blue');
+$graph->stamps($point1,$point2);
+BEGIN_TEXT
+${BBOLD}The complex plane and polar form${EBOLD}
+$PAR
+\{ image(insertGraph($graph), width=>'200', height=>'200') \}
+$BR
+${BITALIC}(Click to enlarge.)${EITALIC}
+$PAR
+The red point represents the complex number \(z_1 =\)\{ans_rule(10)\}, 
+$BR and the blue point represents the complex number \(z_2 = \)\{ans_rule(10) \}.
+$PAR
+Compute the moduli
+$BR
+\( |z_1| = \) \{ans_rule(10)\},
+$BR
+\( |z_2| = \) \{ans_rule(10)\}.
+$PAR
+Determine \(r\) and \(\theta\) (use an angle between \(-\pi\) and \(\pi\)) such that the red point \(z_1= re^{i\theta}\):
+$BR
+\(r\) =  \{ans_rule(10)\}
+$BR
+\(\theta\) =  \{ans_rule(10)\}
+$PAR
+Determine \(r\) and \(\theta\) (use an angle between \(-\pi\) and \(\pi\)) such that the blue point \(z_2= re^{i\theta}\):
+$BR
+\(r\) =  \{ans_rule(10)\}
+$BR
+\(\theta\) =  \{ans_rule(10)\}
+END_TEXT
+
+ANS cplx_cmp($a );
+ANS cplx_cmp($b);
+ANS num_cmp(abs($a));
+ANS num_cmp(abs($b));
+ANS num_cmp(abs($a));
+ANS num_cmp(arg($a));
+ANS num_cmp(abs($b));
+ANS num_cmp(arg($b));
+
+BEGIN_TEXT
+$PAR
+Using the law of exponents it is really easy to multiply complex numbers represented in polar coordinates -- the angles just add!  
+
+\[ (r_1 e^{i\theta_1}) (r_2e^{i\theta_2}) = r_1r_2e^{i(\theta_1+\theta_2)}. \]
+
+Determine \(z_1 \cdot z_2 = re^{i\theta}\) using polar coordinates and your answer above:
+$BR
+\(r\) =  \{ans_rule(10)\},
+$BR
+\(\theta\) =  \{ans_rule(10)\}.
+
+$PAR
+
+Check your answer by multiplying your \(a+bi\) expressions for \(z_1,z_2\) from the first part of this question, and then converting to polar coordinates. Can you plot this number on the graph?
+END_TEXT
+$result = $a*$b;
+ANS num_cmp(abs($result));
+ANS num_cmp(arg($result));
+
+ENDDOCUMENT() ;       

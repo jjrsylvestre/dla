@@ -1,0 +1,157 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix forms','matrices','complex matrices','scalar-triangular form')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Matrix Forms')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Complex");
+Context()->parens->set("[" => {formMatrix => 1});
+
+$n = 3;
+
+$eigval = Complex(0,random(2,5)*random(-1,1,2));
+
+# 3x3 matrix in jordan form with:
+#  a single eigvalue
+#  a single block
+$cmplx1 = Complex(1,0);
+$cmplx0 = Complex(0,0);
+@s = (
+	[$eigval,$cmplx1,$cmplx0],
+	[$cmplx0,$eigval,$cmplx1],
+	[$cmplx0,$cmplx0,$eigval],
+);
+@espace_dims = (1,1,1);
+
+# Form $A by conjugating $S by random elementary matrices of det +/- 1.
+# Stop when $A has at most $maxzeros off-diagonal zeros
+$maxzeros = 1;
+$nzeros = 4;
+$count = 0;
+@e = Value::Matrix->I($n)->value;
+@elems = ();
+while ( ($nzeros > $maxzeros) && ($count < 100) ) {
+	$i = random(0,$n-1);
+	do { $j = random(0,$n-1); } until ($j != $i);
+	if (random(0,1)) {
+		# conjugate by elementary matrix of the 
+		# "add mult of one row to another" variety
+		$m = Complex(random(-5,5),random(-5,5)); # could be zero, but only harm is a wasted loop iteration
+		foreach $k (0..$n-1) {
+			$s[$i][$k] += $m * $s[$j][$k];
+		}
+		foreach $k (0..$n-1) {
+			$s[$k][$j] -= $m * $s[$k][$i];
+		}
+		$e[$i][$j] = $m;
+		push (@elems, Matrix(@e));
+		$e[$i][$j] = 0;
+	} else {
+		# conjugate by elementary matrix of the
+		# "swap two rows" variety
+		($s[$i],$s[$j]) = ($s[$j],$s[$i]);
+		foreach $k (0..$n-1) {
+			($s[$k][$i],$s[$k][$j]) = ($s[$k][$j],$s[$k][$i]);
+		}
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+		push (@elems, Matrix(@e));
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+	}
+	$count++;
+	$nzeros = 0;
+	foreach $i (0..$n-1) {
+		foreach $j (0..$n-1) {
+			$nzeros++ if ( ($i != $j) && ($s[$i][$j]->isZero) );
+		}
+	}
+}
+warn "There seems to be a problem generating a random matrix for you --- please contact your instructor" if ($count == 100);
+$P = Value::Matrix->I($n);
+foreach (@elems) {
+	$P = $_ * $P;
+}
+$A = Matrix(@s);
+
+Context()->texStrings;
+BEGIN_TEXT
+
+The complex matrix \(A\) below has a single eigenvalue \(\lambda = $eigval\) of algebraic multiplicity $n.
+\[ A = $A \]
+Determine an invertible (possibly complex) matrix \(P\) such that \(P^{-1}AP\) is an upper triangular matrix in scalar-triangular form.
+$PAR
+\{ mbox( '\(P = \)', $P->ans_array ) \}
+
+END_TEXT
+Context()->normalStrings;
+
+sub pmatrix_checker {
+	my ($correct,$student,$ansHash) = @_;  # get correct and student MathObjects
+	return 0 if ($ansHash->{isPreview});
+
+	if ($student->det->isZero) {
+		$ansHash->{ans_message} = "Your answer is not invertible, which means that you haven't chosen linearly independent columns.";
+		return 0;
+	}
+
+	## check that each column of P is correct:
+	## need first columns to be basis for eigenspace
+	## then next columns extend to basis for next generalized eigenspace
+	## and so on
+	my $eI_minus_A = $eigval * (Value::Matrix->I($n)) - $A;
+	my $testMatrix = $student->copy;
+	my $score = 0.0;
+	my $partscore = 1.0/$n;
+	my $col = 0;
+	COLCHECK: {
+		foreach my $i (@espace_dims) {
+			$testMatrix = $eI_minus_A * $testMatrix;
+			foreach (1..$i) {
+				$col++;
+				if ($testMatrix->column($col)->isZero) {
+					$score += $partscore;
+				} else {
+					$ansHash->{ans_message} = "First incorrect column found is column $col.";
+					last COLCHECK;
+				}
+			}
+		}
+	}
+	my $correct = 0;
+	$ansHash->{score} = $score;
+	if ($score > (($n-1.0)/$n)) {
+		$ansHash->{score} = 1.0;
+		$correct = 1;
+	}
+	return $correct;  # return value is decimal 0 to 1, for percent correct
+}
+
+ANS($P->cmp(checker=>~~&pmatrix_checker));
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

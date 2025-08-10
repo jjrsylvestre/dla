@@ -1,0 +1,104 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix', 'block matrix', 'matrix multiplication')
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrix forms)
+## DBsection(Block matrices)
+## Date(Feb 2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "answerHints.pl",
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Compute the following two matrix products.
+END_TEXT
+Context()->normalStrings;
+
+# $a = random 4x4 matrix, $u = random 4-dim vector
+foreach $i (0..3) {
+	foreach $j (0..3) {
+		$a[$i][$j] = random(-5,5);
+	}
+	$u[$i] = random(-5,5);
+}
+$A = Matrix(@a);
+$U = ColumnVector(@u);
+$AU = $A * $U;
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+\{ mbox( '\($A $U = \)', $AU->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+ANS($AU->cmp);
+
+
+
+# $b = random 3x3 matrix, $v = random 3-dim vector
+foreach $i (0..2) {
+	foreach $j (0..2) {
+		$b[$i][$j] = random(-5,5);
+	}
+	$v[$i] = random(-5,5);
+}
+$B = Matrix(@b);
+$V = ColumnVector(@v);
+$BV = $B * $V;
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+\{ mbox( '\($B $V = \)', $BV->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+ANS($BV->cmp);
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+Now use your answers above to help compute the following matrix product.
+END_TEXT
+Context()->normalStrings;
+
+foreach $i (0..3) { push( @{$a[$i]}, (0,0,0,0) ); }
+$a[4] = [0,0,0,0,non_zero_random(-5,5),0,0,0];
+foreach $i (0..2) {
+	push(@a, [0,0,0,0,0]);
+	push(@{$a[-1]},@{$b[$i]});
+}
+push(@u, non_zero_random(-5,5), @v);
+$A = Matrix(@a);
+$U = ColumnVector(@u);
+$AU = $A * $U;
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+\{ mbox( '\($A $U = \)', $AU->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+ANS($AU->cmp);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

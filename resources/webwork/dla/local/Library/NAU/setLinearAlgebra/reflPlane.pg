@@ -1,0 +1,90 @@
+## EDIT REASON
+## Add steps
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+
+## DBsubject(Linear algebra)
+## DBchapter(Linear transformations)
+## DBsection(Associated matrices)
+## Date(11/21/2013)
+## Institution(NAU)
+## Author(Nandor Sieben)
+## Level(4)
+## MO(1)
+## KEYWORDS('linear algebra','transition matrix'')
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 1;
+TEXT(beginproblem()); 
+
+Context('Matrix');
+
+{
+$P=Matrix([[2/3,-2/3,1/3],
+           [1/3,2/3,2/3],
+           [2/3,1/3,-2/3]]);
+}
+
+{
+{
+$b11 = non_zero_random(-4,4,1);
+$b12 = non_zero_random(-4,4,1);
+$b21 = random(-4,4,1);
+$b22 = random(-4,4,1);
+redo if (abs($b11*$b22-$b12*$b22) != 1);
+}
+
+$BB=Matrix([[$b11,$b21,0],[$b12,$b22,0],[0,0,1]]);
+$B = Matrix(3*$P*$BB);
+redo if ($B->det == 0);
+}
+$Bi = $B->inverse;
+$d = $B->det;
+$c1 = $B->column(1);
+$c2 = $B->column(2);
+
+$R_plane = Matrix([[1,0,0],[0,1,0],[0,0,-1]]);
+$anss = $d*$B*$R_plane*$Bi;
+$ans = Compute("1/$d*$anss");
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \(\vec{p}_1 = $c1\) and \(\vec{p}_2 = $c2\).
+$PAR
+Let \(\Pi\) represent the plane in \(\mathbb{R}^3\)
+spanned by \(\vec{p}_1\) and \(\vec{p}_2\),
+and let \(\vec{n}\) represent a normal vector for \(\Pi\).
+$PAR
+Let \( R_\Pi \colon {\mathbb R}^3 \to {\mathbb R}^3 \) represent reflection in \(\Pi\).
+$PAR
+${BBOLD}(a)${EBOLD} Compute the matrix of \(R_\Pi\) relative to the basis \(B = \lbrace \vec{p}_1, \vec{p}_2, \vec{n} \rbrace\).
+$BR
+${BITALIC}NOTE:${EITALIC} It is not necessary to determine a suitable normal vector \(\vec{n}\) to answer this part.
+$BR
+\( [R_\Pi]_B \) = \{ $R_plane->ans_array(5) \}
+$PAR
+${BBOLD}(b)${EBOLD} Use a transition matrix and your answer to part (a) to compute the standard matrix of \( R_\Pi \). 
+$PAR
+${BITALIC}NOTE:${EITALIC} Now it will be necessary to first determine a suitable normal vector \(\vec{n}\) to answer this part, in order to compute a transition matrix.
+$BR
+\( [R_\Pi] \) = \{ $ans->ans_array(5) \}
+
+END_TEXT
+Context()->normalStrings;
+ANS( $R_plane->cmp() );
+ANS( $ans->cmp() );
+
+;
+
+ENDDOCUMENT();
+

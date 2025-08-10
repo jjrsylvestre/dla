@@ -1,0 +1,93 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('inner product' 'orthogonal' 'orthogonal complement')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+#  "PGmatrixmacros.pl",  # for mbox
+  "PGchoicemacros.pl",  # for shuffle, pop_up_select_list
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+Context("Matrix");
+
+$E[0] = Matrix([ [1,0],[ 0, 1] ]);
+$E[1] = Matrix([ [1,0],[ 0,-1] ]);
+$E[2] = Matrix([ [0,1],[ 1, 0] ]);
+$E[3] = Matrix([ [0,1],[-1, 0] ]);
+
+# create an orthogonal basis
+$a = non_zero_random(-5,5);
+$b = non_zero_random(-5,5);
+$P = Matrix([ [$a,$b], [-$b,$a] ]);
+$F = ();
+push(@F, $P * $E[$_]) for (shuffle(4));
+
+# create a not necessarily orthogonal basis for Span{$F[0],$F[1]}
+$a = non_zero_random(-2,2);
+$k = non_zero_random(-2,2);
+$b = $k * $a;
+$c = random(-2,2);
+$d = non_zero_random(-2,2) + $k * $c;
+$A = $a * $F[0] + $b * $F[1];
+$B = $c * $F[0] + $d * $F[1];
+
+# create answers
+$YES[0] = ($a * $F[2] + $b * $F[3])->TeX;
+$YES[1] = ($c * $F[2] + $d * $F[3])->TeX;
+$NO[0] = ($b * $F[0] + $a * $F[2])->TeX;
+$NO[1] = ($d * $F[1] + $c * $F[3])->TeX;
+$NO[2] = (non_zero_random(-2,2) * $F[0] + non_zero_random(-2,2) * $F[1])->TeX;
+@qa_strings = ();
+push(@qa_strings,"\($_\)","Yes") for (@YES);
+push(@qa_strings,"\($_\)","No") for (@NO);
+
+
+# Make a new checkbox multiple choice
+$tf = new_pop_up_select_list();
+$tf->ra_pop_up_list(["?"=>"Select an Answer", "Yes" => "Yes", "No" => "No"]);
+# $cmc now "contains" the checkbox multiple choice object.
+
+# Insert some  questions and matching answers in the q/a list
+$tf->qa(@qa_strings);
+$tf->choose(5);
+
+Context()->texStrings;
+BEGIN_TEXT
+The pairing \( \langle X,Y \rangle = \operatorname{trace} (XY^{\mathrm{T}}) \) defines an inner product on the space of \( 2 \times 2\) matrices.
+$PAR
+Let \( A = $A \) and \( B = $B \).
+$PAR
+If \( W=\operatorname{Span}\lbrace A,B \rbrace \), determine whether each of the following vectors is in \(W^{\perp}\).
+$PAR
+ \{ $tf -> print_q \}
+END_TEXT
+Context()->normalStrings;
+
+
+# Enter the correct answers to be checked against the answers to the students.
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();

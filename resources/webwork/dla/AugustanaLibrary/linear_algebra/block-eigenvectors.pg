@@ -1,0 +1,128 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix', 'block matrix', 'eigenvalues' 'eigenvectors' 'algebraic multiplicity')
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrix forms)
+## DBsection(Block matrices)
+## Date(Feb 2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+  "MatrixCheckers.pl",  # for basis_one_checker_one_column
+  "parserMultiAnswer.pl",
+#  "answerHints.pl",     # answer post-filter to give student messages about his/her answer
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+# geom. multiplicity of eigval will be 1
+$eigval = non_zero_random(-9,9);
+$J = Matrix([
+  [ $eigval, non_zero_random(-9,9) ],
+  [ 0, $eigval ]
+]);
+
+# create a det 1 matrix
+$a = non_zero_random(-5,5);
+$b = non_zero_random(-5,5);
+$k = non_zero_random(-5,5);
+@p = (
+  [ 1 + $b*$k, $a + $k + $a * $b * $k ],
+  [ $b, 1 + $a * $b ]
+);
+# maybe swap rows
+($p[0],$p[1]) = ($p[1],$p[0]) if (random(0,1));
+
+$P = Matrix(@p);
+
+$B = $P * $J * ($P->inverse);
+
+# the first column of $P is an eigenvector for $B
+$evect1 = $P->column(1);
+$evect2 = Matrix([[0],[0],$evect1->row(1),$evect1->row(2)]);
+
+$J = Matrix([
+  [ $eigval + non_zero_random(-3,3), non_zero_random(-9,9) ],
+  [ 0, $eigval + non_zero_random(-3,3) ]
+]);
+$A = $P * $J * ($P->inverse);
+
+# ISSUES:
+# 1. wanted to write this with singleResult => 0
+# but messages wouldn't display if one answer was blank
+# (even with allowBlankAnswers => 1)
+# 2. $anshash->{isPreview} doesn't read correctly?
+$multians = MultiAnswer($evect1, $evect2)->with(
+	singleResult => 1,
+	separator => ',',
+	tex_separator => ',',
+	checker => sub {
+		my ( $correct, $student, $self, $anshash ) = @_;
+		my ( $stuvec1, $stuvec2 ) = @{$student};
+		my ( $ansvec1, $ansvec2 ) = @{$correct};
+		my @ret = (0,0);
+		return [ @ret ] if ($anshash->{isPreview});
+		if ($stuvec1->isZero) {
+			$self->setMessage(1,'Please enter a nontrivial eigenvector.');
+		} elsif ( ! Vector($stuvec1)->isParallel(Vector($ansvec1)) ) {
+			$self->setMessage(1,'Not an eigenvector.');
+		} else {
+			$ret[0] = 1;
+		}
+		if (! $ret[0]) {
+			$self->setMessage(2,'Your second vector will not be checked for correctness until your first vector is correct.');
+			return [ @ret ];
+		}
+		$diffvec = Matrix([[0],[0],$stuvec1->row(1),$stuvec1->row(2)]) - $stuvec2;
+		$ret[1] = $diffvec->isZero;
+		$self->setMessage(2,'Your second answer must be constructed solely from your first.')
+			if (! $ret[1]);
+		return [ @ret ];
+	}
+);
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \(A = $A\) and \(B = $B\),$BR$BR
+\{mbox(
+	'and let \(C\) be the \(4 \times 4\) matrix that has block form ',
+	display_matrix([['\(A\)','\(\mathbf{0}\)'],['\(\mathbf{0}\)','\(B\)']]),
+	'.',
+)\}
+$PAR
+Matrices \(B\) and \(C\) have an eigenvalue in common: \(\lambda =\) \{ans_rule(10)\}
+$PAR
+Below, enter a corresponding eigenvector for \(B\),
+and then use that answer to construct a corresponding eigenvector for \(C\).
+$BR
+(Note: Enter an answer for both vectors below before clicking "Submit" --- if one of your two vectors is blank then neither answer will be processed.)
+$PAR
+\{mbox(
+	'Eigenvector for \(B\): ',
+	$multians->ans_array,
+	', $SPACE$SPACE$SPACE$SPACE Eigenvector for \(C\): ',
+	$multians->ans_array,
+	'.',
+)\}
+END_TEXT
+Context()->normalStrings;
+
+ANS(num_cmp($eigval));
+ANS($multians->cmp);
+
+ENDDOCUMENT() ;

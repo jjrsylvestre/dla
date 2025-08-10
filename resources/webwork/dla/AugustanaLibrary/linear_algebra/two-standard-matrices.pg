@@ -1,0 +1,94 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','linear transformation')
+## Tagged by cmd6a 5/3/06
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Linear Transformations')
+## Date('')
+## Author('')
+## Institution('Rochester')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## Based on
+## NationalProblemLibrary/Rochester/setLinearAlgebra14TransfOfRn/ur_la_14_2.pg
+## NationalProblemLibrary/Rochester/setLinearAlgebra14TransfOfRn/ur_la_14_5.pg'
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+  "PGchoicemacros.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$T = Matrix([
+	[ random(-10,10,1), random(-10,10,1) ],
+	[ random(-10,10,1), random(-10,10,1) ],
+]);
+
+$im1 = $T->column(1);
+$im2 = $T->column(2);
+$std1 = Matrix([[1],[0]]);
+$std2 = Matrix([[0],[1]]);
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$BBOLD (a) $EBOLD
+$PAR
+If \( T: {\mathbb R}^2 \rightarrow {\mathbb R}^2 \) is a linear transformation such that 
+$BR
+\( T $std1 = $im1 \) and 
+\( T $std2 = $im2 \),
+$BR
+\{ mbox( 'then the standard matrix of \( T \) is $SPACE$SPACE \( A=\)', $T->ans_array, '.' ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($T->cmp);
+
+$S = Matrix([
+	[ random(4,7,1), random(-3,3,1) ],
+	[ non_zero_random(-3,3,1), random(3,6,1) ],
+	[ random(-3,3,1), non_zero_random(-3,3,1) ],
+]);
+
+$vec1 = Matrix([ [random(1,3,2)], [random(2,4,2)], ]);
+$vec2 = Matrix([ [random(2,4,2)], [random(-3,-1,2)], ]);
+
+$im1 = $S * $vec1;
+$im2 = $S * $vec2;
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+$BBOLD (b) $EBOLD
+$PAR
+If \( S: {\mathbb R}^2 \rightarrow {\mathbb R}^3 \) is a linear transformation such that
+$BR
+\( S $vec1 = $im1 \) and \( S $vec2 = $im2 \),
+$BR
+\{ mbox( 'then the standard matrix of \( S \) is $SPACE$SPACE \( A=\)', $S->ans_array, '.' ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($S->cmp);
+
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

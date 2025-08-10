@@ -1,0 +1,52 @@
+## EDIT REASONS:
+## 1. ADDED NOTE
+## 2. COSMETIC
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/3/06
+
+## DBsubject(Linear algebra)
+## DBchapter(Eigenvalues and eigenvectors)
+## DBsection(Quadratic forms)
+## Institution('Rochester')
+## KEYWORDS('linear algebra','matrix','quadratic form')
+DOCUMENT();        # This should be the first executable line in the problem.
+## TitleText1('Linear Algebra with Applications')
+## AuthorText1('Jeffrey Holt')
+## EditionText1('1')
+## Section1('11.1')
+## Problem1('')
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGnumericalmacros.pl",
+"PGstatisticsmacros.pl",
+"PGmatrixmacros.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = non_zero_random(-9,9,1);
+$b = non_zero_random(-9,9,1);
+$c = non_zero_random(-9,9,1);
+
+BEGIN_TEXT
+
+If \(A= \{ display_matrix_mm([[$a, $b], [$b, $c]]) \}\)  and \(Q(\mathbf{x})=\mathbf{x} \cdot A\mathbf{x}\)   
+$BR
+Then \(Q(\mathbf{e}_1)=\) \{ans_rule(5)\} and \(Q(\mathbf{e}_2)=\) \{ans_rule(5)\}. 
+$PAR
+$BITALIC Note: $EITALIC Here, \(\mathbf{e}_1,\mathbf{e}_2\) are the standard basis vectors of \(\mathbb{R}^2\).
+END_TEXT
+
+ANS(num_cmp($a));     
+ANS(num_cmp($c));   
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

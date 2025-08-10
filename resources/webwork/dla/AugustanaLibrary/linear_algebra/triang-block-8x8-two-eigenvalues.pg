@@ -1,0 +1,234 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix forms','matrices','triangular-block form')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Matrix Forms')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+  "MatrixCheckers.pl", # for concatenate_columns_into_matrix
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$n = 8;
+$eigvals[0] = non_zero_random(-3,3);
+do { $eigvals[1] = non_zero_random(-3,3); } until ($eigvals[1] != $eigvals[0]);
+
+# one 4x4 full block, one 4x4 block with two 2x2 sub-blocks
+@espace_dims = ([1,1,1,1],[2,2]);
+
+foreach $index (0..$#eigvals) {
+	$multiplicities[$index] += $_ for @{$espace_dims[$index]};
+}
+
+@ans_eigvals = @eigvals;
+@ans_multiplicities = @multiplicities;
+if ( $eigvals[0] > $eigvals[1] ) {
+	($ans_eigvals[0],$ans_eigvals[1]) = ($ans_eigvals[1],$ans_eigvals[0]);
+	($ans_multiplicities[0],$ans_multiplicities[1])
+	  = ($ans_multiplicities[1],$ans_multiplicities[0]);
+}
+
+
+foreach $i (0..$n-1) {
+	foreach $j (0..$n-1) {
+		$s[$i][$j] = 0;
+	}
+}
+
+$col = 0;
+foreach $index (0..$#eigvals) {
+	foreach $d (@{$espace_dims[$index]}) {
+		foreach (1..$d) {
+			$s[$col][$col] = $eigvals[$index];
+			$col++;
+		}
+	}
+}
+
+$s[0][1] = 1;
+$s[1][2] = 1;
+$s[2][3] = 1;
+$s[4][5] = 1;
+$s[6][7] = 1;
+
+
+$S = Matrix(@s);
+
+# using these instead of ->inverse to avoid divisions
+# which can cause round-off errors for zero entries
+sub unimodular_upper_tri_inverse {
+	my @u = (shift)->value;
+	my @I = Value::Matrix->I($n)->value;
+	foreach my $d (1..$n) {
+		$dd = $n - $d;
+		foreach my $i (0..$dd-1) {
+			foreach my $j ($n-$d..$n-1) {
+				$I[$i][$j] -= $u[$i][$dd] * $I[$dd][$j];
+			}
+		}
+	}
+	return Matrix(@I);
+}
+sub unimodular_lower_tri_inverse {
+	return (unimodular_upper_tri_inverse(shift->transpose))->transpose;
+}
+
+# Form $A by conjugating $S by matrices of det +/- 1.
+# First an upper triangular, then a lower triangular, then a permutation matrix
+$nperms = $n;
+$randrange = 1;
+foreach $i (0..$n-1) {
+	foreach $j (0..$n-1) {
+		if ($i == $j) {
+			$upper[$i][$j] = 1;
+		} elsif ($i < $j) {
+			$upper[$i][$j] = random(-$randrange,$randrange);
+		} else {
+			$upper[$i][$j] = 0;
+		}
+	}
+}
+$Upper = Matrix(@upper);
+foreach $i (0..$n-1) {
+	foreach $j (0..$n-1) {
+		if ($i == $j) {
+			$lower[$i][$j] = 1;
+		} elsif ($i > $j) {
+			$lower[$i][$j] = random(-$randrange,$randrange);
+		} else {
+			$lower[$i][$j] = 0;
+		}
+	}
+}
+$Lower = Matrix(@lower);
+@perm = Value::Matrix->I($n)->value;
+@perm_tracking = ();
+foreach (1..$nperms) {
+	$i = random(0,$n-1);
+	do { $j = random(0,$n-1); } until ($j != $i);
+	($perm[$i],$perm[$j]) = ($perm[$j],$perm[$i]);
+	push(@perm_tracking,$i,$j);
+}
+$Perm = Matrix(@perm);
+@perm = Value::Matrix->I($n)->value;
+foreach $k (0..$nperms-1) {
+	$j = pop @perm_tracking;
+	$i = pop @perm_tracking;
+	($perm[$i],$perm[$j]) = ($perm[$j],$perm[$i]);
+}
+$PermI = Matrix(@perm);
+
+$P = $Perm * $Lower * $Upper;
+$A = $P * $S * unimodular_upper_tri_inverse($Upper) * unimodular_lower_tri_inverse($Lower) * $PermI;
+$sage_str = "A = matrix(" . $A->string . ");";
+
+Context()->texStrings;
+BEGIN_TEXT
+The matrix \[A=$A\] has two eigenvalues \(\lambda_1 < \lambda_2\).
+$PAR
+If you are using the Sage mathematics program to help you perform the calculations in this question,
+here is a ready made input line that you can copy-and-paste into Sage.
+$PAR
+$sage_str
+$PAR
+The $BBOLD smaller $EBOLD eigenvalue \(\lambda_1 = \) \{ans_rule(2)\} has algebraic multiplicity \{ans_rule(2)\}.$BR
+The $BBOLD larger  $EBOLD eigenvalue \(\lambda_2 = \) \{ans_rule(2)\} has algebraic multiplicity \{ans_rule(2)\}.$BR
+$PAR
+Determine an invertible matrix \(P\) such that \(P^{-1}AP\) is in triangular-block form.
+$PAR
+\{ mbox( '\(P = \)', $P->ans_array ) \}
+
+END_TEXT
+Context()->normalStrings;
+
+ANS(Compute("$ans_eigvals[0]")->cmp);  ANS(Compute("$ans_multiplicities[0]")->cmp);
+ANS(Compute("$ans_eigvals[1]")->cmp);  ANS(Compute("$ans_multiplicities[1]")->cmp);
+
+sub pmatrix_checker {
+	my ($correct,$student,$ansHash) = @_;  # get correct and student MathObjects
+	return 0 if ($ansHash->{isPreview});
+
+	if ($student->det->isZero) {
+		$ansHash->{ans_message} = "Your answer is not invertible, which means that you haven't chosen linearly independent columns.";
+		return 0;
+	}
+
+	## check that each column of P is correct:
+	## need first columns to be basis for eigenspace
+	## then next columns extend to basis for next generalized eigenspace
+	## and so on
+	my $score = 0.0;
+	my $partscore = 1.0/$n;
+	my $col = 1;
+	COLCHECK: {
+		while ($col <= $n) {
+			# first figure out which eigenvalue we're dealing with
+			# but don't need to keep track of which eigenvalues have been checked
+			# since linear independence check will take care of that
+			my $eI_minus_A;
+			my $e_index = -1;
+			foreach my $i (0..$#eigvals) {
+				$eI_minus_A = $eigvals[$i] * (Value::Matrix->I($n)) - $A;
+				if ( ($eI_minus_A * $student->column($col))->isZero ) {
+					$e_index = $i;
+					last;
+				}
+			}
+			last COLCHECK if ($e_index == -1);
+			my @columns = ();
+			push(@columns,$student->column($_)) for ($col..$col+$multiplicities[$e_index]-1);
+			# ^^ we've already checked the first column in the block, but who cares
+			#    leaving it out is too much trouble
+			my $testMatrix = concatenate_columns_into_matrix(@columns);
+			my $block_col = 1;
+			foreach my $i (@{$espace_dims[$e_index]}) {
+				$testMatrix = $eI_minus_A * $testMatrix;
+				foreach (1..$i) {
+					if ($testMatrix->column($block_col)->isZero) {
+						$score += $partscore;
+					} else {
+						last COLCHECK;
+					}
+					$block_col++;
+					$col++;
+				}
+			}
+		}
+	}
+	$ansHash->{ans_message} = "First incorrect column found is column $col." if ($col <= $n);
+	my $correct = 0;
+	if ($score > (($n-1.0)/$n)) {
+		$score = 1.0;
+		$correct = 1;
+	}
+	$ansHash->{score} = $score;
+	return $correct;
+}
+
+ANS($P->cmp(checker=>~~&pmatrix_checker));
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

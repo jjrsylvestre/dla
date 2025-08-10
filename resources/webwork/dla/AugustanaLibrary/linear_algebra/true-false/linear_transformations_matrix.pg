@@ -1,0 +1,81 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Ch 8')
+## DBsection('AUMAT220 S 4')
+## Date('3/5/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "The Matrix of a Linear Transformation", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"If \(T\colon V \to W\) is a linear transformation, where \(\dim V = m\) and \(\dim W = n\), then for any basis \(B\) of \(V\) and any basis \(B'\) of \(W\), the matrix \([T]_{B'B}\) has dimensions \(m \times n\).",
+"F",
+"If \(B = \{\mathbf{v}_1,\mathbf{v}_2\}\) is a basis for \(V\), \(B' = \{\mathbf{w}_1,\mathbf{w}_2,\mathbf{w}_3\}\) is a basis for \(W\), and \(T\colon V \to W\) is a linear transformation such that \[ [T]_{B'B} = \begin{bmatrix} \phantom{-}1 & 0 \\ -1 & 1 \\ \phantom{-}0 & 2 \end{bmatrix}, \] then \(T(3\mathbf{v}_1 - \mathbf{v}_2) = 3\mathbf{w}_1 - 4\mathbf{w}_2 - 2\mathbf{w}_3\).",
+"T",
+"If \(B\) is a basis for \(V\) and \(T\colon V \to V\) is a linear operator such that \[ [T]_B = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 7 \end{bmatrix}, \] then \(T\) is one-to-one.",
+"F",
+"If \(B = \{\mathbf{v}_1,\mathbf{v}_2,\dotsc,\mathbf{v}_n\}\) is a basis for \(V\), \(B' = \{\mathbf{w}_1,\mathbf{w}_2,\dotsc,\mathbf{w}_n\}\) is a basis for \(W\), and \(T\colon V \to W\) is the linear transformation defined by \(T(k_1\mathbf{v}_1+k_2\mathbf{v}_2+\dotsb+k_n\mathbf{v}_n) = k_1\mathbf{w}_1+k_2\mathbf{w}_2+\dotsb+k_n\mathbf{w}_n\), then \([T]_{B'B} = I\), the \(n\times n\) identity matrix.",
+"T",
+"If \(T\colon V \to V\) is a linear operator and there exists a nonzero vector \(\mathbf{v} \in V\) such that \(T(\mathbf{v}) = 4\mathbf{v}\), then for every basis \(B\) of \(V\) the scalar \(4\) is an eigenvalue of the square matrix \([T]_B\).",
+"T",
+"If \(T_1\colon V \to W\) and \(T_2\colon V \to W\) are linear transformations, \(B\) is a basis for \(V\), and \(B'\) is a basis for \(W\) such that \([T_1]_{B'B} = [T_2]_{B'B}\), then \(T_1(\mathbf{v}) = T_2(\mathbf{v})\) for every vector \(\mathbf{v}\in V\).",
+"T",
+);   
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(6);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)$BR
+
+$PAR
+
+$BBOLD In the following, assume that \(V\) and \(W\) are finite dimensional abstract vector spaces, unless otherwise stated. $EBOLD
+
+$PAR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

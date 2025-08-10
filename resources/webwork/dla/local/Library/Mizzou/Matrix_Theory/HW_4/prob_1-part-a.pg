@@ -1,0 +1,137 @@
+## EDIT REASON
+## Split into two problems
+
+# DESCRIPTION
+# Find two vectors for which as the transition of two vectors for a given transformation. Also, find 
+# the transition matrix from one polynomial basis to another.
+# ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Abstract vector spaces)
+## DBsection(Coordinate vectors and change of basis)
+## Institution(University of Missouri-Columbia)
+## Author(Rick Lynch)
+## Level(2)
+## KEYWORDS('matrices', 'matrix', 'transition matrix')
+
+
+###########################################################################
+# initialization 
+###########################################################################
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+###########################################################################
+# setup contexts and variables 
+###########################################################################
+Context("Matrix");
+do {
+  $v11 = non_zero_random(-15,15);
+  $v21 = non_zero_random(-15,15);
+  $v12 = non_zero_random(-15,15);
+  $v22 = non_zero_random(-15,15);
+} until ($v11*$v22 != $v12*$v21);
+
+do {
+  $s11 = non_zero_random(-15,15);
+  $s12 = non_zero_random(-15,15);
+  $s21 = non_zero_random(-15,15);
+  $s22 = non_zero_random(-15,15);
+} until (abs($s11*$s22 - $s12*$s21) == 1);
+
+$a = non_zero_random(-15,15);
+$b = non_zero_random(-15,15);
+$c = non_zero_random(-15,15);
+$d = non_zero_random(-15,15);
+
+$p1 = Formula("$a");
+$p2 = Formula("$b x")->reduce;
+$p3 = Formula("$c x^2")->reduce;
+$p4 = Formula("$d x^3")->reduce;
+
+$v1 = Matrix([$v11],[$v21]);
+$v2 = Matrix([$v12],[$v22]);
+$v = Matrix([$v11, $v12], [$v21, $v22]);
+$S = Matrix([$s11, $s12], [$s21, $s22]);
+$iS = $S->inverse;
+$is11 = $iS->element(1,1);
+$is12 = $iS->element(1,2);
+$is21 = $iS->element(2,1);
+$is22 = $iS->element(2,2);
+
+$u = $v*$iS;
+$u1 = $u->column(1);
+$u2 = $u->column(2);
+
+$A = Matrix([$a,-$b,0,0],[0,$b,-$c,0],[0,0,$c,-$d],[0,0,0,$d]);
+
+
+###########################################################################
+# state the problem 
+###########################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Let 
+$PAR
+\[
+\vec{v}_1 = $v1 \quad
+\vec{v}_2 = $v2 \quad
+S = $S \quad
+\]
+$PAR
+Determine vectors
+$PAR
+$BCENTER
+\{ mbox( '\(\vec{u}_1 =\)', answer_matrix(2,1,5) ) \} \{ mbox( '\(\vec{u}_2 =\)', answer_matrix(2,1,5) ) \}
+$ECENTER
+$PAR
+in \(\mathbb{R}^2\) such that \(S\) is the transition matrix from \( $LBRACE \vec{v}_1, \vec{v}_2 $RBRACE\) to \( $LBRACE \vec{u}_1, \vec{u}_2 $RBRACE\).
+END_TEXT
+Context()->normalStrings;
+
+
+###########################################################################
+# check the answer  
+###########################################################################
+ANS($u1->element(1,1)->cmp());
+ANS($u1->element(2,1)->cmp());
+ANS($u2->element(1,1)->cmp());
+ANS($u2->element(2,1)->cmp());
+
+
+###########################################################################
+# solution
+###########################################################################
+Context()->texStrings;
+BEGIN_SOLUTION
+${BBOLD}Solution:${EBOLD} 
+Write \(\mathcal{B} = $LBRACE \vec{v}_1, \vec{v}_2 $RBRACE \)
+and \(\mathcal{B}' = $LBRACE \vec{u}_1, \vec{u}_2 $RBRACE \).
+$PAR
+If \(S = P_{\mathcal{B}\to\mathcal{B}'}\),
+then \(S^{-1} = P_{\mathcal{B}'\to\mathcal{B}}\),
+and the columns of \(S^{-1}\) are the coordinate vectors of \(\vec{u}_1\) and \(\vec{u}_2\) relative to \(\mathcal{B}\).
+$PAR
+That is,
+from \[ S^{-1} = $iS \]
+we get
+\[ \vec{u}_1 = $is11 \vec{v}_1 + $is21 \vec{v}_2, \]
+\[ \vec{u}_2 = $is12 \vec{v}_1 + $is22 \vec{v}_2. \]
+$PAR
+Computing these out yields
+\[ \vec{u}_1 = $u1, \vec{u}_2 = $u2 \]
+END_SOLUTION
+Context()->normalStrings;
+
+# Created in 2012. 
+# Desc: Find two vectors for which as the transition of two vectors for a given transformation. Also, find the transition matrix from one polynomial basis to another.
+ENDDOCUMENT();

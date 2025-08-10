@@ -1,0 +1,77 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Supplementary Notes')
+## DBsection('AUMAT220 Unitary Diagonalization')
+## Date('4/1/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Unitary Diagonalization", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"If \(A\) is unitarily diagonalizable, and \(\lambda_1,\lambda_2\) are distinct eigenvalues of \(A\), then \(E_{\lambda_2}(A) \subseteq \bigl(E_{\lambda_1}(A)\bigr)^\perp\).",
+"T",
+"If \(N\) is a normal, square matrix, then any scalar multiple of \(N\) is also normal.",
+"T",
+"Every Hermitian matrix is unitarily diagonalizable.",
+"T",
+"If \(N\) is a normal, square matrix, and \(\lambda\) is an eigenvalue of \(N\), then \(\lambda\) is also an eigenvalue of \(N^\ast\).",
+"F",
+"The procedure to unitarily diagonalize a normal complex matrix is essentially the same as the procedure to orthogonally diagonalize a symmetric real matrix, so in addition to learning the orthogonal diagonalization procedure for the next test/exam, it shouldn't be too much more effort for me to make sure I know how to apply the procedure in the new situation of complex matrices/vectors.",
+"T",
+);
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(5);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)
+
+$PAR
+
+$BBOLD In the following, assume that all matrices are complex, unless otherwise stated.$EBOLD
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

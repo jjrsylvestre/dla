@@ -1,0 +1,111 @@
+##
+## BASED ON:
+## Library/Rochester/setLinearAlgebra22SymmetricMatrices/ur_la_22_4.pg
+##
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+  "MatrixCheckers.pl",  # for basis_checker
+  "PGchoicemacros.pl",  # for shuffle, NchooseK
+  "parserMultiAnswer.pl",
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Vector");
+
+#orthogonal row vectors:
+@u = ([1,1,1],[-2,1,1],[0,1,-1]);
+
+# scramble columns and rows: 
+@slice1 = NchooseK(3,3);
+@slice2 = NchooseK(3,3);
+foreach $i (0..2) { 
+	foreach $j (0..2) { 
+		$p[$i][$j] = $u[$slice1[$i]][$slice2[$j]];
+	}
+}
+$P_transpose = Matrix(@p);
+$P = $P_transpose->transpose;
+foreach $i (1..3) { $p[$i] = ColumnVector($P->column($i))->unit; }
+
+if ($slice1[0]==0) {
+	$root[0] = random(-3,-1);
+	$mult[0] = 3;
+} elsif ($slice1[0]==1) {
+	$root[0] = -1;
+	$mult[0] = 6;
+} elsif ($slice1[0]==2) {
+	$root[0] = random(-4,-1);
+	$mult[0] = 2;
+}
+
+$root[1] = 0;
+$mult[1] = 0;
+
+if ($slice1[2]==0) {
+	$root[2] = random(1,3);
+	$mult[2] = 3;
+} elsif ($slice1[2]==1) {
+	$root[2] = 1;
+	$mult[2] = 6;
+} elsif ($slice1[2]==2) {
+	$root[2] = random(1,4);
+	$mult[2] = 2;
+}
+
+$eig_shift = random(-5,5);
+foreach $i (0..2) { $eig[$i+1] = Compute("$root[$i] * $mult[$i] + $eig_shift"); }
+
+$A = $P * Matrix([[$root[0],0,0],[0,$root[1],0],[0,0,$root[2]]]) * $P_transpose + $eig_shift * Value::Matrix->I(3);
+
+Context()->texStrings;
+BEGIN_TEXT
+The symmetric matrix \(A=$A\) has three distinct eigenvalues \(\lambda_1 < \lambda_2 < \lambda_3\).
+$PAR
+\{ mbox(
+  '\(\lambda_1=\) ',
+  $eig[1]->ans_rule,
+  ' $SPACE$SPACE$SPACE$SPACE \(\lambda_2=\) ',
+  $eig[2]->ans_rule,
+  ' $SPACE$SPACE$SPACE$SPACE \(\lambda_3=\) ',
+  $eig[3]->ans_rule,
+) \}
+$PAR
+To achieve
+\(
+  P^{\mathrm{T}} AP =
+  \{display_matrix_mm([
+    ['\lambda_1','',''],
+    ['','\lambda_2',''],
+    ['','','\lambda_3'],
+  ])\}
+\),
+we could use \(P = \{display_matrix_mm([['\mathbf{p}_1','\mathbf{p}_2','\mathbf{p}_3'],])\}\)
+\{mbox([
+  'where \(\mathbf{p}_1 = \)',
+  $p[1]->ans_array,
+  ', $SPACE$SPACE \(\mathbf{p}_2 = \)',
+  $p[2]->ans_array,
+  ', $SPACE$SPACE and \(\mathbf{p}_3 = \)',
+  $p[3]->ans_array,
+  '.'
+])\}
+END_TEXT
+Context()->normalStrings;
+
+ANS($eig[1]->cmp);
+ANS($eig[2]->cmp);
+ANS($eig[3]->cmp);
+ANS($p[1]->cmp( checker=>~~&unit_basis_checker_one_column ) );
+ANS($p[2]->cmp( checker=>~~&unit_basis_checker_one_column ) );
+ANS($p[3]->cmp( checker=>~~&unit_basis_checker_one_column ) );
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

@@ -1,0 +1,100 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','block matrices','characteristic polynomial','cayley-hamilton')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('The Cayley-Hamilton Theorem')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$n = 7;
+
+$c[0][0] = non_zero_random(-20,20);
+$c[0][$_] = random(-20,20) for (1..$n-1);
+
+$C = Matrix(@c)->transpose;
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \( p(x) = x^7 + $c[0][6] x^6 + $c[0][5] x^5 + $c[0][4] x^4 + $c[0][3] x^3 + $c[0][2] x^2 + $c[0][1] x + $c[0][0] \).
+$PAR
+Enter a column vector
+\(\mathbf{c} = \{display_matrix_mm([ ['c_1'], ['c_2'], ['c_3'], ['c_4'], ['c_5'], ['c_6'], ['c_7'], ])\}\)
+so that the matrix \(A\) below, with the last column replaced by your answer column \(\mathbf{c}\), satisfies \(p(A) = \mathbf{0}\).
+$PAR
+\(
+	A=
+	\{display_matrix_mm([
+		['0','0','0','0','0','0','c_1'],
+		['1','0','0','0','0','0','c_2'],
+		['0','1','0','0','0','0','c_3'],
+		['0','0','1','0','0','0','c_4'],
+		['0','0','0','1','0','0','c_5'],
+		['0','0','0','0','1','0','c_6'],
+		['0','0','0','0','0','1','c_7'],
+	])\}.
+\)
+$PAR
+\{ mbox( 'ANSWER: \(\mathbf{c} = \)', $C->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+
+$showHint = -1;
+BEGIN_HINT
+You probably don't want to attempt this problem by assigning $n variables and trying to solve.
+If you find the right information in the textbook, you can answer this problem in less than 30 seconds.
+END_HINT
+
+sub cayley_checker {
+	my ($correct,$student,$ansHash) = @_;  # get correct and student MathObjects
+	return 0 if ($ansHash->{isPreview});
+	my @a = (
+		[0,1,0,0,0,0,0],
+		[0,0,1,0,0,0,0],
+		[0,0,0,1,0,0,0],
+		[0,0,0,0,1,0,0],
+		[0,0,0,0,0,1,0],
+		[0,0,0,0,0,0,1],
+		$student->transpose->row(1),
+	);
+	# It's OK just to check transpose of answer.
+	$A = Matrix(@a);
+	$pow = Value::Matrix->I($n);
+	$result = $c[0][0] * $pow;
+	foreach $j (1..$n-1) {
+		$pow *= $A;
+		$result += $c[0][$j] * $pow;
+	}
+	$result += $pow * $A;
+	return $result->isZero;
+}
+
+
+ANS($C->cmp(checker=>~~&cayley_checker));
+
+ENDDOCUMENT() ;

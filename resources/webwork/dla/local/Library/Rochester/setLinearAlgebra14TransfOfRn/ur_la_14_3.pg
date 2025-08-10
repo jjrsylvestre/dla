@@ -1,0 +1,106 @@
+## EDIT REASON:
+## Turn into a similarity of operators question
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/3/06
+
+## DBsubject(Linear algebra)
+## DBchapter(Linear transformations)
+## DBsection(Associated matrices)
+## Institution('Rochester')
+## TitleText1('Linear Algebra with Applications')
+## AuthorText1('Jeffrey Holt')
+## EditionText1('1')
+## Section1('9.3')
+## Problem1('')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGnumericalmacros.pl",
+"PGstatisticsmacros.pl",
+"PGmatrixmacros.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+for ($i=1; $i<3; $i++) {
+	$a[$i] = random(2,8,1);
+	$b[$i] = random(2,8,1);
+}
+
+# this will be an invertible matrix
+
+$p1 = random(-1,1,2);
+$p2 = non_zero_random(-3,3,1);
+$k = non_zero_random(-3,3,1);
+$r1 = $p1 * $k;
+$l = random(-1,1,2);
+$r2 = $p2 * $k + $l;
+
+$det = $p1 * $r2 - $p2 * $r1;
+
+# inverse
+
+$p1i = $r2/$det;
+$p2i = - $p2/$det;
+$r1i = - $r1/$det;
+$r2i = $p1/$det;
+
+$ans1 = ($p1*$a[1]+$r1*$a[2])*$p1i + ($p1*$b[1]+$r1*$b[2])*$p2i;
+$ans2 = ($p1*$a[1]+$r1*$a[2])*$r1i + ($p1*$b[1]+$r1*$b[2])*$r2i;
+$ans3 = ($p2*$a[1]+$r2*$a[2])*$p1i + ($p2*$b[1]+$r2*$b[2])*$p2i;
+$ans4 = ($p2*$a[1]+$r2*$a[2])*$r1i + ($p2*$b[1]+$r2*$b[2])*$r2i;
+
+BEGIN_TEXT
+
+\{ mbox( 'Let \( \mathbf{b}_1 = \)', display_matrix([[$p1], [$p2]]), 'and \(\mathbf{b}_2=\)', display_matrix([[$r1], [$r2]]), '.' )\}
+$BR
+The set \( B= $LB \mathbf{b}_1, \mathbf{b}_2 $RB \) is a basis for \( {\mathbb R}^2. \) 
+$PAR
+Let \(T\) be the unique linear operator on \( {\mathbb R}^2 \) such that 
+$BR
+\( T(\mathbf{b}_1) = $a[1] \mathbf{b}_1 + $a[2] \mathbf{b}_2 \) and \( T(\mathbf{b}_2) = $b[1] \mathbf{b}_1 + $b[2] \mathbf{b}_2. \) 
+$PAR
+${BBOLD}(a)${EBOLD} Enter the matrix of \(T\) relative to the basis \(B\):
+$BR
+\{ mbox( '\([T]_B =\)', answer_matrix(2,2,5), ',' ) \} 
+$PAR
+${BBOLD}(b)${EBOLD} Enter the change-of-basis matrix that converts from \(B\) coordinates to standard coordinates:
+$BR
+\{ mbox( '\(P_{B \to S} =\)', answer_matrix(2,2,5), ',' ) \} 
+$PAR
+${BBOLD}(C)${EBOLD}
+Use parts (a) and (b) to compute the matrix of \(T\) relative to the standard basis \(S\) for \( {\mathbb R}^2 \):
+$BR
+\{ mbox( '\([T]_S =\)', answer_matrix(2,2,5), '.' ) \}
+
+END_TEXT
+
+ANS(num_cmp($a[1]));
+ANS(num_cmp($b[1]));
+ANS(num_cmp($a[2]));
+ANS(num_cmp($b[2]));
+
+ANS(num_cmp($p1));
+ANS(num_cmp($r1));
+ANS(num_cmp($p2));
+ANS(num_cmp($r2));
+
+ANS(num_cmp($ans1));
+ANS(num_cmp($ans2));
+ANS(num_cmp($ans3));
+ANS(num_cmp($ans4));
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

@@ -1,0 +1,86 @@
+## EDIT REASON
+## Rewording
+
+## DBsubject(Linear algebra)
+## DBchapter(Linear transformations)
+## DBsection(Associated matrices)
+## Date(11/7/2013)
+## Institution(NAU)
+## Author(Nandor Sieben)
+## Level(3)
+## MO(1)
+## KEYWORDS('linear algebra','similar')
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserMultiAnswer.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 1;
+TEXT(beginproblem()); 
+
+Context("Matrix");
+
+$A=Matrix([[random(-3,3,1),random(-3,3,1)],[random(-3,3,1),random(-3,3,1)]]);
+{
+$b11=random(-5,5,1);
+$b12=random(-5,5,1);
+$b21=random(-5,5,1);
+$b22=random(-5,5,1);
+$P=Matrix([[$b11,$b21],[$b12,$b22]]);
+redo if (abs($P->det) != 1);
+$Pi=$P->inverse;
+$X=$Pi*$A*$P;
+redo if ($X==$A);
+}
+
+$b1=Matrix([[$b11],[$b12]]);
+$b2=Matrix([[$b21],[$b22]]);
+
+$multians = MultiAnswer($b1, $b2)->with(
+singleResult => 1,
+checker => sub {
+my ( $correct, $student, $self ) = @_;
+my ($s1,$s2) = @{$student};
+my $sb1=Matrix($s1);
+my $sb2=Matrix($s2);
+my $sP=Matrix([[$sb1->element(1,1),$sb2->element(1,1)],[$sb1->element(2,1),$sb2->element(2,1)]]);
+return 0 if ($sP->det == 0); 
+my $sPi=$sP->inverse;
+return 0 if ($sPi*$A*$sP != $X); 
+return 1;
+}
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider the matrix operator \( T_A:{\mathbb R}^2\to {\mathbb R}^2 \)
+for \( A=$A \),
+so that \( T_A(\vec{x}) = A \vec{x} \) as usual.
+$PAR
+Recall that \( [ T_A ] = A \) in this case.
+$PAR
+Use
+\{ htmlLink(qq!https://sites.ualberta.ca/~jsylvest/books/DLA/section-similarity-concepts.html#pattern-similarity-concepts-similarity-by-columns!,"Pattern 26.3.1", "TARGET='_blank'") \}
+to determine an an ordered basis \( B = \lbrace \vec{b}_1, \vec{b}_2 \rbrace \) for \( {\mathbb R}^2 \) so that \( [T_A]_B = $X \).
+$BR
+\( \vec{b}_1 = \)
+\{ $multians->ans_array(3) \}, 
+\( \vec{b}_2 = \)
+\{ $multians->ans_array(3) \}
+
+
+END_TEXT
+Context()->normalStrings;
+
+install_problem_grader(~~&std_problem_grader);
+
+ANS( $multians->cmp() );
+
+;
+
+ENDDOCUMENT();
+

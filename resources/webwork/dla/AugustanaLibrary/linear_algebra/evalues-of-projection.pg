@@ -1,0 +1,25 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl"
+);
+
+TEXT(beginproblem());
+$ShowPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+$answer = List(Real(0),Real(1));
+
+BEGIN_PGML
+
+Suppose [`V`] is a finite-dimensional inner product space
+and [`U`] is a subspace of [`V`].
+
+What are the eigenvalues of [`\operatorname{proj}_U \colon V \to V`] ?
+If there are more that one, enter the values in a comma-separated list.
+
+Answer: [____________]{$answer}
+
+END_PGML
+ENDDOCUMENT();

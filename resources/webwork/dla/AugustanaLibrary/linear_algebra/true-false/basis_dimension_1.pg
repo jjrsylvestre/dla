@@ -1,0 +1,73 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('4')
+## DBsection('4,5')
+## Date('1/14/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+           "PGcourse.pl",
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Basis", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"If \(\vec{x}\) is any vector in \(\mathbb{R}^n\) and \(\mathcal{B}\) is any basis for \(\mathbb{R}^n\), then the coordinate vector of \(\vec{x}\) with respect to \(\mathcal{B}\) is the same as \(\vec{x}\).",
+"F",
+"If \(\{\vec{v}_1,\vec{v}_2,\dotsc,\vec{v}_n\}\) is a basis for a vector space \(V\), then for every vector \(\vec{v}\) in \(V\) there exists a unique linear combination of \(\vec{v}_1,\vec{v}_2,\dotsc,\vec{v}_n\) which is equal to \(\vec{v}\).",
+"T",
+"If \(\{A_1,A_2,\dotsc,A_{16}\}\) is a linearly independent set of \(4\times 4\) matrices, then it is a basis for \(M_4(\mathbb{R})\), the vector space of all \(4\times 4\) matrices.",
+"T",
+"Every basis of \(P_4(\mathbb{R})\), the vector space of all polynomials of degree less then or equal to \(4\), must contain at least one polynomial of degree \(3\) or less.",
+"F",
+"The vector space \(C(-\infty,\infty)\) of all functions which are defined and continuous on the whole real line cannot be spanned by any finite set. $BITALIC Hint: $EITALIC Polynomials are continuous.",
+"T",
+);
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(5);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)$BR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

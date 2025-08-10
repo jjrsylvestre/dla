@@ -1,0 +1,68 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl"
+);
+
+TEXT(beginproblem());
+$ShowPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+$a = random(1,9,1);
+$b = random(1,9,1);
+$a2 = 2 * $a;
+
+$mult = Formula("$a * x + $b");
+
+$evec0 = Formula("1");
+$eveca = Formula("$a * x + $b");
+$eveca2 = Formula("$a * $a * x^2 + 2 * $a * $b * x + $b * $b");
+
+
+$evec_checker = sub {
+  my ($correct,$student,$ansHash) = @_;  # get correct and student MathObjects
+  return 0 if ($ansHash->{isPreview});
+
+  if ($student == Formula("0")) {
+    $ansHash->{ans_message} = "Please provide a ${BITALIC}nonzero${EITALIC} eigenvector.";
+    return 0;
+  }
+
+  my $e = $ansHash->{e};
+  return ($mult * $student->D('x') == Formula("$e") * $student);
+}
+;
+
+
+BEGIN_PGML
+
+Let [`T`] represent the linear operator on [`\operatorname{P}_2(\mathbb{R})`]
+defined by [`T(p) = ([$mult]) p'(x) \text{.}`]
+
+The operator [`T`] has three distinct eigenvalues.
+
+(a)
+The smallest eigenvalue is [__]  
+An example eigenvector for this eigenvalue is [__________]
+
+(b)
+The median eigenvalue is [__]  
+An example eigenvector for this eigenvalue is [__________]
+
+(c)
+The largest eigenvalue is [__]  
+An example eigenvector for this eigenvalue is [__________]
+
+END_PGML
+
+ANS(num_cmp(0));
+ANS($evec0->cmp(checker => $evec_checker, e => 0));
+
+ANS(num_cmp($a));
+ANS($eveca->cmp(checker => $evec_checker, e => $a));
+
+ANS(num_cmp($a2));
+ANS($eveca2->cmp(checker => $evec_checker, e => $a2));
+
+ENDDOCUMENT();

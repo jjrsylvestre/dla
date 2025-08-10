@@ -1,0 +1,80 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix', 'block matrix', 'characteristic polynomial')
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrix forms)
+## DBsection(Block matrices)
+## Date(Jan 2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$a11 = random(-9,9);
+$a21 = random(-9,9);
+$a12 = random(-9,9);
+$a22 = random(-9,9);
+
+$A = Matrix([[$a11,$a12],[$a21,$a22]]);
+$charA = Formula("(x - $a11)*(x- $a22) - $a21 * $a12");
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \(A = $A\).
+$PAR
+Compute the characteristic polynomial of \(A\), and enter it using \(x\) as the variable.$BR
+\(c_A(x) = \) \{ans_rule(30)\}
+END_TEXT
+Context()->normalStrings;
+ANS($charA->cmp);
+
+$b11 = random(-9,9);
+$b21 = random(-9,9);
+$b12 = random(-9,9);
+$b22 = random(-9,9);
+
+$B = Matrix([[$b11,$b12],[$b21,$b22]]);
+$charB = Formula("(x - $b11)*(x- $b22) - $b21 * $b12");
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+Let \(B = $B\).
+$PAR
+Compute the characteristic polynomial of \(B\), and enter it using \(x\) as the variable.$BR
+\(c_B(x) = \) \{ans_rule(30)\}
+END_TEXT
+Context()->normalStrings;
+ANS($charB->cmp);
+
+$C = Matrix([[$a11,$a12,0,0],[$a21,$a22,0,0],[0,0,$b11,$b12],[0,0,$b21,$b22]]);
+$charC = $charA * $charB;
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+Let \(C = $C\).
+$PAR
+Combine your answers for \(c_A(x)\) and \(c_B(x)\) to obtain the characteristic polynomial of \(C\), and enter it using \(x\) as the variable.$BR
+\(c_C(x) = \) \{ans_rule(30)\}
+END_TEXT
+Context()->normalStrings;
+ANS($charC->cmp);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

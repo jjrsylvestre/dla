@@ -1,0 +1,92 @@
+## EDIT REASONS:
+## 1. Add instruction to use the subspace test.
+## 2. Removed set notation in favour of explicit descriptions.
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/3/06
+
+## DBsubject(Linear algebra)
+## DBchapter(Euclidean spaces)
+## DBsection('Subspaces')
+## Institution('Rochester')
+## TitleText1('Linear Algebra with Applications')
+## AuthorText1('Jeffrey Holt')
+## EditionText1('1')
+## Section1('4.1')
+## Problem1('')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGnumericalmacros.pl",
+"PGstatisticsmacros.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+@nz = NchooseK(8,8);
+foreach $i (0..7) { $nz[$i] = ($nz[$i]+2) * random(-1,1,2); 
+		    $nz1[$i] = - $nz[$i]; }
+
+ 
+
+@yes1 = ('The set of all vectors of the form \((t, 0, 0)\), where \(t\) is a free parameter.', 
+	 'The set of all vectors \((x, y, z)\) whose coordinates satisfy $BBOLD both $EBOLD the equation \($nz1[0] x + $nz1[1] y = 0\) $BBOLD and $EBOLD the equation \($nz1[2] x + $nz1[3] z = 0\).' );
+
+@yes2 = ('The set of all vectors \((x,y,z)\) whose coordinates satisfy the equation \(x + y + z = 0\).', 
+	 'The set of all vectors \((x,y,z)\) whose coordinates satisfy the equation \($nz[0] x + $nz[1] y + $nz[2] z = 0\).');
+
+@yes3 = ('\( \{ ($nz1[3] x, $nz1[4] x, $nz1[5] x ) \ | \ x \) arbitrary number \( \} \)',
+         '\( \{ ($nz1[3] x + $nz1[6] y, $nz1[4] x + $nz1[7] y, $nz1[5] x + $nz[7] y ) \ 
+		| \ x,y\) arbitrary numbers \( \} \)');
+
+@yes3 = ('The set of all vectors of the form \(($nz1[3] t, $nz1[4] t, $nz1[5] t )\), where \(t\) is a free parameter.',
+         'The set of all vectors of the form \(($nz1[3] a + $nz1[6] b, $nz1[4] a + $nz1[7] b, $nz1[5] a + $nz[7] b )\), where \(a\) and \(b\) are free parameters.');
+ 
+$tag_yes1 = random(0,1,1);
+$tag_yes2 = random(0,1,1);
+$tag_yes3 = random(0,1,1);
+
+@no1 = ('The set of all vectors \((x,y,z)\) whose coordinates satisfy \( x < y < z \).',
+      'The set of all vectors \((x,y,z)\) whose coordinates are positive numbers.');	
+
+@no2 = ('The set of all vectors \((x,y,z)\) whose coordinates satisfy the equation \(x + y + z = $nz[3]\).',
+      'The set of all vectors \((x,y,z)\) whose coordinates satisfy the equation \( $nz[4] x + $nz[5] y + $nz[6] z = $nz[3] \).');
+
+@no3 = ('The set of all vectors of the form \(($nz[0], s, t)\), where \(s\) and \(t\) are free parameters.',
+      'The set of all vectors of the form \((t, t+$nz[0], t+$nz[1])\) where \(t\) is a free parameter.');
+
+$tag_no1 = random(0,1,1);
+$tag_no2 = random(0,1,1);
+$tag_no3 = random(0,1,1);
+
+$cmc = new_checkbox_multiple_choice();
+
+$cmc -> qa ("Use the Subspace Test to determine which of the following sets of vectors are subspaces of \({\mathbb R}^3\).", 
+            $yes1[$tag_yes1], $yes2[$tag_yes2], $yes3[$tag_yes3]);
+
+$cmc-> extra ($no1[$tag_no1], $no2[$tag_no2], $no3[$tag_no3]);
+
+
+BEGIN_TEXT
+
+\{ $cmc -> print_q \}
+$BR
+\{ $cmc -> print_a \}
+
+END_TEXT
+
+ANS(checkbox_cmp( $cmc->correct_ans )   ) ;
+               
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

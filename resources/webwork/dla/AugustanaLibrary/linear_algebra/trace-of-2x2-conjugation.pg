@@ -1,0 +1,96 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl"
+);
+
+TEXT(beginproblem());
+$ShowPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$a = non_zero_random(-5,5,1);
+$d = non_zero_random(-5,5,1);
+$c = 1;
+$b = $a*$d - 1;
+
+$flip = random(0,1,1);
+if ($flip) {
+  $temp = $b;
+  $b = $a;
+  $a = $temp;
+  $temp = $d;
+  $d = $c;
+  $c = $temp;
+}
+$flip = random(0,1,1);
+if ($flip) {
+  $temp = $c;
+  $c = $a;
+  $a = $temp;
+  $temp = $d;
+  $d = $b;
+  $b = $temp;
+}
+## det will be 1 or -1 depending on flips
+$det = $a*$d - $b*$c;
+
+
+$P = Matrix([[$a,$b],[$c,$d]]);
+
+$e11 = $a*$d*$det;
+$point11 = Point('(1,1)');
+$e12 = $d*$d*$det;
+$point12 = Point('(2,2)');
+$e21 = $a*$a*$det;
+$point21 = Point('(3,3)');
+$e22 = $a*$d*$det;
+$point22 = Point('(4,4)');
+
+$trace = $e11 + $e12 + $e21 + $e22;
+
+BEGIN_PGML
+
+Let [`T`] represent the linear operator on [`\operatorname{M}_{2 \times 2}(\mathbb{R})`]
+defined by the formula [`T(A) = P^{-1} A P \text{,}`]
+where [``` P = [$P] \text{.} ```]
+
+Let [`\mathcal{S} = \lbrace E_{11},E_{12},E_{21},E_{22} \rbrace`] be the standard basis of [`\operatorname{M}_{2 \times 2}(\mathbb{R})`],
+where [`E_{ij}`] is the [`2 \times 2`] matrix with a [`1`] in the [`(i,j)`] position and [`0`] in every other entry.
+
+
+(a)
+What is the coefficient on [`E_{11}`] if the image vector [`T(E_{11})`] is expressed as a linear combination of the [`\mathcal{S}`]-vectors?
+[_________]{$e11}
+
+What entry in the matrix [`[T]_{\mathcal{S}}`] does this result correspond to? (Use [`(i,j)`] notation.)
+[_________]{$point11}
+
+(b)
+What is the coefficient on [`E_{12}`] if the image vector [`T(E_{12})`] is expressed as a linear combination of the [`\mathcal{S}`]-vectors?
+[_________]{$e12}
+
+What entry in the matrix [`[T]_{\mathcal{S}}`] does this result correspond to?
+[_________]{$point12}
+
+(c)
+What is the coefficient on [`E_{21}`] if the image vector [`T(E_{21})`] is expressed as a linear combination of the [`\mathcal{S}`]-vectors?
+[_________]{$e21}
+
+What entry in the matrix [`[T]_{\mathcal{S}}`] does this result correspond to?
+[_________]{$point21}
+
+(d)
+What is the coefficient on [`E_{22}`] if the image vector [`T(E_{22})`] is expressed as a linear combination of the [`\mathcal{S}`]-vectors?
+[_________]{$e22}
+
+What entry in the matrix [`[T]_{\mathcal{S}}`] does this result correspond to?
+[_________]{$point22}
+
+(e)
+What is the value of [`\operatorname{trace} T`]?
+[_________]{$trace}
+
+END_PGML
+ENDDOCUMENT();

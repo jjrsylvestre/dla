@@ -1,0 +1,76 @@
+## EDIT REASONS:
+## 1. Add that students should only consider real values of k.
+## 2. Add a hint.
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/29/06
+
+## DBsubject(Linear algebra)
+## DBchapter(Eigenvalues and eigenvectors)
+## DBsection(Complex eigenvalues and eigenvectors)
+## Institution('Rochester')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGgraphmacros.pl",
+"PGmatrixmacros.pl", 
+"PGnumericalmacros.pl",
+"PGauxiliaryFunctions.pl",
+"PGcomplexmacros.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$b = random(1,9,1);
+$b1 = $b+1;
+$s = random(-1,1,2);
+if ($s==1) {
+	$mps = "";
+	$mpns = "-";
+} else {
+	$mps ="-";
+	$mpns = "";
+}
+
+BEGIN_TEXT
+
+Find all real values of \(k\) for which the matrix
+$BR
+\(\{ display_matrix_mm([[0, 1, 0], [0, 0, 1], [0, '$mps k - $b', '$mpns k + $b1']]) \} \)
+$BR
+is not diagonalizable over \( {\mathbb C} \). 
+$BR 
+Enter your answers in the following blank, separated by commas: 
+$BR
+\{ans_rule(20)\}
+
+END_TEXT
+
+$ans1 = $s*$b;
+$ans2 = $s*($b-1);
+
+ANS(multi_cmp( [ num_cmp($ans1), num_cmp($ans2) ] )); 
+
+$showHint = -1;
+BEGIN_HINT
+$BBOLD Theorem: $EBOLD A square matrix is diagonalizable if and only if for each eigenvalue, the algebraic and geometric multiplicities of that eigenvalue are equal.
+$PAR
+$BBOLD Corollary: $EBOLD If an \(n\times n\) matrix has \(n\) distinct eigenvalues, then it is diagonalizable.
+$PAR
+The corollary follows from the theorem because every eigenspace has dimension at least 1, so an eigenvalue of algebraic multiplicity 1 $BITALIC must $EITALIC also have geometric multiplicity 1.
+$PAR
+So you could start this question by instead considering: for what values of \(k\) does the above matrix have a repeated eigenvalue? Then, for those particular values of \(k\) you should investigate that repeated eigenvalue's geometric multiplicity.
+END_HINT
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

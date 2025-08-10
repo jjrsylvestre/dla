@@ -1,0 +1,84 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('orthogonal matrix')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+  "MatrixCheckers.pl",  # for unit_basis_checker_one_column
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Vector");
+
+$u = ColumnVector(non_zero_random(-2,2,1),non_zero_random(-2,2,1),random(-2,2,1));
+do {
+	$v = ColumnVector(non_zero_random(-2,2,1),random(-2,2,1),non_zero_random(-2,2,1));
+	$w = $u x $v;
+} until (! $w->isZero);
+$v = $u x $w;
+
+$vnormsq = $v . $v;
+$wnormsq = $w . $w;
+
+# why is there no Vector::element or Vector::coordinate method?
+# TODO FIXME: could just use $vector->value to get coordinates as a list you idiot
+@std_basis = (
+	ColumnVector(1,0,0),
+	ColumnVector(0,1,0),
+	ColumnVector(0,0,1),
+);
+@vcoords = ();
+@wcoords = ();
+foreach $e (@std_basis) {
+	$vdot = $v . $e;
+	push(@vcoords, $vdot->isZero ? "0" : "\frac{" . $vdot->TeX . "}{\sqrt{" . $vnormsq->TeX . "}}");
+	$wdot = $w . $e;
+	push(@wcoords, $wdot->isZero ? "0" : "\frac{" . $wdot->TeX . "}{\sqrt{" . $wnormsq->TeX . "}}");
+}
+
+Context()->texStrings;
+BEGIN_TEXT
+Enter a column vector
+\(\mathbf{c} = \{display_matrix_mm([ ['c_1'], ['c_2'], ['c_3'], ])\}\)
+so that the matrix \(A\) below, with the last column replaced by your answer column \(\mathbf{c}\), is an orthogonal matrix.
+$PAR
+\(
+	A=
+	\{display_matrix_mm([
+		[$vcoords[0],$wcoords[0],'c_1'],
+		[$vcoords[1],$wcoords[1],'c_2'],
+		[$vcoords[2],$wcoords[2],'c_3'],
+	])\}.
+\)
+$PAR
+\{ mbox( 'ANSWER: \(\mathbf{c} = \)', $u->ans_array(10) ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS( $u->cmp( checker=>~~&unit_basis_checker_one_column ) );
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
+

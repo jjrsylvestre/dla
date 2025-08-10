@@ -1,0 +1,114 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix forms','matrices','scalar-triangular form')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Matrix Forms')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+$n = 3;
+$eigval = random(2,9)*random(-1,1,2);
+
+@s = (
+	[$eigval,non_zero_random(-5,5),non_zero_random(-5,5)],
+	[0,$eigval,non_zero_random(-5,5)],
+	[0,0,$eigval],
+);
+$S = Matrix(@s);
+
+# Form $A by conjugating $S by random elementary matrices of det +/- 1.
+# Stop when $A has at most $maxzeros off-diagonal zeros
+$maxzeros = 1;
+$nzeros = 4;
+$count = 0;
+@e = Value::Matrix->I($n)->value;
+@elems = ();
+while ( ($nzeros > $maxzeros) && ($count < 100) ) {
+	$i = random(0,$n-1);
+	do { $j = random(0,$n-1); } until ($j != $i);
+	if (random(0,1)) {
+		# conjugate by elementary matrix of the 
+		# "add mult of one row to another" variety
+		$m = non_zero_random(-5,5);
+		foreach $k (0..$n-1) {
+			$s[$i][$k] += $m * $s[$j][$k];
+		}
+		foreach $k (0..$n-1) {
+			$s[$k][$j] -= $m * $s[$k][$i];
+		}
+		$e[$i][$j] = $m;
+		push (@elems, Matrix(@e));
+		$e[$i][$j] = 0;
+	} else {
+		# conjugate by elementary matrix of the
+		# "swap two rows" variety
+		($s[$i],$s[$j]) = ($s[$j],$s[$i]);
+		foreach $k (0..$n-1) {
+			($s[$k][$i],$s[$k][$j]) = ($s[$k][$j],$s[$k][$i]);
+		}
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+		push (@elems, Matrix(@e));
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+	}
+	$count++;
+	$nzeros = 0;
+	foreach $i (0..$n-1) {
+		foreach $j (0..$n-1) {
+			$nzeros++ if ( ($i != $j) && ($s[$i][$j] == 0) );
+		}
+	}
+}
+warn "There seems to be a problem generating a random matrix for you --- please contact your instructor" if ($count == 100);
+$P = Value::Matrix->I($n);
+foreach (@elems) {
+	$P = $_ * $P;
+}
+$A = Matrix(@s);
+
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \(A = $A\) and \(P = $P\).
+$PAR
+Confirm that \(P^{-1}AP\) is in scalar-triangular form by row reducing
+\[
+	\{display_matrix_mm([ ['P','AP'] ], align => 'c|c')\}
+	\longrightarrow
+	\{display_matrix_mm([ ['I','P^{-1}AP'] ], align => 'c|c')\}.
+\]
+$PAR
+\{ mbox( '\(P^{-1}AP = \)', $S->ans_array ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($S->cmp);
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

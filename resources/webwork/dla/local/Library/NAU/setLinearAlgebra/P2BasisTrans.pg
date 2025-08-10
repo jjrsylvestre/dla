@@ -1,0 +1,114 @@
+## EDIT REASONS
+## Notation
+## Change some instructions
+
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+
+## DBsubject(Linear algebra)
+## DBchapter(Abstract vector spaces)
+## DBsection(Coordinate vectors and change of basis)
+## Date(9/22/2013)
+## Institution(NAU)
+## Author(Nandor Sieben)
+## Level(3)
+## MO(1)
+## KEYWORDS('linear algebra','transition matrix'')
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserMultiAnswer.pl",
+  "AnswerFormatHelp.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 1;
+TEXT(beginproblem()); 
+
+Context('Matrix');
+
+{
+$b11 = random(-9,9,1);
+$b12 = random(-9,9,1);
+$b21 = random(-9,9,1);
+$b22 = random(-9,9,1);;
+redo if ($b11*$b22-$b12*$b21 != 1);
+}
+$b1=Formula("$b11+$b12*x")->reduce;
+$b2=Formula("$b21+$b22*x")->reduce;
+
+{
+$c11 = random(-4,4,1);
+$c12 = random(-4,4,1);
+$c21 = random(-4,4,1);
+$c22 = random(-4,4,1);
+redo if ($c11*$c22-$c12*$c21 == 0);
+}
+$c1=Formula("$c11+$c12*x")->reduce;
+$c2=Formula("$c21+$c22*x")->reduce;
+
+$BE = Matrix([[$b11,$b21],[$b12,$b22]]);
+$CE = Matrix([[$c11,$c21],[$c12,$c22]]);
+$EB = $BE->inverse;
+$CB = $EB*$CE;
+
+$p1 = non_zero_random(-3,3,1);
+$p2 = non_zero_random(-3,3,1);
+$p_E = Matrix([[$p1],[$p2]]);
+$p_B = $EB*$p_E;
+$p = Formula("$p1+$p2*x")->reduce;
+
+$q1 = non_zero_random(-2,2,1);
+$q2 = non_zero_random(-2,2,1);
+$q_C = Matrix([[$q1],[$q2]]);
+$q_B = $CB*$q_C;
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider the ordered bases \( \mathcal{B}=($b1,$b2)\) and \( \mathcal{C}=($c1,$c2)\) 
+for the vector space \({\mathbb P}_2[x] \).
+$BR
+a. Compute the transition matrix from \( \mathcal{C} \) to the standard ordered basis \( \mathcal{S}=(1,x) \).
+$BR
+\( P_{\mathcal{C}\to\mathcal{S}} = \) \{ $CE->ans_array(3) \}
+$BR
+b. Compute the transition matrix from \( \mathcal{B} \) to \( \mathcal{S} \).
+$BR
+\( P_{\mathcal{B}\to\mathcal{S}} = \) \{ $BE->ans_array(3) \}
+$BR
+c. Compute the transition matrix from \( \mathcal{S} \) to \( \mathcal{B} \).
+$BR
+\( P_{\mathcal{S}\to\mathcal{B}} = \) \{ $EB->ans_array(3) \}
+$BR
+d. Compute the transition matrix from \( \mathcal{C} \) to \( \mathcal{B} \).
+$BR
+\( P_{\mathcal{C}\to\mathcal{B}} = \) \{ $CB->ans_array(3) \}
+$BR
+e. Use one of your transition matrices above to compute the coordinates of \( p(x)= $p\) in the ordered basis \( \mathcal{B} \).
+$BR
+\( [p(x)]_{\mathcal{B}} = \) \{ $p_B->ans_array(3) \}
+$BR
+f. Use one of your transition matrices above to compute the coordinates of \( q(x) \) in the ordered basis \( \mathcal{B} \)
+if the coordinate vector of \( q(x) \) in \( \mathcal{C} \) is \( 
+[q(x)]_{\mathcal{C}} = ($q1,$q2) \).
+$BR
+\( [q(x)]_{\mathcal{B}} = \) \{ $q_B->ans_array(3) \}
+
+
+END_TEXT
+Context()->normalStrings;
+ANS( $CE->cmp() );
+ANS( $BE->cmp() );
+ANS( $EB->cmp() );
+ANS( $CB->cmp() );
+ANS( $p_B->cmp() );
+ANS( $q_B->cmp() );
+
+;
+
+ENDDOCUMENT();
+

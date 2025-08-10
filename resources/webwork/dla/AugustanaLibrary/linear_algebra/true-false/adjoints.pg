@@ -1,0 +1,77 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Supplementary Notes')
+## DBsection('AUMAT220 Adjoints')
+## Date('3/18/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Adjoints", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"\({(A^\ast)}^\ast = A\) for any matrix \(A\).",
+"T",
+"If \(A\) is a square matrix such that \(A^\ast = A\), then \(A\) is symmetric and has all real entries.",
+"F",
+"If \(A\) is a square matrix that is both Hermitian and unitary, then \(A^2 = I\).",
+"T",
+"The set of Hermitian \(n\times n\) matrices forms a subspace of \(\mathrm{M}_{nn}(\mathbb{C})\), the space of all \(n \times n\) complex matrices.",
+"F",
+"If \(A\) is an \(n \times n\) matrix, then for all vectors \(\mathbf{u},\mathbf{v} \in \mathbb{C}^n\) it is true that \[\langle A\mathbf{u}, A\mathbf{v} \rangle = \langle \mathbf{u}, A^\ast A\mathbf{v}\rangle,\] where \(\langle -, - \rangle\) is the standard complex inner product on \(\mathbb{C}^n\).",
+"T",
+);
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(5);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)
+
+$PAR
+
+$BBOLD In the following, assume that all matrices are complex matrices, unless otherwise stated. $EBOLD
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

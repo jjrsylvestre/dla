@@ -1,0 +1,114 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## DBsubject(Linear algebra)
+## DBchapter(Vector spaces)
+## DBsection(Basis and dimension)
+## Institution(University of Alberta, Augustana Campus)
+## TitleText1()
+## AuthorText1()
+## EditionText1()
+## Section1()
+## Problem1()
+
+
+## BASED ON
+## Library/Rochester/setLinearAlgebra10Bases/ur_la_10_25.pg
+## Library/Rochester/setLinearAlgebra10Bases/ur_la_10_26.pg
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserMultiAnswer.pl",
+  "MatrixCheckers.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Matrix');
+
+########################################333
+# first part
+
+$a = random(2,9,1) * random(-1,1,2);
+$b = random(3,9,2) * random(-1,1,2);
+$c = non_zero_random(-8,8,2);
+
+$ma = - $a;
+
+$image1 = Matrix([[$c], [0], [$ma]]);
+$image2 = Matrix([[$b], [$ma], [0]]);
+
+$image_multians = MultiAnswer($image1, $image2)->with(
+  singleResult => 1,
+  separator => ',',
+  tex_separator => ',',
+  allowBlankAnswers=>0,
+  checker => ~~&basis_checker_columns,
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+$HR
+Determine a basis of the subspace of \({\mathbb R}^3\) defined by the equation \( $a x_1 + $b x_2 + $c x_3 = 0\).
+$BR
+$BR
+Basis:
+\(\Bigg\lbrace\)
+\{ $image_multians->ans_array \},
+\{ $image_multians->ans_array \}
+\(\Bigg\rbrace.\)
+END_TEXT
+Context()->normalStrings;
+
+ANS( $image_multians->cmp() );
+
+########################################333
+# second part
+
+$a = random(2,9,1) * random(-1,1,2);
+$b = random(3,9,2) * random(-1,1,2);
+$c = non_zero_random(-8,8,2);
+$d = random(2,9,1) * random(-1,1,2);
+
+$ma = - $a;
+
+$image1 = Matrix([[$b], [$ma], [0], [0]]);
+$image2 = Matrix([[$c], [0], [$ma], [0]]);
+$image3 = Matrix([[$d], [0], [0], [$ma]]);
+
+
+$image_multians = MultiAnswer($image1, $image2, $image3)->with(
+  singleResult => 1,
+  separator => ',',
+  tex_separator => ',',
+  allowBlankAnswers=>0,
+  checker => ~~&basis_checker_columns,
+);
+
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+$HR
+$PAR
+Determine a basis of the subspace of \({\mathbb R}^4\) defined by the equation
+\( $a x_1 + $b x_2 + $c x_3 + $d x_4 = 0\).
+$BR
+$BR
+Basis: \(\Bigg\lbrace\)
+\{ $image_multians->ans_array \},
+\{ $image_multians->ans_array \},
+\{ $image_multians->ans_array \}
+\(\Bigg\rbrace.\)
+END_TEXT
+Context()->normalStrings;
+
+ANS( $image_multians->cmp() );
+
+ENDDOCUMENT();

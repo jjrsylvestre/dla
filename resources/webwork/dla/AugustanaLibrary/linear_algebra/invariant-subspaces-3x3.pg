@@ -1,0 +1,138 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix', 'transformation', 'invariant subspace')
+
+## DBsubject(Linear algebra)
+## DBchapter(Matrix forms)
+## DBsection(Invariant subspaces)
+## Date(Feb 2015)
+## Institution(University of Alberta, Augustana Campus)
+## Author(J. Sylvestre)
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+#  "answerHints.pl",     # answer post-filter to give student messages about his/her answer
+  "PGchoicemacros.pl",  # for shuffle
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+Context("Matrix");
+
+$n = 3;
+
+@s = (
+  [random(-5,5),non_zero_random(-5,5),0],
+  [non_zero_random(-5,5),random(-5,5),0],
+  [0,0,non_zero_random(-5,5)]
+);
+
+# Form $A by conjugating $S by random elementary matrices of det +/- 1.
+# Stop when $A has at most $maxzeros off-diagonal zeros
+$maxzeros = 1;
+$nzeros = 4;
+$count = 0;
+@e = Value::Matrix->I($n)->value;
+@elems = ();
+while ( ($nzeros > $maxzeros) && ($count < 100) ) {
+	$i = random(0,$n-1);
+	do { $j = random(0,$n-1); } until ($j != $i);
+	if (random(0,1)) {
+		# conjugate by elementary matrix of the 
+		# "add mult of one row to another" variety
+		$m = non_zero_random(-5,5);
+		foreach $k (0..$n-1) {
+			$s[$i][$k] += $m * $s[$j][$k];
+		}
+		foreach $k (0..$n-1) {
+			$s[$k][$j] -= $m * $s[$k][$i];
+		}
+		$e[$i][$j] = $m;
+		push (@elems, Matrix(@e));
+		$e[$i][$j] = 0;
+	} else {
+		# conjugate by elementary matrix of the
+		# "swap two rows" variety
+		($s[$i],$s[$j]) = ($s[$j],$s[$i]);
+		foreach $k (0..$n-1) {
+			($s[$k][$i],$s[$k][$j]) = ($s[$k][$j],$s[$k][$i]);
+		}
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+		push (@elems, Matrix(@e));
+		($e[$i],$e[$j]) = ($e[$j],$e[$i]);
+	}
+	$count++;
+	$nzeros = 0;
+	foreach $i (0..$n-1) {
+		foreach $j (0..$n-1) {
+			$nzeros++ if ( ($i != $j) && ($s[$i][$j] == 0) );
+		}
+	}
+}
+warn "There seems to be a problem generating a random matrix for you --- please contact your instructor" if ($count == 100);
+$P = Value::Matrix->I($n);
+foreach (@elems) {
+	$P = $_ * $P;
+}
+$A = Matrix(@s);
+
+# display the columns of P in a mixed up order
+@shffld = shuffle(3);
+@letters = ("u","v","w");
+@first_two_col_letters=();
+$last_col_letter = "";
+foreach $i (0..2) {
+	if ($shffld[$i] == 2) {
+		$last_col_letter = $letters[$i];
+	} else {
+		push(@first_two_col_letters, $letters[$i]);
+	}
+}
+@mixed_letter_pairs = ("u","v","u","w");
+$mixed_letter_pairs[2] = "v" if ($last_col_letter ne "u");
+$mixed_letter_pairs[1] = "w" if ($last_col_letter eq "w");
+
+$cmc = new_checkbox_multiple_choice();
+$cmc -> qa( # question followed by correct answers
+	"Which of the following subspaces are \(A\)-invariant?",
+	join("","\(\operatorname{Span} \{\mathbf{",$first_two_col_letters[0],"},\mathbf{",$first_two_col_letters[1],"}\}\)"),
+	join("","\(\operatorname{Span} \{\mathbf{",$last_col_letter,"}\}\)"),
+	"\(\{\mathbf{0}\}\)",
+	"\(\operatorname{Span} \{\mathbf{u},\mathbf{v},\mathbf{w}\}\)",
+);
+$cmc -> extra(
+	# incorrect answers
+	# these are not invariant because
+	# S(1,2) and S(2,1) are definitely nonzero
+	join("", "\(\operatorname{Span} \{\mathbf{", $first_two_col_letters[0], "}\}\)"),
+	join("", "\(\operatorname{Span} \{\mathbf{", $first_two_col_letters[1], "}\}\)"),
+	join("", "\(\operatorname{Span} \{\mathbf{", $mixed_letter_pairs[0], "},\mathbf{", $mixed_letter_pairs[1], "}\}\)"),
+	join("", "\(\operatorname{Span} \{\mathbf{", $mixed_letter_pairs[2], "},\mathbf{", $mixed_letter_pairs[3], "}\}\)"),
+);
+
+@cols = ();
+foreach $j (@shffld) { push(@cols,$P->column($j+1)); }
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \(A=$A\),
+$BR$BR
+and let
+\(\mathbf{u} = $cols[0]\), \(\mathbf{v}= $cols[1]\), \(\mathbf{w} = $cols[2]\).
+$PAR
+\{$cmc -> print_q \}
+$BR
+\{$cmc -> print_a \}
+END_TEXT
+Context()->normalStrings;
+ANS(checkbox_cmp( $cmc->correct_ans ));
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

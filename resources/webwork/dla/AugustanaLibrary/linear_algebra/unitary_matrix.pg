@@ -1,0 +1,114 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','unitary matrix')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrix Adjoints')
+## DBsection('')
+## Date('2013/03/28')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+Context("Complex");
+
+Context()->parens->set("<" => {type => "Vector", close => ">"});
+
+$u = ColumnVector(
+	Complex(non_zero_random(-2,2),random(-2,2)),
+	Complex(non_zero_random(-2,2),random(-2,2)),
+	Complex(random(-2,2),random(-2,2))
+);
+do {
+	$v = ColumnVector(
+		Complex(non_zero_random(-2,2),random(-2,2)),
+		Complex(random(-2,2),random(-2,2)),
+		Complex(non_zero_random(-2,2),random(-2,2))
+	);
+	$w = $u x $v;
+} until (! $w->isZero);
+
+# complex cross product formula is conjugate of ordinary cross product formula
+$w_conj = ColumnVector( map(conj($_),$w->value) );
+$wnormsq = $w_conj . $w;
+$w = $w_conj;
+
+$v = $u x $w;
+$v_conj = ColumnVector( map(conj($_),$v->value) );
+$vnormsq = $v_conj . $v;
+$v = $v_conj;
+
+# now u is parallel to the correct answer
+# build a unit vector to act as the correct answer
+$u_conj = ColumnVector( map(conj($_),$u->value) );
+$unormsq = $u_conj . $u;
+$unorm = Compute("sqrt($unormsq)");
+$u_unit = $u / $unorm;
+
+@vcoords = ();
+push (@vcoords,
+	$_->isZero ? "0" : "\frac{" . $_->TeX . "}{\sqrt{" . $vnormsq->TeX . "}}"
+) for ($v->value);
+
+@wcoords = ();
+push (@wcoords,
+	$_->isZero ? "0" : "\frac{" . $_->TeX . "}{\sqrt{" . $wnormsq->TeX . "}}"
+) for ($w->value);
+
+Context()->texStrings;
+BEGIN_TEXT
+Enter a complex column vector
+\(\mathbf{c} = \{display_matrix_mm([ ['c_1'], ['c_2'], ['c_3'], ])\}\)
+so that the matrix \(U\) below, with the last column replaced by your answer column \(\mathbf{c}\), is a unitary matrix.
+$PAR
+\(
+	U =
+	\{display_matrix_mm([
+		[$vcoords[0],$wcoords[0],'c_1'],
+		[$vcoords[1],$wcoords[1],'c_2'],
+		[$vcoords[2],$wcoords[2],'c_3'],
+	])\}.
+\)
+$PAR
+\{ mbox( 'ANSWER: \(\mathbf{c} = \)', $u_unit->ans_array(20) ) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS( $u_unit->cmp(
+	showCoordinateHints => 0,
+	checker=> sub {
+		my ( $correct, $student, $ansHash ) = @_;
+		return 0 if ($ansHash->{isPreview});
+		# check parallel by projecting student answer onto $u
+		# if parallel this projection should be equal to the original student answer
+		my $student_proj_diff = $unormsq * $student - ($u_conj . $student) * $u;
+		#Value::Error("Not parallel.") if (! $student_proj_diff->isZero);
+		return 0 if (! $student_proj_diff->isZero);
+		# check unit
+		my $student_conj = ColumnVector( map(conj($_),$student->value) );
+		my $student_normsq_diff = $student_conj . $student - Complex(1,0);
+		#Value::Error("Not unit.") if (! $student_normsq_diff->isZero);
+		return ($student_normsq_diff->isZero);
+	},
+) );
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

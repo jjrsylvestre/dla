@@ -1,0 +1,98 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('orthogonal diagonalization')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix_mm
+  "MatrixCheckers.pl",  # for unit_basis_checker_one_column
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Vector");
+
+######################################################################
+## See section 12 of Steele, "Setting Linear Algebra Problems"
+
+$a = non_zero_random(-2,2);
+$a2 = $a * $a;
+do { $b = non_zero_random(-3,3); } until ($b != $a);
+$b2 = $b * $b;
+$k_sign = random(-1,1,2);
+$k = random(2,5) * $k_sign;
+$bka = $b * $k * $a;
+$e_shift = random(-40,0) * $k_sign;
+
+$A = Matrix(
+	[$b2*$k + $e_shift, $bka],
+	[$bka, $a2*$k + $e_shift],
+);
+
+$eigvals[0] = Compute("$e_shift");
+$eigvals[1] = Compute("$k * ($a2 + $b2) + $e_shift");
+
+$u[0] = ColumnVector($a,-$b)->unit;
+$u[1] = ColumnVector($b,$a)->unit;
+
+if ($k_sign == -1) {
+	($eigvals[0],$eigvals[1]) = ($eigvals[1],$eigvals[0]);
+	($u[0],$u[1]) = ($u[1],$u[0]);
+}
+
+######################################################################
+
+
+Context()->texStrings;
+BEGIN_TEXT
+The symmetric matrix \( A = $A \) has two distinct eigenvalues \(\lambda_1 < \lambda_2\).
+$PAR
+\{ mbox(
+ '\(\lambda_1=\) ', $eigvals[0]->ans_rule ,
+ ' $SPACE$SPACE$SPACE$SPACE \(\lambda_2=\) ', $eigvals[1]->ans_rule
+) \}
+$PAR
+To achieve \( P^{\mathrm{T}} AP =
+  \{ display_matrix_mm([['\lambda_1',''],['','\lambda_2']]) \}
+\)
+we could use \(P =
+  \{display_matrix_mm([['\mathbf{p}_1','\mathbf{p}_2']])\}
+\),
+\{mbox(
+  'where \(\mathbf{p}_1 = \)',
+  $u[0]->ans_array(10),
+  ' and \(\mathbf{p}_2 = \)',
+  $u[1]->ans_array(10),
+  '.'
+)\}
+END_TEXT
+Context()->normalStrings;
+
+ANS($eigvals[0]->cmp);
+ANS($eigvals[1]->cmp);
+ANS( $u[0]->cmp( checker=>~~&unit_basis_checker_one_column ) );
+ANS( $u[1]->cmp( checker=>~~&unit_basis_checker_one_column ) );
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

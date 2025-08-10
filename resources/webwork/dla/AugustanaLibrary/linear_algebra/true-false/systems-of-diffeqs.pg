@@ -1,0 +1,77 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Ch 9')
+## DBsection('AUMAT220 S 1')
+## Date('02/01/2013')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Linear Systems of Differential Equations", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"If \(A\) has \(n\) distinct real eigenvalues, then the differential system \(\displaystyle\frac{d\mathbf{x}}{dt} = A\mathbf{x}\) can be solved by diagonalization.",
+"T",
+"If \(Q\) is an invertible matrix, then the systems \(\displaystyle\frac{d\mathbf{x}}{dt} = A\mathbf{x}\) and \(\displaystyle\frac{d\mathbf{y}}{dt} = Q^{-1}AQ\mathbf{y}\) have the same solutions.",
+"F",
+"If \(\displaystyle\frac{d\mathbf{x}}{dt} = A\mathbf{x}\) and \(\displaystyle\frac{d\mathbf{y}}{dt} = A\mathbf{y}\), then \(\mathbf{x}=\mathbf{y}\).",
+"F",
+"If \(\displaystyle\frac{d\mathbf{x}}{dt} = A\mathbf{x}\) and \(\displaystyle\frac{d\mathbf{y}}{dt} = A\mathbf{y}\), then \(\displaystyle\frac{d}{dt}(k_1 \mathbf{x} + k_2\mathbf{y}) = A(k_1\mathbf{x} +  k_2\mathbf{y})\) for all scalars \(k_1,k_2\).",
+"T",
+);
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(4);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)
+
+$PAR
+
+$BBOLD Assume that all coefficient matrices in the following statements are \(n \times n\). $BR Assume that all column vectors in the following statements have entries which are (possibly unknown) functions in the variable \(t\). $EBOLD
+
+$PAR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

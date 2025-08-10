@@ -1,0 +1,73 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Supplementary Notes')
+## DBsection('AUMAT220 Jordan Form')
+## Date('3/17/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Triangular Form, Generalized Eigenvectors", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"If \(\mathbf{x} \in \mathbb{R}^n\) is a generalized eigenvector of the \(n\times n\) real matrix \(A\) corresponding to eigenvalue \(\lambda\), then \(A\mathbf{x} = \lambda \mathbf{x}\).",
+"F",
+"If \(A\) is an \(n\times n\) real matrix and \(\mathbf{x} \in \mathbb{R}^n\) satisfies \(A\mathbf{x} = \lambda \mathbf{x}\) for some real number \(\lambda\), then \(\mathbf{x}\) is a generalized eigenvector of \(A\).",
+"T",
+"For every \(n\times n\) real matrix \(A\), there exists an \(n\times n\) upper-triangular real matrix that is similar to \(A\).",
+"F",
+"For every \(n \times n\) real matrix \(A\), there exists a degree \(n\) polynomial \(p(x)\) such that \(p(A) = 0\).",
+"T",
+);
+
+# Choose four of the question and answer pairs at random.
+$tf ->choose(4);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)
+
+$PAR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

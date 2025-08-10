@@ -1,0 +1,80 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','inner product','best approximation')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+# the "standard" basis of 3x3 skew-symmetric matrices is orthogonal
+# with respect to the inner product in this question
+# each has norm^2 = 2
+$E[0] = Matrix([0,1,0],[-1,0,0],[0,0,0]);
+$E[1] = Matrix([0,0,1],[0,0,0],[-1,0,0]);
+$E[2] = Matrix([0,0,0],[0,0,1],[0,-1,0]);
+
+# random 3x3 matrix
+# make sure it is neither symmetric nor skew-symmetric
+@a = (
+	[non_zero_random(-5,5),random(-5,5),random(-5,5)],
+	[1,random(-5,5),random(-5,5)],
+	[random(-5,5),random(-5,5),non_zero_random(-5,5)],
+);
+$a[1][0] += $a[0][1];
+
+$A = Matrix(@a);
+$ans = Matrix([0,0,0],[0,0,0],[0,0,0]);
+$ans += ( (-1)*(($A * $_)->trace)/2 )*($_) for (@E);
+# ^^^ (-1)* because transpose($E) = -$E
+#     /2 because norm(E)^2 = 2
+
+Context()->texStrings;
+BEGIN_TEXT
+The pairing \( \langle X,Y \rangle = \operatorname{trace} (XY^{\mathrm{T}}) \) defines an inner product on the space of \( 3 \times 3\) matrices.
+$PAR
+Find the \( 3 \times 3\) skew-symmetric matrix that is closest to the matrix \(A=$A\).
+$PAR
+$BBOLD $BITALIC Recall: $EITALIC $EBOLD A square matrix \(C\) is skew-symmetric if \(C^{\mathrm{T}} = -C\).
+$PAR
+\{ mbox(
+  'ANSWER: ',
+  $ans->ans_array,
+) \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+$showHint = -1;
+BEGIN_HINT
+The first step is to find an orthogonal basis for the subspace of \( 3 \times 3\) skew-symmetric matrices. This subspace has dimension 3.
+END_HINT
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

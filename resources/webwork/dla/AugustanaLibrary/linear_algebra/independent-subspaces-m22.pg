@@ -1,0 +1,60 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+##KEYWORDS('linear algebra','independent subspaces')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrix Forms')
+## DBsection('Block Diagonal Form')
+## Date('02/07/2013')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+
+DOCUMENT();
+loadMacros("PGbasicmacros.pl",
+        "PGchoicemacros.pl",
+        "PGanswermacros.pl",
+
+);
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+# Make a new select list
+$sel_list = new_select_list();
+# $sel_list now "contains" the select list object.
+
+# change the printing mechanism of the object to
+# use pop-up list instead of an answer rule.
+$sel_list->rf_print_q(~~&pop_up_list_print_q);
+
+# set pop-up list entries
+$sel_list->ra_pop_up_list( [ No_answer => "$SPACE$SPACE$SPACE$SPACE ?", I => "Independent", D => "Dedependent"] );
+
+# set up the pop-up list object
+$sel_list -> qa (
+"$SPACE$SPACE \(W_1 = \) the space of diagonal matrices, \(W_2 = \) the space of symmetric matrices. $BR", "D",
+"$SPACE$SPACE \(W_1 = \) the space of diagonal matrices, \(W_2 = \) the space of upper triangular matrices. $BR", "D",
+"$SPACE$SPACE \(W_1 = \) the space of symmetric matrices, \(W_2 = \) the space of upper triangular matrices. $BR", "D",
+"$SPACE$SPACE \(W_1 = \) the space of upper triangular matrices, \(W_2 = \) the space of lower triangular matrices. $BR", "D",
+"$SPACE$SPACE \(W_1 = \) the space of symmetric matrices, \(W_2 = \) the space of skew-symmetric matrices. $BR", "I",
+"$SPACE$SPACE \(W_1 = \) the space of matrices with zero trace, \(W_2 = \) the space of skew-symmetric matrices. $BR", "D",
+);
+$sel_list->choose(6);
+
+
+BEGIN_TEXT
+In each of the following, decide whether the given pair of subspaces of \(\mathrm{M}_{2\times 2} (\mathbb{R})\), the space of all \(2 \times 2\) matrices with real entries, form a collection of independent subspaces.
+$PAR
+$BBOLD Note: $EBOLD A matrix \(A\) is $BITALIC skew-symmetric $EITALIC if \(A^{\mathrm{T}} = -A\). (Compare this with the definition that a matrix is $BITALIC symmetric $EITALIC if \(A^{\mathrm{T}} = A\)).
+\{ $sel_list->print_q \}
+END_TEXT
+# Enter the correct answers to be checked against the answers to the students.
+ANS(str_cmp( $sel_list->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();

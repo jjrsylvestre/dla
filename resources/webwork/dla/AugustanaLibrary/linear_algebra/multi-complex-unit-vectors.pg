@@ -1,0 +1,169 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('orthogonal matrix')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+## TODO: this problem should really be rewritten with singleResult => 0, and individual comments
+##       on correct vectors, but with current installation can't get $ansHash->setMessage(index,message) to work.
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox, display_matrix
+  "parserMultiAnswer.pl",
+  "weightedGrader.pl",
+#  "answerHints.pl",
+);
+
+install_weighted_grader();
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Complex");
+
+Context()->parens->set("<" => {type => "Vector", close => ">"});
+
+$num_answers_requested = 5;
+$num_answers_requested_str = "FIVE";
+$num_answers_requested_sm_str = "five";
+
+@unit_scalars = ( Compute("1"), Compute("-1") );
+$denom = 2;
+$numer = 1;
+while ( (scalar @unit_scalars) < $num_answers_requested ) {
+	push( @unit_scalars, Compute("cos($numer*pi/$denom) + i*sin($numer*pi/$denom)") );
+	$numer += 2;
+	if ($numer > $denom) {
+		$denom *= 2;
+		$numer = 1;
+	}
+}
+
+# random vector
+$v = ColumnVector(
+  Complex(non_zero_random(-9,9),random(-9,9)),
+  Complex(random(-9,9),non_zero_random(-9,9)),
+);
+$v_star = ColumnVector( map(conj($_),$v->value) );
+$v_normsq = $v_star . $v;
+$v_norm = Compute("sqrt($v_normsq)");
+
+# generate some answers
+$base_ans = (1/$v_norm) * $v;
+@ans_array = ();
+push(@ans_array, $_ * $base_ans) foreach (@unit_scalars);
+
+sub multivector_checker {
+	my ( $correct, $student, $ansHash ) = @_;
+	return 0 if ($ansHash->{isPreview});
+	my @checked_vecs = ();
+	my $n_correct_vecs = 0.0;
+	my $message_str = "";
+	my $duplicate_ans_flagged = 0;
+	my $nonparallel_ans_flagged = 0;
+	my $nonunit_ans_flagged = 0;
+	while ($stu_vec = shift @{$student}) {
+		my $this_vec_correct = 1;
+		foreach (@checked_vecs) {
+			if (($_ - $stu_vec)->isZero) {
+				if (! $duplicate_ans_flagged) {
+					$message_str .= "$BR" if ($message_str);
+					$message_str .= "You have at least one duplicate answer.";
+					$duplicate_ans_flagged = 1;
+				}
+				$this_vec_correct = 0;
+				last;
+			}
+		}
+		push(@checked_vecs,$stu_vec);
+		next if (! $this_vec_correct);
+		my $stu_vec_proj_diff = $v_normsq * $stu_vec - ($v_star . $stu_vec) * $v;
+		if (! $stu_vec_proj_diff->isZero) {
+			if (! $nonparallel_ans_flagged) {
+				$message_str .= "$BR" if ($message_str);
+				$message_str .= "At least one of your answers is not parallel to v.";
+				$nonparallel_ans_flagged = 1;
+			}
+			next;
+		}
+		my $stu_vec_norm_sq_diff
+		  = ColumnVector(map(conj($_),$stu_vec->value)) . $stu_vec - Complex(1,0);
+		if (! $stu_vec_norm_sq_diff->isZero) {
+			if (! $nonunit_ans_flagged) {
+				$message_str .= "$BR" if ($message_str);
+				$message_str .= "At least one of your answers is not a unit vector.";
+				$nonunit_ans_flagged = 1;
+			}
+			next;
+		}
+		$n_correct_vecs += 1.0;
+	}
+	my $correct = 0;
+	my $score = $n_correct_vecs / $num_answers_requested;
+	if ($score > (($num_answers_requested-1.0)/$num_answers_requested)) {
+		$score = 1.0;
+		$correct = 1;
+	}
+	$ansHash->{score} = $score;
+	Value::Error($message_str) if (! $correct);
+	return 1;
+}
+
+$multians = MultiAnswer(@ans_array)->with(
+	singleResult => 1,
+	separator => ', ',
+	tex_separator => ', ',
+	allowBlankAnswers=>0,
+	checker => ~~&multivector_checker
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+$BBOLD (a) $EBOLD $BR
+If \(V=\mathbb{R}^n\) with the standard inner product, then given any nonzero vector \(\mathbf{v}\in V\), there exist(s) ${BBOLD}exactly${EBOLD} \{ans_rule(5)\} ${BBOLD}unit${EBOLD} vectors in \(\operatorname{Span}\lbrace\mathbf{v}\rbrace\).
+END_TEXT
+Context()->normalStrings;
+WEIGHTED_ANS(Compute("2")->cmp(mode => 'strict'),25);
+
+Context()->texStrings;
+BEGIN_TEXT
+$PAR
+$BBOLD (b) $EBOLD $BR
+Let \(V=\mathbb{C}^2\) with the standard $BBOLD complex $EBOLD inner product.
+$PAR
+Let \(\mathbf{v}=$v \in V\).
+$PAR
+Find $BBOLD $num_answers_requested_str $EBOLD different unit vectors in \(\operatorname{Span}\lbrace\mathbf{v}\rbrace\).
+$PAR
+$BBOLD NOTE: $EBOLD You must enter answers for all $num_answers_requested_sm_str vectors before your answers will be checked for correctness.
+$PAR
+\{mbox([ '\(\mathbf{u}_1 =\)', $multians->ans_array(20) ])\} $BR
+\{mbox([ '\(\mathbf{u}_2 =\)', $multians->ans_array(20) ])\} $BR
+\{mbox([ '\(\mathbf{u}_3 =\)', $multians->ans_array(20) ])\} $BR
+\{mbox([ '\(\mathbf{u}_4 =\)', $multians->ans_array(20) ])\} $BR
+\{mbox([ '\(\mathbf{u}_5 =\)', $multians->ans_array(20) ])\}
+END_TEXT
+# make sure the number of final mbox's above is the same as $num_answers_requested
+Context()->normalStrings;
+
+WEIGHTED_ANS($multians->cmp(),75);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

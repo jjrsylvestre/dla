@@ -1,0 +1,177 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('matrix forms','nilpotent','elementary nilpotent form')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Matrices')
+## DBsection('Matrix Forms')
+## Date('Jan 2014')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl", # for select_list
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+Context("Matrix");
+
+# using these instead of ->inverse to avoid divisions
+# which can cause round-off errors for zero entries
+sub unimodular_upper_tri_inverse {
+	my @u = (shift)->value;
+	my @I = Value::Matrix->I($n)->value;
+	foreach my $d (1..$n) {
+		$dd = $n - $d;
+		foreach my $i (0..$dd-1) {
+			foreach my $j ($n-$d..$n-1) {
+				$I[$i][$j] -= $u[$i][$dd] * $I[$dd][$j];
+			}
+		}
+	}
+	return Matrix(@I);
+}
+sub unimodular_lower_tri_inverse {
+	return (unimodular_upper_tri_inverse(shift->transpose))->transpose;
+}
+
+# create the matrices --- two 3x3 yes, one 3x3 no, two 4x4 yes, two 4x4 no, in that order
+@starters = ([
+	[0,0,0],
+	[1,0,0],
+	[0,1,0],
+],[
+	[0,0,0],
+	[1,0,0],
+	[0,1,0],
+],[
+	[0,0,0],
+	[1,0,0],
+	[0,0,0],
+],[
+	[0,0,0,0],
+	[1,0,0,0],
+	[0,1,0,0],
+	[0,0,1,0],
+],[
+	[0,0,0,0],
+	[1,0,0,0],
+	[0,1,0,0],
+	[0,0,1,0],
+],[
+	[0,0,0,0],
+	[1,0,0,0],
+	[0,0,0,0],
+	[0,0,1,0],
+],[
+	[0,0,0,0],
+	[1,0,0,0],
+	[0,1,0,0],
+	[0,0,0,0],
+]);
+
+@nilp_matrix_strings = ();
+foreach (@starters) {
+	$S = Matrix(@{$_});
+	$n = ($S->dimensions)[0];
+
+	# Form $A by conjugating $S by matrices of det +/- 1.
+	# First an upper triangular, then a lower triangular, then a permutation matrix
+	$nperms = $n;
+	$randrange = 1;
+	foreach $i (0..$n-1) {
+		foreach $j (0..$n-1) {
+			if ($i == $j) {
+				$upper[$i][$j] = 1;
+			} elsif ($i < $j) {
+				$upper[$i][$j] = random(-$randrange,$randrange);
+			} else {
+				$upper[$i][$j] = 0;
+			}
+		}
+	}
+	$Upper = Matrix(@upper);
+	foreach $i (0..$n-1) {
+		foreach $j (0..$n-1) {
+			if ($i == $j) {
+				$lower[$i][$j] = 1;
+			} elsif ($i > $j) {
+				$lower[$i][$j] = random(-$randrange,$randrange);
+			} else {
+				$lower[$i][$j] = 0;
+			}
+		}
+	}
+	$Lower = Matrix(@lower);
+	@perm = Value::Matrix->I($n)->value;
+	@perm_tracking = ();
+	foreach (1..$nperms) {
+		$i = random(0,$n-1);
+		do { $j = random(0,$n-1); } until ($j != $i);
+		($perm[$i],$perm[$j]) = ($perm[$j],$perm[$i]);
+		push(@perm_tracking,$i,$j);
+	}
+	$Perm = Matrix(@perm);
+	@perm = Value::Matrix->I($n)->value;
+	foreach $k (0..$nperms-1) {
+		$j = pop @perm_tracking;
+		$i = pop @perm_tracking;
+		($perm[$i],$perm[$j]) = ($perm[$j],$perm[$i]);
+	}
+	$PermI = Matrix(@perm);
+	push @nilp_matrix_strings, (
+		$Perm * $Lower * $Upper * $S
+		* unimodular_upper_tri_inverse($Upper) * unimodular_lower_tri_inverse($Lower) * $PermI
+	)->TeX;
+}
+
+# Make a new select list
+$sel_list = new_select_list();
+# $sel_list now "contains" the select list object.
+
+# change the printing mechanism of the object to
+# use pop-up list instead of an answer rule.
+$sel_list->rf_print_q(~~&pop_up_list_print_q);
+
+# set pop-up list entries
+$sel_list->ra_pop_up_list( [ No_answer => "$SPACE$SPACE$SPACE$SPACE ?", S => "Similar to elementary nilpotent form", N => "Not similar to elementary nilpotent form"] );
+
+# set up the pop-up list object
+$sel_list -> qa (
+  "\($nilp_matrix_strings[0]\)", "S",
+  "\($nilp_matrix_strings[1]\)", "S",
+  "\($nilp_matrix_strings[2]\)", "N",
+  "\($nilp_matrix_strings[3]\)", "S",
+  "\($nilp_matrix_strings[4]\)", "S",
+  "\($nilp_matrix_strings[5]\)", "N",
+  "\($nilp_matrix_strings[6]\)", "N",
+);
+$sel_list->choose(7);
+
+
+BEGIN_TEXT
+In each of the following, decide whether the given nilpotent matrix is similar to one in elementary nilpotent form.
+$PAR
+\{ $sel_list->print_q \}
+$PAR
+END_TEXT
+# Enter the correct answers to be checked against the answers to the students.
+ANS(str_cmp( $sel_list->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();

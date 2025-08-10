@@ -1,0 +1,76 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('inner product' 'orthogonal' 'Gram-Schmidt' 'orthogonal complement')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+$a = non_zero_random(-9,9);
+$b = random(-9,9);
+$c = random(-9,9);
+$d = non_zero_random(-9,9);
+$poly = Formula("$a + $b x + $c x^2 + $d x^3");
+$even_or_odd = random(0,1); # 0 for even, 1 for odd
+if ($even_or_odd == 0) {
+	$even_or_odd_str = "even";
+	$descStr = "$BITALIC even $EITALIC if \(f(-x) = f(x)\) is true for all \(x\).";
+	$ans[0] = Formula("((20*$d+9*$c+5*$b)*x^2-12*$d-3*$b+9*$a)/9");
+} else {
+	$even_or_odd_str = "odd";
+	$descStr = "$BITALIC odd $EITALIC if \(f(-x) = -f(x)\) is true for all \(x\).";
+	$ans[0] = Formula("((6*$d+4*$c+$a)*x^3+(-4*$c+6*$b-$a)*x)/6");
+}
+$ans[1] = Compute("$poly - $ans[0]");
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider the inner product
+\[ \langle p(x),q(x) \rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1) + p(2)q(2) \]
+on the vector space \( P_3 \) of polynomials of degree at most 3.
+$PAR
+Let \(W\) be the subspace of $BBOLD $even_or_odd_str $EBOLD polynomials in \(P_3\). ($BBOLD $BITALIC Recall: $EITALIC $EBOLD A function \(f(x)\) is called $descStr)
+$PAR
+Note that \(\dim W = 2\).
+$PAR
+Let \(p(x) = $poly \). Find the unique decomposition of \(p(x)\) into the sum of a vector in \(W\) and a vector in \(W^{\perp}\).
+$PAR
+\(p(x) =\) \{$ans[0]->ans_rule(30)\} \(+\) \{$ans[1]->ans_rule(30)\}.$BR
+$BBOLD $BITALIC Note: $EITALIC $EBOLD Enter the  vector from \(W\) in the first answer box, and the vector from \(W^{\perp}\) in the second answer box.
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans[0]->cmp);
+ANS($ans[1]->cmp);
+
+$showHint = -1;
+BEGIN_HINT
+The first step is to find an orthogonal basis for \(W\).
+END_HINT
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

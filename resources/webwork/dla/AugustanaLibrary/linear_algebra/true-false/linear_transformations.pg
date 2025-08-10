@@ -1,0 +1,79 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Ch 8')
+## DBsection('AUMAT220 S 1')
+## Date('3/3/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Linear Transformations", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"If \(T\colon V \to W\) is a function such that \(T(a \mathbf{u} + b \mathbf{v}) = a T(\mathbf{u}) + bT(\mathbf{v})\) for all vectors \(\mathbf{u},\mathbf{v} \in V\) and all scalars \(a,b \in \mathbb{R}\), then \(T\) is a linear transformation.",
+"T",
+"If \(T\colon V \to W\) is a linear transformation, then \(T(\mathbf{0}_V) = \mathbf{0}_W\), where \(\mathbf{0}_V\) is the zero vector in \(V\) and \(\mathbf{0}_W\) is the zero vector in \(W\).",
+"T",
+"If \(V\) is an inner product space and \(\mathbf{v}_0\) is a fixed vector in \(V\), then the function \(T\colon V \to \mathbb{R}^1\) defined by \(T(\mathbf{v}) = \langle \mathbf{v}, \mathbf{v}_0 \rangle \) is a linear transformation.",
+"T",
+"If \(V = \operatorname{Span}\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}\), then \(T(a\mathbf{v}_1 + b\mathbf{v}_2 + c\mathbf{v}_3) = (a,b,c)\) defines a linear transformation \(T\colon V \to \mathbb{R}^3\).",
+"F",
+"If each of \(\{\mathbf{u}_1,\mathbf{u}_2,\dotsc,\mathbf{u}_n\}\) and \(\{\mathbf{v}_1,\mathbf{v}_2,\dotsc,\mathbf{v}_n\}\) is a basis of \(V\), then there exists $BITALIC exacly one unique $EITALIC linear operator \(T\colon V \to V\) such that \(T(\mathbf{u}_j) = \mathbf{v}_j\) for each \(j\).",
+"T",
+);
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(5);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)$BR
+
+$PAR
+
+$BBOLD In the following, assume that \(V\) and \(W\) are finite dimensional abstract vector spaces, unless otherwise stated. $EBOLD
+
+$PAR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

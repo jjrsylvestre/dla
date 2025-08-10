@@ -1,0 +1,79 @@
+##DESCRIPTION
+##  
+##ENDDESCRIPTION
+
+## DBsubject('Linear Algebra')
+## DBchapter('AUMAT220 Ch 6')
+## DBsection('AUMAT220 S 1')
+## Date('1/25/11')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Faculty')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+DOCUMENT();      
+loadMacros("PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+
+);
+TEXT(beginproblem(), $BR,$BBOLD, "Inner Product Spaces", $EBOLD, $BR,$BR);
+
+# True false questions are a special case of a "select list"
+# Make a new select list
+$tf = new_select_list();
+# $tf now "contains" the select list object.
+# Insert some  questions and whether or not they are true.
+
+$tf -> qa ( # each entry has to end with a comma
+"For all vectors \( \mathbf{u},\mathbf{v} \in V \), we have \(\langle \mathbf{u},\mathbf{v} \rangle \ge 0\).",
+"F",
+"The Euclidean inner product (a.k.a. the dot product) is the only possible inner product on \(\mathbb{R}^n\).",
+"F",
+"For all vectors \(\mathbf{u},\mathbf{v} \in V\) and all scalars \(a\in\mathbb{R}\), we have \(\langle a\mathbf{u},a\mathbf{v} \rangle = a\langle \mathbf{u},\mathbf{v} \rangle\).",
+"F",
+"If \(\mathbf{u},\mathbf{v} \in V\) such that \(\langle \mathbf{u},\mathbf{v} \rangle = 0\), then either \(\mathbf{u}=\mathbf{0}\) or \(\mathbf{v}=\mathbf{0}\), where \(\mathbf{0}\) is the zero vector in \(V\).",
+"F",
+"For \(\mathbf{u},\mathbf{v} \in V\), \(\lVert \mathbf{u}-\mathbf{v} \rVert = 0\) if and only if \(\mathbf{u}=\mathbf{v}\).",
+"T",
+);   
+
+# Choose five of the question and answer pairs at random.
+$tf ->choose(5);
+
+# Now print the text using $ml->print_q for the questions
+# and $ml->print_a to print the answers.
+
+BEGIN_TEXT
+$PAR
+
+Enter T or F depending on whether the statement is true or false.
+(You must enter T or F -- True and False will not work.)$BR
+
+$PAR
+
+$BBOLD In the following, assume that \(V\) is an abstract real inner product space (unless otherwise stated). $EBOLD
+
+$PAR
+
+\{ $tf-> print_q \}
+
+$PAR
+
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+
+install_problem_grader(~~&std_problem_grader);
+# Since this is a true questions, we do not usually wish to tell students which
+# parts of the matching question have been answered correctly and which are
+# incorrect.  That is too easy.  To accomplish this we set the following flag to
+# zero.
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,113 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS('vector' 'linear transformation' 'one to one')
+## Tagged by tda2d
+
+## DBsubject('Linear Algebra')
+## DBchapter('Vector Spaces')
+## DBsection('Linear Transformations')
+## Date('')
+## Author('')
+## Institution('TCNJ')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## Frankensteined from
+## NationalProblemLibrary/TCNJ/TCNJ_MatrixLinearTransformation/problem16.pg
+## NationalProblemLibrary/TCNJ/TCNJ_MatrixLinearTransformation/problem25.pg
+
+DOCUMENT();        # This should be the first executable line in the problem.
+loadMacros(
+        "PGbasicmacros.pl",
+        "PGchoicemacros.pl",
+        "PGanswermacros.pl",
+        "PGgraphmacros.pl",
+        "PGmatrixmacros.pl"
+        );
+
+TEXT(beginproblem());
+# Do not show which answers are incorrect.
+$showPartialCorrectAnswers = 0;
+
+$str1 = 'What can one say about the relationship between
+\(r\) and \(s\).';
+
+$ansstr1 = "\(r<s\)";
+$ansstr2 = "\(r\leq s\)";
+$ansstr5 = "\(r\geq s\)";
+$ansstr3 = "\(r>s\)";
+$ansstr4 = " There is not enough information to tell";
+
+# Make a new checkbox multiple choice
+
+$tf1 = new_match_list();
+
+# Insert some  questions and matching answers in the q/a list
+$tf1 -> qa (
+"$str1 ", "$ansstr2",
+);
+$tf1->extra("$ansstr1", "$ansstr4", "$ansstr3", "$ansstr5");
+$tf1->choose(1);
+$tf1->choose_extra([0],3);
+$tf1 -> makeLast($ansstr4);
+
+BEGIN_TEXT
+$BBOLD (a) $EBOLD
+$PAR
+Let \(T\) be a $BBOLD one-to-one $EBOLD linear transformation from
+\( {\mathbb R}^r \) to
+\( {\mathbb R}^s \).
+$PAR
+
+\{ $tf1 -> print_q \}
+\{ $tf1 -> print_a\}
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+ANS(str_cmp( $tf1->ra_correct_ans )   ) ;
+
+
+
+$ansstr1 = "\(r<s\)";
+$ansstr2 = "\(r\geq s\)";
+$ansstr3 = "\(r>s\)";
+$ansstr4 = " There is not enough information to tell";
+$ansstr5 = "\(r\leq s\)";
+
+
+# Make a new checkbox multiple choice
+
+$tf2 = new_match_list();
+
+# Insert some  questions and matching answers in the q/a list
+$tf2 -> qa (
+"$str1 ", "$ansstr2",
+);
+$tf2->extra("$ansstr1", "$ansstr4", "$ansstr3", "$ansstr5");
+$tf2->choose(1);
+$tf2->choose_extra([0],3);
+$tf2 -> makeLast($ansstr4);
+
+BEGIN_TEXT
+$PAR
+$BBOLD (b) $EBOLD
+$PAR
+Let \(S\) be an $BBOLD onto $EBOLD linear transformation from
+\( {\mathbb R}^r \) to
+\( {\mathbb R}^s \).
+$PAR
+
+\{ $tf2 -> print_q \}
+\{ $tf2 -> print_a\}
+END_TEXT
+
+# Enter the correct answers to be checked against the answers to the students.
+ANS(str_cmp( $tf2->ra_correct_ans )   ) ;
+
+
+ENDDOCUMENT();

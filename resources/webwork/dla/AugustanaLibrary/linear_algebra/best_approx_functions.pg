@@ -1,0 +1,67 @@
+## DESCRIPTION
+## Linear Algebra
+## ENDDESCRIPTION
+
+## KEYWORDS ('linear algebra','vector space','inner product','best approximation')
+
+## DBsubject('Linear Algebra')
+## DBchapter('Inner Product Spaces')
+## DBsection('Orthogonality')
+## Date('Feb 2015')
+## Author('J. Sylvestre')
+## Institution('University of Alberta, Augustana Campus')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+## MATHOBJECT VERSION
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGmatrixmacros.pl",  # for mbox
+#  "answerHints.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+$t = random(2,6);
+$t2 = 2*$t;
+$t_sq = $t*$t;
+$a = non_zero_random(-9,9);
+$h_func = Formula("$a * cos(pi*x/$t2)");
+$ans = Formula("3*$a*(20 - pi*pi)/(pi*pi*pi) + x^2 * 15*$a*(pi*pi - 12)/(pi*pi*pi*$t_sq)");
+$naive = Formula("-$a*(x^2 - $t_sq)/$t_sq");
+
+Context()->texStrings;
+BEGIN_TEXT
+The pairing $SPACE$SPACE\( \langle f,g \rangle =  \int_{-$t}^{$t} \, f(x) g(x) \, dx \)$SPACE$SPACE defines an inner product on \( C[-$t,$t]\), the space of continuous functions defined on the interval \([-$t,$t]\).
+$PAR
+On this interval, the graph of $SPACE$SPACE\(\displaystyle h(x) = $h_func \)$SPACE$SPACE is similar in shape to a parabola.
+$PAR
+Determine the parabola \(p(x)\) that best approximates \( h(x) \) on the interval \([-$t,$t]\).
+$PAR
+\{ mbox(
+  'ANSWER: \(p(x) =\)',
+  $ans->ans_rule(30),
+) \}
+$PAR
+$BBOLD $BITALIC Note: $EITALIC $EBOLD You can enter the word pi as part of your answer to mean the number \(\pi\). For example, enter 3/(4*pi^2) to mean \(\frac{3}{4\pi^2}\).$BR
+$BBOLD $BITALIC Extra: $EITALIC $EBOLD You might find it interesting to get a computer to plot both your answer parabola and $SPACE$SPACE\( h(x) \)$SPACE$SPACE on the same set of axes. Then compare this with a plot of $SPACE$SPACE\( h(x) \)$SPACE$SPACE and the "naive" approximating parabola $SPACE$SPACE\( y = $naive \)$SPACE$SPACE on the same set of axes. (This "naive" approximating polynomial has the same \(x\)- and \(y\)-intercepts as $SPACE$SPACE\(h(x)\).)
+$PAR
+END_TEXT
+$showHint = -1;
+BEGIN_HINT
+The first step is to produce an orthogonal basis for $SPACE$SPACE\(\operatorname{Span}\lbrace 1,x,x^2 \rbrace\).
+END_HINT
+Context()->normalStrings;
+ANS($ans->with(tolerance=>.00001)->cmp);
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
