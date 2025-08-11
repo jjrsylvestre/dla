@@ -1,0 +1,79 @@
+<html>
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132951299-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-132951299-1');
+	</script>
+
+	<meta name="author" content="Jeremy Sylvestre" charset="UTF-8" />
+
+	<style type="text/css" media="all">@import "/~jsylvest/css/style.css";</style>
+	<title>Scalar-triangular Form Practise Problems for Discover Linear Algebra &mdash; An Open Educational Resource</title>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<h1 id="Header">:: Practise problems for scalar-triangular form</h1>
+
+<div class="Content">
+
+<p>
+Use Sage to do your computations for you.
+See <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-sage-scalar-triang.html">Appendix B.4: Scalar-triangular form</a>.
+</p>
+
+<ol>
+	<li style="margin-top: 1.5em;">
+		Each of the following matrices has a single eigenvalue \(\lambda = 5\).
+		Work through the <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-scalar-triang-concepts.html#subsection-scalar-triang-concepts-proc">scalar-triangularization procedure</a> for each of them.
+		When you have formed the transition matrix \(P\),
+		compute the form matrix \(P^{-1} A P\) without explicitly computing \(P^{-1}\).
+		(One way you could do this is go back to the <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-similarity-concepts.html#subsection-similarity-concepts-algebra">general similarity pattern</a> and compute the coefficients to express each \(A\mathbf{p}_j\) as a linear combination of \(\mathbf{p}_1,\mathbf{p}_2,\dotsc,\mathbf{p}_n\).
+		Another way is to use the row reduction procedure as in <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-similarity-examples.html#subsection-similarity-examples-compute-invpap">Subsection 26.4.2</a>.)
+		<ol style="list-style-type: lower-alpha;">
+			<li style="margin-top: 1em;">\(\begin{bmatrix} 31 &amp; 13 &amp; 78 \\ -4 &amp; 3 &amp;-12 \\ -8 &amp; -4 &amp; -19 \end{bmatrix}\)<br></li>
+			<li style="margin-top: 1em;">\(\begin{bmatrix} 11 &amp; 2 &amp; 1 \\&nbsp;-8 &amp; 2 &amp; -1 \\&nbsp;-16 &amp; -5 &amp; 2 \end{bmatrix}\)</li>
+			<li style="margin-top: 1em;">\(\begin{bmatrix} -16 &amp; 7 &amp; -21 &amp; -14 \\&nbsp;-9 &amp; 8 &amp; -9 &amp; -6 \\&nbsp;18 &amp; -6 &amp; 23 &amp; 12 \\&nbsp;0 &amp; 0 &amp; 0 &amp; 5 \end{bmatrix}\)</li>
+			<li style="margin-top: 1em;">\(\begin{bmatrix} 8 &amp; 7 &amp; -3 &amp; 3 \\&nbsp;-15 &amp; -19 &amp; 10 &amp; -9 \\&nbsp;-27 &amp; -28 &amp; 16 &amp; -8 \\&nbsp;3 &amp; 20 &amp; -9 &amp; 15 \end{bmatrix}\)</li>
+			<li style="margin-top: 1em;">\(\begin{bmatrix} 4 &amp; 3 &amp; 4 &amp; -1 \\&nbsp;11 &amp; -24 &amp; -40 &amp; 9 \\&nbsp;-6 &amp; 16 &amp; 27 &amp; -5 \\&nbsp;10 &amp; -26 &amp; -36 &amp; 13 \end{bmatrix}\)</li>
+			<li style="margin-top: 1em;">\(\begin{bmatrix} -2 &amp; 5 &amp; 4 &amp; 4 \\&nbsp;9 &amp; -1 &amp; -5 &amp; -5 \\&nbsp;9 &amp; -6 &amp; 0 &amp; -5 \\&nbsp;-32 &amp; 22 &amp; 18 &amp; 23 \end{bmatrix}\)</li>
+		</ol>
+	</li>
+	<li style="margin-top: 1.5em;">
+		Carry out steps a, b, c below for each of the following matrices.
+		<ol style="list-style-type: lower-roman;margin-top:1em;">
+			<li style="margin-top: 1em;">\(A = \begin{bmatrix} -5 &amp; 3 &amp; 1 \\ -4 &amp; 2 &amp; 1 \\ -4 &amp; 3 &amp; 0 \end{bmatrix}\)</li>
+			<li style="margin-top: 1em;">\(A = \begin{bmatrix} -3 &amp; 6 &amp; 3 &amp; 2 \\ -2 &amp; 3 &amp; 2 &amp; 2 \\ -1 &amp; 3 &amp; 0 &amp; 1 \\ -1 &amp; 1 &amp; 2 &amp; 0 \end{bmatrix}\)</li>
+		</ol>
+		<ol style="list-style-type: lower-alpha;margin-top:1em;">
+			<li style="margin-top: 1em;">Calculate and factor the characteristic polynomial \(c_A(\lambda)\). From this factored form, determine the eigenvalues and their algebraic multiplicities.</li>
+			<li style="margin-top: 1em;">Calculate a basis for each eigenspace of \(A\). For each eigenvalue, is its geometric multiplicity equal to or less than its algebraic multiplicity?</li>
+			<li style="margin-top: 1em;">
+				Determine a basis for each generalized eigenspace of \(A\) in the same manner as in the&nbsp;<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-scalar-triang-concepts.html#subsection-scalar-triang-concepts-proc">scalar-triangularization procedure</a>.
+				That is, for each eigenvalue \(\lambda\) of \(A\), extend (if possible) the basis for \(E_\lambda(A)\) you determined in step b to a basis for \(E_\lambda^2(A)\).
+				Then extend further (if possible) to a basis for \(E_\lambda^3(A)\).
+				And so on, until you have a basis for some \(E_\lambda^k(A)\) that has \(m_\lambda\) vectors in it, where \(m_\lambda\) is the algebraic multiplicity of \(\lambda\).
+				Identify the parts of <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-scalar-triang-theory.html">Theorem 29.6.1</a> that justify that what you have produced is a basis for the generalized eigenspace \(G_\lambda(A)\).
+			</li>
+		</ol>
+	</li>
+</ol>
+
+<p><a href="./scalar-triangular-ans.html">Answers</a></p>
+
+</div>
+
+</body>
+
+</html>

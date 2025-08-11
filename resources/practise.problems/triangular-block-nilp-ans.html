@@ -1,0 +1,165 @@
+<html>
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132951299-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-132951299-1');
+	</script>
+
+	<meta name="author" content="Jeremy Sylvestre" charset="UTF-8" />
+
+	<style type="text/css" media="all">@import "/~jsylvest/css/style.css";</style>
+	<title>Answers to Triangular-Block Nilpotent Form Practise Problems for Discover Linear Algebra &mdash; An Open Educational Resource</title>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<h1 id="Header">:: Answers to practise problems for triangular-block nilpotent form</h1>
+
+<div class="Content">
+
+<ol>
+
+	<li style="margin-top: 1.5em;">
+		The matrix \(N\) has block form
+		\[ N = \begin{bmatrix} N_4 \\ &amp; N_4 \\ &amp; &amp; N_2 \\ &amp; &amp; &amp; N_2 \\ &amp; &amp; &amp; &amp; N_1 \end{bmatrix} \]
+		where \(N_4\) is a \(4 \times 4\) elementary nilpotent block,
+		\(N_2\) is a \(2 \times 2\) elementary nilpotent block,
+		and \(N_1\) is a \(1 \times 1\) elementary nilpotent block:
+		\[\begin{align*}
+			N_4 &amp; = \begin{bmatrix} 0 \\ 1 &amp; 0 \\ &amp; 1 &amp; 0 \\ &amp; &amp; 1 &amp; 0 \end{bmatrix} \text{,}
+			&amp;
+			N_2 &amp; = \begin{bmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{bmatrix} \text{,}
+			&amp;
+			N_1 &amp; = \begin{bmatrix} 0 \end{bmatrix} \text{.}
+		\end{align*}\]
+	</li>
+
+	<li style="margin-top: 1.5em;">
+		Here, answer a. corresponds to problem 1. from the <a href="./elem-nilp.html">practise problems for elementary nilpotent form</a>,
+		answer b. corresponds to problem 2. from that page,
+		and so on.
+		Note that different possibilities for each transition matrix \(P\) are possible depending on different choices made in the procedures.
+		<ol type="a">
+
+			<li style="margin-top:1em">
+				Matrix is \(3 \times 3\),
+				degree of nilpotency is \(k = 2\).
+				<ul style="margin-bottom:1em;">
+					<li style="margin-top:0.75em">
+						Using
+						<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-triang-nilpotent-concepts.html#procedure-triang-nilpotent-concepts-form-proc1">Procedure 33.4.2</a>:
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						\(P = \begin{bmatrix} 1 &amp; 18 &amp; 1 \\ 0 &amp; 18 &amp; 0 \\ 0 &amp; -6 &amp; 2 \end{bmatrix} \)
+					</li>
+					<li style="margin-top:0.75em">
+						Using
+						<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-triang-nilpotent-concepts.html#procedure-triang-nilpotent-concepts-form-proc2">Procedure 33.4.3</a>:
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						\(P = \begin{bmatrix} 1 &amp; 18 &amp; 7 \\ 0 &amp; 18 &amp; 6 \\ 0 &amp; -6 &amp; 0 \end{bmatrix} \)
+					</li>
+				</ul>
+				In both cases:
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				\( P^{-1} A P = \begin{bmatrix} 0 &amp; 0 \\ 1 &amp; 0 \\ &amp; &amp; 0 \end{bmatrix} \).
+			</li>
+
+			<li style="margin-top:1em">
+				Matrix is similar to \(3 \times 3\) elementary nilpotent form.
+				See the <a href="./elem-nilp-ans.html">answers for the elementary nilpotent form practise problems</a> for a transition matrix.
+			</li>
+
+			<li style="margin-top:1em">
+				Matrix is similar to \(3 \times 3\) elementary nilpotent form.
+				See the <a href="./elem-nilp-ans.html">answers for the elementary nilpotent form practise problems</a> for a transition matrix.
+			</li>
+
+			<li style="margin-top:1em">
+				Matrix is \(4 \times 4\),
+				degree of nilpotency is \(k = 3\).
+				<ul style="margin-bottom:1em;">
+					<li style="margin-top:0.75em">
+						Using
+						<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-triang-nilpotent-concepts.html#procedure-triang-nilpotent-concepts-form-proc1">Procedure 33.4.2</a>:
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						\(P = \begin{bmatrix} 1 &amp; 4 &amp; -2 &amp; 13 \\ 0 &amp; -11 &amp; 1 &amp; 0 \\ 0 &amp; 4 &amp; 0 &amp; -3 \\ 0 &amp; -1 &amp; 0 &amp; 1 \end{bmatrix} \)
+					</li>
+					<li style="margin-top:0.75em">
+						Using
+						<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-triang-nilpotent-concepts.html#procedure-triang-nilpotent-concepts-form-proc2">Procedure 33.4.3</a>:
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						\(P = \begin{bmatrix} 1 &amp; 4 &amp; -2 &amp; 9 \\ 0 &amp; -11 &amp; 1 &amp; -11 \\ 0 &amp; 4 &amp; 0 &amp; 3 \\ 0 &amp; -1 &amp; 0 &amp; -1 \end{bmatrix} \)
+					</li>
+				</ul>
+				In both cases:
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				\( P^{-1} A P = \begin{bmatrix} 0 \\ 1 &amp; 0 \\ &amp; 1 &amp; 0 \\ &amp; &amp; &amp; 0 \end{bmatrix} \).
+			</li>
+
+			<li style="margin-top:1em">
+				Matrix is \(4 \times 4\),
+				degree of nilpotency is \(k = 2\).
+				In this case,
+				both procedures arrive at the same transition matrix (depending on choices made along the way):
+				\[\begin{align*}
+					P &amp; = \begin{bmatrix} 1 &amp; -3 &amp; 0 &amp; 15 \\ 0 &amp; 0 &amp; 1 &amp; 26 \\ 0 &amp; 1 &amp; 0 &amp; -11 \\ 0 &amp; 0 &amp; 0 &amp; -4 \end{bmatrix} \text{,}
+					&amp;
+					P^{-1} A P = \begin{bmatrix} 0 &amp; 0 \\ 1 &amp; 0 \\ &amp; &amp; 0 &amp; 0 \\ &amp; &amp; 1 &amp; 0 \end{bmatrix} \text{.}
+				\end{align*}\]
+			</li>
+
+			<li style="margin-top:1em">
+				Matrix is \(6 \times 6\),
+				degree of nilpotency is \(k = 4\).
+				<ul style="margin-bottom:1em;">
+					<li style="margin-top:0.75em">
+						Using
+						<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-triang-nilpotent-concepts.html#procedure-triang-nilpotent-concepts-form-proc1">Procedure 33.4.2</a>:
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						\(P = \begin{bmatrix}
+							0 &amp; 2 &amp; -2 &amp; 8 &amp; 0 &amp; 41 \\
+							1 &amp; 1 &amp; 0 &amp; 4 &amp; -1 &amp; 20 \\
+							0 &amp; 1 &amp; 0 &amp; 2 &amp; 0 &amp; 10 \\
+							0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 5 \\
+							0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 5 \\
+							0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+						\end{bmatrix}\)
+					</li>
+					<li style="margin-top:0.75em">
+						Using
+						<a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-triang-nilpotent-concepts.html#procedure-triang-nilpotent-concepts-form-proc2">Procedure 33.4.3</a>:
+						the same \(P\) matrix as above but with the fifth and sixth columns replaced by their negatives.
+					</li>
+				</ul>
+				In both cases:
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				\( P^{-1} A P = \begin{bmatrix} 0 \\ 1 &amp; 0 \\ &amp; 1 &amp; 0 \\ &amp; &amp; 1 &amp; 0 \\ &amp; &amp; &amp; &amp; 0 \\ &amp; &amp; &amp; &amp; 1 &amp; 0 \end{bmatrix} \).
+			</li>
+
+			<li style="margin-top:1em">
+				Matrix is similar to \(6 \times 6\) elementary nilpotent form.
+				See the <a href="./elem-nilp-ans.html">answers for the elementary nilpotent form practise problems</a> for a transition matrix.
+			</li>
+
+		</ol>
+	</li>
+
+
+
+</ol>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132951299-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-132951299-1');
+	</script>
+
+	<meta name="author" content="Jeremy Sylvestre" charset="UTF-8" />
+
+	<style type="text/css" media="all">@import "/~jsylvest/css/style.css";</style>
+	<title>Answers to Jordan Normal Form Practise Problems for Discover Linear Algebra &mdash; An Open Educational Resource</title>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<h1 id="Header">:: Answers to practise problems for Jordan normal form</h1>
+
+<div class="Content">
+
+<ol>
+
+	<li style="margin-top: 1.5em;">
+
+		<ol type="i">
+
+			<li style="margin-top:1em">
+				\( P = \begin{bmatrix} 1 &amp; -4 &amp; 3 \\ 0 &amp; -4 &amp; 4 \\ 0 &amp; -4 &amp; 0 \end{bmatrix} \)
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				\( P^{-1} A P = \begin{bmatrix} -1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; -1 \end{bmatrix} \)
+			</li>
+
+			<li style="margin-top:1em">
+				\( P = \begin{bmatrix} 1 &amp; 1 &amp; -1 &amp; 10 \\ 0 &amp; 0 &amp; 1 &amp; 4 \\ 1 &amp; 0 &amp; 0 &amp; 4 \\ 0 &amp; 1 &amp; 0 &amp; 2 \end{bmatrix} \)
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				\( P^{-1} A P = \begin{bmatrix} -1 &amp; 0 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \end{bmatrix} \)
+			</li>
+
+		</ol>
+
+	</li>
+
+	<li style="margin-top: 1.5em;">
+		Both matrices have \(\lambda = 1\) with \(m_1 = 1\) and \(\lambda = 2\) with \(m_2 = 2\).
+		However,
+		by comparing \(\operatorname{rank} (2 I - A)\) and \(\operatorname{rank} (2 I - B)\) we see that they are similar to Jordan normal form matrices
+		\[\begin{align*}
+			J_A &amp; = \begin{bmatrix} 1 \\ &amp; 2 \\ &amp; &amp; 2 \end{bmatrix} \text{,}
+			&amp;
+			J_B &amp; = \begin{bmatrix} 1 \\ &amp; 2 \\ &amp; 1 &amp; 2 \end{bmatrix} \text{,}
+		\end{align*}\]
+		respectively.
+		Since these form matrices are not similar,
+		neither can \(A\) and \(B\) be similar.
+	</li>
+
+	<li style="margin-top: 1.5em;"> <i>[Omitted.]</i> </li>
+
+	<li style="margin-top: 1.5em;">
+		Since \(2 \times 2\) matrix \(A\) has two distinct eigenvalues,
+		it is actually diagonalizable,
+		and is similar to diagonal matrix \( \left[\begin{smallmatrix} 1 + \epsilon \\ &amp; 1 \end{smallmatrix}\right] \)
+		via transition matrix \( P = \left[\begin{smallmatrix} \epsilon &amp; 0 \\ 1 &amp; 1 \end{smallmatrix}\right] \).
+		But \(J\) is already in Jordan normal form and is not diagonal,
+		hence \(A\) cannot be similar to \(J\).
+	</li>
+
+</ol>
+
+</div>
+
+</body>
+
+</html>

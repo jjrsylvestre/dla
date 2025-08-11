@@ -1,0 +1,108 @@
+<html>
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132951299-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-132951299-1');
+	</script>
+
+	<meta name="author" content="Jeremy Sylvestre" charset="UTF-8" />
+
+	<style type="text/css" media="all">@import "/~jsylvest/css/style.css";</style>
+	<title>Jordan Normal Form Practise Problems for Discover Linear Algebra &mdash; An Open Educational Resource</title>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<h1 id="Header">:: Practise problems for Jordan normal form</h1>
+
+<div class="Content">
+
+<p>
+Use Sage to do your computations for you.
+See <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/appendix-sage.html">Appendix B</a>.
+</p>
+
+<ol>
+    <li style="margin-top: 1.5em;">
+		For each of the following matrices, determine a transition matrix \(P\) so that \(P^{-1} A P\) is in Jordan normal form, and determine the form matrix \(P^{-1} A P\) <i>without</i> computing \(P^{-1}\).
+		<ol style="list-style-type: lower-roman;margin-bottom: 1.5em;">
+		    <li style="margin-top: 1em;"> \(A = \begin{bmatrix} -5 &amp; 3 &amp; 1 \\ -4 &amp; 2 &amp; 1 \\ -4 &amp; 3 &amp; 0 \end{bmatrix}\) </li>
+		    <li style="margin-top: 1em;"> \(A = \begin{bmatrix} -3 &amp; 6 &amp; 3 &amp; 2 \\ -2 &amp; 3 &amp; 2 &amp; 2 \\ -1 &amp; 3 &amp; 0 &amp; 1 \\ -1 &amp; 1 &amp; 2 &amp; 0 \end{bmatrix}\) </li>
+		</ol>
+		<i><b>NOTE:</b></i>
+		These are the same matrices as in
+		<ul>
+			<li>the second problem from the <a href="./scalar-triangular.html">practise problems for scalar-triangular form</a>,</li>
+			<li>the <a href="./triangular-block.html">practise problems for triangular block form</a>, and</li>
+			<li>the first problem from the <a href="./triangular-block-conseq.html">practise problems for the consequences of triangular block form</a>.</li>
+		</ul>
+		You may wish to use your results from the <a href="./triangular-block.html">practise problems for triangular block form</a>
+		as the starting point for this practise problem,
+		as in <a href="https://sites.ualberta.ca/~jsylvest/books/DLA/section-jordan-examples.html#example-jordan-proc">Example 34.4.2</a> in the textbook.
+	</li>
+	<li style="margin-top: 1.5em;">
+		Demonstrate that the following two matrices have the same eigenvalues with the same algebraic multiplicities,
+		but are not similar.
+		Do this by determining some property of the Jordan normal form matrix for each that differs between the two.
+		\[\begin{align*}
+			A &amp; = \left[\begin{array}{rrr} 1 &amp; -2 &amp; -2 \\ -1 &amp; 0 &amp; -2 \\ 1 &amp; 2 &amp; 4 \end{array}\right]
+			&amp;
+			B &amp; = \left[\begin{array}{rrr} 3 &amp; 0 &amp; 2 \\ -1 &amp; 0 &amp; -2 \\ 0 &amp; 1 &amp; 2 \end{array}\right] &amp;
+		\end{align*}\]
+	</li>
+	<li style="margin-top: 1.5em;">
+		<ol style="list-style-type: lower-alpha;">
+			<li style="margin-top:1em;">
+				Verify that \(P^{-1} J' P = J\), where
+				\[\begin{align*}
+					J &amp; = \left[\begin{smallmatrix} \lambda \\ 1 &amp; \lambda \\ &amp; 1 &amp; \lambda \\ &amp; &amp; \ddots &amp; \ddots \\ &amp; &amp; &amp; 1 &amp; \lambda \end{smallmatrix}\right] \text{,}
+					&amp;
+					J' &amp; = \left[\begin{smallmatrix} \lambda \\ \epsilon &amp; \lambda \\ &amp; \epsilon &amp; \lambda \\ &amp; &amp; \ddots &amp; \ddots \\ &amp; &amp; &amp; \epsilon &amp; \lambda \end{smallmatrix}\right] \text{,}
+					&amp;
+					P &amp; = \left[\begin{smallmatrix} 1 \\ &amp; \epsilon \\ &amp; &amp; \epsilon^{2} \\ &amp; &amp; &amp; \ddots \\ &amp; &amp; &amp; &amp; \epsilon^{(n-1)}&nbsp;\end{smallmatrix}\right] \text{.}
+				\end{align*}\]
+			</li>
+			<li style="margin-top:1em;">
+				Use part a to explain what is meant by the following statement.
+				<blockquote><i>A matrix in Jordan normal form is similar to a matrix that is "arbitrarily close" to being diagonal.</i></blockquote>
+			</li>
+		</ol>
+	</li>
+	<li style="margin-top: 1.5em;">
+		Suppose \(\epsilon \approx 0\) but \(\epsilon \ne 0\).
+		While the matrix \(J\) below is in Jordan normal form,
+		the matrix \(A\) is not,
+		even though it might be reasonable to consider \(A \approx J\).
+		\[\begin{align*}
+			J &amp;= \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{bmatrix}
+			&amp;
+			A &amp;= \begin{bmatrix} 1 + \epsilon &amp; 0 \\ 1 &amp; 1 \end{bmatrix}
+		\end{align*}\]
+		Determine the Jordan normal form of \(A\),
+		and conclude that \(A\) cannot be similar to \(J\).
+		<br><br>
+		<i>Remark:</i>
+		This exercise illustrates that the Jordan normal form can be sensitive to small perturbations in its entries.
+		This is particularly of concern when performing matrix calculations using approximate data —
+		for example, data obtained from a physical experiment.
+	</li>
+</ol>
+
+<p><a href="./jordan-ans.html">Answers</a></p>
+
+</div>
+
+</body>
+
+</html>
