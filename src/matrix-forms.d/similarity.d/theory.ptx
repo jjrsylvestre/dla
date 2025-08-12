@@ -19,11 +19,80 @@ respective owners.
 <title>Theory</title>
 
 <introduction><assemblage><title>In this section</title><p><ul>
+<li><xref ref="subsection-similarity-theory-trace" /><nbsp /><nbsp />
+<em><xref text="title" ref="subsection-similarity-theory-trace" /></em></li>
 <li><xref ref="subsection-similarity-theory-equiv-rel" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-similarity-theory-equiv-rel" /></em></li>
 <li><xref ref="subsection-similarity-theory-props" /><nbsp /><nbsp />
 <em><xref text="title" ref="subsection-similarity-theory-props" /></em></li>
 </ul></p></assemblage></introduction>
+
+<subsection xml:id="subsection-similarity-theory-trace">
+<title>Properties of trace</title>
+
+<p>
+We have introduced a new matrix operation in this chapter,
+so we will record some of its algebraic properties.
+Most of these are straightforward to verify from the definition of
+<xref ref="definition-similarity-trace" text="title" />
+(see the <xref ref="section-similarity-terminology" text="title" /> section for this chapter),
+and we leave that task to you,
+the reader.
+</p>
+
+<proposition xml:id="proposition-similarity-trace-props">
+
+	<statement>
+
+		<p>
+		Let <m>A</m> and <m>B</m> represent square matrices of the same size.
+		<ol>
+			<li> <m>\trace \zerovec = 0</m>. </li>
+			<li> <m>\trace I_n = n</m>. </li>
+			<li> <m>\trace (A + B) = \trace A + \trace B</m>. </li>
+			<li> <m>\trace (k A) = k (\trace A) </m>. </li>
+			<li xml:id="proposition-similarity-trace-props-transpose"> <m>\trace (\utrans{A}) = \trace A </m>. </li>
+			<li xml:id="proposition-similarity-trace-props-prod-commute"> <m> \trace (A B) = \trace (B A) </m>. </li>
+		</ol>
+		</p>
+
+		<aside><title>Remember that order matters</title><p>
+			It is <em>not</em> true in general that products <m>A B</m> and <m>B A</m> are equal.
+			However,
+			it turns out that the two product results always have the same trace.
+		</p></aside>
+
+	</statement>
+
+	<proof>
+		<title> Proof of <xref ref="proposition-similarity-trace-props-prod-commute">Statement</xref> </title>
+		<p>
+		Suppose that <m>A,B</m> are <m>n \times n</m> matrices.
+		Set <m>C = A B</m> and <m>D = B A</m>.
+		Since <m>C</m> is a product matrix,
+		each of its entries is obtained from the product of a row of <m>A</m> with a column of <m>B</m>.
+		In particular,
+		the diagonal entries of <m>C</m> are:
+		<me>
+			\begin{array}{rcccccccc}
+				c_{11} \amp = \amp a_{11} b_{11} \amp + \amp a_{12} b_{21} \amp + \amp \dotsb \amp + \amp a_{1n} b_{n1} \text{,} \\
+				c_{22} \amp = \amp a_{21} b_{12} \amp + \amp a_{22} b_{22} \amp + \amp \dotsb \amp + \amp a_{2n} b_{n2} \text{,} \\
+				       \amp \vdots \\
+				c_{nn} \amp = \amp a_{n1} b_{1n} \amp + \amp a_{n2} b_{2n} \amp + \amp \dotsb \amp + \amp a_{nn} b_{nn} \text{,}
+			\end{array}
+		</me>
+		and <m>\trace C</m> is the sum of these sums.
+		If you form a similar expression for each diagonal entry of <m>D</m> as a row of <m>B</m> times the corresponding column of <m>A</m>,
+		you will find that,
+		as a grid of products of matrix entries,
+		it is simply the transpose of the grid above.
+		Conclude that the total sum of each grid is the same.
+		</p>
+	</proof>
+
+</proposition>
+
+</subsection>
 
 <subsection xml:id="subsection-similarity-theory-equiv-rel">
 <title>Similarity is an equivalence relation</title>
@@ -216,13 +285,41 @@ Now we record some facts relating eigenvalues and eigenvectors between similar m
 Note that we have already recorded (and proved) some of these facts in <xref ref="subsection-diagonalization-theory-similar" />.
 </p>
 
-<proposition xml:id="proposition-similarity-similar-same-det">
-	<!-- TODO add same trace? -->
-	<statement><p> Similar matrices have the same determinant. </p></statement>
-	<proof><p>
-		We have already stated and proved this fact as <xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
+<proposition xml:id="proposition-similarity-similar-same-det-trace">
+
+	<statement><p>
+		Similar matrices have the same determinant and <xref ref="definition-similarity-trace" text="custom">trace</xref>.
+	</p></statement>
+
+	<proof>
+
+		<p>
+		We have already stated and proved the statement about determinant as <xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
 		of <xref ref="proposition-diagonalization-similar-matrices-properties" />.
-	</p></proof>
+		</p>
+
+		<p>
+		To prove that similar matrices have the same trace,
+		we will use <xref ref="proposition-similarity-trace-props-prod-commute">Statement</xref>
+		of <xref ref="proposition-similarity-trace-props" />.
+		If <m>B = \inv{P} A P</m> for some invertible matrix <m>P</m>,
+		then
+		<md>
+			<mrow> \trace B \amp = \trace (\inv{P} A P) </mrow>
+			<mrow> \amp = \trace \bbrac{\inv{P} (A P)} </mrow>
+			<mrow> \amp = \trace \bbrac{(A P) \inv{P}} </mrow>
+			<mrow> \amp = \trace \bbrac{A (P \inv{P})} </mrow>
+			<mrow> \amp = \trace (A I) </mrow>
+			<mrow> \amp = \trace A </mrow>
+		</md>.
+		Note that in the above manipulations,
+		we are <em>not</em> asserting that <m>\inv{P} (A P)</m> is equal to <m>(A P) \inv{P}</m>.
+		Instead, we are using the <m>\trace (M N) = \trace (N M)</m> pattern from <xref ref="proposition-similarity-trace-props" />,
+		applied to <m>M = \inv{P}</m> and <m>N = A P</m>.
+		</p>
+
+	</proof>
+
 </proposition>
 
 <theorem xml:id="theorem-similarity-similar-same-char-poly-evals-transformed-evecs">
