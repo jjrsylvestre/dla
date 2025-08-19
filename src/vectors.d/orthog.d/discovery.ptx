@@ -18,16 +18,16 @@ respective owners.
 
 <title>Discovery guide</title>
 
-<introduction><p>
-	Recall that for <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m> and <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>,
-	the <term>dot product</term> of <m>\uvec{u}</m> and <m>\uvec{v}</m> is defined by the formula given below on the left.
-	It is an important formula because if <m>\theta</m> is the angle between two nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>,
-	then <m>\theta</m> satisfies both <m>0 \le \theta \le \pi</m> and the formula given below on the right.
-	<md><mrow>
-		\udotprod{u}{v} \amp= u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n \amp
-		\cos\theta \amp= \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}
-	</mrow></md>
-</p></introduction>
+<p>
+Recall that for <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m> and <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>,
+the <term>dot product</term> of <m>\uvec{u}</m> and <m>\uvec{v}</m> is defined by the formula given below on the left.
+It is an important formula because if <m>\theta</m> is the angle between two nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+then <m>\theta</m> satisfies both <m>0 \le \theta \le \pi</m> and the formula given below on the right.
+<md><mrow>
+	\udotprod{u}{v} \amp= u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n \amp
+	\cos\theta \amp= \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}
+</mrow></md>
+</p>
 
 <activity xml:id="activity-orthog-dot-prod-vs-cos-graph">
 
@@ -129,9 +129,11 @@ respective owners.
 		Complete the triangle in your diagram by drawing in the vector <m>\uvec{u} = \abray{OQ}</m>.
 		</p>
 
-		<p> Then express <m>\uvec{n}</m> as a combination of <m>\uvec{u}</m> and <m>k\uvec{a}</m>. </p>
+		<p>
+		Then express <m>\uvec{n}</m> as a combination of <m>\uvec{u}</m> and <m>k\uvec{a}</m>.
+		(Remember that <m>k\uvec{a} = \abray{OP}</m>.)
+		</p>
 
-		<aside><title>Remember</title><p><m>k\uvec{a} = \abray{OP}</m>.</p></aside>
 
 	</task>
 
@@ -156,10 +158,6 @@ respective owners.
 	<postlude>
 
 		<!-- schema violation but renders OK -->
-		<aside><title>Note</title><p>
-			The reason the vectors <m>\uproj{u}{a}</m> and <m>\uvec{u} - \uproj{u}{a}</m> are called <term>components</term> of <m>\uvec{u}</m> is that the original vector <m>\uvec{u}</m> can be rebuilt as their sum.
-		</p></aside>
-
 		<p>
 		The vector <m>k\uvec{a}</m> in <xref ref="activity-orthog-proj" /> is called the
 		<term>orthogonal projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term>,
@@ -171,6 +169,10 @@ respective owners.
 		The vector <m>\uvec{n} = \uvec{u}-\uproj{u}{a}</m> is called the
 		<term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term><idx><h>orthogonal</h><h>component</h></idx><idx><h>component</h><h>orthogonal</h></idx>.
 		</p>
+
+		<aside valign="middle"><title>Note</title><p>
+			The reason that the vectors <m>\uproj{u}{a}</m> and <m>(\uvec{u} - \uproj{u}{a})</m> are called <term>components</term> of <m>\uvec{u}</m> is that the original vector <m>\uvec{u}</m> can be rebuilt as their sum.
+		</p></aside>
 
 		<p> The same problem can be solved in higher dimensions by the same formula for <m>\uproj{u}{a}</m>. </p>
 
@@ -210,7 +212,7 @@ respective owners.
 		The homogeneous linear equation <m>2 x + 3 y = 0</m> defines a line through the origin in <m>\R^2</m> (<ie /> the <m>xy</m>-plane).
 	</p></introduction>
 
-	<task><p>
+	<task xml:id="activity-orthog-point-normal-lines-1-recognize-dot-prod"><p>
 		Recall that a point <m>(x,y)</m> lies on the line if and only if its coordinates satisfy the given equation.
 		Let's consider such a point as the terminal point of the vector <m>\uvec{x} = (x,y)</m> with its initial point at the origin.
 		Does the left-hand side of the equation for the line look like the formula for some quantity related to <m>\uvec{x}</m> and some other vector?
@@ -221,11 +223,14 @@ respective owners.
 
 		<p>
 		In light of the first part of this activity,
-		what does the right-hand side of the equation for the line say about the relationship between a vector <m>\uvec{x}=(x,y)</m> that lies along the line and the other special vector you identified in the previous part?
+		what does the right-hand side of the equation for the line say about the relationship between a vector <m>\uvec{x}=(x,y)</m> that lies along the line and the other special vector you identified in
+		<xref ref="activity-orthog-point-normal-lines-1-recognize-dot-prod" text="type-local" />?
 		</p>
 
 		<aside><title>Terminology</title><p>
-			This special vector for the line is called a
+			The special vector <q>other vector</q> identified in
+			<xref ref="activity-orthog-point-normal-lines-1-recognize-dot-prod" text="type-local" />
+			is called a
 			<term>normal vector</term>
 			<idx><h>normal vector</h></idx>
 			<idx><h>vector</h><h>normal</h></idx>

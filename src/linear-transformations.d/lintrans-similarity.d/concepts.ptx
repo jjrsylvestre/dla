@@ -45,12 +45,15 @@ respective owners.
 Suppose <m>\funcdef{T}{V}{V}</m> is a linear operator on a finite-dimensional vector space <m>V</m>.
 For a choice of basis <m>\basisfont{B}</m>,
 we may form the square matrix <m>\matrixOf{T}{B}</m> that represents the matrix and allows us to perform matrix calculations that are equivalent to computing outputs for the operator.
-</p><p>
+</p>
+
+<p>
 Suppose <m>\basisfont{B}'</m> is another choice of basis for <m>V</m>.
 The matrices <m>\matrixOf{T}{B}</m> and <m>\matrixOf{T}{B'}</m> should be related somehow,
 since they each correspond to the <em>same</em> linear operator on <m>V</m>,
 just relative to different bases.
 </p>
+
 <figure xml:id="figure-lintrans-similarity-transformation-vs-matrix">
 	<caption>Illustration of a linear operator versus the matrix operator created by coordinate maps relative to two different choices of bases for the domain space.</caption>
 	<image width="50%">
@@ -71,12 +74,14 @@ just relative to different bases.
 		</p></description>
 	</image>
 </figure>
+
 <p>
 To relate the two matrices,
 it would seem to make sense to work in a change of basis.
 According to our analysis in <xref ref="subsection-lintrans-matrix-concepts-special" />,
 we can change basis using the identity operator, but choosing different bases for domain and codomain versions of the vector space.
 </p>
+
 <figure xml:id="figure-lintrans-similarity-transformation-vs-matrix-expanded">
 	<caption>
 		Illustration of a linear operator versus the matrix operator created by coordinate maps,
@@ -114,6 +119,7 @@ we can change basis using the identity operator, but choosing different bases fo
 		</p></description>
 	</image>
 </figure>
+
 <p>
 In the chain of transformations along the top leg of <xref ref="figure-lintrans-similarity-transformation-vs-matrix-expanded" />,
 we can use <xref ref="proposition-lintrans-iso-comp-ident-zero-ident">Statement</xref>
@@ -129,13 +135,6 @@ the matrix of a composition is the product of the matrices
 of <xref ref="proposition-lintrans-matrix-comp-inv" />).
 So we must have
 <me> \matrixOf{T}{B'} = \matrixOf{I_V T I_V}{B'} = \matrixOf{I_V}{B'B} \matrixOf{T}{B} \matrixOf{I_V}{BB'} </me>.
-</p>
-<aside><title>Careful</title><p>
-	Remember that composition notation <m>f \circ g \circ h</m>
-	reverses the order of how we would visualize the chain of functions with a diagram like
-	<me> W \xrightarrow{h} X \xrightarrow{g} Y \xrightarrow{f} Z </me>.
-</p></aside>
-<p>
 Applying the facts that the matrix of an identity operator is a transition matrix
 (<xref ref="proposition-lintrans-matrix-identity-as-cob" />)
 and that the inverse of a transition matrix represents the reverse change of basis
@@ -154,7 +153,15 @@ Restricting our attention to <m>V = \R^n</m> (or <m>V = \C^n</m> in the complex 
 we can turn this around and say that
 <alert>similar matrices represent the same linear operator relative to different bases</alert>,
 and a similarity relation just realizes a change of basis between the two representations of the operator.
-</p><p>
+</p>
+
+<aside valign="middle"><title>Careful</title><p>
+	Remember that composition notation <m>f \circ g \circ h</m>
+	reverses the order of how we would visualize the chain of functions with a diagram like
+	<me> W \xrightarrow{h} X \xrightarrow{g} Y \xrightarrow{f} Z </me>.
+</p></aside>
+
+<p>
 Finally, note that the change-of-basis perspective in <xref ref="equation-lintrans-similarity-cob" />
 agrees with the calculation pattern
 <me> \matrixOf{T(\uvec{v})}{C} = \matrixOf{T}{C} \matrixOf{\uvec{v}}{C} </me>

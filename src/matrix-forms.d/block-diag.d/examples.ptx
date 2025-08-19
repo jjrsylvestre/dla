@@ -57,24 +57,34 @@ so we will only carry out an example of multiplication of block matrices.
 		\end{abmatrix}
 		\text{,}
 	</mrow></md>
-	subdivided into blocks
+	with <m>A</m> subdivided into blocks
 	<md>
 		<mrow>
-			A_1 \amp= \begin{abmatrix}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{abmatrix} \text{,} \amp
-			A_2 \amp= \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \\ 1 \amp 1 \end{bmatrix} \text{,} \amp
-			B_1 \amp= I_3 \text{,} \amp
+			A_1 \amp= \begin{abmatrix}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{abmatrix} \text{,}
+			\amp
+			A_2 \amp= \begin{bmatrix} 1 \amp 1 \\ 1 \amp 1 \\ 1 \amp 1 \end{bmatrix} \text{,}
+		</mrow><mrow>
+			A_3 \amp= \zerovec \text{,}
+			\amp
+			A_4 \amp= I_2 \text{,}
+		</mrow>
+	</md>
+	and <m>B</m> subdivided into blocks
+	<md>
+		<mrow>
+			B_1 \amp= I_3 \text{,}
+			\amp
 			B_2 \amp= \zerovec \text{,}
 		</mrow><mrow>
-			A_3 \amp= \zerovec \text{,} \amp
-			A_4 \amp= I_2 \text{,} \amp
-			B_3 \amp= \begin{bmatrix} -1 \amp -1 \amp -1 \\ -1 \amp -1 \amp -1 \end{bmatrix} \text{,} \amp
+			B_3 \amp= \begin{bmatrix} -1 \amp -1 \amp -1 \\ -1 \amp -1 \amp -1 \end{bmatrix} \text{,}
+			\amp
 			B_4 \amp= \begin{abmatrix}{rc} 1 \amp 0 \\ -4 \amp 9 \end{abmatrix}  \text{,}
 		</mrow>
 	</md>
 	where <m>I_2</m> is the <m>2 \times 2</m> identity matrix,
 	<m>I_3</m> is the <m>3 \times 3</m> identity matrix,
 	and <m>\zerovec</m> represents a zero matrix of the appropriate size as usual.
-	Then we can compute <m>AB</m> by first computing
+	Then we can compute <m>A B</m> by first computing
 	<md>
 		<mrow>
 			A_1 B_1 + A_2 B_3
@@ -355,13 +365,14 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	</p>
 </example>
 
-<p> The following example demonstrates how diagonal form is just a special case of block-diagonal form. </p>
-<aside><title>A look ahead</title><p>
-	This fact will also be reflected in
-	<xref ref="proposition-block-diag-eigenspace-invariant" />
-	and
-	<xref ref="theorem-block-diag-eigenspace-independent" />.
-</p></aside>
+<p>
+The next example demonstrates how diagonal form is just a special case of block-diagonal form,
+a fact that will also be reflected in
+<xref ref="proposition-block-diag-eigenspace-invariant" />
+and
+<xref ref="theorem-block-diag-eigenspace-independent" />
+when we consider the theory of the form.
+</p>
 
 <example xml:id="example-block-diag-diag-block">
 	<!-- TODO It would be nice to use two eigenvalues where one has multiplicity 2 so that there is a 2x2 diagonal block inside the diagonal matrix -->

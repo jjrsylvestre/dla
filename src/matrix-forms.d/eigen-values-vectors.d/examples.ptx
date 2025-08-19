@@ -23,11 +23,16 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 <xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples" />.
 </p>
 
-<example><title>A <m>2 \times 2</m> example</title><statement>
+<example>
+	<title>A <m>2 \times 2</m> example</title>
+
 	<p>
-	From
-	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-2x2">Discovery</xref>.
-	</p><p>
+	Consider
+	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-2x2">matrix</xref>
+	from <xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples" />.
+	</p>
+
+	<p>
 	First, we form the matrix
 	<me> \lambda I - A = \begin{bmatrix} \lambda-7 \amp -8 \\ 4 \amp \lambda+5 \end{bmatrix}. </me>
 	Then we compute its determinant,
@@ -36,55 +41,65 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 		<mrow> c_A(\lambda) \amp = \det(\lambda I - A) </mrow>
 		<mrow> \amp = (\lambda-7)(\lambda+5) + 32 </mrow>
 		<mrow> \amp = \lambda^2 - 2\lambda - 3 </mrow>
-		<mrow> \amp = (\lambda+1)(\lambda-3). </mrow>
-	</md>
+		<mrow> \amp = (\lambda+1)(\lambda-3) </mrow>
+	</md>.
 	The eigenvalues are the roots of the characteristic polynomial,
 	so we have two eigenvalues <m>\lambda_1 = -1</m> and <m>\lambda_2 = 3</m>.
-	</p><p>
-	The eigenspace <m>E_{\lambda_1}(A)</m> is the same as the null space of the matrix <m>\lambda_1 I - A</m>,
-	so we determine a basis for the eigenspace by row reducing:
-	<me>
-		(-1)I - A = \begin{abmatrix}{rr} -8 \amp -8 \\ 4 \amp 4 \end{abmatrix}
-		\qquad\rowredarrow\qquad
-		\begin{abmatrix}{rr} 1 \amp 1 \\ 0 \amp 0 \end{abmatrix}.
-	</me>
-	This system requires one parameter to solve,
-	as <m>x_2</m> is free.
-	Setting <m>x_2=t</m>,
-	the general solution in parametric form is
-	<me>
-		\uvec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
-		= \begin{bmatrix} -t \\ t \end{bmatrix}
-		= t \begin{abmatrix}{r} -1 \\ 1 \end{abmatrix}.
-	</me>
-	Associated to the single parameter we get a single basis vector,
-	so that
-	<me> \dim\bbrac{E_{\lambda_1}(A)} = 1 </me>.
-	In particular, we have
-	<me> E_{\lambda_1}(A) = \Span\left\{\begin{abmatrix}{r} -1 \\ 1 \end{abmatrix}\right\}\text{.} </me>
-	</p><p>
-	Now move on to the next eigenvalue.
-	Again, we determine a basis for <m>E_{\lambda_2}(A)</m> by row reducing <m>\lambda_2 I - A</m>:
-	<me>
-		3 I - A = \begin{abmatrix}{rr} -4 \amp -8 \\ 4 \amp 8 \end{abmatrix}
-		\qquad\rowredarrow\qquad
-		\begin{bmatrix}1 \amp 2 \\ 0 \amp 0\end{bmatrix}.
-	</me>
-	Again, <m>x_2</m> is free.
-	One parameter means one basis vector,
-	so again
-	<me> \dim\bbrac{E_{\lambda_2}(A)} = 1 </me>.
-	The first row of the reduced matrix says <m>x_1 = -2x_2</m>,
-	so we have
-	<me> E_{\lambda_2}(A) = \Span\left\{\begin{abmatrix}{r} -2 \\ 1 \end{abmatrix}\right\}\text{.} </me>
+	We will analyze each of these eigenvalues in turn.
 	</p>
-</statement></example>
 
-<example><title>A <m>3 \times 3</m> example</title><statement>
+	<case><title>Case <m>\lambda_1 = -1</m></title><p>
+		The eigenspace <m>E_{\lambda_1}(A)</m> is the same as the null space of the matrix <m>\lambda_1 I - A</m>,
+		so we determine a basis for this eigenspace by row reducing:
+		<me>
+			(-1) I - A = \begin{abmatrix}{rr} -8 \amp -8 \\ 4 \amp 4 \end{abmatrix}
+			\qquad\rowredarrow\qquad
+			\begin{abmatrix}{rr} 1 \amp 1 \\ 0 \amp 0 \end{abmatrix}
+		</me>.
+		This system requires one parameter to solve,
+		as <m>x_2</m> is free.
+		Setting <m>x_2 = t</m>,
+		the general solution in parametric form is
+		<me>
+			\uvec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+			= \begin{bmatrix} -t \\ t \end{bmatrix}
+			= t \begin{abmatrix}{r} -1 \\ 1 \end{abmatrix}
+		</me>.
+		Associated to the single parameter we get a single basis vector,
+		so that
+		<me> \dim \bbrac{E_{\lambda_1}(A)} = 1 </me>.
+		In particular, we have
+		<me> E_{\lambda_1}(A) = \Span\left\{\begin{abmatrix}{r} -1 \\ 1 \end{abmatrix}\right\} </me>.
+	</p></case>
+
+	<case><title>Case <m>\lambda_2 = 3</m></title><p>
+		Again, we determine a basis for <m>E_{\lambda_2}(A)</m> by row reducing <m>\lambda_2 I - A</m>:
+		<me>
+			3 I - A = \begin{abmatrix}{rr} -4 \amp -8 \\ 4 \amp 8 \end{abmatrix}
+			\qquad\rowredarrow\qquad
+			\begin{bmatrix}1 \amp 2 \\ 0 \amp 0\end{bmatrix}
+		</me>.
+		In this case we again have that <m>x_2</m> is free.
+		One parameter means one basis vector,
+		so here also
+		<me> \dim \bbrac{E_{\lambda_2}(A)} = 1 </me>.
+		The first row of the reduced matrix says <m>x_1 = -2 x_2</m>,
+		so we have
+		<me> E_{\lambda_2}(A) = \Span\left\{\begin{abmatrix}{r} -2 \\ 1 \end{abmatrix}\right\} </me>.
+	</p></case>
+
+</example>
+
+<example>
+	<title>A <m>3 \times 3</m> example</title>
+
 	<p>
-	From
-	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-3x3">Discovery</xref>.
-	</p><p>
+	Consider
+	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-3x3">matrix</xref>
+	from <xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples" />.
+	</p>
+
+	<p>
 	Start with
 	<me>
 		\lambda I - A
@@ -102,182 +117,192 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 		<mrow> \amp = \lambda(\lambda-2)^2. </mrow>
 	</md>
 	The eigenvalues are <m>\lambda_1 = 0</m> and <m>\lambda_2 = 2</m>.
-	</p><p>
-	The eigenspace <m>E_{\lambda_1}(A)</m> is the null space of <m>0I-A = -A</m>, so row reduce:
-	<me>
-		0I - A = \begin{abmatrix}{rrr}
-			-2 \amp 4 \amp -4 \\
-			0 \amp 6 \amp -8 \\
-			0 \amp 6 \amp -8
-		\end{abmatrix}
-		\qquad\rowredarrow\qquad
-		\begin{abmatrix}{rrr} 1 \amp 0 \amp -2/3 \\ 0 \amp 1 \amp -4/3 \\ 0 \amp 0 \amp 0 \end{abmatrix}.
-	</me>
-	Notice that the null space of <m>0I-A = -A</m> is the same as the null space of <m>A</m>,
-	since our first step in row reducing <m>-A</m> could be to multiply each row by <m>-1</m>.
-	Since this homogeneous system has nontrivial solutions,
-	<m>A</m> must be singular.
-	</p><p>
-	The homogeneous system
-	<m>(\lambda_1I - A)\uvec{x}=\zerovec</m>
-	requires one parameter,
-	so
-	<me> \dim\bbrac{E_{\lambda_1}(A)} = 1 </me>.
-	The variable <m>x_3</m> is free,
-	and the nonzero rows of the reduced matrix tell us
-	<m>x_1 = (2/3)x_3</m> and <m>x_2 = (4/3)x_3</m>.
-	Setting <m>x_3=t</m>,
-	our general solution in parametric form is
-	<me>
-		\uvec{x}
-		= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
-		= \begin{bmatrix} (2/3)t \\ (4/3)t \\ t \end{bmatrix}
-		= t\begin{bmatrix} 2/3 \\ 4/3 \\ 1 \end{bmatrix}.
-	</me>
-	However, to avoid fractions in our basis vector,
-	we may wish to pull out an additional scalar:
-	<me>
-		\uvec{x}
-		= \frac{t}{3}\begin{bmatrix} 2 \\ 4 \\ 3 \end{bmatrix}\text{,}
-	</me>
-	giving us
-	<me> E_{\lambda_1}(A) = \Span\left\{\begin{bmatrix} 2 \\ 4 \\ 3 \end{bmatrix}\right\}\text{.} </me>
-	</p><p>
-	Now row reduce <m>\lambda_2 I - A</m>:
-	<me>
-		2I - A = \begin{abmatrix}{rrr} 0 \amp 4 \amp -4 \\ 0 \amp 8 \amp -8 \\ 0 \amp 6 \amp -6 \end{abmatrix}
-		\qquad\rowredarrow\qquad
-		\begin{abmatrix}{rrr} 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{abmatrix}.
-	</me>
-	This time we have two free variables,
-	so
-	<m>\dim\bbrac{E_{\lambda_2}(A)} = 2</m>.
-	Setting <m>x_1 = s</m> and <m>x_3 = t</m>,
-	the general solution in parametric form is
-	<me>
-		\uvec{x}
-		= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
-		= \begin{bmatrix} s \\ t \\ t \end{bmatrix}
-		= s\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
-		+ t\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix},
-	</me>
-	giving us
-	<me>
-		E_{\lambda_2}(A)
-		= \Span\left\{
-			\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix},
-			\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
-		\right\}
-	</me>.
+	Again, we analyze each of these eigenvalues in turn.
 	</p>
-</statement></example>
 
-<example><title>A diagonal example</title><statement>
+	<case><title>Case <m>\lambda_1 = 0</m></title>
+
+		<p>
+		The eigenspace <m>E_{\lambda_1}(A)</m> is the null space of <m>\lambda_1 I - A</m>,
+		so row reduce:
+		<me>
+			0 I - A = \begin{abmatrix}{rrr}
+				-2 \amp 4 \amp -4 \\
+				0 \amp 6 \amp -8 \\
+				0 \amp 6 \amp -8
+			\end{abmatrix}
+			\qquad\rowredarrow\qquad
+			\begin{abmatrix}{rrr} 1 \amp 0 \amp -2/3 \\ 0 \amp 1 \amp -4/3 \\ 0 \amp 0 \amp 0 \end{abmatrix}
+		</me>.
+		(Notice that the null space of <m>0 I - A = -A</m> is the same as the null space of <m>A</m>,
+		since our first step in row reducing <m>-A</m> could be to multiply each row by <m>-1</m>.)
+		And since this homogeneous system has nontrivial solutions,
+		<m>A</m> must be singular.
+		</p>
+
+		<p>
+		The homogeneous system
+		<m>(\lambda_1 I - A) \uvec{x} = \zerovec</m>
+		requires one parameter,
+		so
+		<me> \dim\bbrac{E_{\lambda_1}(A)} = 1 </me>.
+		The variable <m>x_3</m> is free,
+		and the nonzero rows of the reduced matrix tell us
+		<m>x_1 = (2/3)x_3</m> and <m>x_2 = (4/3)x_3</m>.
+		Setting <m>x_3=t</m>,
+		our general solution in parametric form is
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+			= \begin{bmatrix} (2/3)t \\ (4/3)t \\ t \end{bmatrix}
+			= t\begin{bmatrix} 2/3 \\ 4/3 \\ 1 \end{bmatrix}.
+		</me>
+		However, to avoid fractions in our basis vector,
+		we may wish to pull out an additional scalar:
+		<me>
+			\uvec{x}
+			= \frac{t}{3}\begin{bmatrix} 2 \\ 4 \\ 3 \end{bmatrix}\text{,}
+		</me>
+		giving us
+		<me> E_{\lambda_1}(A) = \Span\left\{\begin{bmatrix} 2 \\ 4 \\ 3 \end{bmatrix}\right\}\text{.} </me>
+		</p>
+
+	</case>
+
+	<case><title>Case <m>\lambda_2 = 2</m></title><p>
+		Now row reduce <m>\lambda_2 I - A</m>:
+		<me>
+			2I - A = \begin{abmatrix}{rrr} 0 \amp 4 \amp -4 \\ 0 \amp 8 \amp -8 \\ 0 \amp 6 \amp -6 \end{abmatrix}
+			\qquad\rowredarrow\qquad
+			\begin{abmatrix}{rrr} 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{abmatrix}
+		</me>.
+		This time we have two free variables,
+		so
+		<m> \dim \bbrac{E_{\lambda_2}(A)} = 2 </m>.
+		Setting <m>x_1 = s</m> and <m>x_3 = t</m>,
+		the general solution in parametric form is
+		<me>
+			\uvec{x}
+			= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+			= \begin{bmatrix} s \\ t \\ t \end{bmatrix}
+			= s\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+			+ t\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
+		</me>,
+		giving us
+		<me>
+			E_{\lambda_2}(A)
+			= \Span\left\{
+				\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix},
+				\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
+			\right\}
+		</me>.
+	</p></case>
+
+</example>
+
+<example>
+	<title>A diagonal example</title>
+
 	<p>
-	From
-	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-diag">Discovery</xref>.
-	</p><p>
+	Consider
+	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-diag">matrix</xref>
+	from <xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples" />.
+	</p>
+
+	<p>
 	This time our matrix is diagonal,
 	so its eigenvalues are precisely the diagonal entries,
 	<m>\lambda_1 = 1</m>, <m>\lambda_2 = 2</m>, <m>\lambda_3 = 3</m>.
+	(See <xref ref="subsection-eigen-values-vectors-concepts-special-forms" />.)
+	As usual, analyze each eigenvalue in turn.
 	</p>
-	<aside><title>See</title><p> <xref ref="subsection-eigen-values-vectors-concepts-special-forms" />. </p></aside>
-	<p> As usual, analyze each eigenvalue in turn. </p>
-	<p>
-	For <m>\lambda = 1</m>:
-	<md>
-		<mrow>
-			1I-A = \begin{abmatrix}{rrr} 0 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -2 \end{abmatrix}
+
+	<case><title>Case <m>\lambda_1 = 1</m></title><p>
+		<me>
+			1 I - A = \begin{abmatrix}{rrr} 0 \amp 0 \amp 0 \\ 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp -2 \end{abmatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix}
-		</mrow><mrow></mrow><mrow>
-			\implies \qquad
-			E_{\lambda_1}(A) = \Span\left\{\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}\right\}.
-		</mrow>
-	</md>
-	</p><p>
-	For <m>\lambda = 2</m>:
-	<md>
-		<mrow>
-			2I-A = \begin{abmatrix}{rrr} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp -1 \end{abmatrix}
+		</me>
+		<me> \implies \qquad E_{\lambda_1}(A) = \Span\left\{\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}\right\} </me>.
+	</p></case>
+
+	<case><title>Case <m>\lambda_2 = 2</m></title><p>
+		<me>
+			2 I - A = \begin{abmatrix}{rrr} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp -1 \end{abmatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0\end{bmatrix}
-		</mrow><mrow></mrow><mrow>
-			\implies \qquad
-			E_{\lambda_2}(A) = \Span\left\{\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\right\}.
-		</mrow>
-	</md>
-	</p><p>
-	For <m>\lambda = 3</m>:
-	<md>
-		<mrow>
-			3I-A = \begin{abmatrix}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{abmatrix}
+		</me>
+		<me> \implies \qquad E_{\lambda_2}(A) = \Span\left\{\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\right\} </me>.
+	</p></case>
+
+	<case><title>Case <m>\lambda_3 = 3</m></title><p>
+		<me>
+			3 I - A = \begin{abmatrix}{rrr} 2 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{abmatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix}
-		</mrow><mrow></mrow><mrow>
-			\implies \qquad
-			E_{\lambda_3}(A) = \Span\left\{\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\right\}.
-		</mrow>
-	</md>
-	</p><p>
+		</me>
+		<me> \implies \qquad E_{\lambda_3}(A) = \Span\left\{\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\right\} </me>.
+	</p></case>
+
+	<p>
 	The fact that the eigenvectors of our diagonal matrix are standard basis vectors shouldn't be too surprising,
 	since a matrix times a standard basis vector is equal to the corresponding column of the matrix,
 	and the columns of a diagonal matrix are scalar multiples of the standard basis vectors.
 	</p>
-</statement></example>
 
-<example><title>An upper triangular example</title><statement>
+</example>
+
+<example>
+	<title>An upper triangular example</title>
+
 	<p>
-	From
-	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-upper-tri">Discovery</xref>.
-	</p><p>
+	Consider
+	<xref ref="activity-eigen-values-vectors-compute-eigenvalues-examples-upper-tri">matrix</xref>
+	from <xref ref="subsection-det-by-row-red-examples-method" />.
+	</p>
+
+	<p>
 	Our final example matrix is upper triangular,
 	so again its eigenvalues are precisely the diagonal entries,
 	<m>\lambda_1 = 2</m> and <m>\lambda_2 = -1</m>.
-	</p>
-	<aside><title>See</title><p> <xref ref="subsection-eigen-values-vectors-concepts-special-forms" />. </p></aside>
-	<p>
+	(See <xref ref="subsection-eigen-values-vectors-concepts-special-forms" />.)
 	Note that we don't count the repeated diagonal entry <m>2</m> as two separate eigenvalues <mdash />
-	that eigenvalue is just repeated as a root of the characteristic polynomial.
+	that eigenvalue is merely repeated as a root of the characteristic polynomial.
 	(But this repetition will become important in the next chapter.)
 	</p>
-	<p> Once again we determine eigenspaces by row reducing, one at a time. </p>
-	<p>
-	For <m>\lambda_1 = 2</m>:
-	<md>
-		<mrow>
+
+	<p> Once again we determine eigenspaces by row reducing, one eigenvalue at a time. </p>
+
+	<case><title>Case <m>\lambda_1 = 2</m></title><p>
+		<me>
 			2I-A = \begin{abmatrix}{rrr} 0 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 3 \end{abmatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix}
-		</mrow><mrow></mrow><mrow>
-			\implies \qquad
-			E_{\lambda_1}(A) = \Span\left\{\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}\right\}.
-		</mrow>
-	</md>
-	</p><p>
-	For <m>\lambda_2 = -1</m>:
-	<md>
-		<mrow>
+		</me>
+		<me> \implies \qquad E_{\lambda_1}(A) = \Span\left\{\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}\right\} </me>.
+	</p></case>
+
+	<case><title>Case <m>\lambda_2 = -1</m></title><p>
+		<me>
 			(-1)I-A = \begin{abmatrix}{rrr} -3 \amp -1 \amp 0 \\ 0 \amp -3 \amp 0 \\ 0 \amp 0 \amp 0 \end{abmatrix}
 			\qquad \rowredarrow \qquad
 			\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix}
-		</mrow><mrow></mrow><mrow>
-			\implies \qquad
-			E_{\lambda_2}(A) = \Span\left\{\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\right\}.
-		</mrow>
-	</md>
-	</p>
-</statement></example>
+		</me>
+		<me> \implies \qquad E_{\lambda_2}(A) = \Span\left\{\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\right\} </me>.
+	</p></case>
+
+</example>
 
 <example xml:id="equation-eigen-values-vectors-examples-4x4">
-	<title>Using row operations to help</title><statement>
-	<p> Don't forget that we can use row operations to help compute determinants! </p>
-	<aside><title>Review</title><p>
-		Look back at <xref ref="subsection-det-by-row-red-examples-method" />
-		for an example of using row operations to compute a determinant.
-	</p></aside>
+	<title>Using row operations to help</title>
+
 	<p>
-	Let's do a <m>4 \times 4</m> example to demonstrate.
+	Don't forget that we can use row operations to help compute determinants!
+	(See <xref ref="subsection-det-by-row-red-examples-method" /> for examples.)
+	</p>
+
+	<p>
+	Let's do a <m>4 \times 4</m> example to demonstrate how that method can help calculate characteristic polynomials.
 	Consider
 	<me>
 		A = \begin{abmatrix}{rrrr}
@@ -285,8 +310,8 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 			2 \amp -1 \amp -12 \amp 20 \\
 			2 \amp -2 \amp -8 \amp 14 \\
 			1 \amp -1 \amp -3 \amp 5
-		\end{abmatrix}.
-	</me>
+		\end{abmatrix}
+	</me>.
 	To obtain the characteristic polynomial,
 	we want to compute the determinant of
 	<me>
@@ -324,9 +349,9 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 				0 \amp \lambda - 1 \amp 6 \amp -2(\lambda + 5) \\
 				0 \amp 0 \amp \lambda + 2 \amp -2(\lambda + 2) \\
 				0 \amp \lambda - 1 \amp 3(\lambda + 4) \amp \lambda^2 - 10 \lambda - 21
-			\end{bmatrix}.
+			\end{bmatrix}
 		</mrow>
-	</md>
+	</md>.
 	In our first step above,
 	we performed two operations:
 	swapping rows and multiplying a row by <m>-1</m>.
@@ -334,7 +359,9 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 	so the two effects cancel out.
 	Our other operations in the second step above do not affect the determinant,
 	so the determinant of this third matrix above will be equal to the characteristic polynomial of <m>A</m>.
-	</p><p>
+	</p>
+
+	<p>
 	Now, <em>we cannot divide a row by zero</em>.
 	So we should not divide either the second or fourth rows by <m>\lambda - 1</m> in an attempt to obtain the next leading one,
 	because we would inadvertently be dividing by zero in the case <m>\lambda = 1</m>.
@@ -356,9 +383,9 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 				0 \amp \lambda - 1 \amp 6 \amp -2(\lambda + 5) \\
 				0 \amp 0 \amp \lambda + 2 \amp -2(\lambda + 2) \\
 				0 \amp 0 \amp 3(\lambda + 2) \amp \lambda^2 - 8 \lambda - 11
-			\end{bmatrix}.
+			\end{bmatrix}
 		</mrow>
-	</md>
+	</md>.
 	This last matrix is not quite upper triangular,
 	but it's close enough that we can proceed by cofactors from here.
 	<md>
@@ -391,20 +418,22 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 		<mrow> \amp = (\lambda - 1) (\lambda + 2) \bigl( (\lambda^2 - 8 \lambda - 11) + 6(\lambda + 2) \bigr) </mrow>
 		<mrow> \amp = (\lambda - 1) (\lambda + 2) (\lambda^2 - 2 \lambda + 1) </mrow>
 		<mrow> \amp = (\lambda - 1) (\lambda + 2) (\lambda - 1)^2 </mrow>
-		<mrow> \amp = (\lambda - 1)^3 (\lambda + 2). </mrow>
-	</md>
+		<mrow> \amp = (\lambda - 1)^3 (\lambda + 2) </mrow>
+	</md>.
 	We now see that the eigenvalues are <m>\lambda_1 = 1</m> and <m>\lambda_2 = -2</m>.
-	</p><p>
+	</p>
+
+	<p>
 	To determine bases for eigenspaces,
 	we usually reduce the matrix <m>\lambda I - A</m> with the various eigenvalues substituted in for <m>\lambda</m>.
 	But we have already partially reduced <m>\lambda I - A</m> with <m>\lambda</m> left variable to help us determine the eigenvalues.
 	So we can begin from
 	<xref ref="equation-eigen-values-vectors-examples-4x4-reduced" />
 	for both eigenvalues.
-	</p><p>
-	For <m>\lambda_1 = 1</m>:
-	<md>
-		<mrow>
+	</p>
+
+	<case><title>Case <m>\lambda_1 = 1</m></title><p>
+		<me>
 			\begin{abmatrix}{rrrr}
 				1 \amp -1 \amp -3 \amp   4 \\
 				0 \amp  0 \amp  6 \amp -12 \\
@@ -418,20 +447,18 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 				0 \amp  0 \amp 0 \amp  0 \\
 				0 \amp  0 \amp 0 \amp  0
 			\end{abmatrix}
-		</mrow><mrow></mrow><mrow>
+		</me>
+		<me>
 			\implies \qquad
 			E_{\lambda_1}(A) = \Span\left\{
 				\begin{bmatrix} 2 \\ 0 \\ 2 \\ 1 \end{bmatrix},
 				\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}
-			\right\}.
-		</mrow>
-	</md>
-	</p><p>
-	For <m>\lambda_2 = -2</m>,
-	again starting from
-	<xref ref="equation-eigen-values-vectors-examples-4x4-reduced" />:
-	<md>
-		<mrow>
+			\right\}
+		</me>.
+	</p></case>
+
+	<case><title>Case <m>\lambda_2 = -2</m></title><p>
+		<me>
 			\begin{abmatrix}{rrrr}
 				1 \amp -1 \amp -3 \amp  7 \\
 				0 \amp -3 \amp  6 \amp -6 \\
@@ -445,12 +472,13 @@ Here we will compute eigenvalues and a basis for each corresponding eigenspace f
 				0 \amp 0 \amp  0 \amp  1 \\
 				0 \amp 0 \amp  0 \amp  0
 			\end{abmatrix}
-		</mrow><mrow></mrow><mrow>
+		</me>
+		<me>
 			\implies \qquad
 			E_{\lambda_2}(A) = \Span\left\{ \begin{bmatrix} 5 \\ 2 \\ 1 \\ 0 \end{bmatrix} \right\}
-		</mrow>
-	</md>.
-	</p>
-</statement></example>
+		</me>.
+	</p></case>
+
+</example>
 
 </section>

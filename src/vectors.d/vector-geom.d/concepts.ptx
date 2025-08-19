@@ -399,16 +399,17 @@ in the case the the two vectors are parallel.
 	</image>
 </figure>
 
+<aside valign="middle"><title>Note</title><p>
+	In <xref ref="figure-vector-geom-concepts-space-vectors-embedded-in-plane" />,
+	you should imagine the shaded surface passing through the origin, with the two vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> lying flat in it.
+</p></aside>
+
+
 <p>
 In space, two vectors that are positioned to share the same initial point can be completed to a triangle,
 and that triangle will lie in a plane.
 The angle between the two vectors can then be taken to be the smaller of the two angles between the two vectors in that shared plane.
 </p>
-
-<aside><title>Note</title><p>
-	In <xref ref="figure-vector-geom-concepts-space-vectors-embedded-in-plane" />,
-	you should imagine the shaded surface passing through the origin, with the two vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> lying flat in it.
-</p></aside>
 
 </subsection>
 
@@ -422,7 +423,7 @@ we combined vector geometry with some high school geometry to determine a formul
 Recall from <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /> that a vector that runs between the terminal points of two vectors that share an initial point is a difference vector.
 </p>
 
-<figure>
+<figure xml:id="figure-vector-geom-concepts-law-of-cosines">
 	<caption> The Law of Cosines in vector form. </caption>
 	<image width="35.5%">
 		<latex-image label="image-vector-geom-concepts-law-of-cosines">
@@ -451,8 +452,9 @@ The Law of Cosines applied to this triangle says that <m>a^2 + b^2 - c^2 = 2 a b
 </p>
 
 <aside><title>Careful</title><p>
-	It would be <em>nonsense</em> to write this as
-	<m>\uvec{u}^2 + \uvec{v}^2 - (\uvec{u} - \uvec{v})^2 = 2 \uvec{u} \uvec{v} \cos\theta</m>,
+	In the Law of Cosines applied to the triangle in <xref ref="figure-vector-geom-concepts-law-of-cosines" />,
+	it would be <em>nonsense</em> to write the left-hand side as <m> \uvec{u}^2 + \uvec{v}^2 - (\uvec{u} - \uvec{v})^2 </m>
+	or the right-hand side as <m> 2 \uvec{u} \uvec{v} \cos\theta </m>,
 	because there are no such operations as multiplying or squaring vectors.
 </p></aside>
 
@@ -632,18 +634,22 @@ and we know this courtesy of a couple of dead guys.
 	<title>The Cauchy-Schwarz inequality</title>
 	<idx><h>Cauchy-Schwarz inequality</h></idx>
 	<idx><h>inequality</h><h>Cauchy-Schwarz</h></idx>
-	<statement><p>
+	<statement>
+
+		<p>
 		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, the quantity
 		<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
 		is always between <m>-1</m> and <m>1</m> (inclusive).
-	</p></statement>
-</theorem>
+		</p>
 
-<aside><title>Note</title><p>
-	The <q>inequality</q> part of the Cauchy-Schwarz inequality is usually stated as
-	<m>\abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v}</m>, which for nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is equivalent to
-	<me> -1 \le \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} \le 1 </me>.
-</p></aside>
+		<aside><title>Note</title><p>
+			The <q>inequality</q> part of <q>the Cauchy-Schwarz inequality</q> is usually stated as
+			<m>\abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v}</m>, which for nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is equivalent to
+			<me> -1 \le \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} \le 1 </me>.
+		</p></aside>
+
+	</statement>
+</theorem>
 
 <p>
 Since the graph <m>y=\cos\theta</m> passes through every possible <m>y</m>-value in the range <m>-1 \le y \le 1</m>,

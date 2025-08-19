@@ -67,15 +67,13 @@ Suppose further that one of the vectors in <m>S</m> can be expressed as a linear
 	\uvec{w} = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_m \uvec{u}_m,
 </mrow></md>
 where each of <m>\uvec{w},\uvec{u}_1,\uvec{u}_2,\dotsc,\uvec{u}_m</m> is a vector in <m>S</m>.
+<em>Then <m>\uvec{w}</m> is not actually needed when expressing vectors in <m>V</m> as linear combinations of vectors in <m>S</m>.</em>
 </p>
 
-<aside><title>Note</title><p>
+<aside valign="middle"><title>Note</title><p>
 	This was basically the situation for <xref ref="activity-linear-indep-motivation" />, where <m>\uvec{v}_2</m> played the role of <m>\uvec{w}</m>.
 </p></aside>
 
-<p>
-<em>Then <m>\uvec{w}</m> is not actually needed when expressing vectors in <m>V</m> as linear combinations of vectors in <m>S</m>.</em>
-</p>
 
 <p>
 Indeed, consider a vector <m>\uvec{x}</m> in <m>V</m> expressed as a linear combination of vectors in <m>S</m>, including <m>\uvec{w}</m>, say
@@ -100,11 +98,8 @@ making this an expression for <m>\uvec{x}</m> as a linear combination of vectors
 If <m>\uvec{w}</m> isn't needed to express vectors in <m>V</m> as linear combinations of vectors in <m>S</m>,
 then we should have <m>\Span S = \Span S'</m>, where <m>S'</m> is the set of all vectors in <m>S</m> <em>except</em> <m>\uvec{w}</m>.
 That is, we can discard <m>\uvec{w}</m> from the spanning set for <m>V</m>, and <em>still</em> have a spanning set.
+(See <xref ref="lemma-linear-indep-span-minus-one" /> in <xref ref="subsection-linear-indep-theory-vs-span" />.)
 </p>
-
-<aside><title>See</title><p>
-	<xref ref="lemma-linear-indep-span-minus-one" /> in <xref ref="subsection-linear-indep-theory-vs-span" />.
-</p></aside>
 
 <p>
 This pattern will help us reduce down to some sort of <em>optimal</em> spanning set:
@@ -220,13 +215,11 @@ Our motivation for creating the concept of linear dependence/independence was to
 A spanning set consisting of a single nonzero vector cannot be reduced to a smaller spanning set, so it is already optimal and we should refer to that spanning set as linearly independent.
 This coincides with the result of the test for linear dependence/independence for a single vector <m>\uvec{v}</m>:
 if <m>\uvec{v}</m> is nonzero, then there are no nontrivial solutions to the vector equation <m>k\uvec{v} = \zerovec</m>.
+(See
+<xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">Rule</xref>
+of
+<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />.)
 </p>
-
-<aside><title>See</title><p>
-	<xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">Rule</xref>
-	of
-	<xref ref="proposition-abstract-vec-spaces-basic-vec-props" />.
-</p></aside>
 
 <p>
 But what about the zero vector by itself?
@@ -239,7 +232,7 @@ So the spanning set <m>\{\zerovec\}</m> <em>can</em> be reduced to the empty set
 This line of reasoning leads us to consider the set of vectors containing only the zero vector to be linearly dependent.
 </p>
 
-<aside><title>Note</title><p> We should also consider the empty set to be linearly independent, since it cannot be reduced. </p></aside>
+<remark><p> We should also consider the empty set to be linearly independent, since it cannot be reduced. </p></remark>
 
 </subsection>
 

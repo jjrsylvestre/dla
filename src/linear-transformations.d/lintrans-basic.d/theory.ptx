@@ -110,11 +110,14 @@ a domain space <em>basis</em> should be used instead of merely a spanning set.
 		<m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>.
 	</p></statement>
 	<proof><title>Proof outline</title>
+
 		<p>
 		If we can show that there exists <em>at least one</em> such linear transformation
 		<m>\funcdef{T}{V}{W}</m>,
 		then <xref ref="theorem-lintrans-basic-unique-spanning-image" /> will guarantee that it is the only one.
-		</p><p>
+		</p>
+
+		<p>
 		We want <m>T</m> to both be linear and to satisfy <m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>.
 		Given that each vector <m>\uvec{v}</m> in the domain space <m>V</m> has a <em>unique</em> expansion
 		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb a_n \uvec{v}_n </me>
@@ -122,16 +125,16 @@ a domain space <em>basis</em> should be used instead of merely a spanning set.
 		(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
 		there is no ambiguity in <em>defining</em> <m>T</m> relative to such expansions:
 		<me> T(\uvec{v}) = T(a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n) = a_1 \uvec{w}_1 + \dotsb + a_n \uvec{w}_n </me>.
-		</p>
-		<aside><title>Note</title><p>
-			The uniqueness of vector expansions relative to a basis is exactly what prevents the ambiguity of
-			<xref ref="example-lintrans-basic-via-nonbasis" /> occurring.
-		</p></aside>
-		<p>
 		Then <m>T</m> will be linear (check!),and since each basis vector is expanded as <m>\uvec{v}_j = 1 \uvec{v}_j</m>, with zero coefficients on each of the other basis vectors, we will have
 		<me> T(\uvec{v}_j) = 1 \uvec{w}_j = \uvec{w}_j </me>,
 		as desired.
 		</p>
+
+		<aside valign="middle"><title>Note</title><p>
+			The uniqueness of vector expansions relative to a basis is exactly what prevents the ambiguity of
+			<xref ref="example-lintrans-basic-via-nonbasis" /> occurring.
+		</p></aside>
+
 	</proof>
 </corollary>
 

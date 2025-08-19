@@ -17,8 +17,8 @@ respective owners.
 <title>Matrix arithmetic</title>
 
 <introduction><p>
-	In each case, carry out the matrix operations.
-	If the operations cannot be carried out, explain why.
+	In each case, carry out the matrix operation(s).
+	If the operation(s) cannot be carried out, explain why.
 </p></introduction>
 
 <exercise>
@@ -708,21 +708,21 @@ respective owners.
 			\begin{bmatrix} d \amp 0 \amp 0 \\ 0 \amp e \amp 0 \\ 0 \amp 0 \amp f \end{bmatrix}
 		</m></p>
 
-		<p><alert>Note:</alert> see also <xref ref="exercise-matrix-ops-power-diag" text="type-local" />. </p>
+		<p><alert>Notes:</alert><ul>
+			<li> See also <xref ref="exercise-matrix-ops-power-diag" text="type-local" />. </li>
+			<li>
+				You should notice a simple pattern in the result due to the <q>form</q> of these matrices.
+				Will the same pattern hold for <m>2 \times 2</m> matrices of the same form?
+				For <m>4 \times 4</m> matrices?
+				For <m>n \times n</m> matrices?
+			</li>
+		</ul></p>
 
 	</statement>
 
-	<answer>
-
-		<p><m>\displaystyle
-			\begin{bmatrix} a d \amp 0 \amp 0 \\ 0 \amp b e \amp 0 \\ 0 \amp 0 \amp c f \end{bmatrix}
-		</m></p>
-
-		<aside><title>Consider the pattern</title><p>
-			Will the same pattern hold when multiplying square matrices with the same <q>form</q> as but of a different size from the ones in this exercise?
-		</p></aside>
-
-	</answer>
+	<answer><p><m>\displaystyle
+		\begin{bmatrix} a d \amp 0 \amp 0 \\ 0 \amp b e \amp 0 \\ 0 \amp 0 \amp c f \end{bmatrix}
+	</m></p></answer>
 
 </exercise>
 
@@ -735,11 +735,13 @@ respective owners.
 			\begin{bmatrix} 1 \amp b \\ 0 \amp 1 \end{bmatrix}
 		</m></p>
 
+<!--
 		<p>
 		<alert>Note:</alert>
 		after completing this exercise,
 		you should consider <xref ref="exercise-matrix-ops-patterns-of-unipotent-isolates-addition" text="type-local" />.
 		</p>
+ -->
 
 	</statement>
 
@@ -819,21 +821,22 @@ respective owners.
 			{ \begin{bmatrix} a \amp 0 \amp 0 \\ 0 \amp b \amp 0 \\ 0 \amp 0 \amp c \end{bmatrix} }^5
 		</m></p>
 
-		<p><alert>Note:</alert> first see <xref ref="exercise-matrix-ops-mult-diag" text="type-local" />. </p>
+		<p><alert>Notes:</alert><ul>
+			<li> First see <xref ref="exercise-matrix-ops-mult-diag" text="type-local" />. </li>
+			<li>
+				Similar to <xref ref="exercise-matrix-ops-mult-diag" text="type-local" />,
+				You should notice a simple pattern in the result due to the <q>form</q> of this matrix.
+				Will the same pattern hold for a <m>2 \times 2</m> matrix of the same form?
+				For a <m>4 \times 4</m> matrix?
+				For a <m>n \times n</m> matrix?
+			</li>
+		</ul></p>
 
 	</statement>
 
-	<answer>
-
-		<p><m>\displaystyle
-			\begin{bmatrix} a^5 \amp 0 \amp 0 \\ 0 \amp b^5 \amp 0 \\ 0 \amp 0 \amp c^5 \end{bmatrix}
-		</m></p>
-
-		<aside><title>Consider the pattern</title><p>
-			Will the same pattern hold when computing a power of a square matrix with the same <q>form</q> as but of a different size from the one in this exercise?
-		</p></aside>
-
-	</answer>
+	<answer><p><m>\displaystyle
+		\begin{bmatrix} a^5 \amp 0 \amp 0 \\ 0 \amp b^5 \amp 0 \\ 0 \amp 0 \amp c^5 \end{bmatrix}
+	</m></p></answer>
 
 </exercise>
 
@@ -859,68 +862,70 @@ respective owners.
 
 <exercise xml:id="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-1">
 
-	<statement><p><m>\displaystyle
-		\begin{abmatrix}{rrr}
-			 3 \amp -2 \amp 1 \\
-			-2 \amp -1 \amp 1
-		\end{abmatrix}
-		\utrans{
+	<statement>
+
+		<p><m>\displaystyle
 			\begin{abmatrix}{rrr}
 				 3 \amp -2 \amp 1 \\
 				-2 \amp -1 \amp 1
 			\end{abmatrix}
-		}
-	</m></p></statement>
-
-	<answer>
-
-		<p><m>\displaystyle
-			\begin{abmatrix}{rr}
-				14 \amp -3 \\
-				-3 \amp  6
-			\end{abmatrix}
+			\utrans{
+				\begin{abmatrix}{rrr}
+					 3 \amp -2 \amp 1 \\
+					-2 \amp -1 \amp 1
+				\end{abmatrix}
+			}
 		</m></p>
 
-		<aside><title>Identify the pattern</title><p>
-			Is there any pattern to the entries in the result?
-			Compare with any pattern you see after computing the answer to <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-2" text="type-local" />.
-		</p></aside>
+		<p>
+		<alert>Also:</alert>
+		Is there any pattern to the entries in your result?
+		Compare with any pattern you see after computing the answer to <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-2" text="type-local" />.
+		</p>
 
-	</answer>
+	</statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			14 \amp -3 \\
+			-3 \amp  6
+		\end{abmatrix}
+	</m></p></answer>
 
 </exercise>
 
 <exercise xml:id="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-2">
 
-	<statement><p><m>\displaystyle
-		\utrans{
+	<statement>
+
+		<p><m>\displaystyle
+			\utrans{
+				\begin{abmatrix}{rrr}
+					 3 \amp -2 \amp 1 \\
+					-2 \amp -1 \amp 1
+				\end{abmatrix}
+			}
 			\begin{abmatrix}{rrr}
 				 3 \amp -2 \amp 1 \\
 				-2 \amp -1 \amp 1
 			\end{abmatrix}
-		}
-		\begin{abmatrix}{rrr}
-			 3 \amp -2 \amp 1 \\
-			-2 \amp -1 \amp 1
-		\end{abmatrix}
-	</m></p></statement>
-
-	<answer>
-
-		<p><m>\displaystyle
-			\begin{abmatrix}{rrr}
-				13 \amp -4 \amp  1 \\
-				-4 \amp  5 \amp -3 \\
-				 1 \amp -3 \amp  2
-			\end{abmatrix}
 		</m></p>
 
-		<aside><title>Identify the pattern</title><p>
-			Is there any pattern to the entries in the result?
-			Compare with any pattern you saw in the answer to <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-1" text="type-local" />.
-		</p></aside>
+		<p>
+		<alert>Also:</alert>
+		Is there any pattern to the entries in the result?
+		Compare with any pattern you saw in the answer to <xref ref="exercise-matrix-ops-matrix-arithmetic-mat-times-trans-1" text="type-local" />.
+		</p>
 
-	</answer>
+	</statement>
+
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			13 \amp -4 \amp  1 \\
+			-4 \amp  5 \amp -3 \\
+			 1 \amp -3 \amp  2
+		\end{abmatrix}
+	</m></p></answer>
 
 </exercise>
 

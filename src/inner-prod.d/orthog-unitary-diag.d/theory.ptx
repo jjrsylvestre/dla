@@ -289,15 +289,21 @@ not just eigenvalues of the normal matrix <m>N</m>.
 
 <proposition xml:id="proposotion-orthog-unitary-diag-hermitian-is-unit-diag">
 	<title>Hermitian is unitarily diagonlizable</title>
+
 	<statement><p> Every Hermitian matrix is unitarily diagonalizable. </p></statement>
-	<proof><title>Proof outline</title>
+
+	<proof>
+		<title>Proof outline</title>
+
 		<p>
 		Suppose <m>H</m> is a Hermitian matrix.
 		By <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
 		the matrix <m>H</m> has at least one eigenvalue,
 		and so has a nonzero eigenvector, say <m>\uvec{x}</m>.
 		By normalizing, we may assume that <m>\uvec{x}</m> is a unit vector.
-		</p><p>
+		</p>
+
+		<p>
 		Let <m>W = \Span \{ \uvec{x} \}</m>.
 		Since <m>\uvec{x}</m> is an eigenvector,
 		<m>W</m> is an <m>H</m>-invariant subspace of <m>\C^n</m>.
@@ -307,7 +313,9 @@ not just eigenvalues of the normal matrix <m>N</m>.
 		Since <m>H</m> is self-adjoint,
 		<xref ref="proposition-matrix-adjoints-orthog-cmp-adj-invariant" />
 		states that <m>W^\perp</m> is <m>H</m>-invariant.
-		</p><p>
+		</p>
+
+		<p>
 		If
 		<me> \{ \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </me>
 		is an orthonormal basis for <m>W^\perp</m>,
@@ -329,19 +337,24 @@ not just eigenvalues of the normal matrix <m>N</m>.
 		Since <m>H</m> is Hermitian,
 		so is <m>\adjoint{U}_1 H U_1</m>,
 		and therefore so is <m>H'</m>.
-		</p><p>
+		</p>
+
+		<p>
 		By mathematical induction,
 		we may assume that the smaller Hermitian matrix <m>H'</m> is unitarily diagonalizable by some <m>(n-1) \times (n-1)</m> unitary matrix <m>U'</m>.
 		Therefore, if we take
 		<md><mrow> U_2 \amp = \begin{bmatrix} 1 \\ \amp U' \end{bmatrix} \text{,} \amp U \amp = U_1 U_2 \text{,} </mrow></md>
 		then both <m>U_2</m> and <m>U</m> are also unitary, and <m>\inv{U} H U = \adjoint{U} H U</m> will be diagonal.
 		</p>
-		<aside><title>Note</title><p>
-			The base case in the induction process would be to assume that <m>H</m> is <m>1 \times 1</m>.
-			But in that case <m>H</m> would already be diagonal,
-			and so would be unitarily diagonalizable by <m>U = [1]</m>,
-			the <m>1 \times 1</m> identity matrix.
-		</p></aside>
+
+		<p>
+		<alert>Note:</alert>
+		The base case in the induction process would be to assume that <m>H</m> is <m>1 \times 1</m>.
+		But in that case <m>H</m> would already be diagonal,
+		and so would be unitarily diagonalizable by <m>U = [1]</m>,
+		the <m>1 \times 1</m> identity matrix.
+		</p>
+
 	</proof>
 </proposition>
 

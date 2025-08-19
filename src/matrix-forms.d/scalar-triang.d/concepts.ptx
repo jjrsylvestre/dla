@@ -41,7 +41,9 @@ and it is halfway to being row reduced.
 The name of the form is significant beyond just describing the shape of the entries.
 A scalar-triangular matrix can be decomposed into a scalar matrix and a <q>purely</q> triangular matrix,
 both additively and multiplicatively.
-</p><p>
+</p>
+
+<p>
 First, an additive example:
 <me>
 	\begin{abmatrix}{ccccr}
@@ -51,7 +53,7 @@ First, an additive example:
 		0 \amp 0 \amp 0 \amp 3 \amp 7 \\
 		0 \amp 0 \amp 0 \amp 0 \amp 3
 	\end{abmatrix}
-	= 3I +
+	= 3 I +
 	\begin{abmatrix}{ccccr}
 		0 \amp 4 \amp 1 \amp 4 \amp 1 \\
 		0 \amp 0 \amp 5 \amp 11 \amp 1 \\
@@ -116,7 +118,9 @@ Furthermore, this homogeneous point of view immediately tells us that the collec
 (along with the zero vector)
 forms a subspace of <m>\R^n</m>,
 since the eigenspace of <m>A</m> corresponding to <m>\lambda</m> is the same as the null space of the matrix <m>\lambda I - A</m>.
-</p><p>
+</p>
+
+<p>
 We saw in <xref ref="activity-scalar-triang-pattern" />
 (and will see again in our re-analysis of that discovery activity in
 <xref ref="subsection-scalar-triang-concepts-similarity" />
@@ -125,7 +129,9 @@ that the scalar-triangular similarity pattern leads to consideration of the null
 We have named each new null space of <m>(\lambda I - A)^k</m>
 the <term><xref ref="definition-scalar-triang-eigensubspace" text="title" /></term> for <m>A</m>,
 where the usual eigenspace of <m>A</m> is the same as the generalized eigensubspace of <m>A</m> of degree <m>1</m>.
-</p><p>
+</p>
+
+<p>
 These subspaces form a nested sequence
 <me> E_\lambda^1(A) \subseteq E_\lambda^2(A) \subseteq E_\lambda^3(A) \subseteq \dotsb </me>,
 since a vector in the null space of <m>(\lambda I - A)^k</m> must also lie in the null space of <m>(\lambda I - A)^{k+1}</m>.
@@ -136,14 +142,16 @@ This largest eigensubspace is called the
 <term><xref ref="definition-scalar-triang-gen-eigenspace" text="title" /></term>
 for <m>A</m> corresponding to <m>\lambda</m>.
 </p>
-<aside><title>Note</title><p>
+
+<remark><p>
 	In <xref ref="section-scalar-triang-terminology" />,
 	we have stated the definition of
 	<term><xref ref="definition-scalar-triang-gen-eigenspace" text="title" /></term>
 	in terms of the concept of
 	<term><xref ref="definition-scalar-triang-gen-eigenvec" text="title" /></term>
 	in order to avoid having to refer to the existence of a <q>largest</q> generalized eigensubspace right in the definition.
-</p></aside>
+</p></remark>
+
 <p>
 We have seen in <xref ref="chapter-diagonalization" /> that the
 <term><xref ref="definition-diagonalization-alg-mult" text="title" /></term> of an eigenvalue
@@ -260,8 +268,8 @@ Finally, we turn to <m>\uvec{p}_5</m>.
 In this example,
 since the dimension of <m>E_3^2(A)</m> was only <m>4</m>,
 we will need to look elsewhere for our fifth vector.
-It is reasonable at this point to guess that we will need to take <m>\uvec{p}_5</m> from the null space of <m>(3 I - A)^3</m>,
-<ie /> from the next generalized eigensubspace <m>E_3^3(A)</m>.
+It is reasonable at this point to guess that we will need to take <m>\uvec{p}_5</m> from the next generalized eigensubspace <m>E_3^3(A)</m>
+(that is, from the null space of <m>(3 I - A)^3</m>).
 And that is exactly the thing we will need to do.
 </p><p>
 The fifth column of <m>B</m> gives us condition
@@ -323,26 +331,23 @@ analyzed in the previous subsection to create a scalar-triangularization procedu
 			Otherwise, continue.
 		</li>
 		<li>
-			<p>
 			Continue in this fashion,
 			extending to a basis of <m>E_{\lambda_0}^3(A)</m>
-			(<ie /> the null space of <m>(\lambda_0 I - A)^3</m>),
+			(the null space of <m>(\lambda_0 I - A)^3</m>),
 			and then to a basis for <m>E_{\lambda_0}^4(A)</m>
-			(<ie /> the null space of <m>(\lambda_0 I - A)^4</m>),
+			(the null space of <m>(\lambda_0 I - A)^4</m>),
 			and so on, until you reach a point where your basis has <m>n</m> vectors.
-			</p>
-			<aside><title>Worst case</title><p>
-				You will reach <m>n</m> vectors for the basis of the null space of <m>(\lambda_0 I - A)^n</m>.
-			</p></aside>
+			Worst case,
+			you will reach <m>n</m> vectors for the basis of the null space of <m>(\lambda_0 I - A)^n</m>.
 		</li>
 		<li>
 			Once your collection of independent generalized eigenvectors has grown to <m>n</m> vectors,
 			place these vectors,
 			<em>in the order you obtained them</em>
-			(<ie /> first the vectors from <m>E_{\lambda_0}^1(A)</m>,
+			as the columns of <m>P</m>:
+			first the vectors from <m>E_{\lambda_0}^1(A)</m>,
 			then the vectors from <m>E_{\lambda_0}^2(A)</m>,
-			<etc />),
-			as the columns of <m>P</m>.
+			and so on.
 		</li>
 	</ol></p></statement>
 </algorithm>

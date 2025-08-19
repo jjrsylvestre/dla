@@ -157,7 +157,9 @@ Let's record the formula for <m>2\times 2</m> inverses that we encountered in
 
 	<title> <m>2 \times 2</m> inversion formula </title>
 
-	<statement><p>
+	<statement>
+
+		<p>
 		Consider general <m>2\times 2</m> matrix
 		<m> A = \left[\begin{smallmatrix} a \amp b\\c \amp d \end{smallmatrix}\right] </m>.
 		If <m>a d - b c\neq 0</m>,
@@ -165,7 +167,14 @@ Let's record the formula for <m>2\times 2</m> inverses that we encountered in
 		<me>
 			\inv{A} = \frac{1}{a d - b c} \; \begin{abmatrix}{rr} d \amp -b \\ -c \amp a \end{abmatrix}.
 		</me>
-	</p></statement>
+		</p>
+
+		<aside>
+			<title>A look ahead</title>
+			<p> We will further explore the formula <m>a d - b c</m> and its connection to invertibility of matrices in subsequent chapters. </p>
+		</aside>
+
+	</statement>
 
 	<proof><title>Proof idea</title><p>
 		Assuming <m>a d - b c \neq 0</m>,
@@ -175,11 +184,6 @@ Let's record the formula for <m>2\times 2</m> inverses that we encountered in
 	</p></proof>
 
 </proposition>
-
-<aside>
-	<title>A look ahead</title>
-	<p> We will further explore the formula <m>a d - b c</m> and its connection to invertibility of matrices in subsequent chapters. </p>
-</aside>
 
 <p>
 Here are the properties of inverses we explored in
@@ -513,10 +517,25 @@ Finally, we will record the observation of
 
 	<title> Consistency of invertible coefficient matrix </title>
 
-	<statement><p>
+	<statement>
+
+		<p>
 		If the coefficient matrix for a linear system is square and invertible,
 		then the system has one unique solution.
-	</p></statement>
+		</p>
+
+		<!-- TODO valign="top" ? -->
+		<aside valign="middle"><title>A look ahead</title><p>
+			It follows from a fact in the next chapter
+			(<xref ref="theorem-elem-matrices-equiv-to-invertible" />)
+			that the logic of
+			<xref ref="proposition-inverses-inv-coeff-implies-one-sol" />
+			goes the other way as well:
+			if a system with a square coefficient matrix has one unique solution,
+			then that coefficient matrix must be invertible.
+		</p></aside>
+
+	</statement>
 
 	<proof><p>
 		Consider system
@@ -533,16 +552,6 @@ Finally, we will record the observation of
 	</p></proof>
 
 </proposition>
-
-<aside><title>A look ahead</title><p>
-	It follows from a fact in the next chapter
-	(<xref ref="theorem-elem-matrices-equiv-to-invertible" />)
-	that the logic of
-	<xref ref="proposition-inverses-inv-coeff-implies-one-sol" />
-	goes the other way as well:
-	if a system with a square coefficient matrix has one unique solution,
-	then that coefficient matrix must be invertible.
-</p></aside>
 
 </subsection>
 

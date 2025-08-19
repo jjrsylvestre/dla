@@ -18,11 +18,11 @@ respective owners.
 
 <title>Discovery guide</title>
 
-<introduction><p>
-	In <xref ref="chapter-col-row-null-space" />,
-	we began to see how the interaction between a matrix and column vectors can be used to understand the matrix.
-	Here we will find that for each square matrix there are certain column vectors that are particularly well-suited to the task.
-</p></introduction>
+<p>
+In <xref ref="chapter-col-row-null-space" />,
+we began to see how the interaction between a matrix and column vectors can be used to understand the matrix.
+Here we will find that for each square matrix there are certain column vectors that are particularly well-suited to the task.
+</p>
 
 <activity xml:id="activity-eigen-values-vectors-eigen-motivation">
 
@@ -68,12 +68,6 @@ respective owners.
 
 	<postlude>
 
-		<!-- schema violation but renders OK -->
-		<aside><title>Notation and terminology</title><p>
-			The symbol <m>\lambda</m> is the Greek letter <foreign>lambda</foreign>.
-			The prefix <foreign xml:lang="german">eigen</foreign> is German for specific/particular/<q>one's own.</q>
-		</p></aside>
-
 		<p>
 		From <xref ref="activity-eigen-values-vectors-eigen-motivation" />,
 		it seems that pairs consisting of a scalar <m>\lambda</m> and (nonzero) vector <m>\uvec{x}</m> such that
@@ -87,33 +81,47 @@ respective owners.
 		for <m>A</m>.
 		</p>
 
+		<!-- schema violation but renders OK -->
+		<aside valign="middle"><title>Notation and terminology</title><p>
+			The symbol <m>\lambda</m> is the Greek letter <foreign>lambda</foreign>.
+			The prefix <foreign xml:lang="german">eigen</foreign> is German for specific/particular/<q>one's own.</q>
+		</p></aside>
+
 	</postlude>
 
 </activity>
 
 <activity xml:id="activity-eigen-values-vectors-eigenval-char-poly">
+
 	<prelude><p>
 		It turns out that it is easier to determine potential eigenvalues for a matrix first,
 		and to look for corresponding eigenvectors afterwards.
 		In the next discovery activity we will develop a method to determine all eigenvalues of a matrix,
 		independently of determining eigenvectors.
 	</p></prelude>
+
 	<introduction><p>
 		For <m>\lambda</m> to be an eigenvalue for <m>A</m>,
 		there must be at least one <em>nontrivial</em> solution <m>\uvec{x}</m> to the matrix equation
 		<m>A\uvec{x} = \lambda\uvec{x}</m>.
 	</p></introduction>
+
 	<task xml:id="activity-eigen-values-vectors-eigenval-char-poly-homogeneous">
+
 		<p>
 		Use matrix algebra to turn the equation
 		<m>A\uvec{x} = \lambda\uvec{x}</m>
 		into a homogeneous condition:
 		<m>\bbrac{\;<fillin characters="4" />\;}\;\uvec{x} = \zerovec</m>.
 		</p>
-		<aside><title>Careful</title><p>
-			Make sure what you have in the brackets represents a <em>matrix</em>!
-		</p></aside>
+
+		<p>
+		<alert>Careful:</alert>
+		be sure that what you have in the brackets represents a <em>matrix</em>!
+		</p>
+
 	</task>
+
 	<task xml:id="activity-eigen-values-vectors-eigenval-char-poly-develop-char-poly"><statement>
 		<p>
 		We want <em>nontrivial</em> solutions to exist.
@@ -131,6 +139,7 @@ respective owners.
 		</statement>
 		<hint><p> <xref ref="theorem-more-det-equiv-to-invertible" />. </p></hint>
 	</task>
+
 </activity>
 
 <activity xml:id="activity-eigen-values-vectors-compute-eigenvalues-examples">

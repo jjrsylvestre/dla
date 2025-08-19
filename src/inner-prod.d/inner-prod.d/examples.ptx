@@ -144,19 +144,20 @@ respective owners.
 <subsection xml:id="subsection-inner-prod-examples-geometry">
 <title>Geometry in inner product spaces</title>
 
-<example>
+<example xml:id="example-inner-prod-matrix-length">
 	<title>The <q>length</q> of a matrix</title>
 	<p>
-	Let's use the inner product
+	Let's compute the norm of the vector
+	<me> A = \begin{abmatrix}{rr} 2 \amp 3 \\ 1 \amp -1 \end{abmatrix} </me>
+	relative to the inner product
 	<me> \inprod{A}{B} = \trace (\utrans{B} A) </me>
-	on <m>\matrixring_{2 \times 2}(\R)</m> to compute the norm of the vector
-	<me> A = \begin{bmatrix} 2 \amp 3 \\ 1 \amp -1 \end{bmatrix} </me>.
+	on <m>\matrixring_{2 \times 2}(\R)</m>.
 	We have
 	<md>
 		<mrow>
 			\inprod{A}{A} \amp = \trace\left(
-				\begin{bmatrix} 2 \amp 1 \\ 3 \amp -1 \end{bmatrix}
-				\begin{bmatrix} 2 \amp 3 \\ 1 \amp -1 \end{bmatrix}
+				\begin{abmatrix}{rr} 2 \amp 1 \\ 3 \amp -1 \end{abmatrix}
+				\begin{abmatrix}{rr} 2 \amp 3 \\ 1 \amp -1 \end{abmatrix}
 			\right)
 		</mrow><mrow>
 			\amp = \trace \begin{bmatrix} 5 \amp 5 \\ 5 \amp 10 \end{bmatrix}
@@ -166,23 +167,29 @@ respective owners.
 	</md>,
 	and so
 	<me> \norm{A} = \sqrt{15} </me>.
-	</p><p>
-	What <term>unit vectors</term> in <m>\matrixring_{2 \times 2}(\R)</m> are <q>parallel</q> to <m>A</m>?
+	</p>
+</example>
+
+<example>
+	<title>Unit-length matrices</title>
+	<p>
+	What <term>unit vectors</term> in <m>\matrixring_{2 \times 2}(\R)</m> are <q>parallel</q> to the matrix <m>A</m> from <xref ref="example-inner-prod-matrix-length" />?
 	Just as in <m>\R^n</m>,
-	we can normalize a vector to a unit vector by dividing by its norm.
+	we can normalize a vector in an inner product space to a unit vector by dividing by its norm.
 	So
-	<me> U = \frac{1}{\sqrt{15}} \begin{bmatrix} 2 \amp 3 \\ 1 \amp -1 \end{bmatrix} </me>
+	<me> U = \frac{1}{\sqrt{15}} \begin{abmatrix}{rr} 2 \amp 3 \\ 1 \amp -1 \end{abmatrix} </me>
 	is one unit vector that is <q>parallel</q> to <m>A</m>,
 	and <m>-U</m> is another.
 	</p>
-	<aside><title>Careful</title><p>
-		In a real inner product space,
-		there are only two unit vectors in <m>\Span {\uvec{v}}</m> for a given nonzero vector <m>\uvec{v}</m>.
-		But in a complex inner product space, there are actually an infinite number!
-		(See <xref ref="proposition-inner-prod-unit-vectors" />
-		and <xref ref="remark-inner-prod-theory-unit-vectors" />.)
-	</p></aside>
 </example>
+
+<warning><p>
+	In a real inner product space,
+	there are only two unit vectors in <m>\Span {\uvec{v}}</m> for a given nonzero vector <m>\uvec{v}</m>.
+	But in a complex inner product space, there are actually an infinite number!
+	(See <xref ref="proposition-inner-prod-unit-vectors" />
+	and <xref ref="remark-inner-prod-theory-unit-vectors" />.)
+</p></warning>
 
 <example><title>Angle between matrices</title>
 	<p>
