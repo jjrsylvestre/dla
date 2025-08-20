@@ -200,6 +200,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 
 <example xml:id="example-block-diag-rotation">
 	<title>Block-diagonal form for rotation around an axis in space</title>
+
 	<p>
 	It is far from obvious,
 	but the effect of multiplication by matrix
@@ -215,9 +216,11 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	on vectors in <m>\R^3</m> is to rotate around the line through the origin spanned by the vector
 	<m>\uvec{n} = (1, 1, 0)</m>.
 	While we are not yet prepared to understand the connection between the matrix and the geometric effect,
-	<!-- TODO xref into linear transformation chapter -->
+	<!-- TODO xref into linear transformation chapter ?? -->
 	we can at least carry out some simple computations to demonstrate the connection in this example.
-	</p><p>
+	</p>
+
+	<p>
 	If <m>A</m> is a rotation,
 	vectors parallel to the axis of rotation should be fixed by the transformation.
 	In particular, vector <m>\uvec{n}</m> should be fixed by <m>A</m>:
@@ -235,12 +238,14 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 		= \begin{abmatrix}{r} 1 \\ 1 \\ 0 \end{abmatrix}
 	</me>,
 	as expected.
-	</p><p>
+	</p>
+
+	<p>
 	This fixed vector <m>\uvec{n}</m> representing the axis of rotation can be taken as the normal vector for the plane through the origin that is perpendicular to this axis.
 	Using the normal vector as coefficients,
 	the plane equation is <m>x + y = 0</m>.
 	We would expect a vector parallel to this plane to be rotated to another vector in the plane of the same length.
-	<!-- TODO attempt a digram? -->
+	<!-- TODO attempt a diagram ? -->
 	Let's test this with vector <m>\uvec{w}_1 = (0,0,1)</m>,
 	which we know is parallel to the plane because its components satisfy the plane equation.
 	Computing the transformed vector, we get
@@ -266,7 +271,9 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	the dot product of <m>\uvec{w}_1</m> and <m>A\uvec{w}_1</m> is <m>0</m>,
 	so these vectors are orthogonal.
 	It appears that the angle of rotation is <m>\pi/2</m>.
-	</p><p>
+	</p>
+
+	<p>
 	As one more test, write <m>\uvec{w}_2</m> for the transformed vector <m>A \uvec{w}_1</m>.
 	This vector lies in the same plane orthogonal to the axis of rotation,
 	so we expect <m>A</m> to also transform it to another vector in that plane:
@@ -290,25 +297,31 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	then <m>A \uvec{w}_2</m> is like transforming <m>\uvec{w}_1</m> twice,
 	first by <m>\pi/2</m> to <m>\uvec{w}_2</m>,
 	and then another <m>\pi/2</m> from there so that it comes all the way around to point oppositely to its original position.
-	</p><p>
+	</p>
+
+	<p>
 	These test calculations were not only to see transformation by <m>A</m> as a rotation.
 	They also provided us with a couple of <m>A</m>-invariant subspaces.
 	Since <m>\uvec{n}</m> is fixed by <m>A</m>,
 	the same will be true for every scalar multiple of <m>\uvec{n}</m>:
 	<me> A (k\uvec{n}) = k A \uvec{n} = k \uvec{n} </me>.
 	This demonstrates that <m>U = \Span \{\uvec{n}\}</m> is an <m>A</m>-invariant subspace.
-	</p><p>
+	</p>
+
+	<p>
 	Similarly, since <m>A</m> transforms <m>\uvec{w}_1</m> into <m>\uvec{w}_2</m> and transforms <m>\uvec{w}_2</m> into <m>-\uvec{w}_1</m>,
 	it follows that <m>A</m> transforms every linear combination of these two vectors into another linear combination of them:
 	<me> A (k_1 \uvec{w}_1 + k_2 \uvec{w}_2) = k_1 (A \uvec{w}_1) + k_2 (A \uvec{w}_2) = k_1 \uvec{w}_2 + k_2 (-\uvec{w}_1) </me>.
 	This demonstrates that <m>W = \Span \{\uvec{w}_1, \uvec{w}_2\}</m> is also an <m>A</m>-invariant subspace.
 	</p>
+
 	<aside><title>A look ahead</title><p>
 		The pattern of how we demonstrated that <m>U</m> and <m>W</m> are <m>A</m>-invariant,
 		by considering the effect of <m>A</m> on spanning vectors,
 		is captured in
 		<xref ref="proposition-block-diag-invariant-by-spanning-set" />.
 	</p></aside>
+
 	<p>
 	The pair of spaces <m>U,W</m> are independent,
 	because if we take their bases together,
@@ -328,7 +341,9 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 			0 \amp 1 \amp          0
 		\end{abmatrix}
 	</me>
-	</p><p>
+	</p>
+
+	<p>
 	There is no need to compute <m>\inv{P}</m> in order to know the form matrix <m>\inv{P} A P</m>.
 	Instead, we can use the pattern of similarity from <xref ref="subsection-similarity-concepts-algebra" /> <mdash />
 	the columns of <m>\inv{P} A P</m> should be coefficients for expressing the transformed vectors
@@ -363,6 +378,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	where the <m>1 \times 1</m> block in the upper left represents the trivial action of <m>A</m> on vectors in the axis <m>U</m>,
 	and the <m>2 \times 2</m> block in the lower right represents the rotation action of <m>A</m> on the vectors in the perpendicular plane <m>W</m>.
 	</p>
+
 </example>
 
 <p>
