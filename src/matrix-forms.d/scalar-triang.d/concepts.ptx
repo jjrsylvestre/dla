@@ -186,7 +186,9 @@ where the <m>\ast</m> entries are irrelevant to the form.
 Our first observation is that, like <m>B</m>,
 matrix <m>A</m> must also have the single eigenvalue <m>\lambda = 3</m>,
 of algebraic multiplicity <m>5</m>.
-</p><p>
+</p>
+
+<p>
 As usual, write <m>\uvec{p}_j</m> for the columns of the required transition matrix <m>P</m>.
 In this case, <m>P</m> must be <m>5 \times 5</m>.
 Using the general similarity pattern described in
@@ -197,9 +199,11 @@ which is the eigenvalue-eigenvector pattern.
 This should not be surprising,
 since the first column of <m>B</m> has the same form as the first column of a diagonal matrix,
 and we also encountered the eigenvalue-eigenvector pattern in our study of diagonal form.
-</p><p>
-After row reducing <m>3 I - A</m> as part of <xref ref="activity-scalar-triang-pattern-evec" />,
-we found that the dimension of the eigenspace <m>E_3(A)</m> was <m>2</m>,
+</p>
+
+<p>
+After row reducing <m>3 I - A</m> as part of <xref ref="activity-scalar-triang-pattern-evec">Discovery</xref>,
+we found that the dimension of the eigenspace <m>E_3(A)</m> is <m>2</m>,
 so in fact two linearly independent eigenvectors were available.
 Could we take <em>both</em> <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to be eigenvectors?
 The second column of <m>B</m> says that we need
@@ -209,10 +213,12 @@ taking it to be zero so that the condition becomes the
 <me> A \uvec{p}_2 = 3 \uvec{p}_2 </me>
 eigenvalue-eigenvector pattern is fine.
 </p>
+
 <aside><title>In general</title><p>
 	It won't always be possible to also take <m>\uvec{p}_2</m> to be an eigenvector,
 	as some matrices with a single eigenvalue will have eigenspace of dimension only <m>1</m>.
 </p></aside>
+
 <p>
 Now, it is definitely not possible in this example to take <m>\uvec{p}_3</m> to be an eigenvector,
 because we need <m>P</m> to be invertible,
@@ -220,11 +226,13 @@ hence we need its columns to be linearly independent
 (<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
 And with dimension <m>2</m>,
 the eigenspace <m>E_3(A)</m> can only provide two linearly independent eigenvectors.
-</p><p>
+</p>
+
+<p>
 So we go back to the form matrix <m>B</m>.
 The third column of <m>B</m> gives us the condition
 <me> A \uvec{p}_3 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + 3 \uvec{p}_3. </me>
-As in <xref ref="activity-scalar-triang-pattern-gen-evec-rearrange" />,
+As in <xref ref="activity-scalar-triang-pattern-gen-evec-rearrange">Discovery</xref>,
 in analogy with how we solve for eigenvectors we can rearrange this condition on <m>\uvec{p}_3</m> to
 <me> (3 I - A) \uvec{p}_3 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </me>.
 We would much rather have a homogeneous system to solve instead of this nonhomogeneous one.
@@ -240,7 +248,9 @@ a homogeneous condition we can solve by row reducing <m>(3 I - A)^2</m>.
 In the new language of <term>generalized eigenvectors</term>,
 we need <m>\uvec{p}_3</m> to be in <m>E_3^2(A)</m>,
 the generalized eigensubspace of degree <m>2</m> for <m>A</m> corresponding to <m>\lambda = 3</m>.
-</p><p>
+</p>
+
+<p>
 Some care must be taken in choosing <m>\uvec{p}_3</m> though,
 as we need it to be linearly independent from <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
 As the eigenspace <m>E_3(A)</m> is nested inside the generalized eigensubspace <m>E_3^2(A)</m>
@@ -248,13 +258,15 @@ As the eigenspace <m>E_3(A)</m> is nested inside the generalized eigensubspace <
 when solving <m>(3I - A)^2 \uvec{x} = \zerovec</m> some of our null space basis vectors may end up being regular old eigenvectors instead of <em>generalized</em> eigenvectors.
 So we should make sure to construct the basis of this new null space as beginning with our two already chosen eigenvectors,
 and then extend that <m>E_3(A)</m> basis to a full basis for <m>E_3^2(A)</m>.
-</p><p>
+</p>
+
+<p>
 Now onto <m>\uvec{p}_4</m>.
 Just as we also took <m>\uvec{p}_2</m> to be an eigenvector,
 can we take <m>\uvec{p}_4</m> to be a generalized eigenvector of the second degree
-(<ie /> from <m>E_3^2(A)</m>)?
-When we solved for <m>\uvec{p}_3</m> in <xref ref="activity-scalar-triang-pattern-gen-evec-compute" />,
-we found that the dimension of <m>E_3^2(A)</m> was <m>4</m>,
+(that is, from <m>E_3^2(A)</m>)?
+When we solved for <m>\uvec{p}_3</m> in <xref ref="activity-scalar-triang-pattern-gen-evec-compute">Discovery</xref>,
+we found that the dimension of <m>E_3^2(A)</m> is <m>4</m>,
 so there was room for one more linearly independent vector beyond the three we already had
 (<m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>).
 The condition from the fourth column of <m>B</m> is
@@ -263,7 +275,9 @@ Choosing <m>\uvec{p}_4</m> from <m>E_3^2(A)</m> just forces the <m>\ast</m> coef
 allowing us to rearrange to
 <me> (3I - A) \uvec{p}_4 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </me>,
 the same sort of condition that led us to take <m>\uvec{p}_3</m> from <m>E_3^2(A)</m>.
-</p><p>
+</p>
+
+<p>
 Finally, we turn to <m>\uvec{p}_5</m>.
 In this example,
 since the dimension of <m>E_3^2(A)</m> was only <m>4</m>,
@@ -271,7 +285,9 @@ we will need to look elsewhere for our fifth vector.
 It is reasonable at this point to guess that we will need to take <m>\uvec{p}_5</m> from the next generalized eigensubspace <m>E_3^3(A)</m>
 (that is, from the null space of <m>(3 I - A)^3</m>).
 And that is exactly the thing we will need to do.
-</p><p>
+</p>
+
+<p>
 The fifth column of <m>B</m> gives us condition
 <me> A \uvec{p}_5 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + \ast \uvec{p}_4 + 3 \uvec{p}_5 </me>.
 If we rearrange to
@@ -280,7 +296,9 @@ we see that <m>(3 I - A) \uvec{p}_5</m> needs to be in the span of <m>\{\uvec{p}
 which is precisely <m>E_3^2(A)</m> in this example.
 That is, <m>(3 I - A) \uvec{p}_5</m> must be in the null space of <m>(3 I - A)^2</m>,
 which is the same as saying that <m>\uvec{p}_5</m> must be in the null space of <m>(3 I - A)^3</m>.
-</p><p>
+</p>
+
+<p>
 Just as we need to be careful about how we chose <m>\uvec{p}_3</m> from <m>E_3^2(A)</m> to avoid dependence with <m>E_3^1(A)</m>,
 we also need to be careful about how we choose <m>\uvec{p}_5</m> from <m>E_3^3(A)</m> to avoid dependence with <m>E_3^2(A)</m>.
 So when we solve the homogeneous system <m>(3 I - A)^3 \uvec{x} = \zerovec</m>,

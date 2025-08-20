@@ -277,15 +277,21 @@ we will explore the properties of block-diagonal matrices.
 
 <activity xml:id="activity-block-diag-product">
 
-	<task xml:id="activity-block-diag-product-example"><p>
+	<task xml:id="activity-block-diag-product-example">
+
+		<p>
 		Recall that <em>matrix-times-matrix</em> can be thought of as <em>matrix-times-collection-of-columns</em>.
 		(See pattern <xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
 		from <xref ref="subsection-matrix-ops-concepts-matrix-mult" />.)
-		</p><p>
+		</p>
+
+		<p>
 		Consider how you created column vectors in
-		<xref ref="activity-block-diag-null-space-one-block" />
+		<xref ref="activity-block-diag-null-space-one-block" text="type-local" />
+		of <xref ref="activity-block-diag-null-space" />
 		and
-		<xref ref="activity-block-diag-eigen-space-one-block" />,
+		<xref ref="activity-block-diag-eigen-space-one-block" text="type-local" />
+		of <xref ref="activity-block-diag-eigen-space" />,
 		and the pattern of how multiplying block-diagonal <m>B</m> against your constructed column vectors worked.
 		Use this experience to compute the product <m>MN</m> for the following two block-diagonal <m>3 \times 3</m> matrices.
 		<md><mrow>
@@ -302,12 +308,17 @@ we will explore the properties of block-diagonal matrices.
 			\end{abmatrix}
 		</mrow></md>
 		(Remember that unspecified entries are assumed to be zero.)
-	</p></task>
+		</p>
 
-	<task xml:id="activity-block-diag-product-pattern"><p>
-		Describe the pattern of
-		<xref ref="activity-block-diag-product-example" />:
-		if <m>M</m> and <m>N</m> are block-diagonal matrices
+	</task>
+
+	<task xml:id="activity-block-diag-product-pattern">
+		<title>
+			Describe the pattern of
+			<xref ref="activity-block-diag-product-example" text="type-local" />
+		</title>
+		<p>
+		If <m>M</m> and <m>N</m> are block-diagonal matrices
 		<md><mrow>
 			M \amp = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} \text{,} \amp
 			N \amp = \begin{bmatrix} N_1 \\ \amp N_2 \\ \amp \amp \ddots \\ \amp \amp \amp N_\ell \end{bmatrix} \text{,}
@@ -322,13 +333,17 @@ we will explore the properties of block-diagonal matrices.
 				 \amp \amp \amp \phantom{M_\ell N_\ell}
 			 \end{bmatrix}
 		</me>.
-	</p></task>
+		</p>
+	</task>
 
-	<task><p>
-		Apply the pattern of
-		<xref ref="activity-block-diag-product-pattern" text="type-local" />
-		to inverses and powers:
-		using the same matrix <m>M</m> as in
+	<task>
+		<title>
+			Apply the pattern of
+			<xref ref="activity-block-diag-product-pattern" text="type-local" />
+			to inverses and powers
+		</title>
+		<p>
+		using the same block form matrix <m>M</m> as in
 		<xref ref="activity-block-diag-product-pattern" text="type-local" />,
 		<md><mrow>
 			\inv{M} \amp = \begin{bmatrix}
@@ -347,7 +362,8 @@ we will explore the properties of block-diagonal matrices.
  			 \end{bmatrix}
  			 \text{.}
 		</mrow></md>
-	</p></task>
+		</p>
+	</task>
 
 </activity>
 
@@ -441,7 +457,8 @@ we will explore the properties of block-diagonal matrices.
 		Combine
 		<xref ref="activity-block-diag-eigenvalues-lambda-I-minus-pattern" text="type-local" />
 		with
-		<xref ref="activity-block-diag-det-pattern" />
+		<xref ref="activity-block-diag-det-pattern" text="type-local" />
+		of <xref ref="activity-block-diag-det" />
 		to determine the relationship between the characteristic polynomial of a block-diagonal matrix
 		and the characteristic polynomials of its blocks.
 	</p></task>

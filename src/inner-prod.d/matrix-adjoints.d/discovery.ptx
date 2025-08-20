@@ -35,6 +35,7 @@ respective owners.
 </p></paragraphs>
 
 <activity xml:id="activity-matrix-adjoints-first-principles">  <!-- old LaTeX label: {EXER::real.adjoint} -->
+
 	<task xml:id="activity-matrix-adjoints-first-principles-real">
 		<p>
 		Fill in the blank with a matrix so that the formula below is valid for all vectors <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>,
@@ -45,13 +46,16 @@ respective owners.
 		<me> {\inprod{A \uvec{u}}{\uvec{v}}}_{\R} = {\inprod{\uvec{u}}{<fillin characters="2" /> \uvec{v}}}_{\R} </me>?
 		</p>
 	</task>
+
 	<task xml:id="activity-matrix-adjoints-first-principles-symmetric"><p>
 		Based on your answer to <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />,
 		what property would a real matrix <m>B</m> need to possess in order for the formula
 		<me> {\inprod{B \uvec{u}}{\uvec{v}}}_{\R} = {\inprod{\uvec{u}}{B \uvec{v}}}_{\R} </me>
 		to be true for all real vectors <m>\uvec{u},\uvec{v}</m>?
 	</p></task>
+
 	<task xml:id="activity-matrix-adjoints-first-principles-orthogonal">
+
 		<statement><p>
 			Again, using your answer to <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" /> as a guide,
 			what property would a real matrix <m>C</m> need to possess in order for the formula
@@ -60,6 +64,7 @@ respective owners.
 			</mrow></md>
 			to be true for all real vectors <m>\uvec{u},\uvec{v}</m>?
 		</p></statement>
+
 		<hint>
 			<p>
 			First apply the pattern you found <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />
@@ -72,87 +77,111 @@ respective owners.
 			and investigate what happens when you take both of <m>\uvec{u},\uvec{v}</m> to be standard basis vectors.
 			</p>
 		</hint>
+
 	</task>
+
 	<task xml:id="activity-matrix-adjoints-first-principles-complex">
+
 		<p>
 		Fill in the blank with a matrix so that the formula below is valid for all vectors <m>\uvec{u},\uvec{v}</m> in <m>\C^n</m>,
 		and would be true no matter what <em>complex</em> <m>n\times n</m> matrix <m>A</m> is used:
 		<me> {\inprod{\uvec{u}}{A \uvec{v}}}_{\C} = {\inprod{<fillin characters="2" /> \uvec{u}}{\uvec{v}}}_{\C} </me>.
-		</p><p>
+		</p>
+
+		<p>
 		Similarly, what matrix fills in the blank in the formula
 		<me> {\inprod{A \uvec{u}}{\uvec{v}}}_{\C} = {\inprod{\uvec{u}}{<fillin characters="2" /> \uvec{v}}}_{\C} </me>?
 		</p>
+
 	</task>
+
 	<task xml:id="activity-matrix-adjoints-first-principles-hermitian"><p>
 		Based on your answer to <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" />,
 		what property would a <em>complex</em> matrix <m>B</m> need to possess in order for the formula
 		<me> {\inprod{B \uvec{u}}{\uvec{v}}}_{\C} = {\inprod{\uvec{u}}{B \uvec{v}}}_{\C} </me>
 		to be true for all complex vectors <m>\uvec{u},\uvec{v}</m>?
 	</p></task>
+
 	<task xml:id="activity-matrix-adjoints-first-principles-unitary">
+
 		<statement><p>
 			Again, using your answer to <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" /> as a guide,
 			what property would a <em>complex</em> matrix <m>C</m> need to possess in order for the formula
 			<me> {\inprod{C \uvec{u}}{C \uvec{v}}}_{\C} = {\inprod{\uvec{u}}{\uvec{v}}}_{\C} </me>
 			to be true for all complex vectors <m>\uvec{u},\uvec{v}</m>?
 		</p></statement>
+
 		<hint><p>
 			Employ the same strategy as for <xref ref="activity-matrix-adjoints-first-principles-orthogonal" text="type-local" />.
 			Or you probably could just infer the new complex pattern from the real pattern discovered in
 			<xref ref="activity-matrix-adjoints-first-principles-orthogonal" text="type-local" />.
 		</p></hint>
+
 	</task>
+
 	<postlude><p>
 		While we already have names for some of these things,
 		they are examples of more abstract concepts,
 		so we will use new terminology consistent with the abstract context.
 		<dl width="narrow">
+
 			<li><title>(real) adjoint matrix</title>
 			<p>
 			the matrix that filled in the blank
-			in <xref ref="activity-matrix-adjoints-first-principles-real">Discovery</xref>
+			in <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-first-principles" />
 			</p>
 			</li>
+
 			<li><title>(complex) adjoint matrix</title>
 			<p>
 			the matrix that filled in the blank
-			in <xref ref="activity-matrix-adjoints-first-principles-complex">Discovery</xref>
+			in <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-first-principles" />
 			</p>
 			</li>
+
 			<li><title>self-adjoint matrix</title>
 			<p>
 			a real matrix that satisfies the condition identified
-			in <xref ref="activity-matrix-adjoints-first-principles-symmetric">Discovery</xref>
-			(also referred to as <term>symmetric</term>),
+			in <xref ref="activity-matrix-adjoints-first-principles-symmetric" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-first-principles" />
 			or a complex matrix that satisfies the condition identified
-			in <xref ref="activity-matrix-adjoints-first-principles-hermitian">Discovery</xref>
-			(also referred to as <term>Hermitian</term>)
+			in <xref ref="activity-matrix-adjoints-first-principles-hermitian" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-first-principles" />
 			</p>
 			</li>
+
 			<li><title>orthogonal matrix</title>
 			<p>
 			a real matrix that satisfies the condition identified
-			in <xref ref="activity-matrix-adjoints-first-principles-orthogonal">Discovery</xref>
+			in <xref ref="activity-matrix-adjoints-first-principles-orthogonal" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-first-principles" />
 			</p>
 			</li>
+
 			<li><title>unitary matrix</title>
 			<p>
 			a complex matrix that satisfies the condition identified
-			in <xref ref="activity-matrix-adjoints-first-principles-unitary">Discovery</xref>
+			in <xref ref="activity-matrix-adjoints-first-principles-unitary" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-first-principles" />
 			</p>
 			</li>
+
 		</dl>
 	</p></postlude>
+
 </activity>
 
 <activity>
 	<p> What is the adjoint of the adjoint of a matrix <m>A</m>? </p>
 	<p>
 	Verify your conjecture against the inner product-based version of what <term>adjoint</term> means
-	using the patterns of
-	<xref ref="activity-matrix-adjoints-first-principles-real">Discovery</xref> (real case)
-	and
-	<xref ref="activity-matrix-adjoints-first-principles-complex">Discovery</xref> (complex case).
+	using the patterns
+	of <xref ref="activity-matrix-adjoints-first-principles-real" text="type-local" />
+	of <xref ref="activity-matrix-adjoints-first-principles" /> (real case)
+	and <xref ref="activity-matrix-adjoints-first-principles-complex" text="type-local" />
+	of <xref ref="activity-matrix-adjoints-first-principles" /> (complex case).
 	</p>
 </activity>
 
@@ -179,7 +208,9 @@ respective owners.
 	<title>Orthogonal matrices: geometry</title>
 	<prelude><p>
 		Our motivation for studying inner products was to connect algebra with geometry.
-		<xref ref="activity-matrix-adjoints-orthogonal-initial-columns">Discovery</xref> suggests a strong connection between an orthogonal matrix and the geometry of <m>\R^n</m>.
+		<xref ref="activity-matrix-adjoints-orthogonal-initial-columns" text="type-local" />
+		of <xref ref="activity-matrix-adjoints-orthogonal-initial" />
+		suggests a strong connection between an orthogonal matrix and the geometry of <m>\R^n</m>.
 		Let's explore that more through the inner product rather than through inspection of the matrix.
 	</p></prelude>
 	<introduction><p>
@@ -240,7 +271,8 @@ respective owners.
 			Which parts need to be updated, and how?
 		</p></statement>
 		<hint><p>
-			When reconsidering <xref ref="activity-matrix-adjoints-orthogonal-initial-det" />,
+			When reconsidering <xref ref="activity-matrix-adjoints-orthogonal-initial-det" text="type-local" />
+			of <xref ref="activity-matrix-adjoints-orthogonal-initial" />,
 			also consider <xref ref="proposition-complex-matrices-conj-adj-det" />.
 		</p></hint>
 	</task>

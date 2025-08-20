@@ -72,7 +72,10 @@ we'll explore similarity more generally, both geometrically and algebraically.
 
 <activity xml:id="activity-similarity-geometric">
 	<title>The geometry of similarity</title>
-	<introduction><p>
+
+	<introduction>
+
+		<p>
 		Consider the matrices
 		<md><mrow>
 			A \amp = \begin{bmatrix} 1 \amp 3 \\ 3 \amp 1 \end{bmatrix} \text{,} \amp
@@ -82,23 +85,31 @@ we'll explore similarity more generally, both geometrically and algebraically.
 		</mrow></md>
 		You don't need to verify this, but <m>A</m> and <m>B</m> are similar via transition matrix <m>P</m>,
 		<ie /> <m>\inv{P} A P = B</m>.
-		</p><p>
+		</p>
+
+		<p>
 		As usual, write <m>\basisfont{S}</m> for the standard basis <m>\basisfont{S} = \{ \uvec{e}_1, \uvec{e}_2 \}</m> of <m>\R^2</m>.
 		Also write <m>\basisfont{B}</m> for the basis <m>\basisfont{B} = \{ \uvec{p}_1, \uvec{p}_2 \}</m> of <m>\R^2</m> formed by the columns of <m>P</m>
 		(<xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref>
 		of
 		<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
-	</p></introduction>
+		</p>
+
+	</introduction>
+
 	<task xml:id="activity-similarity-geometric-plot-standard-coords"><p>
 		On a set of <m>xy</m>-axes,
 		plot the vectors <m>\uvec{v}</m> and <m>A\uvec{v}</m>,
 		where
 		<m> \uvec{v} = \left[\begin{smallmatrix} 3 \\ -2 \end{smallmatrix}\right] </m>.
 	</p></task>
+
 	<task xml:id="activity-similarity-geometric-convert-B-standard-coords">
+
 		<statement><p>
 			Use <m>\inv{P}</m> to compute the coordinate vector <m>\matrixOf{\uvec{v}}{B}</m>.
 		</p></statement>
+
 		<hint><p>
 			What are the columns of the transition matrix <m>\ucobmtrx{B}{S}</m>?
 			Do you know another matrix in this activity that has those same columns?
@@ -107,70 +118,96 @@ we'll explore similarity more generally, both geometrically and algebraically.
 			of
 			<xref ref="proposition-change-of-basis-cob-props" />.
 		</p></hint>
+
 	</task>
+
 	<task>
+
 		<p>
 		Our usual <m>xy</m>-coordinate system is really the <m>\basisfont{S}</m>-coordinate system,
 		as <m> \left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right] = x \uvec{e}_1 + y \uvec{e}_2 </m>
 		for every vector in the plane.
-		</p><p>
+		</p>
+
+		<p>
 		Let's call the <m>\basisfont{B}</m>-coordinate system the <m>wz</m>-coordinate system,
 		with <m>w</m> on the horizontal axis and <m>z</m> on the vertical axis.
 		On a new set of <m>wz</m>-axes (don't erase your <m>xy</m>-axes from before!),
 		plot the vectors <m>\matrixOf{\uvec{v}}{B}</m> and <m>B \matrixOf{\uvec{v}}{B}</m>
 		</p>
+
 	</task>
+
 	<task xml:id="activity-similarity-geometric-B-pattern">
-		<p><em>Analyze.</em></p>
+		<title> Analyze </title>
+
 		<p>
 		When computing <m>B \matrixOf{\uvec{v}}{B}</m>,
 		the <m>4</m> in the upper left of <m>B</m> multiplied the <m>w</m>-component of <m>\matrixOf{\uvec{v}}{B}</m>,
 		and the <m>-2</m> in the lower right of <m>B</m> multiplied the <m>z</m>-component of <m>\matrixOf{\uvec{v}}{B}</m>.
-		</p><p>
+		</p>
+
+		<p>
 		Describe this pattern in <em>geometric</em> terms,
 		by considering how the diagonal entries of <m>B</m> determined how the vector
 		<m>\matrixOf{\uvec{v}}{B}</m>
 		was <em>transformed</em> into the vector
 		<m>B \matrixOf{\uvec{v}}{B}</m>.
 		</p>
+
 	</task>
+
 	<task>
+
 		<p>
 		Just as the standard basis vectors <m>\uvec{e}_1, \uvec{e}_2</m> correspond to the <m>x</m>- and <m>y</m>-axes,
 		respectively,
 		the <m>\basisfont{B}</m>-basis vectors <m>\uvec{p}_1, \uvec{p}_2</m> correspond to the <m>w</m>- and <m>z</m>-axes,
 		respectively.
-		</p><p>
+		</p>
+
+		<p>
 		Plot vectors <m>\uvec{p}_1, \uvec{p}_2</m> on your original set of <m>xy</m>-axes from
 		<xref ref="activity-similarity-geometric-plot-standard-coords" text="type-local" />,
 		and then extend each of them in both directions (maybe with dashed lines) to create a set of <m>wz</m>-axes superimposed on the <m>xy</m>-axes.
 		</p>
+
 	</task>
+
 	<task>
-		<p><em>Compare.</em></p>
+		<title> Compare </title>
+
 		<p>
 		Try to determine if your geometric description of the transformation <m> \matrixOf{\uvec{v}}{B} \mapsto B \matrixOf{\uvec{v}}{B} </m>
 		from <xref ref="activity-similarity-geometric-B-pattern" text="type-local" />
 		is consistent with the geometric transformation <m>\uvec{v} \mapsto A \uvec{v}</m> on your first diagram,
 		<em>but relative to the new superimposed <m>wz</m>-axes</em>.
 		</p>
+
 	</task>
+
 	<task>
-		<p><em>Connect.</em></p>
+		<title> Connect </title>
+
 		<p>
 		Use <m>P</m> to convert <m>B \matrixOf{\uvec{v}}{B}</m> from <m>\basisfont{B}</m>-coordinates back to <m>\basisfont{S}</m>-coordinates.
 		Surprised?
-		</p><p>
+		</p>
+
+		<p>
 		Now look back at
 		<xref ref="activity-similarity-geometric-convert-B-standard-coords" text="type-local" />
 		to fill in the blank:
 		<m> P B \matrixOf{\uvec{v}}{B} = <fillin characters="3" /> \uvec{v} </m>.
 		</p>
+
 	</task>
-	<task><p>
+
+	<task><title> Reflect </title><p>
 		We started with the assumption that <m>A</m> and <m>B</m> are similar matrices.
 		Reflect on the reason you were asked to carry out this activity.
 	</p></task>
+
 </activity>
 
 <activity xml:id="activity-similarity-algebraic">
@@ -216,7 +253,7 @@ we'll explore similarity more generally, both geometrically and algebraically.
 	</p></task>
 	<task xml:id="activity-similarity-algebraic-RHS2"><p>
 		Let's explore your expression from
-		<xref ref="activity-similarity-algebraic-RHS1" />
+		<xref ref="activity-similarity-algebraic-RHS1" text="type-local" />
 		a little further.
 		Suppose the first column of <m>B</m> is the vector
 		<m>\uvec{b}_1 = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right]</m>.

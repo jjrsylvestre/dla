@@ -50,6 +50,7 @@ respective owners.
 </p></activity>
 
 <activity xml:id="activity-lintrans-iso-std-matrix-composite">
+
 	<introduction><p>
 		Consider matrix transformations
 		<m>\funcdef{T_A}{\R^3}{\R^2}</m>
@@ -71,9 +72,11 @@ respective owners.
 			\end{abmatrix}
 		</mrow></md>.
 	</p></introduction>
+
 	<task xml:id="activity-lintrans-iso-std-matrix-composite-image-vec"><p>
 		How should an image vector <m>(S_B \circ T_A)(\uvec{x})</m> be computed?
 	</p></task>
+
 	<task><p>
 		<xref ref="corollary-lintrans-basic-euclidean-trans-is-matrix-trans" />
 		says that every transformation <m>\R^3 \to \R^4</m> is a matrix transformation.
@@ -81,23 +84,31 @@ respective owners.
 		<xref ref="activity-lintrans-iso-std-matrix-composite-image-vec" text="type-local" />,
 		what is the matrix of the composite transformation <m>S_B \circ T_A</m>?
 	</p></task>
+
 	<task xml:id="activity-lintrans-iso-std-matrix-composite-pattern">
+		<title> Describe the pattern </title>
+
 		<p>
-		<em>Describe the pattern in words:</em>
+		<em>In words:</em>
 		The standard matrix of a composition of matrix transformations is
 		<fillin characters="30" />.
-		</p><p>
-		<em>Describe the pattern in symbols:</em>
+		</p>
+
+		<p>
+		<em>In symbols:</em>
 		For <m>\funcdef{T}{\R^n}{\R^m}</m>
 		and <m>\funcdef{S}{\R^m}{\R^\ell}</m>,
 		<m> \stdmatrixOf{S \circ T} = <fillin characters="10" /> </m>.
 		</p>
+
 	</task>
+
 </activity>
 
 <paragraphs><title>Notation</title><p>
 	In analogy with the pattern of
-	<xref ref="activity-lintrans-iso-std-matrix-composite-pattern">Discovery</xref>,
+	<xref ref="activity-lintrans-iso-std-matrix-composite-pattern" text="type-local" />
+	of <xref ref="activity-lintrans-iso-std-matrix-composite" />,
 	we will use multiplication notation <m>S T</m> in place of
 	composite function notation <m>S \circ T</m> for <em>all</em> linear transformations.
 </p></paragraphs>
@@ -143,25 +154,31 @@ respective owners.
 			= (a - b + c) x^2 + (b - c) x + c
 		</me>?
 	</p></task>
-	<task xml:id="activity-lintrans-iso-inverse-from-image-pattern"><p>
-		<em>Describe the pattern:</em>
+	<task xml:id="activity-lintrans-iso-inverse-from-image-pattern">
+		<title> Describe the pattern </title>
+		<p>
 		If <m>T</m> is an <term>invertible</term> linear transformation,
 		the domain of <m>\inv{T}</m> should be <fillin characters="5" />.
-	</p></task>
+		</p>
+	</task>
 </activity>
 
 <activity xml:id="activity-lintrans-iso-invertibility-condition">
+
 	<introduction><p>
 		Consider <m>\funcdef{T}{\poly_2(\R)}{\matrixring_2(\R)}</m>
 		defined by
 		<me> T(a x^2 + b x + c) = \begin{bmatrix} 0 \amp a + b + c \\ 0 \amp 0 \end{bmatrix} </me>.
 	</p></introduction>
+
 	<task xml:id="activity-lintrans-iso-invertibility-condition-domain"><p>
-		Based on the pattern from
-		<xref ref="activity-lintrans-iso-inverse-from-image-pattern">Discovery</xref>,
+		Based on the pattern
+		from <xref ref="activity-lintrans-iso-inverse-from-image-pattern" text="type-local" />
+		of <xref ref="activity-lintrans-iso-inverse-from-image" />,
 		if <m>T</m> is invertible,
 		what should the domain of <m>\inv{T}</m> be?
 	</p></task>
+
 	<task><p>
 		Is <m>T</m> invertible?
 		To decide, try to define an input-output formula for <m>\funcdef{\inv{T}}{D}{\poly_2(\R)}</m>
@@ -171,51 +188,68 @@ respective owners.
 		just as <m>S</m> reversed the transformation <m>T</m> in
 		<xref ref="activity-lintrans-iso-inverse-from-image" />.
 	</p></task>
+
 	<task xml:id="activity-lintrans-iso-invertibility-condition-repeated-images">
 		<p> Compute the image vectors <m>T(x^2)</m> and <m>T(1)</m>. </p>
 		<p> What do the results say about the potential invertibility of <m>T</m>? </p>
 	</task>
+
 	<task>
+
 		<p>
 			Compute the image vector <m> T(x^2 - 1) </m>
 			(and compare with
 			<xref ref="activity-lintrans-iso-invertibility-condition-repeated-images" text="type-local" />).
 		</p>
+
 		<p> What does the result say about the potential invertibility of <m>T</m>? </p>
+
 	</task>
+
 	<task xml:id="activity-lintrans-iso-invertibility-condition-ker-im">
+		<title>Describe the pattern</title>
+
 		<statement>
+
 			<p>
-			<em>Describe the pattern:</em>
 			If a transformation <m>\funcdef{T}{V}{W}</m> is invertible,
 			then the kernel of <m>T</m> must be <fillin characters="10" />.
-			</p><p>
+			</p>
+
+			<p>
 			So <m>\nullity T</m> must be <fillin characters="3" />
 			and then <m>\rank T</m> must be <fillin characters="3" />.
 			</p>
+
 		</statement>
+
 		<hint><p>
 			For <m>\rank T</m>,
 			consider the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />
 			(<xref ref="theorem-lintrans-ker-im-dimension" />).
 		</p></hint>
+
 	</task>
 </activity>
 
 <activity xml:id="activity-lintrans-iso-invertibility-codomain">
 	<task><p>
-		Based on <xref ref="activity-lintrans-iso-invertibility-condition-ker-im">Discovery</xref>,
+		Based on <xref ref="activity-lintrans-iso-invertibility-condition-ker-im" text="type-local" />
+		of <xref ref="activity-lintrans-iso-invertibility-condition" />,
 		could a transformation <m>\funcdef{T}{\matrixring_5(\R)}{\R^5}</m> be invertible?
 	</p></task>
-	<task xml:id="activity-lintrans-iso-invertibility-codomain-dims"><p>
-		<em>Describe the pattern:</em>
+	<task xml:id="activity-lintrans-iso-invertibility-codomain-dims">
+		<title> Describe the pattern </title>
+		<p>
 		If a transformation <m>\funcdef{T}{V}{W}</m> is invertible,
 		then <m>\dim V</m> and <m>\dim W</m> must satisfy:
 		<fillin characters="15" />.
-	</p></task>
+		</p>
+	</task>
 </activity>
 
 <activity>
+
 	<introduction><p>
 		Consider matrix transformation
 		<m>\funcdef{T_A}{\R^3}{\R^3}</m>
@@ -228,37 +262,56 @@ respective owners.
 			\end{abmatrix}
 		</me>.
 	</p></introduction>
+
 	<task>
+
 		<p>
 		Confirm that <m>T_A</m> satisfies the conditions you've identified in both
-		<xref ref="activity-lintrans-iso-invertibility-condition-ker-im">Discovery</xref>
-		and <xref ref="activity-lintrans-iso-invertibility-codomain-dims">Discovery</xref>.
-		</p><p>
+		<xref ref="activity-lintrans-iso-invertibility-condition-ker-im" text="type-local" />
+		of <xref ref="activity-lintrans-iso-invertibility-condition" />
+		and <xref ref="activity-lintrans-iso-invertibility-codomain-dims" text="type-local" />
+		of <xref ref="activity-lintrans-iso-invertibility-codomain" />.
+		</p>
+
+		<p>
 		Assuming <m>T_A</m> is invertible,
 		what must the domain of <m>\inv{T}_A</m> be?
 		</p>
+
 	</task>
+
 	<task>
+
 		<p>
 		<xref ref="corollary-lintrans-basic-euclidean-trans-is-matrix-trans" />
 		says that every transformation <m>\R^3 \to \R^3</m> is a matrix transformation.
 		Based on the calculation patterns from <xref ref="activity-lintrans-iso-inverse-from-image" />,
 		we should have <m>(\inv{T}_A T_A)(\uvec{x}) = \uvec{x}</m> for <em>every</em> <m>\uvec{x}</m> in <m>\R^3</m>.
-		</p><p>
+		</p>
+
+		<p>
 		So what matrix should correspond to <m>\inv{T}_A</m>?
 		</p>
+
 	</task>
+
 	<task>
+		<title> Describe the pattern </title>
+
 		<p>
-		<em>Describe the pattern in words:</em>
+		<em>In words:</em>
 		The standard matrix of the inverse of a (square) matrix transformation is
 		<fillin characters="30" />.
-		</p><p>
-		<em>Describe the pattern in symbols:</em>
+		</p>
+
+		<p>
+		<em>In symbols:</em>
 		For invertible <m>\funcdef{T}{\R^n}{\R^n}</m>,
 		<m>\stdmatrixOf{\inv{T}} = <fillin characters="5" /></m>.
 		</p>
+
 	</task>
+
 </activity>
 
 <p> An <term>isomorphism</term> is an invertible linear transformation whose image is the whole codomain space. </p>

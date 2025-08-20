@@ -151,8 +151,9 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 			Is it possible to know what diagonal matrix <m>\inv{P}AP</m> will be without actually computing <m>\inv{P}</m> and multiplying out <m>\inv{P}AP</m>?
 		</p></statement>
 		<hint><p>
-			Look back at how the diagonal entries of matrix <m>D</m> fit in the pattern between <m>AP</m> and <m>PD</m> that you identified in
-			<xref ref="activity-diagonalization-diag-analysis-eigenvectors">Discovery</xref>.
+			Look back at how the diagonal entries of matrix <m>D</m> fit in the pattern between <m>AP</m> and <m>PD</m> that you identified
+			in <xref ref="activity-diagonalization-diag-analysis-eigenvectors" text="type-local" />
+			of <xref ref="activity-diagonalization-diag-analysis" />.
 		</p></hint>
 	</task>
 </activity>
@@ -186,8 +187,8 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 			 0 \amp 0 \amp 2
 		\end{abmatrix}
 	</me>.
-	<alert>Careful:</alert>
-	make sure the columns of your <m>P</m> matrix satisfy <em>both</em> necessary conditions from
+	<alert>Careful.</alert>
+	Make sure the columns of your <m>P</m> matrix satisfy <em>both</em> necessary conditions from
 	<xref ref="activity-diagonalization-diag-analysis-eigenvectors" text="type-hybrid" />
 	and
 	<xref ref="activity-diagonalization-diag-analysis-indep-columns" text="type-hybrid" />
@@ -253,7 +254,9 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 </activity>
 
 <activity xml:id="activity-diagonalization-indep-eigenspaces">
+
 	<prelude>
+
 		<p>
 		When we attempt to form a
 		<term>transition matrix</term>
@@ -266,19 +269,24 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 		<xref ref="activity-diagonalization-diag-analysis-indep-columns" text="type-hybrid" />
 		of
 		<xref ref="activity-diagonalization-diag-analysis" />.
-		</p><p>
+		</p>
+
+		<p>
 		In particular, consider the second of these two conditions.
 		When you determine a basis for a particular eigenspace,
 		these vectors are automatically linearly independent from each other
 		(since they form a basis for a subspace of <m>\R^n</m>).
 		However, unless <m>A</m> has only a single eigenvalue,
 		<em>you will need to include eigenvectors from <em>different</em> eigenvalues together in filling out the columns of <m>P</m></em>.
-		How can we be sure that the collection of <em>all</em> columns of <m>P</m> will satisfy the condition identified in
-		<xref ref="activity-diagonalization-diag-analysis-indep-columns">Discovery</xref>?
-		</p><p>
-		The next discovery activity will help you with this potential problem.
+		How can we be sure that the collection of <em>all</em> columns of <m>P</m> will satisfy the condition identified
+		in <xref ref="activity-diagonalization-diag-analysis-indep-columns" text="type-local" />
+		of <xref ref="activity-diagonalization-diag-analysis" />?
 		</p>
+
+		<p> The next discovery activity will help you with this potential problem. </p>
+
 	</prelude>
+
 	<introduction><p>
 		Suppose
 		<m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3\}</m>
@@ -287,30 +295,36 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 		and suppose <m>\uvec{w}</m> is an eigenvector of <m>A</m> corresponding to a different eigenvalue <m>\lambda_2</m>.
 		(So <m>\lambda_2\neq\lambda_1</m>.)
 	</p></introduction>
+
 	<task><p>
 		Set up the vector equation to begin the test for independence for the set
 		<m>\{\uvec{v}_1,\uvec{v}_2,\uvec{v}_3,\uvec{w}\}</m>.
 		Call this equation (1).
 	</p></task>
+
 	<task><p>
 		Multiply both sides of equation (1) by <m>A</m>,
 		then use the definition of eigenvalue/eigenvector to <q>simplify.</q>
 		Call the result equation (2).
 	</p></task>
+
 	<task><p>
 		Multiply equation (1) by <m>\lambda_1</m> <mdash />
 		call this equation (3).
 	</p></task>
+
 	<task xml:id="activity-diagonalization-indep-eigenspaces-"><p>
 		Subtract equation (3) from equation (2).
 		What can you conclude?
 	</p></task>
+
 	<task><p>
 		Use your conclusion from
 		<xref ref="activity-diagonalization-indep-eigenspaces-" text="type-local" />
 		to simplify equation (1).
 		Then finish the test for independence.
 	</p></task>
+
 </activity>
 
 </worksheet>
