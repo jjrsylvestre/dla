@@ -1,3 +1,35 @@
+* XREF "phrase-*" for <task> should be Task X of Activity Y not Task X of Section Y
+* Documentation says "narrow" is default @width for <dl> but
+  <dl width="narrow">...</dl>
+  and
+  <dl>...</dl>
+  do not look the same.
+  Docs: https://pretextbook.org/doc/guide/html/topic-lists.html#topic-lists-6-9
+* <tabular> with @halign="left" seems to be ignored in header column (when row-headers="yes")
+  (needs th.l rule, see http://localhost:8080/one-semester/worksheet-more-det.html#worksheet-more-det-2)
+
+LATEX
+* drop a mini TOC at the beginning of any division? (do dry run to check for emptiness first just like <solutions> does)
+* qedhere when ExampleLike or ProofLike ends in mathdisplay ? Or in list item?
+* exercise parts don't start on same line as number in latex output?
+  (see end of chapter 4 exercises)
+* exercisegroup with cols where each exercise consists only of displaymath
+  should be vertically centre-aligned
+  --> BUT could have an issue if there is a mix of content of exercises,
+      especially if some have sub-tasks
+  --> SEE the last exercisegroup in chapter 4 for example
+* exercise split into tasks has (a), (b), etc in bold,
+  but exercise with <p><ol>... has (a), (b) in normal weight
+  --> SEE "Testing system solutions" in Ch 4 exercises
+  --> CHECK if html output does the same
+* publisher option to split multicol exercisegroups
+* task with title followed by paragraph that contains only mathdisplay
+  gets a \par after the title that creates extra vertical space
+  (might also consider not putting \par if next thing is a figure, etc.)
+* need a @content-widths option on sidebyside so that captions can be wider than images
+* <p> in a sidebyside that is the first content in a division shouldn't be indented
+* first <p> in an assemblage shouldn't be indented?
+
 -------
 general
 -------
