@@ -29,7 +29,8 @@ respective owners.
 <title>Properties of linear transformations</title>
 
 <p>
-We begin by demonstrating that we chose the correct two axioms in <xref ref="activity-lintrans-basic-axioms" /> for our definition of <term><xref ref="definition-lintrans-basic-lintrans" text="title" /></term>.
+We begin by demonstrating that we chose the correct two axioms in <xref ref="activity-lintrans-basic-axioms" />
+for our definition of <term><xref ref="definition-lintrans-basic-lintrans" text="title" /></term>.
 We leave the verification of these properties to you, the reader.
 </p>
 
@@ -280,7 +281,9 @@ we will at least establish that a finite-dimensional vector space and its dual s
 </p>
 
 <theorem xml:id="theorem-lintrans-basic-dual-basis">
+
 	<statement>
+
 		<p>
 		Suppose <m>V</m> is a finite-dimensional vector space.
 		For every basis
@@ -290,7 +293,9 @@ we will at least establish that a finite-dimensional vector space and its dual s
 		<term>dual basis</term><idx><h>dual</h><h>basis</h></idx>
 		<me> \vecdual{\basisfont{B}} = \{ \vecdual{\uvec{e}}_1, \vecdual{\uvec{e}}_2, \dotsc, \vecdual{\uvec{e}}_n \} </me>
 		for <m>\vecdual{V}</m> as follows.
-		</p><p>
+		</p>
+
+		<p>
 		For each index <m>i</m>,
 		take <m>\funcdef{\vecdual{\uvec{e}}_i}{V}{\R}</m>
 		(or <m>\funcdef{\vecdual{\uvec{e}}_i}{V}{\C}</m>, as appropriate)
@@ -303,13 +308,19 @@ we will at least establish that a finite-dimensional vector space and its dual s
 			\end{cases}
 		</me>
 		for each index <m>j</m>.
-	</p></statement>
+		</p>
+
+	</statement>
+
 	<proof>
+
 		<p>
 		First, note that the existence and uniqueness of each <m>\vecdual{\uvec{e}}_i</m> linear functional is guaranteed by
 		<xref ref="corollary-lintrans-basic-unique-basis-image" />.
 		So we just need to establish that these special linear functionals form a basis of <m>\vecdual{V}</m>.
-		</p><p>
+		</p>
+
+		<p>
 		Before we do that, it will help to establish a pattern of evaluating these special functionals.
 		As <m>\vecdual{V}</m> is a vector space,
 		a linear combination of linear functionals is also a linear functional on <m>V</m>,
@@ -332,8 +343,10 @@ we will at least establish that a finite-dimensional vector space and its dual s
 		</mrow></md>
 		for each index <m>j</m>.
 		</p>
+
 		<case><title>Linear independence</title><p>
-			To apply the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>,
+			To apply the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
+			(<xref ref="procedure-linear-indep-concepts-test-for-dep-indep" />),
 			we begin with a homogeneous vector equation
 			<md><mrow xml:id="equation-lintrans-basic-theory-dual-basis-lin-indep" tag="dstar">
 				k_1 \vecdual{\uvec{e}}_1 + k_2 \vecdual{\uvec{e}}_2 + \dotsb + k_n \vecdual{\uvec{e}}_n = \zerovec
@@ -347,6 +360,7 @@ we will at least establish that a finite-dimensional vector space and its dual s
 			has only the trivial solution,
 			so that these <q>dual</q> linear functionals are linearly independent.
 		</p></case>
+
 		<case><title>Spans</title><p>
 			We must show that every linear functional in <m>\vecdual{V}</m> is a linear combination of the special <m>\vecdual{\uvec{e}}_i</m> functionals.
 			So suppose that <m>f</m> is an arbitrary functional on <m>V</m>.
@@ -364,6 +378,7 @@ we will at least establish that a finite-dimensional vector space and its dual s
 			we can conclude that <m>f = g</m>,
 			a linear combination of the <m>\vecdual{\uvec{e}}_i</m> functionals.
 		</p></case>
+
 	</proof>
 </theorem>
 

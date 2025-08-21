@@ -104,7 +104,8 @@ we have already taken advantage of this fact to clear fractions when carrying ou
 
 	<proof><title>Proof idea</title><p>
 		The first statement follows immediately from the
-		<xref ref="proposition-inner-prod-linearity" text="title" />.
+		<xref ref="proposition-inner-prod-linearity" text="title" />
+		(<xref ref="proposition-inner-prod-linearity" />).
 		And the second statement follows immediately from the first using <m> a_j = \frac{1}{\norm{\uvec{v}_j}} </m>.
 		(Note that dividing by each norm can be done because <xref ref="proposition-inprod-orthog-indep" /> implies that none of the vectors in the orthogonal set can be zero.)
 	</p></proof>
@@ -220,7 +221,7 @@ their inner product becomes a dot product between their coordinates.
 		</md>.
 		<ol>
 
-			<li>
+			<li xml:id="proposition-inprod-orthog-vs-dot-standard">
 				We have
 				<me> \uvecinprod{v}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>
 				in a real inner product space and
@@ -238,24 +239,22 @@ their inner product becomes a dot product between their coordinates.
 		</ol>
 	</p></statement>
 
-	<proof><title>Proof idea</title><p><ol>
+	<proof><title>Proof idea for <xref ref="proposition-inprod-orthog-vs-dot-standard">Statement</xref></title><p>
+		This is straightforward computation using
+		the <xref ref="proposition-inner-prod-linearity" text="title" />
+		(<xref ref="proposition-inner-prod-linearity" />),
+		along with the orthonormal conditions:
+		<md><mrow>
+			\inprod{\uvec{e}_i}{\uvec{e}_i} \amp = 1 \text{,} \amp
+			\inprod{\uvec{e}_i}{\uvec{e}_j} \amp = 0 \qquad (j \neq i)
+		</mrow></md>.
+	</p></proof>
 
-		<li>
-			This is straightforward computation using
-			<xref ref="proposition-inner-prod-linearity" text="title" />,
-			along with the orthonormal conditions:
-			<md><mrow>
-				\inprod{\uvec{e}_i}{\uvec{e}_i} \amp = 1 \text{,} \amp
-				\inprod{\uvec{e}_i}{\uvec{e}_j} \amp = 0 \qquad (j \neq i)
-			</mrow></md>.
-		</li>
-
-		<li>
-			Apply <xref ref="theorem-inprod-orthog-pythag" /> to the expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m>,
-			first noting <xref ref="proposition-inprod-orthog-scaling" />.
-		</li>
-
-	</ol></p></proof>
+	<proof><title>Proof idea for <xref ref="proposition-inprod-orthog-vs-dot-norm">Statement</xref></title><p>
+		Apply <xref ref="theorem-inprod-orthog-pythag" text="custom">Pythagoras</xref> (<xref ref="theorem-inprod-orthog-pythag" />)
+		to the expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m>,
+		first noting <xref ref="proposition-inprod-orthog-scaling" />.
+	</p></proof>
 
 </proposition>
 
@@ -268,7 +267,8 @@ their inner product becomes a dot product between their coordinates.
 
 <p>
 Now we'll verify that the
-<xref ref="procedure-inprod-orthog-gram-schmidt" text="title"/> process
+<xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
+(<xref ref="procedure-inprod-orthog-gram-schmidt" />)
 produces an orthogonal basis.
 </p>
 
@@ -541,7 +541,7 @@ as well as some others.
 
 	<proof>
 
-		<p> Apply the <xref ref="procedure-subspaces-concepts-test" text="title" />. </p>
+		<p> Apply the <xref ref="procedure-subspaces-concepts-test" text="title" /> (<xref ref="procedure-subspaces-concepts-test" />). </p>
 
 		<case><title>Nonempty</title><p>
 			Since <m>\inprod{\zerovec}{\uvec{x}} = 0</m> for all <m>\uvec{x}</m> in <m>X</m>,

@@ -176,17 +176,22 @@ and we leave that task to you, the reader.
 </theorem>
 
 <p>
-Through the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />,
-the above theorem puts a restriction on the dimension of the codomain for a one-to-one transformation.
+Through the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />
+(<xref ref="theorem-lintrans-ker-im-dimension" />),
+the preceding theorem puts a restriction on the dimension of the codomain for a one-to-one transformation.
 </p>
 
-<corollary><title>Too small codomain implies not injective</title>
+<corollary>
+	<title>Too small codomain implies not injective</title>
+
 	<statement><p>
 		If <m>\dim W \lt \dim V</m>,
 		then linear <m>\funcdef{T}{V}{W}</m> <em>cannot</em> be injective.
 	</p></statement>
+
 	<proof><p>
-		The <xref ref="theorem-lintrans-ker-im-dimension" text="title" /> says that
+		The <xref ref="theorem-lintrans-ker-im-dimension" text="title" /> (<xref ref="theorem-lintrans-ker-im-dimension" />)
+		says that
 		<me> \dim(\ker T) + \dim(\im T) = \dim V </me>.
 		If <me> \dim W \lt \dim V </me>,
 		then also <me> \dim(\im T) \lt \dim V </me>,
@@ -198,6 +203,7 @@ the above theorem puts a restriction on the dimension of the codomain for a one-
 		so that <m>\ker T</m> cannot be trivial.
 		The result now follows from <xref ref="theorem-lintrans-iso-injective-trivial-ker" />.
 	</p></proof>
+
 </corollary>
 
 <p>
@@ -209,6 +215,7 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 
 <corollary xml:id="corollary-lintrans-iso-inj-vs-indep">
 	<title>Injective must send independent to independent</title>
+
 	<statement><p>
 		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation.
 		Then the following are equivalent.
@@ -228,12 +235,15 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			</li>
 		</ol>
 	</p></statement>
+
 	<proof>
+
 		<case>
 			<title>
 				<xref ref="corollary-lintrans-iso-inj-vs-indep-inj">Statement</xref>
 				implies <xref ref="corollary-lintrans-iso-inj-vs-indep-every">Statement</xref>
 			</title>
+
 			<p>
 			Assume <m>S</m> is linearly independent in <m>V</m>,
 			and suppose <m>\uvec{w}_1, \dotsc, \uvec{w}_m</m> is a collection of distinct vectors from <m>T(S)</m>.
@@ -241,9 +251,12 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			there are corresponding vectors <m>\uvec{v}_1, \dotsc, \uvec{v}_m</m> in <m>S</m> so that <m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>
 			And since <m>T</m> is assumed injective,
 			there can be no repeats amongst the <m>\uvec{v}_j</m>.
-			</p><p>
+			</p>
+
+			<p>
 			To test the <m>\uvec{w}_j</m> for linear independence,
 			we follow the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
+			(<xref ref="procedure-linear-indep-concepts-test-for-dep-indep" />)
 			and form the homogeneous vector equation
 			<me> k_1 \uvec{w}_1 + \dotsb + k_n \uvec{w}_n = \zerovec_W </me>.
 			Making substitutions <m>\uvec{w}_j = T(\uvec{v}_j)</m> and using the linearity of <m>T</m>,
@@ -266,6 +279,7 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			Hence we must have each <m>k_j = 0</m>, as desired.
 			</p>
 		</case>
+
 		<case>
 			<title>
 				<xref ref="corollary-lintrans-iso-inj-vs-indep-every">Statement</xref>
@@ -273,16 +287,20 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			</title>
 			<p> This is obvious from the fact that a basis is linearly independent. </p>
 		</case>
+
 		<case>
 			<title>
 				<xref ref="corollary-lintrans-iso-inj-vs-indep-one-basis">Statement</xref>
 				implies <xref ref="corollary-lintrans-iso-inj-vs-indep-inj">Statement</xref>
 			</title>
+
 			<p>
 			First, we assume that for at least one basis of the domain space <m>V</m>,
 			<m>T</m> sends those basis vectors to a linearly independent set in the codomain space <m>W</m>.
 			So let <m>\basisfont{B}</m> represent just such a basis for <m>V</m>.
-			</p><p>
+			</p>
+
+			<p>
 			To verify that <m>T</m> must be an injective,
 			we can instead verify that <m>\ker T</m> is trivial
 			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
@@ -311,8 +329,11 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			This implies that the <em>only</em> vector in <m>\ker T</m> is <m>\zerovec_V</m>,
 			and so <m>\ker T</m> is trivial, as required.
 			</p>
+
 		</case>
+
 		<p> We have now completed the cycle of logical dependence to demonstrate that these three statements are equivalent. </p>
+
 	</proof>
 </corollary>
 
@@ -453,6 +474,7 @@ But here we will characterize surjectivity in terms of the dimensions of those s
 
 <proposition xml:id="proposition-lintrans-iso-surj-vs-dim">
 	<title>Surjectivity versus dimension</title>
+
 	<statement><p>
 		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation.
 		Then the following hold.
@@ -465,6 +487,7 @@ But here we will characterize surjectivity in terms of the dimensions of those s
 			</li>
 		</ol>
 	</p></statement>
+
 	<proof><title>Proof outline</title><p>
 		Recall that, by definition, <m>T</m> is surjective if <m>\im T = W</m>.
 		Since <m>\im T</m> is a subspace of <m>W</m>,
@@ -472,8 +495,10 @@ But here we will characterize surjectivity in terms of the dimensions of those s
 		from <xref ref="proposition-dimension-subspace-dim-props-same-dim">Statement</xref>
 		of <xref ref="proposition-dimension-subspace-dim-props" />.
 		And the second statement follows from the first via
-		the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />.
+		the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />
+		(<xref ref="theorem-lintrans-ker-im-dimension" />).
 	</p></proof>
+
 </proposition>
 
 <p>
@@ -483,6 +508,7 @@ dimension also lets us reduce checking isomorphism to <em>one</em> of injective 
 </p>
 
 <corollary xml:id="corollary-lintrans-iso-eq-dim-pick-inj-surj">
+
 	<statement><p>
 		Suppose <m>\funcdef{T}{V}{W}</m> is a linear transformation between finite-dimensional vector spaces,
 		with <m>\dim V = \dim W</m>.
@@ -490,17 +516,21 @@ dimension also lets us reduce checking isomorphism to <em>one</em> of injective 
 		then <m>T</m> must also have the other property,
 		and hence must be an isomorphism.
 	</p></statement>
+
 	<proof>
+
 		<case><title>Assume <m>T</m> is injective</title><p>
 			Then <m>\nullity T = 0</m>,
 			hence <m>\rank T = \dim V</m> by
-			the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />.
+			the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />
+			(<xref ref="theorem-lintrans-ker-im-dimension" />).
 			But we have assumed <m>\dim V = \dim W</m>,
 			so we have <m>\rank T = \dim W</m>,
 			hence <m>T</m> is surjective
 			by <xref ref="proposition-lintrans-iso-surj-vs-dim-rank">Statement</xref>
 			of <xref ref="proposition-lintrans-iso-surj-vs-dim" />.
 		</p></case>
+
 		<case><title>Assume <m>T</m> is surjective</title><p>
 			Hence <m>\rank T = \dim W</m>
 			(<xref ref="proposition-lintrans-iso-surj-vs-dim-rank">Statement</xref>
@@ -513,7 +543,9 @@ dimension also lets us reduce checking isomorphism to <em>one</em> of injective 
 			Therefore, <m>T</m> is injective, as desired
 			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />),
 		</p></case>
+
 	</proof>
+
 </corollary>
 
 <p>

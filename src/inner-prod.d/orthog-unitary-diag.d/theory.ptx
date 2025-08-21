@@ -70,7 +70,8 @@ we are most concerned with having eigenvectors that are orthogonal.
 <corollary>
 	<statement><p> A symmetric real matrix must have <m>n</m> real eigenvalues (including multiplicities). </p></statement>
 	<proof><p>
-		Using <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
+		Using the <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />
+		(<xref ref="theorem-complex-fund-thm-alg-complex" />),
 		as a complex matrix every real matrix has <m>n</m> eigenvalues (including multiplicities),
 		but some of those eigenvalues may be complex.
 		But since a symmetric real matrix can be considered as a Hermitian complex matrix,
@@ -297,7 +298,8 @@ not just eigenvalues of the normal matrix <m>N</m>.
 
 		<p>
 		Suppose <m>H</m> is a Hermitian matrix.
-		By <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
+		By the <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />
+		(<xref ref="theorem-complex-fund-thm-alg-complex" />),
 		the matrix <m>H</m> has at least one eigenvalue,
 		and so has a nonzero eigenvector, say <m>\uvec{x}</m>.
 		By normalizing, we may assume that <m>\uvec{x}</m> is a unit vector.
@@ -396,9 +398,15 @@ the class of unitarily diagonalizable matrices is larger than just the class of 
 
 <theorem xml:id="theorem-orthog-unitary-diag-iff-normal">
 	<title>Unitarily diagonlizable is normal</title>
+
 	<statement><p> A complex square matrix is unitarily diagonalizable if and only if it is normal. </p></statement>
-	<proof><title>Proof outline</title>
-		<case><title> Unitarily diagonalizable <m>\implies</m> normal </title>
+
+	<proof>
+		<title>Proof outline</title>
+
+		<case>
+			<title> Unitarily diagonalizable <m>\implies</m> normal </title>
+
 			<p>
 			We considered this statement in <xref ref="activity-orthog-unitary-diag-explore-normal" />,
 			but we will provide the full proof here.
@@ -408,7 +416,9 @@ the class of unitarily diagonalizable matrices is larger than just the class of 
 			So we have
 			<me> \adjoint{D} D = D \adjoint{D} </me>,
 			to begin.
-			</p><p>
+			</p>
+
+			<p>
 			Now check <m>N</m> against its adjoint:
 			<md>
 				<mrow>
@@ -428,35 +438,49 @@ the class of unitarily diagonalizable matrices is larger than just the class of 
 			</md>,
 			as desired.
 			</p>
+
 		</case>
-		<case><title> Normal <m>\implies</m> unitarily diagonalizable  </title>
+
+		<case>
+			<title> Normal <m>\implies</m> unitarily diagonalizable  </title>
+
 			<p>
 			Assume that <m>N</m> is a normal matrix.
 			We wish to prove that <m>N</m> is then unitarily diagonalizable.
 			The argument is essentially the same as in the proof of
 			<xref ref="proposotion-orthog-unitary-diag-hermitian-is-unit-diag" />.
-			</p><p>
-			By <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />,
+			</p>
+
+			<p>
+			By the <xref ref="theorem-complex-fund-thm-alg-complex" text="title" />
+			(<xref ref="theorem-complex-fund-thm-alg-complex" />),
 			the matrix <m>N</m> has at least one eigenvalue,
 			and so has a nonzero eigenvector,
 			say <m>\uvec{x}</m>.
 			By normalizing, we may assume that <m>\uvec{x}</m> is a unit vector.
-			</p><p>
+			</p>
+
+			<p>
 			By <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-adj">Statement</xref>
 			of <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props" />,
 			<m>\uvec{x}</m> is also an eigenvector of <m>\adjoint{N}</m>.
 			Therefore, the space <m>W = \Span \{ \uvec{x} \}</m> is both <m>N</m>-invariant and <m>\adjoint{N}</m>-invariant.
 			The same can then also be said about the space <m>W^\perp</m>
 			(<xref ref="proposition-matrix-adjoints-orthog-cmp-adj-invariant" />).
-			</p><p>
+			</p>
+
+			<p>
 			From this point, the remainder of the proof is identical to the proof of
 			<xref ref="proposotion-orthog-unitary-diag-hermitian-is-unit-diag" />,
 			replacing all occurrences of the word <q>Hermitian</q> by the word <q>normal</q>,
 			all occurrences of the matrix <m>H</m> by the matrix <m>N</m>,
 			and, if you like, using the notation <m>N'</m> in place of <m>H'</m>.
 			</p>
+
 		</case>
+
 	</proof>
+
 </theorem>
 
 </subsection>
