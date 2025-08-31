@@ -15,21 +15,25 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
-	tdplot_main_coords
+	tdplot_main_coords,
+	scale=0.7
 ]
-	\draw[->] (-0.5,0,0) to (5,0,0) node[right]{$x$};
+	% artificially widen image to widen space for its caption,
+	% as it is part of a sidebyside
+	\draw[black!5!white,very thin] (-1.5,-0.75,1.5) to (-1.5,-0.75,2);
+	\draw[black!5!white,very thin] (5,3.5,1) to (5,3.5,1.5);
+
+	\draw[->] (-0.5,0,0) to (4.5,0,0) node[right]{$x$};
 	\draw[->] (0,-0.5,0) to (0,5,0) node[left]{$y$};
-	\draw[->] (0,0,-0.5) to (0,0,4) node[above right]{$z$};
-	\draw[vector,thick] (0,0,0) to node[above left,near end] {$\uvec{v}$} (3,3,2);
-	\draw[vector,thick] (0,0,0) to node[above left,near end] {$\uvec{v}'$} (3,3,0);
+	\draw[->] (0,0,-0.5) to (0,0,3) node[right]{$z$};
+	\draw[vector,thick] (0,0,0) to node[above,near end,yshift=0.05cm] {$\uvec{v}$} (3,3,2);
+	\draw[vector,thick] (0,0,0) to node[above,near end] {$\uvec{v}'$} (3,3,0);
 	\draw[dashed]
 		(0,0,0) to node[below] {$\change{x}$} (3,0,0)
 		(3,0,0) to node[right,near start] {$\change{y}$} (3,3,0)
 		(3,3,0) to node[right] {$\change{z}$} (3,3,2);
-	\draw
-		(2.75,0,0) to (2.75,0.25,0)
-		(2.75,0.25,0) to (3,0.25,0);
-	\draw
-		(2.8,2.8,0) to (2.8,2.8,0.25)
-		(2.8,2.8,0.25) to (3,3,0.25);
+	% perp symbol between Δx and Δy
+	\draw (3,0.35,0) to (2.65,0.35,0) to (2.65,0,0);
+	% perp symbol between v' and Δz
+	\draw (3,3,0.35) to (2.753,2.753,0.35) to (2.753,2.753,0);
 \end{tikzpicture}

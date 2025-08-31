@@ -216,39 +216,43 @@ where the input is a number <m>x</m> and the output is a number <m>y</m>,
 this matrix-multiplication sort of function has a <em>column vector</em> <m>\uvec{x}</m> as input and a <em>column vector</em> <m>\uvec{y}</m> as output.
 </p>
 
-<p>
-When the particular matrix used to form such a function is square,
-then the input and output vectors live in the same space
-(<ie /> <m>\R^n</m>, where <m>n</m> is the size of the matrix),
-so we can think of the matrix <term>transforming</term> an input vector into its corresponding output vector geometrically.
-See <xref ref="figure-eigen-values-vectors-concepts-transformation-example" />
-for an example of this geometric transformation point of view.
-</p>
+<sidebyside widths="43.5% 50.2%" margins="0%" valign="middle">
 
-<figure xml:id="figure-eigen-values-vectors-concepts-transformation-example">
-	<caption>
-		Example matrix function with
-		<m> A = \left[\begin{smallmatrix} 0 \amp -1 \\ 1 \amp 0 \end{smallmatrix}\right] </m>
-		applied to input vector
-		<m>\uvec{x} = \left[\begin{smallmatrix} 2 \\ 1 \end{smallmatrix}\right]</m>
-		to produce output vector
-		<m>\uvec{y} = A\uvec{x}</m>.
-	</caption>
-	<image width="37.3%">
-		<latex-image label="image-eigen-values-vectors-concepts-rotate">
-			<xi:include href="concepts.d/rotate.tex" parse="text" />
-		</latex-image>
-		<shortdescription> Geometric interpretation of matrix multiplication as a function on vectors in the plane. </shortdescription>
-		<description><p>
-			A diagram of a vector in the plane and its transformation after matrix multiplication.
-			The vector <m>\uvec{x} = (2,1)</m> and the corresponding transformed vector <m>\uvec{y} = A \uvec{x}</m>,
-			after multiplication by matrix
-			<me> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </me>,
-			are drawn as directed line segments with shared initial point at the origin.
-			A curved arrow with a dashed-line shaft is drawn from the shaft of <m>\uvec{x}</m> to the shaft of <m>\uvec{y}</m> to emphasize the input-output relationship between the two vectors.
-		</p></description>
-	</image>
-</figure>
+	<p>
+	When the particular matrix used to form such a function is square,
+	then the input and output vectors live in the same space
+	(<ie /> <m>\R^n</m>, where <m>n</m> is the size of the matrix),
+	so we can think of the matrix <term>transforming</term> an input vector into its corresponding output vector geometrically.
+	See <xref ref="figure-eigen-values-vectors-concepts-transformation-example" />
+	for an example of this geometric transformation point of view.
+	</p>
+
+	<figure xml:id="figure-eigen-values-vectors-concepts-transformation-example">
+		<caption>
+			Example matrix function with
+			<m> A = \left[\begin{smallmatrix} 0 \amp -1 \\ 1 \amp 0 \end{smallmatrix}\right] </m>
+			applied to input vector
+			<m>\uvec{x} = \left[\begin{smallmatrix} 2 \\ 1 \end{smallmatrix}\right]</m>
+			to produce output vector
+			<m>\uvec{y} = A\uvec{x}</m>.
+		</caption>
+		<image>  <!-- width="37.3%" -->
+			<latex-image label="image-eigen-values-vectors-concepts-rotate">
+				<xi:include href="concepts.d/rotate.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Geometric interpretation of matrix multiplication as a function on vectors in the plane. </shortdescription>
+			<description><p>
+				A diagram of a vector in the plane and its transformation after matrix multiplication.
+				The vector <m>\uvec{x} = (2,1)</m> and the corresponding transformed vector <m>\uvec{y} = A \uvec{x}</m>,
+				after multiplication by matrix
+				<me> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </me>,
+				are drawn as directed line segments with shared initial point at the origin.
+				A curved arrow with a dashed-line shaft is drawn from the shaft of <m>\uvec{x}</m> to the shaft of <m>\uvec{y}</m> to emphasize the input-output relationship between the two vectors.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 <p>
 When the input vector <m>\uvec{x}</m> is an <em>eigenvector</em> of the transformation matrix <m>A</m>,

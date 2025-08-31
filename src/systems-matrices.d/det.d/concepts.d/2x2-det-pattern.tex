@@ -17,6 +17,16 @@
 	every right delimiter/.style={xshift=-.5em,yscale=0.75,yshift=0.4em},
 	crisscross/.style={black!65!white}
 ]
+
+	% want to artificially inflate width because
+	% this image is part of a sidebyside with a p
+	% and want more horizontal room for caption
+	%
+	% actual image dimensions are from (-0.8,-0.6) to (0.8,0.85)
+	%
+	\draw[black!5!white,very thin] (-1.4,-0.55) to (-1.4,-0.6) to (-1.35,-0.6);
+	\draw[black!5!white,very thin] (1.4,0.85) to (1.4,0.85) to (1.35,0.85);
+
 	\matrix (A)[
 		matrix of math nodes,
 		left delimiter={\lvert},

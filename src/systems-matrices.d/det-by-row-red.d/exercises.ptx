@@ -29,45 +29,41 @@ respective owners.
 	<title>Determinant of a Vandermonde matrix</title>
 
 	<introduction><p>
-		Recall that in a polynomial interpolation problem,
-		we need <m>n + 1</m> data points to uniquely determine a degree-<m>n</m> polynomial.
-		(See <xref ref="subsection-applications-examples-poly" /> and <xref ref="theorem-applications-vandermonde" />.)
-		And in that case,
-		the associated <xref ref="definition-applications-vandermonde" text="title" />
-		(the coefficient matrix of the polynomial interpolation problem)
-		is square:
-		<me>
-			\begin{bmatrix}
-				   1   \amp     x_1    \amp    x_1^2    \amp \cdots \amp    x_1^n    \\
-				   1   \amp     x_2    \amp    x_2^2    \amp \cdots \amp    x_2^n    \\
-				\vdots \amp   \vdots   \amp    \vdots   \amp        \amp    \vdots   \\
-				   1   \amp x_{n + 1}  \amp x_{n + 1}^2 \amp \cdots \amp x_{n + 1}^n
-			\end{bmatrix}
-		</me>.
-	</p></introduction>
-
-	<task xml:id="exercise-det-by-row-red-vandermonde-2x2"><p>
-		Compute the determinant of the <m>2 \times 2</m> Vandermonde matrix
-		<me>
+		A <xref ref="definition-applications-vandermonde" text="title" /> for a degree-<m>n</m> polynomial
+		and <m>n + 1</m> data points is square.
+		Below are the <m>2 \times 2</m>, <m>3 \times 3</m>, and <m>4 \times 4</m>
+		Vandermonde matrices.
+		<md><mrow>
+			\amp
 			\begin{bmatrix}
 				1 \amp x_1 \\
 				1 \amp x_2
 			\end{bmatrix}
-		</me>,
+			\amp\amp
+			\begin{bmatrix}
+				1 \amp x_1 \amp x_1^2 \\
+				1 \amp x_2 \amp x_2^2 \\
+				1 \amp x_3 \amp x_3^2
+			\end{bmatrix}
+			\amp\amp
+			\begin{bmatrix}
+				1 \amp x_1 \amp x_1^2 \amp x_1^3 \\
+				1 \amp x_2 \amp x_2^2 \amp x_2^3 \\
+				1 \amp x_3 \amp x_3^2 \amp x_3^3 \\
+				1 \amp x_4 \amp x_4^2 \amp x_4^3
+			\end{bmatrix}
+		</mrow></md>
+	</p></introduction>
+
+	<task xml:id="exercise-det-by-row-red-vandermonde-2x2"><p>
+		Compute the determinant of the <m>2 \times 2</m> Vandermonde matrix,
 		expressed as a formula in <m>x_1</m> and <m>x_2</m>.
 	</p></task>
 
 	<task xml:id="exercise-det-by-row-red-vandermonde-3x3">
 
 		<statement><p>
-			Compute the determinant of the <m>3 \times 3</m> Vandermonde matrix
-			<me>
-				\begin{bmatrix}
-					1 \amp x_1 \amp x_1^2 \\
-					1 \amp x_2 \amp x_2^2 \\
-					1 \amp x_3 \amp x_3^2
-				\end{bmatrix}
-			</me>,
+			Compute the determinant of the <m>3 \times 3</m> Vandermonde matrix,
 			expressed as a formula in <m>x_1,x_2,x_3</m>.
 			Simplify your expression by factoring instead of expanding.
 		</p></statement>
@@ -88,15 +84,7 @@ respective owners.
 			Based on your answers
 			to <xref ref="exercise-det-by-row-red-vandermonde-2x2" text="type-local" />
 			and <xref ref="exercise-det-by-row-red-vandermonde-3x3" text="type-local" />,
-			conjecture a formula for the determinant of the <m>4 \times 4</m> Vandermonde matrix
-			<me>
-				\begin{bmatrix}
-					1 \amp x_1 \amp x_1^2 \amp x_1^3 \\
-					1 \amp x_2 \amp x_2^2 \amp x_2^3 \\
-					1 \amp x_3 \amp x_3^2 \amp x_3^3 \\
-					1 \amp x_4 \amp x_4^2 \amp x_4^3
-				\end{bmatrix}
-			</me>.
+			conjecture a formula for the determinant of the <m>4 \times 4</m> Vandermonde matrix.
 			Then attempt to verify your conjectured formula through calculation.
 		</p></statement>
 

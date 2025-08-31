@@ -14,26 +14,26 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
-	scale=2
+	scale=1.5
 ]
 
 	% (1/2)x
 %	\begin{scope}[yscale=1.5]
-		\draw[->] (-3.25,0) to (2.25,0) node[below right] {$x$};
-		\draw[->] (0,-1.5) to (0,1.25) node[above left] {$y$};
+		\draw[->] (-3.25,0) to (2.25,0) node[below] {$x$};
+		\draw[->] (0,-1.6) to (0,1.25) node[right] {$y$};
 		\foreach \x in {-3,-2,-1,1,2} {
-			\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
+			\draw (\x,0.05) to (\x,-0.05) node[below] {$\scriptstyle \x$};
 		}
-		\foreach \y in {-1,-0.5,0.5,1} {
-			\draw (0.1,\y) to (-0.1,\y) node[left] {$\scriptstyle \y$};
+		\foreach \y in {-1.5,-1,-0.5,0.5,1} {
+			\draw (0.05,\y) to (-0.05,\y) node[left] {$\scriptstyle \y$};
 		}
 		\node[point] at (0,0) (o) {};
-		\node[point] at (2,1) (r) [label=above left:{$R(2,1)$}] {};
+		\node[point] at (2,1) (r) [label={[xshift=0.2cm]above left:{$R(2,1)$}}] {};
 		\node[point] at (1,0.5) (t) [label={[xshift=-0.15cm,yshift=0.05cm]below right:{$T\left(1, \frac{1}{2}\right)$}}] {};
 		\node[point] at (-2.5,-1.25) (t2) [label={[xshift=-0.1cm]below right:{$T'\left( -\frac{5}{2}, -\frac{5}{4} \right)$}}] {};
-		\draw[vector,very thick] (o.south) to node[above,near end] {$\uvec{v}$} (r.south west);
-		\draw[vector,very thick] (o.north) to node[above] {$\frac{1}{2} \uvec{v}$} (t.north);
-		\draw[vector,very thick] (o) to node[below right] {$\left(-\frac{5}{4}\right) \uvec{v}$} (t2);
+		\draw[vector,thick] (o.south) to node[below,very near end] {$\uvec{v}$} (r.south);
+		\draw[vector,thick] (o.north) to node[above] {$\frac{1}{2} \uvec{v}$} (t.north);
+		\draw[vector,thick] (o) to node[above left,near end] {$\left(-\frac{5}{4}\right) \uvec{v}$} (t2);
 %	\end{scope}
 
 \end{tikzpicture}

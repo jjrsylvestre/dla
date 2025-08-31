@@ -53,17 +53,16 @@ respective owners.
 	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix} + t \begin{bmatrix}2\\1\end{bmatrix} </me>
 	to see exactly how this point is a multiple of <m>\uvec{p}</m> away from <m>\uvec{x}_0</m>:
 	<md><mrow xml:id="equation-system-geom-examples-line-in-R2-point-to-parameter" tag="star">
-		\begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} - \begin{bmatrix}3\\0\end{bmatrix}
-		= \begin{bmatrix}1\\\frac{1}{2}\end{bmatrix}
-		= \begin{bmatrix}2t\\t\end{bmatrix}
-		\qquad\qquad\implies\qquad\qquad
-		t=\frac{1}{2}
+		\begin{bmatrix} 4 \\ \frac{1}{2} \end{bmatrix} - \begin{bmatrix} 3 \\ 0 \end{bmatrix}
+		\amp = \begin{bmatrix} 2 t \\ t \end{bmatrix}
+		\amp \amp \implies \amp
+		\begin{bmatrix} 1 \\ \frac{1}{2} \end{bmatrix}
+		\amp = \begin{bmatrix} 2 t \\ t \end{bmatrix}
+		\amp \amp \implies \amp
+		t \amp = \frac{1}{2}
 	</mrow></md>.
-	</p>
-
-	<p>
 	Finally, we have
-	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \uvec{x} + \frac{1}{2}\uvec{p} </me>.
+	<m>\displaystyle \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \uvec{x} + \frac{1}{2}\uvec{p} </m>.
 	</p>
 
 </example>
@@ -145,17 +144,19 @@ respective owners.
 		+ s \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		+ t \begin{abmatrix}{r} -5 \\ 0 \\ 1 \end{abmatrix}
 	</me>.
-	Solving this vector equation for <m>s</m> and <m>t</m> leads to a <ellipsis /> system of linear equations!
+	Carrying out the vector operations on the right-hand side and applying the definition of
+	<xref ref="definition-matrix-ops-equal-matrices" text="title" />
+	leads to <ellipsis /> a system of linear equations!
 	<md><mrow>
 		\begin{abmatrix}{r} 1 \\ 1 \\ -1 \end{abmatrix}
 		-
 		\begin{abmatrix}{r} -5 \\ 0 \\ 0 \end{abmatrix}
 		\amp = \begin{bmatrix} s \\ s \\ 0 \end{bmatrix}
 		+ \begin{bmatrix} -5 t \\ 0 \\ t \end{bmatrix}
-		\\
+		\amp \amp \implies \amp
 		\begin{abmatrix}{r} 6 \\ 1 \\ -1 \end{abmatrix}
-		\amp= \begin{bmatrix} s - 5 t \\ s \\ t \end{bmatrix}.
-	</mrow></md>
+		\amp= \begin{bmatrix} s - 5 t \\ s \\ t \end{bmatrix}
+	</mrow></md>.
 	From the second and third coordinates we immediately see <m>s = 1</m> and <m>t = -1</m>.
 	However, it's important to also verify that <m>s - 5 t = 6</m> for this choice of parameter values,
 	to satisfy the equality of the two first coordinates on right and left.
@@ -253,24 +254,30 @@ Here we will demonstrate determining points of intersection when some or all of 
 		<mrow>
 			\det A_3
 			\amp=
-			\left\lvert\begin{array}{rrr}
+			\begin{avmatrix}{rrr}
 				1 \amp 3 \amp -1 \\
 				1 \amp 0 \amp -1 \\
 				1 \amp 2 \amp  3
-			\end{array}\right\rvert
-			= -12,
-		</mrow><mrow></mrow><mrow>
+			\end{avmatrix}
+			\amp
 			\det A
 			\amp=
-			\left\lvert\begin{array}{rrr}
+			\begin{avmatrix}{rrr}
 				1 \amp 3 \amp  1 \\
 				1 \amp 0 \amp -1 \\
 				1 \amp 2 \amp -1
-			\end{array}\right\rvert
-			= 4
-		</mrow><mrow></mrow><mrow>
-			\implies \quad
-			t \amp= \frac{\det A_3}{\det A} = -3.
+			\end{avmatrix}
+			\amp
+			\amp \implies
+			\amp
+			t \amp = \frac{\det A_3}{\det A}
+		</mrow>
+		<mrow>
+			\amp = -12 \text{,}
+			\amp
+			\amp = 4 \text{,}
+			\amp \amp \amp
+			\amp = -3 \text{.}
 		</mrow>
 	</md>
 	Now that we have <m>t = -3</m>, we can determine the point of intersection:
@@ -284,8 +291,8 @@ Here we will demonstrate determining points of intersection when some or all of 
 </example>
 
 <remark><p>
-	We arrived at the same point of intersection in both examples in this subsection because the lines and planes in the two associated discovery activities are actually the same.
-	It is only the description of the plane (algebraic versus parametric) that differs between the two examples.
+	We arrived at the same point of intersection in both examples in this subsection because the lines and planes in the two associated discovery activities are actually the same;
+	it is only the description of the plane (algebraic versus parametric) that differs between the two examples.
 </p></remark>
 
 </subsection>

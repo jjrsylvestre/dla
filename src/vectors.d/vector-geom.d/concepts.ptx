@@ -42,32 +42,12 @@ respective owners.
 <subsection xml:id="subsection-vector-geom-concepts-norm">
 <title>Geometric length of a vector: the norm</title>
 
-<p> We can easily determine the length of a vector in the plane from its components using the Pythagorean Theorem. </p>
-
-<figure>
-	<caption> Length of a vector via Pythagoras. </caption>
-	<image width="30.5%">
-		<latex-image label="image-vector-geom-concepts-pythag">
-			<xi:include href="concepts.d/pythag.tex" parse="text" />
-		</latex-image>
-		<shortdescription> A right triangle with a vector hypotenuse. </shortdescription>
-		<description><p>
-			A diagram illustrating how the Pythagorean theorem tells the length of a vector.
-			A right triangle is drawn,
-			with right angle sitting at the vertex between a horizontal leg and a vertical leg.
-			Both horizontal and vertical legs are drawn as dashed line segments,
-			labelled <m>\change{x}</m> and <m>\change{y}</m>,
-			respectively.
-			Finally,
-			the hypotenuse is a directed line segment representing a vector labelled <m>\uvec{v}</m>,
-			extending from the end of the horizontal leg to the end of the vertical leg to complete the triangle.
-		</p></description>
-	</image>
-</figure>
-
 <p>
-If we let <m>\ell</m> represent the length of <m>\uvec{v}</m>, then Pythagoras tells us that
+We can easily determine the length of a vector in the plane from its components using the Pythagorean Theorem.
+If we let <m>\ell</m> represent the length of <m>\uvec{v} = (\change{x}, \change{y})</m>,
+then Pythagoras tells us that
 <me> \ell^2 = (\change{x})^2 + (\change{y})^2 </me>.
+(See <xref ref="figure-vector-geom-concepts-pythag-2d" />.)
 </p>
 
 <aside><title>Remember</title><p>
@@ -84,49 +64,84 @@ then solving for <m>\ell</m> in the Pythagorean equation above gives us
 <me> \unorm{v} = \sqrt{v_1^2 + v_2^2} </me>.
 </p>
 
-<p>
-For a vector <m>\uvec{v} = (v_1,v_2,v_3)</m> in <m>\R^3</m>,
-consider the vector <m>\uvec{v}' = (v_1,v_2,0)</m> sitting in the <m>xy</m>-plane.
-</p>
+<figure xml:id="figure-vector-geom-concepts-pythag">
+	<caption> Length of a vector in two and three dimensions, via Pythagoras. </caption>
 
-<figure>
-	<caption> Determining the length of a three-dimensional vector by first projecting into the <m>xy</m>-plane. </caption>
-	<image width="45%">
-		<latex-image label="image-vector-geom-concepts-pythag-3d">
-			<xi:include href="concepts.d/pythag-3d.tex" parse="text" />
-		</latex-image>
-		<shortdescription> A diagram illustrating the use of the Pythagorean theorem for determining the length of a three-dimensional vector. </shortdescription>
-		<description><p>
-			A diagram illustrating a two-step process for using the Pythagorean theorem to determine the length of a three-dimensional vector.
-			A set of three-dimensional <m>xyz</m>-axes is pictured,
-			with the <m>xy</m>-plane laying <q>flat</q> and the <m>z</m>-axis rising vertically out of it.
-			A directed line segment representing a vector labelled <m>\uvec{v}</m> extends from the origin to a point in space in the first octant
-			(that is, somewhere above the first quadrant of the <m>xy</m>-plane).
-			A second directed line segment representing a vector labelled <m>\uvec{v}'</m> lays flat in the <m>xy</m>-plane,
-			extending from the origin to the point in the <m>xy</m>-plane directly below the terminal point of <m>\uvec{v}</m>.
-			A dashed line segment labelled <m>\change{z}</m> runs from the terminal point of <m>\uvec{v}</m> down to the terminal point of <m>\uvec{v}'</m>,
-			where a right angle is indicated.
-			A second dashed line segment labelled <m>\change{y}</m> runs from the terminal point of <m>\uvec{v}'</m> to the point on the <m>x</m>-axis <q>below</q> it,
-			where again a right angle is indicated.
-			Finally,
-			the segment of the <m>x</m>-axis between the origin and the end of the dashed line from the terminal point of <m>\uvec{v}'</m> is labelled <m>\change{x}</m>.
-		</p></description>
-	</image>
+	<sidebyside widths="27.3% 45.8%" valign="middle">
+
+		<figure xml:id="figure-vector-geom-concepts-pythag-2d">
+			<caption> In two dimensions. </caption>
+			<image>  <!-- width="27.3%" -->
+				<latex-image label="image-vector-geom-concepts-pythag">
+					<xi:include href="concepts.d/pythag.tex" parse="text" />
+				</latex-image>
+				<shortdescription> A right triangle with a vector hypotenuse. </shortdescription>
+				<description><p>
+					A diagram illustrating how the Pythagorean theorem tells the length of a vector.
+					A right triangle is drawn,
+					with right angle sitting at the vertex between a horizontal leg and a vertical leg.
+					Both horizontal and vertical legs are drawn as dashed line segments,
+					labelled <m>\change{x}</m> and <m>\change{y}</m>,
+					respectively.
+					Finally,
+					the hypotenuse is a directed line segment representing a vector labelled <m>\uvec{v}</m>,
+					extending from the end of the horizontal leg to the end of the vertical leg to complete the triangle.
+				</p></description>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-vector-geom-concepts-pythag-3d">
+			<caption>
+				In three dimensions,
+				we may first <q>project</q> the vector into the <m>xy</m>-plane.
+			</caption>
+			<image>  <!-- actual width="31.4%" -->
+				<latex-image label="image-vector-geom-concepts-pythag-3d">
+					<xi:include href="concepts.d/pythag-3d.tex" parse="text" />
+				</latex-image>
+				<shortdescription> A diagram illustrating the use of the Pythagorean theorem for determining the length of a three-dimensional vector. </shortdescription>
+				<description><p>
+					A diagram illustrating a two-step process for using the Pythagorean theorem to determine the length of a three-dimensional vector.
+					A set of three-dimensional <m>xyz</m>-axes is pictured,
+					with the <m>xy</m>-plane laying <q>flat</q> and the <m>z</m>-axis rising vertically out of it.
+					A directed line segment representing a vector labelled <m>\uvec{v}</m> extends from the origin to a point in space in the first octant
+					(that is, somewhere above the first quadrant of the <m>xy</m>-plane).
+					A second directed line segment representing a vector labelled <m>\uvec{v}'</m> lays flat in the <m>xy</m>-plane,
+					extending from the origin to the point in the <m>xy</m>-plane directly below the terminal point of <m>\uvec{v}</m>.
+					A dashed line segment labelled <m>\change{z}</m> runs from the terminal point of <m>\uvec{v}</m> down to the terminal point of <m>\uvec{v}'</m>,
+					where a right angle is indicated.
+					A second dashed line segment labelled <m>\change{y}</m> runs from the terminal point of <m>\uvec{v}'</m> to the point on the <m>x</m>-axis <q>below</q> it,
+					where again a right angle is indicated.
+					Finally,
+					the segment of the <m>x</m>-axis between the origin and the end of the dashed line from the terminal point of <m>\uvec{v}'</m> is labelled <m>\change{x}</m>.
+				</p></description>
+			</image>
+		</figure>
+
+	</sidebyside>
+
 </figure>
 
 <p>
-Applying the Pythagorean Theorem to the vertical triangle, we find
+For a vector <m>\uvec{v} = (v_1,v_2,v_3)</m> in <m>\R^3</m>,
+consider the vector <m>\uvec{v}' = (v_1,v_2,0)</m> lying in the <m>xy</m>-plane.
+Applying the Pythagorean Theorem to the vertical triangle in <xref ref="figure-vector-geom-concepts-pythag-3d" /> with hypotenuse labelled as vector <m>\uvec{v}</m>,
+horizontal leg labelled as vector <m>\uvec{v}'</m>,
+and vertical leg labelled as <m>\change{z}</m>,
+we obtain
 <me> \unorm{v}^2 = \norm{\uvec{v}'}^2 + (\change{z})^2 </me>.
-But <m>\uvec{v}'</m> lies flat in the <m>xy</m>-plane, and we have already analyzed that case above:
+Lying in the <m>xy</m>-plane,
+we may think of <m>\uvec{v}'</m> as a two-dimensional vector,
+and we have already analyzed that case above:
 <me> \norm{\uvec{v}'}^2 = (\change{x})^2 + (\change{y})^2 </me>.
-Combining these, we get
+Combining these, we obtain
 <me> \unorm{v}^2 = \bbrac{(\change{x})^2 + (\change{y})^2} + (\change{z})^2 = v_1^2 + v_2^2 + v_3^2 </me>,
 so that
 <me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + v_3^2} </me>.
 </p>
 
 <p>
-The word <em>length</em> ceases to have any meaning in <m>\R^4</m>,
+The word <em>length</em> ceases to have any physical meaning in <m>\R^4</m>,
 so in general we refer to <m>\unorm{v}</m> as the <term>norm</term> of <m>\uvec{v}</m> in any dimension.
 We imagine that if we were able to somehow measure length in <m>\R^n</m> for <m>n\ge 4</m>,
 then the pattern where we used length in <m>\R^2</m> to help us compute length in <m>\R^3</m> would be repeated,
@@ -253,7 +268,7 @@ then the difference vectors <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m
 
 <figure>
 	<caption> Difference vectors. </caption>
-	<image width="43.8%">
+	<image width="35.5%">
 		<latex-image label="image-vector-geom-concepts-distance">
 			<xi:include href="concepts.d/distance.tex" parse="text" />
 		</latex-image>
@@ -296,7 +311,7 @@ so that the components of <m>\uvec{u}</m> and <m>\uvec{v}</m> are the same as th
 
 <figure>
 	<caption> Two angles related to two vectors with their tails at the same initial point. </caption>
-	<image width="32.6%">
+	<image width="29.1%">
 		<latex-image label="image-vector-geom-concepts-angle">
 			<xi:include href="concepts.d/angle.tex" parse="text" />
 		</latex-image>
@@ -322,7 +337,7 @@ Instead we will always choose the smaller angle to be <em>the</em> angle between
 
 <figure>
 	<caption> Preferring interior angles between vectors. </caption>
-	<image width="81.4%">
+	<image width="77.6%">
 		<latex-image label="image-vector-geom-concepts-interior-vs-exterior-angles">
 			<xi:include href="concepts.d/interior-vs-exterior-angles.tex" parse="text" />
 		</latex-image>
@@ -350,7 +365,7 @@ in the case the the two vectors are parallel.
 
 <figure>
 	<caption> Extreme angle values occur between parallel vectors. </caption>
-	<image width="65.5%">
+	<image width="81.1%">
 		<latex-image label="image-vector-geom-concepts-parallel-vec-angles">
 			<xi:include href="concepts.d/parallel-vec-angles.tex" parse="text" />
 		</latex-image>
@@ -373,7 +388,7 @@ in the case the the two vectors are parallel.
 
 <figure xml:id="figure-vector-geom-concepts-space-vectors-embedded-in-plane">
 	<caption>Diagram of the angle between vectors in space, embedded in a plane.</caption>
-	<image width="71.1%">
+	<image width="52.3%">
 		<latex-image label="image-vector-geom-concepts-angle-3d">
 			<xi:include href="concepts.d/angle-3d.tex" parse="text" />
 		</latex-image>
@@ -417,33 +432,37 @@ The angle between the two vectors can then be taken to be the smaller of the two
 <subsection xml:id="subsection-vector-geom-concepts-dot-product">
 <title>Dot product</title>
 
-<p>
-In <xref ref="activity-vector-geom-dot-product" />,
-we combined vector geometry with some high school geometry to determine a formula for the (cosine of the) angle between two plane vectors.
-Recall from <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /> that a vector that runs between the terminal points of two vectors that share an initial point is a difference vector.
-</p>
+<sidebyside widths="49% 45.2%" margins="0%" valign="middle">
 
-<figure xml:id="figure-vector-geom-concepts-law-of-cosines">
-	<caption> The Law of Cosines in vector form. </caption>
-	<image width="35.5%">
-		<latex-image label="image-vector-geom-concepts-law-of-cosines">
-			<xi:include href="concepts.d/law-of-cosines.tex" parse="text" />
-		</latex-image>
-		<shortdescription> Diagram of the Law of Cosines applied to a triangle of vectors. </shortdescription>
-		<description><p>
-			A diagram of a triangle with vector sides to use in exploring the relationship of the Law of Cosines to vector geometry.
-			A directed line segment representing a vector labelled <m>\uvec{u}</m> extends steeply upwards and slightly rightwards from a point in the lower-left corner to a point at the top of the diagram,
-			and in parallel with <m>\uvec{u}</m> is a dashed line segment labelled <m>a</m>.
-			A second directed line segment representing a vector labelled <m>\uvec{v}</m> extends rightwards and slightly upwards from the same initial point as <m>\uvec{u}</m> in the lower-left corner to a point at the right edge of the diagram,
-			and in parallel with <m>\uvec{v}</m> is a dashed line segment labelled <m>b</m>.
-			A third directed line segment representing the difference vector <m>\uvec{u} - \uvec{v}</m> complete the triangle,
-			extending from the terminal point of <m>\uvec{v}</m> to the terminal point of <m>\uvec{u}</m>,
-			and in parallel with this difference vector is a dashed line segment labelled <m>c</m>.
-			Finally,
-			the angle formed by <m>\uvec{u}</m> and <m>\uvec{v}</m> in the lower-left corner is labelled <m>\theta</m>.
-		</p></description>
-	</image>
-</figure>
+	<p>
+	In <xref ref="activity-vector-geom-dot-product" />,
+	we combined vector geometry with some high school geometry to determine a formula for the (cosine of the) angle between two plane vectors.
+	Recall from <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" /> that a vector that runs between the terminal points of two vectors that share an initial point is a difference vector.
+	</p>
+
+	<figure xml:id="figure-vector-geom-concepts-law-of-cosines">
+		<caption> The Law of Cosines in vector form. </caption>
+		<image>  <!-- actual width="25.2%" -->
+			<latex-image label="image-vector-geom-concepts-law-of-cosines">
+				<xi:include href="concepts.d/law-of-cosines.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram of the Law of Cosines applied to a triangle of vectors. </shortdescription>
+			<description><p>
+				A diagram of a triangle with vector sides to use in exploring the relationship of the Law of Cosines to vector geometry.
+				A directed line segment representing a vector labelled <m>\uvec{u}</m> extends steeply upwards and slightly rightwards from a point in the lower-left corner to a point at the top of the diagram,
+				and in parallel with <m>\uvec{u}</m> is a dashed line segment labelled <m>a</m>.
+				A second directed line segment representing a vector labelled <m>\uvec{v}</m> extends rightwards and slightly upwards from the same initial point as <m>\uvec{u}</m> in the lower-left corner to a point at the right edge of the diagram,
+				and in parallel with <m>\uvec{v}</m> is a dashed line segment labelled <m>b</m>.
+				A third directed line segment representing the difference vector <m>\uvec{u} - \uvec{v}</m> complete the triangle,
+				extending from the terminal point of <m>\uvec{v}</m> to the terminal point of <m>\uvec{u}</m>,
+				and in parallel with this difference vector is a dashed line segment labelled <m>c</m>.
+				Finally,
+				the angle formed by <m>\uvec{u}</m> and <m>\uvec{v}</m> in the lower-left corner is labelled <m>\theta</m>.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 <p>
 The lengths of the sides of the triangle formed by these three vectors are just the norms of the vectors:

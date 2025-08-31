@@ -14,11 +14,22 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.5
 ]
+
+	% artificially make this image bigger because it's in a sidebyside with a <p>
+	% and want caption to expand wider than image
+	%
+	% actual image boundaries are ~ (-1,-0.3) to (6,3.35)
+	\draw[black!5!white,very thin] (-3.4,-0.25) to (-3.4,-0.3) to (-3.35,-0.3);
+	\draw[black!5!white,very thin] (8.4,3.3) to (8.4,3.35) to (8.35,3.35);
+
+
 	\node[point] at (0,0) (p) [label=left:{$P$}] {};
 	\node[point] at (2,3) (q) [label=left:{$Q$}] {};
 	\node[point] at (5,2) (r) [label=right:{$R$}] {};
 	\draw[vector] (p) to node[above left] {$\uvec{u}$} (q);
 	\draw[vector] (q) to node[above right] {$\uvec{v}$} (r);
 	\draw[vector,dashed] (p) to node[below right] {$?$} (r);
+
 \end{tikzpicture}

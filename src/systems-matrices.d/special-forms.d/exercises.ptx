@@ -16,100 +16,96 @@ respective owners.
 <exercises xml:id="exercises-special-forms" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Exercises</title>
 
-<subexercises>
+<!-- Exercise group -->
+<xi:include href="./exercises.d/ops.ptx" />
 
-	<!-- Exercise group -->
-	<xi:include href="./exercises.d/ops.ptx" />
+<!-- Exercise group -->
+<xi:include href="./exercises.d/inverses.ptx" />
 
-	<!-- Exercise group -->
-	<xi:include href="./exercises.d/inverses.ptx" />
+<exercise xml:id="exercise-special-forms-verify-closure">
+	<title>Operation patterns involving special forms</title>
 
-	<exercise xml:id="exercise-special-forms-verify-closure">
-		<title>Operation patterns involving special forms</title>
+	<introduction>
 
-		<introduction>
+		<p>
+		Verify all parts of <xref ref="proposition-special-forms-combinations" />,
+		not through examples,
+		but by <em>constructing a convincing, general argument based on the pattern of entries in the matrices involved</em>,
+		without assuming a specific size of matrix.
+		Refer to the two provided partial proofs of <xref ref="proposition-special-forms-combinations" /> as examples.
+		You may also wish to refer to your work on
+		<xref ref="activity-special-forms-prove-sum-diagonal" />
+		and
+		<xref ref="activity-special-forms-prove-sum-symmetric" />,
+		as well as some of your answers to
+		<xref first="exercise-matrix-ops-entry-patterns-add" last="exercise-matrix-ops-entry-patterns-power">Exercises</xref>.
+		</p>
 
-			<p>
-			Verify all parts of <xref ref="proposition-special-forms-combinations" />,
-			not through examples,
-			but by <em>constructing a convincing, general argument based on the pattern of entries in the matrices involved</em>,
-			without assuming a specific size of matrix.
-			Refer to the two provided partial proofs of <xref ref="proposition-special-forms-combinations" /> as examples.
-			You may also wish to refer to your work on
-			<xref ref="activity-special-forms-prove-sum-diagonal" />
-			and
-			<xref ref="activity-special-forms-prove-sum-symmetric" />,
-			as well as some of your answers to
-			<xref first="exercise-matrix-ops-entry-patterns-add" last="exercise-matrix-ops-entry-patterns-power">Exercises</xref>.
-			</p>
+		<p>
+		Below, the statements of <xref ref="proposition-special-forms-combinations" /> have been separated but with the form of matrix left blank <mdash />
+		you should verify each statement once <em>for each</em> of the different forms of
+		<term>scalar</term>,
+		<term>diagonal</term>,
+		<term>upper triangular</term>,
+		<term>lower triangular</term>,
+		and
+		<term>symmetric</term>.
+		</p>
 
-			<p>
-			Below, the statements of <xref ref="proposition-special-forms-combinations" /> have been separated but with the form of matrix left blank <mdash />
-			you should verify each statement once <em>for each</em> of the different forms of
-			<term>scalar</term>,
-			<term>diagonal</term>,
-			<term>upper triangular</term>,
-			<term>lower triangular</term>,
-			and
-			<term>symmetric</term>.
-			</p>
+	</introduction>
 
-		</introduction>
+	<task><p>
+		The result of adding two <fillin characters="8" /> matrices is always a <fillin characters="8" /> matrix.
+	</p></task>
 
-		<task><p>
-			The result of adding two <fillin characters="8" /> matrices is always a <fillin characters="8" /> matrix.
-		</p></task>
+	<task><p>
+		The result of scalar multiplying a <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
+	</p></task>
 
-		<task><p>
-			The result of scalar multiplying a <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
-		</p></task>
+	<task>
+		<p> The result of multiplying two <fillin characters="8" /> matrices is always a <fillin characters="8" /> matrix. </p>
+		<p><alert>Note.</alert> Omit this statement for <term>symmetric</term> matrices. </p>
+	</task>
 
-		<task>
-			<p> The result of multiplying two <fillin characters="8" /> matrices is always a <fillin characters="8" /> matrix. </p>
-			<p><alert>Note.</alert> Omit this statement for <term>symmetric</term> matrices. </p>
-		</task>
+	<task><p>
+		The result of taking an inverse of an invertible <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
+	</p></task>
 
-		<task><p>
-			The result of taking an inverse of an invertible <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
-		</p></task>
+	<task><p>
+		The result of taking a power (with positive or negative exponent) of a <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
+	</p></task>
 
-		<task><p>
-			The result of taking a power (with positive or negative exponent) of a <fillin characters="8" /> matrix is always a <fillin characters="8" /> matrix.
-		</p></task>
+</exercise>
 
-	</exercise>
+<exercise xml:id="exercise-special-forms-prod-symm">
+	<title>Products of symmetric matrices</title>
 
-	<exercise xml:id="exercise-special-forms-prod-symm">
-		<title>Products of symmetric matrices</title>
+	<introduction><p>
+		<xref ref="proposition-special-forms-combinations-symm">Statement</xref>
+		of <xref ref="proposition-special-forms-combinations" /> explicitly states that it is <alert>not</alert> true in general that the product of two symmetric matrices is guaranteed to also be symmetric.
+		However, that does not mean it can <em>never</em> happen.
+	</p></introduction>
 
-		<introduction><p>
-			<xref ref="proposition-special-forms-combinations-symm">Statement</xref>
-			of <xref ref="proposition-special-forms-combinations" /> explicitly states that it is <alert>not</alert> true in general that the product of two symmetric matrices is guaranteed to also be symmetric.
-			However, that does not mean it can <em>never</em> happen.
-		</p></introduction>
+	<task><p> Devise an example of two symmetric <m>2 \times 2</m> matrices whose product is <alert>not</alert> symmetric. </p></task>
 
-		<task><p> Devise an example of two symmetric <m>2 \times 2</m> matrices whose product is <alert>not</alert> symmetric. </p></task>
+	<task><p> Devise an example of two symmetric <m>2 \times 2</m> matrices whose product <alert>is</alert> symmetric. </p></task>
 
-		<task><p> Devise an example of two symmetric <m>2 \times 2</m> matrices whose product <alert>is</alert> symmetric. </p></task>
+	<task xml:id="exercise-special-forms-prod-symm-if-commute"><p>
+		Prove that if two symmetric matrices of the same size <term>commute</term>
+		(that is, produce the same result when multiplied in either order),
+		then their product must also be symmetric.
+	</p></task>
 
-		<task xml:id="exercise-special-forms-prod-symm-if-commute"><p>
-			Prove that if two symmetric matrices of the same size <term>commute</term>
-			(that is, produce the same result when multiplied in either order),
-			then their product must also be symmetric.
-		</p></task>
+	<task xml:id="exercise-special-forms-prod-symm-then-commute"><p>
+		Prove that the condition of <xref ref="exercise-special-forms-prod-symm-if-commute" text="type-local" /> is the <em>only</em> way that symmetric matrices produce a symmetric product.
+		That is, prove that if <m>A</m> and <m>B</m> are symmetric matrices of the same size so that the product <m>A B</m> is also symmetric,
+		then the the two matrices must commute
+		(that is, it must be true that <m>B A = A B</m>).
+	</p></task>
 
-		<task xml:id="exercise-special-forms-prod-symm-then-commute"><p>
-			Prove that the condition of <xref ref="exercise-special-forms-prod-symm-if-commute" text="type-local" /> is the <em>only</em> way that symmetric matrices produce a symmetric product.
-			That is, prove that if <m>A</m> and <m>B</m> are symmetric matrices of the same size so that the product <m>A B</m> is also symmetric,
-			then the the two matrices must commute
-			(that is, it must be true that <m>B A = A B</m>).
-		</p></task>
+</exercise>
 
-	</exercise>
-
-</subexercises>
-
-<subexercises>
+<exercisegroup>
 	<title>Skew-symmetric matrices</title>
 
 	<introduction>
@@ -208,6 +204,6 @@ respective owners.
 
 	</exercise>
 
-</subexercises>
+</exercisegroup>
 
 </exercises>

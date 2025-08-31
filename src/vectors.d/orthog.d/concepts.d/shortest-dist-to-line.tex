@@ -16,12 +16,23 @@
 	vector/.style={-latex},
 ]
 
-	\draw[dashed] (-1,-0.5) to node[below right,at end] {$\ell$} (4.5,2.25);
-	\node[point] at (0,0) (o) [label=below:{$O$}] {};
-	\node[point] at (3,3) (p) [label=above:{$Q$}] {};
-	\node[point] at (3.6,1.8) (f) [label=below:{$P$}] {};
-	\node[point] at (2.5,1.25) (fp) [label=below:{$P'$}] {};
-	\draw (f) to (p) to (fp) to (f);
-	\draw (3.4,1.7) to (3.3,1.9) to (3.5,2);
+	\coordinate (o) at (0,0);
+	% line slope 1/8, perp slope = -8
+	\coordinate (l1) at (-0.8,-0.1);
+	\coordinate (l2) at (4.5,0.5625);
+	\coordinate (a) at (2.4,0.3); % parallel to (2,0.25)
+	\coordinate (u) at (3.5,1.5);
+	\coordinate (p) at (3.631,0.454);
+
+
+	\draw[dashed] (l1) to node[below,at end] {$\ell$} (l2);
+	\node[point] at (o) [label=below:{$O$}] {};
+	\node[point] at (u) [label=right:{$Q$}] {};
+	\node[point] at (p) [label=below:{$P$}] {};
+	\node[point] at (a) [label=below:{$P'$}] {};
+	\draw (a) to (p) to (u) to cycle;
+
+	% perp square
+	\draw (3.594,0.752) to (3.296,0.714) to (3.333,0.417);
 
 \end{tikzpicture}

@@ -26,7 +26,9 @@ respective owners.
 <activity xml:id="activity-det-by-row-red-det-swap-rows">
 	<introduction><p>
 		Consider the matrix
-		<me>\begin{bmatrix} 1 \amp 1 \amp 1 \\ 2 \amp 1 \amp 1 \\ 3 \amp 1 \amp 0 \end{bmatrix}.</me>
+		<m>\displaystyle
+			\begin{bmatrix} 1 \amp 1 \amp 1 \\ 2 \amp 1 \amp 1 \\ 3 \amp 1 \amp 0 \end{bmatrix}
+		</m>.
 	</p></introduction>
 	<task><p> Compute the determinant by cofactor expansion <em>along the first row</em>. </p></task>
 	<task>
@@ -129,30 +131,29 @@ respective owners.
 <!-- old label: "activity-det-by-row-red-det-third-row-op" -->
 	<introduction>
 		<p>
-		Consider the generic <m>3\times 3</m> matrix
-		<me>
+		Consider the general <m>3\times 3</m> matrix <m>A</m> below left.
+		Suppose we add <m>k</m> times the second row to the first to obtain the matrix <m>A'</m> below right.
+		<md><mrow>
+			A \amp =
 			\begin{bmatrix}
 				a_{11} \amp a_{12} \amp a_{13} \\
 				a_{21} \amp a_{22} \amp a_{23} \\
 				a_{31} \amp a_{32} \amp a_{33}
-			\end{bmatrix}.
-		</me>
-		Its determinant is
-		<m>a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}</m>.
-		</p><p>
-		Suppose we add <m>k</m> times the second row to the first:
-		<me>
+			\end{bmatrix}
+			\amp
+			A' \amp =
 			\begin{bmatrix}
 				a_{11}+k a_{21} \amp a_{12}+k a_{22} \amp a_{13}+k a_{23} \\
 				a_{21} \amp a_{22} \amp a_{23} \\
 				a_{31} \amp a_{32} \amp a_{33}
-			\end{bmatrix}.
-		</me>
+			\end{bmatrix}
+		</mrow></md>
+		Recall that <m>\det A = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}</m>.
 		</p>
 	</introduction>
-	<task><p> Has this row operation changed the cofactors of entries in the first row? </p></task>
+	<task><p> Has the row operation changed the cofactors of entries in the first row? </p></task>
 	<task xml:id="activity-det-by-row-red-det-combine-rows-separate-dets"><p>
-		Write out the cofactor expansion along the first row for the new matrix.
+		Write out the cofactor expansion for <m>A'</m> along the first row.
 		Then use some algebra to express this cofactor expansion as:
 		<me>(\text{some formula}) + k (\text{some other formula}). </me>
 		<!--<me>\det (\text{original matrix}) + k \det (\text{some other matrix}). </me>-->

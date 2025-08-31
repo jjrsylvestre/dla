@@ -14,10 +14,11 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.7
 ]
 
-	\draw[->] (-4.5,0) to (6.5,0) node[below right] {$x$};
-	\draw[->] (0,-2.5) to (0,3.5) node[above left] {$y$};
+	\draw[->] (-4.5,0) to (6.5,0) node[below] {$x$};
+	\draw[->] (0,-2.5) to (0,3.5) node[right] {$y$};
 	\foreach \x in {-4,-3,-2,-1,1,2,3,4,5,6} {
 		\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
 	}
@@ -26,10 +27,10 @@
 	}
 	\node[point] at (0,0) (o) {};
 	\node[point] at (2,1) (r) [label={[yshift=-0.1cm]right:{$R(2,1)$}}] {};
-	\node[point] at (6,3) (s) [label={[xshift=0.1cm]above left:{$S(6,3)$}}] {};
+	\node[point] at (6,3) (s) [label={[xshift=0.2cm]above left:{$S(6,3)$}}] {};
 	\node[point] at (-4,-2) (s2) [label={[xshift=-0.1cm]below right:{$S'(-4,-2)$}}] {};
-	\draw[vector,very thick] (o.north) to node[above left,near end] {$3 \uvec{v}$} (s.west);
-	\draw[vector,very thick] (o.east) to node[below right,xshift=0.2cm,yshift=0.1cm] {$\uvec{v}$} (r.south);
-	\draw[vector,very thick] (o) to node[above left,xshift=-0.4cm,yshift=-0.3cm] {$(-2) \uvec{v}$} (s2);
+	\draw[vector,thick] (o.north) to node[above left,near end] {$3 \uvec{v}$} (s.west);
+	\draw[vector,thick] (o.east) to node[below right,near end] {$\uvec{v}$} (r.south);
+	\draw[vector,thick] (o) to node[above left,very near end] {$(-2) \uvec{v}$} (s2);
 
 \end{tikzpicture}

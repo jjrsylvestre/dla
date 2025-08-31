@@ -14,10 +14,15 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.6
 ]
-	\draw[dashed] (-3,-1.5) to (4,2);
+	\draw[dashed] (-3,-0.6) to (4,0.8); % slope 1/5
 	\node[point] at (0,0) (o) [label=above left:{$\zerovec$}] {};
-	\draw[vector] (o) to node[below right] {$\uvec{p}$} (2,1);
-	\draw[vector] (o) to node[right,at end] {$\uvec{v}$ {\tiny (linearly independent from $\uvec{p}$)}} (2,3);
-	\draw[vector] (o) to node[below right,at end] {$\uvec{u}$ {\tiny (linearly dependent with $\uvec{p}$)}} (-1.5,-0.75);
+	\draw[vector] (o) to node[below right] {$\uvec{p}$} (2.5,0.5);
+	\draw[vector] (o) to
+	  node[right,at end] {$\uvec{v}$ {\tiny (linearly independent from $\uvec{p}$)}}
+	  (1.25,1.5);
+	\draw[vector] (o) to
+	  node[below right,at end,xshift=-0.2cm,yshift=-0.1cm] {$\uvec{u}$ {\tiny (linearly dependent with $\uvec{p}$)}}
+	  (-1.5,-0.3);
 \end{tikzpicture}

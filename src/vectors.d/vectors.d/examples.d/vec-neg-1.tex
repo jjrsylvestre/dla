@@ -15,8 +15,8 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-	\draw[->] (-0.5,0) to (2.5,0) node[below right] {$x$};
-	\draw[->] (0,-0.5) to (0,1.5) node[above left] {$y$};
+	\draw[->] (-0.25,0) to (2.5,0) node[below right] {$x$};
+	\draw[->] (0,-0.25) to (0,1.5) node[right] {$y$};
 
 	\foreach \x in {1,2} {
 		\draw (\x,0.1) to (\x,-0.1) node[below] {$\scriptstyle \x$};
@@ -26,8 +26,8 @@
 	}
 
 	\node[point] at (0,0) (o) {};
-	\node[point] at (2,1) (r) [label=above right:{$R(2,1)$}] {};
-	\draw[vector,very thick] (o.north) to node[above left,near end] {$\uvec{v}$} (r.north);
-	\draw[vector,very thick] (r.south) to node[below right, near start] {$-\uvec{v}$} (o.south);
+	\node[point] at (2,1) (r) [label={[xshift=-0.3cm]above right:{$R(2,1)$}}] {};
+	\draw[vector,thick] (o.north) to node[above left,near end] {$\uvec{v}$} (r.north);
+	\draw[vector,thick] (r.south) to node[below right, near start] {$-\uvec{v}$} (o.south);
 
 \end{tikzpicture}

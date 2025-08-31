@@ -196,15 +196,19 @@ then <em>none</em> of the vectors can act as the redundant <m>\uvec{w}</m> as ab
 <title>Linear dependence and independence of just one or two vectors</title>
 
 <p>
-For a pair <m>\uvec{u},\uvec{v}</m> of vectors to be linearly dependent, one must be a linear combination of the other.
-But a linear combination of one vector is just a scalar multiple, and so <em>a pair of vectors is linearly dependent if one is a scalar multiple of the other</em>.
-If both vectors are nonzero, that scalar must also be nonzero and so could be shifted to the other side as its reciprocal:
+For a pair <m>\uvec{u},\uvec{v}</m> of vectors to be linearly dependent,
+one must be a linear combination of the other.
+But a linear combination of one vector is just a scalar multiple,
+and so <em>a pair of vectors is linearly dependent if one is a scalar multiple of the other</em>.
+If both vectors are nonzero,
+that scalar must also be nonzero and so could be shifted to the other side as its reciprocal:
 <md><mrow>
-	\uvec{u} \amp = k\uvec{v} \amp
-	\amp\iff \amp
-	\frac{1}{k}\uvec{u} \amp= \uvec{v} \amp
-	\amp \text{(for } k\neq 0 \text{)}
-</mrow></md>.
+	\uvec{u} = k\uvec{v}
+	\qquad \amp \iff \qquad
+	\frac{1}{k}\uvec{u} = \uvec{v}
+	\amp
+	\amp \text{(for } k\neq 0 \text{).}
+</mrow></md>
 So nonzero vectors <em><m>\uvec{u},\uvec{v}</m> are linearly dependent if and only if each is a scalar multiple of the other</em>.
 In <m>\R^n</m>, we would have called such vectors <term>parallel</term>.
 </p>
@@ -243,45 +247,61 @@ This line of reasoning leads us to consider the set of vectors containing only t
 <paragraphs><title>Independent directions</title>
 
 	<p>
-	In <xref ref="subsection-subspaces-concepts-of-Rn" />, we discussed how a nonzero vector in <m>\R^n</m> spans a line through the origin.
-	If a second vector is linearly dependent with the vector spanning the line, then as discussed in the previous subsection
-	(<xref ref="subsection-linear-indep-concepts-one-or-two" />), that second vector must be parallel with the first, hence parallel with the line.
-	To get something linearly independent, we need to branch off in a new direction from the line.
+	In <xref ref="subsection-subspaces-concepts-of-Rn" />,
+	we discussed how a nonzero vector in <m>\R^n</m> spans a line through the origin.
 	</p>
 
-	<image width="72.3%">
+	<sidebyside widths="43% 51.7%" margins="0%" valign="middle">
 
-		<latex-image label="image-linear-indep-concepts-linear-indep-2vecs">
-			<xi:include href="concepts.d/linear-indep-2vecs.tex" parse="text" />
-		</latex-image>
+		<p>
+		If a second vector is linearly dependent with the vector spanning the line, then as discussed in the previous subsection
+		(<xref ref="subsection-linear-indep-concepts-one-or-two" />), that second vector must be parallel with the first, hence parallel with the line.
+		To get something linearly independent, we need to branch off in a new direction from the line.
+		</p>
 
-		<shortdescription> Diagram of linear dependence and independence in the case of two vectors. </shortdescription>
+		<figure>
+			<caption>
+				Any vector parallel to <m>\uvec{p}</m> is dependent with it;
+				any vector not parallel to <m>\uvec{p}</m> is independent from it.
+			</caption>
 
-		<description>
+			<image width="51.7%">
 
-			<p>
-			A diagram illustrating linear dependence and independence in the case of two vectors.
-			A point representing the zero vector appears at the centre of the diagram,
-			and a directed line segment representing a vector labelled <m>\uvec{p}</m> emanates upwards and rightwards from it.
-			A dashed line runs parallel to <m>\uvec{p}</m> and through the point zero vector,
-			so that the directed line segment for <m>\uvec{p}</m> lies <em>along</em> the line.
-			</p>
+				<latex-image label="image-linear-indep-concepts-linear-indep-2vecs">
+					<xi:include href="concepts.d/linear-indep-2vecs.tex" parse="text" />
+				</latex-image>
 
-			<p>
-			Two more directed line segments representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m> emanate from the point zero vector.
-			The directed line segment for vector <m>\uvec{u}</m> is parallel to <m>\uvec{p}</m> but pointed in the opposite direction,
-			so that it also appears to lie along the dashed line.
-			This vector is tagged with the description <q>linearly dependent with <m>\uvec{p}</m></q>.
-			On the other hand, the directed line segment for vector <m>\uvec{v}</m> heads upwards and rightwards from the point zero vector just as <m>\uvec{p}</m> does,
-			but at a more steep angle,
-			so that the terminal point for <m>\uvec{v}</m> appears somewhere above that of <m>\uvec{p}</m>.
-			The segment for vector <m>\uvec{v}</m> does <em>not</em> lie along the dashed line parallel to <m>\uvec{p}</m>,
-			and is tagged with the description <q>linearly independent from <m>\uvec{p}</m>.</q>
-			</p>
+				<shortdescription> Diagram of linear dependence and independence in the case of two vectors. </shortdescription>
 
-		</description>
+				<description>
 
-	</image>
+					<p>
+					A diagram illustrating linear dependence and independence in the case of two vectors.
+					A point representing the zero vector appears at the centre of the diagram,
+					and a directed line segment representing a vector labelled <m>\uvec{p}</m> emanates upwards and rightwards from it.
+					A dashed line runs parallel to <m>\uvec{p}</m> and through the point zero vector,
+					so that the directed line segment for <m>\uvec{p}</m> lies <em>along</em> the line.
+					</p>
+
+					<p>
+					Two more directed line segments representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m> emanate from the point zero vector.
+					The directed line segment for vector <m>\uvec{u}</m> is parallel to <m>\uvec{p}</m> but pointed in the opposite direction,
+					so that it also appears to lie along the dashed line.
+					This vector is tagged with the description <q>linearly dependent with <m>\uvec{p}</m></q>.
+					On the other hand, the directed line segment for vector <m>\uvec{v}</m> heads upwards and rightwards from the point zero vector just as <m>\uvec{p}</m> does,
+					but at a more steep angle,
+					so that the terminal point for <m>\uvec{v}</m> appears somewhere above that of <m>\uvec{p}</m>.
+					The segment for vector <m>\uvec{v}</m> does <em>not</em> lie along the dashed line parallel to <m>\uvec{p}</m>,
+					and is tagged with the description <q>linearly independent from <m>\uvec{p}</m>.</q>
+					</p>
+
+				</description>
+
+			</image>
+
+		</figure>
+
+	</sidebyside>
 
 	<p>
 	In <xref ref="subsection-subspaces-concepts-of-Rn" />, we also discussed how a pair of nonzero, nonparallel vectors in <m>\R^n</m> span a plane through the origin.
@@ -289,50 +309,58 @@ This line of reasoning leads us to consider the set of vectors containing only t
 	To get something linearly independent, we need to branch off in a new direction from that plane.
 	</p>
 
-	<image width="76.7%">
+	<figure>
+		<caption>
+			Any vector parallel to the plane spanned by <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> is dependent with those vectors;
+			any vector not parallel to that plane is independent from them.
+		</caption>
 
-		<latex-image label="image-linear-indep-concepts-linear-indep-3vecs">
-			<xi:include href="concepts.d/linear-indep-3vecs.tex" parse="text" />
-		</latex-image>
+		<image width="76.7%">
 
-		<shortdescription> Diagram of linear dependence and independence in the case of three vectors. </shortdescription>
+			<latex-image label="image-linear-indep-concepts-linear-indep-3vecs">
+				<xi:include href="concepts.d/linear-indep-3vecs.tex" parse="text" />
+			</latex-image>
 
-		<description>
+			<shortdescription> Diagram of linear dependence and independence in the case of three vectors. </shortdescription>
 
-			<p>
-			A diagram illustrating linear dependence and independence in the case of three vectors.
-			In the background of the diagram appears a parallelogram with a shaded-in interior.
-			The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
-			(similar to a tabletop <q>suspended</q> above the floor in a room),
-			but viewed at an angle from above.
-			Embedded within this two-dimensional surface is a point representing the zero vector,
-			and two directed line segments parallel to the shaded surface,
-			representing vectors labelled <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>,
-			emanate from this point,
-			so that they appear to lie along the shaded surface.
-			However, these two vectors are not parallel to each other:
-			viewing the shaded surface as a map,
-			one could say that the directed line segment for <m>\uvec{p}_1</m> heads mostly east but also slightly north,
-			while the directed line segment for <m>\uvec{p}_2</m> heads southeast.
-			</p>
+			<description>
 
-			<p>
-			Two more directed line segment representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m> emanate from the point zero vector.
-			Vector <m>\uvec{u}</m> is also parallel to the shaded surface but is parallel to neither <m>\uvec{p}_1</m> nor <m>\uvec{p}_2</m>.
-			Again viewing the shaded surface as a map,
-			one could say the directed line segment for vector <m>\uvec{u}</m> heads mostly east but slightly south,
-			so that it is interior to the angle formed by the segments for <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
-			Vector <m>\uvec{u}</m> is tagged with the description <q>linearly dependent with <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m></q>.
-			On the other hand, the directed line segment for vector <m>\uvec{v}</m> is <em>not</em> parallel to the shaded surface,
-			and instead of appearing to lie along the surface it launches up out of the surface like an airplance lifting off.
-			(That is, not <em>straight</em> up out of the surface perpendicularly,
-			but at some acute angle.)
-			Vector <m>\uvec{v}</m> is tagged with the description <q>linearly independent from <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m></q>.
-			</p>
+				<p>
+				A diagram illustrating linear dependence and independence in the case of three vectors.
+				In the background of the diagram appears a parallelogram with a shaded-in interior.
+				The interior of this parallelogram should be imagined as if it is a two-dimensional, solid, rectangular surface suspended within a three-dimensional space
+				(similar to a tabletop <q>suspended</q> above the floor in a room),
+				but viewed at an angle from above.
+				Embedded within this two-dimensional surface is a point representing the zero vector,
+				and two directed line segments parallel to the shaded surface,
+				representing vectors labelled <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>,
+				emanate from this point,
+				so that they appear to lie along the shaded surface.
+				However, these two vectors are not parallel to each other:
+				viewing the shaded surface as a map,
+				one could say that the directed line segment for <m>\uvec{p}_1</m> heads mostly east but also slightly north,
+				while the directed line segment for <m>\uvec{p}_2</m> heads southeast.
+				</p>
 
-		</description>
+				<p>
+				Two more directed line segment representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m> emanate from the point zero vector.
+				Vector <m>\uvec{u}</m> is also parallel to the shaded surface but is parallel to neither <m>\uvec{p}_1</m> nor <m>\uvec{p}_2</m>.
+				Again viewing the shaded surface as a map,
+				one could say the directed line segment for vector <m>\uvec{u}</m> heads mostly east but slightly south,
+				so that it is interior to the angle formed by the segments for <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m>.
+				Vector <m>\uvec{u}</m> is tagged with the description <q>linearly dependent with <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m></q>.
+				On the other hand, the directed line segment for vector <m>\uvec{v}</m> is <em>not</em> parallel to the shaded surface,
+				and instead of appearing to lie along the surface it launches up out of the surface like an airplance lifting off.
+				(That is, not <em>straight</em> up out of the surface perpendicularly,
+				but at some acute angle.)
+				Vector <m>\uvec{v}</m> is tagged with the description <q>linearly independent from <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m></q>.
+				</p>
 
-	</image>
+			</description>
+
+		</image>
+
+	</figure>
 
 	<p>
 	This idea that we can enlarge an independent set by including a new vector in a new direction works in abstract vector spaces as well, as we will see in

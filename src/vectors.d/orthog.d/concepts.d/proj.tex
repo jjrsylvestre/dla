@@ -15,15 +15,20 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
+	% line slope 1/8, perp slope = -8
+	\coordinate (l1) at (-0.8,-0.1);
+	\coordinate (l2) at (4.5,0.5625);
+	\draw[dashed] (l1) to node[below,at end] {$\ell$} (l2);
 
-	\draw[dashed] (-1,-0.5) to node[below right,at end] {$\ell$} (4.5,2.25);
 	\node[point] at (0,0) (o) [label=below:{$O$}] {};
-	\node[point] at (3,3) (p) [label=above:{$Q$}] {};
-	\node[point] at (3.6,1.8) (f) [label=below:{$P$}] {};
-	\draw[vector,thick] (o) to node[above left] {$\uvec{u}$} (3,3);
-	\draw[vector,thick] (o) to node[below right] {$\uvec{a}$} (2,1);
-	\draw[vector] (o) to node[below right,near end] {$\uvec{p}$} (3.6,1.8);
-	\draw[vector] (3.6,1.8) to node[right,near end] {$\uvec{n}$} (3,3);
-	\draw (3.4,1.7) to (3.3,1.9) to (3.5,2);
+	\node[point] at (3.5,1.5) (u) [label=above:{$Q$}] {};
+	\node[point] at (3.631,0.454) (p) [label=below:{$P$}] {};
+	\draw[vector,thick] (o) to node[above,near end] {$\uvec{u}$} (u);
+	\draw[vector,thick] (o) to node[below right] {$\uvec{a}$} (2.5,0.3125); % parallel to (2,0.25)
+	\draw[vector] (o) to node[below right,near end] {$\uvec{p}$} (p);
+	\draw[vector] (p) to node[right] {$\uvec{n}$} (u);
+
+	% perp square
+	\draw (3.594,0.752) to (3.296,0.714) to (3.333,0.417);
 
 \end{tikzpicture}

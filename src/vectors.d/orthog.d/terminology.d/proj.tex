@@ -15,14 +15,25 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-	\draw[dashed] (-1,-0.5) to (4.5,2.25);
-	\node[point] at (0,0) (o) [label=below:{$\zerovec$}] {};
-	\draw[vector,thick] (o) to node[above left] {$\uvec{u}$} (3,3);
-	\draw[vector,thick] (o) to node[below right] {$\uvec{a}$} (2,1);
-	\draw[vector] (o) to node[below right,near end] {$\proj_{\uvec{a}}\uvec{u}$} (3.6,1.8);
-	\draw[vector] (3.6,1.8) to node[right,near end] {$\uvec{u} - \proj_{\uvec{a}}\uvec{u}$} (3,3);
-	\draw (3.4,1.7) to (3.3,1.9) to (3.5,2);
-	% normal vector is over -0.6, up 1.2
-	\draw[densely dotted,->] (2.6,2.6) to (3.1,1.6);
+	\coordinate (o) at (0,0);
+	% line slope 1/8, perp slope = -8
+	\coordinate (l1) at (-1,-0.125);
+	\coordinate (l2) at (5,0.625);
+	\coordinate (a) at (2.5,0.3125); % parallel to (2,0.25)
+	\coordinate (u) at (3.5,2); % u-vector slope 4/7
+	\coordinate (p) at (3.692,0.462);
+
+	\draw[dashed] (l1)  to (l2);
+	\node[point] at (o) [label=below:{$\zerovec$}] {};
+	\draw[vector,thick] (o) to node[above,near end] {$\uvec{u}$} (u);
+	\draw[vector,thick] (o) to node[below right] {$\uvec{a}$} (a);
+	\draw[vector] (o) to node[below,at end] {$\uproj{u}{a}$} (p);
+	\draw[vector] (p) to node[right,near end] {$\uvec{u} - \uproj{u}{a}$} (u);
+
+	% perp square
+	\draw (3.667,0.662) to (3.467,0.637) to (3.492,0.437);
+
+	% "projection" arrow
+	\draw[densely dotted,->] (3.1,1.714) to (3.25,0.5);
 
 \end{tikzpicture}

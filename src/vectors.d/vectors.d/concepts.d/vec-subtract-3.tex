@@ -14,17 +14,15 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.55
 ]
-	\node[point] at (0,0) (o) [label=above left:{$O$}] {};
+	\node[point] at (0,0) (o) [label=below:{$O$}] {};
 	\node[point] at (2,3) (p) [label=above:{$P$}] {};
-	\node[point] at (5,2) (p2) [label=right:{$P'$}] {};
-	\node[point] at (3,-1) (r) [label=below right:{$R$}] {};
+	\node[point] at (3,-1) (q) [label=below right:{$Q$}] {};
+	\node[point] at (5,2) (p2) [label=above right:{$P'$}] {};
 	\draw[vector] (o) to node[above left] {$\uvec{u}$} (p);
-	% \draw[vector,dashed] (o) to node[left] {$-\uvec{u}$} (-2,-3);
-	% \draw[vector,dashed] (r) to node[right] {$-\uvec{u}$} (1,-4);
-	\draw[vector] (o) to node[above] {$\uvec{v}$} (r);
-	% \draw[vector,dashed] (o) to node[above,sloped] {$\uvec{v} - \uvec{u}$} (1,-4);
-	\draw[vector] (p) to node[above,sloped] {$\uvec{v} - \uvec{u}$} (r);
+	\draw[vector] (o) to node[below] {$\uvec{v}$} (q);
+	\draw[vector] (p) to node[above,sloped] {$\uvec{v} - \uvec{u}$} (q);
+	\draw[vector,dashed] (p2) to node[below right] {$- \uvec{u}$} (q);
 	\draw[vector,dashed] (p) to node[above] {$\uvec{v}$} (p2);
-	\draw[vector,dashed] (p2) to node[right] {$-\uvec{u}$} (r);
 \end{tikzpicture}

@@ -14,18 +14,19 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.7
 ]
-	\node[point] at (0,0) (p)   [label=below:$P$] {};
+	\node[point] at (0,0) (p)   [label=left:$P$] {};
 	\node[point] at (2,3) (q)   [label={[xshift=-0.1cm,yshift=0.05cm]below right:$Q$}] {};
 	\node[point] at (4,6) (q2)  [label=left:$Q'$] {};
 	\node[point] at (5,3) (r)   [label={[xshift=-0.1cm]above:$R$}] {};
 	\node[point] at (7,6) (s)   [label={[xshift=0.05cm]below:$S$}] {};
-	\node[point] at (10,6) (r2) [label=below:$R'$] {};
-	\draw[vector] (p.east) to node[below,near end, sloped] {$\uvec{u}$} (q.south east);
+	\node[point] at (10,6) (r2) [label=right:$R'$] {};
+	\draw[vector] (p.east) to node[below,sloped,xshift=0.4cm] {$\uvec{u}$} (q.south east);
 	\draw[vector] (q.east) to node[below,sloped] {$\uvec{u}$} (q2.south east);
 	\draw[vector] (p.north west) to node[above,sloped] {$2 \uvec{u}$} (q2.west);
 	\draw[vector] (q) to node[above] {$\uvec{v}$} (r);
-	\draw[vector] (p.north east) to node[above,sloped] {$\uvec{u} + \uvec{v}$} (r.west);
+	\draw[vector] (p.north east) to node[above,sloped,xshift=0.75cm] {$\uvec{u} + \uvec{v}$} (r.west);
 	\draw[vector] (r.north east) to node[above,sloped] {$\uvec{u} + \uvec{v}$} (r2.west);
 	\draw[vector] (q2.south east) to node[below,xshift=-0.25cm] {$\uvec{v}$} (s.south west);
 	\draw[vector] (s.south east) to node[below,xshift=-0.25cm] {$\uvec{v}$} (r2.south west);

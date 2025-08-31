@@ -36,19 +36,22 @@ we will attempt to make any matrix <term>similar</term> to a diagonal one.
 		(Remember, <em>order matters in matrix multiplication</em>, so in general <m>\inv{P}AP \neq A</m>.)
 		</p><p>
 		As an example,
-		consider
-		<me> D = \begin{abmatrix}{rrr} 3 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0 \amp 0 \amp -1 \end{abmatrix}. </me>
+		consider the diagonal matrix <m>D</m> below.
 		We will leave <m>A</m> and <m>P</m> unspecified for now,
-		but think of <m>P</m> as a collection of column vectors:
-		<me>
-			P = \begin{bmatrix}
+		but think of <m>P</m> as a collection of column vectors.
+		<md><mrow>
+			D \amp =
+			\begin{abmatrix}{rrr} 3 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0 \amp 0 \amp -1 \end{abmatrix}
+			\amp
+			P \amp = \begin{bmatrix}
 				| \amp | \amp | \\
 				\uvec{p}_1 \amp \uvec{p}_2 \amp \uvec{p}_3 \\
 				| \amp | \amp |
-			\end{bmatrix}.
-		</me>
-		Multiplying both sides of <m>\inv{P}AP = D</m> on the left by <m>P</m>,
-		we could instead write <m>AP = PD</m>.
+			\end{bmatrix}
+		</mrow></md>
+		Our goal is to understand how <m>\inv{P} A P = D</m> might be possible,
+		but multiplying on the left by <m>P</m> yields <m>A P = P D</m>,
+		and equivalent equality that will be simpler to analyze.
 		</p>
 	</introduction>
 	<task xml:id="activity-diagonalization-diag-analysis-matrix-mult">

@@ -58,6 +58,8 @@ the vector <m>\uvec{x}_0</m> corresponds to the particular solution for <m>t=0</
 and we can think of its terminal point as a <q>base</q> point on the line.
 When we vary the value of the parameter <m>t</m>, we get solutions that are vector sums of the base point <m>\uvec{x}_0</m> and scalar multiples of <m>\uvec{p}</m>.
 Geometrically, these vector sums all involve tacking some scaled copy of <m>\uvec{p}</m> onto the end of <m>\uvec{x}_0</m>.
+The terminal points of all such vectors <m>\uvec{x}</m> trace out the line parallel to <m>\uvec{p}</m> that passes through the terminal point of <m>\uvec{x}_0</m>.
+Since <m>\uvec{p}</m> is parallel to the line, we might think of <m>\uvec{p}</m> as a <q>direction</q> vector for the line.
 </p>
 
 <figure>
@@ -115,11 +117,6 @@ Geometrically, these vector sums all involve tacking some scaled copy of <m>\uve
 	</image>
 </figure>
 
-<p>
-The terminal points of all such vectors <m>\uvec{x}</m> trace out the line parallel to <m>\uvec{p}</m> that passes through the terminal point of <m>\uvec{x}_0</m>.
-Since <m>\uvec{p}</m> is parallel to the line, we might think of <m>\uvec{p}</m> as a <q>direction</q> vector for the line.
-</p>
-
 </subsection>
 
 
@@ -151,16 +148,6 @@ and required <em>two</em> parameters to solve.
 We then used matrix algebra to express the general solution as a linear combination of column matrices,
 where the parameters appeared as coefficients.
 We can do this for any such linear equation.
-</p>
-
-<p>
-Similarly to the vector description of a line, a parametric vector expression
-<me> \uvec{x} = \uvec{x}_0 + s \uvec{p}_1 + t \uvec{p}_2 </me>
-can be interpreted as follows.
-The terminal point of the vector <m>\uvec{x}_0</m> is an <q>base</q> point on the plane,
-corresponding to parameter values <m>s=0</m> and <m>t=0</m>.
-The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are parallel to the plane.
-Similarly to the vector description of a line, as we vary the values of <m>s</m> and <m>t</m> we obtain other points on the plane by tacking on <em>linear combinations</em> of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to the end of <m>\uvec{x}_0</m>.
 </p>
 
 <figure xml:id="figure-system-geom-concepts-parametrized-plane-1">
@@ -227,6 +214,16 @@ Similarly to the vector description of a line, as we vary the values of <m>s</m>
 	</image>
 </figure>
 
+<p>
+Similarly to the vector description of a line, a parametric vector expression
+<me> \uvec{x} = \uvec{x}_0 + s \uvec{p}_1 + t \uvec{p}_2 </me>
+can be interpreted as follows.
+The terminal point of the vector <m>\uvec{x}_0</m> is an <q>base</q> point on the plane,
+corresponding to parameter values <m>s=0</m> and <m>t=0</m>.
+The vectors <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> are parallel to the plane.
+Similarly to the vector description of a line, as we vary the values of <m>s</m> and <m>t</m> we obtain other points on the plane by tacking on <em>linear combinations</em> of <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to the end of <m>\uvec{x}_0</m>.
+</p>
+
 </subsection>
 
 
@@ -253,7 +250,7 @@ it would just need a different <q>base point</q> vector <m>\uvec{x}_0</m>.
 
 <figure>
 	<caption> Parameterization of a line via a parallel vector. </caption>
-	<image width="92.3%">
+	<image width="97.3%">
 		<latex-image label="image-system-geom-concepts-parametrized-line-2">
 			<xi:include href="concepts.d/parametrized-line-2.tex" parse="text" />
 		</latex-image>
@@ -289,7 +286,7 @@ representing our <m>xy</m>-coordinate system and setting up a grid as in <xref r
 		Recovering the Cartesian coordinate system of the plane via linear combinations of the standard basis vectors.
 		Vertical grid lines appear at multiples of <m>\uvec{e}_1</m>, and horizontal grid lines appear at multiples of <m>\uvec{e}_2</m>.
 	</caption>
-	<image width="45%">
+	<image width="49.4%">
 		<latex-image label="image-system-geom-concepts-standard-basis-R2-grid">
 			<xi:include href="concepts.d/standard-basis-R2-grid.tex" parse="text" />
 		</latex-image>
@@ -382,52 +379,42 @@ Then every other point in the plane could be constructed as a linear combination
 
 		<row bottom="medium" valign="middle">
 			<cell> line in <m>\R^2</m> </cell>
-			<cell> <m>ax+by = c</m> </cell>
-			<cell>
-				<p><md>
-					<mrow>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</mrow>
-					<mrow>\text{where } \uvec{n} = (a,b)</mrow>
-				</md></p>
-			</cell>
-			<cell> <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> </cell>
+			<cell><m> a x + b y = c </m></cell>
+			<cell><p>
+				<m> \dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0 </m>
+				where <m>\uvec{n} = (a,b)</m>
+			</p></cell>
+			<cell><m> \uvec{x} = \uvec{x}_0 + t \uvec{p} </m></cell>
 
 		</row>
 
 		<row bottom="medium" valign="middle">
 			<cell> plane in <m>\R^3</m> </cell>
-			<cell> <m>ax+by+cz = d</m> </cell>
-			<cell>
-				<p><md>
-					<mrow>\dotprod{\uvec{n}}{(\uvec{x}-\uvec{x}_0)} = 0</mrow>
-					<mrow>\text{where } \uvec{n} = (a,b,c)</mrow>
-				</md></p>
-			</cell>
-			<cell> <m>\uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2</m> </cell>
+			<cell><m> a x + b y + c z = d </m></cell>
+			<cell><p>
+				<m> \dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0 </m>
+				where <m> \uvec{n} = (a,b,c) </m>
+			</p></cell>
+			<cell><m> \uvec{x} = \uvec{x}_0 + s \uvec{p}_1 + t \uvec{p}_2 </m></cell>
 		</row>
 
 		<row bottom="medium" valign="middle">
 			<cell> line in <m>\R^3</m> </cell>
-			<cell>
-				<p><md>
-					<mrow>\text{intersection of}</mrow>
-					<mrow>\text{planes}</mrow>
-					<mrow>a_1x+b_1y+c_1z = d_1</mrow>
-					<mrow>\text{and}</mrow>
-					<mrow>a_2x+b_2y+c_2z = d_2</mrow>
-				</md></p>
-			</cell>
-			<cell>
-				<p><md>
-					<mrow> \text{common } \uvec{x} </mrow>
-					<mrow> \text{that satisfy} </mrow>
-					<mrow> \dotprod{\uvec{n}_1}{(\uvec{x}-\uvec{x}_0)} = 0 </mrow>
-					<mrow> \text{and} </mrow>
-					<mrow> \dotprod{\uvec{n}_2}{(\uvec{x}-\uvec{x}_0)} = 0 </mrow>
-					<mrow> \text{where} </mrow>
-					<mrow> \uvec{n}_1 = (a_1,b_1,c_1), </mrow>
-					<mrow> \uvec{n}_2 = (a_2,b_2,c_2) </mrow>
-				</md></p>
-			</cell>
+			<cell><p>
+				intersection of planes
+				<m> a_1 x + b_1 y + c_1 z = d_1 </m>
+				and
+				<m> a_2 x + b_2 y + c_2 z = d_2 </m>
+			</p></cell>
+			<cell><p>
+				common <m>\uvec{x}</m> that satisfy
+				<m> \dotprod{\uvec{n}_1}{(\uvec{x} - \uvec{x}_0)} = 0 </m>
+				and
+				<m> \dotprod{\uvec{n}_2}{(\uvec{x} - \uvec{x}_0)} = 0 </m>
+				where
+				<m> \uvec{n}_1 = (a_1,b_1,c_1) </m>,
+				<m> \uvec{n}_2 = (a_2,b_2,c_2) </m>
+			</p></cell>
 			<cell> <m>\uvec{x} = \uvec{x}_0 + t\uvec{p}</m> </cell>
 		</row>
 

@@ -164,19 +164,18 @@ respective owners.
 
 <exercise>
 
-	<task>
-		<statement><p><m>\displaystyle \begin{bmatrix} 2 \end{bmatrix} + \begin{bmatrix} 5 \end{bmatrix} </m></p></statement>
-		<answer>
-			<p><m>\displaystyle \begin{bmatrix} 7 \end{bmatrix} </m></p>
-			<p><alert>Note.</alert> The result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
-		</answer>
-	</task>
+	<statement><p><m>\displaystyle \begin{bmatrix} 2 \end{bmatrix} + \begin{bmatrix} 5 \end{bmatrix} </m></p></statement>
 
-	<task>
-		<statement><p><m>\displaystyle \begin{bmatrix} 2 \end{bmatrix} + \begin{bmatrix} 5 \amp 5 \end{bmatrix} </m></p></statement>
-		<answer><p> <alert>Undefined.</alert> Addition requires matrices of the same dimensions. </p></answer>
-	</task>
+	<answer>
+		<p><m>\displaystyle \begin{bmatrix} 7 \end{bmatrix} </m></p>
+		<p><alert>Note.</alert> The result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
+	</answer>
 
+</exercise>
+
+<exercise>
+	<statement><p><m>\displaystyle \begin{bmatrix} 2 \end{bmatrix} + \begin{bmatrix} 5 \amp 5 \end{bmatrix} </m></p></statement>
+	<answer><p> <alert>Undefined.</alert> Addition requires matrices of the same dimensions. </p></answer>
 </exercise>
 
 <!-- negative -->
@@ -362,171 +361,177 @@ respective owners.
 
 <!-- multiplication -->
 
-<exercise>
+<exercise xml:id="exercise-matrix-ops-matrix-arithmetic-1x2-x-2x1-first">
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{bmatrix} 3 \amp 4 \end{bmatrix}
-			\begin{bmatrix} 1  \\  3 \end{bmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} 15 \end{bmatrix} </m></p></answer>
-	</task>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix} 3 \amp 4 \end{bmatrix}
+		\begin{bmatrix} 1  \\  3 \end{bmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} 15 \end{bmatrix} </m></p></answer>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rr} 2 \amp -5 \end{abmatrix}
-			\begin{bmatrix}      1  \\   3 \end{bmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} -13 \end{bmatrix} </m></p></answer>
-	</task>
+</exercise>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rr}
-				3 \amp  4 \\
-				2 \amp -5
-			\end{abmatrix}
-			\begin{bmatrix} 1  \\  3 \end{bmatrix}
-		</m></p></statement>
-		<hint><p> Consider the relationship between this matrix multiplication and the two matrix products you have already computed in this exercise. </p></hint>
-		<answer><p><m>\displaystyle \begin{abmatrix}{r} 15 \\ -13 \end{abmatrix} </m></p></answer>
-	</task>
-
+<exercise xml:id="exercise-matrix-ops-matrix-arithmetic-1x2-x-2x1-second">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr} 2 \amp -5 \end{abmatrix}
+		\begin{bmatrix}      1  \\   3 \end{bmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} -13 \end{bmatrix} </m></p></answer>
 </exercise>
 
 <exercise>
 
-	<task>
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			3 \amp  4 \\
+			2 \amp -5
+		\end{abmatrix}
+		\begin{bmatrix} 1  \\  3 \end{bmatrix}
+	</m></p></statement>
 
-		<statement><p><m>\displaystyle
-			\begin{bmatrix} 3 \amp 4 \amp 0 \end{bmatrix}
-			\begin{bmatrix} 1  \\  3 \end{bmatrix}
-		</m></p></statement>
+	<hint><p>
+		Compare with the matrix products in
+		<xref
+			first="exercise-matrix-ops-matrix-arithmetic-1x2-x-2x1-first"
+			last="exercise-matrix-ops-matrix-arithmetic-1x2-x-2x1-second"
+			text="type-local"
+		>Exercises</xref>.
+	</p></hint>
 
-		<answer><p>
-			<alert>Undefined.</alert>
-			The row matrix has more entries than the column matrix,
-			so we cannot carry out the <em>multiply-then-add</em> procedure of matrix multiplication.
-		</p></answer>
-
-	</task>
-
-	<task>
-
-		<statement><p><m>\displaystyle
-			\begin{bmatrix} 3 \amp 4 \end{bmatrix}
-			\begin{bmatrix} 1  \\  3 \\ 0 \end{bmatrix}
-		</m></p></statement>
-
-		<answer><p>
-			<alert>Undefined.</alert>
-			The row matrix has fewer entries than the column matrix,
-			so we cannot carry out the <em>multiply-then-add</em> procedure of matrix multiplication.
-		</p></answer>
-
-	</task>
+	<answer><p><m>\displaystyle \begin{abmatrix}{r} 15 \\ -13 \end{abmatrix} </m></p></answer>
 
 </exercise>
 
-<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-1">
+<exercise>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr} 2 \amp -5 \amp -2 \end{abmatrix}
-			\begin{abmatrix}{r}   3  \\  -3  \\   2 \end{abmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} 17 \end{bmatrix} </m></p></answer>
-	</task>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix} 3 \amp 4 \amp 0 \end{bmatrix}
+		\begin{bmatrix} 1  \\  3 \end{bmatrix}
+	</m></p></statement>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr} -4 \amp  5 \amp 4 \end{abmatrix}
-			\begin{abmatrix}{r}    3  \\  -3  \\  2 \end{abmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} -19 \end{bmatrix} </m></p></answer>
-	</task>
-
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr} 1 \amp  3 \amp -5 \end{abmatrix}
-			\begin{abmatrix}{r}   3  \\  -3  \\   2 \end{abmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} -16 \end{bmatrix} </m></p></answer>
-	</task>
-
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr}
-				 2 \amp -5 \amp -2 \\
-				-4 \amp  5 \amp  4 \\
-				 1 \amp  3 \amp -5
-			\end{abmatrix}
-			\begin{abmatrix}{r} 3 \\ -3 \\ 2 \end{abmatrix}
-		</m></p></statement>
-		<hint><p> Consider the relationship between this matrix multiplication task and the three matrix products you have already computed in this exercise. </p></hint>
-		<answer><p><m>\displaystyle \begin{abmatrix}{r} 17 \\ -19 \\ -16 \end{abmatrix} </m></p></answer>
-	</task>
+	<answer><p>
+		<alert>Undefined.</alert>
+		The row matrix has more entries than the column matrix,
+		so we cannot carry out the <em>multiply-then-add</em> procedure of matrix multiplication.
+	</p></answer>
 
 </exercise>
 
-<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-2">
+<exercise>
 
-	<introduction><p>
-		<alert>Note.</alert>
-		You should complete <xref ref="exercise-matrix-ops-mult-three-rows-against-same-column-1" text="type-local" /> before completing this exercise.
-	</p></introduction>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix} 3 \amp 4 \end{bmatrix}
+		\begin{bmatrix} 1  \\  3 \\ 0 \end{bmatrix}
+	</m></p></statement>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr} 2 \amp -5 \amp -2 \end{abmatrix}
-			\begin{abmatrix}{r}   2  \\  -1  \\  -3 \end{abmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} 15 \end{bmatrix} </m></p></answer>
-	</task>
+	<answer><p>
+		<alert>Undefined.</alert>
+		The row matrix has fewer entries than the column matrix,
+		so we cannot carry out the <em>multiply-then-add</em> procedure of matrix multiplication.
+	</p></answer>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr} -4 \amp  5 \amp  4 \end{abmatrix}
-			\begin{abmatrix}{r}    2  \\  -1  \\  -3 \end{abmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} -25 \end{bmatrix} </m></p></answer>
-	</task>
+</exercise>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr} 1 \amp  3 \amp -5 \end{abmatrix}
-			\begin{abmatrix}{r}   2  \\  -1  \\  -3 \end{abmatrix}
-		</m></p></statement>
-		<answer><p><m>\displaystyle \begin{bmatrix} 14 \end{bmatrix} </m></p></answer>
-	</task>
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-1-first">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr} 2 \amp -5 \amp -2 \end{abmatrix}
+		\begin{abmatrix}{r}   3  \\  -3  \\   2 \end{abmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} 17 \end{bmatrix} </m></p></answer>
+</exercise>
 
-	<task>
-		<statement><p><m>\displaystyle
-			\begin{abmatrix}{rrr}
-				 2 \amp -5 \amp -2 \\
-				-4 \amp  5 \amp  4 \\
-				 1 \amp  3 \amp -5
-			\end{abmatrix}
-			\begin{abmatrix}{rr}
-				 3 \amp  2 \\
-				-3 \amp -1 \\
-				 2 \amp -3
-			\end{abmatrix}
-		</m></p></statement>
-		<hint><p>
-			Consider the relationship between this matrix multiplication task,
-			the final matrix multiplication task in <xref ref="exercise-matrix-ops-mult-three-rows-against-same-column-1" text="type-local" />,
-			and the three matrix products you have already computed in this exercise.
-		</p></hint>
-		<answer><p><m>\displaystyle
-			\begin{abmatrix}{rr}
-				 17 \amp  15 \\
-				-19 \amp -25 \\
-				-16 \amp  14
-			\end{abmatrix}
-		</m></p></answer>
-	</task>
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-1-second">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr} -4 \amp  5 \amp 4 \end{abmatrix}
+		\begin{abmatrix}{r}    3  \\  -3  \\  2 \end{abmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} -19 \end{bmatrix} </m></p></answer>
+</exercise>
 
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-1-third">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr} 1 \amp  3 \amp -5 \end{abmatrix}
+		\begin{abmatrix}{r}   3  \\  -3  \\   2 \end{abmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} -16 \end{bmatrix} </m></p></answer>
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-1-combine">
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 2 \amp -5 \amp -2 \\
+			-4 \amp  5 \amp  4 \\
+			 1 \amp  3 \amp -5
+		\end{abmatrix}
+		\begin{abmatrix}{r} 3 \\ -3 \\ 2 \end{abmatrix}
+	</m></p></statement>
+
+	<hint><p>
+		Compare with the three matrix products in
+		<xref
+			first="exercise-matrix-ops-mult-three-rows-against-same-column-1-first"
+			last="exercise-matrix-ops-mult-three-rows-against-same-column-1-third"
+			text="type-local"
+		>Exercises</xref>.
+	</p></hint>
+
+	<answer><p><m>\displaystyle \begin{abmatrix}{r} 17 \\ -19 \\ -16 \end{abmatrix} </m></p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-2-first">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr} 2 \amp -5 \amp -2 \end{abmatrix}
+		\begin{abmatrix}{r}   2  \\  -1  \\  -3 \end{abmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} 15 \end{bmatrix} </m></p></answer>
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-2-second">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr} -4 \amp  5 \amp  4 \end{abmatrix}
+		\begin{abmatrix}{r}    2  \\  -1  \\  -3 \end{abmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} -25 \end{bmatrix} </m></p></answer>
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-2-third">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr} 1 \amp  3 \amp -5 \end{abmatrix}
+		\begin{abmatrix}{r}   2  \\  -1  \\  -3 \end{abmatrix}
+	</m></p></statement>
+	<answer><p><m>\displaystyle \begin{bmatrix} 14 \end{bmatrix} </m></p></answer>
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-mult-three-rows-against-same-column-2-combine">
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 2 \amp -5 \amp -2 \\
+			-4 \amp  5 \amp  4 \\
+			 1 \amp  3 \amp -5
+		\end{abmatrix}
+		\begin{abmatrix}{rr}
+			 3 \amp  2 \\
+			-3 \amp -1 \\
+			 2 \amp -3
+		\end{abmatrix}
+	</m></p></statement>
+	<hint><p>
+		Compare with the matrix products in
+		<xref
+			first="exercise-matrix-ops-mult-three-rows-against-same-column-1-combine"
+			last="exercise-matrix-ops-mult-three-rows-against-same-column-2-third"
+			text="type-local"
+		>Exercises</xref>.
+	</p></hint>
+	<answer><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			 17 \amp  15 \\
+			-19 \amp -25 \\
+			-16 \amp  14
+		\end{abmatrix}
+	</m></p></answer>
 </exercise>
 
 <exercise>
@@ -630,46 +635,42 @@ respective owners.
 
 <exercise>
 
-	<task>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix} -2 \end{bmatrix}
+		\begin{bmatrix}  5 \end{bmatrix}
+	</m></p></statement>
 
-		<statement><p><m>\displaystyle
-			\begin{bmatrix} -2 \end{bmatrix}
-			\begin{bmatrix}  5 \end{bmatrix}
-		</m></p></statement>
+	<answer>
+		<p><m>\displaystyle \begin{bmatrix} -10 \end{bmatrix} </m></p>
+		<p><alert>Note.</alert> The result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
+	</answer>
 
-		<answer>
-			<p><m>\displaystyle \begin{bmatrix} -10 \end{bmatrix} </m></p>
-			<p><alert>Note.</alert> The result is a <em><m>1 \times 1</m> matrix</em>, not simply a scalar (number). </p>
-		</answer>
+</exercise>
 
-	</task>
+<exercise>
 
-	<task>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix} -2 \end{bmatrix}
+		\begin{bmatrix} 5 \amp 5 \end{bmatrix}
+	</m></p></statement>
 
-		<statement><p><m>\displaystyle
-			\begin{bmatrix} -2 \end{bmatrix}
-			\begin{bmatrix} 5 \amp 5 \end{bmatrix}
-		</m></p></statement>
+	<answer>
+		<p><m>\displaystyle \begin{bmatrix} -10 \amp -10 \end{bmatrix} </m></p>
+	</answer>
 
-		<answer>
-			<p><m>\displaystyle \begin{bmatrix} -10 \amp -10 \end{bmatrix} </m></p>
-		</answer>
+</exercise>
 
-	</task>
+<exercise>
 
-	<task>
+	<statement><p><m>\displaystyle
+		\begin{bmatrix} -2 \end{bmatrix}
+		\begin{bmatrix} 5 \\ 5 \end{bmatrix}
+	</m></p></statement>
 
-		<statement><p><m>\displaystyle
-			\begin{bmatrix} -2 \end{bmatrix}
-			\begin{bmatrix} 5 \\ 5 \end{bmatrix}
-		</m></p></statement>
-
-		<answer>
-			<p> <alert>Undefined.</alert> The first matrix has only one column while the second matrix has two rows. </p>
-			<p> <alert>Note.</alert> This operation is <em>NOT</em> the same as scalar multiplication. </p>
-		</answer>
-
-	</task>
+	<answer>
+		<p> <alert>Undefined.</alert> The first matrix has only one column while the second matrix has two rows. </p>
+		<p> <alert>Note.</alert> This operation is <em>NOT</em> the same as scalar multiplication. </p>
+	</answer>
 
 </exercise>
 

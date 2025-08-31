@@ -32,7 +32,7 @@
 	% parallel vector
 	\coordinate (u) at (5.25,3,-1.125);
 	% external vector
-	\coordinate (v) at (2,2,2);
+	\coordinate (v) at (2,2,1.5);
 
 	% fill/border for plane
 	\filldraw[opacity=0.25,gray] (P1) to (P2) to (P3) to (P4) to cycle;
@@ -44,6 +44,8 @@
 	\draw[vector] (o) to node[sloped,above,near end,xshift=0.5cm]
 		{$\uvec{u}$ {\tiny (linearly dependent with $\uvec{p}_1,\uvec{p}_2$)}}
 		(u);
-	\draw[vector] (o) to node[below right,near end] {$\uvec{v}$ {\tiny (linearly independent from $\uvec{p}_1,\uvec{p}_2$)}} (v);
+
+	% indep vector
+	\draw[vector] (o) to node[right,at end,yshift=-0.1cm] {$\uvec{v}$ {\tiny (linearly independent from $\uvec{p}_1,\uvec{p}_2$)}} (v);
 
 \end{tikzpicture}

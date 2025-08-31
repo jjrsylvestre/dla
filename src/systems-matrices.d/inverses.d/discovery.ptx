@@ -91,28 +91,29 @@ respective owners.
 		so we would also like to have them in matrix algebra.
 	</p></prelude>
 
-	<task>
+	<task xml:id="activity-inverses-intro-to-inverse-invertible">
 		<p>
-		Consider <me> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 2 \end{abmatrix} </me>.
-		Can you determine
-		<me> B = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
-		so that <m>BA = I</m>?
-		If so, check that <m> AB = I</m> also.
+		Consider specific matrix <m>A</m> and general matrix <m>B</m> below.
+		Can you determine specific numbers for the entries of <m>B</m> so that <m>B A = I</m>?
+		If so, check that <m>A B = I</m> also.
+		<md><mrow>
+			A \amp = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 2 \end{abmatrix}
+			\amp
+			B \amp = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+		</mrow></md>
 		</p>
 		<aside><title>Solve, don't guess</title><p>
 			Don't just guess at matrix <m>B</m>,
 			use the definition of
-			<term>matrix equality</term>
-			applied to <m>BA</m> and <m>I</m> to set up equations and try to solve for unknown entries
+			<term><xref ref="definition-matrix-ops-equal-matrices" text="title" /></term>
+			applied to <m>B A</m> and <m>I</m> to set up equations and try to solve for unknown entries
 			<m>a,b,c,d</m>.
 		</p></aside>
 	</task>
 
 	<task xml:id="activity-inverses-intro-to-inverse-singular"><p>
-		Consider <me> A = \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}. </me>
-		Can you determine
-		<me> B = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
-		so that <m>BA = I</m>?
+		Repeat <xref ref="activity-inverses-intro-to-inverse-singular" text="type-local" />
+		for matrix <me> A = \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>.
 	</p></task>
 
 	<postlude>
@@ -262,11 +263,13 @@ respective owners.
 	<em>Use matrix algebra</em>
 	(not row reducing!)
 	to solve the system
-	<m>A\uvec{x} = \uvec{b}</m>
-	for
-	<me> \uvec{b} = \begin{abmatrix}{r} -1 \\ 1 \\ 3 \end{abmatrix}. </me>
-	Now use the same method to solve the system <m>A\uvec{x} = \uvec{b}</m> for
-	<me> \uvec{b} = \begin{abmatrix}{r} -2 \\ 0 \\ 2 \end{abmatrix}. </me>
+	<m>A \uvec{x} = \uvec{b}</m>
+	for each column matrix <m>\uvec{b}</m> below in turn.
+	<md><mrow>
+		\uvec{b} \amp = \begin{abmatrix}{r} -1 \\ 1 \\ 3 \end{abmatrix}
+		\amp
+		\uvec{b} \amp = \begin{abmatrix}{r} -2 \\ 0 \\ 2 \end{abmatrix}
+	</mrow></md>
 </p></activity>
 
 <activity xml:id="activity-inverses-unique-sol-when-invertible-coeff-matrix">

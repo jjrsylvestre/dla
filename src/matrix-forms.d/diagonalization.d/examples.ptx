@@ -60,43 +60,43 @@ respective owners.
 	Therefore, we will need two linearly independent eigenvectors from <m>E_{\lambda_1}(A)</m> and one more from <m>E_{\lambda_2}(A)</m>.
 	</p><p>
 	We determine eigenspace bases by row reducing, assigning parameters, and extracting basis vectors.
-	Here are the results for this matrix:
-	<md><mrow>
-		(-1)I - A \amp=
+	Here are the results for this matrix.
+	<me>
+		(-1)I - A =
 		\begin{abmatrix}{rrr}
 			0 \amp -9 \amp 0 \\
 			0 \amp -3 \amp 0 \\
 			0 \amp  3 \amp 0
 		\end{abmatrix}
-		\amp \amp\rowredarrow \amp
-		\amp\begin{bmatrix}
+		\qquad \rowredarrow \qquad
+		\begin{bmatrix}
 			0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</mrow></md>
+	</me>
 	<me>
 		\implies \qquad
 		E_{\lambda_1}(A) =
-		\Span\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix} \right\},
+		\Span\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix} \right\}
 	</me>
-	<md><mrow>
-		2I - A \amp=
+	<me>
+		2I - A =
 		\begin{abmatrix}{rrr}
 			3 \amp -9 \amp 0 \\
 			0 \amp 0 \amp 0 \\
 			0 \amp 3 \amp 3
 		\end{abmatrix}
-		\amp \amp\rowredarrow \amp
-		\amp\begin{bmatrix}
+		\qquad \rowredarrow \qquad
+		\begin{bmatrix}
 			1 \amp 0 \amp 3 \\
 			0 \amp 1 \amp 1 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</mrow></md>
+	</me>
 	<me>
 		\implies \qquad
-		E_{\lambda_2}(A) = \Span\left\{ \begin{abmatrix}{r}-3 \\ -1 \\ 1\end{abmatrix} \right\}.
+		E_{\lambda_2}(A) = \Span\left\{ \begin{abmatrix}{r}-3 \\ -1 \\ 1\end{abmatrix} \right\}
 	</me>
 	Notice that <m>\dim\bbrac{E_{\lambda_1}(A)} = 2</m>,
 	so geometric multiplicity equals algebraic multiplicity for <m>\lambda_1</m>.
@@ -139,24 +139,22 @@ respective owners.
 	</me>.
 	Finally,
 	note that we could have analyzed the eigenvalues in the opposite order,
-	in which case we would have formed transition matrix
-	<me>
-		Q =
+	in which case we would have formed the following transition matrix and corresponding diagonal form matrix.
+	<md><mrow>
+		Q \amp =
 		\begin{abmatrix}{rrr}
 			-3 \amp 1 \amp 0 \\
 			-1 \amp 0 \amp 0 \\
 			 1 \amp 0 \amp 1
 		\end{abmatrix}
-	</me>,
-	obtaining diagonal form matrix
-	<me>
-		\inv{Q}AQ =
+		\amp
+		\inv{Q}AQ \amp =
 		\begin{abmatrix}{rrr}
 			2 \amp  0 \amp 0 \\
 			0 \amp -1 \amp 0 \\
 			0 \amp 0 \amp -1
 		\end{abmatrix}
-	</me>.
+	</mrow></md>
 	</p>
 </statement></example>
 
@@ -167,39 +165,39 @@ respective owners.
 	so we can see directly that the eigenvalues are <m>\lambda_1 = -1</m> with algebraic multiplicity <m>2</m>,
 	and <m>\lambda_2 = 2</m> with algebraic multiplicity <m>1</m>.
 	Analyze the eigenspaces:
-	<md><mrow>
-		(-1)I - A \amp=
+	<me>
+		(-1)I - A =
 		\begin{abmatrix}{rrr}
 			0 \amp -1 \amp  0 \\
 			0 \amp  0 \amp  0 \\
 			0 \amp  0 \amp -3
 		\end{abmatrix}
-		\amp \amp\rowredarrow \amp
-		\amp\begin{bmatrix}
+		\qquad \rowredarrow \qquad
+		\begin{bmatrix}
 			0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 1 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</mrow></md>
+	</me>
 	<me>
 		\implies \qquad
 		E_{\lambda_1}(A) =
 		\Span\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \right\},
 	</me>
-	<md><mrow>
-		2I - A \amp=
+	<me>
+		2I - A =
 		\begin{abmatrix}{rrr}
 			3 \amp -1 \amp 0 \\
 			0 \amp  3 \amp 0 \\
 			0 \amp  0 \amp 0
 		\end{abmatrix}
-		\amp \amp\rowredarrow \amp
-		\amp\begin{bmatrix}
+		\qquad \rowredarrow \qquad
+		\begin{bmatrix}
 			1 \amp 0 \amp 0 \\
 			0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</mrow></md>
+	</me>
 	<me>
 		\implies \qquad
 		E_{\lambda_2}(A) = \Span\left\{ \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \right\}.

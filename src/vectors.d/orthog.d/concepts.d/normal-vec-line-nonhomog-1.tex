@@ -14,14 +14,15 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.85
 ]
 
-	\draw[->] (-3.5,0) to (5,0) node[below right] {$x$};
-	\draw[->] (0,-0.5) to (0,5.75) node[above right] {$y$};
+	\draw[->] (-0.8,0) to (5,0) node[below] {$x$};
+	\draw[->] (0,-0.4) to (0,5.2) node[right] {$y$};
 
-	\draw[dashed] (-3.5,5) to node[above,very near start,sloped] {$2x+3y=8$} (4.5,-0.333);
+	\draw[dashed] (-0.8,3.2) to node[above,very near start,sloped,xshift=0.12cm] {$2x+3y=8$} (4.5,-0.333);
 	\node[point] at (1,2) (q) [label=right:{$\quad Q(1,2)$}] {};
-	\node[point] at (4,0) (r) [label=above right:{$R(4,0)$}] {};
+	\node[point] at (4,0) (r) [label={[xshift=-0.25cm]above right:{$R(4,0)$}}] {};
 	\node[point] at (3,5) (t) [label=right:{$T(3,5)$}] {};
 	\draw[vector,thick] (q) to node[below left] {$\uvec{p}$} (r);
 	\draw[vector,thick] (q) to node[below right] {$\uvec{n}$} (3,5);

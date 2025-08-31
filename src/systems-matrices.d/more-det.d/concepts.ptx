@@ -253,13 +253,14 @@ The we can repeatedly use our rule <xref ref="equation-more-det-concepts-multipl
 		\amp= (\det M)(\det N),
 	</mrow>
 </md>
-with justifications
-<ol marker="(i)">
-	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E = E_1</m> and <m>A = E_2 E_3 N</m>; </li>
-	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E = E_2</m> and <m>A = E_3 N</m>; </li>
-	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E = E_3</m> and <m>A = N</m>; </li>
-	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E = E_2</m> and <m>A = E_3</m>; and </li>
-	<li> apply rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/> with <m>E = E_1</m> and <m>A = E_2 E_3</m>. </li>
+where each of the labelled steps are achieved by an application of Rule <xref ref="equation-more-det-concepts-multiplicative-elem-version"/>,
+but with different choices of elementary matrix <m>E</m> and matrix <m>A</m>:
+<ol marker="(i)" cols="2">
+	<li> <m>E = E_1</m> and <m>A = E_2 E_3 N</m>. </li>
+	<li> <m>E = E_2</m> and <m>A = E_3 N</m>.     </li>
+	<li> <m>E = E_3</m> and <m>A = N</m>.         </li>
+	<li> <m>E = E_2</m> and <m>A = E_3</m>.       </li>
+	<li> <m>E = E_1</m> and <m>A = E_2 E_3</m>.   </li>
 </ol>
 Of course, this sort of calculation could be repeated no matter how many elementary matrices went into a product expression for <m>M</m>.
 So we can make our final statement of the last subsection a little stronger:
@@ -319,14 +320,14 @@ In more sophisticated mathematical language, we say that the determinant functio
 <p>
 In <xref ref="activity-more-det-det-inv" />,
 we used the fact that the determinant is multiplicative to investigate the relationship between the determinants of an invertible matrix and its inverse.
-By definition of inverse, we have <m>A \inv{A} = I</m>.
-Since the product <m>A \inv{A}</m> is the same matrix as the identity, it must have the same determinant, so <me>\det (A \inv{A}) = 1</me>
-(<xref ref="proposition-det-special-forms-identity">Statement</xref>
+By the definition of inverse,
+we have <m>A \inv{A} = I</m>,
+and so using
+<xref ref="proposition-det-special-forms-identity">Statement</xref>
 of
-<xref ref="proposition-det-special-forms" />).
-</p>
-
-<p>
+<xref ref="proposition-det-special-forms" />
+we obtain
+<me>\det (A \inv{A}) = \det I = 1</me>.
 As well, we know that <m>\det A \neq 0</m>, since <m>A</m> is invertible.
 So,
 <md>

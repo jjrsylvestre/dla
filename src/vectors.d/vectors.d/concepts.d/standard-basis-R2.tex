@@ -15,12 +15,19 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-	\draw[->] (-1,0) to (2,0) node[below right] {$x$};
-	\draw[->] (0,-1) -- (0,2) node[above right] {$y$};
+
+	% want to control width of image because it's in a sidebyside with another,
+	% and want the captions to be wider
+	\draw[very thin,color=black!5!white] (-1.8,1.7) to (-1.8,1.9) to (-1.6,1.9);
+	\draw[very thin,color=black!5!white] (2.8,-0.3) to (2.8,-0.5) to (2.6,-0.5);
+
+	\draw[->] (-0.5,0) to (1.75,0) node[below] {$x$};
+	\draw[->] (0,-0.5) -- (0,1.75) node[left] {$y$};
 
 	\node[point] at (0,0) (o) [label=below left:{$(0,0)$}] {};
-	\node[point] at (1,0) (e1) [label=above right:{$(1,0)$}] {};
-	\node[point] at (0,1) (e2) [label=above right:{$(0,1)$}] {};
+	\node[point] at (1,0) (e1) [label={[xshift=-0.25cm]above right:{$(1,0)$}}] {};
+	\node[point] at (0,1) (e2) [label={[yshift=-0.2cm]above right:{$(0,1)$}}] {};
 	\draw[vector,very thick] (0,0) to node[below, near end] {$\uvec{e}_1$} (e1);
 	\draw[vector,very thick] (0,0) to node[left, near end] {$\uvec{e}_2$} (e2);
+
 \end{tikzpicture}

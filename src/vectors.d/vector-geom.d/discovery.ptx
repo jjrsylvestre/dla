@@ -114,14 +114,14 @@ respective owners.
 		Is <m>\zerovec</m> the only vector that has this value for its norm?
 	</p></task>
 
-	<task><p>
-		Complete the formulas:
-		<ul>
-			<li> <m>\norm{2\uvec{v}} = <fillin characters="2" />\unorm{v}</m> </li>
-			<li> <m>\norm{-2\uvec{v}} = <fillin characters="2" />\unorm{v}</m> </li>
-			<li> <m>\norm{k\uvec{v}} = <fillin characters="2" />\unorm{v}</m> </li>
-		</ul>
-	</p></task>
+	<task>
+		<title> Complete the formulas </title>
+		<p><md><mrow>
+			\norm{ 2 \uvec{v}} \amp = <fillin characters="2" /> \unorm{v} \amp
+			\norm{-2 \uvec{v}} \amp = <fillin characters="2" /> \unorm{v} \amp
+			\norm{ k \uvec{v}} \amp = <fillin characters="2" /> \unorm{v}
+		</mrow></md></p>
+	</task>
 
 </activity>
 
@@ -160,24 +160,31 @@ respective owners.
 
 <activity>
 
-	<prelude><p>
+	<prelude>
+		<p>
 		Recall that in math we measure angles in <em>radians</em>.
-		Here are some common conversions:
-		<!-- TODO when supported by PreTeXt, change these to proper <quantity> elements -->
-		<md>
-			<mrow>
-				\degree{30} \amp= \pi/6\;\;\mathrm{rad},
-				\amp
-				\degree{90} \amp= \pi/2\;\;\mathrm{rad},
-			</mrow><mrow>
-				\degree{45} \amp= \pi/4\;\;\mathrm{rad},
-				\amp
-				\degree{180} \amp= \pi\;\;\mathrm{rad}.
-			</mrow><mrow>
-				\degree{60} \amp= \pi/3\;\;\mathrm{rad},
-			</mrow>
-		</md>
-	</p></prelude>
+		Here are some common conversions.
+		</p>
+		<!-- TODO if/when supported by PreTeXt, change these to proper <quantity> elements -->
+		<tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+			<row>
+				<cell>Degrees</cell>
+				<cell><m>\degree{30} </m></cell>
+				<cell><m>\degree{45} </m></cell>
+				<cell><m>\degree{60} </m></cell>
+				<cell><m>\degree{90} </m></cell>
+				<cell><m>\degree{180}</m></cell>
+			</row>
+			<row>
+				<cell>Radians</cell>
+				<cell><m>\pi/6</m></cell>
+				<cell><m>\pi/4</m></cell>
+				<cell><m>\pi/3</m></cell>
+				<cell><m>\pi/2</m></cell>
+				<cell><m>\pi  </m></cell>
+			</row>
+		</tabular>
+	</prelude>
 
 	<task><p>
 		In the <m>xy</m>-plane, what is the angle between <m>\uvec{e}_1</m> and <m>\uvec{e}_2</m>?
@@ -189,8 +196,8 @@ respective owners.
 	</p></task>
 
 	<task><title>Fill in the blanks</title><p>
-		an angle <m>\theta</m> between a pair of two-dimensional vectors should satisfy
-		<m> <fillin characters="2" /> \le \theta \le <fillin characters="2" /> </m>.
+		<m> <fillin characters="2" /> \le \theta \le <fillin characters="2" /> </m>
+		for angle <m>\theta</m> between a pair of two-dimensional vectors
 	</p></task>
 
 </activity>
@@ -205,30 +212,38 @@ respective owners.
 		just as you did in <xref ref="activity-vector-geom-vec-distance" />.
 		</p>
 
-		<image width="34.4%">
-			<latex-image label="image-vector-geom-discovery-law-of-cosines">
-				<xi:include href="discovery.d/law-of-cosines.tex" parse="text" />
-			</latex-image>
-			<shortdescription> Vector diagram for the law of cosines. </shortdescription>
-			<description><p>
-				A diagram to assist in exploring the law of cosines via vector geometry.
-				Three directed line segments are arranged in a triangular configuration.
-				One directed line segment representing a vector labelled <m>\uvec{u}</m> extends steeply upwards and slightly rightwards from a point in the lower-left corner to a point at the top of the diagram.
-				A second directed line segment representing a vector labelled <m>\uvec{v}</m> extends rightwards and slightly upwards from the same initial point as <m>\uvec{u}</m> in the lower-left corner to a point at the right edge of the diagram.
-				A third directed line segment representing an unnamed vector compeletes the triangle,
-				extending from the terminal point of <m>\uvec{v}</m> to the terminal point of <m>\uvec{u}</m>.
-				Finally,
-				the angle formed by <m>\uvec{u}</m> and <m>\uvec{v}</m> in the lower-left corner is labelled <m>\theta</m>.
-			</p></description>
-		</image>
+		<sidebyside widths="18.5% 75%" margins="0%" valign="middle">
+
+			<image>  <!--  width="18.5%" -->
+				<latex-image label="image-vector-geom-discovery-law-of-cosines">
+					<xi:include href="discovery.d/law-of-cosines.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Vector diagram for the law of cosines. </shortdescription>
+				<description><p>
+					A diagram to assist in exploring the law of cosines via vector geometry.
+					Three directed line segments are arranged in a triangular configuration.
+					One directed line segment representing a vector labelled <m>\uvec{u}</m> extends steeply upwards and slightly rightwards from a point in the lower-left corner to a point at the top of the diagram.
+					A second directed line segment representing a vector labelled <m>\uvec{v}</m> extends rightwards and slightly upwards from the same initial point as <m>\uvec{u}</m> in the lower-left corner to a point at the right edge of the diagram.
+					A third directed line segment representing an unnamed vector compeletes the triangle,
+					extending from the terminal point of <m>\uvec{v}</m> to the terminal point of <m>\uvec{u}</m>.
+					Finally,
+					the angle formed by <m>\uvec{u}</m> and <m>\uvec{v}</m> in the lower-left corner is labelled <m>\theta</m>.
+				</p></description>
+			</image>
+
+			<p>
+			There is a version of Pythagoras that applies here even though <m>\theta\neq\degree{90}</m>,
+			called <term>the law of cosines</term>:
+			<me> a^2 + b^2 - c^2 = 2ab\cos\theta </me>.
+			</p>
+
+		</sidebyside>
 
 		<p>
-		There is a version of Pythagoras that applies here even though <m>\theta\neq\degree{90}</m>,
-		called <term>the law of cosines</term>:
-		<me> a^2 + b^2 - c^2 = 2ab\cos\theta </me>,
-		where <m>a</m> is the length of <m>\uvec{u}</m>,
-		<m>b</m> is the length of <m>\uvec{v}</m>,
-		and <m>c</m> is the length of the <q>hypotenuse</q> across from <m>\theta</m>.
+		Applied to our diagram,
+		<m>a</m> represents the length of <m>\uvec{u}</m>,
+		<m>b</m> represents the length of <m>\uvec{v}</m>,
+		and <m>c</m> represents the length of the <q>hypotenuse</q> across from <m>\theta</m>.
 		(If <m>\theta</m> were <m>\degree{90}</m>,
 		the right-hand side of this equality would be zero and this law would <q>collapse</q> to the same equality as Pythagoras.)
 		</p>
@@ -236,8 +251,8 @@ respective owners.
 		<p>
 		Use the formulas from <xref ref="activity-vector-geom-norm-formula" />
 		to rewrite the left-hand side of the law of cosines in terms of the components of <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>,
-		then simplify until you get
-		<me>2\times(\text{simple formula})</me>.
+		then simplify.
+		You should eventually arrive at <m>\text{LHS} = 2 \times (\text{simple formula})</m>.
 		</p>
 
 	</statement>

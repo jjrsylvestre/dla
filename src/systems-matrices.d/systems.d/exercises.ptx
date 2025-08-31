@@ -44,7 +44,7 @@ respective owners.
 
 </exercise>
 
-<exercise>
+<exercisegroup cols="2">
 	<title>Testing equation solutions</title>
 
 	<introduction><p>
@@ -55,7 +55,7 @@ respective owners.
 		<me>-4 x + y + 9 z = 3</me>.
 	</p></introduction>
 
-	<task>
+	<exercise>
 		<statement><p><m>x = 2, y = 2, z = 1</m>.</p></statement>
 		<solution><p>
 			Substitute the variable values into the left-hand side of the equation and compute
@@ -69,9 +69,9 @@ respective owners.
 			As this collection of variable values satisfy the equation,
 			it does constitute a solution of the equation.
 		</p></solution>
-	</task>
+	</exercise>
 
-	<task>
+	<exercise>
 		<statement><p><m>x = 1, y = -2, z = 2</m>.</p></statement>
 		<solution><p>
 			Substitute the variable values into the left-hand side of the equation and compute
@@ -85,11 +85,11 @@ respective owners.
 			As this collection of variable values does not satisfy the equation,
 			it does not constitute a solution of the equation.
 		</p></solution>
-	</task>
+	</exercise>
 
-</exercise>
+</exercisegroup>
 
-<exercise>
+<exercisegroup cols="2">
 	<title>Testing system solutions</title>
 
 	<introduction>
@@ -115,7 +115,7 @@ respective owners.
 
 	</introduction>
 
-	<task>
+	<exercise>
 		<statement><p><m>x = 2, y = 2, z = 1</m>.</p></statement>
 		<solution><p>
 			Substitute the variable values into each of the left-hand side of the equations and compute
@@ -143,9 +143,9 @@ respective owners.
 			As this collection of variable values simultaneously satisfies all equations in the system,
 			it does constitute a solution of the system.
 		</p></solution>
-	</task>
+	</exercise>
 
-	<task>
+	<exercise>
 		<statement><p><m>x = -2, y = 4, z = -1</m>.</p></statement>
 		<solution><p>
 			Substitute the variable values into each of the left-hand side of the equations and compute
@@ -167,12 +167,82 @@ respective owners.
 			as we may already conclude that this collection of variable values does not simultaneously satisfy all equations in the system.
 			Therefore, it does not constitute a solution of the system.
 		</p></solution>
-	</task>
+	</exercise>
 
-</exercise>
+</exercisegroup>
 
-<!-- Exercise group -->
-<xi:include href="./exercises.d/guess-eqn-solns.ptx" />
+<exercisegroup cols="2">
+	<title>Guessing equation solutions</title>
+
+	<introduction><p> For each equation, determine four specific solutions. </p></introduction>
+
+	<exercise>
+		<statement><p><m> 2 x + 3 y = 5 </m></p></statement>
+		<solution>
+			<p>
+			There are no restrictions on the value of the <m>y</m> variable,
+			so we may choose its value to be anything we like and then determine the corresponding <m>x</m>-value.
+			For example,
+			when <m>y = -1</m> we have
+			<md>
+				<mrow> 2 x + 3 \cdot (-1) \amp = 5 </mrow>
+				<mrow> 2 x - 3 \amp = 5 </mrow>
+				<mrow> 2 x \amp = 5 + 3 </mrow>
+				<mrow> 2 x \amp = 8 </mrow>
+				<mrow> x \amp = 4 </mrow>
+			</md>.
+			Thus <m>x = 4, y = -1</m> is a specific solution to the equation.
+			Here is a list of that solution and three others obtained by choosing other values for <m>y</m> and then solving for the corresponding <m>x</m> value,
+			just as above.
+			<ol cols="2">
+				<li><m>x = 4, y = -1</m></li>
+				<li><m>x = 1, y = 1</m></li>
+				<li><m>x = 5 / 2, y = 0</m></li>
+				<li><m>x = 2, y = 1/3</m></li>
+			</ol>
+			</p>
+			<aside><title>Remark</title><p>
+				There was no particular reasoning behind our choices of values for <m>y</m>,
+				other than to keep the choices simple.
+				Any real values could have been chosen.
+			</p></aside>
+		</solution>
+	</exercise>
+
+	<exercise>
+		<statement><p><m> 3 x - 4 y + z = -6 </m></p></statement>
+		<solution>
+			<p>
+			There are no restrictions on the value of either the <m>y</m> or <m>z</m> variable <mdash />
+			we may choose any combination of values for these two variables and then determine the corresponding <m>x</m>-value.
+			For example,
+			when <m>y = 1</m> and <m>z = 0</m> we have
+			<md>
+				<mrow> 3 x - 4 \cdot 1 + 0 \amp = -6 </mrow>
+				<mrow> 3 x - 4 \amp = -6 </mrow>
+				<mrow> 3 x \amp = -6 + 4 </mrow>
+				<mrow> 3 x \amp = -2 </mrow>
+				<mrow> x \amp = - 2 / 3 </mrow>
+			</md>.
+			Thus, <m>x = - 2 / 3, y = 1, z = 0</m> is a specific solution to the equation.
+			Here is a list of that solution and three others obtained by choosing other combinations of values for <m>y</m> and <m>z</m> and then solving for the corresponding <m>x</m> value,
+			just as above.
+			<ol cols="2">
+				<li><m>x = - 2 / 3, y = 1, z = 0</m></li>
+				<li><m>x = -7 / 3, y = 0, z = 1</m></li>
+				<li><m>x = -2, y = 0, z = 0</m></li>
+				<li><m>x = -1, y = 1, z = 1</m></li>
+			</ol>
+			</p>
+			<aside><title>Remark</title><p>
+				There was no particular reasoning behind our choices of combinations of values for <m>y</m> and <m>z</m>,
+				other than to keep the choices simple.
+				Any real values could have been chosen.
+			</p></aside>
+		</solution>
+	</exercise>
+
+</exercisegroup>
 
 <!-- Exercise group -->
 <xi:include href="./exercises.d/solve-by-intersecting-lines.ptx" />

@@ -16,15 +16,15 @@
 	vector/.style={-latex},
 ]
 	\node[point] at (0,0) (o) {};
-	\draw[vector] (o.north) to node[below right,at end] {$\uvec{u}_1$} ++(45:2cm);
-	\draw[vector] (o.east) to node[above left] {$\uvec{v}_1$} ++(45:3cm);
-	\node at (0,-0.5) {$\theta = 0\;\mathrm{rad}$};
-	\begin{scope}[xshift=6cm,yshift=0.75cm]
+	\draw[vector] (o.north) to node[above,near end] {$\uvec{u}_1$} ++(15:2cm);
+	\draw[vector] (o.east) to node[below,at end,yshift=-0.1cm] {$\uvec{v}_1$} ++(15:3cm);
+	\node at (-1,0) {$\theta = 0\;\mathrm{rad}$};
+	\begin{scope}[xshift=6.5cm,yshift=0.5cm]
 		\node[point] at (0,0) (o) {};
-		\draw[vector] (o) to node[above left, near end] {$\uvec{u}_2$} ++(45:1.5cm);
-		\draw[vector] (o) to node[below right] {$\uvec{v}_2$} ++(225:2cm);
+		\draw[vector] (o) to node[above left, near end] {$\uvec{u}_2$} ++(15:1.5cm);
+		\draw[vector] (o) to node[below right,near end] {$\uvec{v}_2$} ++(195:2.5cm);
 		%	\node at (0.5,0) {$\theta = \pi\;\mathrm{rad}$};
-		\draw (0,0) ++(55:0.25cm) arc (55:215:0.25cm) node[above left,near end]
+		\draw (0,0) ++(15:0.25cm) arc (20:190:0.25cm) node[above left,midway]
 			{$\theta = \pi\;\mathrm{rad}$};
 	\end{scope}
 \end{tikzpicture}

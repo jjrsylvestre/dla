@@ -31,13 +31,26 @@ Here we will concentrate on computational patterns involving diagonal and upper 
 (Computations involving lower triangular matrices are similar.)
 </p>
 
+<!-- TODO would be nice to put computations in a tabular but get a weird "\omit" error? -->
 <example><title>Matrix operations involving diagonal matrices</title><p>
-	Let's look at each of a sum, product, power, and inverse involving diagonal matrices, in the <m>3\times 3</m> case.
+
+	Let's look at each of a sum, scalar multiple, product, power, and inverse involving diagonal matrices, in the <m>3\times 3</m> case.
+
 	<me>
+		\text{Sum:}\qquad
 		\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}
 		+ \begin{abmatrix}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{abmatrix}
 		= \begin{bmatrix} 5 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 9 \end{bmatrix}
-	</me><me>
+	</me>
+
+	<me>
+		\text{Scale:}\qquad
+		5 \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp  2 \amp 0 \\ 0 \amp 0 \amp  3 \end{bmatrix}
+		= \begin{bmatrix} 5 \amp 0 \amp 0 \\ 0 \amp 10 \amp 0 \\ 0 \amp 0 \amp 15 \end{bmatrix}
+	</me>
+
+	<me>
+		\text{Product:}\qquad
 		\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}
 		\begin{abmatrix}{rrr} 4 \amp 0 \amp 0 \\ 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \end{abmatrix}
 		= \begin{abmatrix}{rrr}
@@ -45,14 +58,21 @@ Here we will concentrate on computational patterns involving diagonal and upper 
 			0 \amp -4 \amp 0 \\
 			0 \amp 0 \amp 18
 		\end{abmatrix}
-	</me><me>
+	</me>
+
+	<me>
+		\text{Power:}\qquad
 		\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}^2
 		= \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 4 \amp 0 \\ 0 \amp 0 \amp 9 \end{bmatrix}
 		= \begin{bmatrix} 1^2 \amp 0 \amp 0 \\ 0 \amp 2^2 \amp 0 \\ 0 \amp 0 \amp 3^2 \end{bmatrix}
-	</me><me>
+	</me>
+
+	<me>
+		\text{Inverse:}\qquad
 		\inv{\begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}}
 		= \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp \frac{1}{2} \amp 0 \\ 0 \amp 0 \amp \frac{1}{3} \end{bmatrix}
 	</me>
+
 </p></example>
 
 <p>
@@ -70,8 +90,11 @@ We have some of the same patterns for upper and lower triangular matrices, at le
 We'll demonstrate with some upper triangular example computations.
 </p>
 
+<!-- TODO would be nice to put computations in a tabular but get a weird "\omit" error? -->
 <example><title>Basic matrix operations involving upper triangular matrices</title><p>
+
 	<me>
+		\text{Sum:}\qquad
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
 		+
 		\begin{abmatrix}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{abmatrix}
@@ -81,7 +104,19 @@ We'll demonstrate with some upper triangular example computations.
 			0 \amp 0 \amp 9
 		\end{bmatrix}
 	</me>
+
+	<me>
+		\text{Scale:}\qquad
+		5 \begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
+		= \begin{bmatrix}
+			5 \amp  5 \amp  5 \\
+			0 \amp 10 \amp  5 \\
+			0 \amp  0 \amp 15
+		\end{bmatrix}
+	</me>
+
 	<md><mrow>
+		\text{Product:}\qquad
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
 		\begin{abmatrix}{rrr} 4 \amp 1 \amp 1 \\ 0 \amp -2 \amp 1 \\ 0 \amp 0 \amp 6 \end{abmatrix}
 		\amp = \begin{bmatrix}
@@ -96,7 +131,9 @@ We'll demonstrate with some upper triangular example computations.
 			0 \amp 0 \amp 18
 		\end{abmatrix}
 	</mrow></md>
+
 	<md><mrow>
+		\text{Power:}\qquad
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}^2
 		\amp = \begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
 		\begin{bmatrix} 1 \amp 1 \amp 1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp 3 \end{bmatrix}
@@ -111,6 +148,7 @@ We'll demonstrate with some upper triangular example computations.
 	</mrow><mrow>
 		\amp = \begin{bmatrix} 1^2 \amp 3 \amp 5 \\ 0 \amp 2^2 \amp 5 \\ 0 \amp 0 \amp 3^2 \end{bmatrix}
 	</mrow></md>
+
 </p></example>
 
 <p>

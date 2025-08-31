@@ -18,42 +18,45 @@ respective owners.
 
 <title>Discovery guide</title>
 
-<assemblage><title>Reminder</title><p>
-The effects of the elementary row operations on the determinant are:
-<dl width="narrow">
-	<li><title>swapping rows</title>
-		<p><m>\det(\text{new}) = -\det(\text{old})</m>;</p>
-	</li>
-	<li><title>multiplying a row by constant <m>k</m></title>
-		<p><m>\det(\text{new}) = k\det(\text{old})</m>;</p>
-	</li>
-	<li><title>adding a multiple of one row to another</title>
-		<p><m>\det(\text{new}) = \det(\text{old})</m>.</p>
-	</li>
-</dl>
-</p></assemblage>
+<assemblage><title>Reminder</title>
+	<p> The effects of the elementary row operations on the determinant are:</p>
+	<tabular row-headers="yes">
+		<row>
+			<cell>Swap rows</cell>
+			<cell><m>\det(\text{new}) = -\det(\text{old})</m></cell>
+		</row>
+		<row>
+			<cell>Multiply a row by constant <m>k</m></cell>
+			<cell><m>\det(\text{new}) = k\det(\text{old})</m></cell>
+		</row>
+		<row>
+			<cell>Add a multiple of one row to another</cell>
+			<cell><m>\det(\text{new}) = \det(\text{old})</m></cell>
+		</row>
+	</tabular>
+</assemblage>
 
 <activity xml:id="activity-more-det-adjoint">
 	<introduction><p>
-		Consider the general <m>3\times 3</m> matrix
-		<me>
-			A = \begin{bmatrix}
-				a_{11} \amp a_{12} \amp a_{13} \\
-				a_{21} \amp a_{22} \amp a_{23} \\
-				a_{31} \amp a_{32} \amp a_{33}
-			\end{bmatrix}
-		</me>.
+		Consider the general <m>3\times 3</m> matrix <m>A</m> (below left).
 		Each entry <m>a_{ij}</m> has a corresponding cofactor <m>C_{ij}</m>, creating a
 		<term>matrix of cofactors</term>
 		<idx><h>matrix</h><h>of cofactors</h></idx>
 		<idx><h>cofactor</h><h>matrix</h></idx>
-		<me>
-			C_A = \begin{bmatrix}
+		<m>C_A</m> (below right).
+		<md><mrow>
+			A \amp = \begin{bmatrix}
+				a_{11} \amp a_{12} \amp a_{13} \\
+				a_{21} \amp a_{22} \amp a_{23} \\
+				a_{31} \amp a_{32} \amp a_{33}
+			\end{bmatrix}
+			\amp
+			C_A \amp = \begin{bmatrix}
 				C_{11} \amp C_{12} \amp C_{13} \\
 				C_{21} \amp C_{22} \amp C_{23} \\
 				C_{31} \amp C_{32} \amp C_{33}
 			\end{bmatrix}
-		</me>.
+		</mrow></md>
 		The <alert>transpose</alert> of this matrix is called the (classical)
 		<term>adjoint</term>
 		<idx><h>adjoint</h><h>classical</h></idx>
