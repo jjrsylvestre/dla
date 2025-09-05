@@ -1,0 +1,690 @@
+/******************************/
+/********** Colours ***********/
+/******************************/
+:root {
+	--yellow1: #ffeb00;
+	--yellow2: #ffdf00;
+	--yellow3: #ffd000;
+	--yellow4: #ffd700;
+	--light-yellow: #fcf6a4;
+	--main-green: #006400;
+	--dark-green: #003200;
+}
+
+/**********************************/
+/********** General CSS ***********/
+/**********************************/
+body {
+	font-family: 'Montserrat', sans-serif;
+	color: var(--dark-green);
+	font-weight: 400;
+	background: white;
+}
+
+a {
+	color: var(--main-green);
+	font-weight: 900;
+	transition: 0.5s;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #000000;
+	outline: none;
+	text-decoration: none;
+}
+
+p {
+	color: var(--dark-green);
+	padding: 0;
+	margin: 0 0 15px 0;
+}
+
+.para-header {
+	font-weight: bolder;
+	margin-right: 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+	color: var(--dark-green);
+	margin: 0 0 15px 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	font-weight: 700;
+}
+
+
+
+/**********************************/
+/***** Layout & Section Title *****/
+/**********************************/
+.main-wrapper {
+	padding: 0;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+	background: var(--main-green);
+	overflow: hidden;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.container .col-lg-5 {
+	background: var(--main-green);
+}
+
+.container .col-lg-7 {
+	background: white;
+}
+
+.section-title {
+	padding: 0 15px;
+	text-align: right;
+}
+
+.section-title h2 {
+	font-size: 50px;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+.section-title-1 h2 {
+	color: var(--yellow1);
+}
+
+.section-title-2 h2 {
+	color: var(--yellow2);
+}
+
+.section-title p {
+	font-size: 22px;
+	font-weight: 600;
+	color: white;
+	margin: 0;
+}
+
+@media(max-width: 992px) {
+	.section-title {
+		padding: 30px 15px;
+		text-align: left;
+	}
+}
+
+@media(max-width: 568px) {
+	.main-wrapper {
+		margin: 0;
+		border-radius: 0;
+	}
+
+	.section-title {
+		padding: 30px 0;
+	}
+
+	.section-title h2 {
+		font-size: 40px;
+		letter-spacing: 0;
+	}
+
+	.section-title p {
+		font-size: 18px;
+		font-weight: 400;
+	}
+}
+
+
+
+/**********************************/
+/******* Layout Background ********/
+/**********************************/
+.header .header-content,
+.book-links .book-links-content,
+.contact .contact-content {
+	margin: 0 -15px;
+	padding: 90px 30px;
+	background: var(--yellow1);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-attachment: fixed;
+}
+
+.about .about-content,
+.resources #accordion {
+	margin: 0 -15px;
+	padding: 90px 30px;
+	background: var(--yellow2);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-attachment: fixed;
+}
+
+@media(max-width: 568px) {
+	.header .header-content,
+	.book-links .book-links-content,
+	.contact .contact-content,
+	.about .about-content,
+	.resources #accordion {
+		padding: 60px 15px;
+	}
+}
+
+
+
+/**********************************/
+/********** Header Style **********/
+/**********************************/
+.header .header-content h3 {
+	font-size: 40px;
+	color: var(--main-green);
+}
+
+.header .header-content > ul {
+	margin: 0 0 25px 0;
+	padding: 0;
+	list-style: none;
+}
+
+.header .header-content > ul > li {
+	font-size: 25px;
+	margin: 0 0 5px 20px;
+}
+
+.header .header-content > ul > li::before {
+	position: absolute;
+	content: "\f105";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	color: var(--main-green);
+	left: 32px;
+}
+
+@media(max-width: 568px) {
+	.header .header-content > ul > li::before {
+		left: 16px;
+	}
+}
+
+.header .header-content .btn {
+	padding: 6px 20px;
+	font-size: 22px;
+	color: var(--yellow4);
+	background: var(--main-green);
+}
+
+.header .header-content .btn:hover {
+	color: var(--main-green);
+	background: white;
+}
+
+.header .header-content .btn i {
+	margin-right: 8px;
+}
+
+.header .header-content ul.topics {
+	list-style: square;
+}
+
+
+/**********************************/
+/******** Header Nav Style ********/
+/**********************************/
+.header-nav {
+	position: relative;
+	margin-left: -15px;
+	width: calc(100% + 30px);
+	overflow: hidden;
+}
+
+.header-nav .navbar {
+	background: var(--dark-green) !important;
+}
+
+.header-nav.nav-sticky .navbar {
+	position: fixed;
+	top: 0;
+	overflow: hidden;
+	background: var(--dark-green) !important;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+	z-index: 999;
+}
+
+.header-nav .navbar-dark .nav-link {
+	color: white;
+}
+
+.header-nav .navbar-dark .nav-link:focus,
+.header-nav .navbar-dark .nav-link:hover,
+.header-nav .navbar-dark .nav-link.active {
+	color: var(--yellow4);
+}
+
+@media(min-width: 992px) {
+	.header-nav .navbar-brand {
+		display: none;
+	}
+}
+
+
+
+/*************************************/
+/********* Book Links Style **********/
+/*************************************/
+.book-links .book-links-content {
+	text-align: center;
+}
+
+.book-links .book-links-extra-content h3,
+.book-links .book-links-extra-content p,
+.book-links .book-links-extra-content ul {
+	text-align: left;
+}
+
+.book-links .book-links-extra-content ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.book-links .book-links-extra-content ul li {
+	margin: 0 0 5px 20px;
+}
+
+.book-links .book-links-extra-content ul li::before {
+	position: absolute;
+	content: "\f105";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	color: var(--main-green);
+	left: 32px;
+}
+
+.book-links .book-links-content .row {
+	margin-bottom: 30px;
+}
+
+.book-links .book-links-content .row:last-child {
+	margin-bottom: 0px;
+}
+
+.book-links .book-links-item i {
+	font-size: 60px;
+	margin-bottom: 10px;
+}
+
+.book-links .book-links-item h3 {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.book-links .book-links-item p {
+	margin-bottom: 0;
+}
+
+.book-links .book-links-item img.ptx {
+	width: 75px;
+}
+
+.book-links .book-links-item img.fa-pdf {
+	width: 75px;
+}
+
+.book-links .book-links-item img.fa-github {
+	width: 75px;
+}
+
+/*
+@media (max-width: 767.98px) {
+	.book-links .book-links-item img {
+		margin: 30px 0;
+	}
+}
+*/
+
+@media(max-width: 568px) {
+	.book-links .book-links-extra-content > ul > li::before {
+		left: 16px;
+	}
+}
+
+
+/***************************************/
+/*********** Resources Style ***********/
+/***************************************/
+.resources .card {
+	margin-bottom: 15px;
+	border: none;
+	border-radius: 0;
+}
+
+.resources .card:last-child {
+	margin-bottom: 0;
+}
+
+.resources .card-header {
+	padding: 0;
+	border: none;
+	background: var(--main-green);
+}
+
+.resources .card-header span {
+	display: block;
+	float: left;
+	width: 50px;
+	height: auto;
+	padding: 15px 0;
+	text-align: center;
+	color: var(--yellow3);
+	background: var(--main-green);
+}
+
+.resources .card-header a {
+	display: block;
+	float: right;
+	width: calc(100% - 50px);
+	padding: 15px;
+	font-size: 16px;
+	font-weight: 400;
+	background: var(--yellow3);
+}
+
+.resources .card-header [data-toggle="collapse"]:after {
+	font-family: 'font Awesome 5 Free';
+	content: "\f107";
+	float: right;
+	margin-right: 15px;
+	color: var(--main-green);
+	font-size: 14px;
+	font-weight: 900;
+	transition: .3s;
+}
+
+.resources .card-header [data-toggle="collapse"][aria-expanded="true"]:after {
+	font-family: 'font Awesome 5 Free';
+	content: "\f106";
+	float: right;
+	margin-right: 15px;
+	color: var(--main-green);
+	font-size: 14px;
+	font-weight: 900;
+	transition: .3s;
+}
+
+.resources .card-body {
+	background: var(--main-green);
+}
+
+.resources .card-body,
+.resources .card-body p {
+	color: white;
+}
+
+.resources .card-body h5,
+.resources .card-body h6,
+.resources .card-body .semester-header,
+.resources .card-body .para-header {
+	color: var(--yellow1);
+}
+
+.resources .card-body,
+.resources .card-body p {
+	font-size: 16px;
+	font-weight: 400;
+	border: none;
+}
+
+.resources .card-body .fa-file-zipper {
+	font-size: 32pt;
+	color: var(--yellow1);
+}
+
+.resources .card-body div.icon-link {
+	display: grid;
+	grid-template-columns: 10% 90%;
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+
+@media(max-width: 568px) {
+	.resources .card-body div.icon-link {
+		column-gap: 15px;
+	}
+}
+
+.resources .card-body div.icon-link a {
+	grid-row: span 2;
+}
+
+.resources .btn {
+	margin: 10px 0 15px 0;
+	font-size: 18px;
+	color: var(--main-green);
+	background: var(--yellow3);
+	border-color:var(--yellow1);
+}
+
+.resources .btn:hover {
+	/* color: var(--main-green); */
+	border-color:var(--yellow3);
+	background: white;
+}
+
+.resources .btn:active {
+	color: white !important;
+	border-color:var(--yellow3) !important;
+	background: var(--main-green) !important;
+}
+
+.resources .semester-header {
+	font-style: italic;
+	margin-right: 0.5em;
+}
+
+.resources .code {
+	font: 14px courier;
+}
+
+
+/*********************************************/
+/*********** Resources Modal Style ***********/
+/*********************************************/
+
+.resources h5.modal-title {
+	color: var(--main-green);
+}
+
+.resources .modal-body .para-header {
+	color: black;
+}
+
+.resources .modal-body td {
+	vertical-align: top;
+}
+
+.resources .modal-body th {
+	white-space: nowrap;
+	font-weight: bold;
+	vertical-align: top;
+	padding-right: 15px;
+}
+
+.resources .modal-body table:not(.practise,.videos) th,
+.resources .modal-body table:not(.practise,.videos) th+td,
+.resources .modal-body table.practise tr.chapter th,
+.resources .modal-body table.practise tr.chapter td,
+.resources .modal-body table.videos tr.chapter th,
+.resources .modal-body table.videos tr.chapter td {
+	padding-top: 10px;
+}
+
+.resources .modal-body td.quiz {
+	font-weight: bolder;
+	font-style: italic;
+}
+
+.resources .modal-body td.topic {
+	font-weight: bolder;
+}
+
+.resources .modal-body {
+	color: black;
+	background: var(--light-yellow);
+}
+
+.resources .modal-body .exlist-header {
+	font-weight: bolder;
+	margin-right: 0.25em;
+}
+
+.resources .modal-body .comment-header {
+	font-weight: bolder;
+	margin-right: 0.75em;
+}
+
+.resources .modal-body .video-error-header {
+	font-weight: bolder;
+	margin-right: 0.5em;
+	color: red;
+}
+
+.resources .modal-body table.videos th {
+	padding-right: 10px;
+}
+
+.resources .modal-body table.videos td.vid-duration {
+	font-style: italic;
+	white-space: nowrap;
+	padding-left: 10px;
+}
+
+.resources .modal-body table.practise ul {
+	margin-inline-start: 0;
+	padding-inline-start: 20px;
+	margin-bottom: 0;
+}
+
+.resources .modal-body div.extra-practise {
+	margin-left: 0.5em;
+}
+
+.resources .modal-body div.extra-practise > a::before {
+	content: "\f105";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	color: var(--main-green);
+	display: inline-block;
+	margin-right: 0.25em;
+}
+
+.resources .modal-body .videos.container {
+	display: grid;
+	padding: 0;
+	grid-template-columns: 22% 58% 20%;
+	row-gap: 10px;
+}
+
+@media(max-width: 568px) {
+	.resources .modal-body .videos.container {
+		grid-template-columns: 30% 45% 25%;
+	}
+}
+
+.resources .modal-body .videos .vid-duration {
+	justify-self: right;
+	font-style: italic;
+}
+
+.resources .modal-body .videos .chapter,
+.resources .modal-body .videos .comment {
+	font-weight: bolder;
+}
+
+.resources .modal-body .videos .comment-text {
+	grid-column: span 2;
+}
+
+.resources .modal-body .videos .chapter.two-vid {
+	grid-row: span 2;
+}
+
+.resources .modal-body .videos .chapter.three-vid {
+	grid-row: span 3;
+}
+
+.resources .modal-body .videos .comment,
+.resources .modal-body .videos .comment-text,
+.resources .modal-body .videos div.chapter:is(.two-vid,.three-vid) + div + div + div,
+.resources .modal-body .videos div.chapter:is(.two-vid,.three-vid) + div + div + div + div,
+.resources .modal-body .videos div.chapter.three-vid + div + div + div + div + div,
+.resources .modal-body .videos div.chapter.three-vid + div + div + div + div + div + div {
+	margin-top: -10px;
+}
+
+
+/**********************************/
+/********* Contact Style **********/
+/**********************************/
+.contact .contact-content h2 {
+	font-size: 30px;
+}
+
+.contact .contact-content h3 {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.contact .contact-content h3 i {
+	width: 20px;
+	color: var(--main-green);
+	margin-right: 5px;
+}
+
+
+
+/**********************************/
+/********** Footer Style **********/
+/**********************************/
+.footer {
+	padding: 30px;
+	background: var(--dark-green);
+}
+
+.footer .col-lg-6:first-child p {
+	text-align: left;
+}
+
+.footer .col-lg-6:last-child p {
+	text-align: right;
+}
+
+@media (max-width: 767.98px) {
+	.footer .col-lg-6:first-child p,
+	.footer .col-lg-6:last-child p {
+		text-align: center;
+	}
+}
+
+.footer p {
+	color: white;
+	margin: 0;
+}
+
+.footer p a {
+	color: var(--yellow4);
+	font-weight: 700;
+}
+
+.footer p a:hover {
+	color: white;
+}
