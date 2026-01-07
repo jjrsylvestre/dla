@@ -18,7 +18,12 @@ respective owners.
 
 <title>Terminology and notation</title>
 
-<p><dl width="narrow">
+<p>
+
+Where they appear in the following definitions,
+<m>V</m> and <m>W</m> represent abstract vector spaces.
+
+<dl width="wide">
 
 	<li>
 	<title>(real) matrix transformation</title>
@@ -45,8 +50,7 @@ respective owners.
 	<idx><h>linear</h><h>transformation</h></idx>
 	<idx><h>transformation</h><h>linear</h></idx>
 	<p>
-	a function <m>\funcdef{T}{V}{W}</m> between vector spaces <m>V</m> and <m>W</m>,
-	so that both
+	a function <m>\funcdef{T}{V}{W}</m> so that both
 	<md><mrow>
 		T(\uvec{u} + \uvec{v}) \amp = T(\uvec{u}) + T(\uvec{v}) \text{,} \amp
 		T(k \uvec{v}) = k T(\uvec{v})
@@ -83,7 +87,7 @@ respective owners.
 	</li>
 
 	<li>
-	<title>image vector (of a domain space vector <m>\uvec{v}</m>)</title>
+	<title>image vector (of domain space vector <m>\uvec{v}</m>)</title>
 	<p>
 	the output vector
 	<m>\uvec{w} = T(\uvec{v})</m>
@@ -99,7 +103,7 @@ respective owners.
 	</li>
 
 	<li>
-	<title>standard matrix (of a linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>)</title>
+	<title>standard matrix (of linear transformation <m>\funcdef{T}{\R^n}{\R^m}</m>)</title>
 	<idx><h>standard</h><h>matrix (of a linear transformation <m>\R^n \to \R^m</m>)</h></idx>
 	<idx><h>matrix</h><h>standard (of a linear transformation <m>\R^n \to \R^m</m>)</h></idx>
 	<p>
@@ -113,13 +117,13 @@ respective owners.
 	</me>,
 	where <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector of <m>\R^n</m>,
 	so that
-	<me> T(\uvec{v}) = \stdmatrixOf{T} \uvec{v} </me>
-	for all <m>\uvec{v}</m> in <m>\R^n</m>
+	<me> T(\uvec{x}) = \stdmatrixOf{T} \uvec{x} </me>
+	for all <m>\uvec{x}</m> in <m>\R^n</m>
 	</p>
 	</li>
 
 	<li>
-	<title>zero transformation (between vector spaces <m>V,W</m>)</title>
+	<title>zero transformation (between <m>V,W</m>)</title>
 	<idx><h>linear</h><h>transformation</h><h>zero</h></idx>
 	<idx><h>transformation</h><h>linear</h><h>zero</h></idx>
 	<idx><h>zero</h><h>transformation</h></idx>
@@ -127,24 +131,30 @@ respective owners.
 	the linear transformation
 	<m>\funcdef{\zerovec}{V}{W}</m> defined by
 	<m>\zerovec(\uvec{v}) = \zerovec_W</m> for all <m>\uvec{v}</m> in <m>V</m>,
-	where <m>\zerovec_W</m> is the zero vector in <m>W</m>;
-	also referred to as the <term>trivial transformation</term> from <m>V</m> to <m>W</m>
+	where <m>\zerovec_W</m> is the zero vector in <m>W</m>
 	</p>
 	</li>
 
 	<li>
-	<title>zero operator (on a vector space <m>V</m>)</title>
+	<title>trivial transformation</title>
+	<p> synonym for <term>zero transformation</term> </p>
+	</li>
+
+	<li>
+	<title>zero operator (on <m>V</m>)</title>
 	<idx><h>linear</h><h>operator</h><h>zero</h></idx>
 	<idx><h>operator</h><h>linear</h><h>zero</h></idx>
 	<idx><h>zero</h><h>operator</h></idx>
-	<p>
-	the zero linear transformation <m>\funcdef{\zerovec}{V}{V}</m>;
-	also referred to as the <term>trivial operator</term> on <m>V</m>
-	</p>
+	<p> the zero transformation <m>\funcdef{\zerovec}{V}{V}</m> </p>
 	</li>
 
 	<li>
-	<title>identity operator (on a vector space <m>V</m>)</title>
+	<title>trivial operator</title>
+	<p> synonym for <term>zero operator</term> </p>
+	</li>
+
+	<li>
+	<title>identity operator (on <m>V</m>)</title>
 	<idx><h>linear</h><h>operator</h><h>identity</h></idx>
 	<idx><h>operator</h><h>linear</h><h>identity</h></idx>
 	<idx><h>identity</h><h>operator</h></idx>
@@ -152,7 +162,7 @@ respective owners.
 	</li>
 
 	<li>
-	<title>scalar operator (on a vector space <m>V</m> for a scalar <m>a</m>)</title>
+	<title>scalar operator (on <m>V</m> for scalar <m>a</m>)</title>
 	<idx><h>linear</h><h>operator</h><h>scalar</h></idx>
 	<idx><h>operator</h><h>linear</h><h>scalar</h></idx>
 	<idx><h>scalar</h><h>operator</h></idx>
@@ -163,22 +173,43 @@ respective owners.
 	</li>
 
 	<li>
-	<title>coordinate transformation (relative to a basis <m>\basisfont{B}</m> for a finite-dimensional vector space <m>V</m>)</title>
+	<title>coordinate transformation (relative to basis <m>\basisfont{B}</m> for <m>V</m>)</title>
 	<idx><h>linear</h><h>transformation</h><h>coordinate</h></idx>
 	<idx><h>transformation</h><h>linear</h><h>coordinate</h></idx>
 	<idx><h>coordinate</h><h>transformation</h></idx>
 	<p>
-	the transformation <m>\funcdef{\coordmap{B}}{V}{\R^n}</m> defined by
-	<m>\coordmap{B}(\uvec{v}) = \rmatrixOf{\uvec{v}}{B}</m> for each <m>\uvec{v}</m> in <m>V</m>
+	the transformation <m>\funcdef{\coordmap{B}}{V}{\R^n}</m>
+	(for <m>V</m> finite-dimensional with <m>\dim V = n</m>)
+	defined by <m>\coordmap{B}(\uvec{v}) = \rmatrixOf{\uvec{v}}{B}</m> for each <m>\uvec{v}</m> in <m>V</m>
 	</p>
 	</li>
+
+	<li>
+	<title>linear functional (on <m>V</m>)</title>
+	<idx><h>linear</h><h>functional</h></idx>
+	<idx>functional</idx>
+	<p>
+	a linear transformation <m>\funcdef{f}{V}{\R^1}</m> (for <m>V</m> a real vector space)
+	or <m>\funcdef{f}{V}{\C^1}</m> (for <m>V</m> a complex vector space)
+	</p>
+	</li>
+
+	<li>
+	<title>dual space (of <m>V</m>)</title>
+	<idx><h>dual</h><h>space</h></idx>
+	<p> the collection of all linear functionals on <m>V</m> </p>
+	</li>
+
+</dl>
+
+<dl width="narrow">
 
 	<li>
 	<title><m>L(V,W)</m></title>
 	<idx><h>linear</h><h>transformation</h><h>space</h></idx>
 	<idx><h>transformation</h><h>linear</h><h>space</h></idx>
 	<p>
-	the space of all linear transformations <m>V \to W</m> for vector spaces <m>V,W</m>,
+	the space of all linear transformations <m>V \to W</m>,
 	with addition and scalar multiplication defined by
 	<md><mrow>
 		(T_1 + T_2)(\uvec{v}) \amp = T_1(\uvec{v}) + T_2(\uvec{v}) \text{,} \amp
@@ -197,26 +228,17 @@ respective owners.
 	</li>
 
 	<li>
-	<title>linear functional (on a vector space <m>V</m>)</title>
-	<idx><h>linear</h><h>functional</h></idx>
-	<idx>functional</idx>
-	<p>
-	a linear transformation <m>\funcdef{f}{V}{\R^1}</m> (for <m>V</m> a real vector space)
-	or <m>\funcdef{f}{V}{\C^1}</m> (for <m>V</m> a complex vector space)
-	</p>
-	</li>
-
-	<li>
-	<title>dual space (of a vector space <m>V</m>)</title>
-	<idx><h>dual</h><h>space</h></idx>
-	<p> the space <m>L(V,\R^1)</m> of linear functionals on <m>V</m> </p>
+	<title><m>L(V,\R^1)</m></title>
+	<p> the <term>dual space</term> of <m>V</m> </p>
 	</li>
 
 	<li>
 	<title><m>\vecdual{V}</m></title>
-	<p> alternative notation for the dual space <m>L(V,\R^1)</m> of vector space <m>V</m> </p>
+	<p> alternative notation for the dual space of <m>V</m> </p>
 	</li>
 
-</dl></p>
+</dl>
+
+</p>
 
 </section>
