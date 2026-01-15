@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-diagonalization" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/continue-calculate-all.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/form-from-poly.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/poly-from-form.ptx" />
+
+<exercise xml:id="exercise-diagonalization-similar-to-diagonalizable"><p>
+	Suppose that <m> A </m> and <m> B </m> are <term><xref ref="definition-diagonalization-similar" text="title" /></term>.
+	Prove that if <m> B </m> is diagonalizable,
+	then <m> A </m> must be as well.
+</p></exercise>
+
+<exercise xml:id="exercise-diagonalization-reordering-eigenvalues">
+	<title>Reordering eigenvalues</title>
+
+	<statement>
+
+		<p>
+		A <m> 4 \times 4 </m> matrix <m> A </m> with characteristic polynomial <md> c_A(\lambda) = (\lambda - 1) (\lambda - 2) (\lambda - 3) (\lambda - 4) </md> must be diagonalizable,
+		by <xref ref="corollary-diagonalization-geom-alg-multiplicity-diag-n-distinct-evalues">Statement</xref>
+		of <xref ref="corollary-diagonalization-geom-alg-multiplicity-diag" />.
+		In particular,
+		if <m> P </m> is a <m> 4 \times 4 </m> matrix constructed by an eigenvector for each of the eigenvalues <m> \lambda = 1, 2, 3, 4 </m>,
+		in order,
+		for its columns,
+		then it will be that <md> \inv{P} A P = \begin{bmatrix} 1 \\ \amp 2 \\ \amp \amp 3 \\ \amp \amp \amp 4 \end{bmatrix} </md>.
+		</p>
+
+		<p>
+		Determine an invertible matrix <m> E </m> so that,
+		for <m> Q = P E </m>,
+		it will be that
+		<md> \inv{Q} A Q = \begin{bmatrix} 3 \\ \amp 2 \\ \amp \amp 1 \\ \amp \amp \amp 4 \end{bmatrix} </md>.
+		</p>
+
+	</statement>
+
+	<hint><p>
+		The letter <m> E </m> has been chosen deliberately to represent the matrix to be used to <q>transform</q> the initial transition matrix <m> P </m> into a new transition matrix <m> Q </m>.
+		Recall that the result of a matrix product <m> E P </m>,
+		with an <term><xref ref="definition-elem-matrices" text="title" /></term> <m> E </m> on the <em> left </em>,
+		is the same as if an elementary row operation had been performed on <m> P </m>.
+		It turns out that the result of a matrix product <m> P E </m> with elementary <m> E </m> on the <em> right </em> is the same as if an <q>elementary <em>column</em> operation</q> had been performed on <m> P </m>.
+		Apply this new pattern for elementary matrices,
+		combined with the summary information in the concluding sentences of <xref ref="procedure-diagonalization-concepts-diag" />
+	</p></hint>
+
+	<answer><p><m>\displaystyle
+		E =
+		\begin{bmatrix}
+			0 \amp 0 \amp 1 \amp 0 \\
+			0 \amp 1 \amp 0 \amp 0 \\
+			1 \amp 0 \amp 0 \amp 0 \\
+			0 \amp 0 \amp 0 \amp 1
+		\end{bmatrix}
+	</m></p></answer>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/similar-diag.ptx" />
+
+<exercise xml:id="exercise-diagonalization-pattern-similar-diag">
+	<title>Pattern of similarity for diagonal matrices</title>
+
+	<task xml:id="exercise-diagonalization-pattern-similar-diag-initial"><p>
+		Based on the exercises under the heading <xref ref="exercisegroup-diagonalization-similar-diag" text="title" /> above,
+		make a conjecture about the precise condition(s) under which two diagonal matrices of the same size are similar.
+	</p></task>
+
+	<task xml:id="exercise-diagonalization-pattern-similar-diag-reword"><p>
+		In light of <xref ref="proposition-eigen-values-vectors-special-forms" />,
+		reword your answer to <xref ref="exercise-diagonalization-pattern-similar-diag-initial" text="type-local" />
+		to <em>no longer</em> use the term <term>diagonal entries</term>,
+		but using the terms
+		<term>eigenvalues</term> and <term><xref ref="definition-diagonalization-alg-mult" text="title" /></term> instead.
+	</p></task>
+
+	<task><p>
+		Does the pattern of similarity between diagonal matrices,
+		expressed using your reworded formulation
+		from <xref ref="exercise-diagonalization-pattern-similar-diag-reword" text="type-local" />,
+		also accurately characterize when two <em>diagonalizable</em> (but not necessarily diagonal) matrices are similar?
+	</p></task>
+
+	<task>
+
+		<statement><p>
+			More generally,
+			does the pattern of similarity from <xref ref="exercise-diagonalization-pattern-similar-diag-reword" text="type-local" />
+			also accurately characterize when <em> any </em> two (not necessarily diagonal nor diagonalizable) matrices are similar?
+		</p></statement>
+
+		<hint><p>
+			Review the following:
+			<ul>
+
+				<li>
+					The comparison of the results of <xref ref="activity-diagonalization-diag-proc" /> and <xref ref="activity-diagonalization-non-diag-ex" />
+					that you filled out in <xref ref="activity-diagonalization-compare-diag-and-non-diag" />.
+				</li>
+
+				<li> <xref ref="exercise-diagonalization-similar-to-diagonalizable" text="type-local" />. </li>
+
+			</ul>
+
+		</p></hint>
+
+	</task>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/determine-similar.ptx" />
+
+<exercise>
+	<title>Similarity of upper/lower triangular</title>
+
+	<statement><p>
+		Verify that for every upper triangular matrix there exists a lower triangular matrix to which it is similar.
+	</p></statement>
+
+	<hint><p>
+		Reconsider the information in the hint to <xref ref="exercise-diagonalization-reordering-eigenvalues" text="type-local" /> in the following way:
+		if <m> E </m> is an elementary matrix,
+		then the result of <m> \inv{E} A E </m> can be re-interpreted as applying both an elementary <em> column </em> operation and the corresponding <em> reverse </em> elementary <em> row </em> operation.
+	</p></hint>
+
+	<solution><p>
+		Use the <q>anti-diagonal</q> transition matrix
+		<m>
+			P =
+			\left[\begin{smallmatrix}
+				  \amp   \amp         \amp 1 \\
+				  \amp   \amp \iddots        \\
+				  \amp 1                     \\
+				1
+			\end{smallmatrix}\right]
+		</m>.
+	</p></solution>
+
+</exercise>
+
+<exercisegroup>
+	<title>Similarity of scalar matrices</title>
+
+	<introduction><p>
+		In each case,
+		verify that the matrix is similar to <em> no </em> other matrix besides itself.
+	</p></introduction>
+
+	<exercise><p> The <m> n \times n </m> identity matrix. </p></exercise>
+
+	<exercise><p> The <m> n \times n </m> zero matrix. </p></exercise>
+
+	<exercise><p> An  <m> n \times n </m> <xref ref="definition-special-forms-scalar-matrix" text="title" />. </p></exercise>
+
+</exercisegroup>
+
+<!-- Exercise group -->
+<!--
+  This is only included in the one-semester version,
+  as it overlaps with activities in the Similarity chapter of the two-semester version.
+-->
+<xi:include href="./exercises.d/further-similarity-props.ptx" />
+
+</exercises>

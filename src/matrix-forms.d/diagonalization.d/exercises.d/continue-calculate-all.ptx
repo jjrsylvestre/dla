@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="3" xml:id="exercisegroup-diagonalization-continue-calculate-all">
+<title>Diagonalizing matrices</title>
+
+<introduction><p>
+	The following matrices have previously appeared in <xref ref="exercises-eigen-values-vectors" />
+	under the heading <xref ref="exercisegroup-eigen-values-vectors-calculate-all" text="title" />,
+	where you were previously asked to compute the characteristic polynomial (in factored form), eigenvalues, and eigenspaces for each matrix.
+	Following up on that information,
+	for each matrix:
+	<ol>
+		<li>
+			Confirm <xref ref="corollary-diagonalization-evector-bases" /> by demonstrating that the full collection of calculated basis vectors from all the eigenspaces,
+			taken all together,
+			form a linearly independent set.
+		</li>
+		<li>
+			Determine the <term><xref ref="definition-diagonalization-alg-mult" text="title" /></term>
+			and <term><xref ref="definition-diagonalization-geom-mult" text="title" /></term>
+			of each eigenvalue,
+			and confirm that <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> holds true in each case.
+		</li>
+		<li>
+			State whether the matrix is diagonalizable and,
+			if so,
+			produce a transition matrix <m> P </m> and diagonal matrix <m> D </m> so that <m> \inv{P} A P = D </m> is true,
+			where <m> A </m> is the given matrix.
+			(<em>Note:</em> You should not need to calculate <m> \inv{P} </m> in order to produce <m> D </m>.)
+		</li>
+	</ol>
+</p></introduction>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-2x2">
+	<!-- 2×2, λ = -3 (Jordan 2×2) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-1 \amp -4 \\
+			 1 \amp -5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li> A collection consisting of a single nonzero vector is always independent. </li>
+		<li>
+			The geometric multiplicity is <m> \dim E_{-3}(A) = 1 </m>
+			and the algebraic multiplicity is <m> 2 </m>.
+			This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as the geometric multiplicity is not greater than the algebraic multiplicity.
+		</li>
+		<li>
+			This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+		</li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-1x1-J-1x1">
+	<!-- 2×2, λ = 7, -2 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-11 \amp 18 \\
+			-9 \amp 16
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-1x1-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{bmatrix} 1 \amp 2 \\ 1 \amp 1 \end{bmatrix}
+					\quad\rowredarrow\quad
+					\bidentmattwo
+				</md>.
+			</p></li>
+			<li>
+				For each of the two eigenvalues both the geometric and algebraic multiplicities are equal to <m> 1 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in neither case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li><p>
+				The matrix is diagonalizable,
+				and a suitable transition matrix and corresponding diagonal form matrix are
+				<md><mrow>
+					P \amp = \begin{bmatrix} 1 \amp 2 \\ 1 \amp 1 \end{bmatrix} \text{,}
+					\amp
+					D \amp = \begin{bmatrix} 7 \\ \amp -2 \end{bmatrix} \text{.}
+				</mrow></md>
+			</p></li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-1x1-J-1x1-J-1x1">
+	<!-- 3×3, λ = 6,1,4 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 8 \amp - 4 \amp 0 \\
+			 2 \amp   2 \amp 0 \\
+			10 \amp -10 \amp 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-1x1-J-1x1-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{bmatrix}
+						0 \amp 1 \amp 2 \\
+						0 \amp 1 \amp 1 \\
+						1 \amp 0 \amp 2
+					\end{bmatrix}
+					\quad\rowredarrow\quad
+					\bidentmatthree
+				</md>.
+			</p></li>
+			<li>
+				For each of the three eigenvalues both the geometric and algebraic multiplicities are equal to <m> 1 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in no case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li><p>
+				The matrix is diagonalizable,
+				and a suitable transition matrix and corresponding diagonal form matrix are
+				<md><mrow>
+					P \amp =
+					\begin{bmatrix}
+						0 \amp 1 \amp 2 \\
+						0 \amp 1 \amp 1 \\
+						1 \amp 0 \amp 2
+					\end{bmatrix}
+					\text{,}
+					\amp
+					D \amp = \begin{bmatrix} 1 \\ \amp 4 \\ \amp \amp 6 \end{bmatrix}
+					\text{.}
+				</mrow></md>
+			</p></li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-S-J-1x1-1x1-J-1x1">
+	<!-- 3×3, λ = -7,-7,0 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-21 \amp  0 \amp   7 \\
+			 28 \amp -7 \amp -14 \\
+			-42 \amp  0 \amp  14
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-S-J-1x1-1x1-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{abmatrix}{rrr}
+						 1 \amp 1 \amp 0 \\
+						-2 \amp 0 \amp 1 \\
+						 3 \amp 2 \amp 0
+					\end{abmatrix}
+					\quad\rowredarrow\quad
+					\bidentmatthree
+				</md>.
+			</p></li>
+			<li>
+				For eigenvalue <m> \lambda = 0 </m> both the geometric and algebraic multiplicities are <m> 1 </m>,
+				and for eigenvalue <m> \lambda = -7 </m> both the geometric and algebraic multiplicities are <m> 2 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in neither case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li><p>
+				The matrix is diagonalizable,
+				and a suitable transition matrix and corresponding diagonal form matrix are
+				<md><mrow>
+					P \amp =
+					\begin{abmatrix}{rrr}
+						 1 \amp 1 \amp 0 \\
+						-2 \amp 0 \amp 1 \\
+						 3 \amp 2 \amp 0
+					\end{abmatrix}
+					\text{,}
+					\amp
+					D \amp = \begin{bmatrix} 0 \\ \amp -7 \\ \amp \amp -7 \end{bmatrix}
+					\text{.}
+				</mrow></md>
+			</p></li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-2x2-J-1x1">
+	<!-- 3×3, λ = -1 (Jordan 2×2), -3 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 0 \amp -14 \amp -15 \\
+			-1 \amp   7 \amp   9 \\
+			 1 \amp -10 \amp -12
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-2x2-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{abmatrix}{rr}
+						 1 \amp  6 \\
+						-1 \amp -3 \\
+						 1 \amp  4
+					\end{abmatrix}
+					\quad\rowredarrow\quad
+					\bidentmatthree
+				</md>.
+			</p></li>
+			<li>
+				For eigenvalue <m> \lambda = -3 </m> both the geometric and algebraic multiplicities are <m> 1 </m>,
+				but for eigenvalue <m> \lambda = -1 </m> the algebraic multiplicity is <m> 2 </m> while the geometric multiplicity is only <m> 1 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in neither case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li>
+				This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+			</li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-2x2-1x1">
+	<!-- 3×3, λ = 3 (Jordan 2×2,1×1) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			  0 \amp  3 \amp - 6 \\
+			-13 \amp 16 \amp -26 \\
+			- 5 \amp  5 \amp - 7
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li>
+			Since there is only a single eigenvalue,
+			we know that the basis vectors for that single eigenspace that we have already computed
+			(see the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-2x2-1x1" />)
+			form an independent set.
+		</li>
+		<li>
+			For the single eigenvalue the algebraic multiplicity is <m> 3 </m> while the geometric multiplicity is only <m> 2 </m>.
+			This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as the geometric multiplicity is not greater than the algebraic multiplicity.
+		</li>
+		<li>
+			This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+		</li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-S-J-3x3">
+	<!-- 3×3, λ = 0 (Jordan 3×3) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-1 \amp 0 \amp 1 \\
+			-3 \amp 1 \amp 1 \\
+			-2 \amp 1 \amp 0
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li>
+			Since there is only a single eigenvalue,
+			we know that the single basis vector for that single eigenspace that we have already computed
+			(see the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-S-J-3x3" />)
+			forms an independent set.
+		</li>
+		<li>
+			For the single eigenvalue the algebraic multiplicity is <m> 3 </m> while the geometric multiplicity is only <m> 1 </m>.
+			This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as the geometric multiplicity is not greater than the algebraic multiplicity.
+		</li>
+		<li>
+			This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+		</li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-1x1-1x1-1x1-J-1x1">
+	<!-- 4×4, λ = -4, -4, -4, -1 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-19 \amp  0 \amp -30 \amp  0 \\
+			  0 \amp -4 \amp   0 \amp  0 \\
+			  9 \amp  0 \amp  14 \amp  0 \\
+			- 3 \amp  0 \amp - 6 \amp -4
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-1x1-1x1-1x1-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{abmatrix}{rrrr}
+						 5 \amp 0 \amp -2 \amp 0 \\
+						 0 \amp 1 \amp  0 \amp 0 \\
+						-3 \amp 0 \amp  1 \amp 0 \\
+						 1 \amp 0 \amp  0 \amp 1
+					\end{abmatrix}
+					\quad\rowredarrow\quad
+					\bidentmatfour
+				</md>.
+			</p></li>
+			<li>
+				For eigenvalue <m> \lambda = -1 </m> both the geometric and algebraic multiplicities are <m> 1 </m>,
+				and for eigenvalue <m> \lambda = -4 </m> both the geometric and algebraic multiplicities are <m> 3 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in neither case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li><p>
+				The matrix is diagonalizable,
+				and a suitable transition matrix and corresponding diagonal form matrix are
+				<md><mrow>
+					P \amp =
+					\begin{abmatrix}{rrrr}
+						 5 \amp 0 \amp -2 \amp 0 \\
+						 0 \amp 1 \amp  0 \amp 0 \\
+						-3 \amp 0 \amp  1 \amp 0 \\
+						 1 \amp 0 \amp  0 \amp 1
+					\end{abmatrix}
+					\text{,}
+					\amp
+ 					D \amp = \begin{bmatrix} -1 \\ \amp -4 \\ \amp \amp -4 \\ \amp \amp \amp -4 \end{bmatrix}
+					\text{.}
+				</mrow></md>
+			</p></li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-S-J-2x2-J-1x1-J-1x1">
+	<!-- 4×4, λ = -3 (Jordan 2×2), λ = 4, λ = 0 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-19 \amp  5 \amp   1 \amp -18 \\
+			-46 \amp  1 \amp -31 \amp -49 \\
+			 18 \amp  1 \amp  17 \amp  19 \\
+			  1 \amp -6 \amp -18 \amp - 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-S-J-2x2-J-1x1-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{abmatrix}{rrrr}
+						- 8 \amp -1 \amp -2 \\
+						-17 \amp -1 \amp -3 \\
+						  5 \amp  0 \amp  1 \\
+						  4 \amp  1 \amp  1
+					\end{abmatrix}
+					\quad\rowredarrow\quad
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 1 \\
+						0 \amp 0 \amp 0
+					\end{bmatrix}
+				</md>.
+			</p></li>
+			<li>
+				For each of the eigenvalues <m> \lambda = 0 </m> and <m> \lambda = 4 </m> both the geometric and algebraic multiplicities are <m> 1 </m>,
+				but for eigenvalue <m> \lambda = -3 </m> the algebraic multiplicity is <m> 2 </m> while the geometric multiplicity is only <m> 1 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in no case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li>
+				This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+			</li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-2x2-1x1-J-1x1">
+	<!-- 4×4, λ = -2 (Jordan 2×2), λ = -2, λ = 2 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-4 \amp 34 \amp 4 \amp  36 \\
+			 0 \amp 10 \amp 0 \amp  12 \\
+			-1 \amp 23 \amp 0 \amp  24 \\
+			 0 \amp -8 \amp 0 \amp -10
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-2x2-1x1-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				Independence is verified by the calculation
+				<md>
+					\begin{abmatrix}{rrrr}
+						-9 \amp 2 \amp  1 \\
+						-3 \amp 0 \amp -1 \\
+						-6 \amp 1 \amp  0 \\
+						 2 \amp 0 \amp  1
+					\end{abmatrix}
+					\quad\rowredarrow\quad
+					\begin{bmatrix}
+						1 \amp 0 \amp 0 \\
+						0 \amp 1 \amp 0 \\
+						0 \amp 0 \amp 1 \\
+						0 \amp 0 \amp 0
+					\end{bmatrix}
+				</md>.
+			</p></li>
+			<li>
+				For eigenvalue <m> \lambda = 2 </m> both the geometric and algebraic multiplicities are <m> 1 </m>,
+				but for eigenvalue <m> \lambda = -2 </m> the algebraic multiplicity is <m> 3 </m> while the geometric multiplicity is only <m> 2 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in neither case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li>
+				This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+			</li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-I-J-3x3-J-1x1">
+	<!-- 4×4, λ = 4 (Jordan 3×3), λ = -6 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-1 \amp   5 \amp -1 \amp -1 \\
+			 5 \amp - 1 \amp -1 \amp -1 \\
+			28 \amp -27 \amp  3 \amp  0 \\
+			25 \amp -25 \amp  1 \amp  5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p>
+		In these answers we use the eigenvectors from the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-I-J-3x3-J-1x1" />,
+		where needed.
+		<ol>
+			<li><p>
+				The two basis eigenvectors are clearly independent from each other,
+				as neither is a scalar multiple of the other.
+			</p></li>
+			<li>
+				For eigenvalue <m> \lambda = 2-6 </m> both the geometric and algebraic multiplicities are <m> 1 </m>,
+				but for eigenvalue <m> \lambda = 4 </m> the algebraic multiplicity is <m> 3 </m> while the geometric multiplicity is only <m> 1 </m>.
+				This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as in neither case is the geometric multiplicity is greater than the algebraic multiplicity.
+			</li>
+			<li>
+				This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+			</li>
+		</ol>
+	</p></answer>
+
+</exercise>
+
+<exercise xml:id="exercise-diagonalization-vectors-calculate-all-S-J-4x4">
+	<!-- 4×4, λ = 0 (Jordan 4×4) (nilpotent) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			 0 \amp  0 \amp  0 \amp  1 \\
+			-2 \amp  2 \amp -3 \amp -1 \\
+			 1 \amp -1 \amp  1 \amp  1 \\
+			-3 \amp  3 \amp -4 \amp -3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li>
+			Since there is only a single eigenvalue,
+			we know that the single basis vector for that single eigenspace that we have already computed
+			(see the provided answers to <xref ref="exercise-eigen-values-vectors-calculate-all-S-J-4x4" />)
+			forms an independent set.
+		</li>
+		<li>
+			For the single eigenvalue the algebraic multiplicity is <m> 4 </m> while the geometric multiplicity is only <m> 1 </m>.
+			This is consistent with <xref ref="theorem-diagonalization-geom-alg-multiplicity" /> as the geometric multiplicity is not greater than the algebraic multiplicity.
+		</li>
+		<li>
+			This matrix is not diagonalizable because it has an eigenvalue whose geometric multiplicity is strictly less than its algebraic multiplicity.
+		</li>
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

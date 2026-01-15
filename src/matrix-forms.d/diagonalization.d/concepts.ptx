@@ -186,33 +186,34 @@ in
 <subsection xml:id="subsection-diagonalization-concepts-diag-proc">
 <title>Diagonalization procedure</title>
 
-<algorithm><title>To diagonalize an <m>n \times n</m> matrix <m>A</m>, if possible</title><statement><p>
+<algorithm xml:id="procedure-diagonalization-concepts-diag">
+	<title>To diagonalize an <m> n \times n </m> matrix <m> A </m>, if possible</title><statement><p>
 	<ol>
 		<li>
-			Compute the characteristic polynomial <m>c_A(\lambda)</m> of <m>A</m> by computing
-			<m>\det (\lambda I - A)</m>,
-			then determine the eigenvalues of <m>A</m> by solving the characteristic equation
-			<m>c_A(\lambda) = 0</m>.
+			Compute the characteristic polynomial <m> c_A(\lambda) </m> of <m> A </m> by computing
+			<m> \det (\lambda I - A) </m>,
+			then determine the eigenvalues of <m> A </m> by solving the characteristic equation
+			<m> c_A(\lambda) = 0 </m>.
 			Make note of the algebraic multiplicity of each eigenvalue.
 		</li>
 		<li>
-			For each eigenvalue <m>\lambda_j</m> of <m>A</m>,
-			determine a basis for the correponding eigenspace <m>E_{\lambda_j}(A)</m> by solving the homogeneous linear system
-			<m>(\lambda_j I - A)\uvec{x} = \zerovec</m>.
+			For each eigenvalue <m> \lambda_j </m> of <m> A </m>,
+			determine a basis for the correponding eigenspace <m> E_{\lambda_j}(A) </m> by solving the homogeneous linear system
+			<m> (\lambda_j I - A) \uvec{x} = \zerovec </m>.
 			Make note of the geometric multiplicity of each eigenvalue.
 		</li>
 		<li>
 			If any eigenvalue has geometric multiplicity <em>strictly less</em> than its algebraic multiplicity,
-			then <m>A</m> is <em>not</em> diagonalizable.
+			then <m> A </m> is <em>not</em> diagonalizable.
 			On the other hand,
 			if each eigenvalue has equal geometric and algebraic multiplicities,
-			then you can obtain <m>n</m> linearly independent eigenvectors to make up the columns of <m>P</m> by taking together all the eigenspace basis vectors you found in the previous step.
+			then you can obtain <m> n </m> linearly independent eigenvectors to make up the columns of <m> P </m> by taking together all the eigenspace basis vectors you found in the previous step.
 		</li>
 	</ol>
-	If the matrix <m>P</m> has successfully been constructed,
-	then <m>D = \inv{P}AP</m> will be in diagonal form,
-	with eigenvalues of <m>A</m> in the diagonal entries of <m>D</m>,
-	in order corresponding to the order of placement of eigenvectors in the columns of <m>P</m>.
+	If the matrix <m> P </m> has successfully been constructed,
+	then <m> D = \inv{P} A P </m> will be in diagonal form,
+	with eigenvalues of <m> A </m> in the diagonal entries of <m> D </m>,
+	in order corresponding to the order of placement of eigenvectors in the columns of <m> P </m>.
 </p></statement></algorithm>
 
 </subsection>

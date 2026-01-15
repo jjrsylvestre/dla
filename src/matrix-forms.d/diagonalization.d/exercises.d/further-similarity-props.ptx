@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup component="one-semester" xml:id="exercisegroup-diagonalization-further-similarity-props">
+
+<title>Further properties of similar matrices</title>
+
+<introduction>
+
+	<p>
+	In each of the following,
+	assume that square matrices <m> A, B </m> are similar via transition matrix <m> P </m>,
+	with <m> \inv{P} A P = B </m>.
+	</p>
+
+</introduction>
+
+<exercise>
+
+	<task>
+
+		<statement><p>
+			Verify that the squares <m> A^2 </m> and <m> B^2 </m> are also similar,
+			via the same transition matrix <m> P </m>.
+		</p></statement>
+
+		<hint><p><m> B^2 = B B </m>.</p></hint>
+
+	</task>
+
+	<task><p>
+		Do you think the same is true for every pair of powers <m> A^k </m> and <m> B^k </m> (with the same positive exponent on both matrices)?
+	</p></task>
+
+	<task><p> What about <m> \inv{A} </m> and <m> \inv{B} </m>? </p></task>
+
+</exercise>
+
+<exercise>
+
+	<task><p>
+		Suppose that <m> \uvec{x} </m> is a vector in the null space of <m> B </m>.
+		Verify that the transformed vector <m> P \uvec{x} </m> is in the null space of <m> A </m>.
+	</p></task>
+
+	<task><p>
+		What matrix will transform null space vectors of <m> A </m> into null space vectors of <m> B </m>?
+	</p></task>
+
+	<task><p>
+		The first two tasks of this exercise can be extrapolated to conclude that the entire null space of <m> B </m> can be transformed into the null space of <m> A </m>,
+		and vice versa.
+		Combine this with the patterns of <xref ref="proposition-col-row-null-space-dep-indep-of-images" /> to verify that <m> A </m> and <m> B </m> must have the same
+		<xref ref="definition-col-row-null-space-nullity" text="title" />.
+	</p></task>
+
+</exercise>
+
+<exercise>
+
+	<task>
+
+		<statement><p>
+			Suppose that <m> \uvec{b} </m> is a vector in the column space of <m> B </m>.
+			Verify that the transformed vector <m> P \uvec{x} </m> is in the column space of <m> A </m>.
+		</p></statement>
+
+		<hint><p>
+			Recall that a vector <m> \uvec{b} </m> is in the column space of <m> B </m> if and only if the system <m> B \uvec{x} = \uvec{b} </m> has at least one solution.
+		</p></hint>
+
+	</task>
+
+	<task><p>
+		What matrix will transform column space vectors of <m> A </m> into column space vectors of <m> B </m>?
+	</p></task>
+
+	<task><p>
+		The first two tasks of this exercise can be extrapolated to conclude that the entire column space of <m> B </m> can be transformed into the null space of <m> A </m>,
+		and vice versa.
+		Combine this with the patterns of <xref ref="proposition-col-row-null-space-dep-indep-of-images" />,
+		along with <xref ref="corollary-col-row-null-space-colspace-basis-dim">Statement</xref>
+		of <xref ref="corollary-col-row-null-space-colspace-basis" />,
+		to verify that <m> A </m> and <m> B </m> must have the same rank.
+	</p></task>
+
+</exercise>
+
+<exercise>
+
+	<introduction><p>
+		We have seen that similar matrices have the same eigenvalues
+		(<xref ref="proposition-diagonalization-similar-matrices-properties-same-evalues">Statement</xref>
+		of <xref ref="proposition-diagonalization-similar-matrices-properties" />).
+	</p></introduction>
+
+	<task><p>
+		Suppose that <m> \uvec{x} </m> is a vector in the eigenspace for a particular eigenvalue <m> \lambda </m> of <m> B </m>.
+		Verify that the transformed vector <m> P \uvec{x} </m> is in the eigenspace of <m> A </m> for that same (shared) eigenvalue <m> \lambda </m>.
+	</p></task>
+
+	<task><p>
+		What matrix will transform eigenvectors of <m> A </m> into eigenvectors of <m> B </m>?
+	</p></task>
+
+	<task><p>
+		The first two tasks of this exercise can be extrapolated to conclude that the entire eigenspace of <m> B </m> for <m> \lambda </m> can be transformed into the eigenspace of <m> A </m> for <m> \lambda </m>,
+		and vice versa.
+		Combine this with the patterns of <xref ref="proposition-col-row-null-space-dep-indep-of-images" /> to verify that the
+		<xref ref="definition-diagonalization-geom-mult" text="title" /> of <m> \lambda </m>
+		must be the same for both <m> A </m> and <m> B </m>.
+	</p></task>
+
+</exercise>
+
+</exercisegroup>
