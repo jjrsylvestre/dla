@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-diagonalization-determine-similar">
+
+<title>Determining similarity</title>
+
+<introduction><p>
+	In each case,
+	determine whether the pair of matrices are <term><xref ref="definition-diagonalization-similar" text="custom">similar</xref></term>.
+	If they are,
+	exhibiting a specific <xref ref="definition-diagonalization-transition-matrix" text="title" /> that achieves a similarity relationship between the two.
+	If they are not,
+	provide convincing reasoning to justify this answer based on facts from <xref ref="section-diagonalization-theory" />.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		The matrices
+		from <xref ref="exercise-diagonalization-vectors-calculate-all-I-J-2x2" text="type-local" />
+		and <xref ref="exercise-diagonalization-vectors-calculate-all-I-J-1x1-J-1x1" text="type-local" />.
+	</p></statement>
+
+	<answer><p>
+		Not similar.
+		<em>(Reasoning omitted.)</em>
+	</p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		The matrices
+		from <xref ref="exercise-diagonalization-vectors-calculate-all-I-J-1x1-J-1x1-J-1x1" text="type-local" />
+		and <xref ref="exercise-diagonalization-vectors-calculate-all-S-J-1x1-1x1-J-1x1" text="type-local" />.
+	</p></statement>
+
+	<answer><p>
+		Not similar.
+		<em>(Reasoning omitted.)</em>
+	</p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		The matrix
+		from <xref ref="exercise-diagonalization-vectors-calculate-all-I-J-1x1-J-1x1-J-1x1" text="type-local" />
+		along with the matrix below.
+		<md>
+			\begin{abmatrix}{rrr}
+				- 7 \amp  4 \amp - 7 \\
+				-18 \amp 10 \amp -12 \\
+				  8 \amp -4 \amp   8
+			\end{abmatrix}
+		</md>
+	</p></statement>
+
+	<hint><p>
+		Is the second matrix diagonalizable?
+		To what diagonal form matrix is it similar?
+	</p></hint>
+
+	<solution>
+
+		<p> Yes, they are similar. </p>
+
+		<p>
+		Let <m> A </m> represent the matrix from
+		<xref ref="exercise-diagonalization-vectors-calculate-all-I-J-1x1-J-1x1-J-1x1" text="type-local" />.
+		In the answer to that exercise we provided a transition matrix and corresponding diagonal form:
+		<md>
+			P =
+			\begin{bmatrix}
+				0 \amp 1 \amp 2 \\
+				0 \amp 1 \amp 1 \\
+				1 \amp 0 \amp 2
+			\end{bmatrix}
+			\quad\implies\quad
+			\inv{P} A P = \begin{bmatrix} 1 \\ \amp 4 \\ \amp \amp 6 \end{bmatrix}
+		</md>.
+		</p>
+
+		<p>
+		Let <m> B </m> represent the second matrix provided in this exercise.
+		It can be determined that <m> B </m> is also diagonalizable,
+		and following <xref ref="procedure-diagonalization-concepts-diag" /> leads to a transition matrix and corresponding diagonal form:
+		<md>
+			Q =
+			\begin{abmatrix}{rrr}
+				1 \amp  1 \amp  2 \\
+				2 \amp  1 \amp  3 \\
+				0 \amp -1 \amp -2
+			\end{abmatrix}
+			\quad\implies\quad
+			\inv{Q} B Q = \begin{bmatrix} 1 \\ \amp 4 \\ \amp \amp 6 \end{bmatrix}
+		</md>.
+		</p>
+
+		<p>
+		So <m> A </m> and <m> B </m> are similar to the same diagonal form,
+		and from that we have <md> \inv{Q} B Q = \inv{P} A P </md>.
+		Isolating <m> B </m> in this equality leads to similarity relation <m> B = \inv{R} A R </m>
+		for transition matrix <m> R = P \inv{Q} </m>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>
