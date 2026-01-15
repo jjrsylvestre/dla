@@ -20,7 +20,7 @@ respective owners.
 
 <paragraphs><title>What</title><p>
 	A block-diagonal matrix
-	<me>
+	<md>
 		\inv{P}AP =
 		\begin{bmatrix}
 			J_1 \\
@@ -28,7 +28,7 @@ respective owners.
 			\amp \amp \ddots \\
 			\amp \amp \amp J_t
 		\end{bmatrix}
-	</me>,
+	</md>,
 	where each block <m>J_i</m> is a Jordan block.
 	That is, each <m>J_i</m> is in (lower triangular) scalar-triangular form,
 	with an eigenvalue <m>\lambda</m> down the diagonal,
@@ -40,13 +40,13 @@ respective owners.
 
 <paragraphs><title>When</title><p>
 	The characteristic polynomial of <m>A</m> factors completely as
-	<me>
+	<md>
 		c_A(\lambda)
 		= (\lambda - \lambda_1)^{m_1}
 		(\lambda - \lambda_2)^{m_2}
 		\dotsm
 		(\lambda - \lambda_\ell)^{m_\ell}
-	</me>.
+	</md>.
 	Note that if <m>A</m> is a complex matrix
 	(or, at least, regarded as a complex matrix),
 	then this condition is always true.
@@ -61,24 +61,24 @@ respective owners.
 	and has size <m>m_1 \times m_1</m>,
 	where <m>m_1</m> is the algebraic multiplicity of <m>\lambda_1</m>.
 	This matrix can be decomposed as
-	<me> U_1 = \lambda_1 I + N_1 </me>,
+	<md> U_1 = \lambda_1 I + N_1 </md>,
 	where <m>N_1</m> is an <m>m_1 \times m_1</m>, upper triangular, nilpotent matrix.
 	Next, obtain a matrix <m>Q_1</m> such that <m>\inv{Q_1} N_1 Q_1</m> is in triangular-block nilpotent form.
 	(See summary <xref ref="section-forms-summary-nilp-tri" />.)
 	</p><p>
 	Now repeat for <m>N_2</m>,
-	where <me> U_2 = \lambda_2 I + N_2 </me>,
+	where <md> U_2 = \lambda_2 I + N_2 </md>,
 	to obtain <m>Q_2</m> such that <m>\inv{Q_2} N_2 Q_2</m> is in triangular-block nilpotent form.
 	Then repeat for <m>N_3</m>,
-	where <me> U_3 = \lambda_3 I + N_3 </me>,
+	where <md> U_3 = \lambda_3 I + N_3 </md>,
 	obtaining matrix <m>Q_3</m>.
 	And so on.
 	</p><p>
 	Finally, take <m>P = M Q</m>, where
-	<me>
+	<md>
 		Q
 		= \begin{bmatrix} Q_1 \\ \amp Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp Q_\ell \end{bmatrix}
-	</me>.
+	</md>.
 </p></paragraphs>
 
 <paragraphs><title>Result</title><p>
@@ -89,10 +89,10 @@ respective owners.
 	Write <m>m</m> for the algebraic multiplicity of <m>\lambda</m>.
 	The largest (and first) block corresponding to <m>\lambda</m> has dimensions <m>k \times k</m>,
 	where <m>k</m> is the smallest positive integer such that
-	<me> \rank (A - \lambda I)^k = n-m </me>.
+	<md> \rank (A - \lambda I)^k = n-m </md>.
 	(In other words, <m>k</m> is the degree of nilpotency of the nilpotent part of the <q>macro</q> triangular block corresponding to <m>\lambda</m>.)
 	The sizes of the remaining Jordan blocks for <m>\lambda</m> can be deduced from the ranks of the powers
-	<me> (A - \lambda I)^{k-1}, (A - \lambda I)^{k-2}, \dotsc, (A - \lambda I)^1 </me>.
+	<md> (A - \lambda I)^{k-1}, (A - \lambda I)^{k-2}, \dotsc, (A - \lambda I)^1 </md>.
 </p></paragraphs>
 
 </section>

@@ -25,7 +25,7 @@ respective owners.
 		Let's see what happens if we try to apply
 		<xref ref="procedure-scalar-triang-concepts-proc" />
 		to the <m>7 \times 7</m> matrix
-		<me>
+		<md>
 			A = \begin{abmatrix}{rrrrrrr}
 				3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
 				0 \amp 3 \amp -4 \amp  0 \amp  4 \amp  0 \amp  0 \\
@@ -35,10 +35,10 @@ respective owners.
 				0 \amp 4 \amp -5 \amp  0 \amp  5 \amp -1 \amp  0 \\
 				4 \amp 3 \amp  1 \amp -1 \amp  0 \amp -3 \amp -1
 			\end{abmatrix}
-		</me>.
+		</md>.
 		If you compute the characteristic polynomial of <m>A</m> (maybe use a computer algebra system?),
 		you will find
-		<me> c_A(\lambda) = (\lambda - 3)^4(\lambda + 1)^3 </me>.
+		<md> c_A(\lambda) = (\lambda - 3)^4(\lambda + 1)^3 </md>.
 		Thus, the eigenvalues of <m>A</m> are
 		<m>\lambda_1 = 3</m>, with multiplicity <m>m_1 = 4</m>, and
 		<m>\lambda_2 = -1</m>, with multiplicity <m>m_2 = 3</m>.
@@ -120,14 +120,14 @@ respective owners.
 		of <xref ref="theorem-scalar-triang-gen-espace-facts" />).
 		Following <xref ref="procedure-scalar-triang-concepts-proc" />,
 		we extend our basis for <m>E_3(A)</m> to one for <m>E^2_3(A)</m> instead of just using the above basis.
-		<me>
+		<md>
 			G_3(A) = \Span\left\{
 				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
 				\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
 				\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 0 \\ 0 \end{bmatrix},
 				\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
 			\right\}.
-		</me>
+		</md>
 		</p><p>
 		Now we continue with eigenvalue <m>\lambda_2 = -1</m>:
 		<!-- TODO Why is the rowredarrow below getting stretched so much? -->
@@ -234,16 +234,16 @@ respective owners.
 		and the first vector in <em>that</em> basis is already the same as our basis vector for <m>E_{-1}(A)</m>.
 		So we already have a basis for the generalized eigenspace <m>G_{-1}(A)</m> of the form required by the scalar-triangularization procedure,
 		without any further adjustment:
-		<me>
+		<md>
 			G_{-1}(A) = \Span\left\{
 				\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
 				\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
 				\begin{abmatrix}{r} 1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 0 \end{abmatrix}
 			\right\}
-		</me>.
+		</md>.
 		</p><p>
 		Finally, let's take <m>P</m> to be the matrix whose columns are our basis vectors for <m>G_3(A)</m> and <m>G_{-1}(A)</m>:
-		<me>
+		<md>
 			P =
 			\begin{abmatrix}{rrrrrrr}
 				1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp  1 \\
@@ -254,7 +254,7 @@ respective owners.
 				0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 1 \amp  0 \\
 				1 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp  0
 			\end{abmatrix}
-		</me>.
+		</md>.
 		If you compute the rank of <m>P</m>, you will find that it is <m>7</m>.
 		Since <m>P</m> is a <m>7 \times 7</m> matrix,
 		this tells us that the columns of <m>P</m> form a basis for <m>\R^7</m>
@@ -294,7 +294,7 @@ respective owners.
 		Form matrix <m>\inv{P} A P</m> is upper triangular.
 		But it also has a block-diagonal form <mdash />
 		to emphasize this, let's remove some of the zeros in the bottom left and top right:
-		<me>
+		<md>
 			\inv{P} A P
 			= \begin{abmatrix}{rrrrrrr}
 				3 \amp 0 \amp 0 \amp -1 \\
@@ -305,7 +305,7 @@ respective owners.
 				 \amp  \amp  \amp  \amp  0 \amp -1 \amp  1 \\
 				 \amp  \amp  \amp  \amp  0 \amp  0 \amp -1
 			\end{abmatrix}
-		</me>.
+		</md>.
 		We have two blocks,
 		one for each generalized eigenspace of <m>A</m>.
 		Each block is scalar-triangular,

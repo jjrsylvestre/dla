@@ -40,7 +40,7 @@ respective owners.
 	Call this scalar <m>\delta</m> for now.
 	If <m>\delta \neq 0</m>,
 	we can do some algebra to get
-	<me> A A' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I </me>,
+	<md> A A' = \delta I \qquad\implies\qquad A (\inv{\delta} A') = I </md>,
 	which means that <m>A</m> must be invertible with
 	<m>\inv{A} = \inv{\delta} A'</m>
 	(<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
@@ -71,7 +71,7 @@ respective owners.
 		If <m>A A' = (\det A) I</m>,
 		then in the case that <m>\det A\neq 0</m>,
 		from
-		<me> A \bbrac{\inv{(\det A)} A'} = I </me>
+		<md> A \bbrac{\inv{(\det A)} A'} = I </md>
 		and
 		<xref ref="proposition-elem-matrices-check-only-right-inverse" />
 		we know both that <m>A</m> is invertible and its inverse must be <m>\inv{(\det A)} A'</m>,
@@ -272,31 +272,32 @@ This extra <q>sign</q> portion of the cofactor formula in terms of minor determi
 since as we move along a row or along a column,
 only one of <m>i</m> or <m>j</m> will change,
 and so <m>i + j</m> will flip from even to odd or vice versa.
-So the cofactor signs follow the patterns,
-<mdn><mrow xml:id="equation-det-concepts-cofactor-sign-patterns">
-	3 \times 3 \amp \colon \;
-	\left[\begin{smallmatrix} + \amp - \amp + \\ - \amp + \amp - \\ + \amp - \amp + \end{smallmatrix}\right]
-	\text{,}
-	\amp
-	4 \times 4 \amp \colon \;
-	\left[\begin{smallmatrix}
-		+ \amp - \amp + \amp - \\
-		- \amp + \amp - \amp + \\
-		+ \amp - \amp + \amp - \\
-		- \amp + \amp - \amp +
-	\end{smallmatrix}\right]
-	\text{,}
-	\amp
-	5 \times 5 \amp \colon \;
-	\left[\begin{smallmatrix}
-		+ \amp - \amp + \amp - \amp + \\
-		- \amp + \amp - \amp + \amp - \\
-		+ \amp - \amp + \amp - \amp + \\
-		- \amp + \amp - \amp + \amp - \\
-		+ \amp - \amp + \amp - \amp +
-	\end{smallmatrix}\right]
-	\text{,}
-</mrow></mdn>
+So the cofactor signs follow patterns:
+<md number="yes">
+	<mrow xml:id="equation-det-concepts-cofactor-sign-patterns">
+		\begin{array}{ccc}
+			3 \times 3 \amp
+			4 \times 4 \amp
+			5 \times 5
+			\\
+			\left[\begin{smallmatrix} + \amp - \amp + \\ - \amp + \amp - \\ + \amp - \amp + \end{smallmatrix}\right] \amp
+			\left[\begin{smallmatrix}
+				+ \amp - \amp + \amp - \\
+				- \amp + \amp - \amp + \\
+				+ \amp - \amp + \amp - \\
+				- \amp + \amp - \amp +
+			\end{smallmatrix}\right]
+			\amp
+			\left[\begin{smallmatrix}
+				+ \amp - \amp + \amp - \amp + \\
+				- \amp + \amp - \amp + \amp - \\
+				+ \amp - \amp + \amp - \amp + \\
+				- \amp + \amp - \amp + \amp - \\
+				+ \amp - \amp + \amp - \amp +
+			\end{smallmatrix}\right]
+		\end{array}
+	</mrow>
+</md>
 and so on.
 </p>
 
@@ -309,7 +310,7 @@ and so on.
 In <xref ref="activity-det-det-special-forms" />,
 we examined the determinant of diagonal and triangular matrices.
 Let's consider the case of a diagonal matrix:
-<me>
+<md>
 	D =
 	\begin{bmatrix}
 		  d_1  \amp    0   \amp \cdots \amp    0   \\
@@ -317,15 +318,15 @@ Let's consider the case of a diagonal matrix:
 		\vdots \amp \ddots \amp \ddots \amp    0   \\
 		   0   \amp \cdots \amp    0   \amp   d_n
 	\end{bmatrix}
-</me>.
+</md>.
 A cofactor expansion along the first column will look like
-<me> d_1 C_{11} + 0 \cdot C_{21} + 0 \cdot C_{31} + \dotsb + 0 \cdot C_{n1}. </me>
+<md> d_1 C_{11} + 0 \cdot C_{21} + 0 \cdot C_{31} + \dotsb + 0 \cdot C_{n1}. </md>
 Because of all of those zero entries,
 the only cofactor we actually need to compute is <m>C_{11}</m>,
 and the cofactor expansion collapses to just the entry <m>d_1</m> times its cofactor.
 But the cofactor sign of the <m>(1,1)</m> entry is positive,
 so we really just get <m>d_1</m> times its minor determinant:
-<me>
+<md>
 	\det D =
 	d_1 \,
 	\begin{vmatrix}
@@ -334,7 +335,7 @@ so we really just get <m>d_1</m> times its minor determinant:
 		\vdots \amp \ddots \amp \ddots \amp    0   \\
 		   0   \amp \cdots \amp    0   \amp   d_n
 	\end{vmatrix}
-</me>.
+</md>.
 This minor determinant is again a diagonal matrix,
 so we can again expand along the first column to get a similar result.
 And the pattern will continue until we finally get down to a <m>1 \times 1</m> minor

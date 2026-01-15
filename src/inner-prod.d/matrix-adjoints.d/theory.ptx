@@ -54,7 +54,7 @@ respective owners.
 		<p>
 		As in the proof of <xref ref="theorem-inner-prod-on-Rn-Cn-is-pos-def-dot-product" />,
 		an expression
-		<me> \utrans{\uvec{e}}_i A \uvec{e}_j </me>,
+		<md> \utrans{\uvec{e}}_i A \uvec{e}_j </md>,
 		picks off the <m>(i,j)</m> entry of <m>A</m>,
 		where <m>\uvec{e}_i,\uvec{e}_j</m> are standard basis vectors.
 		</p>
@@ -83,7 +83,7 @@ respective owners.
 		</p><p>
 		Applying <xref ref="theorem-matrix-adjoints-unique" /> to <m>\adjoint{A}</m>,
 		there is a unique matrix <m>\adjoint{(\adjoint{A})}</m> so that
-		<me> \inprod{\uvec{u}}{\adjoint{A} \uvec{v}} = \inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}} </me>
+		<md> \inprod{\uvec{u}}{\adjoint{A} \uvec{v}} = \inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}} </md>
 		is true for all column vectors <m>\uvec{u},\uvec{v}</m>.
 		But then
 		<md>
@@ -117,7 +117,7 @@ respective owners.
 			</li>
 		</ol>
 		The equality
-		<me> \inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </me>
+		<md> \inprod{\adjoint{(\adjoint{A})} \uvec{u}}{\uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </md>
 		holds for all column vectors <m>\uvec{u},\uvec{v}</m>,
 		so if we apply it with those vectors replaced by various combinations of standard basis vectors <m>\uvec{e}_i,\uvec{e}_j</m>,
 		we will find that the matrices <m>A</m> and <m>\adjoint{(\adjoint{A})}</m> have all the same entries.
@@ -133,10 +133,10 @@ respective owners.
 	</p></statement>
 	<proof><title>Proof idea</title><p>
 		It necessary to show that if <m>\uvec{v}</m> is a column vector so that
-		<me> \uvecinprod{v}{w} = 0 </me>
+		<md> \uvecinprod{v}{w} = 0 </md>
 		for every column vector <m>\uvec{w}</m> in <m>W</m>,
 		then also
-		<me> \uvecinprod{\adjoint{A} v}{w} = 0 </me>
+		<md> \uvecinprod{\adjoint{A} v}{w} = 0 </md>
 		for every column vector <m>\uvec{w}</m> in <m>W</m>.
 		This follows from the adjoint condition <xref ref="equation-matrix-adjoints-theory-adjoint-def" />
 		and the fact that <m>W</m> is <m>A</m>-invariant,
@@ -193,20 +193,20 @@ We leave the formal verification of these properties to you, the reader.
 	<proof>
 		<p>
 		For this proof, we will need to rely on the matrix characterization of product-preserving matrices:
-		<me> \adjoint{A} A = I </me>.
+		<md> \adjoint{A} A = I </md>.
 		</p><p>
 		In the real case, the above equality says that <m>\inv{A} = \utrans{A}</m>, so
-		<me> \utrans{(\utrans{A})} \utrans{A} = A \utrans{A} = I </me>
+		<md> \utrans{(\utrans{A})} \utrans{A} = A \utrans{A} = I </md>
 		as well.
 		</p><p>
 		In the complex case, we can turn
-		<me> \adjoint{A} A = I </me>
+		<md> \adjoint{A} A = I </md>
 		into
-		<me> \utrans{A} \cconj{A} = I </me>
+		<md> \utrans{A} \cconj{A} = I </md>
 		by taking the transpose of both sides.
 		So we have <m>\inv{(\utrans{A})} = \cconj{A}</m>.
 		We can use this in our check that <m>\utrans{A}</m> is unitary, by
-		<me> \adjoint{(\utrans{A})} \utrans{A} = \cconj{A} \utrans{A} = I </me>.
+		<md> \adjoint{(\utrans{A})} \utrans{A} = \cconj{A} \utrans{A} = I </md>.
 		</p>
 	</proof>
 </lemma>
@@ -224,13 +224,13 @@ We leave the formal verification of these properties to you, the reader.
 			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-1">
 				Matrix <m>A</m> is invertible,
 				and for every pair of <m>n</m>-dimensional column vectors <m>\uvec{u},\uvec{v}</m>, we have
-				<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </me>.
+				<md> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </md>.
 				In other words, the adjoint of <m>A</m> is its inverse.
 			</li>
 			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-adjoint-inverse-2">
 				Matrix <m>A</m> is invertible,
 				and for every pair of <m>n</m>-dimensional column vectors <m>\uvec{u},\uvec{v}</m>, we have
-				<me> \inprod{A \uvec{u}}{\uvec{v}} = \inprod{\uvec{u}}{\inv{A} \uvec{v}} </me>.
+				<md> \inprod{A \uvec{u}}{\uvec{v}} = \inprod{\uvec{u}}{\inv{A} \uvec{v}} </md>.
 			</li>
 			<li xml:id="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">
 				The columns of <m>A</m> form an orthonormal basis of <m>\R^n</m> or <m>\C^n</m>, as appropriate.
@@ -257,7 +257,7 @@ We leave the formal verification of these properties to you, the reader.
 			then using <xref ref="proposition-matrix-adjoints-prod-preserv-props-norm">Statement</xref>
 			of <xref ref="proposition-matrix-adjoints-prod-preserv-props" />
 			we have
-			<me> \norm{A \uvec{x}} = \unorm{x} \neq 0 </me>,
+			<md> \norm{A \uvec{x}} = \unorm{x} \neq 0 </md>,
 			so <m>A \uvec{x} \neq 0</m>.
 			</p><p>
 			For column vectors <m>\uvec{u},\uvec{w}</m>,
@@ -280,7 +280,7 @@ We leave the formal verification of these properties to you, the reader.
 			<p>
 			Suppose <m>A</m> is invertible,
 			and for every pair of column vectors <m>\uvec{u},\uvec{v}</m>, we have
-			<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </me>.
+			<md> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{\inv{A} \uvec{u}}{\uvec{v}} </md>.
 			Applying this property to the pair <m>A \uvec{u},\uvec{v}</m>, we have
 			<md>
 				<mrow> \inprod{A \uvec{u}}{A \uvec{v}} \amp = \inprod{\inv{A} A \uvec{u}}{\uvec{v}} </mrow>
@@ -348,7 +348,7 @@ We leave the formal verification of these properties to you, the reader.
 			</md>
 			in terms of the standard basis vectors.
 			Then
-			<me> \uvecinprod{u}{v} = k_1 \lcconj{m}_1 + k_2 \lcconj{m}_2 + \dotsb + k_n \lcconj{m}_n </me>,
+			<md> \uvecinprod{u}{v} = k_1 \lcconj{m}_1 + k_2 \lcconj{m}_2 + \dotsb + k_n \lcconj{m}_n </md>,
 			where the complex conjugate is irrelevant in the real case.
 			Using <xref ref="equation-matrix-adjoints-theory-cols-by-std-vecs" />,
 			we obtain expansions
@@ -361,7 +361,7 @@ We leave the formal verification of these properties to you, the reader.
 			in terms of the orthonormal basis formed by the columns of <m>A</m>.
 			Applying <xref ref="proposition-inprod-orthog-vs-dot" /> for this orthonormal basis,
 			we obtain
-			<me> \inprod{A \uvec{u}}{A \uvec{v}} = k_1 \lcconj{m}_1 + k_2 \lcconj{m}_2 + \dotsb + k_n \lcconj{m}_n </me>,
+			<md> \inprod{A \uvec{u}}{A \uvec{v}} = k_1 \lcconj{m}_1 + k_2 \lcconj{m}_2 + \dotsb + k_n \lcconj{m}_n </md>,
 			where again the complex conjugate is irrelevant in the real case.
 			Comparing expressions for <m>\uvecinprod{u}{v}</m> and <m>\inprod{A \uvec{u}}{A \uvec{v}}</m> above,
 			we see that <m>A</m> is product-preserving.

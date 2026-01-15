@@ -38,20 +38,20 @@ respective owners.
 	We want to compute a basis for each eigenspace,
 	using the same method as in the examples of <xref ref="section-eigen-values-vectors-examples" />.
 	First, we form the matrix
-	<me>
+	<md>
 		\lambda I - A = \begin{bmatrix}
 			\lambda+1 \amp -9 \amp 0 \\
 			0 \amp \lambda-2 \amp 0 \\
 			0 \amp 3 \amp \lambda+1
 		\end{bmatrix},
-	</me>
+	</md>
 	and compute its determinant,
-	<me>
+	<md>
 		c_A(\lambda)
 		= \det(\lambda I - A)
 		= (\lambda+1)\bigl[(\lambda-2)(\lambda+1) - 0\cdot 3 \bigr]
 		= (\lambda+1)^2(\lambda-2),
-	</me>
+	</md>
 	to obtain the characteristic polynomial of <m>A</m>.
 	The eigenvalues are <m>\lambda_1 = -1</m> and <m>\lambda_2 = 2</m>.
 	The first eigenvalue is repeated as a root of the characteristic polynomial,
@@ -61,7 +61,7 @@ respective owners.
 	</p><p>
 	We determine eigenspace bases by row reducing, assigning parameters, and extracting basis vectors.
 	Here are the results for this matrix.
-	<me>
+	<md>
 		(-1)I - A =
 		\begin{abmatrix}{rrr}
 			0 \amp -9 \amp 0 \\
@@ -74,13 +74,13 @@ respective owners.
 			0 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</me>
-	<me>
+	</md>
+	<md>
 		\implies \qquad
 		E_{\lambda_1}(A) =
 		\Span\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix} \right\}
-	</me>
-	<me>
+	</md>
+	<md>
 		2I - A =
 		\begin{abmatrix}{rrr}
 			3 \amp -9 \amp 0 \\
@@ -93,11 +93,11 @@ respective owners.
 			0 \amp 1 \amp 1 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</me>
-	<me>
+	</md>
+	<md>
 		\implies \qquad
 		E_{\lambda_2}(A) = \Span\left\{ \begin{abmatrix}{r}-3 \\ -1 \\ 1\end{abmatrix} \right\}
-	</me>
+	</md>
 	Notice that <m>\dim\bbrac{E_{\lambda_1}(A)} = 2</m>,
 	so geometric multiplicity equals algebraic multiplicity for <m>\lambda_1</m>.
 	Also, <m>\dim\bbrac{E_{\lambda_2}(A)} = 1</m>,
@@ -116,27 +116,27 @@ respective owners.
 	Returning to our procedure,
 	we can see by inspection that the eigenspace basis vector for <m>\lambda_2</m> is linearly independent from the ones for <m>\lambda_1</m>,
 	so when we form the transition matrix
-	<me>
+	<md>
 		P =
 		\begin{abmatrix}{rrr}
 			1 \amp 0 \amp -3 \\
 			0 \amp 0 \amp -1 \\
 			0 \amp 1 \amp  1
 		\end{abmatrix}
-	</me>,
+	</md>,
 	it will be invertible because its columns are linearly independent.
 	And we can determine the diagonal form matrix <m>\inv{P}AP</m> <em>without</em> calculating <m>\inv{P}</m>,
 	because its diagonal entries should be precisely the eigenvalues of <m>A</m>,
 	with the same multiplicities and order as the corresponding columns of <m>P</m>.
 	In this case,
-	<me>
+	<md>
 		\inv{P}AP =
 		\begin{abmatrix}{rrr}
 			-1 \amp  0 \amp 0 \\
 			 0 \amp -1 \amp 0 \\
 			 0 \amp  0 \amp 2
 		\end{abmatrix}
-	</me>.
+	</md>.
 	Finally,
 	note that we could have analyzed the eigenvalues in the opposite order,
 	in which case we would have formed the following transition matrix and corresponding diagonal form matrix.
@@ -165,7 +165,7 @@ respective owners.
 	so we can see directly that the eigenvalues are <m>\lambda_1 = -1</m> with algebraic multiplicity <m>2</m>,
 	and <m>\lambda_2 = 2</m> with algebraic multiplicity <m>1</m>.
 	Analyze the eigenspaces:
-	<me>
+	<md>
 		(-1)I - A =
 		\begin{abmatrix}{rrr}
 			0 \amp -1 \amp  0 \\
@@ -178,13 +178,13 @@ respective owners.
 			0 \amp 0 \amp 1 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</me>
-	<me>
+	</md>
+	<md>
 		\implies \qquad
 		E_{\lambda_1}(A) =
 		\Span\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \right\},
-	</me>
-	<me>
+	</md>
+	<md>
 		2I - A =
 		\begin{abmatrix}{rrr}
 			3 \amp -1 \amp 0 \\
@@ -197,11 +197,11 @@ respective owners.
 			0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0
 		\end{bmatrix}
-	</me>
-	<me>
+	</md>
+	<md>
 		\implies \qquad
 		E_{\lambda_2}(A) = \Span\left\{ \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \right\}.
-	</me>
+	</md>
 	We could have stopped after our analysis of <m>\lambda_1</m>,
 	since its geometric multiplicity is only <m>1</m>,
 	whereas we needed it to be equal to the algebraic multiplicity <m>2</m>.
@@ -229,7 +229,7 @@ without attempting to build a transition matrix <m>P</m>.
 
 <p>
 Is
-<me>
+<md>
 	A =
 	\begin{abmatrix}{rrrr}
 		-1 \amp 0 \amp -12 \amp 0 \\
@@ -237,7 +237,7 @@ Is
 		 0 \amp 0 \amp   5 \amp 0 \\
 		 4 \amp 0 \amp   4 \amp 3
 	\end{abmatrix}
-</me>
+</md>
 diagonalizable?
 Compute the characteristic polynomial:
 <md><mrow>
@@ -279,13 +279,13 @@ Therefore,
 
 <p>
 Is
-<me> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </me>
+<md> A = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </md>
 diagonalizable? Compute the characteristic polynomial:
-<me>
+<md>
 	\det(\lambda I - A)
 	= \left\lvert\begin{array}{rr} \lambda \amp 1 \\ -1 \amp \lambda \end{array}\right\rvert
 	= \lambda^2 + 1
-</me>.
+</md>.
 But <m>\lambda^2+1=0</m> does not have real solutions,
 so <m>A</m> does not have eigenvalues, and cannot be diagonalizable.
 </p>

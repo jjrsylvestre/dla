@@ -42,7 +42,7 @@ with
 <theorem xml:id="proposition-projection-exist-unique"><p>
 	Suppose <m>U</m> is a subspace in an inner product space <m>V</m>.
 	Then every vector in <m>V</m> can be decomposed <em>uniquely</em> into a sum
-	<me> \uvec{v} = \uvec{u} + \uvec{u}' </me>,
+	<md> \uvec{v} = \uvec{u} + \uvec{u}' </md>,
 	where <m>\uvec{u}</m> is in <m>U</m>
 	and <m>\uvec{u}'</m> is in <m>\orthogcmp{U}</m>.
 </p></theorem>
@@ -54,10 +54,10 @@ again without proof.
 
 <theorem xml:id="proposition-projection-expansion"><p>
 	Suppose <m>U</m> is a subspace of a finite-dimensional inner product space <m>V</m>,
-	<me> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </me>
+	<md> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </md>
 	is an orthogonal basis for <m>U</m>,
 	and
-	<me> \basisfont{B}_V = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </me>
+	<md> \basisfont{B}_V = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </md>
 	is an enlargement to an orthogonal basis for <m>V</m>.
 	Then we have the following formulas.
 	<ol>
@@ -144,13 +144,13 @@ again without proof.
 				If
 				<m> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </m>
 				is an orthogonal basis for <m>U</m>, then
-				<me>
+				<md>
 					\norm{\proj_U \uvec{v}} = \sqrt{
 						\frac{\abs{\inprod{\uvec{v}}{\uvec{e}_1}}^2}{\norm{\uvec{e}_1}^2}
 						+ \dotsb
 						+ \frac{\abs{\inprod{\uvec{v}}{\uvec{e}_\ell}}^2}{\norm{\uvec{e}_\ell}^2}
 					}
-				</me>,
+				</md>,
 				where the absolute values are redundant in the real context,
 				but indicate modulus in the complex context.
 			</li>
@@ -196,7 +196,7 @@ the orthogonal projection <m>\proj_U \uvec{v}</m> is the vector in <m>U</m> that
 		and <m>\uvec{v}</m> is a vector in <m>V</m>.
 		Then <m>\proj_U \uvec{v}</m> is the unique vector in <m>U</m> at minimum distance from <m>\uvec{v}</m>.
 		That is,
-		<me> \dist(\uvec{v}, \proj_U \uvec{v}) \lt \dist(\uvec{v}, \uvec{u}) </me>
+		<md> \dist(\uvec{v}, \proj_U \uvec{v}) \lt \dist(\uvec{v}, \uvec{u}) </md>
 		for every <m>\uvec{u} \neq \proj_U \uvec{v}</m> in <m>U</m>.
 	</p></statement>
 
@@ -267,7 +267,7 @@ the orthogonal projection <m>\proj_U \uvec{v}</m> is the vector in <m>U</m> that
 		<m>\uvec{v} - \proj_U \uvec{v}</m> is the component of <m>\uvec{v}</m> orthogonal to <m>U</m>,
 		<m>\proj_U \uvec{v} - \uvec{u}</m> is parallel to <m>U</m>,
 		and we have
-		<me> \uvec{v} - \uvec{u} = (\uvec{v} - \proj_U \uvec{v}) + (\proj_U \uvec{v} - \uvec{u}) </me>.
+		<md> \uvec{v} - \uvec{u} = (\uvec{v} - \proj_U \uvec{v}) + (\proj_U \uvec{v} - \uvec{u}) </md>.
 		The two vectors in the sum on the right,
 		being orthogonal and parallel to <m>U</m>, respectively, must be orthogonal to one another.
 		So we may apply <xref ref="theorem-inprod-orthog-pythag" /> to get
@@ -283,12 +283,12 @@ the orthogonal projection <m>\proj_U \uvec{v}</m> is the vector in <m>U</m> that
 		</md>.
 		Since we have assumed <m>\uvec{u} \neq \proj_U \uvec{v}</m>,
 		we have
-		<me> \bigl[\dist(\proj_U \uvec{v},\uvec{u})\bigr]^2 \gt 0 </me>,
+		<md> \bigl[\dist(\proj_U \uvec{v},\uvec{u})\bigr]^2 \gt 0 </md>,
 		so
-		<me> \bigl[\dist (\uvec{v}, \uvec{u})\bigr]^2 \gt \bigl[\dist(\uvec{v},\proj_U \uvec{v})\bigr]^2 </me>.
+		<md> \bigl[\dist (\uvec{v}, \uvec{u})\bigr]^2 \gt \bigl[\dist(\uvec{v},\proj_U \uvec{v})\bigr]^2 </md>.
 		But nonnegative numbers <m>x_1,x_2</m> satisfying <m>x_1^2 \gt x_2^2</m> must also satisfy <m>x_1 \gt x_2</m>,
 		hence
-		<me> \dist (\uvec{v}, \uvec{u}) \gt \dist(\uvec{v},\proj_U \uvec{v}) </me>,
+		<md> \dist (\uvec{v}, \uvec{u}) \gt \dist(\uvec{v},\proj_U \uvec{v}) </md>,
 		as desired.
 		</p>
 
@@ -306,7 +306,7 @@ the preceding theorem tells us the value of such a distance.
 	<title>Distance between a vector and a subspace</title>
 	<p>
 	For vector <m>\uvec{v}</m> and subspace <m>U</m> in an inner product space,
-	<me> \dist (\uvec{v}, U) = \dist(\uvec{v},\proj_U \uvec{v}) = \norm{\uvec{v} - \proj_U \uvec{v}} = \norm{\proj_{\orthogcmp{U}} \uvec{v}} </me>.
+	<md> \dist (\uvec{v}, U) = \dist(\uvec{v},\proj_U \uvec{v}) = \norm{\uvec{v} - \proj_U \uvec{v}} = \norm{\proj_{\orthogcmp{U}} \uvec{v}} </md>.
 	</p>
 </corollary>
 
@@ -323,7 +323,7 @@ even if the original system is inconsistent.
 <theorem>
 	<statement><p>
 		For system <m>A \uvec{x} = \uvec{b}</m>, the associated normal system
-		<me> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </me>
+		<md> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </md>
 		is always consistent.
 	</p></statement>
 	<proof><title>Proof outline</title><p>
@@ -331,10 +331,10 @@ even if the original system is inconsistent.
 		As discussed in <xref ref="subsection-projection-concepts-least-sq" />,
 		every vector in <m>U</m> is of the form <m>A \uvec{x}</m> for some column vector <m>\uvec{x}</m>.
 		So the system
-		<me> A \uvec{x} = \proj_U \uvec{b} </me>
+		<md> A \uvec{x} = \proj_U \uvec{b} </md>
 		is consistent, since <m>\proj_U \uvec{b}</m> lies in <m>U</m>.
 		But then any solution to this system will also solve the normal system
-		<me> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </me>,
+		<md> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </md>,
 		as discussed in <xref ref="subsection-projection-concepts-least-sq" />.
 	</p></proof>
 </theorem>

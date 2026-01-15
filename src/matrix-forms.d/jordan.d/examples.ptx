@@ -38,7 +38,7 @@ in a fairly simple case.
 	<title>Determining Jordan normal form</title>
 	<p>
 	Consider the matrix
-	<me>
+	<md>
 		A = \begin{abmatrix}{rrrrrrr}
 			3 \amp 4 \amp  1 \amp -1 \amp  0 \amp -4 \amp  0 \\
 			0 \amp 3 \amp -4 \amp  0 \amp  4 \amp  0 \amp  0 \\
@@ -48,13 +48,13 @@ in a fairly simple case.
 			0 \amp 4 \amp -5 \amp  0 \amp  5 \amp -1 \amp  0 \\
 			4 \amp 3 \amp  1 \amp -1 \amp  0 \amp -3 \amp -1
 		\end{abmatrix}
-	</me>
+	</md>
 	from <xref ref="example-triang-block-form-7x7" />.
 	This matrix has two eigenvalues:
 	<m>\lambda_1 = 3</m> of multiplicity <m>m_1 = 4</m>, and
 	<m>\lambda_2 = -1</m> of multiplicity <m>m_2 = 3</m>.
 	So we expect the Jordan normal form of <m>A</m> to have <q>macro</q> blocks
-	<me> J = \begin{bmatrix} 3 I + N_1 \\ \amp (-1) I + N_2 \end{bmatrix} </me>,
+	<md> J = \begin{bmatrix} 3 I + N_1 \\ \amp (-1) I + N_2 \end{bmatrix} </md>,
 	where the first block <m>3 I + N_1</m> is a <m>4 \times 4</m> block-diagonal matrix of Jordan blocks for <m>\lambda_1 = 3</m>,
 	and the second block <m>(-1) I + N_2</m> is a <m>3 \times 3</m> block-diagonal matrix of Jordan blocks for <m>\lambda_2 = -1</m>.
 	</p><p>
@@ -73,7 +73,7 @@ in a fairly simple case.
 	From the first rank again, we can conclude that there is only one <m>2 \times 2</m> block,
 	so there must be two more <m>1 \times 1</m> blocks,
 	from which we get the partial Jordan form
-	<me>
+	<md>
 		J = \begin{bmatrix}
 			\boxed{
 				\begin{matrix}
@@ -86,7 +86,7 @@ in a fairly simple case.
 			\amp
 			\boxed{\begin{matrix} \phantom{X} \\ \amp (-1)I + N_2 \\ \amp \amp \phantom{X} \end{matrix}}
 		\end{bmatrix}
-	</me>.
+	</md>.
 	</p><p>
 	Now analyze <m>A - \lambda_2 I</m>.
 	Again, we calculate the ranks of powers of <m>A - \lambda_2 I</m>,
@@ -102,7 +102,7 @@ in a fairly simple case.
 	And the second rank corroborates this as well, since it tells us that there is only one block of that largest size <m>3 \times 3</m>.
 	With this information,
 	we now have the exact Jordan form for <m>A</m>:
-	<me>
+	<md>
 		J = \begin{bmatrix}
 			\boxed{\begin{matrix}
 				3 \\
@@ -117,7 +117,7 @@ in a fairly simple case.
 				 \amp 1 \amp -1
 			\end{array}}
 		\end{bmatrix}
-	</me>.
+	</md>.
 	</p>
 </example>
 
@@ -303,7 +303,7 @@ Notice that the matrix we analyze is the same as in
 	<m>N_2</m> should be similar to a matrix in elementary nilpotent form.
 	The third column of <m>N_2^2</m> is nonzero,
 	so we can set
-	<me> U = \Span \{ \uvec{e}_3, N_2 \uvec{e}_3, N_2^2 \uvec{e}_3 \} </me>,
+	<md> U = \Span \{ \uvec{e}_3, N_2 \uvec{e}_3, N_2^2 \uvec{e}_3 \} </md>,
 	and use this cyclic basis to get
 	<md><mrow>
 		R_2 \amp = \begin{bmatrix}
@@ -357,7 +357,7 @@ Notice that the matrix we analyze is the same as in
 	Recall that the matrix <m>Q</m> puts <m>A</m> into triangular-block form.
 	We see above that the matrices <m>R_1,R_2</m> break each block of <m>\inv{Q} A Q</m> into Jordan blocks.
 	We can combine these by forming the block-diagonal matrix
-	<me> R = \begin{bmatrix} R_1 \\ \amp R_2 \end{bmatrix} </me>
+	<md> R = \begin{bmatrix} R_1 \\ \amp R_2 \end{bmatrix} </md>
 	and setting <m>P = Q R</m>.
 	Then,
 	<md>

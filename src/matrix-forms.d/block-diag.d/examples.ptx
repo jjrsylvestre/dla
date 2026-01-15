@@ -175,7 +175,7 @@ so we will only carry out an example of multiplication of block matrices.
 		A_3 B_3 \amp= \begin{bmatrix} 1 \amp 0 \\ 4 \amp 0 \end{bmatrix} \text{,}
 	</mrow></md>
 	we get product
-	<me>
+	<md>
 		AB = \begin{bmatrix}
 			0 \amp 0 \amp 0 \\
 			0 \amp 1 \amp 0 \\
@@ -184,7 +184,7 @@ so we will only carry out an example of multiplication of block matrices.
 			 \amp \amp \amp \amp 1 \amp 0 \\
 			 \amp \amp \amp \amp 4 \amp 0
 		\end{bmatrix}
-	</me>.
+	</md>.
 </p></example>
 
 </subsection>
@@ -204,7 +204,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	<p>
 	It is far from obvious,
 	but the effect of multiplication by matrix
-	<me>
+	<md>
 		A
 		= \frac{1}{2}
 		\begin{abmatrix}{rrr}
@@ -212,7 +212,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 			1 \amp 1 \amp -\sqrt{2} \\
 			-\sqrt{2} \amp \sqrt{2} \amp 0
 		\end{abmatrix}
-	</me>
+	</md>
 	on vectors in <m>\R^3</m> is to rotate around the line through the origin spanned by the vector
 	<m>\uvec{n} = (1, 1, 0)</m>.
 	While we are not yet prepared to understand the connection between the matrix and the geometric effect,
@@ -224,7 +224,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	If <m>A</m> is a rotation,
 	vectors parallel to the axis of rotation should be fixed by the transformation.
 	In particular, vector <m>\uvec{n}</m> should be fixed by <m>A</m>:
-	<me>
+	<md>
 		A \uvec{n}
 		= \frac{1}{2}
 		\begin{abmatrix}{rrr}
@@ -236,7 +236,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 		= \frac{1}{2}
 		\begin{abmatrix}{r} 2 \\ 2 \\ 0 \end{abmatrix}
 		= \begin{abmatrix}{r} 1 \\ 1 \\ 0 \end{abmatrix}
-	</me>,
+	</md>,
 	as expected.
 	</p>
 
@@ -249,7 +249,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	Let's test this with vector <m>\uvec{w}_1 = (0,0,1)</m>,
 	which we know is parallel to the plane because its components satisfy the plane equation.
 	Computing the transformed vector, we get
-	<me>
+	<md>
 		A \uvec{w}_1
 		= \frac{1}{2}
 		\begin{abmatrix}{rrr}
@@ -261,7 +261,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 		= \frac{1}{2}
 		\begin{abmatrix}{r} \sqrt{2} \\ -\sqrt{2} \\ 0 \end{abmatrix}
 		= \begin{abmatrix}{r} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0 \end{abmatrix}
-	</me>.
+	</md>.
 	The components of this transformed vector do indeed satisfy the plane equation <m>x + y = 0</m>.
 	Even better, then length of this vector is <m>1</m>,
 	which is the same as the length of the original vector <m>\uvec{w}_1</m>.
@@ -277,7 +277,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	As one more test, write <m>\uvec{w}_2</m> for the transformed vector <m>A \uvec{w}_1</m>.
 	This vector lies in the same plane orthogonal to the axis of rotation,
 	so we expect <m>A</m> to also transform it to another vector in that plane:
-	<me>
+	<md>
 		A \uvec{w}_2
 		= \frac{1}{2}
 		\begin{abmatrix}{rrr}
@@ -289,7 +289,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 		= \frac{1}{2}
 		\begin{abmatrix}{r} 0 \\ 0 \\ -2 \end{abmatrix}
 		= \begin{abmatrix}{r} 0 \\ 0 \\ -1 \end{abmatrix}
-	</me>.
+	</md>.
 	So <m>A</m> transforms <m>\uvec{w}_2</m> into <m>-\uvec{w}_1</m>.
 	From our guess at the angle of rotation,
 	this result should also be expected:
@@ -304,14 +304,14 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	They also provided us with a couple of <m>A</m>-invariant subspaces.
 	Since <m>\uvec{n}</m> is fixed by <m>A</m>,
 	the same will be true for every scalar multiple of <m>\uvec{n}</m>:
-	<me> A (k\uvec{n}) = k A \uvec{n} = k \uvec{n} </me>.
+	<md> A (k\uvec{n}) = k A \uvec{n} = k \uvec{n} </md>.
 	This demonstrates that <m>U = \Span \{\uvec{n}\}</m> is an <m>A</m>-invariant subspace.
 	</p>
 
 	<p>
 	Similarly, since <m>A</m> transforms <m>\uvec{w}_1</m> into <m>\uvec{w}_2</m> and transforms <m>\uvec{w}_2</m> into <m>-\uvec{w}_1</m>,
 	it follows that <m>A</m> transforms every linear combination of these two vectors into another linear combination of them:
-	<me> A (k_1 \uvec{w}_1 + k_2 \uvec{w}_2) = k_1 (A \uvec{w}_1) + k_2 (A \uvec{w}_2) = k_1 \uvec{w}_2 + k_2 (-\uvec{w}_1) </me>.
+	<md> A (k_1 \uvec{w}_1 + k_2 \uvec{w}_2) = k_1 (A \uvec{w}_1) + k_2 (A \uvec{w}_2) = k_1 \uvec{w}_2 + k_2 (-\uvec{w}_1) </md>.
 	This demonstrates that <m>W = \Span \{\uvec{w}_1, \uvec{w}_2\}</m> is also an <m>A</m>-invariant subspace.
 	</p>
 
@@ -329,7 +329,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 	And their dimensions add up to the dimension of <m>\R^3</m>,
 	so this pair of <m>A</m>-invariant spaces is a <em>complete</em> set of independent subspaces.
 	This is exactly what we need to form an appropriate transition matrix:
-	<me>
+	<md>
 		P = \begin{bmatrix}
 			| \amp | \amp | \\
 			\uvec{n} \amp \uvec{w}_1 \amp \uvec{w}_2 \\
@@ -340,7 +340,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 			1 \amp 0 \amp -\frac{1}{\sqrt{2}} \\
 			0 \amp 1 \amp          0
 		\end{abmatrix}
-	</me>
+	</md>
 	</p>
 
 	<p>
@@ -366,7 +366,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 		\end{array}
 	</mrow></md>
 	we obtain
-	<me>
+	<md>
 		\inv{P} A P =
 		\begin{abmatrix}{@{}r|rr@{}}
 			1 \amp 0 \amp  0 \\
@@ -374,7 +374,7 @@ and then using those invariant subspaces to put a matrix into block-diagonal for
 			0 \amp 0 \amp -1 \\
 			0 \amp 1 \amp  0
 		\end{abmatrix}
-	</me>,
+	</md>,
 	where the <m>1 \times 1</m> block in the upper left represents the trivial action of <m>A</m> on vectors in the axis <m>U</m>,
 	and the <m>2 \times 2</m> block in the lower right represents the rotation action of <m>A</m> on the vectors in the perpendicular plane <m>W</m>.
 	</p>
@@ -395,7 +395,7 @@ when we consider the theory of the form.
 	<title>Diagonal form as block-diagonal form</title>
 	<p>
 	Consider the matrix
-	<me> A = \begin{abmatrix}{rrr} 2 \amp 1 \amp -2 \\ 3 \amp 0 \amp 0 \\ -1 \amp 1 \amp -2 \end{abmatrix} </me>.
+	<md> A = \begin{abmatrix}{rrr} 2 \amp 1 \amp -2 \\ 3 \amp 0 \amp 0 \\ -1 \amp 1 \amp -2 \end{abmatrix} </md>.
 	If you take the time to compute them,
 	you will find that <m>A</m> has three eigenvalues:
 	<m>\lambda_1 = 3</m>, <m>\lambda_2 = 0</m>, and <m>\lambda_3 = -3</m>.
@@ -417,7 +417,7 @@ when we consider the theory of the form.
 	precisely what we need for the block-diagonalization procedure.
 	</p><p>
 	So we may form a suitable transition matrix <m>P</m> by taking the eigenvectors above as columns:
-	<me> P = \begin{abmatrix}{rrr} 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp -1 \\ 0 \amp 1 \amp 2 \end{abmatrix} </me>.
+	<md> P = \begin{abmatrix}{rrr} 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp -1 \\ 0 \amp 1 \amp 2 \end{abmatrix} </md>.
 	Each of our eigenspaces is one-dimensional,
 	so we need three <m>1 \times 1</m> blocks in our form matrix,
 	which agrees with our expectation that it be diagonal.
@@ -429,7 +429,7 @@ when we consider the theory of the form.
 			A \uvec{p}_3 \amp = -3 \uvec{p}_3 \text{,}
 	</mrow></md>
 	tells us the form matrix
-	<me>
+	<md>
 		\inv{P} A P =
 		\begin{abmatrix}{@{}r|r|r@{}}
 			3 \amp 0 \amp  0 \\
@@ -438,7 +438,7 @@ when we consider the theory of the form.
 			\hline
 			0 \amp 0 \amp -3
 		\end{abmatrix}
-	</me>,
+	</md>,
 	where the blocks along the diagonal are each <m>1 \times 1</m> (including the <m>1 \times 1</m> zero block in the middle).
 	</p><p>
 	This form matrix matches up with our knowledge of diagonal forms,

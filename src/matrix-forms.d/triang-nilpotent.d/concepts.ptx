@@ -176,7 +176,7 @@ and we expect the rank
 to increase by one in each of those blocks.
 And this continues with every step that we decrease the exponent.
 That is, we expect
-<me> \rank A^{k - 2} = 2m, \quad \rank A^{k-3} = 3m, \quad \rank A^{k-4} = 4m, \dotsc </me>.
+<md> \rank A^{k - 2} = 2m, \quad \rank A^{k-3} = 3m, \quad \rank A^{k-4} = 4m, \dotsc </md>.
 However, this pattern will be broken as soon as the block of next largest size in <m>N</m> <q>reappears</q> with a solitary one in its lower left corner.
 So if <m>\rank A^{k-j}</m> is larger than the pattern above predicts,
 we must have a new block of smaller size reappearing in <m>N^{k-j}</m>.
@@ -217,9 +217,9 @@ from largest blocks to smallest.
 The procedure relies on the fact that null spaces of powers of a matrix are nested.
 That is, if we write <m>\nullsp(M)</m> to mean the null space of any square matrix <m>M</m>,
 then we have
-<me> \nullsp(A) \subseteq \nullsp(A^2) \subseteq \nullsp(A^3) \subseteq \dotsb \subseteq \nullsp(A^k) \subseteq \dotsb </me>.
+<md> \nullsp(A) \subseteq \nullsp(A^2) \subseteq \nullsp(A^3) \subseteq \dotsb \subseteq \nullsp(A^k) \subseteq \dotsb </md>.
 This nesting occurs because for every <m>\uvec{x}</m> that satisfies <m>A^k \uvec{x} = \zerovec</m>,
-then <me> A^{k+1} \uvec{x} = A (A^k \uvec{x}) = A \zerovec = \zerovec </me>
+then <md> A^{k+1} \uvec{x} = A (A^k \uvec{x}) = A \zerovec = \zerovec </md>
 as well.
 </p>
 
@@ -236,7 +236,7 @@ That is, there exists a <m>k</m> so that in fact <m>\nullsp (A^m) = \nullsp (A^k
 In the case that <m>A</m> is nilpotent,
 this occurs at the degree of nilpotency,
 since if <m>A^k = \zerovec</m>,
-then <me> \nullsp (A^k) = \nullsp (\zerovec) = \R^n </me>
+then <md> \nullsp (A^k) = \nullsp (\zerovec) = \R^n </md>
 (or <m>\C^n</m>, if we are working with complex matrices).
 </p>
 
@@ -260,7 +260,7 @@ That is, <m>\uvec{w}_j</m> needs to be in the null space of <m>A^{m_j}</m> but n
 			Extend this to a basis for the null space of <m>A^k</m>.
 			(Since <m>A^k = \zerovec</m>, this null space is all of <m>\R^n</m> or <m>\C^n</m>, as appropriate.)
 			For each vector <m>\uvec{w}</m> in this extended basis that is not part of the basis of the null space of <m>A^{k-1}</m>,
-			<me> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-1} \uvec{w} \} </me>
+			<md> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-1} \uvec{w} \} </md>
 			will be a basis for a <m>k</m>-dimensional <m>A</m>-cyclic space.
 			Use all of these cyclic bases (grouped together)
 			as the first set of columns of <m>P</m>.
@@ -278,7 +278,7 @@ That is, <m>\uvec{w}_j</m> needs to be in the null space of <m>A^{m_j}</m> but n
 			the form matrix <m>\inv{P} A P</m> will not have any blocks of size <m>k - 1</m>.
 			Otherwise, extend the collection of vectors you already have from this step until it is a basis for the null space of <m>A^{k-1}</m>.
 			For each <m>\uvec{w}</m> of these new vectors,
-			<me> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-2} \uvec{w} \} </me>
+			<md> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-2} \uvec{w} \} </md>
 			will be a basis for a <m>(k-1)</m>-dimensional <m>A</m>-cyclic space.
 			Use all of these cyclic bases (grouped together)
 			as the next set of columns of <m>P</m>.
@@ -301,7 +301,7 @@ That is, <m>\uvec{w}_j</m> needs to be in the null space of <m>A^{m_j}</m> but n
 			the form matrix <m>\inv{P} A P</m> will not have any blocks of size <m>k - 2</m>.
 			Otherwise, extend the collection of vectors you already have from this step until it is a basis for the null space of <m>A^{k-2}</m>.
 			For each <m>\uvec{w}</m> of these new vectors,
-			<me> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-3} \uvec{w} \} </me>
+			<md> \{ \uvec{w}, A \uvec{w}, \dotsc, A^{k-3} \uvec{w} \} </md>
 			will be a basis for a <m>(k-2)</m>-dimensional <m>A</m>-cyclic space.
 			Use all of these cyclic bases (grouped together)
 			as the next set of columns of <m>P</m>.

@@ -33,25 +33,25 @@ respective owners.
 <example>
 	<p>
 	Using matrix
-	<me>
+	<md>
 		A = \begin{abmatrix}{rrrrr}
 			-1 \amp  0 \amp -2 \amp -2 \amp  7 \\
 			-5 \amp  1 \amp -7 \amp -3 \amp 16 \\
 			 1 \amp  0 \amp  2 \amp  1 \amp -4 \\
 			 2 \amp -2 \amp -2 \amp -1 \amp -3
 		\end{abmatrix}
-	</me>,
+	</md>,
 	create the matrix transformation <m>\funcdef{T_A}{\R^5}{\R^4}</m> by
 	defining <m>T_A(\uvec{x}) = A \uvec{x}</m>, as usual.
 	The RREF of <m>A</m> is
-	<me>
+	<md>
 		\begin{abmatrix}{rrrrr}
 			1 \amp 0 \amp 2 \amp 0 \amp -1 \\
 			0 \amp 1 \amp 3 \amp 0 \amp  2 \\
 			0 \amp 0 \amp 0 \amp 1 \amp -3 \\
 			0 \amp 0 \amp 0 \amp 0 \amp  0
 		\end{abmatrix}
-	</me>.
+	</md>.
 	(This is the same RREF as
 	in <xref ref="activity-lintrans-ker-im-matrix-transformation-ker-matrix">Discovery</xref>
 	and <xref ref="activity-lintrans-ker-im-matrix-transformation-im-matrix">Discovery</xref>.)
@@ -60,19 +60,19 @@ respective owners.
 	we solve the homogeneous system <m>A \uvec{x} = \zerovec</m>.
 	The RREF indicates that we should assign parameters to variables <m>x_3</m> and <m>x_5</m>.
 	This assignment of parameters leads to general solution
-	<me>
+	<md>
 		\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
 		= \begin{bmatrix} -2 s + t \\ -3 s - 2 t \\ s \\ 3 t \\ t \end{bmatrix}
 		= s \begin{abmatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{abmatrix}
 		+ t \begin{abmatrix}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{abmatrix}
-	</me>,
+	</md>,
 	and so
-	<me>
+	<md>
 		\ker T_A = \Span \left\{
 			\begin{abmatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{abmatrix},
 			\begin{abmatrix}{r} 1 \\ -2 \\ 0 \\ 3 \\ 1 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	</p><p>
 	To determine a basis of <m>\im T_A</m>,
 	we need to determine a basis for the column space of <m>A</m>,
@@ -80,16 +80,16 @@ respective owners.
 	<xref ref="procedure-col-row-null-space-concepts-col-space-basis" />.
 	We have already reduced <m>A</m> to RREF above,
 	so identifying leading ones in the first, second, and fourth columns of <m>\RREF(A)</m> leads to
-	<me>
+	<md>
 		\im T_A = \Span \left\{
 			\begin{abmatrix}{r} -1 \\ -5 \\ 1 \\ 2 \end{abmatrix},
 			\begin{abmatrix}{r} 0 \\ 1 \\ 0 \\ -2 \end{abmatrix},
 			\begin{abmatrix}{r} -2 \\ -3 \\ 1 \\ -1 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	</p><p>
 	Finally, notice that
-	<me> \dim (\ker T_A) + \dim (\im T_A) = 2 + 3 = 5 </me>,
+	<md> \dim (\ker T_A) + \dim (\im T_A) = 2 + 3 = 5 </md>,
 	the number of columns of <m>A</m>,
 	as expected.
 	</p>
@@ -104,63 +104,63 @@ respective owners.
 	<title>Symmetric and skew-symmetric matrices</title>
 	<p>
 	Consider <m>\funcdef{T}{\matrixring_2(\R)}{\matrixring_2(\R)}</m> by
-	<me>T(A) = A - \utrans{A}</me>,
+	<md>T(A) = A - \utrans{A}</md>,
 	as considered in <xref ref="activity-lintrans-ker-im-describe-ker-symmetric">Discovery</xref>
 	and <xref ref="activity-lintrans-ker-im-basis-ker-symmetric">Discovery</xref>.
 	In those discovery activities,
 	we identified the kernel as consisting of symmetric matrices.
 	In the <m>2 \times 2</m> case,
 	an arbitrary symmetric matrix is of the form
-	<me>
+	<md>
 		\begin{bmatrix} a \amp b \\ b \amp d \end{bmatrix}
 		= a \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
 		+ b \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
 		+ d \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-	</me>,
+	</md>,
 	so that
-	<me>
+	<md>
 		\ker T = \Span \left\{
 			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
 	we take
-	<me>
+	<md>
 		\basisfont{K} = \left\{
 			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Since <m>\dim \bigl(\matrixring_2(\R)\bigr) = 4</m>,
 	we only need one more vector to enlarge to a basis for the domain space <m>\matrixring_2(\R)</m>.
 	The standard basis vector
-	<me> \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>
+	<md> \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} </md>
 	is not symmetric, and so does not lie in <m>\ker T</m>.
 	Therefore, taking
-	<me> \basisfont{K}' = \left\{ \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} \right\} </me>,
+	<md> \basisfont{K}' = \left\{ \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} \right\} </md>,
 	the vectors in <m>\basisfont{K}</m> and <m>\basisfont{K}'</m> together form a basis for <m>\matrixring_2(\R)</m>.
 	To obtain a basis for <m>\im T</m>,
 	just apply <m>T</m> to the vector in <m>\basisfont{K}'</m>:
-	<me>
+	<md>
 		T\left(\begin{bmatrix}  0 \amp 1 \\  0 \amp 0 \end{bmatrix}\right)
 		= \begin{bmatrix}       0 \amp 1 \\  0 \amp 0 \end{bmatrix}
 		- \begin{bmatrix}       0 \amp 0 \\  1 \amp 0 \end{bmatrix}
 		= \begin{abmatrix}{rc}  0 \amp 1 \\ -1 \amp 0 \end{abmatrix}
-	</me>,
+	</md>,
 	so that
-	<me>
+	<md>
 		\im T
 		= \Span T(\basisfont{K}')
 		= \Span \left\{ \begin{abmatrix}{rc} 0 \amp 1 \\ -1 \amp 0 \end{abmatrix} \right\}
-	</me>.
+	</md>.
 	Notice that <m>\im T</m> consists of the <term>skew-symmetric</term> <m>2 \times 2</m> matrices,
 	defined by the <q>skewed</q> symmetry condition <m>\utrans{A} = - A</m>.
 	</p><p>
 	And also notice that
-	<me> \dim (\ker T) + \dim (\im T) = 3 + 1 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </me>,
+	<md> \dim (\ker T) + \dim (\im T) = 3 + 1 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </md>,
 	as expected.
 	</p>
 </example>
@@ -170,57 +170,57 @@ respective owners.
 	<p>
 	Consider <m>\funcdef{L_B}{\matrixring_{2}(\R)}{\matrixring_{2}(\R)}</m> defined by <m>L_B(A) = B A</m>,
 	where
-	<me> B = \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} </me>,
+	<md> B = \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} </md>,
 	as in <xref ref="activity-lintrans-ker-im-basis-ker-left-mult-M22">Discovery</xref>.
 	An arbitray <m>2 \times 2</m> matrix
-	<me> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+	<md> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </md>
 	is in <m>\ker L_B</m> when
-	<me>
+	<md>
 		L_B\left(\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\right)
 		=
 		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 		\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 		= \begin{bmatrix} a + c \amp b + d \\ 0 \amp 0 \end{bmatrix}
 		= \begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
-	</me>,
+	</md>,
 	which occurs when <m>c = -a</m> and <m>d = -b</m>.
 	Inserting these two conditions into the arbitrary matrix above,
 	we have
-	<me>
+	<md>
 		  \begin{abmatrix}{rr} a \amp b \\ -a \amp -b \end{abmatrix} =
 		a \begin{abmatrix}{rr} 1 \amp 0 \\ -1 \amp  0 \end{abmatrix} +
 		b \begin{abmatrix}{rr} 0 \amp 1 \\  0 \amp -1 \end{abmatrix}
-	</me>,
+	</md>,
 	so that
-	<me>
+	<md>
 		\ker L_B = \Span \left\{
 			\begin{abmatrix}{rr} 1 \amp 0 \\ -1 \amp  0 \end{abmatrix},
 			\begin{abmatrix}{rr} 0 \amp 1 \\  0 \amp -1 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
 	we take
-	<me>
+	<md>
 		\basisfont{K} = \left\{
 			\begin{abmatrix}{rr} 1 \amp 0 \\ -1 \amp  0 \end{abmatrix},
 			\begin{abmatrix}{rr} 0 \amp 1 \\  0 \amp -1 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Since <m>\dim \bigl(\matrixring_2(\R)\bigr) = 4</m>,
 	we need two more vectors to enlarge to a basis for the domain space <m>\matrixring_2(\R)</m>.
 	Neither of the standard basis vectors
-	<me>
+	<md>
 		\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \;
 		\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-	</me>
+	</md>
 	is in <m>\ker T</m>,
 	and the four vectors in <m>\basisfont{K}</m> and
-	<me>
+	<md>
 		\basisfont{K}' = \left\{
 			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 		\right\}
-	</me>
+	</md>
 	remain independent when taken all together,
 	and so form a basis for the domain space <m>\matrixring_2(\R)</m>.
 	Putting each of the vectors in <m>\basisfont{K}'</m> through <m>L_B</m>, we get
@@ -242,24 +242,24 @@ respective owners.
 		</mrow>
 	</md>,
 	so that
-	<me>
+	<md>
 		\im L_B = \Span \left\{
 			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	This agrees with our earlier calculation of arbitrary input result
-	<me>
+	<md>
 		L_B \left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
 		=   \begin{bmatrix} a + c \amp b + d \\ 0 \amp 0 \end{bmatrix}
 		=   \begin{bmatrix}   e   \amp   f   \\ 0 \amp 0 \end{bmatrix}
 		= e \begin{bmatrix}   1   \amp   0   \\ 0 \amp 0 \end{bmatrix}
 		+ f \begin{bmatrix}   0   \amp   1   \\ 0 \amp 0 \end{bmatrix}
-	</me>,
+	</md>,
 	where we have replaced the top two entries in the result first result with new arbitrary entries <m>e,f</m> to emphasize that these entries are independently arbitrary through choice of <m>a,c</m> values versus <m>b,d</m> values.
 	</p><p>
 	And, once again, we have
-	<me> \dim (\ker L_B) + \dim (\im L_B) = 2 + 2 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </me>,
+	<md> \dim (\ker L_B) + \dim (\im L_B) = 2 + 2 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </md>,
 	as expected.
 	</p>
 </example>
@@ -271,28 +271,28 @@ respective owners.
 	</p><p>
 	Similarly to <xref ref="activity-lintrans-ker-im-describe-ker-diff">Discovery</xref>,
 	<m>\ker D</m> consists of the constant polynomials, so that
-	<me> \ker D = \Span \{ 1 \} </me>.
+	<md> \ker D = \Span \{ 1 \} </md>.
 	In the notation of <xref ref="procedure-lintrans-ker-im-concepts-im-basis" />,
 	we take
-	<me> \basisfont{K} = \{ 1 \} </me>
+	<md> \basisfont{K} = \{ 1 \} </md>
 	as a basis for <m>\ker D</m>.
 	It is straightforward to enlarge this to a basis for the domain space <m>\poly_n(\R)</m>,
 	as the constant polynomial <m>1</m> is the first vector in the standard basis
-	<me> \{ 1, x, x^2, \dotsc, x^n \} </me>.
+	<md> \{ 1, x, x^2, \dotsc, x^n \} </md>.
 	So we may take
-	<me> \basisfont{K}' = \{ x, x^2, \dotsc, x^n \} </me>,
+	<md> \basisfont{K}' = \{ x, x^2, \dotsc, x^n \} </md>,
 	and differentiate each of these vectors to get
-	<me> D(\basisfont{K}') = \{ 1, 2 x, 3 x^2, \dotsc, n x^{n-1} \} </me>.
+	<md> D(\basisfont{K}') = \{ 1, 2 x, 3 x^2, \dotsc, n x^{n-1} \} </md>.
 	So we have
-	<me> \im D = \Span \{ 1, 2 x, 3 x^2, \dotsc, n x^{n-1} \} </me>.
+	<md> \im D = \Span \{ 1, 2 x, 3 x^2, \dotsc, n x^{n-1} \} </md>.
 	But since scalar multiples do not affect linear independence,
 	we could instead take
-	<me> \im D = \Span \{ 1, x, x^2, \dotsc, x^{n-1} \} = \poly_{n-1}(\R) </me>.
+	<md> \im D = \Span \{ 1, x, x^2, \dotsc, x^{n-1} \} = \poly_{n-1}(\R) </md>.
 	This result should not be surprising,
 	as our knowledge of antidifferentiation leads us to expect that every polynomial in <m>\poly_{n-1}(\R)</m> is the derivative of at least one polynomial in <m>\poly_n(\R)</m>.
 	</p><p>
 	And, yet again, we have
-	<me> \dim (\ker D) + \dim (\im D) = 1 + (n - 1) = n = \dim \bigl(\poly_n(\R)\bigr) </me>,
+	<md> \dim (\ker D) + \dim (\im D) = 1 + (n - 1) = n = \dim \bigl(\poly_n(\R)\bigr) </md>,
 	as expected.
 	</p>
 </example>
@@ -313,7 +313,7 @@ respective owners.
 		\im \zerovec_{V,W} \amp = \{ \zerovec_W \}
 	</mrow></md>,
 	and we have
-	<me> \dim (\ker \zerovec_{V,W}) + \dim (\im \zerovec_{V,W}) = \dim V + 0 = \dim V </me>,
+	<md> \dim (\ker \zerovec_{V,W}) + \dim (\im \zerovec_{V,W}) = \dim V + 0 = \dim V </md>,
 	as expected.
 </p></example>
 
@@ -325,7 +325,7 @@ respective owners.
 		\im I_V \amp = V
 	</mrow></md>,
 	and we have
-	<me> \dim (\ker I_V) + \dim (\im I_V) = 0 + \dim V = \dim V </me>,
+	<md> \dim (\ker I_V) + \dim (\im I_V) = 0 + \dim V = \dim V </md>,
 	as expected.
 </p></example>
 
@@ -335,18 +335,18 @@ respective owners.
 	For finite-dimensional space <m>V</m> with basis <m>\basisfont{B}</m>,
 	consider <m>\funcdef{\coordmap{B}}{V}{\R^n}</m> or <m>\funcdef{\coordmap{B}}{V}{\C^n}</m>,
 	depending on whether <m>V</m> is a real or complex space,
-	where <me> \coordmap{B}(\uvec{v}) = \matrixOf{\uvec{v}}{B} </me>
+	where <md> \coordmap{B}(\uvec{v}) = \matrixOf{\uvec{v}}{B} </md>
 	for each <m>\uvec{v}</m> in <m>V</m>.
 	Since coordinate vectors are unique
 	(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
 	the only vector in <m>\ker \coordmap{B}</m> is the zero vector.
 	And since every column vector of scalars can be traced back to a vector in <m>V</m> by using those scalars as coefficients in a linear combination,
 	as in
-	<me>
+	<md>
 		\uvec{x} = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix}
 		\quad \mapsto \quad
 		\uvec{v} = x_1 \uvec{v}_1 + \dotsb + \uvec{v}_n
-	</me>
+	</md>
 	(where the <m>\uvec{v}_j</m> are the basis vectors in <m>\basisfont{B}</m>),
 	we must have <m>\im \coordmap{B}</m> equal to <m>\R^n</m> or <m>\C^n</m>, as appropriate.
 	</p>
@@ -359,7 +359,7 @@ respective owners.
 	Suppose that <m>V</m> is a finite-dimensional inner product space,
 	and <m>\uvec{u}_0</m> is a fixed choice of (nonzero) vector in <m>V</m>.
 	Let <m>\funcdef{T_{\uvec{u}_0}}{V}{\R^1}</m> represent the linear transformation defined by pairing with <m>\uvec{u}_0</m>:
-	<me> T_{\uvec{u}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{u}_0} </me>
+	<md> T_{\uvec{u}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{u}_0} </md>
 	for all <m>\uvec{x}</m> in <m>V</m>.
 	</p>
 
@@ -370,16 +370,16 @@ respective owners.
 
 	<p>
 	On the one hand,
-	we know that <me> \dim U + \dim \orthogcmp{U} = \dim V </me>,
+	we know that <md> \dim U + \dim \orthogcmp{U} = \dim V </md>,
 	since a subspace and its orthogonal complement always form a complete set of independent subspaces of an inner product space (<xref ref="theorem-inprod-orthog-complement-indep" />).
 	On the other hand,
 	the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />
 	(<xref ref="theorem-lintrans-ker-im-dimension" />)
 	says that
-	<me> \dim (\im T_{\uvec{u}_0}) + \dim (\ker T_{\uvec{u}_0}) = \dim V </me>.
+	<md> \dim (\im T_{\uvec{u}_0}) + \dim (\ker T_{\uvec{u}_0}) = \dim V </md>.
 	From <m>\ker T_{\uvec{u}_0} = \orthogcmp{U}</m>,
 	we may conclude that
-	<me> \dim (\im T_{\uvec{u}_0}) = \dim U = \dim (\Span \{\uvec{u}_0\}) = 1 </me>.
+	<md> \dim (\im T_{\uvec{u}_0}) = \dim U = \dim (\Span \{\uvec{u}_0\}) = 1 </md>.
 	But <m>\im T_{\uvec{u}_0}</m> is a subspace of the codomain space <m>\R^1</m>,
 	which itself has dimension <m>1</m>,
 	so we must have <m>\im T_{\uvec{u}_0} = \R^1</m>.

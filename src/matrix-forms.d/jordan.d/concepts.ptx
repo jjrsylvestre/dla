@@ -74,7 +74,7 @@ That is, a block in triangular block form will break up further into smaller Jor
 (See <xref ref="example-jordan-indirect" /> for an example.)
 Going further in this direction,
 notice that each Jordan block is a scalar-triangular form that can be decomposed into a scalar matrix and a matrix in elementary nilpotent form:
-<me>
+<md>
 	J(\lambda)
 	= \lambda I +
 	\begin{bmatrix}
@@ -83,7 +83,7 @@ notice that each Jordan block is a scalar-triangular form that can be decomposed
 		\amp \ddots \amp \ddots \\
 		\amp \amp 1 \amp 0
 	\end{bmatrix}
-</me>.
+</md>.
 So an elementary nilpotent matrix is just the special case of a Jordan block that has eigenvalue <m>0</m>.
 </p>
 
@@ -134,18 +134,18 @@ and all of them will be similar to one another (and to the original matrix).
 			(or some other method)
 			to obtain an <m>m_i \times m_i</m> transition matrix <m>R_i</m> so that <m>\inv{R_i} N_i R_i</m> is in triangular-block nilpotent form.
 			Using this same <m>R_i</m>, we will also have
-			<me>
+			<md>
 				U_i' = \inv{R_i} U_i R_i
 				= \inv{R_i} (\lambda_i I_{m_i} + N_i) R_i
 				= \lambda_i I_{m_i} + \inv{R_i} N_i R_i
-			</me>,
+			</md>,
 			so that the matrix <m>U_i'</m> will be in Jordan normal form,
 			but all Jordan blocks will have scalar part <m>\lambda_i</m>.
 		</li>
 		<li>
 			Form the <m>n\times n</m>, block-diagonal transition matrix <m>R</m> with blocks <m>R_1,\dotsc,R_k</m>, in order, down the diagonal.
 			Then set <m>P = QR</m>, so that
-			<me> \inv{P} A P = \inv{R} \inv{Q} A Q R = \inv{R} U R </me>
+			<md> \inv{P} A P = \inv{R} \inv{Q} A Q R = \inv{R} U R </md>
 			will be in Jordan normal form.
 		</li>
 	</ol>
@@ -164,14 +164,14 @@ Since the first step in analyzing the form of a matrix is to determine its eigen
 we assume we have this information at our disposal.
 </p><p>
 Consider <m>A</m> to be similar to a Jordan normal form matrix
-<me>
+<md>
 	J = \begin{bmatrix}
 		\lambda_1 I + N_1 \\
 		 \amp \lambda_2 I + N_2 \\
 		 \amp \amp \ddots \\
 		 \amp \amp \amp \lambda_\ell I + N_\ell
 	\end{bmatrix}
-</me>.
+</md>.
 Note that each block above is <em>not</em> in general a Jordan block <mdash />
 it is itself a block-diagonal matrix <em>made up</em> of one or more Jordan blocks.
 And so each nilpotent part <m>N_i</m> of each eigenvalue-based block is in triangular-block nilpotent form.
@@ -181,7 +181,7 @@ We can approach this task using similar patterns to the ones described in
 once we get those eigenvalues out of the way.
 </p><p>
 Consider the matrix
-<me>
+<md>
 	J - \lambda_1 I
 	= \begin{bmatrix}
 		N_1 \\
@@ -189,12 +189,12 @@ Consider the matrix
 		 \amp \amp \ddots \\
 		 \amp \amp \amp (\lambda_\ell - \lambda_1) I + N_\ell
 	\end{bmatrix}
-</me>.
+</md>.
 As there shouldn't be any duplicate eigenvalues,
 the first block of <m>N_1 = J - \lambda_1 I</m> is the only one with zeros down the diagonal,
 and the same is true of any power of <m>J - \lambda_1 I</m>.
 So we will always have
-<me> \rank (J - \lambda_1 I)^k = \rank N^k + m_2 + m_3 + \dotsb + m_\ell </me>,
+<md> \rank (J - \lambda_1 I)^k = \rank N^k + m_2 + m_3 + \dotsb + m_\ell </md>,
 where the <m>m_i</m> are the algebraic multiplicities of the other eigenvalues, as usual.
 In this way, we can investigate the exact form of the nilpotent submatrix <m>N_1</m> exactly as in
 <xref ref="subsection-triang-nilpotent-concepts-indirect" />,

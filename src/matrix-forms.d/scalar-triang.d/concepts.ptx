@@ -45,7 +45,7 @@ both additively and multiplicatively.
 
 <p>
 First, an additive example:
-<me>
+<md>
 	\begin{abmatrix}{ccccr}
 		3 \amp 4 \amp 1 \amp 4 \amp 1 \\
 		0 \amp 3 \amp 5 \amp 11 \amp 1 \\
@@ -61,7 +61,7 @@ First, an additive example:
 		0 \amp 0 \amp 0 \amp 0 \amp 7 \\
 		0 \amp 0 \amp 0 \amp 0 \amp 0
 	\end{abmatrix}
-</me>.
+</md>.
 The second matrix in the decomposition on the right is called <term>nilpotent</term>.
 We will need this kind of decomposition later in our study of matrix forms.
 <!-- TODO proper xref ? Maybe don't bother -->
@@ -69,7 +69,7 @@ We will need this kind of decomposition later in our study of matrix forms.
 
 <p>
 Now, a multiplicative example:
-<me>
+<md>
 	\begin{abmatrix}{ccccr}
 		3 \amp 4 \amp 1 \amp 4 \amp 1 \\
 		0 \amp 3 \amp 5 \amp 11 \amp 1 \\
@@ -85,7 +85,7 @@ Now, a multiplicative example:
 		0 \amp 0 \amp 0 \amp 1 \amp 7/3 \\
 		0 \amp 0 \amp 0 \amp 0 \amp 1
 	\end{bmatrix}
-</me>.
+</md>.
 The second matrix in the decomposition on the right is called <term>unipotent</term>.
 Note that this multiplicative decomposition is not possible when the scalar-triangular matrix has scalar <m>0</m> down the main diagonal <mdash />
 this observation just says that a nilpotent matrix does not have a unipotent part.
@@ -110,10 +110,10 @@ as it is easy to switch between the two using a particular transition matrix.
 <p>
 Suppose <m>\lambda</m> is an eigenvalue of an <m>n \times n</m> matrix <m>A</m>,
 and <m>\uvec{x}</m> is a corresponding eigenvector in <m>\R^n</m>.
-By definition, this means that <me>A \uvec{x} = \lambda \uvec{x}</me>.
+By definition, this means that <md>A \uvec{x} = \lambda \uvec{x}</md>.
 As in our analysis of eigenvalues and eigenvectors in <xref ref="chapter-eigen-values-vectors" />,
 it is more convenient to rearrange this vector equation into the homogeneous condition
-<me>(\lambda I - A) \uvec{x} = \zerovec</me>,
+<md>(\lambda I - A) \uvec{x} = \zerovec</md>,
 so that once we have determined the eigenvalues from the characteristic equation,
 we can determine eigenvectors by row reducing.
 Furthermore, this homogeneous point of view immediately tells us that the collection of eigenvectors for a particular eigenvalue
@@ -135,11 +135,11 @@ where the usual eigenspace of <m>A</m> is the same as the generalized eigensubsp
 
 <p>
 These subspaces form a nested sequence
-<me> E_\lambda^1(A) \subseteq E_\lambda^2(A) \subseteq E_\lambda^3(A) \subseteq \dotsb </me>,
+<md> E_\lambda^1(A) \subseteq E_\lambda^2(A) \subseteq E_\lambda^3(A) \subseteq \dotsb </md>,
 since a vector in the null space of <m>(\lambda I - A)^k</m> must also lie in the null space of <m>(\lambda I - A)^{k+1}</m>.
 These eigensubspaces cannot keep growing in dimension indefinitely, though,
 since they are all contained in <m>\R^n</m>, so at some point we will have
-<me> E_\lambda^K(A) = E_\lambda^{K+1}(A) = E_\lambda^{K+2}(A) = \dotsb </me>.
+<md> E_\lambda^K(A) = E_\lambda^{K+1}(A) = E_\lambda^{K+2}(A) = \dotsb </md>.
 This largest eigensubspace is called the
 <term><xref ref="definition-scalar-triang-gen-eigenspace" text="title" /></term>
 for <m>A</m> corresponding to <m>\lambda</m>.
@@ -175,7 +175,7 @@ so that the generalized eigensubspaces somehow measure by how much an eigenvalue
 Rather than work in the abstract,
 let's go back over <xref ref="activity-scalar-triang-pattern" />,
 in which we were considering a matrix <m>A</m> in the same similarity class as a scalar-triangular matrix
-<me>
+<md>
 	B = \begin{bmatrix}
 		3 \amp \ast \amp \ast \amp \ast \amp \ast \\
 		0 \amp 3 \amp \ast \amp \ast \amp \ast \\
@@ -183,7 +183,7 @@ in which we were considering a matrix <m>A</m> in the same similarity class as a
 		0 \amp 0 \amp 0 \amp 3 \amp \ast \\
 		0 \amp 0 \amp 0 \amp 0 \amp 3
 	\end{bmatrix}
-</me>,
+</md>,
 where the <m>\ast</m> entries are irrelevant to the form.
 Our first observation is that, like <m>B</m>,
 matrix <m>A</m> must also have the single eigenvalue <m>\lambda = 3</m>,
@@ -196,7 +196,7 @@ In this case, <m>P</m> must be <m>5 \times 5</m>.
 Using the general similarity pattern described in
 <xref ref="subsection-similarity-concepts-algebra" />,
 the first column of <m>B</m> tells us that
-<me> A \uvec{p}_1 = 3 \uvec{p}_1 </me>,
+<md> A \uvec{p}_1 = 3 \uvec{p}_1 </md>,
 which is the eigenvalue-eigenvector pattern.
 This should not be surprising,
 since the first column of <m>B</m> has the same form as the first column of a diagonal matrix,
@@ -209,10 +209,10 @@ we found that the dimension of the eigenspace <m>E_3(A)</m> is <m>2</m>,
 so in fact two linearly independent eigenvectors were available.
 Could we take <em>both</em> <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> to be eigenvectors?
 The second column of <m>B</m> says that we need
-<me> A\uvec{p}_2 = \ast \uvec{p}_1 + 3 \uvec{p}_2 </me>,
+<md> A\uvec{p}_2 = \ast \uvec{p}_1 + 3 \uvec{p}_2 </md>,
 but since we don't care what that <m>\ast</m> value ends up as,
 taking it to be zero so that the condition becomes the
-<me> A \uvec{p}_2 = 3 \uvec{p}_2 </me>
+<md> A \uvec{p}_2 = 3 \uvec{p}_2 </md>
 eigenvalue-eigenvector pattern is fine.
 </p>
 
@@ -233,10 +233,10 @@ the eigenspace <m>E_3(A)</m> can only provide two linearly independent eigenvect
 <p>
 So we go back to the form matrix <m>B</m>.
 The third column of <m>B</m> gives us the condition
-<me> A \uvec{p}_3 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + 3 \uvec{p}_3. </me>
+<md> A \uvec{p}_3 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + 3 \uvec{p}_3. </md>
 As in <xref ref="activity-scalar-triang-pattern-gen-evec-rearrange">Discovery</xref>,
 in analogy with how we solve for eigenvectors we can rearrange this condition on <m>\uvec{p}_3</m> to
-<me> (3 I - A) \uvec{p}_3 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </me>.
+<md> (3 I - A) \uvec{p}_3 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </md>.
 We would much rather have a homogeneous system to solve instead of this nonhomogeneous one.
 But remember where we obtained <m>\uvec{p}_1</m> and <m>\uvec{p}_2</m> <mdash />
 they form a basis for the eigenspace <m>E_3(A)</m>!
@@ -245,7 +245,7 @@ In other words,
 while <m>\uvec{p}_3</m> cannot be taken to be an eigenvector,
 <m>(3 I - A) \uvec{p}_3</m> must be an eigenvector.
 In other words, we must have
-<me> (3 I - A) \bigl( (3 I - A) \uvec{p}_3 \bigr) = \zerovec </me>,
+<md> (3 I - A) \bigl( (3 I - A) \uvec{p}_3 \bigr) = \zerovec </md>,
 a homogeneous condition we can solve by row reducing <m>(3 I - A)^2</m>.
 In the new language of <term>generalized eigenvectors</term>,
 we need <m>\uvec{p}_3</m> to be in <m>E_3^2(A)</m>,
@@ -272,10 +272,10 @@ we found that the dimension of <m>E_3^2(A)</m> is <m>4</m>,
 so there was room for one more linearly independent vector beyond the three we already had
 (<m>\uvec{p}_1,\uvec{p}_2,\uvec{p}_3</m>).
 The condition from the fourth column of <m>B</m> is
-<me> A \uvec{p}_4 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + 3 \uvec{p}_4 </me>.
+<md> A \uvec{p}_4 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + 3 \uvec{p}_4 </md>.
 Choosing <m>\uvec{p}_4</m> from <m>E_3^2(A)</m> just forces the <m>\ast</m> coefficient on the <m>\uvec{p}_3</m> term to be zero,
 allowing us to rearrange to
-<me> (3I - A) \uvec{p}_4 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </me>,
+<md> (3I - A) \uvec{p}_4 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) </md>,
 the same sort of condition that led us to take <m>\uvec{p}_3</m> from <m>E_3^2(A)</m>.
 </p>
 
@@ -291,9 +291,9 @@ And that is exactly the thing we will need to do.
 
 <p>
 The fifth column of <m>B</m> gives us condition
-<me> A \uvec{p}_5 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + \ast \uvec{p}_4 + 3 \uvec{p}_5 </me>.
+<md> A \uvec{p}_5 = \ast \uvec{p}_1 + \ast \uvec{p}_2 + \ast \uvec{p}_3 + \ast \uvec{p}_4 + 3 \uvec{p}_5 </md>.
 If we rearrange to
-<me> (3 I - A) \uvec{p}_5 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) - (\ast \uvec{p}_3) - (\ast \uvec{p}_4) </me>,
+<md> (3 I - A) \uvec{p}_5 = - (\ast \uvec{p}_1) - (\ast \uvec{p}_2) - (\ast \uvec{p}_3) - (\ast \uvec{p}_4) </md>,
 we see that <m>(3 I - A) \uvec{p}_5</m> needs to be in the span of <m>\{\uvec{p}_1,\uvec{p}_2,\uvec{p}_3,\uvec{p}_4\}</m>,
 which is precisely <m>E_3^2(A)</m> in this example.
 That is, <m>(3 I - A) \uvec{p}_5</m> must be in the null space of <m>(3 I - A)^2</m>,
@@ -394,13 +394,13 @@ analyzed in the previous subsection to create a scalar-triangularization procedu
 		</p><p>
 		We know that the eigenvalue <m>\lambda_0</m> will appear repeated down the diagonal of the form matrix.
 		So the <m>\nth[j]</m> column of <m>\inv{P}AP</m> will look like
-		<me> \begin{bmatrix} c_1 \\ \vdots \\ c_{j-1} \\ \lambda_0 \\ 0 \\ \vdots \\ 0 \end{bmatrix} </me>,
+		<md> \begin{bmatrix} c_1 \\ \vdots \\ c_{j-1} \\ \lambda_0 \\ 0 \\ \vdots \\ 0 \end{bmatrix} </md>,
 		where the <m>c_i</m> are unknown entries above the diagonal that we'd like to determine.
 		From our general similarity pattern,
 		we must have
-		<me> A\uvec{p}_j = c_1 \uvec{p}_1 + \dotsb + c_{j-1} \uvec{p}_{j-1} + \lambda_0 \uvec{p}_k </me>.
+		<md> A\uvec{p}_j = c_1 \uvec{p}_1 + \dotsb + c_{j-1} \uvec{p}_{j-1} + \lambda_0 \uvec{p}_k </md>.
 		Rearranging this a little differently than usual, we get
-		<me> (A - \lambda_0 I) \uvec{p}_j = c_1 \uvec{p}_1 + \dotsb + c_{j-1} \uvec{p}_{j-1} </me>.
+		<md> (A - \lambda_0 I) \uvec{p}_j = c_1 \uvec{p}_1 + \dotsb + c_{j-1} \uvec{p}_{j-1} </md>.
 		Therefore,
 		<em>
 			the entries above the diagonal in the <m>\nth[j]</m> column of a scalar-triangular form matrix <m>\inv{P}AP</m> are precisely the coefficients needed to express
@@ -409,14 +409,14 @@ analyzed in the previous subsection to create a scalar-triangularization procedu
 			<m>\uvec{p}_1,\dotsc,\uvec{p}_{j-1}</m>
 		</em>.
 		These coefficients can be determined by row reducing
-		<me> \begin{abmatrix}{cccc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_{j-1} \amp (A - \lambda_0 I) \uvec{p}_j \end{abmatrix} </me>.
+		<md> \begin{abmatrix}{cccc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \cdots \amp \uvec{p}_{j-1} \amp (A - \lambda_0 I) \uvec{p}_j \end{abmatrix} </md>.
 		Though if you're going to do this much row reducting,
 		it might easier to just reduce
-		<me>
+		<md>
 			\begin{abmatrix}{c|c} P \amp AP \end{abmatrix}
 			\quad\rowredarrow\quad
 			\begin{abmatrix}{c|c} I \amp \inv{P}AP \end{abmatrix}
-		</me>.
+		</md>.
 		</p>
 	</li>
 </ol></p></remark>

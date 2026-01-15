@@ -40,14 +40,14 @@ and then from that fact deduce the required properties of generalized eigenspace
 	<title>Triangular block form of a matrix</title>
 	<statement><p>
 		If the characteristic polynomial of square matrix <m>A</m> factors completely as
-		<me>
+		<md>
 			c_A(\lambda)
 			= (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
-		</me>,
+		</md>,
 		then there exists an invertible matrix <m>P</m> such that <m>\inv{P} A P</m> has the block-diagonal form
-		<me> <!-- old LaTeX label THM::triangular.block.form::the.form -->
+		<md> <!-- old LaTeX label THM::triangular.block.form::the.form -->
 			\inv{P} A P = \begin{bmatrix} U_1 \\ \amp U_2 \\ \amp \amp \ddots \\ \amp \amp \amp U_\ell \end{bmatrix}
-		</me>,
+		</md>,
 		where each <m>U_j</m> is an <m>m_j \times m_j</m> matrix in scalar-triangular form that has scalar <m>\lambda_j</m> down the diagonal.
 	</p></statement>
 	<proof><title>Proof idea</title>
@@ -72,7 +72,7 @@ and then from that fact deduce the required properties of generalized eigenspace
 			Choose a basis of <m>\R^{k+1}</m> that contains <m>\uvec{x}</m> as its first element,
 			and let <m>Q</m> be the invertible <m>(k+1) \times (k+1)</m> matrix made up of these basis vectors as columns.
 			Then <m>\inv{Q} A Q</m> has block form
-			<me> \inv{Q} A Q = \begin{abmatrix}{@{}c|c@{}} \lambda_1 \amp B \\ \hline \zerovec \amp A' \end{abmatrix} </me>,
+			<md> \inv{Q} A Q = \begin{abmatrix}{@{}c|c@{}} \lambda_1 \amp B \\ \hline \zerovec \amp A' \end{abmatrix} </md>,
 			where <m>A'</m> is <m>k \times k</m>,
 			and <m>B</m> is <m>1 \times k</m>.
 			</p><p>
@@ -81,22 +81,22 @@ and then from that fact deduce the required properties of generalized eigenspace
 			of
 			<xref ref="proposition-block-diag-props" />,
 			the characteristic polynomial of <m>\inv{Q} A Q</m> must be
-			<me> c_{\inv{Q} A Q}(\lambda) = (\lambda - \lambda_1) \cdot c_{A'}(\lambda) </me>.
+			<md> c_{\inv{Q} A Q}(\lambda) = (\lambda - \lambda_1) \cdot c_{A'}(\lambda) </md>.
 			But similar matrices have the same characteristic polynomial
 			(<xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />),
 			and so from
-			<me> c_A(\lambda) = (\lambda - \lambda_1) \cdot c_{A'}(\lambda) </me>
+			<md> c_A(\lambda) = (\lambda - \lambda_1) \cdot c_{A'}(\lambda) </md>
 			we may conclude that
-			<me> c_{A'}(\lambda) = (\lambda-\lambda_1)^{m_1-1} (\lambda-\lambda_2)^{m_2} \dotsm (\lambda-\lambda_\ell)^{m_\ell} </me>.
+			<md> c_{A'}(\lambda) = (\lambda-\lambda_1)^{m_1-1} (\lambda-\lambda_2)^{m_2} \dotsm (\lambda-\lambda_\ell)^{m_\ell} </md>.
 			</p><p>
 			As the characteristic polynomial of <m>c_{A'}</m> also factors completely,
 			we may apply the induction hypothesis to obtain an invertible,
 			<m>k \times k</m> matrix <m>Q'</m> such that <m>\inv{(Q')} A' Q'</m> is in triangular-block form
-			<me> \inv{(Q')}A' Q' = \begin{bmatrix} U'_1 \\ \amp U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U_\ell' \end{bmatrix} </me>,
+			<md> \inv{(Q')}A' Q' = \begin{bmatrix} U'_1 \\ \amp U'_2 \\ \amp \amp \ddots \\ \amp \amp \amp  U_\ell' \end{bmatrix} </md>,
 			where each block <m>U'_j</m> has size <m>m_j \times m_j</m>,
 			except block <m>U'_1</m>, which has size <m>(m_1-1)\times(m_1-1)</m>.
 			Thus, if we set <m>P</m> to be the invertible <m>(k+1) \times (k+1)</m> matrix
-			<me> P = Q \begin{abmatrix}{c|c} 1 \amp \zerovec \\ \hline \zerovec \amp Q' \end{abmatrix} </me>,
+			<md> P = Q \begin{abmatrix}{c|c} 1 \amp \zerovec \\ \hline \zerovec \amp Q' \end{abmatrix} </md>,
 			we get
 			<md>
 				<mrow>
@@ -166,7 +166,7 @@ we can be more specific.
 	<proof><p>
 		In this case,
 		the characteristic polynomial must factor as
-		<me> c(\lambda) = (\lambda - \lambda_0)^n </me>,
+		<md> c(\lambda) = (\lambda - \lambda_0)^n </md>,
 		where <m>\lambda_0</m> is the single repeated eigenvalue,
 		and so <xref ref="theorem-triang-block-form" />
 		tells us that the matrix is similar to a triangular block matrix with a single scalar-triangular block.
@@ -198,7 +198,7 @@ invariance and independence.
 		</p><p>
 		First, note that the matrices <m>(\lambda I - A)</m> and <m>A</m> commute,
 		since
-		<me> (\lambda I - A)A = \lambda A - A^2 = A(\lambda I - A) </me>.
+		<md> (\lambda I - A)A = \lambda A - A^2 = A(\lambda I - A) </md>.
 		From this, we can conclude that <m>A</m> commutes with <m>(\lambda I - A)^k</m>,
 		since
 		<md>
@@ -222,7 +222,7 @@ invariance and independence.
 		So assume that <m>\uvec{u} \in E_\lambda^k(A)</m>.
 		By definition, this means that <m>(\lambda I - A)^k \uvec{u} = \zerovec</m>.
 		But then, using the fact that <m>A</m> commutes with <m>(\lambda I - A)^k</m> proved above, we have
-		<me> (\lambda I - A)^k A \uvec{u} = A (\lambda I - A)^k \uvec{u} = A \zerovec = \zerovec </me>.
+		<md> (\lambda I - A)^k A \uvec{u} = A (\lambda I - A)^k \uvec{u} = A \zerovec = \zerovec </md>.
 		Since <m> (\lambda I - A)^k (A \uvec{u}) = \zerovec</m>, we have that <m>A\uvec{u}</m> in <m>E_\lambda^k(A)</m> as well, as desired.
 		</p>
 	</proof>
@@ -248,10 +248,10 @@ invariance and independence.
 
 			<li xml:id="theorem-triang-block-more-gen-espace-facts-full-gen-espaces">
 				Suppose the characteristic polynomial of <m>A</m> <em>factors completely</em> as
-				<me>
+				<md>
 					c_A(\lambda)
 					= (\lambda-\lambda_1)^{m_1} (\lambda-\lambda_2)^{m_2} \dotsm (\lambda-\lambda_\ell)^{m_\ell}.
-				</me>
+				</md>
 				Then each generalized eigenspace <m>G_{\lambda_j}(A)</m> has dimension <m>m_j</m>.
 				Furthermore, if we have a basis for each generalized eigenspace of <m>A</m>,
 				taking these bases all together gives a basis for <m>\R^n</m> (or <m>\C^n</m>, as appropriate).

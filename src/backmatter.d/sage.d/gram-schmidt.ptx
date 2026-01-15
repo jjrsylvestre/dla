@@ -40,14 +40,14 @@ respective owners.
 <p>
 Let's begin simply with the standard inner product on <m>\R^4</m>.
 Suppose we want to produce an orthogonal basis for the <q>hyperplane</q> in <m>\R^4</m> defined by the equation
-<me> w + 2 x + 3 y - 4 z = 0 </me>.
+<md> w + 2 x + 3 y - 4 z = 0 </md>.
 First, we can obtain a basis for this space by treating this single equation as a homogeneous linear system.
 In other words, we want a basis for the null space of the matrix
-<me> \begin{bmatrix} 1 \amp 2 \amp 3 \amp -4 \end{bmatrix} </me>.
+<md> \begin{bmatrix} 1 \amp 2 \amp 3 \amp -4 \end{bmatrix} </md>.
 Assigning parameters
 <md><mrow> x_2 \amp = r, \amp x_3 \amp = s, \amp x_4 \amp = t </mrow></md>
 leads to basis
-<me> \basisfont{B} = \{ (-2,1,0,0), (-3,0,1,0), (4,0,0,1) \} </me>.
+<md> \basisfont{B} = \{ (-2,1,0,0), (-3,0,1,0), (4,0,0,1) \} </md>.
 Let's load this basis into Sage.
 </p>
 <sage>
@@ -157,7 +157,7 @@ and there are three of them,
 so as long as they all lie in our <m>3</m>-dimensional hyperplane,
 they will for a basis for it.
 We can test that by making sure they satisfy the hyperplane equation,
-<me> w + 2 x + 3 y - 4 z = 0 </me>.
+<md> w + 2 x + 3 y - 4 z = 0 </md>.
 </p>
 <sage>
 	<input>
@@ -335,7 +335,7 @@ The last line is to test it out.
 </sage>
 <p>
 Our calculation <c>inprod(1,x)</c> should be computing the integral
-<me> \int_0^1 1 x \, dx </me>,
+<md> \int_0^1 1 x \, dx </md>,
 which should evaluate to the area of a triangle of base and height both <m>1</m>.
 Looks like the computation got it correct.
 </p>
@@ -358,7 +358,7 @@ Looks like the computation got it correct.
 </sage>
 
 <p>
-We now have the orthogonal basis <me> \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </me>,
+We now have the orthogonal basis <md> \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </md>,
 just as in <xref ref="example-inprod-orthog-apply-gs-P2" />.
 Let's double-check:
 </p>
@@ -398,7 +398,7 @@ just need to normalize.
 <p>
 Now we'll repeat the Gram-Schmidt process on the standard basis of <m>\poly_2(\R)</m>,
 but using the inner product
-<me> \inprod{p}{q} = p(-1) q(-1) + p(0) q(0) + p(1) q(1) </me>.
+<md> \inprod{p}{q} = p(-1) q(-1) + p(0) q(0) + p(1) q(1) </md>.
 Once again we create a Python function to return inner product values,
 but this time we'll use slightly more sophisticated Python/Sage programming techniques.
 </p>

@@ -35,40 +35,40 @@ respective owners.
 
 <p>
 A system of linear differential equations such as
-<me>
+<md>
 	\begin{sysofeqns}{rcrcr}
 		\dd{y_1}{t} \amp = \amp a y_1(t) \amp + \amp b y_2(t) \\
 		\dd{y_2}{t} \amp = \amp c y_1(t) \amp + \amp d y_2(t)
 	\end{sysofeqns}
-</me>
+</md>
 has the same form as a system of linear equations,
 and we can write it as a single matrix equation as
-<me>
+<md>
 	\begin{bmatrix} \dd{y_1}{t} \\ \dd{y_2}{t} \end{bmatrix}
 	=
 	\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 	\begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}
-</me>.
+</md>.
 If we treat the differential operator <m>\ddt</m> as a scalar,
 we can instead write
-<me>
+<md>
 	\ddt \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}
 	=
 	\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 	\begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}
-</me>,
+</md>,
 or even more compactly as
 <md><mrow xml:id="equation-sys-diff-eq-concepts-2x2-diff-matrix-eq" tag="star">
 	\dd{\uvec{y}}{t} = A \uvec{y}
 </mrow></md>,
 where
-<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+<md> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </md>
 is the coefficient matrix, and
-<me> \uvec{y}(t) = \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix} </me>
+<md> \uvec{y}(t) = \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix} </md>
 is a vector that collects together the unknown functions <m>y_1(t), y_2(t)</m>.
 </p><p>
 Suppose we use an invertible matrix <m>Q</m> to change variables by
-<me> \uvec{w}(t) = Q \uvec{y}(t) </me>.
+<md> \uvec{w}(t) = Q \uvec{y}(t) </md>.
 Then the new functions <m>w_1(t),w_2(t)</m> in the function vector <m>\uvec{w}(t)</m> will be related to the old functions <m>y_1(t),y_2(t)</m> via linear formulas,
 where the coefficients come from the entries of <m>Q</m>.
 And, reversing the change of variables to <m>\uvec{y} = \inv{Q} \uvec{w}</m>,
@@ -86,20 +86,20 @@ one of the first things that we learn about the derivative in a first course on 
 </mrow></md>
 (where <m>k</m> is an arbitrary constant).
 It follows from these properties that differentiation of the entries in a vector of functions and multiplication by a matrix of constants can be performed in either order:
-<me> \ddt \bigl( M \uvec{y}(t) \bigr) = M \dd{\uvec{y}}{t} </me>.
+<md> \ddt \bigl( M \uvec{y}(t) \bigr) = M \dd{\uvec{y}}{t} </md>.
 <!-- TODO Do I want to create a whole theory section just for this fact? -->
 This lets us rearrange <xref ref="equation-sys-diff-eq-concepts-2x2-diff-matrix-eq" /> as
-<me>
+<md>
 	\inv{Q} \dd{\uvec{w}}{t} = A \inv{Q} \uvec{w}
 	\qquad \implies \qquad
 	\dd{\uvec{w}}{t} = Q A \inv{Q} \uvec{w}
-</me>.
+</md>.
 We immediately see the similarity relationship between the coefficient matrices of the original differential equation and the transformed one.
 If we reverse the point of view on the change of variables by setting <m>P = \inv{Q}</m>,
 so that
-<me> \uvec{y}(t) = P \uvec{w}(t) </me>,
+<md> \uvec{y}(t) = P \uvec{w}(t) </md>,
 then we can write the transformed differential matrix equation as
-<me> \dd{\uvec{w}}{t} = \inv{P} A P \uvec{w} </me>.
+<md> \dd{\uvec{w}}{t} = \inv{P} A P \uvec{w} </md>.
 Assuming the new transformed system is easier to solve,
 we can transfer solutions for <m>w_1(t),w_2(t)</m> back to solutions for <m>y_1(t),y_2(t)</m> using <m>P</m>.
 </p><p>
@@ -114,11 +114,11 @@ Of course, all of the above can be carried out for larger systems of equations i
 <p>
 A system of differential equations with a diagonal coefficient matrix is easy to solve.
 For example, system
-<me>
+<md>
 	\begin{bmatrix} \dd{w_1}{t} \\ \dd{w_2}{t} \end{bmatrix}
 	= \begin{bmatrix} \lambda_1 \\ \amp \lambda_2 \end{bmatrix}
 	\begin{bmatrix} w_1 \\ w_2 \end{bmatrix}
-</me>
+</md>
 is not coupled <mdash />
 it describes two separate differential equations
 <md>
@@ -152,9 +152,9 @@ The above formulas represent the general solution to the system of equations in 
 To obtain a particular solution,
 initial values <m>y_1(0) = a_1</m> and <m>y_2(0) = a_2</m> might be used.
 But solving the equations <m>y_1(0) = a_1</m> and <m>y_2(0) = a_2</m> for coefficients <m>c_1,c_2</m> is equivalent to solving
-<me> P \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} </me>,
+<md> P \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} </md>,
 which we can do with <m>\inv{P}</m>:
-<me> \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \inv{P} \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} </me>.
+<md> \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \inv{P} \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} </md>.
 Notice what this is doing: the coefficients <m>c_1,c_2</m> are the initial conditions of our transformed functions
 <md>
 	<mrow> w_1(t) \amp = c_1 e^{\lambda_1 t} \text{,} </mrow>
@@ -180,14 +180,14 @@ Every homogeneous, second-order, linear differential equation
 </mrow></md>
 can be recast as a coupled system of differential equations by setting <m>x(t) = y'(t)</m>.
 Then
-<me> x' = y'' = \alpha y' + \beta y = \alpha x + \beta y </me>,
+<md> x' = y'' = \alpha y' + \beta y = \alpha x + \beta y </md>,
 giving us system
-<me>
+<md>
 	\begin{sysofeqns}{rcrcr}
 		x' \amp = \amp \alpha x \phantom{\text{.}} \amp + \amp \beta y \text{,} \\
 		y' \amp = \amp x \text{.}
 	\end{sysofeqns}
-</me>
+</md>
 We can attempt to decouple this system by diagonalizing the coefficient matrix,
 as in
 <xref ref="subsection-sys-diff-eq-concepts-diagonalizable" />,
@@ -195,17 +195,17 @@ but if we are able to solve this way we should remember that in the end we are o
 as the solution of <m>x(t)</m> should just be the derivative of <m>y(t)</m>.
 </p><p>
 Let's take at least the first steps to diagonalizing the coefficient matrix
-<me>
+<md>
 	A =
 	\begin{bmatrix}
 		\alpha \amp \beta \\
 		   1   \amp   0
 	\end{bmatrix}
-</me>
+</md>
 by computing
-<me> \lambda I - A = \begin{bmatrix} \lambda - \alpha \amp - \beta \\ - 1 \amp \lambda \end{bmatrix} </me>,
+<md> \lambda I - A = \begin{bmatrix} \lambda - \alpha \amp - \beta \\ - 1 \amp \lambda \end{bmatrix} </md>,
 which leads to characteristic polynomial
-<me> c_A(\lambda) = \det (\lambda I - A) = \lambda^2 - \alpha \lambda - \beta </me>.
+<md> c_A(\lambda) = \det (\lambda I - A) = \lambda^2 - \alpha \lambda - \beta </md>.
 If you compare this characteristic polynomial with the original second-order differential equation
 <xref ref="equation-sys-diff-eq-concepts-2nd-order" />,
 you should notice a similarity.
@@ -213,14 +213,14 @@ you should notice a similarity.
 In fact, every system of equations can be converted to a homogeneous, linear, second-order differential equation,
 and the above pattern between characteristic polynomial and original second-order equation will recur.
 For system
-<me>
+<md>
 	\begin{sysofeqns}{rcrcr}
 		x' \amp = \amp a x \amp + \amp b y \\
 		y' \amp = \amp c x \amp + \amp d y
 	\end{sysofeqns}
-</me>
+</md>
 we can compute
-<me> x'' = a x' + b y' = a x' + b (c x + d y) = a x' + b c x + b d y </me>.
+<md> x'' = a x' + b y' = a x' + b (c x + d y) = a x' + b c x + b d y </md>.
 Substituting <m> b y = x' - a x </m>
 from the first equation in the system gives
 <md>
@@ -228,10 +228,10 @@ from the first equation in the system gives
 	<mrow> \implies \quad x'' - (a + d) x' + (a d - b c) x = 0 </mrow>
 </md>.
 If you compute the characteristic polynomial of the general <m>2 \times 2</m> matrix
-<me> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>,
+<md> A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </md>,
 which is also the coefficient matrix of our system of differential equations,
 you will find
-<me> c_A(\lambda) = \lambda^2 - (a + d) \lambda + (a d - b c) </me>,
+<md> c_A(\lambda) = \lambda^2 - (a + d) \lambda + (a d - b c) </md>,
 mirroring the second-order equation we obtained from the system.
 </p>
 

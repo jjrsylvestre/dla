@@ -73,14 +73,14 @@ the reader.
 		each of its entries is obtained from the product of a row of <m>A</m> with a column of <m>B</m>.
 		In particular,
 		the diagonal entries of <m>C</m> are:
-		<me>
+		<md>
 			\begin{array}{rcccccccc}
 				c_{11} \amp = \amp a_{11} b_{11} \amp + \amp a_{12} b_{21} \amp + \amp \dotsb \amp + \amp a_{1n} b_{n1} \text{,} \\
 				c_{22} \amp = \amp a_{21} b_{12} \amp + \amp a_{22} b_{22} \amp + \amp \dotsb \amp + \amp a_{2n} b_{n2} \text{,} \\
 				       \amp \vdots \\
 				c_{nn} \amp = \amp a_{n1} b_{1n} \amp + \amp a_{n2} b_{2n} \amp + \amp \dotsb \amp + \amp a_{nn} b_{nn} \text{,}
 			\end{array}
-		</me>
+		</md>
 		and <m>\trace C</m> is the sum of these sums.
 		If you form a similar expression for each diagonal entry of <m>D</m> as a row of <m>B</m> times the corresponding column of <m>A</m>,
 		you will find that,
@@ -156,14 +156,14 @@ as the first <q>simple</q> form of interest.
 
 		<case><title>Case of positive <m>k</m></title><p>
 			We have
-			<me> B^k = (\inv{P} A P)^k = (\inv{P} A P) (\inv{P} A P) (\inv{P} A P) \dotsm (\inv{P} A P), </me>
+			<md> B^k = (\inv{P} A P)^k = (\inv{P} A P) (\inv{P} A P) (\inv{P} A P) \dotsm (\inv{P} A P), </md>
 			where the expression on the right has <m>k</m> factors of <m>(\inv{P} A P)</m>.
 			By associativity, rearrange the brackets:
-			<me> B^k = \inv{P} A (P \inv{P}) A (P \inv{P}) A (P \dotsm \inv{P}) A P </me>.
+			<md> B^k = \inv{P} A (P \inv{P}) A (P \inv{P}) A (P \dotsm \inv{P}) A P </md>.
 			Each factor of <m>P \inv{P}</m> is equal to the identity matrix,
 			and the identity matrix has no effect in matrix multiplication.
 			Thus,
-			<me> B^k = \inv{P} A A A \dotsm A P, </me>
+			<md> B^k = \inv{P} A A A \dotsm A P, </md>
 			where there are <m>k</m> factors of <m>A</m>,
 			since we started with <m>k</m> factors of <m>(\inv{P} A P)</m>.
 			We now have <m>B^k = \inv{P} A^k P</m>,
@@ -340,8 +340,8 @@ Note that we have already recorded (and proved) some of these facts in <xref ref
 		<p>
 		So assume <m>B = \inv{P} A P</m>,
 		and suppose <m>\uvec{x}_0</m> is an eigenvector of <m>B</m> corresponding to eigenvalue <m>\lambda</m>.
-		By definition, this means <me>B \uvec{x}_0 = \lambda \uvec{x}_0</me>.
-		Substitute the assumed similarity relation for <m>A</m> and <m>B</m> and rearrange to <me>A (P \uvec{x}_0) = \lambda (P \uvec{x}_0)</me>,
+		By definition, this means <md>B \uvec{x}_0 = \lambda \uvec{x}_0</md>.
+		Substitute the assumed similarity relation for <m>A</m> and <m>B</m> and rearrange to <md>A (P \uvec{x}_0) = \lambda (P \uvec{x}_0)</md>,
 		which says that <m>P \uvec{x}_0</m> is an eigenvector of <m>A</m> corresponding to the shared eigenvalue <m>\lambda</m>.
 	</p></proof>
 </theorem>

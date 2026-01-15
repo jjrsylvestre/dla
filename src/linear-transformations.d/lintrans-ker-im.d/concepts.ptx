@@ -110,11 +110,11 @@ and <m>V = \Span S</m>,
 then <m>\im T</m> is spanned by <m>T(S)</m>,
 the collection of image vectors <m>T(\uvec{v})</m> for all <m>S</m>-vectors <m>\uvec{v}</m>.
 This is because if
-<me> \uvec{u} = a_1 \uvec{v}_1 + \dotsb + a_\ell \uvec{v}_\ell </me>
+<md> \uvec{u} = a_1 \uvec{v}_1 + \dotsb + a_\ell \uvec{v}_\ell </md>
 is an expansion of vector <m>\uvec{u}</m> in <m>V</m> in terms of some collection of <m>S</m>-vectors
 <m>\uvec{v}_1,\dotsc,\uvec{v}_\ell</m>,
 then the linearity of <m>T</m> gives us
-<me> T(\uvec{u}) = a_1 T(\uvec{v}_1) + \dotsb + a_\ell T(\uvec{v}_\ell) </me>,
+<md> T(\uvec{u}) = a_1 T(\uvec{v}_1) + \dotsb + a_\ell T(\uvec{v}_\ell) </md>,
 a linear combination of the image vectors in <m>T(S)</m>.
 However, even if <m>S</m> is a <em>linearly independent</em> spanning set
 (and so a basis for <m>V</m>),
@@ -129,13 +129,13 @@ we will need to choose a spanning set <m>S</m> for the domain <m>V</m> in a more
 <p>
 Suppose we have linear <m>\funcdef{T}{V}{W}</m>,
 and we know <m>V = \Span S</m> for
-<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </me>.
+<md> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </md>.
 Then as in the discussion above, we will also have
-<me> \im T = \Span \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </me>.
+<md> \im T = \Span \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </md>.
 But every finite spanning set can be reduced to a basis
 (<xref ref="proposition-basis-coords-reduce-span-to-basis" />),
 so there should be a way to reduce the collection of image vectors
-<me> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </me>
+<md> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </md>
 to a basis for <m>\im T</m>.
 In particular examples we could do this through calculation via
 the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
@@ -147,19 +147,19 @@ much simpler if we choose the original spanning set <m>S</m> more deliberately.
 <p>
 In particular,
 suppose we have a basis
-<me> \basisfont{K} = \{ \uvec{u}_1, \dotsc, \uvec{u}_k \} </me>
+<md> \basisfont{K} = \{ \uvec{u}_1, \dotsc, \uvec{u}_k \} </md>
 for <m>\ker T</m> in <m>V</m>.
 We can enlarge this to a basis
-<me> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_k, \uvec{v}_1, \dotsc, \uvec{v}_r \} </me>
+<md> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_k, \uvec{v}_1, \dotsc, \uvec{v}_r \} </md>
 for <m>V</m>
 (<xref ref="proposition-dimension-increase-indep-to-basis" />).
 Then, as in previous discussion above,
-<me> T(\basisfont{B}_V) = \{ T(\uvec{u}_1), \dotsc, T(\uvec{u}_k), T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>
+<md> T(\basisfont{B}_V) = \{ T(\uvec{u}_1), \dotsc, T(\uvec{u}_k), T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </md>
 will be a spanning set for <m>\im T</m>.
 But since the <m>\uvec{u}_j</m> came from the kernel, we really have
-<me> T(\basisfont{B}_V) = \{ \zerovec, \dotsc, \zerovec, T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>,
+<md> T(\basisfont{B}_V) = \{ \zerovec, \dotsc, \zerovec, T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </md>,
 and it is obvious that we can reduce this spanning set by discarding all those zero vectors:
-<me> S' = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>.
+<md> S' = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </md>.
 We will still have <m>\im T = \Span S'</m>,
 and in fact we will see that building <m>\basisfont{B}_V</m> to have as many linearly independent vectors from <m>\ker T</m> as possible will ensure that <m>S'</m> is a <em>linearly independent</em> spanning set (hence a basis) for <m>\im T</m>.
 </p>

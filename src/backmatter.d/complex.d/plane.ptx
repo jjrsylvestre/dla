@@ -109,7 +109,7 @@ For every angle <m>\theta</m>,
 a complex number of the form
 <m>\cos\theta + \ci \sin\theta</m>
 has unit modulus due to the circle identity:
-<me> \cmodulus{\cos\theta + \ci \sin\theta} = \sqrt{\cos^2\theta + \sin^2\theta} = \sqrt{1} = 1. </me>
+<md> \cmodulus{\cos\theta + \ci \sin\theta} = \sqrt{\cos^2\theta + \sin^2\theta} = \sqrt{1} = 1. </md>
 Because of this,
 complex numbers of this form sit on the unit circle.
 </p>
@@ -171,7 +171,7 @@ This is known as <term>Euler's formula</term><idx><h>Euler's formula</h></idx>.
 <aside><title>A special case</title><p>
 	From Euler's formula,
 	we get a famous identity relating some of the most important numbers in math:
-	<me> e^{\ci\pi} = -1. </me>
+	<md> e^{\ci\pi} = -1. </md>
 </p></aside>
 
 <p>
@@ -182,7 +182,7 @@ and sit on the unit circle in the complex plane.
 We can use these points to describe every point in the complex plane in terms of a
 <term>radius</term> and <term>angle</term>.
 If <m>r</m> is a nonnegative real number, then for <m>z = r e^{\ci \theta}</m> we have
-<me> \cmodulus{z} = \cmodulus{r}\cmodulus{e^{\ci \theta}} = r. </me>
+<md> \cmodulus{z} = \cmodulus{r}\cmodulus{e^{\ci \theta}} = r. </md>
 Thus, instead of describing a point in the complex plane in terms of
 a horizontal component (the real part) and
 a vertical component (the imaginary part),
@@ -234,8 +234,8 @@ of the complex number <m>z</m>.
 While we usually take the argument <m>\theta</m> to be in the domain <m>0\le\theta\lt 2\pi</m>,
 it is useful in computations to allow it to take on any real value,
 but simplify complex polar expressions using the identity
-<!-- <me xml:id="equation-complex-simplify-polar-arg" tag="dstar"> -->
-<me> e^{\ci(\theta + 2m\pi)} = e^{\ci \theta} </me>,
+<!-- <md><mrow xml:id="equation-complex-simplify-polar-arg" tag="dstar"> -->
+<md> e^{\ci(\theta + 2m\pi)} = e^{\ci \theta} </md>,
 valid for arbitrary integer <m>m</m>.
 </p>
 
@@ -244,7 +244,7 @@ Consider what happens when we multiply complex numbers in polar form:
 if <m>z_1 = r_1 e^{\ci \theta_1}</m>
 and <m>z_2 = r_2 e^{\ci \theta_2}</m>,
 then
-<me> z_1 z_2 = (r_1 r_2) (e^{\ci \theta_1} e^{\ci \theta_2}). </me>
+<md> z_1 z_2 = (r_1 r_2) (e^{\ci \theta_1} e^{\ci \theta_2}). </md>
 Notice that the radii multiply as well.
 We know an exponent law that would help us simplify the exponential part of the product expression above,
 but is it valid for complex exponentials?
@@ -255,26 +255,26 @@ but is it valid for complex exponentials?
 	<statement><p>
 		Multiplication on the complex unit circle corresponds to addition of the complex arguments.
 		That is,
-		<me> e^{\ci \theta_1} e^{\ci \theta_2} = e^{\ci(\theta_1 + \theta_2)}. </me>
+		<md> e^{\ci \theta_1} e^{\ci \theta_2} = e^{\ci(\theta_1 + \theta_2)}. </md>
 	</p></statement>
 	<proof><title>Proof idea</title><p>
 		By definition (Euler's formula),
 		we have
-		<me>
+		<md>
 			e^{\ci \theta_1} e^{\ci \theta_2}
 			= (\cos\theta_1 + \ci \sin\theta_1)(\cos\theta_2 + \ci \sin\theta_2).
-		</me>
+		</md>
 		Expanding this out using FOIL, you will find that the real part is
-		<me> \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2, </me>
+		<md> \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2, </md>
 		and the imaginary part is
-		<me> \cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2. </me>
+		<md> \cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2. </md>
 		So by the addition identities for <m>\sin</m> and <m>\cos</m>,
 		we have
-		<me>
+		<md>
 			e^{\ci \theta_1} e^{\ci \theta_2}
 			= \cos(\theta_1 + \theta_2) + \ci \sin(\theta_1 + \theta_2)
 			= e^{\ci(\theta_1 + \theta_2)},
-		</me>
+		</md>
 		as desired.
 	</p></proof>
 </proposition>
@@ -288,7 +288,7 @@ but is it valid for complex exponentials?
 	If <m>z_1 = r_1 e^{\ci \theta_1}</m>
 	and <m>z_2 = r_2 e^{\ci \theta_2}</m>,
 	then
-	<me> z_1 z_2 = (r_1 r_2) e^{\ci(\theta_1 + \theta_2)}. </me>
+	<md> z_1 z_2 = (r_1 r_2) e^{\ci(\theta_1 + \theta_2)}. </md>
 	</p>
 
 	<p>
@@ -351,7 +351,7 @@ but is it valid for complex exponentials?
 		</p><p>
 		If <m>n</m> is a postive integer,
 		then exponent <m>n</m> means multiplying <m>n</m> copies of the complex exponential:
-		<me> (e^{\ci \theta})^n = e^{\ci \theta} \cdot e^{\ci \theta} \cdot \dotsm \cdot e^{\ci \theta}. </me>
+		<md> (e^{\ci \theta})^n = e^{\ci \theta} \cdot e^{\ci \theta} \cdot \dotsm \cdot e^{\ci \theta}. </md>
 		Using
 		<xref ref="proposition-complex-mult-exp" />,
 		we can combine the expression on the right above into one complex exponential where <m>n</m> copies of the argument <m>\theta</m> are <em>added</em> together.
@@ -423,7 +423,7 @@ and that is if <m>\cmodulus{z} = 1</m>.
 	we have
 	<m> x^3 = e^{\ci(3\theta)} </m>,
 	which transforms our equation into
-	<me> e^{\ci(3\theta)} = 1. </me>
+	<md> e^{\ci(3\theta)} = 1. </md>
 	Clearly we obtain a solution by setting <m> \theta = 0 </m>,
 	which corresponds to our known real solution
 	<m> x = 1 </m>.
@@ -431,7 +431,7 @@ and that is if <m>\cmodulus{z} = 1</m>.
 	the other solutions correspond to values of <m> \theta </m> so that <m> 3 \theta </m> returns back to the positive real axis;
 	that is, when <m> 3 \theta </m> is a multiple of <m> 2 \pi </m>.
 	So our full slate of solutions could be expressed as
-	<me> e^{\ci(0\pi/3)}, \quad e^{\ci(2\pi/3)}, \quad e^{\ci(4\pi/3)}, </me>
+	<md> e^{\ci(0\pi/3)}, \quad e^{\ci(2\pi/3)}, \quad e^{\ci(4\pi/3)}, </md>
 	and we can visualize these solutions as regularly placed around the unit circle in the complex plane.
 	</p>
 
@@ -467,7 +467,7 @@ and that is if <m>\cmodulus{z} = 1</m>.
 
 <proposition><title>Polar form of roots of unity</title><statement><p>
 	The complete set of <m>\nth</m> roots of unity are
-	<me>
+	<md>
 		e^{0\pi\ci/n}, \quad
 		e^{2\pi\ci/n}, \quad
 		e^{4\pi\ci/n}, \quad
@@ -475,7 +475,7 @@ and that is if <m>\cmodulus{z} = 1</m>.
 		e^{2k\pi\ci/n}, \quad
 		\dotsc,
 		e^{2(n-1)\pi\ci/n}.
-	</me>
+	</md>
 </p></statement></proposition>
 
 </subsection>

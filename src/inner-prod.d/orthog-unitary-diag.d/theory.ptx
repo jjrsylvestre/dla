@@ -111,7 +111,7 @@ we are most concerned with having eigenvectors that are orthogonal.
 	</p><p>
 	And an orthogonal real matrix may have no real eigenvalues at all.
 	For example, the rotation matrix
-	<me> \begin{abmatrix}{cr} \cos \theta \amp -\sin \theta \\ \sin \theta \amp \cos \theta \end{abmatrix} </me>
+	<md> \begin{abmatrix}{cr} \cos \theta \amp -\sin \theta \\ \sin \theta \amp \cos \theta \end{abmatrix} </md>
 	has no real eigenvalues.
 	But the complex eigenvalues of an orthogonal real matrix must have complex modulus <m>1</m>,
 	just as for the eigenvalues of a unitary complex matrix.
@@ -129,7 +129,7 @@ we'll first relate the property of normality back to the inner product.
 		Suppose <m>N</m> is a normal complex matrix.
 		For every pair <m>\uvec{u},\uvec{v}</m> of column vectors in <m>\C^n</m>,
 		we have
-		<me> {\inprod{\adjoint{N} \uvec{u}}{\adjoint{N} \uvec{v}}}_{\C} = {\inprod{N \uvec{u}}{N \uvec{v}}}_{\C} </me>.
+		<md> {\inprod{\adjoint{N} \uvec{u}}{\adjoint{N} \uvec{v}}}_{\C} = {\inprod{N \uvec{u}}{N \uvec{v}}}_{\C} </md>.
 	</p></statement>
 	<proof><p>
 		Starting on the right in the proposed equality, we have
@@ -160,7 +160,7 @@ we'll first relate the property of normality back to the inner product.
 	<statement><p>
 		If <m>N</m> is a normal complex matrix,
 		then
-		<me> \norm{\adjoint{N} \uvec{v}} = \norm{N \uvec{v}} </me>
+		<md> \norm{\adjoint{N} \uvec{v}} = \norm{N \uvec{v}} </md>
 		for every column vector <m>\uvec{v}</m> in <m>\C^n</m>.
 	</p></statement>
 	<proof><p>
@@ -182,7 +182,7 @@ not just eigenvalues of the normal matrix <m>N</m>.
 		Assuming <m>\adjoint{N} N = N \adjoint{N}</m> is true,
 		use the <xref ref="proposition-complex-matrices-algebra-rules-adjoint" text="custom">algebra rules of the adjoint</xref>
 		to verify that
-		<me> \adjoint{(\lambda I - N)} (\lambda I - N) = (\lambda I - N) \adjoint{(\lambda I - N)} </me>
+		<md> \adjoint{(\lambda I - N)} (\lambda I - N) = (\lambda I - N) \adjoint{(\lambda I - N)} </md>
 		is also true.
 	</p></proof>
 </lemma>
@@ -210,20 +210,20 @@ not just eigenvalues of the normal matrix <m>N</m>.
 			<p>
 			Suppose <m>\lambda</m> is an eigenvalue of normal matrix <m>N</m> and <m>\uvec{x}</m> is a corresponding eigenvector.
 			Then,
-			<me> (\lambda I - N) \uvec{x} = \zerovec </me>,
+			<md> (\lambda I - N) \uvec{x} = \zerovec </md>,
 			so that
-			<me> \norm{(\lambda I - N) \uvec{x}} = 0 </me>.
+			<md> \norm{(\lambda I - N) \uvec{x}} = 0 </md>.
 			But since <m>N</m> is normal, so is <m>\lambda I - N</m>
 			(<xref ref="lemma-orthog-unitary-diag-normal-eval-coeff" />),
 			and so
-			<me> \norm{\adjoint{(\lambda I - N)} \uvec{x}} = \norm{(\lambda I - N) \uvec{x}} = 0 </me>
+			<md> \norm{\adjoint{(\lambda I - N)} \uvec{x}} = \norm{(\lambda I - N) \uvec{x}} = 0 </md>
 			(<xref ref="corollary-orthog-unitary-diag-normal-adj-norm" />).
 			But the only vector with a norm of zero is the zero vector,
 			so we have
-			<me> \adjoint{(\lambda I - N)} \uvec{x} = \zerovec </me>.
+			<md> \adjoint{(\lambda I - N)} \uvec{x} = \zerovec </md>.
 			Using the <xref ref="proposition-complex-matrices-algebra-rules-adjoint" text="custom">algebra rules of the adjoint</xref>,
 			we can instead write
-			<me> (\cconj{\lambda} I - \adjoint{N}) \uvec{x} = \zerovec </me>,
+			<md> (\cconj{\lambda} I - \adjoint{N}) \uvec{x} = \zerovec </md>,
 			so that <m>\uvec{x}</m> is also an eigenvector of <m>\adjoint{N}</m>,
 			but relative to the eigenvalue <m>\cconj{\lambda}</m>.
 			</p><p>
@@ -231,7 +231,7 @@ not just eigenvalues of the normal matrix <m>N</m>.
 			But since <m>\adjoint{(\adjoint{N})} = N</m> and <m>\lcconj{\cconj{\lambda}} = \lambda</m>,
 			we can symmetrically say that every vector in <m>E_{\cconj{\lambda}}(\adjoint{N})</m> is also in <m>E_\lambda(N)</m>.
 			Putting both together establishes that
-			<me> E_{\cconj{\lambda}}(\adjoint{N}) = E_\lambda(N) </me>.
+			<md> E_{\cconj{\lambda}}(\adjoint{N}) = E_\lambda(N) </md>.
 			</p>
 		</li>
 		<li>
@@ -241,7 +241,7 @@ not just eigenvalues of the normal matrix <m>N</m>.
 			of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props-orthog-eigenvecs">Statement</xref>
 			of <xref ref="theorem-orthog-unitary-diag-self-adjoint-eigen-props" />,
 			compare the two sides of the equality
-			<me> \inprod{N \uvec{x}_1}{\uvec{x}_2} = \inprod{\uvec{x}_1}{\adjoint{N} \uvec{x}_2} </me>
+			<md> \inprod{N \uvec{x}_1}{\uvec{x}_2} = \inprod{\uvec{x}_1}{\adjoint{N} \uvec{x}_2} </md>
 			(applying <xref ref="theorem-orthog-unitary-diag-normal-eval-evec-props-adj">Statement</xref> on the right)
 			to eventually conclude that <m>\inprod{\uvec{x}_1}{\uvec{x}_2} = 0</m>.
 		</li>
@@ -319,10 +319,10 @@ not just eigenvalues of the normal matrix <m>N</m>.
 
 		<p>
 		If
-		<me> \{ \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </me>
+		<md> \{ \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </md>
 		is an orthonormal basis for <m>W^\perp</m>,
 		then
-		<me> \basisfont{B} = \{ \uvec{x}, \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </me>
+		<md> \basisfont{B} = \{ \uvec{x}, \uvec{y}_1, \dotsc, \uvec{y}_{n-1} \} </md>
 		is an orthonormal basis for <m>\C^n</m>,
 		and so the matrix <m>U_1</m> formed by taking the vectors of <m>\basisfont{B}</m> as the columns in <m>U_1</m> is unitary
 		(<xref ref="theorem-matrix-adjoints-prod-preserv-equiv-ortho-cols">Statement</xref>
@@ -333,7 +333,7 @@ not just eigenvalues of the normal matrix <m>N</m>.
 		(corresponding to <m>W</m>)
 		is a <m>1 \times 1</m> block with the corresponding eigenvalue of <m>H</m> as its entry.
 		Write
-		<me> \inv{U}_1 H U_1 = \begin{bmatrix} \lambda \amp \\ \amp H' \end{bmatrix} </me>,
+		<md> \inv{U}_1 H U_1 = \begin{bmatrix} \lambda \amp \\ \amp H' \end{bmatrix} </md>,
 		where <m>\lambda</m> is the eigenvalue of <m>H</m> corresponding to <m>\uvec{x}</m>,
 		and <m>H'</m> is the <m>(n-1) \times (n-1)</m> block corresponding to <m>W^\perp</m>.
 		Since <m>H</m> is Hermitian,
@@ -372,17 +372,17 @@ this is the end of the story in the real case.
 		<case><title> Orthogonally diagonalizable <m>\implies</m> symmetric </title><p>
 			If real matrix <m>A</m> is orthogonally diagonalizable,
 			then there exists orthogonal <m>P</m> so that
-			<me> \utrans{P} A P = D </me>,
+			<md> \utrans{P} A P = D </md>,
 			a diagonal matrix.
 			Every diagonal matrix is symmetric,
 			so we have
-			<me>
+			<md>
 				\utrans{A}
 				= \utrans{(P D \utrans{P})}
 				= P \utrans{D} \utrans{P}
 				= P D \utrans{P}
 				= A
-			</me>,
+			</md>,
 			as desired.
 		</p></case>
 		<case><title> Symmetric <m>\implies</m> orthogonally diagonalizable </title><p>
@@ -414,7 +414,7 @@ the class of unitarily diagonalizable matrices is larger than just the class of 
 			and <m>U</m> is a unitary matrix so that <m>\adjoint{U} N U = D</m>, a diagonal matrix.
 			Now, <m>\adjoint{D}</m> is also diagonal, and diagonal matrices commute.
 			So we have
-			<me> \adjoint{D} D = D \adjoint{D} </me>,
+			<md> \adjoint{D} D = D \adjoint{D} </md>,
 			to begin.
 			</p>
 

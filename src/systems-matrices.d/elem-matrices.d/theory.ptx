@@ -181,11 +181,11 @@ Let's first record an important property of elementary matrices we encountered i
 			<m>A\uvec{x}=\uvec{b}</m>
 			that has one unique solution.
 			Imagine trying to solve this system by row reducing the associated augmented matrix:
-			<me>
+			<md>
 				\begin{abmatrix}{c|c} A \amp \uvec{b} \end{abmatrix}
 				\rowredarrow
 				\begin{abmatrix}{c|c} \RREF(A) \amp \uvec{b}' \end{abmatrix},
-			</me>
+			</md>
 			where <m>\uvec{b}'</m> is whatever appears in the <q>equals</q> column after all of our row operations.
 			When we have arrived at the RREF of <m>A</m> in the coefficient matrix part on the left,
 			and are ready to solve the simplified solution,
@@ -256,9 +256,9 @@ Let's first record an important property of elementary matrices we encountered i
 			<m>E_1,E_2,\dotsc,E_{\ell-1},E_\ell</m>
 			is invertible.
 			Therefore, so is the product
-			<me> E_\ell E_{\ell-1} \dotsm E_2 E_1, </me>
+			<md> E_\ell E_{\ell-1} \dotsm E_2 E_1, </md>
 			with inverse
-			<me> \inv{E}_1\inv{E}_2\dotsm \inv{E}_{\ell-1}\inv{E}_\ell </me>
+			<md> \inv{E}_1\inv{E}_2\dotsm \inv{E}_{\ell-1}\inv{E}_\ell </md>
 			(<xref ref="proposition-inverses-props-of-inverses-inverse-extended-product">Rule</xref>
 			of
 			<xref ref="proposition-inverses-props-of-inverses" />).
@@ -536,7 +536,7 @@ The previous and following propositions combine to tell us we only need to verif
 		of
 		<xref ref="proposition-inverses-props-of-inverses" />),
 		so <m>A</m> is invertible with
-		<me> \inv{A} = \inv{(\inv{B})} = B, </me>
+		<md> \inv{A} = \inv{(\inv{B})} = B, </md>
 		as desired.
 	</p></proof>
 
@@ -564,7 +564,7 @@ and a power of a matrix can <em>only</em> be invertible if the base matrix is in
 
 		<li xml:id="proposition-elem-matrices-converse-props-of-inverses-extended-product">
 			If the product
-			<me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me>
+			<md> M_1 M_2 \dotsm M_{\ell-1} M_\ell </md>
 			is invertible,
 			where
 			<m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m>
@@ -588,22 +588,22 @@ and a power of a matrix can <em>only</em> be invertible if the base matrix is in
 		Suppose that <m>M N</m> is invertible.
 		Then it has an inverse; let's call it <m>X</m> instead of <m>\inv{(M N)}</m>.
 		By definition, this means that
-		<me> X (M N) = I </me>.
+		<md> X (M N) = I </md>.
 		Using <xref ref="proposition-matrix-ops-algebra-rules-basic-mult-assoc">Rule</xref>
 		of <xref ref="proposition-matrix-ops-algebra-rules-basic" />,
 		we may rewrite
-		<me> (X M) N = I </me>.
+		<md> (X M) N = I </md>.
 		Applying <xref ref="proposition-elem-matrices-check-only-left-inverse" />
 		with <m>B = X M</m> and <m>A = N</m>,
 		we may conclude that <m>N</m> is invertible with inverse
-		<me> \inv{N} = X M </me>.
+		<md> \inv{N} = X M </md>.
 		Similarly, since <m>X</m> is the inverse of <m>M N</m>, we may write
-		<me> (M N) X = I </me>
+		<md> (M N) X = I </md>
 		and rewrite
-		<me> M (N X) = I </me>.
+		<md> M (N X) = I </md>.
 		Applying <xref ref="proposition-elem-matrices-check-only-right-inverse" /> this time,
 		we may conclude that <m>M</m> is invertible with inverse
-		<me> \inv{M} = N X </me>.
+		<md> \inv{M} = N X </md>.
 		</p>
 	</proof>
 
@@ -659,7 +659,7 @@ related but <em>not</em> equivalent to the statements in
 			<m>M_1,M_2,\dotsc,M_{\ell-1},M_\ell</m>
 			are square matrices all of the same size,
 			then the product
-			<me> M_1 M_2 \dotsm M_{\ell-1} M_\ell </me>
+			<md> M_1 M_2 \dotsm M_{\ell-1} M_\ell </md>
 			will also be singular.
 		</li>
 
@@ -817,11 +817,11 @@ We repeat the theorem here, and include a proof.
 		then we have <m>A_2' = EA_1'</m>.
 		Because of the way matrix multiplication acts on columns,
 		we then have
-		<me>
+		<md>
 			\begin{abmatrix}{c|c} A_2 \amp \uvec{b}_2 \end{abmatrix}
 			= E \begin{abmatrix}{c|c} A_1 \amp \uvec{b}_1 \end{abmatrix}
 			= \begin{abmatrix}{c|c} EA_1 \amp E\uvec{b}_1 \end{abmatrix},
-		</me>
+		</md>
 		and so we also have
 		<md><mrow> A_2 \amp= EA_1, \amp \uvec{b}_2 \amp= E\uvec{b}_1. </mrow></md>
 		Furthermore, we know that every elementary matrix is invertible
@@ -853,7 +853,7 @@ We repeat the theorem here, and include a proof.
 			<m>A_1\uvec{x}_1 = \uvec{b}_1</m>
 			is true.
 			Then,
-			<me> A_2\uvec{x}_1 = (EA_1)\uvec{x}_1 = E(A_1\uvec{x}_1) = E\uvec{b}_1 = \uvec{b}_2. </me>
+			<md> A_2\uvec{x}_1 = (EA_1)\uvec{x}_1 = E(A_1\uvec{x}_1) = E\uvec{b}_1 = \uvec{b}_2. </md>
 			Thus,
 			<m>\uvec{x} = \uvec{x}_1</m>
 			is also a solution to system
@@ -877,7 +877,7 @@ We repeat the theorem here, and include a proof.
 			<m>A_2\uvec{x}_2 = \uvec{b}_2</m>
 			is true.
 			Then,
-			<me> A_1\uvec{x}_2 = (\inv{E}A_2)\uvec{x}_2 = \inv{E}(A_2\uvec{x}_2) = \inv{E}\uvec{b}_2 = \uvec{b}_1. </me>
+			<md> A_1\uvec{x}_2 = (\inv{E}A_2)\uvec{x}_2 = \inv{E}(A_2\uvec{x}_2) = \inv{E}\uvec{b}_2 = \uvec{b}_1. </md>
 			Thus,
 			<m>\uvec{x} = \uvec{x}_2</m>
 			is also a solution to system

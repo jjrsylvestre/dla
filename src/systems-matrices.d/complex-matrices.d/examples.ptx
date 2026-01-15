@@ -36,22 +36,22 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	<title>Turning a complex linear system into an augmented complex matrix</title>
 	<p>
 	Consider the system
-	<me>
+	<md>
 		\begin{array}{rcrcr}
 			(1 - \ci) x \amp - \amp 4 y \amp = \amp -3 + 9 \ci \\
 			(2 + \ci) x \amp + \amp (1 - 2 \ci) y \amp = \amp -5 \ci
 		\end{array}.
-	</me>
+	</md>
 	As usual,
 	we can represent this system as an augmented matrix,
 	with one row per equation and one column per variable,
 	with an extra augmented column for the constants on the right of the equals signs.
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c}
 			1 - \ci \amp -4 \amp -3 + 9 \ci \\
 			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
 		\end{abmatrix}.
-	</me>
+	</md>
 	</p>
 </example>
 
@@ -72,7 +72,7 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	(For this particular matrix,
 	we could achieve the same result by simply adding the second row to the first,
 	but again we wish to demonstrate a systematic method in a simple example.)
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c}
 			1 - \ci \amp -4 \amp -3 + 9 \ci \\
 			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
@@ -83,9 +83,9 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			2 \amp -4 - 4 \ci \amp -12 + 6 \ci \\
 			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
 		\end{abmatrix}
-	</me>
+	</md>
 	Now we can easily obtain a leading one by dividing by a real number.
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c}
 			2 \amp -4 - 4 \ci \amp -12 + 6 \ci \\
 			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
@@ -96,11 +96,11 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
 		\end{abmatrix}
-	</me>
+	</md>
 	Note that these first two operations together are equivalent to dividing the first row by <m>1 - \ci</m>.
 	</p><p>
 	Now use the leading one to eliminate just the real part of the entry below it.
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c}
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			2 + \ci \amp 1 - 2 \ci \amp -5 \ci
@@ -111,10 +111,10 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			\ci \amp 5 + 2 \ci \amp 12 - 11 \ci
 		\end{abmatrix}
-	</me>
+	</md>
 	Then convert the leading entry in the second row to a real number,
 	by multiplying by <m>\ci</m>.
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c}
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			\ci \amp 5 + 2 \ci \amp 12 - 11 \ci
@@ -125,9 +125,9 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			-1 \amp -2 + 5 \ci \amp 11 + 12 \ci
 		\end{abmatrix}
-	</me>
+	</md>
 	Now we can easily eliminate the bottom left entry.
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c}
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			-1 \amp -2 + 5 \ci \amp 11 + 12 \ci
@@ -138,7 +138,7 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			1 \amp -2 - 2 \ci \amp -6 + 3 \ci \\
 			0 \amp -4 + 3 \ci \amp 5 + 15 \ci
 		\end{abmatrix}
-	</me>
+	</md>
 	From here we proceed in a similar fashion to obtain and exploit the next leading one.
 	<md>
 		<mrow>
@@ -208,13 +208,13 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	</p><p>
 	Suppose we have reduced the coefficient matrix for a homogeneous complex linear system,
 	and have arrived at the RREF
-	<me>
+	<md>
 		\begin{bmatrix}
 			1 \amp 2 + 3 \ci \amp 0 \amp 1 - \ci \\
 			0 \amp 0 \amp 1 \amp -2 + 2 \ci \\
 			0 \amp 0 \amp 0 \amp 0
 		\end{bmatrix}
-	</me>.
+	</md>.
 	We have four variables,
 	but only two leading ones,
 	so we need two parameters.
@@ -300,13 +300,13 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	<xref ref="proposition-inverses-2x2-inverse" /> also applies to complex matrices.
 	</p><p>
 	For example, consider
-	<me> A = \begin{bmatrix} 5 + 5 \ci \amp 1 + \ci \\ -1 + 5 \ci \amp \ci \end{bmatrix}. </me>
+	<md> A = \begin{bmatrix} 5 + 5 \ci \amp 1 + \ci \\ -1 + 5 \ci \amp \ci \end{bmatrix}. </md>
 	First, compute <m>\det A</m>:
-	<me>
+	<md>
 		\det A
 		= (5 + 5 \ci) \cdot \ci - (1 + \ci) (-1 + 5 \ci)
 		= 1 + \ci.
-	</me>
+	</md>
 	Now, using the <m>2 \times 2</m> inversion formula,
 	we have
 	<md>
@@ -346,13 +346,13 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	using the method of
 	<xref ref="subsection-elem-matrices-examples-inversion-procedure" />.
 	Consider
-	<me>
+	<md>
 		A = \begin{bmatrix}
 			1 + \ci \amp 0 \amp 2 + \ci \\
 			0 \amp 2 \amp -2 - 4 \ci \\
 			\ci \amp 0 \amp 1 + \ci
 		\end{bmatrix}.
-	</me>
+	</md>
 	Augment with the identity and reduce:
 	<md>
 		<mrow>
@@ -438,7 +438,7 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	</md>
 	From this calculation,
 	we obtain
-	<me>
+	<md>
 		\inv{A}
 		=
 		\begin{bmatrix}
@@ -446,7 +446,7 @@ Linear systems with complex coefficients behave exactly the same as systems with
 			2 - \ci \amp \frac{1}{2} \amp -1 + 3 \ci \\
 			-\ci \amp 0 \amp 1 + \ci
 		\end{bmatrix}.
-	</me>
+	</md>
 	</p>
 </example>
 
@@ -459,13 +459,13 @@ Linear systems with complex coefficients behave exactly the same as systems with
 <example><title>Complex determinant by cofactor expansion</title>
 	<p>
 	Let's compute the determinant of the complex matrix
-	<me>
+	<md>
 		B = \begin{bmatrix}
 			1 + \ci \amp 2 \amp - 3\ci \\
 			0 \amp 2 \amp -2 - 4 \ci \\
 			\ci \amp 0 \amp 1 + \ci
 		\end{bmatrix}.
-	</me>
+	</md>
 	Matrix <m>B</m> is one row operation away from the matrix <m>A</m> from
 	<xref ref="example-complex-matrices-3x3-inverse" />.
 	Since we found <m>A</m> to be invertible,
@@ -631,7 +631,7 @@ Linear systems with complex coefficients behave exactly the same as systems with
 	and using
 	<xref ref="proposition-inverses-transpose" />
 	on the left will lead to the formula
-	<me> \inv{\bigl(\adjoint{A}\bigr)} = \adjoint{\bigl(\inv{A}\bigr)} </me>.
+	<md> \inv{\bigl(\adjoint{A}\bigr)} = \adjoint{\bigl(\inv{A}\bigr)} </md>.
 	</p>
 </example>
 

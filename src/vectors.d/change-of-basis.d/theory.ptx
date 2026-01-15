@@ -42,22 +42,22 @@ respective owners.
 			<li>
 				The coordinate vector of a sum is the sum of the coordinate vectors.
 				That is,
-				<me> \rmatrixOf{\uvec{v} + \uvec{w}}{B} = \rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B} </me>
+				<md> \rmatrixOf{\uvec{v} + \uvec{w}}{B} = \rmatrixOf{\uvec{v}}{B} + \rmatrixOf{\uvec{w}}{B} </md>
 				for each pair of vectors <m>\uvec{v},\uvec{w}</m> in <m>V</m>.
 			</li>
 			<li>
 				The coordinate vector of a scalar multiple is the scalar multiple of the coordinate vector.
 				That is,
-				<me> \rmatrixOf{k \uvec{v}}{B} = k \rmatrixOf{\uvec{v}}{B} </me>
+				<md> \rmatrixOf{k \uvec{v}}{B} = k \rmatrixOf{\uvec{v}}{B} </md>
 				for each scalar <m>k</m> and each vector <m>\uvec{v}</m> in <m>V</m>.
 			</li>
 			<li>
 				The coordinate vector of a linear combination is the corresponding linear combination of the coordinate vectors.
 				That is,
-				<me>
+				<md>
 					\rmatrixOf{k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsc + k_m \uvec{v}_m}{B}
 					= k_1 \rmatrixOf{\uvec{v}_1}{B} + k_2 \rmatrixOf{\uvec{v}_2}{B} + \dotsc + k_m \rmatrixOf{\uvec{v}_m}{B}
-				</me>
+				</md>
 				for each collection of scalars <m>k_1,k_2,\dotsc,k_m</m> and each collection of vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> in <m>V</m>.
 			</li>
 		</ol>
@@ -83,7 +83,7 @@ respective owners.
 			<li>
 				We add linear combinations by collecting like terms,
 				so we have
-				<me> \uvec{v} + \uvec{w} = (a_1 + b_1) \uvec{u}_1 + (a_2 + b_2) \uvec{u}_2 + \dotsb + (a_n + b_n) \uvec{u}_n </me>.
+				<md> \uvec{v} + \uvec{w} = (a_1 + b_1) \uvec{u}_1 + (a_2 + b_2) \uvec{u}_2 + \dotsb + (a_n + b_n) \uvec{u}_n </md>.
 				The coordinate vector of this sum is then
 				<md>
 					<mrow> \rmatrixOf{\uvec{v} + \uvec{w}}{B} \amp = (a_1 + b_1, a_2 + b_2, \dotsc, a_n + b_n) </mrow>
@@ -95,7 +95,7 @@ respective owners.
 			<li>
 				We scalar multiply a linear combination by distributing the scalar across the vector additions,
 				so for every scalar <m>k</m> we have
-				<me> k \uvec{v} = k a_1 \uvec{u}_1 + k a_2 \uvec{u}_2 + \dotsb + k a_n \uvec{u}_n </me>.
+				<md> k \uvec{v} = k a_1 \uvec{u}_1 + k a_2 \uvec{u}_2 + \dotsb + k a_n \uvec{u}_n </md>.
 				The coordinate vector of this scalar multiple is then
 				<md>
 					<mrow> \rmatrixOf{k \uvec{v}}{B} \amp = (k a_1, k a_2, \dotsc, k a_n) </mrow>
@@ -159,17 +159,17 @@ as well as this initial uniqueness statement.
 		holds for every vector <m>\uvec{v}</m> in <m>V</m>.
 		In particular, it must then hold for every vector in <m>\basisfont{B}</m>.
 		Write
-		<me> \basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_n \} </me>.
+		<md> \basisfont{B} = \{ \uvec{u}_1, \uvec{u}_2, \dotsc, \uvec{u}_n \} </md>.
 		Now, it easy to write one of the vectors in <m>\basisfont{B}</m> as a linear combination of these basis vectors.
 		For example,
-		<me> \uvec{u}_1 = 1 \uvec{u}_1 + 0 \uvec{u}_2 + \dotsb + 0 \uvec{u}_n </me>,
+		<md> \uvec{u}_1 = 1 \uvec{u}_1 + 0 \uvec{u}_2 + \dotsb + 0 \uvec{u}_n </md>,
 		which says that <m>\rmatrixOf{\uvec{u}_1}{B} = \uvec{e}_1</m>,
 		the first standard basis vector of <m>\R^n</m>.
 		So if we take <m>\uvec{v} = \uvec{u}_1</m> in
 		<xref ref="equation-change-of-basis-theory-convert-pattern" />
 		above,
 		we get
-		<me> P \uvec{e}_1 = \matrixOf{\uvec{u}_1}{B'} </me>.
+		<md> P \uvec{e}_1 = \matrixOf{\uvec{u}_1}{B'} </md>.
 		Now, we have seen a couple of times
 		(<eg /> <xref ref="activity-col-row-null-space-matrix-times-stdvec" />)
 		that a matrix times a standard basis vector produces the corresponding column of the matrix.
@@ -250,7 +250,7 @@ as well as this initial uniqueness statement.
 			and
 			<xref ref="proposition-elem-matrices-check-only-right-inverse" />).
 			And the first two statements of this proposition tell us that
-			<me> \ucobmtrx{B'}{B} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B} = I </me>,
+			<md> \ucobmtrx{B'}{B} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B} = I </md>,
 			so that we indeed have <m> \ucobmtrx{B'}{B} = \uinvcobmtrx{B}{B'} </m>,
 			as desired.
 		</li>

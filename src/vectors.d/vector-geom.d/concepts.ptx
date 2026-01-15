@@ -46,7 +46,7 @@ respective owners.
 We can easily determine the length of a vector in the plane from its components using the Pythagorean Theorem.
 If we let <m>\ell</m> represent the length of <m>\uvec{v} = (\change{x}, \change{y})</m>,
 then Pythagoras tells us that
-<me> \ell^2 = (\change{x})^2 + (\change{y})^2 </me>.
+<md> \ell^2 = (\change{x})^2 + (\change{y})^2 </md>.
 (See <xref ref="figure-vector-geom-concepts-pythag-2d" />.)
 </p>
 
@@ -61,7 +61,7 @@ Keep in mind in all that follows that <m>\unorm{v}</m> is always a <em>single nu
 since it measures a length.
 If <m>\uvec{v}</m> has components <m>\uvec{v} = (v_1,v_2)</m> (where <m>v_1 = \change{x}</m> and <m>v_2 = \change{y}</m>),
 then solving for <m>\ell</m> in the Pythagorean equation above gives us
-<me> \unorm{v} = \sqrt{v_1^2 + v_2^2} </me>.
+<md> \unorm{v} = \sqrt{v_1^2 + v_2^2} </md>.
 </p>
 
 <figure xml:id="figure-vector-geom-concepts-pythag">
@@ -129,15 +129,15 @@ Applying the Pythagorean Theorem to the vertical triangle in <xref ref="figure-v
 horizontal leg labelled as vector <m>\uvec{v}'</m>,
 and vertical leg labelled as <m>\change{z}</m>,
 we obtain
-<me> \unorm{v}^2 = \norm{\uvec{v}'}^2 + (\change{z})^2 </me>.
+<md> \unorm{v}^2 = \norm{\uvec{v}'}^2 + (\change{z})^2 </md>.
 Lying in the <m>xy</m>-plane,
 we may think of <m>\uvec{v}'</m> as a two-dimensional vector,
 and we have already analyzed that case above:
-<me> \norm{\uvec{v}'}^2 = (\change{x})^2 + (\change{y})^2 </me>.
+<md> \norm{\uvec{v}'}^2 = (\change{x})^2 + (\change{y})^2 </md>.
 Combining these, we obtain
-<me> \unorm{v}^2 = \bbrac{(\change{x})^2 + (\change{y})^2} + (\change{z})^2 = v_1^2 + v_2^2 + v_3^2 </me>,
+<md> \unorm{v}^2 = \bbrac{(\change{x})^2 + (\change{y})^2} + (\change{z})^2 = v_1^2 + v_2^2 + v_3^2 </md>,
 so that
-<me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + v_3^2} </me>.
+<md> \unorm{v} = \sqrt{v_1^2 + v_2^2 + v_3^2} </md>.
 </p>
 
 <p>
@@ -149,10 +149,10 @@ and we would be able to use length in <m>\R^3</m> to help us compute <q>length</
 and then we would be able to use <q>length</q> in <m>\R^4</m> to help us compute <q>length</q> in <m>\R^5</m>,
 and so on.
 So it seems reasonable to define the <term>norm</term> of a vector <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m> in <m>\R^n</m> to be
-<me> \unorm{v} = \sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2} </me>.
+<md> \unorm{v} = \sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2} </md>.
 Square roots are annoying to work with algebraically,
 so we often work with the square of a norm, for which we developed the formula
-<me> \unorm{v}^2 = v_1^2 + v_2^2 + \dotsb + v_n^2 </me>
+<md> \unorm{v}^2 = v_1^2 + v_2^2 + \dotsb + v_n^2 </md>
 in <xref ref="activity-vector-geom-norm-formula" />.
 </p>
 
@@ -173,7 +173,7 @@ since in geometry we usually require lengths to be nonnegative.
 
 <p>
 Second, the zero vector <m>\zerovec = (0,0,\dotsc,0)</m> always has norm <m>0</m> in every dimension, since
-<me> \norm{\zerovec} = \sqrt{0^2 + 0^2 + \dotsb + 0^2} = \sqrt{0} = 0 </me>.
+<md> \norm{\zerovec} = \sqrt{0^2 + 0^2 + \dotsb + 0^2} = \sqrt{0} = 0 </md>.
 And it is the <em>only</em> vector that has norm <m>0</m>,
 since as soon as one of the components of a vector is nonzero,
 the sum of squares under the square root sign in the norm formula will be a positive number.
@@ -198,7 +198,7 @@ And that is (almost) exactly what happens:
 We need to be a little careful with the last step, because <em>it is not always true that <m>\sqrt{k^2} = k</m></em>.
 In particular, the result of <m>\sqrt{k^2}</m> is never negative, so if <m>k</m> is negative then it is impossible for <m>\sqrt{k^2}</m> to be equal to <m>k</m>.
 The proper formula for all values of <m>k</m> is <m>\sqrt{k^2} = \abs{k}</m>, so our norm formula becomes
-<me> \norm{k\uvec{v}} = \abs{k}\unorm{v} </me>.
+<md> \norm{k\uvec{v}} = \abs{k}\unorm{v} </md>.
 </p>
 
 </subsection>
@@ -224,12 +224,12 @@ For example, if a vector has norm <m>1/2</m>, then we can scale it up to a unit 
 Conversely, if a vector has norm <m>2</m>, we can scale it down to a unit vector by multiplying it by <m>1/2</m> to halve its norm.
 In general, we can scale any nonzero vector <m>\uvec{v}</m> in <m>\R^n</m> up or down to a unit vector by multiplying it by scale factor <m>k=\frac{1}{\unorm{v}}</m>,
 since then
-<me>
+<md>
 	\norm{\frac{1}{\unorm{v}}\,\uvec{v}}
 	= \abs{\frac{1}{\unorm{v}}}\,\unorm{v}
 	= \frac{1}{\unorm{v}}\,\unorm{v}
 	= 1
-</me>.
+</md>.
 In the above, we have used the formula for the norm of a scalar multiple,
 <m>\norm{k\uvec{v}} = \abs{k}\unorm{v}</m>, with <m>k=\frac{1}{\unorm{v}}</m>.
 The absolute value brackets on this particular scalar <m>k</m> can be removed because norms are never negative,
@@ -495,7 +495,7 @@ Now we have
 	\amp\amp\amp\amp \amp= u_1^2 - 2u_1v_1 + v_1^2 + u_2^2 - 2u_2v_2 + v_2^2,
 </mrow></md>
 and so after some cancelling we have
-<me> a^2 + b^2 - c^2 = 2 u_1 v_1 + 2 u_2 v_2 </me>.
+<md> a^2 + b^2 - c^2 = 2 u_1 v_1 + 2 u_2 v_2 </md>.
 Using the expression on the right above for the left-hand side of the equality
 <m> a^2 + b^2 - c^2 = 2 a b \cos\theta </m> for <m>\cos\theta</m>,
 solving for <m>\cos\theta</m>, and then substituting <m>a=\unorm{u}</m> and <m>b=\unorm{v}</m> leads to
@@ -527,7 +527,7 @@ the <term>dot product</term>
 and use the symbol <m>\dotprod{}{}</m> between two vectors to represent this quantity.
 The formula can obviously be extended to higher dimensions than just the plane <m>\R^2</m> and space <m>\R^3</m>,
 so we will do just that:
-<me> \udotprod{u}{v} = u_1v_1 + u_2v_2 + \dotsb + u_n v_n </me>.
+<md> \udotprod{u}{v} = u_1v_1 + u_2v_2 + \dotsb + u_n v_n </md>.
 </p>
 
 <warning><p>
@@ -599,7 +599,7 @@ Luckily neither of these is possible.
 
 <p>
 First, for a pair of nonzero vectors in <m>\R^n</m>, the formula
-<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
+<md> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </md>
 can always be computed, and the result of the computation is always a single, definite number.
 </p>
 
@@ -640,7 +640,7 @@ But is there always <em>some</em> solution to equation
 <xref ref="equation-vector-geom-concepts-def-angle-by-cos" />?
 No matter what domain you work on, <m>\cos\theta</m> never evaluates to a number greater than <m>1</m> or less than <m>-1</m>.
 Perhaps if we tried hard enough we could discover some unlucky pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^{13}</m> where
-<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
+<md> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </md>
 computed to a number greater than <m>1</m> or to a number less than <m>-1</m>.
 In that case, it would be impossible for <m>\cos\theta</m> to be equal to that number,
 and <m>\uvec{u}</m> and <m>\uvec{v}</m> would have <em>no</em> angle between them.
@@ -656,14 +656,14 @@ and we know this courtesy of a couple of dead guys.
 
 		<p>
 		For every pair of vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> in <m>\R^n</m>, the quantity
-		<me> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </me>
+		<md> \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </md>
 		is always between <m>-1</m> and <m>1</m> (inclusive).
 		</p>
 
 		<aside><title>Note</title><p>
 			The <q>inequality</q> part of <q>the Cauchy-Schwarz inequality</q> is usually stated as
 			<m>\abs{\udotprod{u}{v}} \le \unorm{u}\unorm{v}</m>, which for nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m> is equivalent to
-			<me> -1 \le \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} \le 1 </me>.
+			<md> -1 \le \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} \le 1 </md>.
 		</p></aside>
 
 	</statement>
@@ -751,13 +751,13 @@ So we obtain a matrix formula for dot product: <m>\udotprod{u}{v} = \utrans{\uve
 
 	<li component="one-semester">
 		It might seem more natural to use
-		<me>
+		<md>
 			\udotprod{u}{v} \,=\, \utrans{\uvec{u}} \uvec{v}
 			\,=\,
 			\begin{bmatrix} u_1 \amp u_2 \amp \cdots \amp u_n \end{bmatrix}
 			\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
 			\,=\, u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n
-		</me>
+		</md>
 		(as we did in <xref ref="activity-vector-geom-dot-prod-vs-matrix-mult" />),
 		instead of the seemingly pointless reversal of order in the formula
 		<m> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </m>.
@@ -768,13 +768,13 @@ So we obtain a matrix formula for dot product: <m>\udotprod{u}{v} = \utrans{\uve
 	</li>
 	<li component="two-semester">
 		It might seem more natural to use
-		<me>
+		<md>
 			\udotprod{u}{v} \,=\, \utrans{\uvec{u}} \uvec{v}
 			\,=\,
 			\begin{bmatrix} u_1 \amp u_2 \amp \cdots \amp u_n \end{bmatrix}
 			\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
 			\,=\, u_1 v_1 + u_2 v_2 + \dotsb + u_n v_n
-		</me>
+		</md>
 		(as we did in <xref ref="activity-vector-geom-dot-prod-vs-matrix-mult" />),
 		instead of the seemingly pointless reversal of order in the formula
 		<m> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </m>.

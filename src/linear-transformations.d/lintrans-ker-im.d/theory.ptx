@@ -59,12 +59,12 @@ respective owners.
 			Suppose <m>\uvec{v}_1,\uvec{v}_2</m> are in <m>\ker T</m>.
 			Is <m>\uvec{v}_1 + \uvec{v}_2</m> also in <m>\ker T</m>?
 			Using the additivity of <m>T</m>, we have
-			<me>
+			<md>
 				T(\uvec{v}_1 + \uvec{v}_2)
 				= T(\uvec{v}_1) + T(\uvec{v}_2)
 				= \zerovec_W + \zerovec_W
 				= \zerovec_W
-			</me>,
+			</md>,
 			so yes, <m>\uvec{v}_1 + \uvec{v}_2</m> is also in <m>\ker T</m>.
 		</p></case>
 
@@ -72,7 +72,7 @@ respective owners.
 			Suppose <m>\uvec{v}</m> is in <m>\ker T</m>.
 			Is <m>k \uvec{v}</m> also in <m>\ker T</m> for arbitrary scalar <m>k</m>?
 			Using the homogeneity of <m>T</m>, we have
-			<me> T(k \uvec{v}) = k T(\uvec{v}) = k \zerovec_W = \zerovec_W </me>,
+			<md> T(k \uvec{v}) = k T(\uvec{v}) = k \zerovec_W = \zerovec_W </md>,
 			so yes, <m>k \uvec{v}</m> is also in <m>\ker T</m>.
 		</p></case>
 
@@ -102,21 +102,21 @@ respective owners.
 			</mrow></md>.
 			Is <m>\uvec{w}_1 + \uvec{w}_2</m> also in <m>\im T</m>?
 			Using the additivity of <m>T</m>, we have
-			<me>
+			<md>
 				\uvec{w}_1 + \uvec{w}_2
 				= T(\uvec{v}_1) + T(\uvec{v}_2)
 				= T(\uvec{v}_1 + \uvec{v}_2)
-			</me>,
+			</md>,
 			so yes, <m>\uvec{w}_1 + \uvec{w}_2</m> is also in <m>\im T</m>.
 		</p></case>
 
 		<case><title>Closed under scalar multiplication</title><p>
 			Suppose <m>\uvec{w}</m> is in <m>\im T</m>,
 			so that there exists <m>\uvec{v}</m> in <m>V</m> with
-			<me> T(\uvec{v}) = \uvec{w} </me>.
+			<md> T(\uvec{v}) = \uvec{w} </md>.
 			Is <m>k \uvec{w}</m> also in <m>\im T</m> for arbitrary scalar <m>k</m>?
 			Using the homogeneity of <m>T</m>, we have
-			<me> k \uvec{w} = k T(\uvec{v}) = T(k \uvec{v}) </me>,
+			<md> k \uvec{w} = k T(\uvec{v}) = T(k \uvec{v}) </md>,
 			so yes, <m>k \uvec{w}</m> is also in <m>\im T</m>.
 		</p></case>
 
@@ -141,10 +141,10 @@ which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bas
 	<title>Image of a spanning set is a spanning set for the image</title>
 	<p>
 	If <m>\funcdef{T}{V}{W}</m> is linear and
-	<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </me>
+	<md> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </md>
 	is a spanning set for the domain space <m>V</m>,
 	then the collection of image vectors
-	<me> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </me>
+	<md> T(S) = \{ T(\uvec{v}_1), T(\uvec{v}_2), \dotsc, T(\uvec{v}_\ell) \} </md>
 	is a spanning set for <m>\im T</m>.
 	</p>
 </lemma>
@@ -167,7 +167,7 @@ which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bas
 			<li> the vectors of <m>\basisfont{K},\basisfont{K}'</m>, taken all together, form a basis for <m>V</m>. </li>
 		</ol>
 		Then the collection of image vectors
-		<me> T(\basisfont{K}') = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>
+		<md> T(\basisfont{K}') = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </md>
 		is a basis for <m>\im T</m>.
 	</p></statement>
 
@@ -178,11 +178,11 @@ which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bas
 			To apply the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
 			(<xref ref="procedure-linear-indep-concepts-test-for-dep-indep" />),
 			we begin with a homogeneous vector equation
-			<me> c_1 T(\uvec{v}_1) + c_2 T(\uvec{v}_2) + \dotsb + c_r T(\uvec{v}_r) = \zerovec_W </me>.
+			<md> c_1 T(\uvec{v}_1) + c_2 T(\uvec{v}_2) + \dotsb + c_r T(\uvec{v}_r) = \zerovec_W </md>.
 			The linearity of <m>T</m> can be used to collapse the linear combination on the left into a single image vector
-			<me> T(c_1 \uvec{v}_1 + c_2 \uvec{v}_2 + \dotsb + c_r \uvec{v}_r) = \zerovec_W </me>,
+			<md> T(c_1 \uvec{v}_1 + c_2 \uvec{v}_2 + \dotsb + c_r \uvec{v}_r) = \zerovec_W </md>,
 			which implies that the domain space linear combination
-			<me> c_1 \uvec{v}_1 + c_2 \uvec{v}_2 + \dotsb + c_r \uvec{v}_r </me>
+			<md> c_1 \uvec{v}_1 + c_2 \uvec{v}_2 + \dotsb + c_r \uvec{v}_r </md>
 			is in <m>\ker T</m>.
 			As <m>\ker T = \Span \basisfont{K}</m>,
 			this means that the above linear combination is simultaneously in both of the subspaces
@@ -193,11 +193,11 @@ which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bas
 			By <xref ref="theorem-block-diag-pair-indep-subsp-iff-zero-intersect" />,
 			a pair of independent spaces can only intersect at the zero vector,
 			so we may conclude that
-			<me> c_1 \uvec{v}_1 + c_2 \uvec{v}_2 + \dotsb + c_r \uvec{v}_r = \zerovec_V </me>.
+			<md> c_1 \uvec{v}_1 + c_2 \uvec{v}_2 + \dotsb + c_r \uvec{v}_r = \zerovec_V </md>.
 			As the vectors in <m>\basisfont{K}'</m> are assumed to be independent
 			(since they form part of a basis for <m>V</m>),
 			the only way this last vector equation above is possible is the trivial way:
-			<me> c_1 = c_2 = \dotsb = c_r = 0 </me>.
+			<md> c_1 = c_2 = \dotsb = c_r = 0 </md>.
 			In particular, since all of the <m>c_j</m> scalars must be zero,
 			we can conclude that the vectors in <m>T(\basisfont{K}')</m> are independent,
 			as desired.
@@ -208,23 +208,23 @@ which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bas
 			which we have assumed is a basis for the domain space <m>V</m>.
 			By <xref ref="lemma-lintrans-ker-im-spanning-im" />,
 			the collection of image vectors
-			<me>
+			<md>
 				T(\basisfont{B}_V) = \{
 					T(\uvec{u}_1), \dotsc, T(\uvec{u}_k),
 					T(\uvec{v}_1), \dotsc, T(\uvec{v}_r)
 				\}
-			</me>
+			</md>
 			is a spanning set for <m>\im T</m>.
 			But since the <m>\uvec{u}_j</m> are in <m>\ker T</m>,
 			we actually have
-			<me>
+			<md>
 				T(\basisfont{B}_V) = \{
 					\zerovec_W, \dotsc, \zerovec_W,
 					T(\uvec{v}_1), \dotsc, T(\uvec{v}_r)
 				\}
-			</me>,
+			</md>,
 			and clearly the collection of image vectors
-			<me> T(\basisfont{K}') = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </me>
+			<md> T(\basisfont{K}') = \{ T(\uvec{v}_1), \dotsc, T(\uvec{v}_r) \} </md>
 			will span the same space that <m>T(\basisfont{B}_V)</m> does.
 		</p></case>
 
@@ -241,7 +241,7 @@ which we discussed further in <xref ref="subsection-lintrans-ker-im-concepts-bas
 		Suppose <m>\funcdef{T}{V}{W}</m> is linear with <m>V</m> finite-dimensional.
 		Then the sum of the rank and nullity of <m>T</m> is the dimension of the domain space <m>V</m>.
 		That is,
-		<me> \dim (\ker T) + \dim (\im T) = \dim V </me>.
+		<md> \dim (\ker T) + \dim (\im T) = \dim V </md>.
 	</p></statement>
 
 	<proof>

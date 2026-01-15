@@ -32,7 +32,7 @@ respective owners.
 
 <p>
 Consider the <m>4\times 5</m> matrix
-<me>
+<md>
 	A =
 	\begin{abmatrix}{rrrrr}
 		-8 \amp 9 \amp 11 \amp 7 \amp 5 \\
@@ -40,9 +40,9 @@ Consider the <m>4\times 5</m> matrix
 		-2 \amp 2 \amp 2 \amp 5 \amp -9 \\
 		1 \amp -1 \amp -1 \amp 1 \amp -6
 	\end{abmatrix}.
-</me>
+</md>
 Row reduce, as usual:
-<me>
+<md>
 	\begin{abmatrix}{rrrrr}
 		-8 \amp 9 \amp 11 \amp 7 \amp 5 \\
 		1 \amp -1 \amp -1 \amp -3 \amp 6 \\
@@ -56,7 +56,7 @@ Row reduce, as usual:
 		0 \amp 0 \amp 0 \amp 1 \amp -3 \\
 		0 \amp 0 \amp 0 \amp 0 \amp  0
 	\end{abmatrix}.
-</me>
+</md>
 </p>
 
 <paragraphs><title> Column space of <m>A</m> </title>
@@ -64,13 +64,13 @@ Row reduce, as usual:
 From the positions of the leading ones in the reduced matrix,
 we see that the first, second, and fourth columns of <m>A</m> are linearly independent,
 so a basis for the column space of <m>A</m> is
-<me>
+<md>
 	\basisfont{B}_{\mathrm{col}} = \left\{
 		\begin{abmatrix}{r} -8 \\ 1 \\ -2 \\ 1 \end{abmatrix},
 		\begin{abmatrix}{r} 9 \\ -1 \\ 2 \\ -1 \end{abmatrix},
 		\begin{abmatrix}{r} 7 \\ -3 \\ 5 \\ 1 \end{abmatrix}
 	\right\},
-</me>
+</md>
 and the dimension of the column space of <m>A</m> is <m>3</m>.
 </p><p>
 We can also see from the reduced matrix the exact dependence relationships between the columns of <m>A</m>.
@@ -91,13 +91,13 @@ then we have
 The leading ones guarantee that the nonzero rows in the reduced matrix are linearly independent.
 Since row reducing does not change the row space,
 we get our basis for the row space of <m>A</m> from the reduced matrix:
-<me>
+<md>
 	\basisfont{B}_{\mathrm{row}} = \{
 		\begin{abmatrix}{rrrrr} 1 \amp 0 \amp 2 \amp 0 \amp -1 \end{abmatrix},
 		\begin{abmatrix}{rrrrr} 0 \amp 1 \amp 3 \amp 0 \amp  2 \end{abmatrix},
 		\begin{abmatrix}{rrrrr} 0 \amp 0 \amp 0 \amp 1 \amp -3 \end{abmatrix}
 	\}.
-</me>
+</md>
 The dimension of the row space of <m>A</m> is again <m>3</m>.
 </p>
 </paragraphs>
@@ -116,7 +116,7 @@ Solving for the remaining variables leads to a general solution in parametric fo
 	x_5 \amp= t.
 </mrow></md>
 In vector form, we have
-<me>
+<md>
 	\uvec{x}
 	= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
 	= \begin{bmatrix} -2s+t \\ -3s-2t \\ s \\ 3t \\ t \end{bmatrix}
@@ -124,14 +124,14 @@ In vector form, we have
 	+ \begin{bmatrix} t \\ 2t \\ 0 \\ 3t \\ t \end{bmatrix}
 	= s\begin{abmatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{abmatrix}
 	+ t\begin{bmatrix} 1 \\ 2 \\ 0 \\ 3 \\ 1 \end{bmatrix}.
-</me>
+</md>
 So a basis for the null space of <m>A</m> is
-<me>
+<md>
 	\basisfont{B}_{\mathrm{null}} = \left\{
 		\begin{abmatrix}{r} -2 \\ -3 \\ 1 \\ 0 \\ 0 \end{abmatrix},
 		\begin{bmatrix} 1 \\ 2 \\ 0 \\ 3 \\ 1 \end{bmatrix}
 	\right\},
-</me>
+</md>
 and the dimension of the null space is <m>2</m>.
 </p>
 </paragraphs>
@@ -157,7 +157,7 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 	<!--li  -->
 	<p>
 	Suppose we would like to take the linearly independent set
-	<me> \{ (1,3,2,0), (2,6,1,1) \} </me>
+	<md> \{ (1,3,2,0), (2,6,1,1) \} </md>
 	of vectors in <m>\R^4</m> and enlarge it into a basis for all of <m>\R^4</m>.
 	Since <m>\dim \R^4 = 4</m>,
 	we need two more vectors.
@@ -170,7 +170,7 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 	Instead, let's set up a matrix with <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m> as rows,
 	so that <m>U</m> is precisely the row space of that matrix.
 	We can then use row reduction to determine a simpler basis for <m>U</m>:
-	<me>
+	<md>
 		\begin{bmatrix}
 			1 \amp 3 \amp 2 \amp 0 \\
 			2 \amp 6 \amp 1 \amp 1
@@ -180,11 +180,11 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 			1 \amp 3 \amp 0 \amp \frac{2}{3} \\
 			0 \amp 0 \amp 1 \amp -\frac{1}{3}
 		\end{abmatrix}.
-	</me>
+	</md>
 	We can see from the pattern of leading ones in the reduced matrix that to span all of <m>\R^4</m>,
 	we need to introduce some <q>independence</q> in the second and fourth coordinates.
 	So let's try enlarging our initial set of vectors by the second and fourth standard basis vectors:
-	<me>
+	<md>
 		\begin{bmatrix}
 			1 \amp 3 \amp 2 \amp 0 \\
 			2 \amp 6 \amp 1 \amp 1 \\
@@ -198,7 +198,7 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 			0 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1
 		\end{bmatrix}.
-	</me>
+	</md>
 	The rows of the reduced matrix are the four standard basis vectors for <m>\R^4</m>,
 	hence the row space of the reduced matrix is all of <m>\R^4</m>.
 	We know that row operations do not change row space,
@@ -211,12 +211,12 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 <example><title>Using row space to enlarge a linearly independent set in <m>\matrixring_2(\R)</m></title><statement>
 	<p>
 	Suppose we would like to take the linearly independent set
-	<me>
+	<md>
 		\left\{
 			\begin{bmatrix} 1 \amp 3 \\ 2 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 2 \amp 6 \\ 1 \amp 1 \end{bmatrix}
 		\right\}
-	</me>
+	</md>
 	of vectors in <m>\matrixring_2(\R)</m> and enlarge it into a basis for all of <m>\matrixring_2(\R)</m>.
 	Since <m>\dim \matrixring_2(\R) = 4</m>,
 	we need two more vectors.
@@ -239,12 +239,12 @@ where we use the associated coordinate vectors in <m>\R^n</m> to assist us.
 		\rmatrixOf{\uvec{v}_4}{S} \amp= (0,0,0,1).
 	</mrow></md>
 	Thus, we can enlarge the initial set of vectors to a basis for <m>\matrixring_2(\R)</m>:
-	<me>\left\{
+	<md>\left\{
 		\begin{bmatrix} 1 \amp 3 \\ 2 \amp 0 \end{bmatrix},
 		\begin{bmatrix} 2 \amp 6 \\ 1 \amp 1 \end{bmatrix},
 		\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix},
 		\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-	\right\}</me>.
+	\right\}</md>.
 	</p>
 </statement></example>
 

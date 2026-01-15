@@ -83,7 +83,7 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 			So we can write these vectors as
 			<md><mrow> \uvec{u}_1 \amp= (x_1,y_1,0), \amp \uvec{u}_2 \amp= (x_2,y_2,0) </mrow></md>.
 			Then,
-			<me> \uvec{u}_1 + \uvec{u}_2 = (x_1+x_2,y_1+y_2,0) </me>.
+			<md> \uvec{u}_1 + \uvec{u}_2 = (x_1+x_2,y_1+y_2,0) </md>.
 			Since this sum vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
 			</p>
 		</li>
@@ -92,8 +92,8 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
 			<p>
 			If vector <m>\uvec{u}</m> is in the <m>xy</m>-plane, then its <m>z</m>-component is zero,
-			so we can write it as <me> \uvec{u} = (x,y,0) </me>.
-			Then for every scalar <m>k</m>, we have <me> k\uvec{u} = (kx,ky,0) </me>.
+			so we can write it as <md> \uvec{u} = (x,y,0) </md>.
+			Then for every scalar <m>k</m>, we have <md> k\uvec{u} = (kx,ky,0) </md>.
 			Since this scaled vector also has zero <m>z</m>-component, it is again in the <m>xy</m>-plane, as required.
 			</p>
 		</li>
@@ -221,8 +221,8 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
 			<p>
 			Suppose <m>p</m> is a polynomial in this subcollection.
-			Then the degree of this polynomial is <m>2</m> or less, so we can write <me> p(x) = a x^2 + b x + c </me>.
-			Then for every scalar <m>k</m>, we have <me> k p(x) = k a x^2 + k b x + k c </me>.
+			Then the degree of this polynomial is <m>2</m> or less, so we can write <md> p(x) = a x^2 + b x + c </md>.
+			Then for every scalar <m>k</m>, we have <md> k p(x) = k a x^2 + k b x + k c </md>.
 			Since this scaled polynomial also has degree <m>2</m>
 			(or less, since either <m>k</m> or <m>a</m> could be zero),
 			it is again in the subcollection, as required.
@@ -309,12 +309,12 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 			</mrow></md>.
 			To check if the sum vector is also in the solution set,
 			we need to check whether <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-			<me>
+			<md>
 				A(\uvec{x}_1+\uvec{x}_2)
 				= A\uvec{x}_1 + A\uvec{x}_2
 				= \zerovec + \zerovec
 				= \zerovec
-			</me>.
+			</md>.
 			So the sum vector is indeed in the solution set.
 			</p>
 		</li>
@@ -326,12 +326,12 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 			Then <m>A\uvec{x}_0 = \zerovec</m>.
 			For a scalar <m>k</m>, to check whether the scaled vector <m>k\uvec{x}_0</m> is also in the solution set,
 			we need to check whether <m>\uvec{x} = k\uvec{x}_0</m> satisfies the matrix equation <m>A\uvec{x}=\zerovec</m>:
-			<me>
+			<md>
 				A(k\uvec{x}_0)
 				= kA\uvec{x}_0
 				= k\zerovec
 				= \zerovec
-			</me>.
+			</md>.
 			So the scaled vector is indeed in the solution set.
 			</p>
 		</li>
@@ -420,17 +420,17 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	Working in <m>\R^3</m>, we would like to determine if <m>\uvec{v} = (1,-1,4)</m> is in <m>\Span S</m> for <m>S = \bigl\{(1,0,1),(2,1,-1)\bigr\}</m>.
 	Let's try to express <m>\uvec{v}</m> as a linear combination of vectors in the spanning set, and see if it works out.
 	Set
-	<me> (1,-1,4) = s(1,0,1) + t(2,1,-1) </me>,
+	<md> (1,-1,4) = s(1,0,1) + t(2,1,-1) </md>,
 	for unknown scalars <m>s,t</m>.
 	Combining the linear combination on the right into a single vector and comparing components on each side,
 	we get (surprise!) a linear system of equations:
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcr}
 			1 \amp = \amp s \amp + \amp 2t \text{,} \\
 			-1 \amp = \amp \amp \amp t \text{,} \\
 			4 \amp = \amp s \amp - \amp t \text{.}
 		\end{sysofeqns}
-	</me>
+	</md>
 	Now, we don't actually care about the solution to this system <mdash />
 	we only care if the system is <em>consistent</em> or not,
 	because if it's consistent then there <em>is</em> a way to express <m>\uvec{v}</m> as a linear combination of the spanning vectors,
@@ -440,7 +440,7 @@ For this to be true, that vector must be a linear combination of vectors in the 
 
 	<p>
 	There is an interesting pattern to note if we actually convert the system above into an augmented matrix:
-	<me> \begin{abmatrix}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{abmatrix} </me>.
+	<md> \begin{abmatrix}{rr|r} 1 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \\ 1 \amp -1 \amp 4 \end{abmatrix} </md>.
 	Notice that
 	<alert>
 		the columns in the coefficient matrix are precisely the vectors in the spanning set,
@@ -460,13 +460,13 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	<m> \uvec{v} = \left[\begin{smallmatrix} 0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{smallmatrix}\right] </m>
 	is in <m>\Span S</m>,
 	for
-	<me>
+	<md>
 		S = \left\{
 			\begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Here, we can see more directly that <m>\uvec{v}</m> is <em>not</em> in <m>\Span S</m>.
 	Notice that the nonzero entries of the matrices in <m>S</m> do not overlap.
 	From this, we can see that every linear combination of these spanning matrices will have the first two entries in the second row equal to each other.
@@ -475,16 +475,16 @@ For this to be true, that vector must be a linear combination of vectors in the 
 
 	<p>
 	If we didn't notice this, we could carry out a similar procedure as in the previous example, beginning with the vector equation
-	<me>
+	<md>
 		\begin{abmatrix}{rrr}  0 \amp 2 \amp 2 \\ 3 \amp -3 \amp -3 \end{abmatrix}
 		=
 		r\begin{bmatrix} 0 \amp 1 \amp 1 \\ 0 \amp  0 \amp  0 \end{bmatrix} +
 		s\begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp  1 \amp  0 \end{bmatrix} +
 		t\begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp  0 \amp  1 \end{bmatrix}
-	</me>
+	</md>
 	 in the unknown scalars <m>r,s,t</m>.
 	 Combining the linear combination on the right into one matrix, and then comparing entries on each side, we get a linear system with augmented matrix
-	 <me>
+	 <md>
 	 	\begin{abmatrix}{rrr|r}
 	 		0 \amp 0 \amp 0 \amp  0 \\
 	 		1 \amp 0 \amp 0 \amp  2 \\
@@ -493,7 +493,7 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	 		0 \amp 1 \amp 0 \amp -3 \\
 	 		0 \amp 0 \amp 1 \amp -3
 	 	\end{abmatrix}
-	 </me>.
+	 </md>.
 	 </p>
 
 	 <aside><title>Compare</title><p>
@@ -512,22 +512,22 @@ For this to be true, that vector must be a linear combination of vectors in the 
 	<xref ref="activity-subspaces-vec-in-span-poly">Discovery</xref>.
 	Working in <m>\poly(\R)</m>, we would like to determine if the vector <m>\uvec{v} = 2 - x + 3 x^2</m> is in <m>\Span S</m> for <m>S = \{1, 1 + x, 1 + x^2\}</m>.
 	Again, we set up a vector equation expressing <m>\uvec{v}</m> as a linear combination in the vectors of <m>S</m> with unknown scalars:
-	<me> 2 - x + 3 x^2 = r \cdot 1 + s (1 + x) + t (1 + x^2) </me>.
+	<md> 2 - x + 3 x^2 = r \cdot 1 + s (1 + x) + t (1 + x^2) </md>.
 	Two polynomials are only equal if they have the same degree and all the same coefficients.
 	From this, we get the following linear system:
-	<me>\begin{array}{rrcrcrcr}
+	<md>\begin{array}{rrcrcrcr}
 		\text{constant term:} \amp 2 \amp = \amp r \amp + \amp s \amp + \amp t, \\
 		\text{$x$ term:} \amp -1 \amp = \amp \amp \amp s, \\
 		\text{$x^2$ term:} \amp 3 \amp = \amp \amp \amp \amp \amp t,
-	\end{array}</me>
+	\end{array}</md>
 	which can be converted into augmented matrix
-	<me>
+	<md>
 		\begin{abmatrix}{rrr|r}
 			1 \amp 1 \amp 1 \amp  2 \\
 			0 \amp 1 \amp 0 \amp -1 \\
 			0 \amp 0 \amp 1 \amp  3
 		\end{abmatrix}
-	</me>.
+	</md>.
 	</p>
 
 	<aside><title>Compare</title><p>
@@ -557,21 +557,21 @@ the answer was very clearly <em>yes</em>.
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-R5">Discovery</xref>,
 	clearly every vector in <m>\R^5</m> can be decomposed as a linear combination of the standard basis vectors:
-	<me> (a,b,c,d,e) = a \uvec{e}_1 + b \uvec{e}_2 + c \uvec{e}_3 + d \uvec{e}_4 + e \uvec{e}_5 </me>.
+	<md> (a,b,c,d,e) = a \uvec{e}_1 + b \uvec{e}_2 + c \uvec{e}_3 + d \uvec{e}_4 + e \uvec{e}_5 </md>.
 </p></example>
 
 <example><title>A spanning set for <m>\matrixring_2(\R)</m></title><p>
 	In
 	<xref ref="activity-subspaces-span-eq-full-space-M2">Discovery</xref>,
 	every vector in <m>\matrixring_2(\R)</m> can be decomposed as a linear combination of the provided spanning set vectors:
-	<me>
+	<md>
 		  \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 		=
 		a \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} +
 		b \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
 		c \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix} +
 		d \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
-	</me>.
+	</md>.
 </p></example>
 
 <example><title>A spanning set for <m>\poly_3(\R)</m></title><p>
@@ -620,7 +620,7 @@ for a preliminary method of answering this question.
 		 ... Not fully converted to PreTeXt yet -->
 <!--
 For
-<me>
+<md>
 	S
 	= \left\{
 		\begin{abmatrix}{rrr} 1 \amp  1 \amp -1 \\  2 \amp  3 \amp  0 \end{abmatrix},
@@ -630,9 +630,9 @@ For
 		\begin{abmatrix}{rrr} 0 \amp  0 \amp  1 \\  4 \amp  7 \amp  7 \end{abmatrix},
 		\begin{abmatrix}{rrr} 1 \amp  2 \amp  3 \\ -4 \amp -5 \amp -6 \end{abmatrix}
 	\right\},
-</me>
+</md>
 is <m>\Span S</m> equal to all of <m>\matrixring_{2 \times 3}(\R)</m>? To answer this question, we have to verify that the vector equation
-<me>
+<md>
 	  \begin{bmatrix}       a \amp  b \amp  c \\  d \amp  e \amp  f \end{bmatrix}
 	=
 	m \begin{abmatrix}{rrr} 1 \amp  1 \amp -1 \\  2 \amp  3 \amp  0 \end{abmatrix} +
@@ -641,9 +641,9 @@ is <m>\Span S</m> equal to all of <m>\matrixring_{2 \times 3}(\R)</m>? To answer
 	r \begin{abmatrix}{rrr} 1 \amp -4 \amp  5 \\  5 \amp  5 \amp -1 \end{abmatrix} +
 	s \begin{abmatrix}{rrr} 0 \amp  0 \amp  1 \\  4 \amp  7 \amp  7 \end{abmatrix} +
 	t \begin{abmatrix}{rrr} 1 \amp  2 \amp  3 \\ -4 \amp -5 \amp -6 \end{abmatrix}
-</me>
+</md>
 has a solution in the unknown scalars <m>m,p,q,r,s,t</m>, for every possible combination of the unspecified matrix entries <m>a,b,c,d,e,f</m>. In other words, we need to verify that they system
-<me>
+<md>
 	\begin{abmatrix}{rrrrrr|r}
 		 1 \amp  0 \amp  3 \amp  1 \amp 0 \amp  1 \amp a \\
 		 1 \amp  1 \amp -4 \amp -4 \amp 0 \amp  2 \amp b \\
@@ -652,7 +652,7 @@ has a solution in the unknown scalars <m>m,p,q,r,s,t</m>, for every possible com
 		 3 \amp  6 \amp -4 \amp  5 \amp 7 \amp -5 \amp e \\
 		 0 \amp  8 \amp  3 \amp -1 \amp 7 \amp -6 \amp f
 	\end{abmatrix}
-</me>
+</md>
 is <em>always} consistent, <em>no matter the values of the unspecified constants <m>a,b,c,d,e,f</m>}. This system version of the question is not so easy to answer, but in future chapters we will make the original question of <q>Is <m>\Span S</m> equal to the whole space?</q> easier to answer by a deeper study of the structure of subspaces and their descriptions as generated by spanning sets. \begin{inlinenote}[See]\refCorollary[Dim]{basis.right.num.just.one.check}.\end{inlinenote}
 \end{exmp}
 -->

@@ -51,13 +51,13 @@ respective owners.
 		<p>
 		However, a proof by induction is fairly straightforward,
 		as a matrix of this form can be broken up into a block matrix
-		<me> A = \begin{abmatrix}{@{}c|c@{}} 0 \amp R \\ \hline \zerovec \amp B \end{abmatrix} </me>,
+		<md> A = \begin{abmatrix}{@{}c|c@{}} 0 \amp R \\ \hline \zerovec \amp B \end{abmatrix} </md>,
 		where <m>B</m> is an <m>(n-1) \times (n-1)</m> matrix of the same form,
 		<m>R</m> is a <m>1 \times (n-1)</m> row vector,
 		and <m>\zerovec</m> represents an <m>(n-1) \times 1</m> zero vector.
 		Using the pattern of block multiplication from <xref ref="subsection-block-diag-concepts-block-ops" />,
 		one can calculate
-		<me> A^k = \begin{abmatrix}{@{}c|c@{}} 0 \amp RB^{k-1} \\ \hline \zerovec \amp B^k \end{abmatrix} </me>
+		<md> A^k = \begin{abmatrix}{@{}c|c@{}} 0 \amp RB^{k-1} \\ \hline \zerovec \amp B^k \end{abmatrix} </md>
 		for any positive exponent <m>k</m>,
 		and from there the result follows readily using the appropriate induction hypothesis.
 		</p>
@@ -154,10 +154,10 @@ we can use these statements both as properties of nilpotent matrices and as ways
 			<m>\lambda = \lambda_0</m> is an eigenvalue of <m>A</m>,
 			and <m>\uvec{x}</m> is a (nonzero) eigenvector of <m>A</m> corresponding to <m>\lambda_0</m>.
 			For every positive exponent <m>k</m>, we have
-			<me> A^k \uvec{x} = \lambda_0^k \uvec{x} </me>.
+			<md> A^k \uvec{x} = \lambda_0^k \uvec{x} </md>.
 			But if <m>A</m> is nilpotent with <m>A^k = \zerovec</m> for some <m>k</m>,
 			then the above becomes
-			<me> \zerovec = \lambda_0^k \uvec{x} </me>.
+			<md> \zerovec = \lambda_0^k \uvec{x} </md>.
 			Since <m>\uvec{x}</m> is assumed nonzero,
 			we must have <m>\lambda_0^k = 0</m>
 			(<xref ref="proposition-abstract-vec-spaces-basic-vec-props-zero-scalar-mul-eq">Rule</xref>
@@ -197,7 +197,7 @@ we can use these statements both as properties of nilpotent matrices and as ways
 			Suppose there exists invertible <m>P</m> so that <m>\inv{P} A P = N</m>,
 			where <m>N</m> is scalar-triangular matrix with <m>\lambda = 0</m> down the main diagonal.
 			<xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" /> tells that such a matrix <m>N</m> will satisfy <m>N^n = \zerovec</m>.
-			Combined with the identity <me> {(\inv{P} A P)}^n = \inv{P} A^n P </me>,
+			Combined with the identity <md> {(\inv{P} A P)}^n = \inv{P} A^n P </md>,
 			we may conclude that <m>A^n = \zerovec</m> as well,
 			since the only matrix that is similar to the zero matrix is the zero matrix itself.
 			</p>
@@ -278,7 +278,7 @@ and discussed in
 
 	<statement><p>
 		Suppose <m>p(x)</m> is a polynomial and <m>A</m> and <m>P</m> are square matrices of the same size with <m>P</m> invertible.
-		Then, <me> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </me>.
+		Then, <md> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </md>.
 	</p></statement>
 
 	<proof><title>Proof outline</title><p>
@@ -287,7 +287,7 @@ and discussed in
 		is proved exactly as in the proof of
 		<xref ref="proposition-similarity-powers" />.
 		And then the case of a general polynomial
-		<me> p(x) = a_0 + a_1 x + a_2 x^2 + \dotsb + a_m x^m </me>
+		<md> p(x) = a_0 + a_1 x + a_2 x^2 + \dotsb + a_m x^m </md>
 		follows from single-power case,
 		and is left as an exercise for you, the reader.
 	</p></proof>
@@ -316,9 +316,9 @@ and discussed in
 		</mrow></md>,
 		where we assume that the linear factors appear in the same order according to eigenvalue that the scalar-triangular blocks appear down the block diagonal of <m>A</m>.
 		Evaluating <m>c_A(\lambda)</m> at <m>A</m> gives
-		<me> c_A(A) = (A - \lambda_1 I)^{m_1} (A - \lambda_2 I)^{m_2} \dotsm (A - \lambda_\ell I)^{m_\ell} </me>.
+		<md> c_A(A) = (A - \lambda_1 I)^{m_1} (A - \lambda_2 I)^{m_2} \dotsm (A - \lambda_\ell I)^{m_\ell} </md>.
 		Now, each linear expression
-		<me> A - \lambda_j I </me>
+		<md> A - \lambda_j I </md>
 		will also be in triangular block form,
 		but the blocks will now have the <em>differences</em> of eigenvalues against the specific eigenvalue <m>\lambda_j</m> down their main diagonals.
 		In particular, the <m>\nth[j]</m> scalar-triangular block will have zero repeated down the main diagonal.
@@ -328,7 +328,7 @@ and discussed in
 		Applying <xref ref="proposition-block-diag-props-products-powers">Statement</xref>
 		of <xref ref="proposition-block-diag-props" />,
 		each factor
-		<me> (A - \lambda_j I)^{m_j} </me>
+		<md> (A - \lambda_j I)^{m_j} </md>
 		will have a zero block,
 		and these will appear in descending positions down the block diagonal from factor to factor as <m>j</m> increases from <m>1</m> to <m>\ell</m>.
 		Multiplying these factors together is achieved by multiplying together all the corresponding block matrices from the block diagonals,
@@ -353,14 +353,14 @@ and discussed in
 		<xref ref="equation-cayley-hamilton-fully-factored-char-poly" /> above,
 		and so <xref ref="theorem-triang-block-form" />
 		can be applied to obtain a matrix <m>T</m> in triangular block form to which <m>A</m> is similar.
-		From the first case above, we know <me> c_T(T) = \zerovec </me>.
+		From the first case above, we know <md> c_T(T) = \zerovec </md>.
 		But similar matrices have the same characteristic polynomial
 		(<xref ref="theorem-similarity-similar-same-char-poly-evals-transformed-evecs" />)
 		and evaluate to similar results in polynomials
 		(<xref ref="lemma-cayley-hamilton-poly-of-similar" />),
 		so <m> c_A(A) </m> is similar to <m> c_T(T) = \zerovec </m>.
 		However, the only matrix that is similar to the zero matrix is the zero matrix itself,
-		so we can conclude that <me> c_A(A) = \zerovec </me>.
+		so we can conclude that <md> c_A(A) = \zerovec </md>.
 		</p>
 
 	</proof>
@@ -429,7 +429,7 @@ we'll record the patterns we discovered in
 		Applying <xref ref="proposition-block-diag-props-det">Statement</xref>
 		of <xref ref="proposition-block-diag-props" />,
 		we immediately get
-		<me> \det A = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </me>.
+		<md> \det A = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </md>.
 		Determining the constant term of <m>c_A(\lambda)</m> is as easy as evaluating the polynomial at <m>\lambda = 0</m>,
 		which yields
 		<md>
@@ -438,7 +438,7 @@ we'll record the patterns we discovered in
 			<mrow> \amp = (-1)^n \det A </mrow>
 		</md>,
 		where
-		<me> m_1 + m_2 + \dotsb + m_\ell = n </me>
+		<md> m_1 + m_2 + \dotsb + m_\ell = n </md>
 		because the degree of a characteristic polynomial is always equal to the size of the matrix.
 		</p>
 
@@ -446,11 +446,11 @@ we'll record the patterns we discovered in
 		Similarly, the trace of the <m>\nth[j]</m> block of <m>A</m> is equal to <m>m_j \lambda_j</m>,
 		the sum of its diagonal entries.
 		The trace of <m>A</m> is then clearly equal to the sum of these sums of diagonal entries, so that
-		<me> \trace A = m_1 \lambda_1 + m_2 \lambda_2 + \dotsb + m_\ell \lambda_\ell </me>.
+		<md> \trace A = m_1 \lambda_1 + m_2 \lambda_2 + \dotsb + m_\ell \lambda_\ell </md>.
 		To investigate the coefficient on <m>\lambda^{n-1}</m> in
 		<xref ref="equation-cayley-hamilton-fully-factored-char-poly2" />,
 		first consider this expression as
-		<me> c_A(\lambda) = \bigl[(\lambda - \lambda_1) \dotsm (\lambda - \lambda_1)\bigr] \dotsm \bigl[(\lambda - \lambda_\ell) \dotsm (\lambda - \lambda_\ell)\bigr] </me>,
+		<md> c_A(\lambda) = \bigl[(\lambda - \lambda_1) \dotsm (\lambda - \lambda_1)\bigr] \dotsm \bigl[(\lambda - \lambda_\ell) \dotsm (\lambda - \lambda_\ell)\bigr] </md>,
 		where each factor is repeated according to the algebraic multiplicity of that eigenvalue.
 		Similar to how the Binomial Theorem is investigated,
 		in expanding the above expression we get a term involving <m>\lambda^{n-1}</m> by choosing <m>\lambda</m> from all but one of the linear factors and choosing <m>(-\lambda_j)</m> from the remaining factor,
@@ -459,10 +459,10 @@ we'll record the patterns we discovered in
 		and we get <m>m_j</m> such terms for each eigenvalue because there are <m>m_j</m> linear factors involving that eigenvalue to end up as the <q>remaining factor</q> in our choices.
 		Collecting these like terms,
 		the coefficient on the term involving <m>\lambda^{n-1}</m> is
-		<me>
+		<md>
 			- m_1 \lambda_1 - m_2 \lambda_2 - \dotsb - m_\ell \lambda_\ell
 			= - \trace A
-		</me>.
+		</md>.
 		</p>
 
 	</proof>

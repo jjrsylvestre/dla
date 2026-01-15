@@ -53,10 +53,10 @@ if we regard the constant term of the polynomial as a scalar multiple of the ide
 
 <p>
 For example, the polynomial
-<me> p(x) = x^2 - 3x + 6 </me>
+<md> p(x) = x^2 - 3x + 6 </md>
 from <xref ref="activity-cayley-hamilton-matrix-poly" />
 can be rewritten as
-<me> p(X) = X^2 - 3X + 6I </me>,
+<md> p(X) = X^2 - 3X + 6I </md>,
 where now we interpret the indeterminate <m>X</m> to represent a square matrix
 (of whatever size is appropriate to the context).
 </p>
@@ -64,7 +64,7 @@ where now we interpret the indeterminate <m>X</m> to represent a square matrix
 <paragraphs><title>Similarity and matrix polynomials</title><p>
 In <xref ref="activity-cayley-hamilton-matrix-poly-similarity">Discovery</xref>,
 we conjectured that
-<me> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </me>
+<md> p(\inv{P} A P) = \inv{P} \bigl(p(A)\bigr) P </md>
 is always true,
 so that
 <alert>similar matrices evaluate to similar results in a matrix polynomial</alert>.
@@ -84,7 +84,7 @@ and can all be calculated by performing those operations on the diagonal entries
 So, as we discovered in <xref ref="activity-cayley-hamilton-matrix-poly-diag">Discovery</xref>,
 for a diagonal matrix <m>D</m> matrix and polynomial <m>p(x)</m>,
 we can calculate
-<me>
+<md>
 	D =
 	\begin{bmatrix}
 		d_1 \\
@@ -100,14 +100,14 @@ we can calculate
 		 \amp \amp \ddots \\
 		 \amp \amp \amp p(d_n)
 	\end{bmatrix}
-</me>.
+</md>.
 In other words, a matrix polynomial of a diagonal matrix can be evaluated by evaluating the polynomial at each diagonal entry.
 </p>
 
 <p>
 Powers, scalar multiples, and sums of block-diagonal matrices can be calculated in a similar fashion by working with the blocks on the diagonal,
 so that if <m>D</m> is in block-diagonal form, then
-<me>
+<md>
 	D =
 	\begin{bmatrix}
 		D_1 \\
@@ -123,7 +123,7 @@ so that if <m>D</m> is in block-diagonal form, then
 		 \amp \amp \ddots \\
 		 \amp \amp \amp p(D_m)
 	\end{bmatrix}
-</me>.
+</md>.
 </p>
 
 </paragraphs>
@@ -231,11 +231,11 @@ that is, a <term>scalar matrix</term> is essentially the same as a <term>number<
 
 <p>
 What if we further expand the concept of <term>number</term> to include the <m>2 \times 2</m> matrix
-<me> C = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </me>?
+<md> C = \begin{abmatrix}{rr} 0 \amp -1 \\ 1 \amp 0 \end{abmatrix} </md>?
 It is straightforward to compute the characteristic polynomial
-<me> c_C(\lambda) = \lambda^2 + 1 </me>,
+<md> c_C(\lambda) = \lambda^2 + 1 </md>,
 so the <xref ref="theorem-cayley-hamilton" text="title" /> tells us that
-<me> C^2 + 1 = \zerovec </me>.
+<md> C^2 + 1 = \zerovec </md>.
 This is precisely the defining condition of the <q>imaginary number</q> <m>\ci</m>.
 It turns out that <m>\ci</m> is not so imaginary after all,
 as here we have a matrix embodiment of it that only requires the numbers <m>0,1,-1</m> to construct!
@@ -245,11 +245,11 @@ as here we have a matrix embodiment of it that only requires the numbers <m>0,1,
 Combining this special matrix with <m>2 \times 2</m> scalar matrices,
 we can even construct a realization of the field of complex numbers inside <m>\matrixring_2(\R)</m>.
 Every complex number <m>z</m> can be expressed as
-<me> z = a + b \ci </me>
+<md> z = a + b \ci </md>
 for some real numbers <m>a,b</m>.
 If we replace <m>a</m> by the scalar matrix <m>a I</m> and <m>\ci</m> by the special matrix <m>C</m>,
 we can realize the complex number <m>z</m> as the <m>2 \times 2</m> matrix
-<me> Z = \begin{abmatrix}{rr} a \amp -b \\ b \amp a \end{abmatrix} </me>.
+<md> Z = \begin{abmatrix}{rr} a \amp -b \\ b \amp a \end{abmatrix} </md>.
 We leave it as an exercise for you, the reader,
 to verify that adding, multiplying, and inverting matrices of the form of <m>Z</m> have the same results as adding, multiplying, and inverting the corresponding complex numbers.
 You might also get a surprise if you compute <m>\det Z</m>!
@@ -284,7 +284,7 @@ Getting more precise again, we ask the following question.
 <p>
 We leave it as an exercise for you, the reader,
 to verify that the matrix
-<me>
+<md>
 	\begin{bmatrix}
 		0 \amp 0 \amp 0 \amp \cdots \amp 0 \amp -a_0 \\
 		1 \amp 0 \amp 0 \amp \cdots \amp 0 \amp -a_1 \\
@@ -292,11 +292,11 @@ to verify that the matrix
 		\vdots \amp \vdots \amp \vdots \amp \amp \vdots \amp \vdots \\
 		0 \amp 0 \amp 0 \amp \cdots \amp 1 \amp -a_{n-1}
 	\end{bmatrix}
-</me>
+</md>
 answers <xref ref="question-cayley-hamilton-concepts-companion" />
 in the affirmative.
 The matrix above is called the <term>companion matrix</term> of the monic polynomial
-<me> p(x) = x^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \dotsb + a_1 x + a_0 </me>.
+<md> p(x) = x^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \dotsb + a_1 x + a_0 </md>.
 </p>
 
 </paragraphs>

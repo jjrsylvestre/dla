@@ -120,10 +120,10 @@ we have already taken advantage of this fact to clear fractions when carrying ou
 	<statement><p>
 		If <m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </m> is an orthogonal set in an inner product space,
 		then
-		<me>
+		<md>
 			\norm{\uvec{v}_1 + \uvec{v}_2 + \dotsb + \uvec{v}_\ell}^2
 			= \norm{\uvec{v}_1}^2 + \norm{\uvec{v}_2}^2 + \dotsb + \norm{\uvec{v}_\ell}^2
-		</me>.
+		</md>.
 	</p></statement>
 
 	<proof>
@@ -178,23 +178,23 @@ so we will not provide a proof here.
 
 		<li>
 			The expansion of <m>\uvec{v}</m> as a linear combination of the vectors in <m>\basisfont{B}</m> is
-			<me>
+			<md>
 				\uvec{v}
 				= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 				+ \dotsb
 				+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
-			</me>.
+			</md>.
 		</li>
 
 		<li>
 			If <m>\basisfont{B}</m> is orthonormal,
 			then the expansion for <m>\uvec{v}</m> relative to <m>\basisfont{B}</m> is
-			<me>
+			<md>
 				\uvec{v}
 				= \inprod{\uvec{v}}{\uvec{e}_1} \, \uvec{e}_1
 				+ \dotsb
 				+ \inprod{\uvec{v}}{\uvec{e}_n} \, \uvec{e}_n
-			</me>.
+			</md>.
 		</li>
 
 	</ol>
@@ -223,15 +223,15 @@ their inner product becomes a dot product between their coordinates.
 
 			<li xml:id="proposition-inprod-orthog-vs-dot-standard">
 				We have
-				<me> \uvecinprod{v}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>
+				<md> \uvecinprod{v}{w} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </md>
 				in a real inner product space and
-				<me> \uvecinprod{v}{w} = a_1 \cconj{b}_1 + a_2 \cconj{b}_2 + \dotsb + a_n \cconj{b}_n </me>
+				<md> \uvecinprod{v}{w} = a_1 \cconj{b}_1 + a_2 \cconj{b}_2 + \dotsb + a_n \cconj{b}_n </md>
 				in a complex inner product space.
 			</li>
 
 			<li xml:id="proposition-inprod-orthog-vs-dot-norm">
 				We have
-				<me> \unorm{v} = \sqrt{\abs{a_1}^2 + \dotsb + \abs{a_n}^2} </me>,
+				<md> \unorm{v} = \sqrt{\abs{a_1}^2 + \dotsb + \abs{a_n}^2} </md>,
 				where the absolute values are redundant in the real context,
 				but indicate modulus in the complex context.
 			</li>
@@ -281,13 +281,13 @@ produces an orthogonal basis.
 		then the inductively defined set
 		<m>\{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>,
 		where
-		<me>
+		<md>
 			\uvec{e}_j = \uvec{v}_j - \left(
 				\frac{\inprod{\uvec{v}_j}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 				+ \dotsb
 				+ \frac{\inprod{\uvec{v}_j}{\uvec{e}_{j-1}}}{\norm{\uvec{e}_{j-1}}^2} \, \uvec{e}_{j-1}
 			\right)
-		</me>,
+		</md>,
 		is an orthogonal basis for the space.
 	</p></statement>
 
@@ -457,7 +457,7 @@ as every finite-dimensional inner product space has a basis that can be used in 
 		<p>
 		Suppose <m>\{\uvec{e}_1,\dotsc,\uvec{e}_\ell\}</m> is an orthogonal set in a finite-dimensional inner product space.
 		Enlarge the orthogonal set to a (possibly nonorthogonal) basis
-		<me> \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{u}_1, \dotsc, \uvec{u}_m \} </me>.
+		<md> \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{u}_1, \dotsc, \uvec{u}_m \} </md>.
 		We could then apply the Gram-Schmidt process to obtain an orthogonal basis.
 		But since the <m>\uvec{e}_j</m> are orthogonal,
 		the first <m>\ell</m> steps will just result in the original <m>\{\uvec{e}_1,\dotsc,\uvec{e}_\ell\}</m>
@@ -480,7 +480,7 @@ as every finite-dimensional inner product space has a basis that can be used in 
 		and <m>\{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \}</m>
 		is the orthogonal basis described in <xref ref="theorem-inprod-orthog-gram-schmidt" />.
 		Then for each index <m>\ell</m>, <m>1 \le \ell \le n</m>, we have
-		<me> \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} = \Span \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>.
+		<md> \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} = \Span \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </md>.
 	</p></statement>
 
 	<proof>
@@ -490,9 +490,9 @@ as every finite-dimensional inner product space has a basis that can be used in 
 		we would find that it is ultimately a linear combination of the vectors
 		<m>\uvec{v}_1, \dotsc, \uvec{v}_j</m>,
 		and so we can conclude that
-		<me> \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </me>
+		<md> \Span \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </md>
 		is always a subspace of
-		<me> \Span \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
+		<md> \Span \{ \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </md>
 		(<xref ref="proposition-subspaces-eq-span-test-first-step">Statement</xref>
 		of <xref ref="proposition-subspaces-eq-span-test" />).
 		</p>
@@ -556,12 +556,12 @@ as well as some others.
 			</mrow></md>
 			are both true for every <m>\uvec{x}</m> in <m>X</m>.
 			Then also
-			<me>
+			<md>
 				\inprod{\uvec{u}+\uvec{v}}{\uvec{x}}
 				= \uvecinprod{u}{x} + \uvecinprod{v}{x}
 				= 0 + 0
 				= 0
-			</me>
+			</md>
 			for every <m>\uvec{x}</m> in <m>X</m>,
 			so <m>\uvec{u} + \uvec{v}</m> is again in <m>\orthogcmp{X}</m>.
 		</p></case>
@@ -569,10 +569,10 @@ as well as some others.
 		<case><title>Closed under scalar multiplication</title><p>
 			Suppose <m>\uvec{v}</m> is in <m>\orthogcmp{X}</m>,
 			so that
-			<me> \uvecinprod{v}{x} = 0 </me>
+			<md> \uvecinprod{v}{x} = 0 </md>
 			for every <m>\uvec{x}</m> in <m>X</m>.
 			Then also
-			<me> \inprod{k\uvec{v}}{\uvec{x}} = k \uvecinprod{v}{x} = k \cdot 0 = 0 </me>
+			<md> \inprod{k\uvec{v}}{\uvec{x}} = k \uvecinprod{v}{x} = k \cdot 0 = 0 </md>
 			for every <m>\uvec{x}</m> in <m>X</m>,
 			so <m>k \uvec{v}</m> is again in <m>\orthogcmp{X}</m>.
 		</p></case>
@@ -659,7 +659,7 @@ being orthogonal to a spanning set is enough to check inclusion in the orthogona
 	<statement><p>
 		Suppose <m>S</m> is a set of vectors in an inner produce space.
 		For <m>U = \Span S</m>, we have
-		<me> \orthogcmp{U} = \orthogcmp{S} </me>.
+		<md> \orthogcmp{U} = \orthogcmp{S} </md>.
 		In other words, a vector is in <m>\orthogcmp{U}</m> if and only if it is orthogonal to every vector in the spanning set <m>S</m>.
 	</p></statement>
 
@@ -689,7 +689,7 @@ being orthogonal to a spanning set is enough to check inclusion in the orthogona
 			We want to verify that <m>\uvec{x}</m> is orthogonal to every vector in <m>U</m>.
 			So suppose <m>\uvec{u}</m> is in <m>U</m>.
 			Express <m>\uvec{u}</m> in terms of spanning vectors from <m>S</m>:
-			<me> \uvec{u} = k_1 \uvec{s}_1 + k_2 \uvec{s}_2 + \dotsc + k_\ell \uvec{s}_\ell </me>.
+			<md> \uvec{u} = k_1 \uvec{s}_1 + k_2 \uvec{s}_2 + \dotsc + k_\ell \uvec{s}_\ell </md>.
 			Then we can use this linear combination to check orthogonality against <m>\uvec{x}</m>:
 			<md>
 				<mrow>
@@ -702,7 +702,7 @@ being orthogonal to a spanning set is enough to check inclusion in the orthogona
 			But we have assumed <m>\uvec{x}</m> in <m>\orthogcmp{S}</m>,
 			which means that each <m>\inprod{\uvec{s}_j}{\uvec{x}}</m> is zero,
 			and so
-			<me> \uvecinprod{u}{x} = k_1 \cdot 0 + k_2 \cdot 0 + \dotsc + k_\ell \cdot 0 = 0 </me>,
+			<md> \uvecinprod{u}{x} = k_1 \cdot 0 + k_2 \cdot 0 + \dotsc + k_\ell \cdot 0 = 0 </md>,
 			as desired.
 			</p>
 
@@ -726,10 +726,10 @@ being orthogonal to a spanning set is enough to check inclusion in the orthogona
 	<statement><p>
 		Suppose <m>\{\uvec{e}_1,\dotsc,\uvec{e}_n\}</m> is an orthogonal basis for a finite-dimensional inner product space.
 		If <m>U</m> is the subspace
-		<me> U = \Span \{\uvec{e}_1,\dotsc,\uvec{e}_\ell\} </me>,
+		<md> U = \Span \{\uvec{e}_1,\dotsc,\uvec{e}_\ell\} </md>,
 		for fixed choice of <m>\ell \le n</m>,
 		then
-		<me> \orthogcmp{U} = \Span \{\uvec{e}_{\ell + 1},\dotsc,\uvec{e}_n\} </me>.
+		<md> \orthogcmp{U} = \Span \{\uvec{e}_{\ell + 1},\dotsc,\uvec{e}_n\} </md>.
 	</p></statement>
 
 	<proof><p>
@@ -739,7 +739,7 @@ being orthogonal to a spanning set is enough to check inclusion in the orthogona
 		we know that <m>\orthogcmp{U} = \orthogcmp{S}</m>,
 		the collection of vectors that are orthogonal to every vector in <m>S</m>.
 		Since the entire set
-		<me> \{\uvec{e}_1,\dotsc,\uvec{e}_n\} </me>
+		<md> \{\uvec{e}_1,\dotsc,\uvec{e}_n\} </md>
 		is orthogonal,
 		we know that each vector in <m>S'</m> is in <m>\orthogcmp{U}</m>.
 		And since <m>\orthogcmp{U}</m> is a subspace

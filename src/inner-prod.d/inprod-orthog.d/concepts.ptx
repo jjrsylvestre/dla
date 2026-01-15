@@ -109,15 +109,15 @@ In <xref ref="activity-inprod-orthog-expansion" />,
 we found that the zero result of an inner product for orthogonal vectors,
 along with the <xref ref="proposition-inner-prod-linearity" text="title" /> (<xref ref="proposition-inner-prod-linearity" />),
 leads to a pattern for the coefficients in the expansion for a vector relative to an <em>orthogonal</em> basis
-<me> \basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>
+<md> \basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </md>
 in a finite-dimensional inner product space:
-<me>
+<md>
 	\uvec{v}
 	= \frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 	+ \frac{\inprod{\uvec{v}}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
 	+ \dotsb
 	+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
-</me>.
+</md>.
 </p>
 
 <warning><p>
@@ -129,13 +129,13 @@ in a finite-dimensional inner product space:
 <p>
 If <m>\basisfont{B}</m> is an ortho<em>normal</em> basis for an inner product space, then each scalar denominator <m>\norm{\uvec{e}_j}</m> in the expansion above is equal to <m>1</m>,
 so an expansion becomes even simpler:
-<me>
+<md>
 	\uvec{v}
 	= \inprod{\uvec{v}}{\uvec{e}_1} \, \uvec{e}_1
 	+ \inprod{\uvec{v}}{\uvec{e}_2} \, \uvec{e}_2
 	+ \dotsb
 	+ \inprod{\uvec{v}}{\uvec{e}_n} \, \uvec{e}_n
-</me>.
+</md>.
 </p>
 
 </subsection>
@@ -165,10 +165,10 @@ we attempted to reinvent a procedure by which we can convert a basis into an ort
 	<title>Gram-Schmidt orthogonalization</title>
 	<p>
 	Given a basis
-	<me>\basisfont{B}_0 = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>
+	<md>\basisfont{B}_0 = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </md>
 	of a finite-dimensional inner product space,
 	to construct an <em>orthogonal</em> basis
-	<me>\basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>
+	<md>\basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </md>
 	for that space, calculate
  	<md>
 		<mrow> \uvec{e}_1 \amp = \uvec{v}_1 \text{,} </mrow>
@@ -216,10 +216,10 @@ We set <m>\uvec{e}_1</m> to be <m>\uvec{v}_1</m> because there aren't yet any ot
 Next, we know from the discussion in <xref ref="subsection-inprod-orthog-concepts-expansion" />
 that <em>if</em> we are able to succeed in creating the orthogonal basis <m>\basisfont{B}</m>,
 then the coefficient on <m>\uvec{e}_1</m> in the expansion of <m>\uvec{v}_2</m> relative to <m>\basisfont{B}</m> is
-<me> \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} </me>.
+<md> \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} </md>.
 In other words,
 the portion of <m>\uvec{v}_2</m> parallel to <m>\uvec{e}_1</m> is
-<me> \widetilde{\uvec{v}}_2 = \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>.
+<md> \widetilde{\uvec{v}}_2 = \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </md>.
 </p>
 
 <figure xml:id="figure-inprod-orthog-concpets-gram-schmidt-1">
@@ -253,10 +253,10 @@ the portion of <m>\uvec{v}_2</m> parallel to <m>\uvec{e}_1</m> is
 <p>
 This diagram should look familiar <mdash /> it is essentially the same diagram that we used to illustrate orthogonal projection in <m>\R^2</m>.
 The formula for orthogonal projection even appears to be the same:
-<me> \proj_{\uvec{a}} \uvec{u} = \frac{\udotprod{u}{a}}{\unorm{a}^2} \, \uvec{a} </me>.
+<md> \proj_{\uvec{a}} \uvec{u} = \frac{\udotprod{u}{a}}{\unorm{a}^2} \, \uvec{a} </md>.
 And from our experience with orthogonal projection onto a line,
 the vector running from the head of <m> \widetilde{\uvec{v}}_2 </m> to the head of <m>\uvec{v}_2</m> should be both a difference vector
-<me> \uvec{v}_2 - \widetilde{\uvec{v}}_2 </me>
+<md> \uvec{v}_2 - \widetilde{\uvec{v}}_2 </md>
 and a normal vector to the line spanned by <m>\uvec{e}_1</m>.
 We can also visualize this normal vector stemming from the origin.
 </p>
@@ -317,11 +317,11 @@ The next step follows the same pattern,
 but now the pair <m>\uvec{e}_1,\uvec{e}_2</m> span a plane.
 Similarly to the last step,
 the vector
-<me>
+<md>
 	\widetilde{\uvec{v}}_3
 	= \frac{\inprod{\uvec{v}_3}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 	+ \frac{\inprod{\uvec{v}_3}{\uvec{e}_2}}{\norm{\uvec{e}_2}^2} \, \uvec{e}_2
-</me>
+</md>
 represents the portion of <m>\uvec{v}_3</m> that lies parallel to that plane.
 </p>
 
@@ -437,10 +437,10 @@ Suppose <m>U</m> is a subspace of an inner product space,
 with basis <m> \basisfont{B}_U = \{ \uvec{u}_1, \dotsc, \uvec{u}_m \} </m>.
 When we apply the orthogonalization process to just this basis,
 we start by setting
-<me> \uvec{e}_1 = \uvec{u}_1 </me>,
+<md> \uvec{e}_1 = \uvec{u}_1 </md>,
 so <m>\uvec{e}_1</m> is in <m>U</m>.
 Then we set
-<me> \uvec{e}_2 = \uvec{v}_2 -  \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </me>,
+<md> \uvec{e}_2 = \uvec{v}_2 -  \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1 </md>,
 a linear combination of vectors in <m>U</m>.
 So <m>\uvec{e}_2</m> is also in <m>U</m>.
 And so on: at each step the next vector <m>\uvec{e}_j</m> is a linear combination of a vector from <m>\basisfont{B}_U</m> and the previous vectors <m>\uvec{e}_1,\dotsc,\uvec{e}_{j-1}</m>.
@@ -458,7 +458,7 @@ this is enough to conclude that
 As in <xref ref="activity-inprod-orthog-gs-subspace-complement">Discovery</xref>,
 let's take this one step further.
 The basis <m>\basisfont{B}_U</m> for <m>U</m> can be enlarged to a basis
-<me> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_m, \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </me>
+<md> \basisfont{B}_V = \{ \uvec{u}_1, \dotsc, \uvec{u}_m, \uvec{v}_1, \dotsc, \uvec{v}_\ell \} </md>
 for <m>V</m>
 (<xref ref="proposition-dimension-subspace-dim-props-enlarge">Statement</xref>
 of <xref ref="proposition-dimension-subspace-dim-props" />).
@@ -466,10 +466,10 @@ As we apply the Gram-Schmidt process to <m>\basisfont{B}_V</m>,
 the first <m>m</m> steps will not involve the <m>\uvec{v}_j</m>,
 and we will effectively be applying the process to <m>\basisfont{B}_U</m>
 to obtain an orthogonal basis
-<me> \basisfont{B}_U' = \{ \uvec{e}_1, \dotsc, \uvec{e}_m \} </me>
+<md> \basisfont{B}_U' = \{ \uvec{e}_1, \dotsc, \uvec{e}_m \} </md>
 of <m>U</m>.
 We then continue the process to obtain an orthogonal basis
-<me> \basisfont{B}_V' = \{ \uvec{e}_1, \dotsc, \uvec{e}_m, \uvec{f}_1, \dotsc, \uvec{f}_\ell \} </me>
+<md> \basisfont{B}_V' = \{ \uvec{e}_1, \dotsc, \uvec{e}_m, \uvec{f}_1, \dotsc, \uvec{f}_\ell \} </md>
 for <m>V</m>.
 But then each of these new <m>\uvec{f}_j</m> vectors is orthogonal to each of the previous <m>\uvec{e}_i</m>.
 Using our thinking from <xref ref="activity-inprod-orthog-in-complement-if-orthog-to-basis" />,
@@ -481,7 +481,7 @@ And in fact,
 <p>
 We can say that <em>every</em> orthogonal complement pair <m>U,\orthogcmp{U}</m> in a finite-dimensional inner product space occurs this way.
 That is, we can create an orthogonal complement pair <m>U,\orthogcmp{U}</m> by taking an orthogonal basis
-<me> \basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </me>
+<md> \basisfont{B} = \{ \uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n \} </md>
 for the whole space <m>V</m> and choosing an index <m>\ell</m> at which to split it in two:
 <md><mrow>
 	\basisfont{B}_U \amp = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} \text{,} \amp

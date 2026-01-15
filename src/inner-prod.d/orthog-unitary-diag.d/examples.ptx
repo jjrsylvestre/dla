@@ -33,54 +33,54 @@ respective owners.
 <example xml:id="example-orthog-unitary-diag-symmetric">
 	<p>
 	Here we will carry out <xref ref="procedure-orthog-unitary-diag-symmetric" /> on the symmetric matrix
-	<me>
+	<md>
 		S = \begin{bmatrix}
 			0 \amp 1 \amp 0 \amp 1 \\
 			1 \amp 0 \amp 1 \amp 0 \\
 			0 \amp 1 \amp 0 \amp 1 \\
 			1 \amp 0 \amp 1 \amp 0
 		\end{bmatrix}
-	</me>.
-	The characteristic polynomial is <me> c_S(\lambda) = \lambda^2 (\lambda - 2) (\lambda + 2) </me>,
+	</md>.
+	The characteristic polynomial is <md> c_S(\lambda) = \lambda^2 (\lambda - 2) (\lambda + 2) </md>,
 	so the eigenvalues are <m>\lambda_1 = 0</m>, <m>\lambda_2 = 2</m>, and <m>\lambda_3 = -2</m>.
 	</p><p>
  	Solving the homogeneous system <m>(2 I - S) \uvec{x} = \zerovec</m> leads to
-	<me> E_2(S) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} \right\} </me>.
+	<md> E_2(S) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} \right\} </md>.
 	Solving the homogeneous system <m>(-2 I - S) \uvec{x} = \zerovec</m> leads to
-	<me> E_{-2}(S) = \Span \left\{ \begin{abmatrix}{r} 1 \\ -1 \\ 1 \\ -1 \end{abmatrix} \right\} </me>.
+	<md> E_{-2}(S) = \Span \left\{ \begin{abmatrix}{r} 1 \\ -1 \\ 1 \\ -1 \end{abmatrix} \right\} </md>.
 	Solving the homogeneous system <m>(0 I - S) \uvec{x} = \zerovec</m> leads to
-	<me>
+	<md>
 		E_0(S) = \Span \left\{
 			\begin{abmatrix}{r} -1 \\ 0 \\ 1 \\ 0 \end{abmatrix},
 			\begin{abmatrix}{r} 0 \\ -1 \\ 0 \\ 1 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Notice that these four eigenvectors form an orthogonal set.
 	In particular, the two basis vectors for <m>E_0(S)</m> are already orthogonal.
 	If they had not turned out that way from just solving the system,
 	we could have applied the Gram-Schmidt process to just those two vectors to obtain an orthogonal basis for that eigenspace.
 	</p><p>
 	Normalizing our eigenvectors leads to the orthonormal basis
-	<me>
+	<md>
 		E_0(S) = \Span \left\{
 			\frac{1}{2} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix},
 			\frac{1}{2} \begin{abmatrix}{r} 1 \\ -1 \\ 1 \\ -1 \end{abmatrix},
 			\frac{1}{\sqrt{2}} \begin{abmatrix}{r} -1 \\ 0 \\ 1 \\ 0 \end{abmatrix},
 			\frac{1}{\sqrt{2}} \begin{abmatrix}{r} 0 \\ -1 \\ 0 \\ 1 \end{abmatrix}
 		\right\}
-	</me>
+	</md>
 	for <m>\R^n</m>.
 	Placing these four orthonormal vectors into a transition matrix
-	<me>
+	<md>
 		P = \begin{abmatrix}{crrr}
 			\frac{1}{2} \amp   \frac{1}{2} \amp - \frac{1}{\sqrt{2}}  \amp   0 \\
 			\frac{1}{2} \amp - \frac{1}{2} \amp   0                   \amp - \frac{1}{\sqrt{2}} \\
 			\frac{1}{2} \amp   \frac{1}{2} \amp   \frac{1}{\sqrt{2}}  \amp   0 \\
 			\frac{1}{2} \amp - \frac{1}{2} \amp   0                   \amp   \frac{1}{\sqrt{2}}
 		\end{abmatrix}
-	</me>
+	</md>
 	allows us to orthogonally diagonalize <m>S</m> as
-	<me> \utrans{P} S P = \begin{bmatrix} 2 \\ \amp -2 \\ \amp \amp 0 \\ \amp \amp \amp 0 \end{bmatrix} </me>.
+	<md> \utrans{P} S P = \begin{bmatrix} 2 \\ \amp -2 \\ \amp \amp 0 \\ \amp \amp \amp 0 \end{bmatrix} </md>.
 	</p>
 </example>
 
@@ -97,19 +97,19 @@ but it can be applied without modification to complex Hermitian matrices.
 <example xml:id="example-orthog-unitary-diag-hermitian">
 	<p>
 	Here we will attempt to unitarily diagonalize the Hermitian matrix
-	<me> H = \begin{abmatrix}{rcr} 1 \amp 1 \amp \ci \\ 1 \amp 1 \amp -\ci \\ -\ci \amp \ci \amp 1 \end{abmatrix} </me>.
-	The characteristic polynomial is <me> c_H(\lambda) = (\lambda + 1) (\lambda - 2)^2 </me>,
+	<md> H = \begin{abmatrix}{rcr} 1 \amp 1 \amp \ci \\ 1 \amp 1 \amp -\ci \\ -\ci \amp \ci \amp 1 \end{abmatrix} </md>.
+	The characteristic polynomial is <md> c_H(\lambda) = (\lambda + 1) (\lambda - 2)^2 </md>,
 	so the eigenvalues are <m>\lambda_1 = -1</m>, <m>\lambda_2 = 2</m>.
 	</p><p>
 	Solving the homogeneous system <m>(- I - H) \uvec{x} = \zerovec</m> leads to
-	<me> E_{-1}(H) = \Span \left\{ \begin{abmatrix}{r} -\ci \\ \ci \\ 1 \end{abmatrix} \right\} </me>.
+	<md> E_{-1}(H) = \Span \left\{ \begin{abmatrix}{r} -\ci \\ \ci \\ 1 \end{abmatrix} \right\} </md>.
 	Solving the homogeneous system <m>(2 I - H) \uvec{x} = \zerovec</m> leads to
-	<me>
+	<md>
 		E_2(H) = \Span \left\{
 			\begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
 			\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Notice that the basis vector for <m>E_{-1}(H)</m> is already orthogonal to each of the basis vectors for <m>E_2(H)</m>,
 	as expected.
 	But the basis for <m>E_2(H)</m> is not orthogonal,
@@ -119,33 +119,33 @@ but it can be applied without modification to complex Hermitian matrices.
 	Labelling those two vectors as <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m>,
 	we may keep <m>\uvec{e}_1 = \uvec{v}_1</m>,
 	but we must adjust
-	<me>
+	<md>
 		\uvec{e}_2
 		= \uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 		= \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		- \frac{- \ci}{2} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix}
 		= \begin{bmatrix} \frac{1}{2} \\ 1 \\ \frac{\ci}{2} \end{bmatrix}
-	</me>.
+	</md>.
 	We now have an orthogonal set of eigenvectors which we can normalize to obtain an orthonormal set
-	<me>
+	<md>
 		\left\{
 			\frac{1}{\sqrt{3}} \begin{abmatrix}{r} -\ci \\ \ci \\ 1 \end{abmatrix},
 			\frac{1}{\sqrt{2}} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
 			\frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 2 \\ \ci \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	</p><p>
 	Finally, taking <m>U</m> to be the unitary matrix with these orthonormal vectors as columns
-	<me>
+	<md>
 		U = \frac{\sqrt{6}}{6}
 		\begin{bmatrix}
 			-\ci \sqrt{2} \amp   \ci \sqrt{3} \amp  1 \\
 			 \ci \sqrt{2} \amp       0        \amp  2 \\
 			 \sqrt{2}     \amp     \sqrt{3}   \amp \ci
 		\end{bmatrix}
-	</me>
+	</md>
 	allows us to unitarily diagonalize <m>H</m>:
-	<me> \inv{U} H U = \adjoint{U} H U = \begin{bmatrix} -1 \\ \amp 2 \\ \amp \amp 2 \end{bmatrix} </me>.
+	<md> \inv{U} H U = \adjoint{U} H U = \begin{bmatrix} -1 \\ \amp 2 \\ \amp \amp 2 \end{bmatrix} </md>.
 	</p>
 </example>
 
@@ -153,36 +153,36 @@ but it can be applied without modification to complex Hermitian matrices.
 	<title>Gram-Schmidt can't fix everything</title>
 	<p>
 	Let's attempt to unitarily diagonalize the matrix
-	<me> A = \begin{abmatrix}{cr} \ci \amp 0 \\ 1 \amp -\ci \end{abmatrix} </me>.
-	The characteristic polynomial is <me> c_A(\lambda) = (\lambda - \ci)(\lambda + \ci) </me>,
+	<md> A = \begin{abmatrix}{cr} \ci \amp 0 \\ 1 \amp -\ci \end{abmatrix} </md>.
+	The characteristic polynomial is <md> c_A(\lambda) = (\lambda - \ci)(\lambda + \ci) </md>,
 	so the eigenvalues are <m>\lambda_1 = \ci</m>, <m>\lambda_2 = - \ci</m>.
 	</p><p>
 	Solving the homogeneous system <m>(\ci I - A) \uvec{x} = \zerovec</m> leads to
-	<me> E_{\ci}(A) = \Span \left\{ \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix} \right\} </me>.
+	<md> E_{\ci}(A) = \Span \left\{ \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix} \right\} </md>.
 	Solving the homogeneous system <m>(- \ci I - A) \uvec{x} = \zerovec</m> leads to
-	<me> E_{-\ci}(A) = \Span \left\{ \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\} </me>.
+	<md> E_{-\ci}(A) = \Span \left\{ \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\} </md>.
 	These eigenvectors are not orthogonal, so let's attempt to fix that using
 	the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
 	(<xref ref="procedure-inprod-orthog-gram-schmidt" />).
 	Write <m>\uvec{v}_1,\uvec{v}_2</m> for the two eigenvectors we have above.
 	As usual, we start with <m>\uvec{e}_1 = \uvec{v}_1</m>, and then correct <m>\uvec{v}_w</m> to
-	<me>
+	<md>
 		\uvec{e}_2
 		= \uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 		= \begin{bmatrix} 0 \\ 1 \end{bmatrix}
 		- \frac{1}{5} \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix}
 		= \begin{bmatrix} - \frac{2 \ci}{5} \\ \frac{4}{5} \end{bmatrix}
-	</me>.
+	</md>.
 	Now we normalize to get orthonormal set
-	<me>
+	<md>
 		\left\{
 			\frac{1}{\sqrt{5}} \begin{bmatrix} 2 \ci \\ 1 \end{bmatrix},
 			\frac{1}{\sqrt{5}} \begin{abmatrix}{r} - \ci \\ 2 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Using these vectors as columns,
 	we obtain unitary matrix
-	<me> U = \frac{1}{\sqrt{5}} \begin{abmatrix}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{abmatrix} </me>.
+	<md> U = \frac{1}{\sqrt{5}} \begin{abmatrix}{cr} 2 \ci \amp - \ci \\ 1 \amp 2 \end{abmatrix} </md>.
 	Check whether <m>U</m> unitarily diagonalizes <m>A</m>:
 	<md>
 		<mrow>
@@ -216,13 +216,13 @@ but it can be applied without modification to complex Hermitian matrices.
 <example xml:id="example-orthog-unitary-diag-normal">
 	<p>
 	Let's apply <xref ref="procedure-orthog-unitary-diag-normal" /> to the normal matrix
-	<me>
+	<md>
 		N = \begin{bmatrix}
 		 2 + \ci \amp 1 - \ci \amp  1 + \ci \\
 		 1 - \ci \amp 2 + \ci \amp -1 - \ci \\
 		-1 - \ci \amp 1 + \ci \amp  2 + \ci
 		\end{bmatrix}
-	</me>.
+	</md>.
 	But first, let's verify that it is normal:
 	<md>
 		<mrow>
@@ -268,18 +268,18 @@ but it can be applied without modification to complex Hermitian matrices.
 			\text{.}
 		</mrow>
 	</md>
-	The characteristic polynomial is <me> c_N(\lambda) = (\lambda - 3)^2 (\lambda - 3 \ci) </me>,
+	The characteristic polynomial is <md> c_N(\lambda) = (\lambda - 3)^2 (\lambda - 3 \ci) </md>,
 	so the eigenvalues are <m>\lambda_1 = 3</m>, <m>\lambda_2 = 3 \ci</m>.
 	</p><p>
 	Solving the homogeneous system <m>(3 I - N) \uvec{x} = \zerovec</m> leads to
-	<me>
+	<md>
 		E_3(N) = \Span \left\{
 			\begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
 			\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	Solving the homogeneous system <m>(3 I - N) \uvec{x} = \zerovec</m> leads to
-	<me> E_{3 \ci}(N) = \Span \left\{ \begin{abmatrix}{r} -\ci \\ \ci \\ 1 \end{abmatrix} \right\} </me>.
+	<md> E_{3 \ci}(N) = \Span \left\{ \begin{abmatrix}{r} -\ci \\ \ci \\ 1 \end{abmatrix} \right\} </md>.
 	</p><p>
 	Notice that the basis vector for <m>E_{3 \ci}(N)</m> is already orthogonal to each of the basis vectors for <m>E_3(N)</m>,
 	as expected.
@@ -290,33 +290,33 @@ but it can be applied without modification to complex Hermitian matrices.
 	Labelling those two vectors as <m>\uvec{v}_1</m> and <m>\uvec{v}_2</m>,
 	we may keep <m>\uvec{e}_1 = \uvec{v}_1</m>,
 	but we must adjust
-	<me>
+	<md>
 		\uvec{e}_2
 		= \uvec{v}_2 - \frac{\inprod{\uvec{v}_2}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 		= \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		- \frac{- \ci}{2} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix}
 		= \begin{bmatrix} \frac{1}{2} \\ 1 \\ \frac{\ci}{2} \end{bmatrix}
-	</me>.
+	</md>.
 	We now have an orthogonal set of eigenvectors which we can normalize to obtain an orthonormal set
-	<me>
+	<md>
 		\left\{
 			\frac{1}{\sqrt{2}} \begin{bmatrix} \ci \\ 0 \\ 1 \end{bmatrix},
 			\frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 2 \\ \ci \end{bmatrix},
 			\frac{1}{\sqrt{3}} \begin{abmatrix}{r} -\ci \\ \ci \\ 1 \end{abmatrix}
 		\right\}
-	</me>.
+	</md>.
 	</p><p>
 	Finally, taking <m>U</m> to be the unitary matrix with these orthonormal vectors as columns
-	<me>
+	<md>
 		U = \frac{1}{\sqrt{6}}
 		\begin{bmatrix}
 			\ci \sqrt{3} \amp  1  \amp -\ci \sqrt{2} \\
 			     0       \amp  2  \amp  \ci \sqrt{2} \\
 			  \sqrt{3}   \amp \ci \amp    \sqrt{2}
 		\end{bmatrix}
-	</me>
+	</md>
 	allows us to unitarily diagonalize <m>N</m>:
-	<me> \inv{U} N U = \adjoint{U} N U = \begin{bmatrix} 3 \\ \amp 3 \\ \amp \amp 3 \ci \end{bmatrix} </me>.
+	<md> \inv{U} N U = \adjoint{U} N U = \begin{bmatrix} 3 \\ \amp 3 \\ \amp \amp 3 \ci \end{bmatrix} </md>.
 	</p>
 </example>
 

@@ -25,12 +25,12 @@ respective owners.
 
 	<p>
 	Is matrix
-	<me> A = \begin{abmatrix}{rrr} -6 \amp -14 \amp 5\\ 1 \amp 2 \amp -1\\ -2 \amp -5 \amp 1 \end{abmatrix} </me>
+	<md> A = \begin{abmatrix}{rrr} -6 \amp -14 \amp 5\\ 1 \amp 2 \amp -1\\ -2 \amp -5 \amp 1 \end{abmatrix} </md>
 	similar to some upper triangular matrix?
 	</p><p>
 	We begin by investigating the eigenvalues of <m>A</m>.
 	Compute the characteristic polynomial:
-	<me> \lambda I - A = \begin{bmatrix} \lambda+6 \amp 14 \amp -5 \\ -1 \amp \lambda-2 \amp 1 \\ 2 \amp 5 \amp \lambda-1 \end{bmatrix} </me>,
+	<md> \lambda I - A = \begin{bmatrix} \lambda+6 \amp 14 \amp -5 \\ -1 \amp \lambda-2 \amp 1 \\ 2 \amp 5 \amp \lambda-1 \end{bmatrix} </md>,
 	<md>
 		<mrow> c_A(\lambda) \amp= \det (\lambda I - A) </mrow>
 		<mrow> \amp= \lambda^3-3\lambda^2-3\lambda-1 </mrow>
@@ -131,14 +131,14 @@ respective owners.
 	since <m>\uvec{p}_1</m> is an eigenvector of <m>A</m> corresponding to the eigenvalue <m>\lambda = -1</m>.
 	Next, compute <m>\bbrac{A-(-1)I}\uvec{p}_2</m> and you will find that it is equal to <m>\uvec{p}_1</m>.
 	Thus, the entry above the diagonal in the second column must be <m>1</m>. Lastly, compute
-	<me>
+	<md>
 		\begin{abmatrix}{cc|c} \uvec{p}_1 \amp \uvec{p}_2 \amp \bigl( A - (-1) I \bigr) \uvec{p}_3 \end{abmatrix}
 		= \begin{abmatrix}{cr|r} 1 \amp -3 \amp 5 \\ 0 \amp 1 \amp -1 \\ 1 \amp 0 \amp 2 \end{abmatrix}
 		\qquad \rowredarrow \qquad
 		\begin{abmatrix}{cc|r} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{abmatrix}
-	</me>.
+	</md>.
 	Thus, the entries above the diagonal in the third column are <m>2</m>, <m>-1</m>. Putting all this together yields
-	<me> \inv{P}AP = \begin{abmatrix}{rrr} -1 \amp 1 \amp 2 \\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp -1 \end{abmatrix} </me>.
+	<md> \inv{P}AP = \begin{abmatrix}{rrr} -1 \amp 1 \amp 2 \\ 0 \amp -1 \amp -1 \\ 0 \amp 0 \amp -1 \end{abmatrix} </md>.
 	</p>
 
 </example>
@@ -149,7 +149,7 @@ respective owners.
 
 	<p>
 	Is matrix
-	<me>
+	<md>
 		A = \begin{abmatrix}{rrrrr}
 			3 \amp 1 \amp -8 \amp 8 \amp -3 \\
 			-2 \amp -5 \amp 0 \amp -2 \amp -5 \\
@@ -157,7 +157,7 @@ respective owners.
 			3 \amp 11 \amp 1 \amp 5 \amp 7 \\
 			2 \amp 8 \amp 2 \amp 0 \amp 9
 		\end{abmatrix}
-	</me>
+	</md>
 	similar to some upper triangular matrix?
 	</p>
 
@@ -233,14 +233,14 @@ respective owners.
 	so we just need to choose two of these four that are independent from our eigenvectors.
 	Those first two standard basis vectors will work,
 	so take
-	<me>
+	<md>
 		E_3^2(A) = \Span\left\{
 			\begin{abmatrix}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{abmatrix},
 			\begin{abmatrix}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{abmatrix},
 			\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 			\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	</p>
 
 	<p>
@@ -249,7 +249,7 @@ respective owners.
 	so we can choose any vector in <m>\R^5</m> that is not in the span of the four we already have.
 	The third standard basis vector for <m>\R^5</m> will work,
 	and we now have
-	<me>
+	<md>
 		E_3^3(A) = \Span\left\{
 			\begin{abmatrix}{r} -1 \\ 0 \\ 1 \\ 1 \\ 0 \end{abmatrix},
 			\begin{abmatrix}{r} 3 \\ -2 \\ -1 \\ 0 \\ 2 \end{abmatrix},
@@ -257,12 +257,12 @@ respective owners.
 			\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
 			\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	</p>
 
 	<p>
 	Now place these matrices in the transition matrix
-	<me>
+	<md>
 		P = \begin{abmatrix}{rrrrr}
 			-1 \amp 3 \amp 1 \amp 0 \amp 0 \\
 			0 \amp -2 \amp 0 \amp 1 \amp 0 \\
@@ -270,7 +270,7 @@ respective owners.
 			1 \amp 0 \amp 0 \amp 0 \amp 0 \\
 			0 \amp 2 \amp 0 \amp 0 \amp 0
 		\end{abmatrix}
-	</me>.
+	</md>.
 	To determine the form matrix,
 	we can reduce <m>\begin{abmatrix}{c|c} P \amp AP \end{abmatrix}</m> as
 	<md alignment="gather">
@@ -294,7 +294,7 @@ respective owners.
 		</mrow>
 	</md>,
 	obtaining
-	<me>
+	<md>
 		\inv{P} A P
 		= \begin{abmatrix}{rrrrr}
 			3 \amp 0 \amp 3 \amp 11 \amp 1 \\
@@ -303,7 +303,7 @@ respective owners.
 			0 \amp 0 \amp 0 \amp 3 \amp 2 \\
 			0 \amp 0 \amp 0 \amp 0 \amp 3
 		\end{abmatrix}
-	</me>.
+	</md>.
 	</p>
 
 </example>

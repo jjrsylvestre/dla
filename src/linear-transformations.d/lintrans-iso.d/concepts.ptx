@@ -48,7 +48,7 @@ they can be composed just like functions.
 That is, for transformations <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m>,
 where the domain space of <m>S</m> is the same as the domain space of <m>T</m>,
 then we can define the composite <m>\funcdef{ST}{U}{W}</m> by
-<me> ST(\uvec{u}) = S\bigl(T(\uvec{u})\bigr) </me>.
+<md> ST(\uvec{u}) = S\bigl(T(\uvec{u})\bigr) </md>.
 Now, if <m>T</m> turns sums and scalar multiples in <m>U</m> into sums and scalar multiples in <m>V</m>,
 and <m>S</m> in turn turns sums and scalar multiples in <m>V</m> into sums and scalar multiples in <m>W</m>,
 then it follows that the composition <m>ST</m> turns sums and scalar multiples in <m>U</m> into sums and scalar multiples in <m>W</m>.
@@ -75,16 +75,16 @@ then chaining the input-output processes
 	S_B(\uvec{y}) \amp = B \uvec{y}
 </mrow></md>
 by setting
-<me> \uvec{y} = T_A(\uvec{x}) = A \uvec{x} </me>
+<md> \uvec{y} = T_A(\uvec{x}) = A \uvec{x} </md>
 yields
-<me>
+<md>
 	(S_B T_A)(\uvec{x})
 	= S_B\left(T_A(\uvec{x})\right)
 	= S_B(\uvec{y})
 	= B \uvec{y}
 	= B (A \uvec{x})
 	= B A \uvec{x}
-</me>.
+</md>.
 So clearly the composition <m>S_B T_A</m> is also a matrix transformation,
 with corresponding matrix <m>B A</m>.
 (And note that the sizes of <m>A</m> and <m>B</m> match up for this product:
@@ -94,7 +94,7 @@ and for matrices we have
 </p><p>
 In other words,
 <alert>the standard matrix of a composition of matrix transformations is the product of the standard matrices</alert>:
-<me> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </me>.
+<md> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </md>.
 </p>
 
 </subsection>
@@ -108,7 +108,7 @@ each output can be traced back to one particular input that produced it.
 So if <m>\funcdef{T}{V}{W}</m> is injective and <m>\uvec{w}</m> is a vector in <m>\im T</m>,
 there is <em>one unique</em> answer to the question:
 what vector <m>\uvec{v}</m> in the domain space <m>V</m> will have result
-<me> T(\uvec{v}) = \uvec{w} </me>?
+<md> T(\uvec{v}) = \uvec{w} </md>?
 This <em>reverse</em> output-input process of tracing an output vector <m>\uvec{w}</m> in <m>\im T</m> back to the input <m>\uvec{v}</m> creates an <term>inverse function</term> <m>\funcdef{\inv{T}}{\im T}{V}</m>.
 While we did not consider it in <xref ref="worksheet-lintrans-iso" />,
 we will prove
@@ -121,9 +121,9 @@ then so is <m>\inv{T}</m>.
 Reversing the input-output process of an injective function to create an inverse function just gives us a different way to create pairs of vectors,
 one in the domain space paired with one in the codomain space,
 so that writing
-<me> T(\uvec{v}) = \uvec{w} </me>
+<md> T(\uvec{v}) = \uvec{w} </md>
 becomes the same thing as writing
-<me> \uvec{v} = \inv{T}(\uvec{w}) </me>
+<md> \uvec{v} = \inv{T}(\uvec{w}) </md>
 for every <m>\uvec{w}</m> in <m>\im T</m>.
 And just as in <xref ref="activity-lintrans-iso-inverse-from-image" />,
 when we compose an injective transformation with its inverse,
@@ -144,7 +144,7 @@ and this works out fine for the composition order <m>T \inv{T}</m>:
 where codomain <m>V</m> of <m>\inv{T}</m> matches domain <m>V</m> of <m>T</m>.
 But even though codomain and domain do not match up for the order <m>\inv{T} T</m>,
 there is no harm in effectively considering the definition of <m>T</m> to be
-<me> \funcdef{T}{V}{\im T} </me>,
+<md> \funcdef{T}{V}{\im T} </md>,
 since by definition all of the outputs of <m>T</m> must be contained in its image.
 As we found in <xref ref="activity-lintrans-iso-inverse-from-image" />,
 it's important that we don't try to <q>fix</q> this the other way,
@@ -164,9 +164,9 @@ A function is invertible precisely when it is one-to-one,
 and by definition a function is one-to-one when pairs of distinct inputs always produce distinct outputs.
 If a linear transformation <m>\funcdef{T}{V}{W}</m> has a pair of distinct inputs <m>\uvec{v}_1,\uvec{v}_2</m> that produce the <em>same</em> output,
 then
-<me> T(\uvec{v}_1 - \uvec{v}_2) = T(\uvec{v}_1) - T(\uvec{v}_2) = \zerovec </me>.
+<md> T(\uvec{v}_1 - \uvec{v}_2) = T(\uvec{v}_1) - T(\uvec{v}_2) = \zerovec </md>.
 As <m>\uvec{v}_1,\uvec{v}_2</m> are assumed distinct,
-then <me> \uvec{v}_1 - \uvec{v}_2 \neq \zerovec </me>,
+then <md> \uvec{v}_1 - \uvec{v}_2 \neq \zerovec </md>,
 and so our calculation above says that <em>when <m>T</m> is not one-to-one, the kernel of <m>T</m> contains nonzero vectors</em>.
 </p><p>
 In fact, we will prove that the kernel tells us precisely when a transformation is one-to-one:
@@ -202,11 +202,11 @@ of <xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
 Transformation <m>T_A</m> is defined by multiplication by <m>A</m>,
 and clearly we can reverse that input-output process through multiplication by <m>\inv{A}</m>.
 That is, <m>T_A</m> is invertible precisely when <m>A</m> is invertible,
-and <me>\inv{T}_A = T_{\inv{A}}</me>.
+and <md>\inv{T}_A = T_{\inv{A}}</md>.
 </p><p>
 In terms of standard matrices,
 a matrix transformation with a square standard matrix is invertible precisely when its standard matrix is invertible,
-with <me> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </me>.
+with <md> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </md>.
 </p><p>
 What about <m>\funcdef{T}{\R^n}{\R^m}</m> for <m>m \neq n</m>,
 so that the standard matrix <m>\stdmatrixOf{T}</m> is not square?
@@ -255,10 +255,10 @@ the constructed transformation will then be invertible.
 		<li> Set <m>T(\uvec{v}_j) = \uvec{w}_j</m>. </li>
 	</ol>
 	Then every other image vector for <m>T</m> can be computed by
-	<me>
+	<md>
 		T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n)
 		= a_1 \uvec{w}_1 + a_2 \uvec{w}_2 + \dotsb + a_n \uvec{w}_n
-	</me>,
+	</md>,
 	and we will have both <m>\rank T = \dim V</m> and <m>\nullity T = 0</m>,
 	as required for <m>T</m> to be invertible.
 	</p>
@@ -345,10 +345,10 @@ In other words, <alert>to construct an isomorphism we should send a basis to a b
 		<li> Set <m>T(\uvec{v}_j) = \uvec{w}_j</m>. </li>
 	</ol>
 	Then every other image vector for <m>T</m> can be computed by
-	<me>
+	<md>
 		T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n)
 		= a_1 \uvec{w}_1 + a_2 \uvec{w}_2 + \dotsb + a_n \uvec{w}_n
-	</me>,
+	</md>,
 	and we will have both <m>\rank T = \dim V</m> and <m>\nullity T = 0</m>,
 	as required for <m>T</m> to be invertible.
 	</p>

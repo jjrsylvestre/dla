@@ -60,19 +60,19 @@ the matrix on the left, subdivided as shown on the right,
 	\end{abmatrix}
 </mrow></md>
 has blocks
-<me>
+<md>
 	\begin{abmatrix}{crc} 1 \amp 0 \amp 1 \\ 4 \amp -1 \amp 1 \\ 2 \amp 2 \amp 0 \end{abmatrix} \text{,} \qquad
 	\begin{bmatrix} 5 \amp 5 \\ 5 \amp 5 \\ 5 \amp 5 \end{bmatrix} \text{,} \qquad
 	\begin{bmatrix} 3 \amp 3 \amp 3 \\ 3 \amp 3 \amp 3 \end{bmatrix} \text{,} \qquad
 	\begin{abmatrix}{rc} 1 \amp 0 \\ -4 \amp 9  \end{abmatrix} \text{.}
-</me>
+</md>
 Notationally, we can write a subdivision into blocks as above as
-<me>
+<md>
 	\begin{bmatrix}
 		A \amp B \\
 		C \amp D
 	\end{bmatrix}
-</me>,
+</md>,
 where now the letters inside the matrix represent blocks of entries instead of individual entries,
 and we drop the division lines.
 (Of course, a matrix can also be subdivided into more or fewer than four blocks.)
@@ -114,10 +114,10 @@ but also that corresponding blocks have the same size.
 
 <p>
 Recall how multiplication of <m>2 \times 2</m> matrices is defined:
-<me>
+<md>
 	\begin{bmatrix} a_1 \amp a_2 \\ a_3 \amp a_4 \end{bmatrix} \begin{bmatrix} b_1 \amp b_2 \\ b_3 \amp b_4 \end{bmatrix}
 	= \begin{bmatrix} a_1 b_1 + a_2 b_3 \amp a_1 b_2 + a_2 b_4 \\ a_3 b_1 + a_4 b_3 \amp a_3 b_2 + a_4 b_4 \end{bmatrix}
-</me>.
+</md>.
 If <m>A</m> and <m>B</m> are square matrices that are broken up into four submatrices so that the block in the upper-left corner in each of <m>A</m> and <m>B</m> is also square and both of the same size,
 then we can actually use the same <m>2 \times 2</m> multiplication formula applied to the blocks of <m>A</m> and <m>B</m> to compute <m>AB</m>.
 That is, for
@@ -158,27 +158,27 @@ We will carry out an example of using this formula in
 
 <p>
 Recall that the product of two diagonal matrices of the same size can be computed by just multiplying corresponding diagonal entries together:
-<me>
+<md>
 	\begin{bmatrix} x_1 \\ \amp x_2 \\ \amp \amp \ddots \\ \amp \amp \amp x_n \end{bmatrix}
 	\begin{bmatrix} y_1 \\ \amp y_2 \\ \amp \amp \ddots \\ \amp \amp \amp y_n \end{bmatrix}
 	=
 	\begin{bmatrix}
 		x_1 y_1 \\ \amp x_2 y_2 \\ \amp \amp \ddots \\ \amp \amp \amp x_n y_n
 	\end{bmatrix}
-</me>.
+</md>.
 This pattern holds because of the zero entries in a diagonal matrix.
 As you found in <xref ref="activity-block-diag-product" />,
 the zero submatrices in a <em>block</em>-diagonal matrix
 cause the same multiplication pattern to hold again,
 as long as corresponding blocks have the same size:
-<me>
+<md>
 	\begin{bmatrix} A_1 \\ \amp A_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_n \end{bmatrix}
 	\begin{bmatrix} B_1 \\ \amp B_2 \\ \amp \amp \ddots \\ \amp \amp \amp B_n \end{bmatrix}
 	=
 	\begin{bmatrix}
 		A_1 B_1 \\ \amp A_2 B_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_n B_n
 	\end{bmatrix}
-</me>.
+</md>.
 Similar patterns will hold for powers and inverses of block-diagonal matrices,
 and we will record these patterns as part of
 <xref ref="proposition-block-diag-props" />
@@ -224,12 +224,12 @@ An identity matrix
 can be split up into block-diagonal form any way you like.
 For example, if <m>A</m> is block-diagonal with an <m>m_1 \times m_1</m> block <m>A_1</m> in the upper left and an <m>m_2 \times m_2</m> block <m>A_2</m> in the lower left,
 then we can compute <m>\lambda I - A</m> as
-<me>
+<md>
 	\lambda I_n - A
 	= \lambda \begin{bmatrix} I_{m_1} \\ \amp I_{m_2} \end{bmatrix}
 	- \begin{bmatrix} A_1 \\ \amp A_2 \end{bmatrix}
 	= \begin{bmatrix} \lambda I_{m_1} - A_1 \\ \amp \lambda I_{m_2} - A_2 \end{bmatrix}
-</me>,
+</md>,
 where the subscripts on the identity matrices indicate their sizes.
 To compute the characteristic polynomial,
 we take a determinant:
@@ -419,23 +419,23 @@ That is, we explored what the general pattern of similarity discussed in
 <xref ref="subsection-similarity-concepts-algebra" />
 becomes when an arbitrary matrix <m>A</m> is assumed to be similar to a matrix <m>B</m> that is in block-diagonal form.
 Using the example matrix
-<me>
+<md>
 	B = \begin{abmatrix}{rrrr}
 		1 \amp -1 \amp  0 \amp  0 \\
 		3 \amp  7 \amp  0 \amp  0 \\
 		0 \amp  0 \amp  4 \amp -2 \\
 		0 \amp  0 \amp -2 \amp  1
 	\end{abmatrix}
-</me>
+</md>
 from that discovery activity,
 if we regard the transition matrix <m>P</m> in a similarity relation <m>\inv{P} A P = B</m> as a collection of columns
-<me>
+<md>
 	P = \begin{bmatrix}
 		| \amp | \amp | \amp | \\
 		\uvec{p}_1 \amp \uvec{p}_2 \amp \uvec{p}_3 \amp \uvec{p}_4 \\
 		| \amp | \amp | \amp |
 	\end{bmatrix}
-</me>,
+</md>,
 we determined that
 <md>
 	<mrow>

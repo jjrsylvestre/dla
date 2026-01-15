@@ -39,24 +39,24 @@ respective owners.
 
 	<introduction><p>
 		Consider the following <term>coupled system of linear differential equations</term>:
-		<me>
+		<md>
 			\begin{sysofeqns}{rcrcr}
 				\dxdt \amp = \amp 5 x(t) \amp - \amp 6 y(t) \text{,} \\
 				\dydt \amp = \amp 3 x(t) \amp - \amp 4 y(t) \text{.}
 			\end{sysofeqns}
-		</me>
+		</md>
 	</p></introduction>
 
 	<task>
 		<statement>
 			<p>
 			Suppose we create new functions
-			<me>
+			<md>
 				\begin{sysofeqns}{rcrcr}
 					w(t) \amp = \amp - x(t) \amp + \amp y(t) \text{,} \\
 					z(t) \amp = \amp x(t) \amp - \amp 2 y(t) \text{,}
 				\end{sysofeqns}
-			</me>
+			</md>
 			out of the old.
 			Create a new system of differential equations in
 			<m>w(t), w'(t), z(t), z'(t)</m>.
@@ -84,12 +84,12 @@ respective owners.
 		If we want to convert these solutions for <m>w(t), z(t)</m> to solutions to for <m>x(t),y(t)</m>,
 		we'll need to reverse the change of variables.
 		That is, we'll need to solve the system
-		<me>
+		<md>
 			\begin{sysofeqns}{rcrcr}
 				- x \amp + \amp y \amp = \amp w \text{,} \\
 				x \amp - \amp 2 y \amp = \amp z \text{,}
 			\end{sysofeqns}
-		</me>
+		</md>
 		for <m>x</m> and <m>y</m>.
 		</p><p>
 		Wait!
@@ -107,14 +107,14 @@ respective owners.
 		<p>
 		<xref ref="activity-sys-diff-eq-two-vars-example-change-var-back" text="type-local" />
 		demonstrated that the linear change-of-variable equations could be written in matrix form:
-		<me>
+		<md>
 			\begin{bmatrix} w \\ z \end{bmatrix}
 			= \begin{bmatrix}
 				<fillin characters="2" /> \amp <fillin characters="2" /> \\
 				<fillin characters="2" /> \amp <fillin characters="2" />
 			\end{bmatrix}
 			\begin{bmatrix} x \\ y \end{bmatrix}
-		</me>.
+		</md>.
 		</p><p>
 		But the original system of differential equations involving <m>x(t),y(t)</m> also looks linear.
 		Can you write that differential system in terms of matrix multiplication as well?
@@ -165,7 +165,7 @@ respective owners.
 		\text{where } \uvec{y}(t) \amp = \begin{bmatrix} y_1(t) \\ y_2(t) \\ \vdots \\ y_n(t) \end{bmatrix} \text{.}
 	</mrow></md>
 	Substitute the similarity relation into the differential matrix equation and rearrange to get a new differential equation
-	<me> \ddt \uvec{w}(t) = B \uvec{w}(t) </me>,
+	<md> \ddt \uvec{w}(t) = B \uvec{w}(t) </md>,
 	where <m>\uvec{w}(t)</m> is some change of variables from <m>\uvec{y}(t)</m>.
 	Be explicit about how your change of variables relates <m>\uvec{y}(t)</m> and <m>\uvec{w}(t)</m>.
 </p></activity>
@@ -185,16 +185,16 @@ respective owners.
 	</p></task>
 	<task><p>
 		Suppose you were given a collection of initial values
-		<me>
+		<md>
 			\begin{sysofeqns}{rcr}
 				y_1(0) \amp = \amp a_1 \text{,} \\
 				y_2(0) \amp = \amp a_2 \text{,} \\
 				\amp \vdots \\
 				y_n(0) \amp = \amp a_n \text{.}
 			\end{sysofeqns}
-		</me>
+		</md>
 		We can collect these into an initial vector
-		<me> \uvec{y}(0) = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix} </me>.
+		<md> \uvec{y}(0) = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix} </md>.
 		How does this vector relate to the initial values for the <m>w_j(t)</m> solution functions?
 	</p></task>
 </activity>
@@ -204,14 +204,14 @@ respective owners.
 	<introduction>
 
 		<p>
-		The equation <me> y''(t) + 5 y'(t) + 4 y(t) = 0 </me>
+		The equation <md> y''(t) + 5 y'(t) + 4 y(t) = 0 </md>
 		is an example of a homogeneous, linear, second-order differential equation.
 		</p>
 
 		<p>
 			We will try to use vector/matrix methods to solve this equation.
 			The vector of unknown functions we will use is
-			<me> \mathbf{y}(t) = \begin{bmatrix} y(t) \\ y'(t) \end{bmatrix} </me>.
+			<md> \mathbf{y}(t) = \begin{bmatrix} y(t) \\ y'(t) \end{bmatrix} </md>.
 			So, effectively we are setting <m>y_1(t) = y(t)</m> and <m>y_2(t) = y'(t)</m>.
 		</p>
 
@@ -228,7 +228,7 @@ respective owners.
 		<hint><p>
 			You can obtain the first equation by combining our definitions of <m>y_1(t)</m> and <m>y_2(t)</m>.
 			For the second equation, use the original differential equation and the fact that
-			<me> y_2'(t) = y_1''(t) </me>.
+			<md> y_2'(t) = y_1''(t) </md>.
 		</p></hint>
 	</task>
 

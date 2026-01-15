@@ -46,9 +46,9 @@ respective owners.
 		\amp
 		S(A) \amp = \trace A
 	</mrow></md>.
-	Then the composition is <me> \funcdef{ST}{\poly_3}{\R} </me>.
+	Then the composition is <md> \funcdef{ST}{\poly_3}{\R} </md>.
 	</p><p>
-	What is the image vector under the composition for <me> p(x) = 3 x^3 - 2 x^2 + x - 5 </me>?
+	What is the image vector under the composition for <md> p(x) = 3 x^3 - 2 x^2 + x - 5 </md>?
 	Compute:
 	<md alignment="gather">
 		<mrow>
@@ -60,7 +60,7 @@ respective owners.
 		<mrow></mrow>
 		<mrow> S\left( \begin{bmatrix} 1 \amp -1 \\ -4 \amp 8 \end{bmatrix} \right) = 1 + 8 = 9 </mrow>
 	</md>.
-	So <me> ST(3 x^3 - 2 x^2 + x - 5) = 9 </me>.
+	So <md> ST(3 x^3 - 2 x^2 + x - 5) = 9 </md>.
 	</p>
 </example>
 
@@ -72,7 +72,7 @@ respective owners.
 		\amp\funcdef{T}{\R}{\R^3}
 	</mrow></md>,
 	where <m>D</m> is differentiation, <m>E_3</m> is evaluation at <m>x = 3</m>, and <m>T</m> is defined by
-	<me> T(y) = (y, 0, -y) </me>.
+	<md> T(y) = (y, 0, -y) </md>.
 	We can compute an input-output formula for the composition <m>S = T E_3 D</m> by
 	<md>
 		<mrow> S(a x^3 + b x^2 + c x + d) \amp = T\Bigl(E _3\bigl(D(a x^3 + b x^2 + c x + d)\bigr)\Bigr) </mrow>
@@ -91,7 +91,7 @@ respective owners.
 	<title>Determining whether a transformation is invertible</title>
 	<p>
 	Consider <m>\funcdef{T}{\R^4}{\matrixring_{2\times 3}(\R)}</m> defined by
-	<me> T(a,b,c,d) = \begin{bmatrix} a + d \amp b + c \amp a + d \\ b - c \amp a - d \amp b - c \end{bmatrix} </me>.
+	<md> T(a,b,c,d) = \begin{bmatrix} a + d \amp b + c \amp a + d \\ b - c \amp a - d \amp b - c \end{bmatrix} </md>.
 	Does <m>T</m> have an inverse transformation <m>funcdef{T}{\im T}{\R^4}</m>?
 	We can use the kernel to investigate:
 	<md alignment="gather">
@@ -124,7 +124,7 @@ respective owners.
 	<p>
 	Let's continue with the invertible transformation <m>T</m> from <xref ref="example-lintrans-iso-determining-invertible" />.
 	What is the inverse image
-	<me> \inv{T}\left(\begin{abmatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{abmatrix}\right) </me>?
+	<md> \inv{T}\left(\begin{abmatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{abmatrix}\right) </md>?
 	First, recall that <m>\inv{T}</m> is only defined on <m>\im T</m>.
 	Is the matrix used as input to <m>\inv{T}</m> above actually in <m>\im T</m>?
 	Attempting to compute its inverse image will answer the question for us <mdash />
@@ -160,7 +160,7 @@ respective owners.
 	leading to one unique solution
 	<md><mrow> a \amp = 1 \text{,} \amp b \amp = 3 \text{,} \amp c \amp = -2 \text{,} \amp d \amp = 5 </mrow></md>,
 	hence
-	<me> \inv{T}\left(\begin{abmatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{abmatrix}\right) = (1,3,-2,5) </me>.
+	<md> \inv{T}\left(\begin{abmatrix}{crc} 6 \amp 1 \amp 6 \\ 5 \amp -4 \amp 5 \end{abmatrix}\right) = (1,3,-2,5) </md>.
 	</p>
 </example>
 
@@ -180,9 +180,9 @@ to establish the dimension of the image.
 	we found that a transformation <m>\funcdef{T}{\R^4}{\matrixring_{2\times 3}(\R)}</m> had trivial kernel.
 	Using the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />,
 	we must then have
-	<me> \dim (\im T) = \dim (\R^4) - \dim (\ker T) = 4 - 0 = 4 </me>,
+	<md> \dim (\im T) = \dim (\R^4) - \dim (\ker T) = 4 - 0 = 4 </md>,
 	and so
-	<me> \dim (\im T) \lt \dim \bigl(\matrixring_{2 \times 3}(\R)\bigr) </me>.
+	<md> \dim (\im T) \lt \dim \bigl(\matrixring_{2 \times 3}(\R)\bigr) </md>.
 	Since <m>\im T</m> is a subspace of the codomain space <m>\matrixring_{2 \times 3}(\R)</m>,
 	<xref ref="proposition-dimension-subspace-dim-props-same-dim">Statement</xref> of <xref ref="proposition-dimension-subspace-dim-props" />
 	tells us that it is not possible for <m>T</m> to be surjective.
@@ -223,7 +223,7 @@ to establish the dimension of the image.
 	Then, using the <xref ref="theorem-lintrans-ker-im-dimension" text="title" />
 	(<xref ref="theorem-lintrans-ker-im-dimension" />),
 	we must have
-	<me> \dim (\im T) = \dim (\R^4) - \dim (\ker T) = 4 - 0 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </me>,
+	<md> \dim (\im T) = \dim (\R^4) - \dim (\ker T) = 4 - 0 = 4 = \dim \bigl(\matrixring_2(\R)\bigr) </md>,
 	from which we can conclude that <m>T</m> must be surjective as well.
 	Together, trivial kernel and full image tells us that <m>T</m> is indeed an isomorphism.
 </p></example>
@@ -234,12 +234,12 @@ to establish the dimension of the image.
 	as every vector in <m>\R^3</m> can be realized as the rotated image of one unique <q>input</q> vector.
 	</p><p>
 	Let <m>\funcdef{T}{\R^3}{\R^3}</m> represent counter-clockwise rotation by <m>\pi/2</m> around the axis through the origin and parallel to the vector
-	<me> \uvec{n} = (2,-1,3) </me>,
+	<md> \uvec{n} = (2,-1,3) </md>,
 	where <q>counter-clockwise</q> is considered as one looks <q>downward</q> along <m>\uvec{n}</m> back toward the origin.
 	Let's set up an orthogonal basis of <m>\R^3</m> that will help describe <m>T</m>, beginning with the axis <m>\uvec{n}</m>.
 	It will be easiest to analyze rotation around <m>\uvec{n}</m> using vectors in the plane normal to <m>\uvec{n}</m>.
 	So let's guess a vector
-	<me> \uvec{v}_1 = (1,2,0) </me>
+	<md> \uvec{v}_1 = (1,2,0) </md>
 	that is parallel to this plane
 	(which we can verify by computing <m>\dotprod{\uvec{n}}{\uvec{v}_1} = 0</m>).
 	Now, since <m>T</m> rotates by <m>\pi/2</m>,
@@ -249,7 +249,7 @@ to establish the dimension of the image.
 	(<q>positive</q> or <q>negative</q>)
 	of the result.
 	Use the right-hand rule to convince yourself that
-	<me> \uvec{v}_2 = \crossprod{\uvec{n}}{\uvec{v}_1} = (-6, 3, 5) </me>
+	<md> \uvec{v}_2 = \crossprod{\uvec{n}}{\uvec{v}_1} = (-6, 3, 5) </md>
 	will be counter-clockwise (relative to <m>\uvec{n}</m> as described above) from <m>\uvec{v}_1</m>.
 	</p><p>
 	Finally, we need to adjust <m>\uvec{v}_1, \uvec{v}_2</m> to be the same length,
@@ -257,7 +257,7 @@ to establish the dimension of the image.
 	However, instead of normalizing both to unit vectors,
 	we can compute that <m>\uvec{v}_2</m> is <m>\sqrt{14}</m> times as long as <m>\uvec{v}_1</m>,
 	so let's redefine <m>\uvec{v}_1</m> to be
-	<me> \uvec{v}_1 = (\sqrt{14}, 2 \sqrt{14}, 0) </me>.
+	<md> \uvec{v}_1 = (\sqrt{14}, 2 \sqrt{14}, 0) </md>.
 	We now have an orthogonal basis
 	<m> \basisfont{B} = \{ \uvec{n}, \uvec{v}_1, \uvec{v}_2 \} </m>
 	of <m>\R^3</m>.

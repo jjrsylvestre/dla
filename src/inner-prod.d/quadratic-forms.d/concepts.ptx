@@ -45,16 +45,16 @@ the same geometric patterns are also present but are less evident because the cu
 As we saw in <xref ref="activity-quadratic-forms-from-matrix" />
 and <xref ref="activity-quadratic-forms-to-matrix" />,
 a quadratic form <m>q(x_1,x_2,\dotsc,x_n)</m> can be represented by a matrix <m>A</m> so that
-<me> q(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>,
+<md> q(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </md>,
 where the input point <m>(x_1,x_2,\dotsc,x_n)</m> is instead represented by an <m>n</m>-dimensional column vector <m>\uvec{x}</m>.
 The entries in the matrix <m>A</m> correspond to the coefficients in the quadratic polynomial,
 so that <alert>the coefficient on the term for <m>x_i x_j</m> is equal to the <m>(i,j)</m> entry in <m>A</m>.</alert>
 However, since <m>x_j x_i = x_i x_j</m>,
 when we collect like terms we need to add the <m>(i,j)</m> and <m>(j,i)</m> entries in <m>A</m> to get the coefficients for the cross terms:
-<me> q(\uvec{x}) = \sum_{1 \le i \le n} a_{ii} x_i^2 + \sum_{1 \le i \lt j \le n} (a_{ij} + a_{ji}) x_i x_j </me>.
+<md> q(\uvec{x}) = \sum_{1 \le i \le n} a_{ii} x_i^2 + \sum_{1 \le i \lt j \le n} (a_{ij} + a_{ji}) x_i x_j </md>.
 Even better is to use a <em>symmetric</em> matrix to represent the quadratic form,
 so that
-<me> q(\uvec{x}) = \sum_{1 \le i \le n} a_{ii} x_i^2 + \sum_{1 \le i \lt j \le n} 2 a_{ij} x_i x_j </me>.
+<md> q(\uvec{x}) = \sum_{1 \le i \le n} a_{ii} x_i^2 + \sum_{1 \le i \lt j \le n} 2 a_{ij} x_i x_j </md>.
 A quadratic form has the desirable property of lacking cross terms if and only if it can be represented by a <em>diagonal</em> matrix.
 But as we will see, being represented by an <em>orthogonally diagonalizable</em> matrix is just as good.
 </p>
@@ -67,9 +67,9 @@ But as we will see, being represented by an <em>orthogonally diagonalizable</em>
 <p>
 As explored in <xref ref="activity-quadratic-forms-decouple" />,
 we can eliminate cross terms in a quadratic form
-<me>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x}</me>
+<md>q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x}</md>
 by using a change of variables
-<me> \uvec{x} = P \uvec{w} </me>
+<md> \uvec{x} = P \uvec{w} </md>
 for an <em>orthogonal</em> transition matrix <m>P</m> that diagonalizes <m>A</m>.
 It should be obvious from the patterns
 of <xref ref="activity-quadratic-forms-from-matrix" />
@@ -80,23 +80,23 @@ and every symmetric matrix is orthogonally diagonalizable
 So every quadratic form can be <q>diagonalized</q> to eliminate cross terms.
 </p><p>
 In the new variables, the quadratic form becomes
-<me>
+<md>
 	q_A(\uvec{x})
 	= \utrans{\uvec{x}} A \uvec{x}
 	= \utrans{\uvec{w}} \utrans{P} A P \uvec{w}
 	= q_{\utrans{P} A P}(\uvec{w})
-</me>.
+</md>.
 If <m>\lambda_1,\lambda_2,\dotsc,\lambda_n</m> are a complete list of the eigenvalues of symmetric <m>A</m>,
 with eigenvalues of multiplicity greater than <m>1</m> listed multiple times,
 and the columns of <m>P</m> are arranged in an order corresponding to this order of eigenvalues,
 then the diagonal entries of the diagonal matrix <m>\utrans{P} A P</m> are those eigenvalues in order.
 As a diagonal matrix represents a quadratic form without cross terms,
 we have
-<me>
+<md>
 	q_A(\uvec{x})
 	= q_{\utrans{P} A P}(\uvec{w})
 	= \lambda_1 w_1^2 + \lambda_2 w_2^2 + \dotsc + \lambda_1 w_n^2
-</me>.
+</md>.
 </p>
 
 </subsection>
@@ -121,7 +121,7 @@ And as the level set shapes for the <q>diagonalized</q> version in terms of <m>\
 (without cross terms)
 are easier to analyze,
 we can determine the shape in terms of <m>\uvec{w}</m>-variables and then use the transformation
-<me> \uvec{x} = P \uvec{w} </me>
+<md> \uvec{x} = P \uvec{w} </md>
 to obtain the shape in <m>\uvec{x}</m>-variables.
 </p>
 

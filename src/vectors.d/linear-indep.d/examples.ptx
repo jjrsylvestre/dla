@@ -40,7 +40,7 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 	<p>
 	Are the vectors <m>(1,0,0,1),(1,1,0,-1),(2,1,0,0),(5,1,0,5)</m> in <m>\R^4</m> linearly dependent or independent?
 	Set up the test:
-	<me> k_1 (1,0,0,1) + k_2(1,1,0,-1) + k_3(2,1,0,0) + k_4(5,1,0,5) = (0,0,0,0) </me>.
+	<md> k_1 (1,0,0,1) + k_2(1,1,0,-1) + k_3(2,1,0,0) + k_4(5,1,0,5) = (0,0,0,0) </md>.
 	Notice how we have used the proper zero vector in this space on the right-hand side.
 	On the left-hand side, we want to combine the expression into one vector so that we can compare with the zero vector.
 	<md>
@@ -48,14 +48,14 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 		<mrow> (k_1+k_2+2k_3+5k_4,k_2+k_3+k_4,0,k_1-k_2+5k_4) \amp= (0,0,0,0) </mrow>
 	</md>
 	Comparing components on either side, we obtain a system of four equations in the unknown scalars from the linear combination:
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcrcrcr}
 			k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp + \amp 5k_4 \amp = \amp 0, \\
 			    \amp   \amp k_2 \amp + \amp  k_3 \amp + \amp  k_4 \amp = \amp 0, \\
 			    \amp   \amp     \amp   \amp      \amp   \amp    0 \amp = \amp 0, \\
 			k_1 \amp - \amp k_2 \amp   \amp      \amp + \amp 5k_4 \amp = \amp 0. \\
 		\end{sysofeqns}
-	</me>
+	</md>
 	Now we'll solve this homogeneous system by row reducing its coefficient matrix.
 	<md><mrow xml:id="equation-linear-indep-examples-testing-R4-independence-homog-system" tag="star">
 		\begin{abmatrix}{rrrr}
@@ -131,15 +131,15 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 		Again, we start by setting up
 		the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title"/>
 		using the appropriate zero vector.
-		<me>
+		<md>
 			k_1 \begin{bmatrix}      1 \amp 0 \\ 0 \amp  1 \end{bmatrix} +
 			k_2 \begin{abmatrix}{rr} 1 \amp 0 \\ 0 \amp -1 \end{abmatrix} +
 			k_3 \begin{abmatrix}{rr} 3 \amp 0 \\ 0 \amp -2 \end{abmatrix} =
 			    \begin{bmatrix}      0 \amp 0 \\ 0 \amp  0 \end{bmatrix}
-		</me>
+		</md>
 		As before, this will lead to a homogeneous system of equations in the unknown scalars <m>k_1,k_2,k_3</m>,
 		and the coefficient matrix of this system will have the entries of the three vectors as columns:
-		<me>
+		<md>
 			\begin{abmatrix}{rrr}
 				1 \amp 1 \amp 3 \\
 				0 \amp 0 \amp 0 \\
@@ -153,7 +153,7 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 				0  \amp  0  \amp  0 \\
 				0  \amp  0  \amp  0
 			\end{bmatrix}
-		</me>.
+		</md>.
 		From the reduced matrix, we see that <m>k_3</m> is a free variable and will be assigned a parameter in the general solution.
 		The necessity of a parameter implies nontrivial solutions, so these vectors are <em>linearly dependent</em>.
 		</p>
@@ -208,25 +208,25 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 	<xref ref="activity-linear-indep-using-indep-test-P2">Discovery</xref>.
 	Are they linearly dependent or independent?
 	Set up the test, using the zero polynomial as the zero vector on the right-hand side:
-	<me> k_1(1+x) + k_2(1+x^2) + k_3(2-x+3x^2) = 0 </me>.
+	<md> k_1(1+x) + k_2(1+x^2) + k_3(2-x+3x^2) = 0 </md>.
 	As usual, we simplify the linear combination on the left-hand side into one vector.
 	Here, this means collecting like terms.
-	<me> (k_1+k_2+2k_3) + (k_1-k_3)x + (k_2+3k_3)x^2 = 0 </me>.
+	<md> (k_1+k_2+2k_3) + (k_1-k_3)x + (k_2+3k_3)x^2 = 0 </md>.
 	The polynomial on the left can only be equal to the zero polynomial if all its coefficients are zero,
 	leading to the following system of equations:
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcrcr}
 			k_1 \amp + \amp k_2 \amp + \amp 2k_3 \amp = \amp 0, \\
 			k_1 \amp   \amp     \amp - \amp  k_3 \amp = \amp 0, \\
 			    \amp   \amp k_2 \amp + \amp 3k_3 \amp = \amp 0.
 		\end{sysofeqns}
-	</me>
+	</md>
 	Once again, we reduce the coefficient matrix to determine if there are nontrivial solutions:
-	<me>
+	<md>
 		\begin{abmatrix}{rrr} 1 \amp 1 \amp  2 \\ 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \end{abmatrix}
 		\qquad\rowredarrow\qquad
 		\begin{bmatrix}       1 \amp 0 \amp -1 \\ 0 \amp 1 \amp  3 \\ 0 \amp 0 \amp 0 \end{bmatrix}
-	</me>.
+	</md>.
 	</p>
 
 	<aside><title>Compare</title><p>
@@ -243,7 +243,7 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 	the space of functions defined on the whole real number line.
 	Are these functions linearly dependent or independent?
 	Let's start the test by setting up the vector equation
-	<me> k_1 x + k_2\sin(\pi x/2) + k_3\cos(\pi x/2) = 0 </me>.
+	<md> k_1 x + k_2\sin(\pi x/2) + k_3\cos(\pi x/2) = 0 </md>.
 	Here, there is no algebraic way we can simplify the expression on the left-hand side.
 	However, remember that the <m>0</m> on the right-hand side represents the zero <em>function</em>,
 	and that functions are only equal when they always produce the same output given the same input (<xref ref="definition-abstract-vec-spaces-examples-eq-funcs" />).
@@ -303,7 +303,7 @@ the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" 
 	We might call these <q>standard basis vectors</q> for <m>\poly_n(\R)</m>.
 	Are they linearly independent?
 	Apply the Test:
-	<me> k_0 \cdot 1 + k_1x + k_2 x^2 + \dotsb + k_n x^n = 0 </me>.
+	<md> k_0 \cdot 1 + k_1x + k_2 x^2 + \dotsb + k_n x^n = 0 </md>.
 	If any of these coefficients are nonzero, the polynomial on the left-hand side will be nonzero, so only the trivial solution is possible.
 	Therefore, powers of <m>x</m> are always linearly independent in <m>\poly_n(\R)</m>.
 </p></example>

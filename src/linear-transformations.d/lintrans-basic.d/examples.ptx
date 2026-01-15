@@ -34,10 +34,10 @@ respective owners.
 	<title>Linear formulas create linear transformations</title>
 	<p>
 	Define <m>\funcdef{T}{\matrixring_{2 \times 2}(\R)}{\poly_2(\R)}</m> by
-	<me>
+	<md>
 		T\left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
 		= (a + b) + (c - 2d) x + (3b - c + d) x^2
-	</me>.
+	</md>.
 	To verify that <m>T</m> is linear, check the linearity properties.
 	</p>
 	<case><title>Additivity</title><p>
@@ -104,15 +104,15 @@ respective owners.
 	<p>
 	Let's modify <xref ref="example-lintrans-basic-linear-formulas" /> slightly:
 	define <m>\funcdef{S}{\matrixring_{2 \times 2}(\R)}{\poly_2(\R)}</m> by
-	<me>
+	<md>
 		S\left( \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \right)
 		= (a + b + 4) + (c - 2d) x + (3b - c + d - 2) x^2
-	</me>.
+	</md>.
 	The definition of <m>S</m> still involves using linear formulas in the entries of the input matrix to specify coefficients of the output polynomial,
 	except that the constant and quadratic terms have extra constant parts to the coefficient formulas.
 	Comparing with the linear transformation <m>T</m> from <xref ref="example-lintrans-basic-linear-formulas" />,
 	we could write
-	<me> S(A) = T(A) + (4 - 2 x^2) </me>.
+	<md> S(A) = T(A) + (4 - 2 x^2) </md>.
 	We saw in <xref ref="activity-lintrans-basic-exmps-translate">Discovery</xref> that the process of translation by a fixed vector is <em>not</em> a linear transformation,
 	so we expect that combining the linear transformation <m>T</m> with a translation will not be linear.
 	</p><p>
@@ -141,7 +141,7 @@ but others will not.
 
 <example><title>Transpose is linear</title><p>
 	Consider <m>\funcdef{T}{\matrixring_{m \times n}(\R)}{\matrixring_{n \times m}(\R)}</m> defined by
-	<me> T(A) = \utrans{A} </me>.
+	<md> T(A) = \utrans{A} </md>.
 	To verify that <m>T</m> is a linear transformation,
 	we want to verify the formulas
 	<md><mrow>
@@ -158,7 +158,7 @@ but others will not.
 <example><title>Complex adjoint is not linear</title>
 	<p>
 	Consider <m>\funcdef{T}{\matrixring_{m \times n}(\C)}{\matrixring_{n \times m}(\C)}</m> defined by
-	<me> T(A) = \adjoint{A} </me>.
+	<md> T(A) = \adjoint{A} </md>.
 	To verify that <m>T</m> is a linear transformation,
 	we want to verify the formulas
 	<md><mrow>
@@ -189,26 +189,26 @@ but others will not.
 
 	<p>
 	Consider the system of linear input-output formulas in <xref ref="activity-lintrans-basic-matrix-from-formulas">Discovery</xref>:
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcr}
 			w_1 \amp = \amp 3 x_1 \amp - \amp x_2 \\
 			w_2 \amp = \amp 5 x_1 \amp + \amp 5 x_2 \\
 			w_3 \amp = \amp  \amp + \amp 7 x_2 \\
 			w_4 \amp = \amp - x_1 \amp + \amp x_2
 		\end{sysofeqns}
-	</me>.
+	</md>.
 	These formulas define a linear transformation <m>\funcdef{T}{\R^2}{\R^4}</m>.
 	If we set
-	<me>
+	<md>
 		A = \begin{abmatrix}{rr}
 			 3 \amp -1 \\
 			 5 \amp  5 \\
 			 0 \amp  7 \\
 			-1 \amp  1
 		\end{abmatrix}
-	</me>,
+	</md>,
 	then we will have
-	<me> T(\uvec{x}) = A \uvec{x} </me>
+	<md> T(\uvec{x}) = A \uvec{x} </md>
 	for all <m>\uvec{x}</m> in <m>\R^2</m>,
 	so that <m>T = T_A</m>.
 	</p>
@@ -217,7 +217,7 @@ but others will not.
 	Following the notation introduced in the <xref ref="section-lintrans-basic-terminology" text="title" /> section of this chapter,
 	we write <m>\stdmatrixOf{T}</m> instead of just <m>A</m> for the matrix above,
 	so that
-	<me> T(\uvec{x}) = \stdmatrixOf{T} \uvec{x} </me>
+	<md> T(\uvec{x}) = \stdmatrixOf{T} \uvec{x} </md>
 	for all <m>\uvec{x}</m> in <m>\R^2</m>.
 	</p>
 
@@ -232,7 +232,7 @@ but others will not.
 	</mrow></md>
 	in <m>\R^3</m>.
 	Define <m>\funcdef{T}{\R^3}{\R^2}</m> by
-	<me> T(\uvec{x}) = \begin{bmatrix} \dotprod{\uvec{x}}{\uvec{a}_1} \\ \dotprod{\uvec{x}}{\uvec{a}_2} \end{bmatrix} </me>.
+	<md> T(\uvec{x}) = \begin{bmatrix} \dotprod{\uvec{x}}{\uvec{a}_1} \\ \dotprod{\uvec{x}}{\uvec{a}_2} \end{bmatrix} </md>.
 	Since dot product is linear, this creates a linear transformation. (Check!)
 	We could fairly easily determine linear formulas for each component of the output vector expression for <m>T</m>,
 	but let's use the pattern
@@ -254,18 +254,18 @@ but others will not.
 		</mrow>
 	</md>.
 	Each of these results corresponds to a column of the standard matrix <m>\stdmatrixOf{T}</m>:
-	<me>
+	<md>
 		\stdmatrixOf{T} =
 		\begin{abmatrix}{crc}
 			1 \amp  1 \amp 2 \\
 			0 \amp -1 \amp 5
 		\end{abmatrix}
-	</me>.
+	</md>.
 	Notice how the vectors <m>\uvec{a}_1,\uvec{a}_2</m> ended up as rows in <m>\stdmatrixOf{T}</m>,
 	so that multiplying a vector in <m>\R^3</m> by this matrix effectively computes the two dot products against <m>\uvec{a}_1,\uvec{a}_2</m>,
 	as in the definition of <m>T</m>.
 	For example,
-	<me>
+	<md>
 		T\left( \begin{abmatrix}{r} 7 \\ -3 \\ 5 \end{abmatrix} \right)
 		=  \begin{abmatrix}{crc}
 			1 \amp  1 \amp 2 \\
@@ -273,7 +273,7 @@ but others will not.
 		\end{abmatrix}
 		\begin{abmatrix}{r} 7 \\ -3 \\ 5 \end{abmatrix}
 		= \begin{bmatrix} 14 \\ 28 \end{bmatrix}
-	</me>.
+	</md>.
 	</p>
 </example>
 
@@ -299,7 +299,7 @@ Here is an example of using this fact.
 		T(1) \amp = (3,6)
 	</mrow></md>.
 	Then, for example, we can use an expansion like
-	<me> 4 x^2 + 2 x - 1 = 4 (x^2 - x) + 6 (x - 1) + 5 \cdot 1 </me>,
+	<md> 4 x^2 + 2 x - 1 = 4 (x^2 - x) + 6 (x - 1) + 5 \cdot 1 </md>,
 	along with the linearity properties of <m>T</m>,
 	to compute
 	<md>
@@ -310,12 +310,12 @@ Here is an example of using this fact.
 	</md>.
 	</p><p>
 	More generally,
-	<me> \poly_2(\R) = \Span \{ x^2 - x, x - 1, 1 \} </me>,
+	<md> \poly_2(\R) = \Span \{ x^2 - x, x - 1, 1 \} </md>,
 	as every polynomial can be decomposed as a linear combination of these spanning vectors:
 	for
-	<me> p(x) = a x^2 + b x + c </me>,
+	<md> p(x) = a x^2 + b x + c </md>,
 	we have
-	<me> p(x) = a (x^ - x) + (a + b) (x - 1) + (a + b + c) \cdot 1 </me>.
+	<md> p(x) = a (x^ - x) + (a + b) (x - 1) + (a + b + c) \cdot 1 </md>.
 	Then, similar to the example calculation above, we have
 	<md>
 		<mrow> T(a x^2 + b x + c) \amp = T \bigl( a (x^2 - x) + (a + b) (x - 1) + (a + b + c) \cdot 1 \bigr) </mrow>
@@ -334,7 +334,7 @@ As per <xref ref="procedure-lintrans-basic-concepts-basis-to-transformation" />,
 we can also <em>define</em> a linear transformation in this way.
 In <xref ref="example-lintrans-basic-via-spanning" />,
 the spanning set
-<me> \{ x^2 - x, x - 1, 1 \} </me>
+<md> \{ x^2 - x, x - 1, 1 \} </md>
 is actually a basis for <m>\poly_2(\R)</m>.
 So we could start with the image vectors
 <md><mrow>
@@ -361,29 +361,29 @@ Here is an example illustrating this fact.
 	</mrow></md>.
 	If <m>T</m> is linear,
 	we can determine its standard matrix from the first two image vectors above:
-	<me> \stdmatrixOf{T} = \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} </me>.
+	<md> \stdmatrixOf{T} = \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} </md>.
 	But then we should have
-	<me>
+	<md>
 		T\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)
 		= \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
 		= \begin{bmatrix} 3 \\ 5 \end{bmatrix}
-	</me>,
+	</md>,
 	which does not agree with our specified image vector for input <m>(1,1)</m>.
 	</p><p>
 	What went wrong?
 	Our collection of three input vectors is a spanning set,
 	but it is a dependent one:
-	<me>
+	<md>
 		  \begin{bmatrix} 1 \\ 0 \end{bmatrix}
 		+ \begin{bmatrix} 0 \\ 1 \end{bmatrix}
 		= \begin{bmatrix} 1 \\ 1 \end{bmatrix}
-	</me>.
+	</md>.
 	The only way to make a definition of a linear transformation <m>T</m> on these three spanning vectors is to also have
-	<me>
+	<md>
 		  T\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right)
 		+ T\left(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\right)
 		= T\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)
-	</me>,
+	</md>,
 	which our initial definition did not.
 	</p>
 </example>

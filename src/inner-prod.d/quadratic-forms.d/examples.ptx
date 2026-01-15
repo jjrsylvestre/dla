@@ -30,27 +30,27 @@ respective owners.
 
 <example><title>Determining the quadratic polynomial associated to a symmetric matrix</title><p>
 	The symmetric matrix
-	<me> A = \begin{abmatrix}{rrr} 1 \amp 2 \amp 0 \\ 2 \amp -7 \amp -5 \\ 0 \amp -5 \amp 3 \end{abmatrix} </me>
+	<md> A = \begin{abmatrix}{rrr} 1 \amp 2 \amp 0 \\ 2 \amp -7 \amp -5 \\ 0 \amp -5 \amp 3 \end{abmatrix} </md>
 	creates a quadratic form
-	<me> q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>.
+	<md> q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </md>.
 	We can use the correspondence between matrix entries and polynomial coefficients discussed in
 	<xref ref="subsection-quadratic-forms-concepts-forms" />
 	to obtain
-	<me> q(x_1,x_2,x_3) = x_1^2 + 4 x_1 x_2 - 7 x_2^2 - 10 x_2 x_3 + 3 x_3^2 </me>
+	<md> q(x_1,x_2,x_3) = x_1^2 + 4 x_1 x_2 - 7 x_2^2 - 10 x_2 x_3 + 3 x_3^2 </md>
 	without having to calculate out the matrix multiplication of <m> \utrans{\uvec{x}} A \uvec{x} </m>.
 </p></example>
 
 <example><title>Determining the symmetric matrix associated to a quadratic form</title><p>
 	The quadratic form
-	<me> q(x_1,x_2,x_3) = 5 x_1^2 + 3 x_1 x_2 - 4 x_1 x_3 + 9 x_2^2 + 6 x_2 x_3 - 11 x_3^2 </me>
+	<md> q(x_1,x_2,x_3) = 5 x_1^2 + 3 x_1 x_2 - 4 x_1 x_3 + 9 x_2^2 + 6 x_2 x_3 - 11 x_3^2 </md>
 	can be represented by matrix multiplication
-	<me> q(\uvec{x}) = q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </me>
+	<md> q(\uvec{x}) = q_A(\uvec{x}) = \utrans{\uvec{x}} A \uvec{x} </md>
 	for a symmetric matrix <m>A</m>.
 	</p><p>
 	To do create the matrix <m>A</m>,
 	each diagonal entry should be the coefficient on the corresponding squared term in the quadratic polynomial,
 	and each off-diagonal entry should be <em>one-half</em> of the coefficient of the corresponding cross term in the quadratic polynomial:
-	<me> A = \begin{abmatrix}{rrr} 5 \amp \frac{3}{2} \amp -2 \\ \frac{3}{2} \amp 9 \amp 3 \\ -2 \amp 3 \amp -11 \end{abmatrix} </me>.
+	<md> A = \begin{abmatrix}{rrr} 5 \amp \frac{3}{2} \amp -2 \\ \frac{3}{2} \amp 9 \amp 3 \\ -2 \amp 3 \amp -11 \end{abmatrix} </md>.
 </p></example>
 
 </subsection>
@@ -65,9 +65,9 @@ respective owners.
 	Let's work through the example of
 	<xref ref="activity-quadratic-forms-rotate" />.
 	The symmetric matrix
-	<me> A = \begin{abmatrix}{rr} 13 \amp -5 \\ -5 \amp 13 \end{abmatrix} </me>.
+	<md> A = \begin{abmatrix}{rr} 13 \amp -5 \\ -5 \amp 13 \end{abmatrix} </md>.
 	creates quadratic form
-	<me> q_A(\uvec{x}) = 13 x^2 - 10 x y + 13 y^2 </me>,
+	<md> q_A(\uvec{x}) = 13 x^2 - 10 x y + 13 y^2 </md>,
 	using variables <m>x,y</m> instead of <m>x_1,x_2</m>.
 	It's not clear from this polynomial expression what shape a level curve <m>q_A(\uvec{x}) = k</m> will take.
 	But since <m>A</m> is symmetric,
@@ -121,24 +121,24 @@ respective owners.
 		E_{18}(A) \amp = \Span\left\{ \begin{abmatrix}{r} -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{abmatrix} \right\}
 	</mrow></md>.
 	Use the normalized eigenvectors to create an orthogonal transition matrix
-	<me>
+	<md>
 		P = \begin{abmatrix}{cr}
 			\frac{1}{\sqrt{2}} \amp - \frac{1}{\sqrt{2}} \\
 			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{2}}
 		\end{abmatrix}
-	</me>
+	</md>
 	which diagonalizes <m>A</m>:
-	<me> \utrans{P} A P = \begin{bmatrix} 8 \\ \amp 18 \end{bmatrix} </me>.
+	<md> \utrans{P} A P = \begin{bmatrix} 8 \\ \amp 18 \end{bmatrix} </md>.
 	Using the change of variables
 	<md><mrow>
 		\uvec{w} \amp = \begin{bmatrix} w \\ z \end{bmatrix}, \amp
 		\uvec{x} \amp = P \uvec{w}
 	</mrow></md>,
 	the transformed quadratic form is
-	<me> q_A(\uvec{x}) = q_{\inv{P} A P}(\uvec{w}) = 8 w^2 + 18 z^2 </me>.
+	<md> q_A(\uvec{x}) = q_{\inv{P} A P}(\uvec{w}) = 8 w^2 + 18 z^2 </md>.
 	A level curve <m>q_{\inv{P} A P}(\uvec{w}) = k</m> (<m>k \gt 0</m>) is clearly an ellipse.
 	For example, the curve
-	<me> 8 w^2 + 18 z^2 = 72 </me>
+	<md> 8 w^2 + 18 z^2 = 72 </md>
 	is an ellipse with <m>w</m>-intercepts at <m>w = \pm 3</m> and <m>z</m>-intercepts at <m>z = \pm 2</m>.
 	</p>
 
@@ -192,7 +192,7 @@ respective owners.
 	Relative to how it appears on the <m>wz</m>-axes,
 	the ellipse has clearly been rotated by <m>\pi/4</m> counter-clockwise.
 	This is consistent with viewing <m>P</m> as a rotation matrix:
-	<me>
+	<md>
 		P = \begin{abmatrix}{cr}
 			\frac{1}{\sqrt{2}} \amp - \frac{1}{\sqrt{2}} \\
 			\frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{2}}
@@ -201,7 +201,7 @@ respective owners.
 			\cos \frac{\pi}{4} \amp - \sin \frac{\pi}{4} \\
 		 	\sin \frac{\pi}{4} \amp \cos \frac{\pi}{4}
 		\end{abmatrix}
-	</me>.
+	</md>.
 	Also notice how the fact that the columns of <m>P</m> are ortho<em>normal</em> allow use to use multiples of those vectors to determine distances and positions along each of the <m>w</m>- and <m>z</m>-axes.
 	</p>
 
@@ -247,21 +247,21 @@ respective owners.
 
 	<p>
 	Consider the quadratic form
-	<me> q(x,y) = 3 x^2 + 26 \sqrt{3} x y - 23 y^2 </me>.
+	<md> q(x,y) = 3 x^2 + 26 \sqrt{3} x y - 23 y^2 </md>.
 	This form corresponds to the symmetric matrix
-	<me>
+	<md>
 		A = \begin{bmatrix}
 			3 \amp 13 \sqrt{3} \\
 			13 \sqrt{3} \amp -23
 		\end{bmatrix}
-	</me>.
+	</md>.
 	The eigenvalues of <m>A</m> are <m>\lambda_1 = 16</m> and <m>\lambda_2 = -36</m>,
 	so even without computing the transition matrix we know that the decoupled quadratic form is
-	<me> q(w,z) = 16 w^2 - 36 z^2 </me>,
+	<md> q(w,z) = 16 w^2 - 36 z^2 </md>,
 	so the level curves of <m>q</m> will be hyperbolas.
 	For example,
 	the hyperbola
-	<me> 16 w^2 - 36 z^2 = 4 </me>
+	<md> 16 w^2 - 36 z^2 = 4 </md>
 	has <m>w</m>-intercepts <m>w = \pm \frac{1}{2}</m> and asymptotes <m>z = \pm \frac{2}{3} w</m>.
 	</p>
 
@@ -319,7 +319,7 @@ respective owners.
 		</mrow>
 	</md>.
 	Again, these eigenvectors should be normalized in order to create orthogonal transition matrix
-	<me>
+	<md>
 		P = \begin{bmatrix}
 			\frac{\sqrt{3}}{2} \amp     \frac{1}{2}       \\
 			    \frac{1}{2}    \amp - \frac{\sqrt{3}}{2}
@@ -328,7 +328,7 @@ respective owners.
 			\cos \frac{\pi}{6} \amp   \sin \frac{\pi}{6} \\
 			\sin \frac{\pi}{6} \amp - \cos \frac{\pi}{6}
 		\end{abmatrix}
-	</me>,
+	</md>,
 	which represents a rotation followed by a reflection.
 	</p>
 
@@ -357,7 +357,7 @@ respective owners.
 	but then the <m>z</m>-axis has been reflected to the other side of the <m>w</m>-axis.
 	<em>However</em>, we could have chosen our eigenvectors so that <m>P</m> represented <em>only</em> a rotation,
 	if we had used
-	<me> E_{-36}(A) = \Span\left\{ \begin{abmatrix}{r} -\frac{1}{2} \\ \frac{\sqrt{3}}{2} \end{abmatrix} \right\} </me>
+	<md> E_{-36}(A) = \Span\left\{ \begin{abmatrix}{r} -\frac{1}{2} \\ \frac{\sqrt{3}}{2} \end{abmatrix} \right\} </md>
 	instead
 	(see <xref ref="theorem-quadratic-forms-2D-principal-axes" />).
 	</p>

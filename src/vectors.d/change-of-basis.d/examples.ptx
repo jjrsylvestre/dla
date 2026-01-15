@@ -61,25 +61,25 @@ but we'll make it a little more involved by choosing a different basis than the 
 	which means determining linear combinations.
 	For example, for the first vector in <m>\basisfont{B}</m>,
 	we set up the vector equation
-	<me>
+	<md>
 		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 		=
 		k_1 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} +
 		k_2 \begin{bmatrix} 2 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
 		k_3 \begin{bmatrix} 3 \amp 2 \\ 1 \amp 0 \end{bmatrix} +
 		k_4 \begin{bmatrix} 4 \amp 3 \\ 2 \amp 1 \end{bmatrix}
-	</me>
+	</md>
 	in the unknown scalars <m>k_1,k_2,k_3,k_4</m>.
 	We could probably solve this vector equation by inspection,
 	but let's work it out fully.
 	Collapse the linear combination into
-	<me>
+	<md>
 		\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix}
 		=
 		\begin{bmatrix} k_1 + 2 k_2 + 3 k_3 + 4 k_4 \amp k_2 + 2 k_3 + 3 k_4 \\ k_3 + 2 k_4 \amp k_4 \end{bmatrix}
-	</me>,
+	</md>,
 	and then comparing entries on either side leads to linear system
-	<me>
+	<md>
 		\left\{
 			\begin{array}{rcrcrcrcr}
 				k_1 \amp + \amp 2 k_2 \amp + \amp 3 k_3 \amp + \amp 4 k_4 \amp = \amp 1 \text{,} \\
@@ -88,9 +88,9 @@ but we'll make it a little more involved by choosing a different basis than the 
 				 \amp \amp \amp \amp \amp \amp k_4 \amp = \amp 0 \text{.}
 			\end{array}
 		\right.
-	</me>
+	</md>
 	Use an augmented matrix to reduce the system:
-	<me>
+	<md>
 		\begin{abmatrix}{cccc|c}
 			1 \amp 2 \amp 3 \amp 4 \amp 1 \\
 			0 \amp 1 \amp 2 \amp 3 \amp 1 \\
@@ -104,7 +104,7 @@ but we'll make it a little more involved by choosing a different basis than the 
 			0 \amp 0 \amp 1 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 1 \amp 0
 		\end{abmatrix}
-	</me>.
+	</md>.
 	The solution is
 	<md><mrow>
 		k_1 \amp = -1 \text{,} \amp
@@ -113,7 +113,7 @@ but we'll make it a little more involved by choosing a different basis than the 
 		k_4 \amp = 0 \text{,}
 	</mrow></md>
 	giving us coordinate vector
-	<me> \matrixOf{A_1}{B'} = \begin{abmatrix}{r} -1 \\ 1 \\ 0 \\ 0 \end{abmatrix} </me>
+	<md> \matrixOf{A_1}{B'} = \begin{abmatrix}{r} -1 \\ 1 \\ 0 \\ 0 \end{abmatrix} </md>
 	(where <m>A_1</m> represents the first vector in basis <m>\basisfont{B}</m>).
 	</p><p>
 	A similar procedure can be used to compute coordinate vectors for the other vectors in <m>\basisfont{B}</m>.
@@ -126,7 +126,7 @@ but we'll make it a little more involved by choosing a different basis than the 
 	(where again <m>A_2,A_3,A_4</m> represent the remaining vectors in <m>\basisfont{B}</m>).
 	</p><p>
 	Combine these four coordinate vectors into the transition matrix:
-	<me>
+	<md>
 		\ucobmtrx{B}{B'} =
 		\begin{abmatrix}{rrrr}
 			-1 \amp 3 \amp 1 \amp -1 \\
@@ -134,13 +134,13 @@ but we'll make it a little more involved by choosing a different basis than the 
 			0 \amp 0 \amp -1 \amp -3 \\
 			0 \amp 0 \amp 1 \amp 1
 		\end{abmatrix}
-	</me>.
+	</md>.
 	</p><p>
 	Let's test this transition matrix against an example coordinate vector.
 	We'll start with a <m>\basisfont{B}</m>-coordinate vector
-	<me> \matrixOf{Y}{B} = \begin{abmatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{abmatrix} </me>,
+	<md> \matrixOf{Y}{B} = \begin{abmatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{abmatrix} </md>,
 	which corresponds to vector
-	<me>
+	<md>
 		Y =
 		2 \begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
 		(-1) \begin{abmatrix}{rr} 1 \amp -1 \\ 0 \amp 0 \end{abmatrix} +
@@ -148,9 +148,9 @@ but we'll make it a little more involved by choosing a different basis than the 
 		(-2) \begin{abmatrix}{rr} 0 \amp 0 \\ -1 \amp 1 \end{abmatrix}
 		=
 		\begin{bmatrix} 1 \amp 3 \\ 5 \amp 1 \end{bmatrix}
-	</me>.
+	</md>.
 	Now convert to a <m>\basisfont{B}'</m>-coordinate vector:
-	<me>
+	<md>
 		\matrixOf{Y}{B'} = \ucobmtrx{B}{B'} \matrixOf{Y}{B}
 		= \begin{abmatrix}{rrrr}
 			-1 \amp 3 \amp 1 \amp -1 \\
@@ -160,9 +160,9 @@ but we'll make it a little more involved by choosing a different basis than the 
 		\end{abmatrix}
 		\begin{abmatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{abmatrix}
 		= \begin{abmatrix}{r} 0 \\ -6 \\ 3 \\ 1 \end{abmatrix}
-	</me>,
+	</md>,
 	which corresponds to vector
-	<me>
+	<md>
 		Y =
 		0 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} +
 		(-6) \begin{bmatrix} 2 \amp 1 \\ 0 \amp 0 \end{bmatrix} +
@@ -170,7 +170,7 @@ but we'll make it a little more involved by choosing a different basis than the 
 		1 \begin{bmatrix} 4 \amp 3 \\ 2 \amp 1 \end{bmatrix}
 		=
 		\begin{bmatrix} 1 \amp 3 \\ 5 \amp 1 \end{bmatrix}
-	</me>.
+	</md>.
 	As this linear combination results in the same vector <m>Y</m> as before,
 	the coordinate conversion was correct.
 	</p>
@@ -233,7 +233,7 @@ to compute a transition matrix for <m>\R^4</m>.
 		</mrow>
 	</md>.
 	Our transition matrix is now on the right, and we can extract it as
-	<me>
+	<md>
 		\ucobmtrx{B}{B'} =
 		\begin{abmatrix}{rrrr}
 			-1 \amp  3 \amp  1 \amp -1 \\
@@ -241,13 +241,13 @@ to compute a transition matrix for <m>\R^4</m>.
 			 0 \amp  0 \amp -1 \amp -3 \\
 			 0 \amp  0 \amp  1 \amp  1
 		\end{abmatrix}
-	</me>.
+	</md>.
 	</p><p>
 	Let's test this transition matrix against an example coordinate vector.
 	We'll start with a <m>\basisfont{B}</m>-coordinate vector
-	<me> \matrixOf{\uvec{v}}{B'} = \begin{abmatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{abmatrix} </me>,
+	<md> \matrixOf{\uvec{v}}{B'} = \begin{abmatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{abmatrix} </md>,
 	which corresponds to vector
-	<me>
+	<md>
 		\uvec{v} =
 		2 \begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix} +
 		(-1) \begin{abmatrix}{rr} 1 \\ -1 \\ 0 \\ 0 \end{abmatrix} +
@@ -255,9 +255,9 @@ to compute a transition matrix for <m>\R^4</m>.
 		(-2) \begin{abmatrix}{rr} 0 \\ 0 \\ -1 \\ 1 \end{abmatrix}
 		=
 		\begin{bmatrix} 1 \\ 3 \\ 5 \\ 1 \end{bmatrix}
-	</me>.
+	</md>.
 	Now convert to a <m>\basisfont{B}'</m>-coordinate vector:
-	<me>
+	<md>
 		\matrixOf{\uvec{v}}{B'} = \ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B}
 		= \begin{abmatrix}{rrrr}
 			-1 \amp 3 \amp 1 \amp -1 \\
@@ -267,9 +267,9 @@ to compute a transition matrix for <m>\R^4</m>.
 		\end{abmatrix}
 		\begin{abmatrix}{r} 2 \\ -1 \\ 3 \\ -2 \end{abmatrix}
 		= \begin{abmatrix}{r} 0 \\ -6 \\ 3 \\ 1 \end{abmatrix}
-	</me>,
+	</md>,
 	which corresponds to vector
-	<me>
+	<md>
 		\uvec{v} =
 		0 \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} +
 		(-6) \begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \end{bmatrix} +
@@ -277,7 +277,7 @@ to compute a transition matrix for <m>\R^4</m>.
 		1 \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}
 		=
 		\begin{bmatrix} 1 \\ 3 \\ 5 \\ 1 \end{bmatrix}
-	</me>.
+	</md>.
 	As this linear combination results in the same vector <m>\uvec{v}</m> as before,
 	the coordinate conversion was correct.
 	</p>
@@ -297,14 +297,14 @@ to compute a transition matrix for <m>\R^4</m>.
 	can be used in other spaces besides <m>\R^n</m>.
 	In <xref ref="example-change-of-basis-compute-cob" />,
 	we could have taken the usual standard basis
-	<me>
+	<md>
 		\basisfont{S} = \left\{
 			\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix},
 			\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 		\right\}
-	</me>
+	</md>
 	of <m>\matrixring_2(\R)</m> as our intermediate basis,
 	and we would have ended up reducing the same <m>4 \times 8</m> augmented matrix to compute <m>\ucobmtrx{B}{B'}</m> as we did in
 	<xref ref="example-change-of-basis-Rn-compute-cob" />.

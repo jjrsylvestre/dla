@@ -77,11 +77,11 @@ including those prescribed by the inner product axioms.
 		</p><p>
 		Following the advice of <xref ref="activity-inner-prod-zero" />,
 		consider
-		<me> \inprod{\zerovec}{\uvec{v}} = \inprod{k \zerovec}{\uvec{v}} = k \inprod{\zerovec}{\uvec{v}} </me>,
+		<md> \inprod{\zerovec}{\uvec{v}} = \inprod{k \zerovec}{\uvec{v}} = k \inprod{\zerovec}{\uvec{v}} </md>,
 		which holds for every scalar <m>k</m> by <xref ref="proposition-inner-prod-real-algebra-scalar-left">Rule</xref>
 		(or, really, by <xref ref="list-inner-prod-concepts-real-axioms-homogeneous" text="local">Axiom RIP</xref>).
 		If we take scalar <m>k = 0</m>, then we get
-		<me> \inprod{\zerovec}{\uvec{v}} = 0 \inprod{\zerovec}{\uvec{v}} = 0 </me>,
+		<md> \inprod{\zerovec}{\uvec{v}} = 0 \inprod{\zerovec}{\uvec{v}} = 0 </md>,
 		as desired.
 		</p><p>
 		The symmetric formula <m>\inprod{\uvec{v}}{\zerovec} = 0</m>
@@ -280,15 +280,15 @@ remain true in every inner product space, real or complex.
 	<statement><p>
 		For nonzero vector <m>\uvec{v}</m> in an inner product space,
 		the unit vectors in <m>\Span \{\uvec{v}\}</m> are
-		<me>
+		<md>
 			\frac{k}{\unorm{v}} \uvec{v} \text{,}
 			\qquad \text{for} \qquad
 			\abs{k} = 1
-		</me>.
+		</md>.
 	</p></statement>
 	<proof><title>Proof idea</title><p>
 		Just calculate
-		<me> \norm{\frac{k}{\unorm{v}} \uvec{v}} </me>
+		<md> \norm{\frac{k}{\unorm{v}} \uvec{v}} </md>
 		using <xref ref="proposition-inner-prod-norm-algebra-scalar-mul">Rule</xref>
 		of <xref ref="proposition-inner-prod-norm-algebra" />,
 		and simplify to get <m>1</m>.
@@ -321,13 +321,13 @@ and
 		<li>
 			If <m>A</m> is a positive definite real matrix,
 			then the pairing
-			<me> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </me>
+			<md> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </md>
 			defines an inner product on <m>\R^n</m>.
 		</li>
 		<li>
 			If <m>A</m> is a positive definite complex matrix,
 			then the pairing
-			<me> \uvecinprod{u}{v} = \adjoint{\uvec{v}} A \uvec{u} </me>
+			<md> \uvecinprod{u}{v} = \adjoint{\uvec{v}} A \uvec{u} </md>
 			defines an inner product on <m>\C^n</m>.
 		</li>
 	</ol></p></statement>
@@ -356,13 +356,13 @@ and
 		<li>
 			If <m>\inprod{\blank}{\blank}</m> is an inner product on <m>\R^n</m>,
 			then there exists a positive definite real matrix <m>A</m> such that
-			<me> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </me>
+			<md> \uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u} </md>
 			for all <m>\uvec{u},\uvec{v}</m> in <m>\R^n</m>.
 		</li>
 		<li>
 			If <m>\inprod{\blank}{\blank}</m> is an inner product on <m>\C^n</m>,
 			then there exists a positive definite complex matrix <m>A</m> such that
-			<me> \uvecinprod{w}{z} = \adjoint{\uvec{z}} A \uvec{w} </me>
+			<md> \uvecinprod{w}{z} = \adjoint{\uvec{z}} A \uvec{w} </md>
 			for all <m>\uvec{w},\uvec{z}</m> in <m>\C^n</m>.
 		</li>
 	</ol></p></statement>
@@ -372,13 +372,13 @@ and
 		the complex case is similar.
 		</p><p>
 		First, notice that for <em>every</em> matrix <m>A</m>,
-		<me> \utrans{\uvec{e}}_i A \uvec{e}_j = a_{ij} </me>,
+		<md> \utrans{\uvec{e}}_i A \uvec{e}_j = a_{ij} </md>,
 		where <m>a_{ij}</m> is the <m>(i,j)</m> entry of <m>A</m>
 		and <m>\uvec{e}_i,\uvec{e}_j</m> are standard basis vectors, as usual.
 		So if we set <m>A</m> to be the matrix with entries
-		<me> a_{ij} = \inprod{\uvec{e}_j}{\uvec{e}_i} </me>,
+		<md> a_{ij} = \inprod{\uvec{e}_j}{\uvec{e}_i} </md>,
 		then we have
-		<me> \inprod{\uvec{e}_i}{\uvec{e}_j} = a_{ji} = \utrans{\uvec{e}}_j A \uvec{e}_i </me>,
+		<md> \inprod{\uvec{e}_i}{\uvec{e}_j} = a_{ji} = \utrans{\uvec{e}}_j A \uvec{e}_i </md>,
 		which is a start.
 		And, as usually is the case, what is true for basis vectors will be true for all vectors.
 		</p>
@@ -410,17 +410,17 @@ and
 		It only remains to verify that <m>A</m> is positive definite.
 		Using <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
 		we have
-		<me>
+		<md>
 			a_{ij} = \inprod{\uvec{e}_j}{\uvec{e}_i}
 			 = \inprod{\uvec{e}_i}{\uvec{e}_j}
 			 = a_{ji}
-		</me>,
+		</md>,
 		so <m>A</m> is symmetric.
 		And the fact that
-		<me> \utrans{\uvec{v}} A \uvec{u} = \uvecinprod{u}{v} </me>,
+		<md> \utrans{\uvec{v}} A \uvec{u} = \uvecinprod{u}{v} </md>,
 		that we have verified above,
 		guarantees that
-		<me> \utrans{\uvec{v}} A \uvec{v} \gt 0 </me>
+		<md> \utrans{\uvec{v}} A \uvec{v} \gt 0 </md>
 		for all nonzero <m>\uvec{v}</m>,
 		by <xref ref="list-inner-prod-concepts-real-axioms-positive" text="local">Axiom RIP</xref>.
 		</p>
@@ -467,7 +467,7 @@ Finally, we verify the method of constructing positive definite matrices discuss
 		(<xref ref="proposition-inner-prod-norm-algebra-nonneg">Rule</xref>
 		of <xref ref="proposition-inner-prod-norm-algebra" />).
 		And therefore
-		<me> \utrans{\uvec{x}} A \uvec{x} = \norm{P \uvec{x}}^2 > 0 </me>,
+		<md> \utrans{\uvec{x}} A \uvec{x} = \norm{P \uvec{x}}^2 > 0 </md>,
 		as desired.
 	</p>
 	</proof>

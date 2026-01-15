@@ -90,19 +90,19 @@ we focused on exactly <em>how</em> the product <m>A \uvec{x}</m> is a linear com
 <p>
 Suppose <m>A</m> is an <m>m \times n</m> matrix,
 considered as a collection of column vectors:
-<me>
+<md>
 	A = \begin{bmatrix}
 		| \amp | \amp \amp | \\
 		\uvec{a}_1 \amp \uvec{a}_2 \amp \dots \amp \uvec{a}_n \\
 		| \amp | \amp \amp | \\
 	\end{bmatrix}
-</me>.
+</md>.
 We have seen a few times that a matrix times a standard basis vector is equal to the corresponding column of the matrix:
-<me> A \uvec{e}_j = \uvec{a}_j </me>.
+<md> A \uvec{e}_j = \uvec{a}_j </md>.
 So if we expand the column vector
-<me> \uvec{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} </me>
+<md> \uvec{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} </md>
 as a linear combination of standard basis vectors,
-<me> \uvec{x} = x_1 \uvec{e}_1 + x_2 \uvec{e}_2 + \dotsb + x_n \uvec{e}_n </me>,
+<md> \uvec{x} = x_1 \uvec{e}_1 + x_2 \uvec{e}_2 + \dotsb + x_n \uvec{e}_n </md>,
 then we can compute <m>A\uvec{x}</m> by multiplying <m>A</m> through this linear combination:
 <md><mrow xml:id="equation-change-of-basis-concepts-matrix-times-vec-pattern" tag="dstar">
 	\begin{array}{ccccccccc}
@@ -132,7 +132,7 @@ Every vector <m>\uvec{w}</m> in <m>V</m> can be expressed uniquely as a linear c
 where the <m>\uvec{u}_j</m> are the basis vectors in <m>\basisfont{B}</m>
 (<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
 and the <m>n</m>-dimensional vector
-<me> \rmatrixOf{\uvec{w}}{B} = (k_1,k_2,\dotsc,k_n) </me>
+<md> \rmatrixOf{\uvec{w}}{B} = (k_1,k_2,\dotsc,k_n) </md>
 made up of the coefficients in that linear combination are precisely what we call the <term>coordinate vector</term> of <m>\uvec{w}</m> relative to basis <m>\basisfont{B}</m>.
 Now, what if we have a second basis <m>\basisfont{B}'</m> for <m>V</m>?
 We may have already gone to the work of computing the coordinate vectors for a number of vectors in <m>V</m> relative to <m>\basisfont{B}</m>.
@@ -181,11 +181,11 @@ if we take <m>P</m> to be the matrix whose columns are the coordinate vectors re
 	\end{bmatrix}
 </mrow></md>,
 then
-<me>
+<md>
 	P \matrixOf{\uvec{w}}{B}
 	= k_1 \matrixOf{\uvec{u}_1}{B'} + k_2 \matrixOf{\uvec{u}_2}{B'} + \dotsb + k_n \matrixOf{\uvec{u}_n}{B'}
 	= \matrixOf{\uvec{w}}{B'}
-</me>.
+</md>.
 We call the special matrix <m>P</m> defined in
 <xref ref="equation-change-of-basis-concepts-transition-matrix-def" />
 the <term>transition matrix</term> from basis <m>\basisfont{B}</m> to basis <m>\basisfont{B}'</m>,
@@ -228,7 +228,7 @@ which is similar.
 <p>
 In <xref ref="activity-change-of-basis-properties" />,
 we explored properties of transition matrices via the defining property
-<me> \ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B'} </me>.
+<md> \ucobmtrx{B}{B'} \matrixOf{\uvec{v}}{B} = \matrixOf{\uvec{v}}{B'} </md>.
 We will state and prove each of the discovered properties in
 <xref ref="subsection-change-of-basis-theory-cob-props" />,
 but we briefly recount them here.
@@ -242,7 +242,7 @@ That is, we want the conversion to have no effect at all.
 We already know a matrix that has no effect when it is multiplied against other matrices:
 the identity matrix.
 So we expect
-<me> \ucobmtrx{B}{B} = I. </me>
+<md> \ucobmtrx{B}{B} = I. </md>
 </p></paragraphs>
 
 <paragraphs><title>Chains of basis changes</title><p>
@@ -251,13 +251,13 @@ Next, we considered the transition matrices
 associated to three bases of a particular vector space.
 We could consider the transition from the first basis <m>\basisfont{B}</m> to the third basis <m>\basisfont{B}''</m> as a two-step process,
 first converting <m>\matrixOf{\uvec{w}}{B}</m> to <m>\matrixOf{\uvec{w}}{B'}</m> by
-<me> \ucobmtrx{B}{B'} \matrixOf{\uvec{w}}{B} = \matrixOf{\uvec{w}}{B'} </me>,
+<md> \ucobmtrx{B}{B'} \matrixOf{\uvec{w}}{B} = \matrixOf{\uvec{w}}{B'} </md>,
 and then converting <m>\matrixOf{\uvec{w}}{B'}</m> to <m>\matrixOf{\uvec{w}}{B''}</m> by
-<me> \ucobmtrx{B'}{B''} \matrixOf{\uvec{w}}{B'} = \matrixOf{\uvec{w}}{B''} </me>.
+<md> \ucobmtrx{B'}{B''} \matrixOf{\uvec{w}}{B'} = \matrixOf{\uvec{w}}{B''} </md>.
 Substituting the first expression for <m>\matrixOf{\uvec{w}}{B'}</m> into the second equality, we find
-<me> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} \matrixOf{\uvec{w}}{B} = \matrixOf{\uvec{w}}{B''} </me>,
+<md> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} \matrixOf{\uvec{w}}{B} = \matrixOf{\uvec{w}}{B''} </md>,
 and so we expect
-<me> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B''} </me>.
+<md> \ucobmtrx{B'}{B''} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B''} </md>.
 </p></paragraphs>
 
 <paragraphs><title>Reversing change of basis</title><p>
@@ -265,11 +265,11 @@ Finally, we considered the relationship between transition matrices
 <m> \ucobmtrx{B}{B'} </m> and <m>\ucobmtrx{B'}{B}</m>.
 Transitioning <m>\basisfont{B}' \to \basisfont{B}</m> should be the reverse process of transitioning <m>\basisfont{B} \to \basisfont{B}'</m>,
 and so we expect
-<me> \ucobmtrx{B'}{B} = \uinvcobmtrx{B}{B'} </me>.
+<md> \ucobmtrx{B'}{B} = \uinvcobmtrx{B}{B'} </md>.
 This relationship agrees with our expectations for no change of basis and chains of basis changes above,
 since if we consider basis <m>\basisfont{B}</m> to be both the first and third basis in a chain of basis changes,
 then
-<me> \ucobmtrx{B'}{B} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B} = I </me>
+<md> \ucobmtrx{B'}{B} \ucobmtrx{B}{B'} = \ucobmtrx{B}{B} = I </md>
 as expected if matrices <m> \ucobmtrx{B}{B'} </m> and <m>\ucobmtrx{B'}{B}</m> are inverses.
 </p></paragraphs>
 
@@ -340,11 +340,11 @@ in <xref ref="subsection-elem-matrices-concepts-invert-by-row-red" />,
 which describes the pattern of
 <xref ref="procedure-elem-matrices-concepts-inversion-by-row-red" />.
 Here is that pattern again, but in abbreviated form:
-<me>
+<md>
 	\begin{abmatrix}{c|c} A \amp I \end{abmatrix} \qquad \rowredarrow \qquad
 	\begin{abmatrix}{c|c} E_{\ell} \dotsm E_2 E_1 A \amp E_{\ell} \dotsm E_2 E_1 I \end{abmatrix}
 	= \begin{abmatrix}{c|c} I \amp \inv{A} \end{abmatrix}
-</me>,
+</md>,
 where the <m>E_j</m> are the elementary matrices associated to a sequence of operations that reduces <m>A</m> to <m>I</m>.
 </p>
 
@@ -374,12 +374,12 @@ to compute a transition matrix for <m>\R^n</m>.
 		Then augment matrix <m>\ucobmtrx{B'}{S}</m> with matrix <m>\ucobmtrx{B}{S}</m>,
 		and row reduce until the identity matrix is obtained on the left.
 		The matrix on the right will now be <m>\ucobmtrx{B}{B'}</m>.
-		<me>
+		<md>
 			\begin{abmatrix}{c|c} \ucobmtrx{B'}{S} \amp \ucobmtrx{B}{S} \end{abmatrix}
 			\qquad\rowredarrow\qquad
 			\begin{abmatrix}{c|c} I \amp \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S} \end{abmatrix}
 			= \begin{abmatrix}{c|c} I \amp \ucobmtrx{B}{B'} \end{abmatrix}
-		</me>
+		</md>
 	</p></statement>
 </algorithm>
 
@@ -391,20 +391,20 @@ to compute a transition matrix for <m>\R^n</m>.
 			it might be easier to remember the pattern of
 			<xref ref="procedure-change-of-basis-concepts-cob-by-row-red" />
 			if we remove some of the transition matrix notation:
-			<me>
+			<md>
 				\begin{abmatrix}{c|c} \basisfont{B}' \amp \basisfont{B} \end{abmatrix}
 				\qquad\rowredarrow\qquad
 				\begin{abmatrix}{c|c} I \amp (\basisfont{B} \to \basisfont{B}') \end{abmatrix}
-			</me>
+			</md>
 			(where we even could write <m>\basisfont{S}</m> instead of <m>I</m> on the left of the reduced matrix,
 			if we wished).
 			</p><p>
 			Even better might be to express the pattern in words:
-			<me>
+			<md>
 				\begin{abmatrix}{c|c} \text{New} \amp \text{Old} \end{abmatrix}
 				\qquad\rowredarrow\qquad
 				\begin{abmatrix}{c|c} I \amp (\text{Old} \to \text{New}) \end{abmatrix}
-			</me>.
+			</md>.
 			</p>
 		</li>
 		<li xml:id="remark-change-of-basis-concepts-post-Rn-cob-notes-use-for-other-spaces">

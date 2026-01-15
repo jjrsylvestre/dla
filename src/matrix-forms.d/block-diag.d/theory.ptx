@@ -70,12 +70,12 @@ we state these properties without proof.
 				<m>A_1\uvec{x}_1,A_2\uvec{x}_2,\dotsc,A_\ell\uvec{x}_\ell</m>
 				together.
 				That is,
-				<me>
+				<md>
 					A \uvec{x}
 					= \begin{bmatrix} A_1 \\ \amp A_2 \\ \amp \amp \ddots \\ \amp \amp \amp A_\ell \end{bmatrix}
 					\begin{bmatrix} \uvec{x}_1 \\ \uvec{x}_2 \\ \vdots \\ \uvec{x}_\ell \end{bmatrix}
 					= \begin{bmatrix} A_1 \uvec{x}_1 \\ A_2 \uvec{x}_2 \\ \vdots \\ A_\ell \uvec{x}_\ell \end{bmatrix}
-				</me>.
+				</md>.
 			</li>
 			<li>
 				If <m>\uvec{x}_j</m> is a null space vector of block <m>A_j</m>, for each index <m>j</m>,
@@ -89,17 +89,17 @@ we state these properties without proof.
 			</li>
 			<li xml:id="proposition-block-diag-props-det"> <!-- \label{PROP::block.diag.props::det} -->
 				The determinant of <m>A</m> is the product of the determinants of the blocks in <m>A</m>.
-				That is, <me> \det A = (\det A_1) (\det A_2) \dotsm (\det A_\ell) </me>.
+				That is, <md> \det A = (\det A_1) (\det A_2) \dotsm (\det A_\ell) </md>.
 			</li>
 			<li xml:id="proposition-block-diag-props-char-poly"> <!-- \label{PROP::block.diag.props::char.poly} -->
 				The characteristic polynomial of <m>A</m> is the product of the characteristic polynomials of the blocks in <m>A</m>.
-				That is, <me> c_A(\lambda) = c_{A_1}(\lambda) c_{A_2}(\lambda) \dotsm c_{A_\ell}(\lambda) </me>.
+				That is, <md> c_A(\lambda) = c_{A_1}(\lambda) c_{A_2}(\lambda) \dotsm c_{A_\ell}(\lambda) </md>.
 			</li>
 			<li xml:id="proposition-block-diag-props-evalues"> <!-- \label{PROP::block.diag.props::e.values} -->
 				The eigenvalues of <m>A</m> are precisely the collection of eigenvalues of the blocks of <m>A</m>.
 				If <m>\uvec{x} \in \R^{n_j}</m> is an eigenvector of block <m>A_j</m> corresponding to eigenvalue <m>\lambda</m>,
 				then the vector
-				<me> \begin{abmatrix}{l} \zerovec_{n_1} \\ \zerovec_{n_2} \\ \vdots \\ \uvec{x} \\ \vdots \\ \zerovec_{n_\ell} \end{abmatrix} </me>
+				<md> \begin{abmatrix}{l} \zerovec_{n_1} \\ \zerovec_{n_2} \\ \vdots \\ \uvec{x} \\ \vdots \\ \zerovec_{n_\ell} \end{abmatrix} </md>
 				is an eigenvector of <m>A</m> corresponding to <m>\lambda</m>,
 				where each zero vector <m>\zerovec_{n_k}</m> has size corresponding to the size <m>n_k</m> of the block <m>A_k</m>,
 				and vector <m>\uvec{x}</m> appears in the <m>\nth[j]</m> block.
@@ -143,7 +143,7 @@ and this is true for invariant subspaces as well.
 			is a spanning set for <m>W</m>,
 			a vector <m>\uvec{w}</m> in <m>W</m> can be expressed as a linear combination of these spanning vectors,
 			say
-			<me> \uvec{w} = c_1 \uvec{w}_1 + c_2 \uvec{w}_2 + \dotsb + c_\ell \uvec{w}_\ell </me>.
+			<md> \uvec{w} = c_1 \uvec{w}_1 + c_2 \uvec{w}_2 + \dotsb + c_\ell \uvec{w}_\ell </md>.
 			Then,
 			<md>
 				<mrow> A \uvec{w} \amp = A (c_1\uvec{w}_1 + c_2\uvec{w}_2 + \dotsb + c_\ell\uvec{w}_\ell) </mrow>
@@ -215,7 +215,7 @@ in the case of two subspaces.
 			<p>
 			Assume that <m>W_1</m> and <m>W_2</m> are independent.
 			By definition, this means that the combined set
-			<me> \{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \} </me>
+			<md> \{ \uvec{u}_1, \dotsc, \uvec{u}_{d_1}, \uvec{w}_1, \dotsc, \uvec{w}_{d_2} \} </md>
 			is linearly independent.
 			</p>
 
@@ -230,24 +230,24 @@ in the case of two subspaces.
 			Since <m>\uvec{v}</m> is in <m>W_1</m>,
 			there exist scalars
 			<m>a_1, a_2, \dotsc,a_{d_1}</m>
-			such that <me> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} </me>.
+			such that <md> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} </md>.
 			But <m>\uvec{v}</m> also lies in <m>W_2</m>,
 			and so there exist scalars
 			<m>b_1, b_2, \dotsc, b_{d_2}</m>
-			such that <me> \uvec{v} = b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2} </me>.
+			such that <md> \uvec{v} = b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2} </md>.
 			Now, from the vector space identity <m>\uvec{v} - \uvec{v} = \zerovec</m>,
 			we can subtract these two linear combination expressions for <m>\uvec{v}</m> to get
-			<me>
+			<md>
 				a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1}
 				+ (-b_1) \uvec{w}_1 + (-b_2) \uvec{w}_2 + \dotsb + (-b_{d_2}) \uvec{w}_{d_2}
 				= \zerovec
-			</me>.
+			</md>.
 			Linear independence of the combined set of basis vectors says that all of the scalars above are zero, so that
-			<me>
+			<md>
 				\uvec{v} = 0 \uvec{u}_1 + 0 \uvec{u}_2 + \dotsb + 0 \uvec{u}_{d_1}
 				= 0 \uvec{w}_1 + 0 \uvec{w}_2 + \dotsb + 0 \uvec{w}_{d_2}
 				= \zerovec
-			</me>,
+			</md>,
 			as desired.
 			</p>
 
@@ -272,12 +272,12 @@ in the case of two subspaces.
 				+ b_1 \uvec{w}_1 + b_2 \uvec{w}_2 + \dotsb + b_{d_2} \uvec{w}_{d_2}
 				= \zerovec
 			</mrow></md>
-			Set <me> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} </me>.
+			Set <md> \uvec{v} = a_1 \uvec{u}_1 + a_2 \uvec{u}_2 + \dotsb + a_{d_1} \uvec{u}_{d_1} </md>.
 			Then <m>\uvec{v}</m> is in <m>W_1</m>.
 			But by moving all the <m>\uvec{w}_j</m> terms to the other side
 			of <xref ref="equation-block-diag-theory-indep-subsp-iff-zero-intersect-test" />,
 			we obtain a second expression for <m>\uvec{v}</m>,
-			<me> \uvec{v} = - b_1 \uvec{w}_1 - b_2 \uvec{w}_2 - \dotsb - b_{d_2} \uvec{w}_{d_2} </me>,
+			<md> \uvec{v} = - b_1 \uvec{w}_1 - b_2 \uvec{w}_2 - \dotsb - b_{d_2} \uvec{w}_{d_2} </md>,
 			so that <m>\uvec{v}</m> is also in <m>W_2</m>.
 			Therefore, <m>\uvec{v} \in W_1 \cap W_2</m>.
 			By assumption, this intersection contains <em>only</em> the zero vector,
@@ -372,7 +372,7 @@ a complete set of independent subspaces lets us break up a vector in the space i
 		<m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>,
 		with each <m>\uvec{w}_j</m> in the corresponding space <m>W_j</m>,
 		so that
-		<me> \uvec{w} = \uvec{w}_1 + \uvec{w}_2 + \dotsb + \uvec{w}_m </me>.
+		<md> \uvec{w} = \uvec{w}_1 + \uvec{w}_2 + \dotsb + \uvec{w}_m </md>.
 	</p></statement>
 	<proof><title>Proof idea</title><p>
 		Choose a collection of bases <m>\basisfont{B}_1,\basisfont{B}_2,\dotsc,\basisfont{B}_m</m> for the subspaces <m>W_1,W_2,\dotsc,W_m</m>,

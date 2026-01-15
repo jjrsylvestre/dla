@@ -38,7 +38,7 @@ serve as a proof.
 	<title>Test for Linear Dependence/Independence</title>
 	<p>
 		Vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly dependent if the vector equation
-		<me> k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec </me>
+		<md> k_1\uvec{v}_1 + k_2\uvec{v}_2 + \dotsb + k_m\uvec{v}_m = \zerovec </md>
 		has a nontrivial solution in the (scalar) variables <m>k_1,k_2,\dotsc,k_m</m>.
 		Otherwise, if this vector equation has <em>only</em> the trivial solution <m>k_1=0,k_2=0,\dotsc,k_m=0</m>,
 		then the vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> are linearly independent.
@@ -235,14 +235,14 @@ and
 			Since <m>S</m> is assumed to be linearly independent, we know that <m>\uvec{w}</m> cannot be a linear combination of other vectors from just <m>S</m>.
 			Could it be a linear combination involving other vectors in <m>S</m> <em>and</em> <m>\uvec{v}</m>?
 			Suppose we had
-			<me> \uvec{w} = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_m\uvec{u}_m + k\uvec{v} </me>,
+			<md> \uvec{w} = k_1\uvec{u}_1 + k_2\uvec{u}_2 + \dotsb + k_m\uvec{u}_m + k\uvec{v} </md>,
 			for some vectors <m>\uvec{u}_1,\uvec{u}_2,\dotsc,\uvec{u}_m</m> in <m>S</m> and scalars <m>k_1,k_2,\dotsc,k_m,k</m>
 			(assuming <m>k\neq 0</m> so that <m>\uvec{v}</m> is indeed involved in the linear combination).
 			But then we could isolate <m>\uvec{v}</m> as
-			<me>
+			<md>
 				\uvec{v} = \frac{1}{k}\uvec{w} - \frac{k_1}{k}\uvec{u}_1
 				- \frac{k_2}{k}\uvec{u}_2 - \dotsb - \frac{k_m}{k}\uvec{u}_m
-			</me>,
+			</md>,
 			a linear combination of vectors in <m>S</m>,
 			which is not possible because we have assumed that <m>\uvec{v}</m> is not in <m>\Span S</m>.
 		</p></case>
@@ -289,7 +289,7 @@ The final fact below records our observation in <xref ref="activity-linear-indep
 		(<xref ref="proposition-linear-indep-test" />)
 		to <m>\uvec{w}_1,\uvec{w}_2,\dotsc,\uvec{w}_m</m>:
 		suppose there are scalars <m>k_1,k_2,\dotsc,k_m</m> so that
-		<me> k_1\uvec{w}_1 + k_2\uvec{w}_2 + \dotsb + k_m\uvec{w}_m = \zerovec </me>.
+		<md> k_1\uvec{w}_1 + k_2\uvec{w}_2 + \dotsb + k_m\uvec{w}_m = \zerovec </md>.
 		If we substitute in the above expressions for each <m>\uvec{w}_i</m> in terms of the vectors in <m>S'</m> and collect like terms, we get
 		<md>
 			<mrow>
@@ -304,19 +304,19 @@ The final fact below records our observation in <xref ref="activity-linear-indep
 		</md>.
 		If we set <m>c_1</m> to be the coefficient expression on <m>\uvec{v}_1</m> in the expression above,
 		and <m>c_2</m> to be the coefficient expression on <m>\uvec{v}_2</m>, and so on, then we obtain a vector equality
-		<me> c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_{n'}\uvec{v}_{n'} = \zerovec </me>.
+		<md> c_1\uvec{v}_1 + c_2\uvec{v}_2 + \dotsb + c_{n'}\uvec{v}_{n'} = \zerovec </md>.
 		But the vectors in this linear combination are the vectors in <m>S'</m>,
 		and we have assumed that <m>S'</m> is a linearly independent set.
 		So this vector equality can only be true for the trivial solution where each <m>c_i = 0</m>.
 		This leads to homogeneous system
-		<me>
+		<md>
 			\begin{sysofeqns}{rcrcccrcr}
 				a_{11}k_1 \amp + \amp a_{12}k_2 \amp + \amp \dotsb \amp + \amp a_{1m}k_m \amp = \amp 0 \text{,} \\
 				a_{21}k_1 \amp + \amp a_{22}k_2 \amp + \amp \dotsb \amp + \amp a_{2m}k_m \amp = \amp 0 \text{,} \\
 				\amp \amp \amp \amp \vdots \amp \amp \amp \\
 				a_{n'1}k_1 \amp + \amp a_{n'2}k_2 \amp + \amp \dotsb \amp + \amp a_{n'm}k_m \amp = \amp 0 \text{,}
 			\end{sysofeqns}
-		</me>
+		</md>
 		in the variables <m>k_1,k_2,\dotsc,k_m</m>.
 		Now, we have assumed <m>m > n \ge n'</m>, so we have more variables than equations in the homogeneous system above.
 		But then the solution will require parameters, which means there are nontrivial solutions.

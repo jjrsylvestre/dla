@@ -47,31 +47,31 @@ we can attempt to move past triangular block form by concentrating on that form 
 </p><p>
 As in <xref ref="activity-elem-nilpotent-moving-past-triang-block" />,
 consider triangular block form matrix
-<me> T = \begin{bmatrix} T_1 \\ \amp T_2 \\ \amp \amp \ddots \\ \amp \amp \amp T_\ell \end{bmatrix} </me>,
+<md> T = \begin{bmatrix} T_1 \\ \amp T_2 \\ \amp \amp \ddots \\ \amp \amp \amp T_\ell \end{bmatrix} </md>,
 where each block <m>T_j</m> is a scalar-triangular form.
 We would like to construct a transition matrix <m>Q</m> so that <m>\inv{Q} T Q</m> is somehow even simpler in form than <m>T</m>.
 There are aspects of triangular block form that make it particularly simple,
 and we don't want to mess those up.
 But if we restrict ourselves to working with transition matrices
-<me> Q = \begin{bmatrix} Q_1 \\ \amp Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp Q_\ell \end{bmatrix} </me>
+<md> Q = \begin{bmatrix} Q_1 \\ \amp Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp Q_\ell \end{bmatrix} </md>
 that are also in block-diagonal form,
 with the same number and sizes of blocks as <m>T</m>,
 then the algebra of block-diagonal matrices
 (<xref ref="proposition-block-diag-props-products-powers">Statement</xref>
 of <xref ref="proposition-block-diag-props" />)
 tells us that
-<me> \inv{Q} T Q = \begin{bmatrix} \inv{Q}_1 T_1 Q_1 \\ \amp \inv{Q}_2 T_2 Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp \inv{Q}_\ell T_\ell Q_\ell \end{bmatrix} </me>.
+<md> \inv{Q} T Q = \begin{bmatrix} \inv{Q}_1 T_1 Q_1 \\ \amp \inv{Q}_2 T_2 Q_2 \\ \amp \amp \ddots \\ \amp \amp \amp \inv{Q}_\ell T_\ell Q_\ell \end{bmatrix} </md>.
 So instead of focusing on how to make triangular block form simpler,
 we can focus on how to make each scalar-triangular block simpler.
 </p><p>
 A scalar-triangular matrix <m>S</m> can be decomposed as a sum of a scalar matrix and an upper triangular matrix,
-<me> S = \lambda I + N </me>,
+<md> S = \lambda I + N </md>,
 where the upper triangular matrix has zeros down the diagonal.
 (See <xref ref="equation-cayley-hamilton-scalar-triang-decomp" />
 in <xref ref="subsection-cayley-hamilton-concepts-nilpotent" />.)
 If <m>Q</m> is any transition matrix,
 then
-<me> \inv{Q} S Q = \inv{Q} (\lambda I + N) Q = \lambda \inv{Q} I Q + \inv{Q} N Q = \lambda I + \inv{Q} N Q </me>,
+<md> \inv{Q} S Q = \inv{Q} (\lambda I + N) Q = \lambda \inv{Q} I Q + \inv{Q} N Q = \lambda I + \inv{Q} N Q </md>,
 so again we can narrow our focus onto how to make matrices of the form of <m>N</m> simpler through similarity.
 And since an upper triangular matrix of this form is always nilpotent
 (<xref ref="lemma-cayley-hamilton-scalar-triang-nilpotent" />),
@@ -96,7 +96,7 @@ Here we are switching from an upper triangular form to a lower triangular form s
 We'll follow the example of <xref ref="activity-elem-nilpotent-transition-col-pattern" />
 and consider the <m>4 \times 4</m> case.
 Suppose that <m>A</m> is similar to
-<me>
+<md>
 	N =
 	\begin{bmatrix}
 		0 \amp 0 \amp 0 \amp 0 \\
@@ -104,7 +104,7 @@ Suppose that <m>A</m> is similar to
 		0 \amp 1 \amp 0 \amp 0 \\
 		0 \amp 0 \amp 1 \amp 0
 	\end{bmatrix}
-</me>.
+</md>.
 Using <xref ref="pattern-similarity-concepts-similarity-by-columns" />,
 we know that <m>\inv{P} A P = N</m> can only be true if
 <md>
@@ -158,7 +158,7 @@ It should be clear that the pattern will unfold in a similar manner for an <m>n 
 	<p>
 	For <m>n \times n</m> matrix <m>A</m> to be similar to an elementary nilpotent matrix <m>N</m> via similarity relation <m>\inv{P} A P</m>,
 	the columns <m>\uvec{p}_1,\uvec{p}_2,\dotsc,\uvec{p}_n</m> of the transition matrix <m>P</m> must satisfy the pattern
-	<me> \uvec{p}_{j+1} = A \uvec{p}_j = A^j \uvec{p}_1 </me>,
+	<md> \uvec{p}_{j+1} = A \uvec{p}_j = A^j \uvec{p}_1 </md>,
 	where the last vector <m>\uvec{p}_n = A^{n-1} \uvec{p}_1</m> must be in the null space of <m>A</m>.
 	</p>
 </convention>
@@ -171,7 +171,7 @@ It should be clear that the pattern will unfold in a similar manner for an <m>n 
 <p>
 According to <xref ref="pattern-elem-nilpotent-concepts-similarity" />,
 choosing the first column <m>\uvec{p}_1</m> of a transition matrix <m>P</m> automatically chooses all the other columns by
-<me> \uvec{p}_{j+1} = A^j \uvec{p}_1 </me>.
+<md> \uvec{p}_{j+1} = A^j \uvec{p}_1 </md>.
 However, none of the columns of <m>P</m> may be zero,
 since we need <m>P</m> to be invertible.
 In particular, we need
@@ -192,9 +192,9 @@ it must also have maximum degree of nilpotency
 Note that condition <xref ref="equation-elem-nilpotent-concepts-transition-pattern" />
 is enough to guarantee that all the other columns of <m>P</m> are nonzero,
 since if
-<me> \uvec{p}_j = A^{j-1} \uvec{p}_1 = \zerovec </me>
+<md> \uvec{p}_j = A^{j-1} \uvec{p}_1 = \zerovec </md>
 were true for some <m>j \lt n</m>, then
-<me> A^{n-1} \uvec{p}_1 = A^{n-j} (A^{j-1} \uvec{p}_1) = \zerovec </me>
+<md> A^{n-1} \uvec{p}_1 = A^{n-j} (A^{j-1} \uvec{p}_1) = \zerovec </md>
 would be true as well.
 <!--
 But picking a <m>\uvec{p}_1</m> to satisfy
@@ -205,7 +205,7 @@ some column of <m>A^{n-1}</m> must be nonzero,
 and so we may simply pick <m>\uvec{p}_1 = \uvec{e}_j</m>,
 a standard basis vector corresponding to some nonzero column of <m>A^{n-1}</m>.
 In that case,
-<me> A^{n-1} \uvec{p}_1 = A^{n-1} \uvec{e}_j </me>
+<md> A^{n-1} \uvec{p}_1 = A^{n-1} \uvec{e}_j </md>
 will be equal to that nonzero <m>\nth[j]</m> column of <m>A^{n-1}</m>.
 -->
 </p>
@@ -257,7 +257,7 @@ will be equal to that nonzero <m>\nth[j]</m> column of <m>A^{n-1}</m>.
 <p>
 In <xref ref="procedure-elem-nilpotent-concepts-max-nilp-elem-form" />,
 for the transition matrix <m>P</m> to be invertible it must be true that the vectors
-<me> \uvec{v}, A \uvec{v}, A^2 \uvec{v}, \dotsc, A^{n-1} \uvec{v} </me>
+<md> \uvec{v}, A \uvec{v}, A^2 \uvec{v}, \dotsc, A^{n-1} \uvec{v} </md>
 are linearly independent and so form a basis of <m>\R^n</m> (or <m>\C^n</m>, as appropriate).
 It is reasonable to turn the <q>cyclic</q> pattern exhibited by these basis vectors into a general concept,
 for all matrices instead of just for <em>nilpotent</em> ones.
@@ -265,7 +265,7 @@ for all matrices instead of just for <em>nilpotent</em> ones.
 Given an <m>n \times n</m> matrix <m>A</m>,
 a subspace <m>W</m> of <m>\R^n</m> (or <m>\C^n</m>, as appropriate)
 that can be described by a <q>cyclic</q> spanning set as
-<me> W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc \} </me>
+<md> W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc \} </md>
 is called an <term><m>A</m>-cyclic subspace</term>,
 and the generating vector <m>\uvec{w}</m> is called an
 <term><m>A</m>-cyclic vector</term> for <m>W</m>.
@@ -276,10 +276,10 @@ but we will say a couple of things here.
 First, being contained in a finite-dimensional space,
 the infinite spanning set for <m>W</m> cannot be linarly independent.
 So there will be a point in the sequence
-<me> \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc </me>
+<md> \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc </md>
 where <m>A^k \uvec{w}</m> is dependent with all the previous vectors,
 and then we will have
-<me> W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc, A^{k-1} \uvec{w} \} </me>.
+<md> W = \Span \{ \uvec{w}, A \uvec{w}, A^2 \uvec{w}, \dotsc, A^{k-1} \uvec{w} \} </md>.
 (See <xref ref="lemma-elem-nilpotent-cyclic-transition" />.)
 </p><p>
 Second, an <m>A</m>-cyclic subspace is always <m>A</m>-invariant.
@@ -316,7 +316,7 @@ Suppose <m>N</m> is an <m>n \times n</m> matrix in elementary nilpotent form.
 	<li>
 		The rank of <m>N</m> is one less than full, <m>n - 1</m>,
 		and ranks of powers of <m>N</m> decrease from there:
-		<me> \rank N = n - 1, \quad \rank N^2 = n - 2, \quad \rank N^3 = n - 3, \quad \dotsc </me>,
+		<md> \rank N = n - 1, \quad \rank N^2 = n - 2, \quad \rank N^3 = n - 3, \quad \dotsc </md>,
 		until we reach <m>\rank N^n = 0</m>.
 	</li>
 </ul>

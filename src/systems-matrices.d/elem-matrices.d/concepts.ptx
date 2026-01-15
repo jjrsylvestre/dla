@@ -116,30 +116,30 @@ then a <em>sequence</em> of row operations can be achieved can be achieved by it
 as in
 <xref ref="activity-elem-matrices-application-order" />.
 For example, suppose we were to perform the following sequence of operations on some <m>3 \times \ell</m> matrix <m>A</m>:
-<me>
+<md>
 	A
 	\xrightarrow{R_2 + 2 R_1} A'
 	\xrightarrow{-4 R_3} A''
 	\xrightarrow{R_1 \leftrightarrow R_2} A'''
-</me>.
+</md>.
 The first operation is the same as that corresponding to the elementary matrix <m>E</m> from
 <xref ref="activity-elem-matrices-intro" />,
 so the first result <m>A'</m> is equal to <m>E A</m>.
 Similarly, the second operation is the same as that corresponding to the elementary matrix <m>E'</m> from
 <xref ref="activity-elem-matrices-intro-cont" />,
 but this second operation is <em>being applied to the first result</em> <m>A'</m>.
-So the second result <m>A''</m> is equal to <me> E' A' = E' (E A) </me>.
+So the second result <m>A''</m> is equal to <md> E' A' = E' (E A) </md>.
 Finally, the third operation is the same as that corresponding to the elementary matrix <m>E''</m> from
 <xref ref="activity-elem-matrices-intro-cont-more" />,
 and this third operation is <em>being applied to the second result</em> <m>A''</m>.
-So the third result <m>A'''</m> is equal to <me> E'' A'' = E'' \bbrac{E' (E A)}</me>.
+So the third result <m>A'''</m> is equal to <md> E'' A'' = E'' \bbrac{E' (E A)}</md>.
 So our sequence of row operations is
-<me>
+<md>
 	A
 	\xrightarrow{R_2 + 2 R_1} E A
 	\xrightarrow{-4 R_3} E' E A
 	\xrightarrow{R_1 \leftrightarrow R_2} E'' E' E A
-</me>,
+</md>,
 where each new elementary matrix corresponds to the operation of the preceding arrow.
 <alert>Notice the order of the elementary matrices in the final product</alert> <mdash />
 the elementary matrices appear in right-to-left order compared to the order that the operations have been performed.
@@ -153,12 +153,12 @@ we examined this kind of correspondence between row operations and elementary ma
 It is possible to row reduce the matrix <m>B</m> in that activity to the identity matrix in three operations,
 represented by elementary matrices
 <m>E_1,E_2,E_3</m>:
-<me>
+<md>
 	B
 	\xrightarrow[\text{operation }\phantom{x}]{\text{first}} E_1 B
 	\xrightarrow[\text{operation }\phantom{x}]{\text{second}} E_2 E_1 B
 	\xrightarrow[\text{operation }\phantom{x}]{\text{third}} E_3 E_2 E_1 B
-</me>.
+</md>.
 See
 <xref ref="subsection-elem-matrices-examples-decompositions" />
 for another example of determining elementary matrices corresponding to the steps in a row reduction process.
@@ -314,19 +314,19 @@ then also <m>E</m> corresponds to the reverse of the operation of <m>E'</m>.
 </p><p>
 If we perform these operations on the identity matrix,
 we get
-<me>
+<md>
 	I
 	\quad\xrightarrow{\text{operation}}\quad
 	EI
 	\quad\xrightarrow[\text{operation}]{\text{reverse}}\quad
 	E'EI,
-</me><me>
+</md><md>
 	I
 	\quad\xrightarrow[\text{operation}]{\text{reverse}}\quad
 	E'I
 	\quad\xrightarrow{\text{operation}}\quad
 	EE'I.
-</me>
+</md>
 But in both situations we should be back at the identity matrix,
 because the second operation reverses the first.
 Thus, <m>E'E = I</m> and <m>EE' = I</m>,
@@ -351,7 +351,7 @@ We have just learned in the preceding subsection
 (<xref ref="subsection-elem-matrices-concepts-inverses-of-elem-matrices" />)
 that elementary matrices are invertible,
 so we can use the algebra of matrix inverses to isolate <m>B</m> as
-<me> B = \inv{E}_1\inv{E}_2\inv{E}_3.</me>
+<md> B = \inv{E}_1\inv{E}_2\inv{E}_3.</md>
 Now, from the preceding subsection we know that each of
 <m>\inv{E}_1,\inv{E}_2,\inv{E}_3</m>
 is also an elementary matrix.
@@ -385,7 +385,7 @@ and so inverting it is the same as trying to <em>reverse</em> that sequence of o
 Still working with the matrix <m>B</m> from
 <xref ref="activity-elem-matrices-invert-method" />,
 consider the formula
-<me> \inv{B} = E_3 E_2 E_1 I, </me>
+<md> \inv{B} = E_3 E_2 E_1 I, </md>
 from the computation in
 <xref ref="subsection-elem-matrices-concepts-inverses-by-elem-matrices" />.
 We could simplify away the identity matrix
@@ -422,11 +422,11 @@ one operation at a time.
 		To compute the inverse of a square matrix <m>A</m>,
 		augment that matrix with the identity matrix and row reduce until the identity matrix is obtained on the left where there initially was <m>A</m>.
 		The matrix on the right where there was initially <m>I</m> will now be <m>\inv{A}</m>.
-		<me>
+		<md>
 			\begin{abmatrix}{c|c} A \amp I \end{abmatrix}
 			\qquad\rowredarrow\qquad
 			\begin{abmatrix}{c|c} I \amp \inv{A} \end{abmatrix}
-		</me>
+		</md>
 		If it is not possible to obtain the identity on the left
 		(that is, if the RREF of <m>A</m> is not <m>I</m>),
 		then <m>A</m> is not invertible.

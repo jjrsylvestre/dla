@@ -175,7 +175,7 @@ some known and some unknown.
 
 <p>
 To make such a matrix equation more resemble the basic linear equation pattern of
-<me> \text{coefficient} \times \text{unknown} = \text{constant} </me>,
+<md> \text{coefficient} \times \text{unknown} = \text{constant} </md>,
 we collect all the system coefficients into a <term>coefficient matrix</term>,
 all the variables into the <term>(column) vector of unknowns</term>,
 and all the right-hand constants into the <term>(column) vector of constants</term>:
@@ -205,15 +205,15 @@ and to do this we need to decide how <m>A</m> times <m>\uvec{x}</m> should work.
 But we already know how to represent the system as a single matrix equation
 (see <xref ref="equation-matrix-ops-concepts-system-as-equal-cols" />),
 so we should have
-<me>
+<md>
 	A \uvec{x} =
 	\begin{abmatrix}{c}
 		x_1 - 3 x_2 - x_3 \\
 		-2 x_1 + 7 x_2 + 2 x_3
 	\end{abmatrix}
-</me>,
+</md>,
 or
-<me>
+<md>
 	\begin{abmatrix}{rrr}
 		 1 \amp -3 \amp -1 \\
 		-2 \amp  7 \amp  2
@@ -224,7 +224,7 @@ or
 		x_1 - 3 x_2 - x_3 \\
 		-2 x_1 + 7 x_2 + 2 x_3
 	\end{abmatrix}
-</me>.
+</md>.
 We can now see how a matrix times a column should proceed:
 multiply the entries of the first row of the matrix against the corresponding entries in the column,
 add these products,
@@ -279,7 +279,7 @@ Notice that the result is a <m>1\times 1</m> matrix containing just a single ent
 Now let's consider a matrix <m>A</m> times a column <m>\uvec{b}</m>,
 where we consider <m>A</m> as being made of row vectors.
 Then,
-<me>
+<md>
 	A\uvec{b}
 	= \begin{bmatrix}
 		\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute\\
@@ -288,7 +288,7 @@ Then,
 		\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
 	\end{bmatrix}\uvec{b}
 	= \begin{bmatrix}\uvec{a}_1\uvec{b} \\ \uvec{a}_2\uvec{b} \\ \vdots \\ \uvec{a}_m\uvec{b}\end{bmatrix},
-</me>
+</md>
 where each entry <m>\uvec{a}_i \uvec{b}</m> in the result on the right is calculated by the <em>row-times-column</em> pattern from
 <xref ref="equation-matrix-ops-concepts-row-times-column" />.
 However, we do not actually have a <m>1\times 1</m> matrix in each entry,
@@ -341,7 +341,7 @@ and the number of entries in a column of <m>B</m> is the number of rows of <m>B<
 	otherwise, we say that the product <m>A B</m> is <term>undefined</term>.
 	In the case that <m>n</m> and <m>k</m> are the same, the product <m>AB</m> has size <m>m \times \ell</m>.
 	</p><p>
-	An easy way to remember this is that if we want to multiply <me>m \times n \quad\text{ times }\quad k \times \ell</me>,
+	An easy way to remember this is that if we want to multiply <md>m \times n \quad\text{ times }\quad k \times \ell</md>,
 	it will only work if the <q>inside</q> dimensions <m>n</m> and <m>k</m> match,
 	and result will be the <q>outside</q> dimensions <m>m \times \ell</m>.
 	</p>

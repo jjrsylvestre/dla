@@ -36,7 +36,7 @@ and let <m>\inprod{\blank}{\blank}</m> represent either the real or complex dot 
 </p><p>
 Thinking geometrically, for an <m>n \times n</m> matrix <m>A</m> and column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>,
 the expression
-<me> \inprod{\uvec{u}}{A \uvec{v}} </me>
+<md> \inprod{\uvec{u}}{A \uvec{v}} </md>
 could be considered to be a pairing not of two vectors in <m>V</m>,
 but rather a pairing of a vector in <m>V</m> with a vector in a <q>transformed</q> version of <m>V</m>,
 with the transformation achieved through multiplication by <m>A</m>.
@@ -49,7 +49,7 @@ with the transformation achieved through multiplication by <m>A</m>.
 	but so that the result is always the same as when it was the <em>second</em> vector that was transformed?
 	</p><p>
 	That is, for what <m>n \times n</m> matrix <m>B</m> would we have
-	<me> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{B \uvec{u}}{\uvec{v}} </me>
+	<md> \inprod{\uvec{u}}{A \uvec{v}} = \inprod{B \uvec{u}}{\uvec{v}} </md>
 	for every pair of column vectors <m>\uvec{u},\uvec{v}</m> in <m>V</m>?
 	</p>
 </question>
@@ -73,7 +73,7 @@ we have <m>\adjoint{(\adjoint{A})} = A</m> in both the real and complex contexts
 To state this property relative to the inner product,
 for every pair of column vectors <m>\uvec{u},\uvec{v}</m>
 it is also always true that
-<me> \inprod{\uvec{u}}{\adjoint{A} \uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </me>.
+<md> \inprod{\uvec{u}}{\adjoint{A} \uvec{v}} = \inprod{A \uvec{u}}{\uvec{v}} </md>.
 </p><p>
 In <xref ref="activity-matrix-adjoints-invariant-subspaces-vs-adjoints" />,
 we found another geometric interpretation of the adjoint:
@@ -134,12 +134,12 @@ For the purposes of unifying the real and complex contexts into one discussion,
 <p>
 We can manipulate <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-def" />
 using the adjoint <m>\adjoint{A}</m>:
-<me> \inprod{\uvec{u}}{\adjoint{A} A \uvec{v}} = \inprod{\uvec{u}}{\uvec{v}} </me>.
+<md> \inprod{\uvec{u}}{\adjoint{A} A \uvec{v}} = \inprod{\uvec{u}}{\uvec{v}} </md>.
 But now this exhibits an adjoint pattern again, not for <m>A</m> but for <m>\adjoint{A} A</m>:
-<me> \inprod{\uvec{u}}{\adjoint{A} A \uvec{v}} = \inprod{I \uvec{u}}{\uvec{v}} </me>.
+<md> \inprod{\uvec{u}}{\adjoint{A} A \uvec{v}} = \inprod{I \uvec{u}}{\uvec{v}} </md>.
 Since this is true for all pairs <m>\uvec{u},\uvec{v}</m>,
 this says that
-<me> \adjoint{(\adjoint{A} A)} = I </me>.
+<md> \adjoint{(\adjoint{A} A)} = I </md>.
 But since the identity matrix is clearly self-adjoint,
 we can take the adjoint of both sides of this equality to obtain a characterization of the concept of <term>product-preserving</term> in matrix algebra terms:
 <md><mrow xml:id="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" tag="dagger">
@@ -159,34 +159,34 @@ and <xref ref="activity-matrix-adjoints-unitary" />.
 Applying the determinant to both sides of equality <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" />,
 we can then use <xref ref="lemma-det-by-row-red-det-transpose" />
 to conclude that
-<me> (\det A)^2 = 1 </me>
+<md> (\det A)^2 = 1 </md>
 in the real context,
 and can use <xref ref="proposition-complex-matrices-conj-adj-det" />
 to conclude that
-<me> \lcconj{(\det A)} (\det A) = 1 </me>
+<md> \lcconj{(\det A)} (\det A) = 1 </md>
 in the complex context.
 We can unify both contexts by writing
-<me> \abs{\det A} = 1 </me>,
+<md> \abs{\det A} = 1 </md>,
 meaning absolute value on the left in the real context and meaning complex modulus on the left in the complex context.
 </p><p>
 Finally, consider the matrix multiplication pattern on the left-hand side of equality
 <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" />.
 If we write <m>\uvec{a}_1,\uvec{a}_2,\dotsc,\uvec{a}_n</m> for the columns of <m>A</m>,
 then the <m>(i,j)</m> entry in the product <m>\adjoint{A} A</m> is
-<me> \adjoint{\uvec{a}}_i \uvec{a}_j </me>.
+<md> \adjoint{\uvec{a}}_i \uvec{a}_j </md>.
 Recall that <m>\adjoint{\uvec{a}}_i</m> will just be <m>\utrans{\uvec{a}}_i</m> in the real context.
 So in <em>both</em> real and complex contexts,
 we can say that the <m>(i,j)</m> entry in the product <m>\adjoint{A} A</m> is
-<me> \inprod{\uvec{a}_j}{\uvec{a}_i} </me>.
+<md> \inprod{\uvec{a}_j}{\uvec{a}_i} </md>.
 But if <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-product-eq-I" /> holds,
 then we must have
-<me>
+<md>
 	\inprod{\uvec{a}_j}{\uvec{a}_i}
 	= \begin{cases}
 		1 \text{,} \amp i = j \text{,} \\
 		0 \text{,} \amp i \neq j \text{.}
 	\end{cases}
-</me>
+</md>
 In other words,
 a matrix is product-preserving precisely when its columns are an orthonormal set.
 And since orthogonality implies independence
@@ -211,9 +211,9 @@ So, as we found for orthogonal matrices in <xref ref="activity-matrix-adjoints-o
 </p><p>
 In particular, a product-preserving matrix with preserve both orthogonal and orthonormal sets.
 That is, if
-<me> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </me>
+<md> S = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_\ell \} </md>
 is an orthogonal set of column vectors, then so is
-<me> S' = \{ A \uvec{v}_1, A \uvec{v}_2, \dotsc, A\uvec{v}_\ell \} </me>.
+<md> S' = \{ A \uvec{v}_1, A \uvec{v}_2, \dotsc, A\uvec{v}_\ell \} </md>.
 And if <m>S</m> is in fact ortho<em>normal</em>, then so is <m>S'</m>.
 We can go even further and say that
 <alert>transforming an orthogonal basis through multiplication by a product-preserving matrix will result in another orthogonal basis</alert>,
@@ -227,25 +227,25 @@ Consider again <xref ref="activity-matrix-adjoints-cob-matrix-unitary" />.
 The columns of a transition matrix are coordinate vectors for expanding each <q>old</q> basis vector relative to the <q>new</q> basis.
 If we are working in a finite-dimensional inner product space <m>V</m>,
 and the <q>new</q> basis
-<me> \basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>
+<md> \basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </md>
 for <m>V</m> is orthonormal,
 then we can use the <xref ref="theorem-inprod-orthog-expansion" text="title" /> (<xref ref="theorem-inprod-orthog-expansion" />)
 to express each vector in the <q>old</q> basis
-<me> \basisfont{B}' = \{ \uvec{v}_1', \uvec{v}_2', \dotsc, \uvec{v}_n' \} </me>
+<md> \basisfont{B}' = \{ \uvec{v}_1', \uvec{v}_2', \dotsc, \uvec{v}_n' \} </md>
 as
-<me> \uvec{v}_j' = \inprod{\uvec{v}_j'}{\uvec{v}_1} \uvec{v}_1 + \inprod{\uvec{v}_j'}{\uvec{v}_2} \uvec{v}_2 + \dotsb + \inprod{\uvec{v}_j'}{\uvec{v}_n} \uvec{v}_n </me>.
+<md> \uvec{v}_j' = \inprod{\uvec{v}_j'}{\uvec{v}_1} \uvec{v}_1 + \inprod{\uvec{v}_j'}{\uvec{v}_2} \uvec{v}_2 + \dotsb + \inprod{\uvec{v}_j'}{\uvec{v}_n} \uvec{v}_n </md>.
 The <m>\nth[j]</m> column of <m>\ucobmtrx{B'}{B}</m> contains the coefficients in the expression above,
 and so we have <m>(i,j)</m> entry
-<me> p_{ij} =  \inprod{\uvec{v}_j'}{\uvec{v}_i} </me>.
+<md> p_{ij} =  \inprod{\uvec{v}_j'}{\uvec{v}_i} </md>.
 By the same reasoning, if <m>\basisfont{B}'</m> is also orthonormal,
 then the <m>(i,j)</m> entry of <m>\ucobmtrx{B}{B'}</m> is
-<me> p_{ij}' =  \inprod{\uvec{v}_j}{\uvec{v}_i'} </me>.
+<md> p_{ij}' =  \inprod{\uvec{v}_j}{\uvec{v}_i'} </md>.
 If we instead say that the <m>(j,i)</m> entry of <m>\ucobmtrx{B}{B'}</m> is
-<me> p_{ji}' =  \inprod{\uvec{v}_i}{\uvec{v}_j'} </me>,
+<md> p_{ji}' =  \inprod{\uvec{v}_i}{\uvec{v}_j'} </md>,
 we immediately see that
-<me> \uadjcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</me>.
+<md> \uadjcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</md>.
 Since we also know
-<me> \uinvcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</me>
+<md> \uinvcobmtrx{B'}{B} = \ucobmtrx{B}{B'}</md>
 (<xref ref="proposition-change-of-basis-cob-props-reverse-is-inverse">Rule</xref>
 of <xref ref="proposition-change-of-basis-cob-props" />),
 we can use the characterization <xref ref="equation-matrix-adjoints-concepts-orthog-unitary-adjoint-eq-inv" />

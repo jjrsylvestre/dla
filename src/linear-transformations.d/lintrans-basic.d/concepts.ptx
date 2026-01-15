@@ -57,9 +57,9 @@ but there is no reason to restrict to just the square case.
 
 <p>
 Such an input-output process creates a <term>function</term>
-<me> \funcdef{T}{\R^n}{\R^m} </me>,
+<md> \funcdef{T}{\R^n}{\R^m} </md>,
 where both inputs and outputs are vectors:
-<me> T(x_1,x_2,\dotsc,x_n) = (w_1,w_2,\dotsc,w_m) </me>.
+<md> T(x_1,x_2,\dotsc,x_n) = (w_1,w_2,\dotsc,w_m) </md>.
 If the input-output process is achieved by matrix multiplication by a matrix <m>A</m>,
 then it resembles a linear system of equations
 <md><mrow>
@@ -70,14 +70,14 @@ then it resembles a linear system of equations
 </mrow></md>.
 Breaking out into individual components,
 we get a linear-system-like set of input-output formulas
-<me>
+<md>
 	\begin{sysofeqns}{ccccccccc}
 		w_1 \amp = \amp a_{11} x_1 \amp + \amp a_{12} x_2 \amp + \amp \dotsb \amp + \amp a_{1n} x_n \text{,} \\
 		w_2 \amp = \amp a_{21} x_1 \amp + \amp a_{22} x_2 \amp + \amp \dotsb \amp + \amp a_{2n} x_n \text{,} \\
 		 \amp \vdots \\
 		w_m \amp = \amp a_{m1} x_1 \amp + \amp a_{m2} x_2 \amp + \amp \dotsb \amp + \amp a_{mn} x_n \text{,}
 	\end{sysofeqns}
-</me>
+</md>
 where the <m>a_{ij}</m> are the entries of <m>A</m>.
 So <alert>a matrix transformation <m>\R^n \to \R^m</m> is equivalent to a system of linear input-output formulas</alert>.
 </p>
@@ -86,11 +86,11 @@ So <alert>a matrix transformation <m>\R^n \to \R^m</m> is equivalent to a system
 We will write <m>T_A</m> to mean the matrix transformation <m>\R^n \to \R^m</m> corresponding to <m>m \times n</m> matrix <m>A</m>.
 As we found in <xref ref="activity-lintrans-basic-matrix-against-std-vecs">Discovery</xref>,
 the output results of
-<me> T_A(\uvec{e}_1), \quad T_A(\uvec{e}_2), \quad \dotsc, \quad T_A(\uvec{e}_n) </me>
+<md> T_A(\uvec{e}_1), \quad T_A(\uvec{e}_2), \quad \dotsc, \quad T_A(\uvec{e}_n) </md>
 correspond to the columns of <m>A</m>,
 where the <m>\uvec{e}_j</m> are the standard basis vectors in <m>\R^n</m>,
 because we know that
-<me> A \uvec{e}_j = \uvec{a}_j </me>,
+<md> A \uvec{e}_j = \uvec{a}_j </md>,
 the <m>\nth[j]</m> column of <m>A</m>.
 This pattern will be important below.
 </p>
@@ -180,7 +180,7 @@ we found that knowing the image vectors for each vector in a spanning set for th
 
 <p>
 If
-<me> V = \Span \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>,
+<md> V = \Span \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </md>,
 and the image vectors
 <md><mrow>
 	T(\uvec{v}_1) \amp = \uvec{w}_1, \amp
@@ -216,10 +216,10 @@ See <xref ref="example-lintrans-basic-via-spanning" /> for an example of using a
 
 	</ol>
 	Then every other image vector for <m>T</m> can be computed by
-	<me>
+	<md>
 		T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_n \uvec{v}_n)
 		= a_1 \uvec{w}_1 + a_2 \uvec{w}_2 + \dotsb + a_n \uvec{w}_n
-	</me>.
+	</md>.
 
 	</p>
 
@@ -266,13 +266,13 @@ that satisfies
 	T_A(\uvec{e}_n) \amp = \uvec{w}_n
 </mrow></md>;
 namely, the matrix transformation associated to the <m>m \times n</m> matrix
-<me>
+<md>
 	A = \begin{bmatrix}
 		| \amp | \amp \amp | \\
 		\uvec{w}_1 \amp \uvec{w}_2 \amp \cdots \amp \uvec{w}_n \\
 		| \amp | \amp \amp |
 	\end{bmatrix}
-</me>.
+</md>.
 And in light of <xref ref="activity-lintrans-basic-basis-images" />,
 since the outputs of <m>T</m> and <m>T_A</m> agree on the standard basis vectors for the domain space <m>\R^n</m>,
 they will also agree on every linear combination of those standard basis vectors,
@@ -340,7 +340,7 @@ See <xref ref="subsection-lintrans-basic-examples-std-matrix" /> for examples of
 <p>
 Given a pair of vector spaces <m>V,W</m>,
 we can create a <em>trivial</em> linear transformation <m>\funcdef{\zerovec}{V}{W}</m> by defining
-<me> \zerovec(\uvec{v}) = \zerovec_W </me>
+<md> \zerovec(\uvec{v}) = \zerovec_W </md>
 for all <m>\uvec{v}</m> in <m>V</m>,
 where <m>\zerovec_W</m> is the zero vector in <m>W</m>.
 If we want to distinguish the zero <em>transformation</em> from the zero <em>vector</em> or the zero <em>matrix</em>
@@ -370,7 +370,7 @@ And clearly the standard matrix of <m>\funcdef{\zerovec}{\R^n}{\R^m}</m> will be
 <p>
 Given a vector space <m>V</m>,
 we can create an <em>identity</em> linear transformation <m>\funcdef{I_V}{V}{V}</m> by sending each vector in <m>V</m> to itself:
-<me> I_V(\uvec{v}) = \uvec{v} </me>
+<md> I_V(\uvec{v}) = \uvec{v} </md>
 for all <m>\uvec{v}</m> in <m>V</m>.
 It should be obvious that <m>I_V</m> satisfies the linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />.
 </p>
@@ -385,7 +385,7 @@ It should be obvious that <m>I_V</m> satisfies the linearity properties <xref re
 <p>
 Given a vector space <m>V</m>,
 we can create an <em>negative</em> linear transformation <m>\funcdef{\negop_V}{V}{V}</m> by sending each vector in <m>V</m> to its negative:
-<me> \negop_V(\uvec{v}) = - \uvec{v} </me>
+<md> \negop_V(\uvec{v}) = - \uvec{v} </md>
 for all <m>\uvec{v}</m> in <m>V</m>.
 The fact that <m>\negop_V</m> satisfies the linearity properties <xref ref="equation-lintrans-basic-concepts-linearity-props" />
 is obvious from
@@ -404,7 +404,7 @@ of <xref ref="proposition-abstract-vec-spaces-basic-vec-props" />.
 <p>
 Given a vector space <m>V</m> and a scalar <m>a</m>,
 we can create a <em>scalar multiplication</em> linear transformation <m>\funcdef{m_a}{V}{V}</m> by scaling each vector in <m>V</m> by scale factor <m>a</m>:
-<me> m_a(\uvec{v}) = a \uvec{v} </me>
+<md> m_a(\uvec{v}) = a \uvec{v} </md>
 for all <m>\uvec{v}</m> in <m>V</m>.
 </p>
 
@@ -449,7 +449,7 @@ is linear.
 <p>
 If <m>V = \R^n</m>,
 then the standard matrix for <m>\coordmap{B}</m> is
-<me>
+<md>
 	\stdmatrixOf{\coordmap{B}}
 	= \begin{bmatrix}
 		| \amp | \amp \amp | \\
@@ -461,7 +461,7 @@ then the standard matrix for <m>\coordmap{B}</m> is
 		\matrixOf{\uvec{e}_1}{B} \amp \matrixOf{\uvec{e}_2}{B} \amp \cdots \amp \matrixOf{\uvec{e}_n}{B} \\
 		| \amp | \amp \amp |
 	\end{bmatrix}
-</me>,
+</md>,
 which is precisely the transition matrix <m>\ucobmtrx{S}{B}</m>,
 where <m>\basisfont{S}</m> is the standard basis for <m>\R^n</m>
 (see <xref ref="subsection-change-of-basis-concepts-coord-vecs-convert" />).
@@ -476,18 +476,18 @@ where <m>\basisfont{S}</m> is the standard basis for <m>\R^n</m>
 The <xref ref="proposition-inner-prod-linearity" text="title" /> (<xref ref="proposition-inner-prod-linearity" />)
 implies that by choosing a fixed vector <m>\uvec{u}_0</m> in an inner product space <m>V</m>,
 we can create a transformation <m>\funcdef{T_{\uvec{u}_0}}{V}{\R^1}</m> by pairing with <m>\uvec{u}_0</m>:
-<me> T_{\uvec{u}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{u}_0} </me>
+<md> T_{\uvec{u}_0}(\uvec{x}) = \inprod{\uvec{x}}{\uvec{u}_0} </md>
 for all <m>\uvec{x}</m> in <m>V</m>.
 </p>
 
 <p>
 If <m>V = \R^n</m> with the standard Euclidean inner product,
 then the standard matrix for <m>T_{\uvec{u}_0}</m> is the <m>1 \times n</m> matrix
-<me>
+<md>
 	\stdmatrixOf{T_{\uvec{u}_0}}
 	= \begin{bmatrix} T_{\uvec{u}_0}(\uvec{e}_1) \amp T_{\uvec{u}_0}(\uvec{e}_2) \amp \cdots \amp T_{\uvec{u}_0}(\uvec{e}_n) \end{bmatrix}
 	= \begin{bmatrix} \dotprod{\uvec{e}_1}{\uvec{u}_0} \amp \dotprod{\uvec{e}_2}{\uvec{u}_0} \amp \cdots \amp \dotprod{\uvec{e}_n}{\uvec{u}_0} \end{bmatrix}
-</me>.
+</md>.
 But for each index <m>j</m>,
 the result of <m>\dotprod{\uvec{e}_j}{\uvec{u}_0}</m> is the <m>\nth[j]</m> coordinate of the <m>\R^n</m>-vector <m>\uvec{u}_0</m>.
 That is, <m>\stdmatrixOf{T_{\uvec{u}_0}}</m> is just <m>\uvec{u}_0</m> itself, as a row vector.
@@ -551,9 +551,9 @@ we have
 </md>.
 This implies that the sum transformation <m>T_1 + T_2</m> is the same as the matrix transformation <m>T_B</m> for <m>B = A_1 + A_2</m>.
 In other words,
-<me> \stdmatrixOf{T_1 + T_2} = \stdmatrixOf{T_1} + \stdmatrixOf{T_2} </me>.
+<md> \stdmatrixOf{T_1 + T_2} = \stdmatrixOf{T_1} + \stdmatrixOf{T_2} </md>.
 And one can similarly demonstrate that for each <m>T</m> in <m>L(\R^n,\R^m)</m> and each scalar <m>k</m>,
-<me> \stdmatrixOf{k T} = k \stdmatrixOf{T} </me>.
+<md> \stdmatrixOf{k T} = k \stdmatrixOf{T} </md>.
 Combined, these two properties of the relationship between a linear transformation <m>\R^n \to \R^m</m> and the corresponding <m>m \times n</m> matrix mean that,
 as a vector space,
 <m>L(\R^n,\R^m)</m> can be considered as the <q>same</q> space as <m>\matrixring_{m \times n}(\R)</m>.
@@ -612,11 +612,11 @@ and using the unique expansions
 	</mrow>
 </md>
 relative to <m>\basisfont{B}</m> to define a pairing
-<me> {\uvecinprod{u}{w}}_{\basisfont{B}} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </me>.
+<md> {\uvecinprod{u}{w}}_{\basisfont{B}} = a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n </md>.
 This pairing will be an inner product,
 and <m>\basisfont{B}</m> will indeed by orthonormal with respect to it.
 Then we can use a fixed vector <m>\uvec{w}_0</m> in <m>V</m> to create a linear functional <m>T_{\uvec{w}_0}</m> by
-<me> T_{\uvec{w}_0}(\uvec{x}) = {\inprod{\uvec{x}}{\uvec{w}_0}}_{\basisfont{B}} </me>,
+<md> T_{\uvec{w}_0}(\uvec{x}) = {\inprod{\uvec{x}}{\uvec{w}_0}}_{\basisfont{B}} </md>,
 as before.
 </p>
 
@@ -633,9 +633,9 @@ Applying <m>f</m> to the basis vectors <m>\uvec{v}_j</m>, we obtain scalars
 	a_n \amp = f(\uvec{v}_n)
 </mrow></md>
 that can be used to create a vector
-<me> \uvec{w}_0 = a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsc + a_n \uvec{v}_n </me>.
+<md> \uvec{w}_0 = a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsc + a_n \uvec{v}_n </md>.
 If
-<me> \uvec{u} = b_1 \uvec{v}_1 + b_2 \uvec{v}_2 + \dotsc + b_n \uvec{v}_n </me>
+<md> \uvec{u} = b_1 \uvec{v}_1 + b_2 \uvec{v}_2 + \dotsc + b_n \uvec{v}_n </md>
 is any other vector in <m>V</m>,
 then the linearity of <m>f</m> gives us
 <md>
@@ -671,7 +671,7 @@ However, in more advanced study of linear algebra,
 you might learn that there is actually a <term>coordinate-free</term> correspondence directly between <m>V</m> and its double dual space <m>\vecddual{V}</m>.
 This correspondence is easy to describe:
 for <m>\uvec{v}</m> in <m>V</m>, define linear functional <m>\vecdual{T}_\uvec{v}</m> on <m>\vecdual{V}</m> by
-<me> \vecdual{T}_\uvec{v} (f) = f(\uvec{v}) </me>.
+<md> \vecdual{T}_\uvec{v} (f) = f(\uvec{v}) </md>.
 To make sense of this definition, keep in mind that a linear functional on <m>\vecdual{V}</m> should take as inputs linear functionals on <m>V</m>.
 We will leave further analysis of this correspondence to your future studies in linear algebra.
 </p>

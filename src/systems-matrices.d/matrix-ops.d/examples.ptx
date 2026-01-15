@@ -40,12 +40,12 @@ Here are some basic examples of matrix addition, subtraction, and scalar multipl
 For subtraction, watch out for double negatives!
 </p>
 
-<example xml:id="example-matrix-ops-add"><title>Matrix addition</title><p><me>
+<example xml:id="example-matrix-ops-add"><title>Matrix addition</title><p><md>
 	\begin{abmatrix}{rr} 1 \amp -2 \\ 3 \amp 4 \\ -5 \amp 6 \end{abmatrix}
 	+ \begin{abmatrix}{rr} 0 \amp 1 \\ 1 \amp -2 \\ 11 \amp 0 \end{abmatrix}
 	= \begin{bmatrix} 1+0 \amp -2+1 \\ 3+1 \amp 4+(-2) \\ -5+11 \amp 6+0 \end{bmatrix}
 	= \begin{abmatrix}{rr} 1 \amp -1 \\ 4 \amp 2 \\ 6 \amp 6 \end{abmatrix}
-</me></p></example>
+</md></p></example>
 
 <example xml:id="example-matrix-ops-subtr"><title>Matrix subtraction</title><p><md><mrow>
 	\begin{abmatrix}{rrr} 1 \amp -2 \amp 3 \\ 0 \amp -4 \amp -5 \end{abmatrix}
@@ -55,10 +55,10 @@ For subtraction, watch out for double negatives!
 	\amp = \begin{abmatrix}{rrr} 1 \amp -3 \amp 2 \\ 2 \amp -15 \amp -4 \end{abmatrix}
 </mrow></md></p></example>
 
-<example xml:id="example-matrix-ops-scalar-mul"><title>Scalar multiplication of a matrix</title><p><me>
+<example xml:id="example-matrix-ops-scalar-mul"><title>Scalar multiplication of a matrix</title><p><md>
 		(-5)\begin{abmatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{abmatrix}
 		= \begin{abmatrix}{rr} -5 \amp 10 \\ 15 \amp -20\end{abmatrix}
-</me></p></example>
+</md></p></example>
 
 </subsection>
 
@@ -107,13 +107,13 @@ For subtraction, watch out for double negatives!
 		</mrow>
 	</md>
 	Combining these two computations, we get
-	<me>
+	<md>
 		A B =
 		\begin{abmatrix}{rr} 3 \amp -2 \\ 1 \amp 0 \\ -4 \amp 5 \end{abmatrix}
 		\begin{abmatrix}{rr} 1 \amp -2 \\ -3 \amp 4 \end{abmatrix}
 		=
 		\begin{abmatrix}{rr} 9 \amp -14 \\ 1 \amp -2 \\ -19 \amp 28 \end{abmatrix}.
-	</me>
+	</md>
 	With some practise at matrix multiplication,
 	you should be able to compute a product <m>A B</m> directly without doing separate computations for each column of the second matrix.
 	</p><p>
@@ -305,7 +305,7 @@ and for some of the rules, in that same subsection we verify that they are indee
 		</mrow>
 	</md>
 	Let's collect the <m>t=0</m> solution values into the vector <m>\uvec{x}</m> and check <m>A\uvec{x}</m> versus <m>\uvec{b}</m>:
-	<me>
+	<md>
 		\text{LHS}
 		= A\uvec{x}
 		= \begin{abmatrix}{rrr}
@@ -317,12 +317,12 @@ and for some of the rules, in that same subsection we verify that they are indee
 		= \begin{abmatrix}{r} -4 \\ 9 \end{abmatrix}
 		= \uvec{b}
 		= \text{RHS}.
-	</me>
+	</md>
 	So the solution to the linear system we got by row reducing did indeed give us a vector solution <m>\uvec{x}</m> to the matrix equation
 	<m> A \uvec{x} = \uvec{b}</m>.
 	Let's similarly check the <m>t=3</m> solution, as in
 	<xref ref="activity-matrix-ops-system-to-matrix-mult-check-sol">Discovery</xref>:
-	<me>
+	<md>
 		\text{LHS}
 		= A\uvec{x}
 		= \begin{abmatrix}{rrr}
@@ -334,7 +334,7 @@ and for some of the rules, in that same subsection we verify that they are indee
 		= \begin{abmatrix}{r} -4 \\ 9 \end{abmatrix}
 		= \uvec{b}
 		= \text{RHS}.
-	</me>
+	</md>
 	Again, our system solution gives us a solution to the matrix equation.
 	</p>
 </example>
@@ -385,10 +385,10 @@ and express their solutions in vector form.
 	and determined that it had one unique solution,
 	<m>x = 5</m>, <m>y = 2</m>, and <m>z = 3</m>.
 	In vector form, we write this solution as
-	<me>
+	<md>
 		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{abmatrix}{r} 5 \\ 2 \\ 3 \end{abmatrix}.
-	</me>
+	</md>
 	</p>
 </example>
 
@@ -416,7 +416,7 @@ and express their solutions in vector form.
 		x \amp= 2-2t, \amp y \amp= t, \amp z = -3,
 	</mrow></md>
 	In vector form, we expand this solution as
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{bmatrix} 2 - 2 t \\ t \\ -3 \end{bmatrix}
@@ -425,7 +425,7 @@ and express their solutions in vector form.
 		+ \begin{abmatrix}{r} -2 t \\ 1 t \\ 0 t \end{abmatrix}
 		= \begin{abmatrix}{r} 2 \\ 0 \\ -3 \end{abmatrix}
 		+ t \begin{abmatrix}{r} -2 \\ 1 \\ 0 \end{abmatrix}.
-	</me>
+	</md>
 	Notice how the solution is the sum of a <term>constant part</term> and a <term>variable part</term>:
 	<md><mrow>
 		\text{constant part }
@@ -462,7 +462,7 @@ and express their solutions in vector form.
 	We expressed the general solution to the system using parametric equations
 	<md><mrow> x_1 \amp= -2s + t, \amp x_2 \amp= s, \amp x_3 \amp= 2t, \amp x_4 \amp= t </mrow></md>.
 	In vector form, we expand this solution as
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix}
 		= \begin{bmatrix} -2 s + t \\ s \\ 2 t \\ t \end{bmatrix}
@@ -471,7 +471,7 @@ and express their solutions in vector form.
 		+ \begin{abmatrix}{r} t \\ 0 t \\ 2 t \\ t \end{abmatrix}
 		= s \begin{abmatrix}{r} -2 \\ 1 \\ 0 \\ 0 \end{abmatrix}
 		+ t \begin{abmatrix}{r} 1 \\ 0 \\ 2 \\ 1 \end{abmatrix}.
-	</me>
+	</md>
 	This time, the solution is a sum of <em>two</em> variables parts,
 	<md><mrow>
 		\amp s \begin{abmatrix}{r} -2 \\ 1 \\ 0 \\ 0 \end{abmatrix}
@@ -511,12 +511,12 @@ and express their solutions in vector form.
 	with general solution expressed parametrically as
 	<md><mrow> x \amp = -2 t, \amp y \amp = t, \amp z \amp = 0. </mrow></md>
 	In vector form, we express this as
-	<me>
+	<md>
 		\uvec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{abmatrix}{r} -2 t \\ t \\ 0 \end{abmatrix}
 		= \begin{abmatrix}{r} -2 t \\ 1 t \\ 0 t \end{abmatrix}
 		= t \begin{abmatrix}{r} -2 \\ 1 \\0 \end{abmatrix}
-	</me>.
+	</md>.
 	This homogeneous system has the same coefficient matrix as in
 	<xref ref="example-matrix-ops-sys-sol-vector-forms-infinite" />
 	above, so it is not surprising that their general solutions are related.

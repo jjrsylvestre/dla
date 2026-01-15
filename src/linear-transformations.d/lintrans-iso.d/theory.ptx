@@ -78,7 +78,7 @@ And compositions of three or more transformations satisfy the associative proper
 			\amp \funcdef{S}{V}{W} \text{,} \amp
 			\amp \funcdef{R}{W}{X}
 		</mrow></md>,
-		we have <me> (R S) T = R (S T) </me>
+		we have <md> (R S) T = R (S T) </md>
 		as functions <m>U \to X</m>.
 	</p></statement>
 	<proof><p>
@@ -121,11 +121,11 @@ and we leave that task to you, the reader.
 	<p><ol>
 		<li>
 			For linear transformations <m>\funcdef{T}{\R^n}{\R^m}</m> and <m>\funcdef{S}{\R^m}{\R^\ell}</m>,
-			we have <me> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </me>.
+			we have <md> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </md>.
 		</li>
 		<li>
 			For linear transformations <m>\funcdef{T}{\C^n}{\C^m}</m> and <m>\funcdef{S}{\C^m}{\C^\ell}</m>,
-			we have <me> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </me>.
+			we have <md> \stdmatrixOf{ST} = \stdmatrixOf{S} \stdmatrixOf{T} </md>.
 		</li>
 	</ol></p>
 </proposition>
@@ -192,14 +192,14 @@ the preceding theorem puts a restriction on the dimension of the codomain for a 
 	<proof><p>
 		The <xref ref="theorem-lintrans-ker-im-dimension" text="title" /> (<xref ref="theorem-lintrans-ker-im-dimension" />)
 		says that
-		<me> \dim(\ker T) + \dim(\im T) = \dim V </me>.
-		If <me> \dim W \lt \dim V </me>,
-		then also <me> \dim(\im T) \lt \dim V </me>,
+		<md> \dim(\ker T) + \dim(\im T) = \dim V </md>.
+		If <md> \dim W \lt \dim V </md>,
+		then also <md> \dim(\im T) \lt \dim V </md>,
 		since <m>\im T</m> is a subspace of <m>W</m>
 		(<xref ref="proposition-dimension-subspace-dim-props-le">Statement</xref>
 		of <xref ref="proposition-dimension-subspace-dim-props" />).
 		But then
-		<me> \dim(\ker T) = \dim V - \dim(\im T) \gt 0 </me>,
+		<md> \dim(\ker T) = \dim V - \dim(\im T) \gt 0 </md>,
 		so that <m>\ker T</m> cannot be trivial.
 		The result now follows from <xref ref="theorem-lintrans-iso-injective-trivial-ker" />.
 	</p></proof>
@@ -258,7 +258,7 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			we follow the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
 			(<xref ref="procedure-linear-indep-concepts-test-for-dep-indep" />)
 			and form the homogeneous vector equation
-			<me> k_1 \uvec{w}_1 + \dotsb + k_n \uvec{w}_n = \zerovec_W </me>.
+			<md> k_1 \uvec{w}_1 + \dotsb + k_n \uvec{w}_n = \zerovec_W </md>.
 			Making substitutions <m>\uvec{w}_j = T(\uvec{v}_j)</m> and using the linearity of <m>T</m>,
 			we have
 			<md>
@@ -266,13 +266,13 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 				<mrow> \implies T(k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n) = \zerovec_W </mrow>
 			</md>,
 			which says that
-			<me> k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n </me>
+			<md> k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n </md>
 			is in <m>\ker T</m>.
 			But we have assumed that <m>T</m> is injective,
 			so its kernel is trivial
 			(<xref ref="theorem-lintrans-iso-injective-trivial-ker" />).
 			Therefore,
-			<me> k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n = \zerovec_V </me>.
+			<md> k_1 \uvec{v}_1 + \dotsb + k_n \uvec{v}_n = \zerovec_V </md>.
 			This is now the beginning of the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
 			applied to a set of vectors from <m>S</m>,
 			which we know is independent.
@@ -307,7 +307,7 @@ This fact will justify <xref ref="procedure-lintrans-iso-basis-to-invertible-tra
 			So suppose <m>\uvec{v}</m> is in <m>\ker T</m>.
 			We can express <m>\uvec{v}</m> as a linear combination of <m>\basisfont{B}</m>-vectors,
 			say
-			<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n </me>.
+			<md> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n </md>.
 			From our assumption that <m>\uvec{v}</m> is in <m>\ker T</m>,
 			and using the linearity of <m>T</m>,
 			we have
@@ -377,7 +377,7 @@ Having trivial kernel also means that constructing a basis for the image of an i
 	<statement>
 		<p>
 		For injective linear transformation <m>\funcdef{T}{V}{W}</m>,
-		define <me> \funcdef{\inv{T}}{\im T}{V} </me>
+		define <md> \funcdef{\inv{T}}{\im T}{V} </md>
 		by setting <m>\inv{T}(\uvec{w})</m> to be the unique domain space vector <m>\uvec{v}</m> so that <m>T(\uvec{v}) = \uvec{w}</m>,
 		for each <m>\uvec{w}</m> in <m>\im T</m>.
 		</p><p>
@@ -399,23 +399,23 @@ Having trivial kernel also means that constructing a basis for the image of an i
 				T(\uvec{v}_2) \amp = \uvec{w}_2
 			</mrow></md>.
 			But then, using the additivity of <m>T</m>, we have
-			<me> T(\uvec{v}_1 + \uvec{v}_2) = T(\uvec{v}_1) + T(\uvec{v}_2) = \uvec{w}_1 + \uvec{w}_2 </me>.
+			<md> T(\uvec{v}_1 + \uvec{v}_2) = T(\uvec{v}_1) + T(\uvec{v}_2) = \uvec{w}_1 + \uvec{w}_2 </md>.
 			So <m>\uvec{v}_1 + \uvec{v}_2</m> must be the unique domain space vector that produces image vector <m>\uvec{w}_1 + \uvec{w}_2</m>.
 			In other words,
-			<me> \inv{T}(\uvec{w}_1 + \uvec{w}_2) = \uvec{v}_1 + \uvec{v}_2 = \inv{T}(\uvec{w}_1) + \inv{T}(\uvec{w}_2) </me>,
+			<md> \inv{T}(\uvec{w}_1 + \uvec{w}_2) = \uvec{v}_1 + \uvec{v}_2 = \inv{T}(\uvec{w}_1) + \inv{T}(\uvec{w}_2) </md>,
 			as required.
 		</p></case>
 		<case><title>Homogeneity</title><p>
 			Suppose <m>\uvec{w}</m> is a vector in <m>\im T</m>,
-			and set <me> \inv{T}(\uvec{w}) = \uvec{v} </me>.
+			and set <md> \inv{T}(\uvec{w}) = \uvec{v} </md>.
 			Since <m>T</m> is injective,
 			this is the unique domain space vectors satisfying
-			<me> T(\uvec{v}) = \uvec{w} </me>.
+			<md> T(\uvec{v}) = \uvec{w} </md>.
 			But then, using the Homogeneity of <m>T</m>, for each scalar <m>k</m> we have
-			<me> T(k \uvec{v}) = k \, T(\uvec{v}) = k \uvec{w} </me>.
+			<md> T(k \uvec{v}) = k \, T(\uvec{v}) = k \uvec{w} </md>.
 			So <m>k \uvec{v}</m> must be the unique domain space vector that produces image vector <m>k \uvec{w}</m>.
 			In other words,
-			<me> \inv{T}(k \uvec{w}) = k \uvec{v} = k \, \inv{T}(\uvec{w}) </me>,
+			<md> \inv{T}(k \uvec{w}) = k \uvec{v} = k \, \inv{T}(\uvec{w}) </md>,
 			as required.
 		</p></case>
 	</proof>
@@ -710,11 +710,11 @@ We have already seen how simply specifying a basis for an <m>n</m>-dimensional v
 		but <xref ref="theorem-lintrans-iso-by-basis" /> gives one simple criterion to verify.
 		The collection <m>\coordmap{B}(\basisfont{B})</m> of image vectors for the specific basis <m>\basisfont{B}</m> of <m>V</m> used to create the coordinate map <m>\coordmap{B}</m> is particularly simple to compute.
 		If we write
-		<me> \basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </me>,
+		<md> \basisfont{B} = \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_n \} </md>,
 		then from
-		<me> \uvec{v}_j = 0 \uvec{v}_1 + \dotsb + 0 \uvec{v}_{j-1} + 1 \uvec{v}_j + 0 \uvec{v}_{j+1} + \dotsb + 0 \uvec{v}_n </me>
+		<md> \uvec{v}_j = 0 \uvec{v}_1 + \dotsb + 0 \uvec{v}_{j-1} + 1 \uvec{v}_j + 0 \uvec{v}_{j+1} + \dotsb + 0 \uvec{v}_n </md>
 		we have
-		<me> \coordmap{B}(\uvec{v}_j) = (0,\dotsc,0,1,0,\dotsc,0) </me>
+		<md> \coordmap{B}(\uvec{v}_j) = (0,\dotsc,0,1,0,\dotsc,0) </md>
 		in <m>\R^n</m> or <m>\C^n</m>, as appropriate.
 		That is, the collection <m>\coordmap{B}(\basisfont{B})</m> of image vectors is actually the collection of standard basis vectors
 		in <m>\R^n</m> or <m>\C^n</m>, as appropriate,
@@ -776,7 +776,7 @@ The isomorphic relationship between <m>V</m> and its <em>double</em> dual space 
 			<li>
 				The transformation <m>\funcdef{E}{V}{\vecddual{V}}</m>
 				defined by
-				<me> E(\uvec{v}) = F_{\uvec{v}} </me>
+				<md> E(\uvec{v}) = F_{\uvec{v}} </md>
 				is linear and an isomorphism.
 			</li>
 		</ol>
@@ -799,17 +799,17 @@ The isomorphic relationship between <m>V</m> and its <em>double</em> dual space 
 			</p><p>
 			So suppose that vector <m>\uvec{v}</m> in <m>V</m> is in <m>\ker E</m>,
 			so that
-			<me> E(\uvec{v}) = \zerovec_{\vecddual{V}} </me>,
+			<md> E(\uvec{v}) = \zerovec_{\vecddual{V}} </md>,
 			the zero functional on <m>\vecdual{V}</m>.
 			Then for each element <m>f</m> in <m>\vecdual{V}</m>
 			(that is, for each linear functional <m>f</m> on <m>V</m>),
 			we have
-			<me> E(\uvec{v})(f) = \zerovec_{\vecddual{V}}(f) = 0 </me>.
+			<md> E(\uvec{v})(f) = \zerovec_{\vecddual{V}}(f) = 0 </md>.
 			But by our definitions,
 			we have
-			<me> E(\uvec{v})(f) = F_{\uvec{v}}(f) = f(\uvec{v}) </me>,
+			<md> E(\uvec{v})(f) = F_{\uvec{v}}(f) = f(\uvec{v}) </md>,
 			so we may conclude that
-			<me> f(\uvec{v}) = 0 </me>
+			<md> f(\uvec{v}) = 0 </md>
 			for each linear functional <m>f</m> on <m>V</m>.
 			If <m>\uvec{v}</m> is <em>not</em> the zero vector of <m>V</m>,
 			then the linearly independent set <m>\{\uvec{v}\}</m> can be enlarged to a basis for <m>V</m>
@@ -818,7 +818,7 @@ The isomorphic relationship between <m>V</m> and its <em>double</em> dual space 
 			(<xref ref="theorem-lintrans-basic-dual-basis" />).
 			But then the first vector in this dual basis will be <m>\vecdual{\uvec{v}}</m>,
 			for which
-			<me> \vecdual{\uvec{v}}(\uvec{v}) = 1 </me>,
+			<md> \vecdual{\uvec{v}}(\uvec{v}) = 1 </md>,
 			which contradicts the conclusion that every linear functional on <m>V</m> evaluates to zero on <m>\uvec{v}</m>.
 			So the only possibility for a vector <m>\uvec{v}</m> to be in <m>\ker E</m> is <m>\uvec{v} = \zerovec_V</m>.
 			That is, <m>\ker E</m> is trivial,
@@ -843,7 +843,7 @@ and the composition of isomorphisms.
 		</p><p>
 		That is, if <m>\funcdef{T}{V}{W}</m> is an isomorphism,
 		then so is <m>\funcdef{\inv{T}}{W}{V}</m>,
-		with <me> \inv{(\inv{T})} = T </me>.
+		with <md> \inv{(\inv{T})} = T </md>.
 		</p>
 	</statement>
 	<proof>
@@ -878,7 +878,7 @@ and the composition of isomorphisms.
 		</p><p>
 		That is, if <m>\funcdef{T}{U}{V}</m> and <m>\funcdef{S}{V}{W}</m> are isomorphisms,
 		then so is <m>\funcdef{S T}{U}{W}</m>,
-		with <me> \inv{(S T)} = \inv{T} \inv{S} </me>.
+		with <md> \inv{(S T)} = \inv{T} \inv{S} </md>.
 		</p>
 	</statement>
 	<proof>
@@ -891,7 +891,7 @@ and the composition of isomorphisms.
 		the collection <m>\basisfont{B}_V = T(\basisfont{B}_U)</m> of image vectors for the vectors in <m>\basisfont{B}_U</m> is a basis for <m>V</m>.
 		And then also the collection <m>\basisfont{B}_W = S(\basisfont{B}_V)</m> of image vectors for the vectors in <m>\basisfont{B}_V</m> is a basis for <m>W</m>,
 		because <m>S</m> is also assumed to be an isomorphism.
-		But then <me> \basisfont{B}_W = S\bigl(T(\basisfont{B}_U)\bigr) = ST(\basisfont{B}_U) </me>,
+		But then <md> \basisfont{B}_W = S\bigl(T(\basisfont{B}_U)\bigr) = ST(\basisfont{B}_U) </md>,
 		so that the composition <m>ST</m> takes basis <m>\basisfont{B}_U</m> for its domain to a basis <m>\basisfont{B}_W</m> for its codomain.
 		Applying the theorem, we may conclude that <m>ST</m> is an isomorphism.
 		</p><p>
@@ -918,7 +918,7 @@ and the composition of isomorphisms.
 		</p><p>
 		In this case,
 		the standard matrix for the inverse <m>\funcdef{\inv{T}}{\R^n}{\R^n}</m> is the inverse of the standard matrix for <m>T</m>. That is,
-		<me> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </me>.
+		<md> \stdmatrixOf{\inv{T}} = \inv{\stdmatrixOf{T}} </md>.
 		</p><p>
 		And the same conclusions can be drawn about complex linear transformations <m>\C^n \to \C^m</m>.
 		</p>
@@ -933,7 +933,7 @@ and the composition of isomorphisms.
 			so that <m>m = n</m>.
 			And, in particular, <m>T</m> must send the standard basis of <m>\R^n</m> to another basis for <m>\R^n</m>.
 			But
-			<me> T(\uvec{e}_j) = \stdmatrixOf{T} \uvec{e}_j </me>
+			<md> T(\uvec{e}_j) = \stdmatrixOf{T} \uvec{e}_j </md>
 			results in the <m>\nth[j]</m> column of <m>\stdmatrixOf{T}</m>,
 			so the columns of <m>\stdmatrixOf{T}</m> must form a basis of <m>\R^n</m>.
 			From this, we can conclude that <m>\stdmatrixOf{T}</m> must be invertible
@@ -957,12 +957,12 @@ and the composition of isomorphisms.
 		<xref ref="proposition-lintrans-iso-std-matrix-composite" />
 		and <xref ref="proposition-lintrans-iso-inverse-reverse" />,
 		we know that
-		<me>
+		<md>
 			\stdmatrixOf{T} \stdmatrixOf{\inv{T}}
 			= \stdmatrixOf{T \inv{T}}
 			= \stdmatrixOf{I_{\R^n}}
 			= I
-		</me>,
+		</md>,
 		the <m>n \times n</m> identity matrix.
 		We can thus conclude that <m> \stdmatrixOf{\inv{T}} </m> and <m>\stdmatrixOf{T}</m> are inverses of each other,
 		using <xref ref="proposition-elem-matrices-check-only-left-inverse" />.

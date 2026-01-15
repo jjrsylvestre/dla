@@ -43,7 +43,7 @@ First, the minors.
 	<shortdescription> Minor determinants for 2-by-2 matrices. </shortdescription>
 	<description><p>
 		Minor determinants for the general <m>2 \times 2</m> matrix
-		<me> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </me>
+		<md> \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} </md>
 		are determined.
 		Four instances of this general <m>2 \times 2</m> matrix are displayed:
 		<ol>
@@ -85,7 +85,7 @@ and then the adjoint is the transpose of that.
 	\adj A  \amp = \begin{abmatrix}{rr} d \amp -b\\-c \amp a \end{abmatrix}
 </mrow></md>
 The inverse of <m>A</m> is then the reciprocal of the determinant times the adjoint, so that
-<me> \inv{A} = \frac{1}{a d - b c} \, \begin{abmatrix}{rr} d \amp -b \\ -c \amp a \end{abmatrix} </me>,
+<md> \inv{A} = \frac{1}{a d - b c} \, \begin{abmatrix}{rr} d \amp -b \\ -c \amp a \end{abmatrix} </md>,
 as promised in <xref ref="proposition-inverses-2x2-inverse" />.
 </p>
 
@@ -111,7 +111,7 @@ However, there <em>are</em> situations where you might want to use the adjoint i
 	<p>
 	It can be tedious to row reduce a matrix with variable entries.
 	Consider
-	<me> X = \begin{bmatrix} x  \amp  1  \amp  -1 \\ x-1  \amp  0  \amp  x \\ 0  \amp  x  \amp  1 \end{bmatrix} </me>.
+	<md> X = \begin{bmatrix} x  \amp  1  \amp  -1 \\ x-1  \amp  0  \amp  x \\ 0  \amp  x  \amp  1 \end{bmatrix} </md>.
 	To row reduce <m>X</m>, our first step would be to obtain a leading one in the first column.
 	We might choose to perform <m>R_1\to\frac{1}{x}R_1</m>, except that this operation would be invalid in the case that <m>x=0</m>.
 	Or we might choose to perform <m>R_2\to\frac{1}{x-1}R_2</m>, except that this operation would be invalid in the case that <m>x=1</m>.
@@ -173,7 +173,7 @@ However, there <em>are</em> situations where you might want to use the adjoint i
 	But we already have all the cofactors, so a cofactor expansion will be easy.
 	Let's do a cofactor expansion of <m>\det X</m> along the third row.
 	(Remember that the cofactors already have the appropriate signs, so we are just summing <q>entry times cofactor</q> terms.)
-	<me> \det X = 0x + x(-x^2-x+1) + 1(1-x) = 1 - x^3 - x^2 </me>
+	<md> \det X = 0x + x(-x^2-x+1) + 1(1-x) = 1 - x^3 - x^2 </md>
 	</p>
 	<aside valign="middle"><title>Notice</title><p>
 		This determinant is not zero for either <m>x=0</m> or <m>x=1</m>, so we really <em>would</em> have had to consider all those different cases if we chose to compute <m>\inv{X}</m> by row reducing.
@@ -182,7 +182,7 @@ However, there <em>are</em> situations where you might want to use the adjoint i
 
 <p>
 Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every value of <m>x</m> for which the determinant is nonzero,
-<me>
+<md>
 	\inv{X} =
 	\frac{1}{1 - x^3 - x^2}
 	\begin{bmatrix}
@@ -190,7 +190,7 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 		1-x \amp x \amp -x^2-x+1 \\
 		x^2-x \amp -x^2 \amp 1-x
 	\end{bmatrix}.
-</me>
+</md>
 </p>
 
 </subsection>
@@ -201,14 +201,14 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 <example><title>Using Cramer's rule to compute individual variable values in a system of equations</title>
 	<statement><p>
 		Consider the system
-		<me>
+		<md>
 			\begin{sysofeqns}{rcrcrcrcr}
 				x_1  \amp - \amp x_2  \amp + \amp 2x_3 \amp + \amp x_4  \amp = \amp 1,\\
 				2x_1 \amp   \amp      \amp + \amp x_3  \amp + \amp x_4  \amp = \amp 1,\\
 					\amp   \amp x_2  \amp   \amp      \amp - \amp 3x_4 \amp = \amp 0,\\
 				x_1  \amp - \amp 2x_2 \amp - \amp x_3  \amp   \amp      \amp = \amp 1,\\
 			\end{sysofeqns}
-		</me>
+		</md>
 		with coefficient matrix and vector of constants,
 		<md><mrow>
 			A \amp= \begin{abmatrix}{rrrr}
@@ -227,14 +227,14 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 		Since <m>\det A \neq 0</m>, we know that <m>A</m> is invertible and so the system has one unique solution.
 		Suppose we want to know the value of <m>x_2</m> in the solution.
 		We can form the matrix <m>A_2</m>, where the second column of <m>A</m> is replaced by <m>\uvec{b}</m>,
-		<me>
+		<md>
 			A_2 = \begin{abmatrix}{rrrr}
 				1 \amp 1 \amp 2 \amp 1 \\
 				2 \amp 1 \amp 1 \amp 1 \\
 				0 \amp 0 \amp 0 \amp -3 \\
 				1 \amp 1 \amp -1 \amp 0
 			\end{abmatrix}
-		</me>,
+		</md>,
 		and compute <m>\det A_2</m> by a cofactor expansion along the third row
 		(expanding the corresponding <m>3\times 3</m> minor determinant along the first row),
 		<md>
@@ -256,17 +256,17 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 			<mrow>\amp = 9</mrow>
 		</md>.
 		Thus, the value of <m>x_2</m> in the one unique solution to the system is
-		<me> x_2 = \frac{\det A_2}{\det A} = \frac{9}{-27} = -\frac{1}{3} </me>.
+		<md> x_2 = \frac{\det A_2}{\det A} = \frac{9}{-27} = -\frac{1}{3} </md>.
 		If we also want to know the value of <m>x_4</m>, we form the matrix <m>A_4</m>,
 		where the fourth column of <m>A</m> is replaced by <m>\uvec{b}</m>,
-		<me>
+		<md>
 			A_4 = \begin{abmatrix}{rrrr}
 				1 \amp -1 \amp 2 \amp 1 \\
 				2 \amp 0 \amp 1 \amp 1 \\
 				0 \amp 1 \amp 0 \amp 0 \\
 				1 \amp -2 \amp -1 \amp 1
 			\end{abmatrix},
-		</me>
+		</md>
 		and compute <m>\det A_4</m>
 		(again by a cofactor expansion along the third row, followed by an expansion along the first row of the corresponding <m>3\times 3</m> minor determinant),
 		<md>
@@ -288,7 +288,7 @@ Finally, we obtain a formula for the inverse of <m>X</m> that is valid for every
 			<mrow>\amp = 3.</mrow>
 		</md>
 		Thus, the value of <m>x_4</m> in the one unique solution to the system is
-		<me> x_4 = \frac{\det A_4}{\det A} = \frac{3}{-27} = -\frac{1}{9} </me>.
+		<md> x_4 = \frac{\det A_4}{\det A} = \frac{3}{-27} = -\frac{1}{9} </md>.
 	</p></statement>
 </example>
 

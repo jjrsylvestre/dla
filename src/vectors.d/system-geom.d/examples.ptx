@@ -35,22 +35,22 @@ respective owners.
 	<p>
 	In <xref ref="activity-system-geom-R2-line-eq2parametric" />, we considered the equation <m>x-2y=3</m> for a line in the plane.
 	Setting parameter <m>y=t</m> and isolating <m>x</m> in this equation leads to general solution
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix}x\\y\end{bmatrix}
 		= \begin{bmatrix} 3+2t \\ t \end{bmatrix}
 		= \begin{bmatrix} 3 \\ 0 \end{bmatrix} + t\begin{bmatrix}2\\1\end{bmatrix}
-	</me>.
+	</md>.
 	Geometrically, the vector <m>\uvec{x}_0 = (3,0)</m> represents an <q>base</q> point on the line,
 	and algebraically represents the particular solution to the system obtained from parameter value <m>t=0</m>.
 	The vector <m>\uvec{p} = (2,1)</m> represents a vector parallel to the line, and every other point on the line
 	(that is, every other solution to the system)
 	can be obtained by adding a scalar multiple of <m>\uvec{p}</m> to <m>\uvec{x}_0</m>.
 	For example, the point <m>\uvec{x} = (4,1/2)</m> lies on the line, as we can verify by checking
-	<me> 4 - 2 \cdot \frac{1}{2} = 4 - 1 = 3 </me>,
+	<md> 4 - 2 \cdot \frac{1}{2} = 4 - 1 = 3 </md>,
 	so that the coordinates of the point satisfy the line equation <m>x - 2 y = 3</m>.
 	We can solve for <m>t</m> in the vector equation
-	<me> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix} + t \begin{bmatrix}2\\1\end{bmatrix} </me>
+	<md> \begin{bmatrix}4\\\frac{1}{2}\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix} + t \begin{bmatrix}2\\1\end{bmatrix} </md>
 	to see exactly how this point is a multiple of <m>\uvec{p}</m> away from <m>\uvec{x}_0</m>:
 	<md><mrow xml:id="equation-system-geom-examples-line-in-R2-point-to-parameter" tag="star">
 		\begin{bmatrix} 4 \\ \frac{1}{2} \end{bmatrix} - \begin{bmatrix} 3 \\ 0 \end{bmatrix}
@@ -80,12 +80,12 @@ respective owners.
 <example><title>Parametrically describing the intersection of two planes in <m>\R^3</m></title><p>
 	In <xref ref="activity-system-geom-R3-line-parametric" />,
 	we considered a system consisting of two equations in three variables,
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcrcr}
 			2 x \amp - \amp   y \amp + \amp 5 z \amp = \amp -5 \text{,} \\
 			  x \amp + \amp 2 y \amp - \amp 5 z \amp = \amp 10 \text{.}
 		\end{sysofeqns}
-	</me>
+	</md>
 	Geometrically, each of the equations represents a plane in space, and solutions to the system represent points that are in common to both planes
 	(that is, points in the intersection of the two planes).
 	From the coefficients of the equations we may take <m>\uvec{n}_1 = (2,-1,5)</m> and <m>\uvec{n}_2 = (1,2,-5)</m> as normal vectors for the two planes, respectively.
@@ -95,13 +95,13 @@ respective owners.
 	so when we row reduce we will find two leading ones, representing the two independent equations with which we started.
 	And so we will only require one parameter to express the general solution, which will then take the form of a line.
 	The free variable in this system is <m>z</m>, so setting <m>z</m> to parameter <m>t</m> and solving we get
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix}x \\[0.5ex] y \\[0.5ex] z \end{bmatrix}
 		= \begin{bmatrix} -t \\ 5 + 3 t \\ t \end{bmatrix}
 		= \begin{bmatrix} 0 \\ 5 \\ 0 \end{bmatrix}
 		+ t\begin{abmatrix}{r} -1 \\ 3 \\ 1 \end{abmatrix}.
-	</me>
+	</md>
 	Here, the <q>base</q> point corresponding to <m>t=0</m> is
 	<m>\uvec{x}_0 = (0,5,0)</m>,
 	and the vector
@@ -120,30 +120,30 @@ respective owners.
 	and each parameter will provide us with a vector parallel to the plane.
 	Setting <m>y = s</m> and <m>z = t</m>, we can then use the plane equation to express <m>x</m> in terms of these parameters.
 	This leads to general solution, in vector form:
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{bmatrix} -5 + s - 5t \\ s \\ t \end{bmatrix}
 		= \begin{abmatrix}{r} -5 \\ 0 \\0 \end{abmatrix}
 		+ s \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		+ t \begin{abmatrix}{r} -5 \\ 0 \\ 1 \end{abmatrix}
-	</me>.
+	</md>.
 	Here, the <q>base</q> point on the plane is <m>\uvec{x}_0 = (-5,0,0)</m>, which corresponds to parameter values <m>s = t = 0</m>.
 	Every other point on the plane corresponds to other choices of parameter values.
 	For example, as in the discovery activity,
 	the point <m>(1,1,-1)</m> is on the plane.
 	We can verify this by checking
-	<me> 1 - 1 + 5 (-1) = -5 </me>,
+	<md> 1 - 1 + 5 (-1) = -5 </md>,
 	so that the coordinates of the point satisfy the plane equation <m>x - y + 5 z = -5</m>.
 	We can also describe this point using the vector equation
-	<me> \uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2 </me>
+	<md> \uvec{x} = \uvec{x}_0 + s\uvec{p}_1 + t\uvec{p}_2 </md>
 	as follows:
-	<me>
+	<md>
 		\begin{abmatrix}{r} 1 \\ 1 \\ -1 \end{abmatrix}
 		= \begin{abmatrix}{r} -5 \\ 0 \\ 0 \end{abmatrix}
 		+ s \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}
 		+ t \begin{abmatrix}{r} -5 \\ 0 \\ 1 \end{abmatrix}
-	</me>.
+	</md>.
 	Carrying out the vector operations on the right-hand side and applying the definition of
 	<xref ref="definition-matrix-ops-equal-matrices" text="title" />
 	leads to <ellipsis /> a system of linear equations!
@@ -180,12 +180,12 @@ Here we will demonstrate determining points of intersection when some or all of 
 	In <xref ref="activity-system-geom-intersect-line-plane-1" />, we have a line described by a vector equation and a plane described algebraically,
 	and would like to determine their point of intersection (if there is one).
 	Any such point of intersection must be on the line, and so its coordinates can be described in terms of the parameter <m>t</m>:
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 		= \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + t \begin{abmatrix}{r} -1 \\ 1 \\ 1 \end{abmatrix}
 		= \begin{bmatrix} 2-t \\ t \\ 3+t \end{bmatrix}
-	</me>.
+	</md>.
 	If this point is also on the plane, its coordinates must satisfy the equation for the plane:
 	<md><mrow>
 		2x+y-3z \amp= 7 \\
@@ -194,7 +194,7 @@ Here we will demonstrate determining points of intersection when some or all of 
 		t \amp= -3
 	</mrow></md>.
 	Substituting this parameter value in our expression for <m>\uvec{x}</m> gives us the point of intersection:
-	<me> \begin{abmatrix}{r} 5 \\ -3 \\ 0 \end{abmatrix} </me>.
+	<md> \begin{abmatrix}{r} 5 \\ -3 \\ 0 \end{abmatrix} </md>.
 	</p>
 
 	<aside><title>Check your understanding</title><p>
@@ -232,7 +232,7 @@ Here we will demonstrate determining points of intersection when some or all of 
 	</md>
 	Now, this point can only have one set of coordinates, so these two descriptions must actually be the same.
 	This lets us set up a <ellipsis /> system of linear equations!
-	<me>
+	<md>
 		\begin{array}{rcl}
 			x\colon \amp \qquad \amp 2-t = 3+r+3s\text{,} \\
 			y\colon \amp \qquad \amp t = 1+r\text{,} \\
@@ -244,7 +244,7 @@ Here we will demonstrate determining points of intersection when some or all of 
 			r \amp \amp \amp - \amp t \amp = \amp -1\text{,} \\
 			r \amp + \amp 2s \amp - \amp t \amp = \amp 3\text{.}
 		\end{sysofeqns}
-	</me>
+	</md>
 	We could put this system in a matrix and row reduce, but we only really care about the value of parameter <m>t</m> in the solution,
 	because knowing <m>t</m> allows us to determine <m>\uvec{x}</m> from the vector description for the line.
 	So we can use Cramer's rule instead.
@@ -281,11 +281,11 @@ Here we will demonstrate determining points of intersection when some or all of 
 		</mrow>
 	</md>
 	Now that we have <m>t = -3</m>, we can determine the point of intersection:
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix}     2 - t \\  t \\ 3 + t \end{bmatrix}
 		= \begin{abmatrix}{r}   5   \\ -3 \\   0   \end{abmatrix}
-	</me>.
+	</md>.
 	</p>
 
 </example>

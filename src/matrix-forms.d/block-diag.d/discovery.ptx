@@ -46,14 +46,14 @@ we will need to recall a few important things.
 
 	<introduction><p>
 		Suppose <m>A</m> is a <m>4 \times 4</m> matrix that is similar to
-		<me>
+		<md>
 			B = \begin{abmatrix}{rrrr}
 				1 \amp -1 \amp  0 \amp  0 \\
 				3 \amp  7 \amp  0 \amp  0 \\
 				0 \amp  0 \amp  4 \amp -2 \\
 				0 \amp  0 \amp -2 \amp  1
 			\end{abmatrix}
-		</me>.
+		</md>.
 	</p></introduction>
 
 	<task xml:id="activity-block-diag-pattern-columns"><p>
@@ -174,26 +174,26 @@ we will explore the properties of block-diagonal matrices.
 	<introduction><p>
 		Consider again the matrix <m>B</m> from
 		<xref ref="activity-block-diag-pattern" />:
-		<me>
+		<md>
 			B = \begin{abmatrix}{rrrr}
 				1 \amp -1 \amp  0 \amp  0 \\
 				3 \amp  7 \amp  0 \amp  0 \\
 				0 \amp  0 \amp  4 \amp -2 \\
 				0 \amp  0 \amp -2 \amp  1
 			\end{abmatrix}
-		</me>.
+		</md>.
 	</p></introduction>
 
 	<task xml:id="activity-block-diag-null-space-one-block"><p>
 		Verify that the vector
 		<m>\left[\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right]</m>
 		is in the null space of the lower-right <m>2 \times 2</m> block
-		<me>
+		<md>
 			\begin{abmatrix}{rr}
 				4 \amp -2 \\
 				-2 \amp 1
 			\end{abmatrix}
-		</me>.
+		</md>.
 		Can you use this knowledge to build a null space vector for <m>B</m>?
 	</p></task>
 
@@ -224,14 +224,14 @@ we will explore the properties of block-diagonal matrices.
 	<introduction><p>
 		Consider again the matrix <m>B</m> from
 		<xref ref="activity-block-diag-pattern" />:
-		<me>
+		<md>
 			B = \begin{abmatrix}{rrrr}
 				1 \amp -1 \amp  0 \amp  0 \\
 				3 \amp  7 \amp  0 \amp  0 \\
 				0 \amp  0 \amp  4 \amp -2 \\
 				0 \amp  0 \amp -2 \amp  1
 			\end{abmatrix}
-		</me>.
+		</md>.
 	</p></introduction>
 
 	<task xml:id="activity-block-diag-eigen-space-one-block">
@@ -240,12 +240,12 @@ we will explore the properties of block-diagonal matrices.
 		Verify that the vector
 		<m>\left[\begin{smallmatrix} -2 \\ 1 \end{smallmatrix}\right]</m>
 		is in the eigenspace of the lower-right <m>2 \times 2</m> block
-		<me>
+		<md>
 			\begin{abmatrix}{rr}
 				4 \amp -2 \\
 				-2 \amp 1
 			\end{abmatrix}
-		</me>
+		</md>
 		corresponding to the eigenvalue <m>\lambda = 5</m>.
 		(Verify this using the <em>definitions</em>
 		of <term><xref ref="definition-eigen-values-vectors-eigenvector" text="title" /></term>
@@ -324,14 +324,14 @@ we will explore the properties of block-diagonal matrices.
 		</mrow></md>
 		where each pair of corresponding blocks <m>M_j, N_j</m> are the same size,
 		then their product is
-		<me>
+		<md>
 			MN = \begin{bmatrix}
 				\phantom{M_1 N_1} \\
 				 \amp \phantom{M_2 N_2} \\
 				 \amp \amp \phantom{\ddots} \\
 				 \amp \amp \amp \phantom{M_\ell N_\ell}
 			 \end{bmatrix}
-		</me>.
+		</md>.
 		</p>
 	</task>
 
@@ -370,7 +370,7 @@ we will explore the properties of block-diagonal matrices.
 	By restricting ourselves to row operations that only swap or combine rows involving a single block,
 	we can reduce a block-diagonal matrix by reducing the blocks.
 	For example,
-	<me>
+	<md>
 		\begin{abmatrix}{rrrrrrr}
 			1 \amp 1 \amp 1 \\
 			2 \amp 2 \amp 2 \\
@@ -390,7 +390,7 @@ we will explore the properties of block-diagonal matrices.
 			\amp \amp \amp \amp \amp 1 \amp -1 \\
 			\amp \amp \amp \amp \amp 0 \amp  0
 		\end{abmatrix}
-	</me>
+	</md>
 	The reduced matrix is not technically in RREF,
 	because there is a row of zeros that is not at the bottom.
 	But it still allows us to see the patterns of leading variables versus free variables:
@@ -410,7 +410,7 @@ we will explore the properties of block-diagonal matrices.
 
 	<task xml:id="activity-block-diag-det-example"><p>
 		Compute the determinant of the block-diagonal matrix
-		<me>
+		<md>
 			A = \begin{abmatrix}{rrrrr}
 				1 \amp 1 \\
 				-1 \amp 1 \\
@@ -418,7 +418,7 @@ we will explore the properties of block-diagonal matrices.
 				 \amp \amp \amp 2 \amp 1 \\
 				 \amp \amp \amp 1 \amp 3
 			\end{abmatrix}
-		</me>.
+		</md>.
 		Then compute the determinant of each individual block separately.
 		What is the relationship between all these determinant calculations?
 	</p></task>
@@ -427,9 +427,9 @@ we will explore the properties of block-diagonal matrices.
 		Describe the pattern of
 		<xref ref="activity-block-diag-det-example" text="type-local" />:
 		if <m>M</m> is a block-diagonal matrix
-		<me> M = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} </me>,
+		<md> M = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} </md>,
 		then its determinant is
-		<me> \det M = <fillin characters="30" /> </me>.
+		<md> \det M = <fillin characters="30" /> </md>.
 	</p></task>
 
 </activity>
@@ -439,9 +439,9 @@ we will explore the properties of block-diagonal matrices.
 	<task xml:id="activity-block-diag-eigenvalues-lambda-I-minus-pattern"><p>
 		Fill in the pattern:
 		if <m>M</m> is a block-diagonal matrix
-		<me> M = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} </me>,
+		<md> M = \begin{bmatrix} M_1 \\ \amp M_2 \\ \amp \amp \ddots \\ \amp \amp \amp M_\ell \end{bmatrix} </md>,
 		then <m>\lambda I - M</m> is also block-diagonal, with
-		<me>
+		<md>
 			\lambda I - M
 			= \begin{bmatrix}
 			   \phantom{\lambda I -M_1} \\
@@ -449,7 +449,7 @@ we will explore the properties of block-diagonal matrices.
 				\amp \amp \phantom{\ddots} \\
 				\amp \amp \amp \phantom{\lambda I - M_\ell}
 			\end{bmatrix}
-		</me>.
+		</md>.
 	</p></task>
 
 	<task xml:id="activity-block-diag-eigenvalues-char-poly"><p>

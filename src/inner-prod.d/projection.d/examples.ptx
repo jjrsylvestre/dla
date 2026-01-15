@@ -42,12 +42,12 @@ respective owners.
 	We explored this subspace in <xref ref="activity-inprod-orthog-complement-example-M22" />
 	and in <xref ref="example-inprod-orthog-complement-in-real-matrix-space" />,
 	and we produced orthogonal basis
-	<me>
+	<md>
 		\basisfont{B}_U = \left\{
 			\begin{bmatrix} 1 \amp 1 \\ 0 \amp 0 \end{bmatrix},
 			\begin{abmatrix}{rc} -1 \amp 1 \\ 0 \amp 2 \end{abmatrix}
 		\right\}
-	</me>
+	</md>
 	for <m>U</m> in <xref ref="example-inprod-orthog-orthog-comp-from-gs-M22" />.
 	Write <m>A_1</m> and <m>A_2</m> for these orthogonal basis vectors, respectively.
 	</p><p>
@@ -89,9 +89,9 @@ respective owners.
 		</mrow>
 	</md>
 	By inspection we can see that
-	<me> \proj_U I + \proj_{\orthogcmp{U}} I = I </me>,
+	<md> \proj_U I + \proj_{\orthogcmp{U}} I = I </md>,
 	and a quick calculation confirms
-	<me> \inprod{\proj_U I}{\proj_{\orthogcmp{U}} I} = 0 </me>.
+	<md> \inprod{\proj_U I}{\proj_{\orthogcmp{U}} I} = 0 </md>.
 	</p>
 </example>
 
@@ -105,14 +105,14 @@ respective owners.
 <example>
 	<title>Approximating a cubic function with a quadratic function</title>
 	<p>
-	Consider the cubic polynomial <me> f(x) = -8 x^3 + 4 x^2 + 2 x </me>.
+	Consider the cubic polynomial <md> f(x) = -8 x^3 + 4 x^2 + 2 x </md>.
 	What quadratic polynomial best approximates <m>f(x)</m> over the interval <m>0 \le x \le 1</m>?
 	</p><p>
 	Looking at the graph of <m>f(x)</m>,
 	one <q>naive</q> guess would be to choose the parabola that passes through the points
-	<me> (0,0) \text{,} \quad (1/2, 1) \text{,} \quad (1, -2) </me>.
+	<md> (0,0) \text{,} \quad (1/2, 1) \text{,} \quad (1, -2) </md>.
 	We can determine this parabola using the methods of <xref ref="subsection-applications-examples-poly" /> to be
-	<me> p_1(x) = 6 x - 8 x^2 </me>.
+	<md> p_1(x) = 6 x - 8 x^2 </md>.
 	Let's plot <m>f(x)</m> and <m>p_1(x)</m> on the same set of axes to compare.
 	</p>
 	<image width="50%">
@@ -129,13 +129,13 @@ respective owners.
 	we can work in <m>\poly_3(\R)</m>.
 	And since our domain of interest is <m>0 \le x \le 1</m>,
 	let's use inner product
-	<me> \inprod{p}{q} = \integral{0}{1}{p(x) q(x)}{x} </me>.
+	<md> \inprod{p}{q} = \integral{0}{1}{p(x) q(x)}{x} </md>.
 	Our best approximation will be <m>\proj_U f</m>,
 	where <m>U</m> is the subspace <m>\poly_2(\R)</m> of <m>\poly_3(\R)</m>.
 	Conveniently, we have already used the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
 	(<xref ref="procedure-inprod-orthog-gram-schmidt" />)
 	to produce orthogonal basis
-	<me> \basisfont{B}_U = \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </me>
+	<md> \basisfont{B}_U = \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </md>
 	of <m>U</m> in <xref ref="example-inprod-orthog-apply-gs-P2" />.
 	As in that example,
 	write <m>e_1(x),e_2(x),e_3(x)</m> for these three basis polynomials, respectively.
@@ -178,16 +178,16 @@ respective owners.
 
 	<p>
 	Consider the horizontally compressed sine function
-	<me> f(x) = \sin (\pi x) </me>.
+	<md> f(x) = \sin (\pi x) </md>.
 	What quadratic polynomial best approximates <m>f(x)</m> over the interval <m>0 \le x \le 1</m>?
 	</p>
 
 	<p>
 	Looking at the graph of <m>f(x)</m>,
 	one <q>naive</q> guess would be to choose the parabola that passes through the points
-	<me> (0,0) \text{,} \quad (1/2, 1) \text{,} \quad (1, 0) </me>.
+	<md> (0,0) \text{,} \quad (1/2, 1) \text{,} \quad (1, 0) </md>.
 	We can determine this parabola using the methods of <xref ref="subsection-applications-examples-poly" /> to be
-	<me> q(x) = 4 x - 4 x^2 </me>.
+	<md> q(x) = 4 x - 4 x^2 </md>.
 	Let's plot <m>f(x)</m> and <m>q(x)</m> on the same set of axes to compare.
 	</p>
 
@@ -227,16 +227,16 @@ respective owners.
 	Our domain of interest is <m>0 \le x \le 1</m>,
 	so we are working in the vector space <m>C[0,1]</m>.
 	But we can constrain our problem to the finite-dimensional subspace
-	<me> V = \Span \{ 1, x, x^2, \sin x \} </me>.
+	<md> V = \Span \{ 1, x, x^2, \sin x \} </md>.
 	And to focus on our domain of interest,
 	let's use inner product
-	<me> \inprod{p}{q} = \integral{0}{1}{p(x) q(x)}{x} </me>.
+	<md> \inprod{p}{q} = \integral{0}{1}{p(x) q(x)}{x} </md>.
 	Our best approximation will be <m>\proj_U f</m>,
 	where <m>U</m> is the subspace <m>\poly_2(\R)</m> of <m>V</m>.
 	Conveniently, we have already used the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process
 	(<xref ref="procedure-inprod-orthog-gram-schmidt" />)
 	to produce orthogonal basis
-	<me> \basisfont{B}_U = \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </me>
+	<md> \basisfont{B}_U = \left\{ 1, x - \frac{1}{2}, x^2 - x + \frac{1}{6} \right\} </md>
 	of <m>U</m> in <xref ref="example-inprod-orthog-apply-gs-P2" />.
 	As in that example,
 	write <m>e_1(x),e_2(x),e_3(x)</m> for these three basis polynomials, respectively.
@@ -314,14 +314,14 @@ respective owners.
 <example xml:id="example-projection-least-sq">
 	<p>
 	The system
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcrcr}
 			x \amp   \amp    \amp + \amp  z \amp = \amp 1, \\
 			x \amp - \amp  y \amp   \amp    \amp = \amp 1, \\
 			  \amp   \amp 2y \amp + \amp 2z \amp = \amp 1, \\
 			x \amp + \amp  y \amp + \amp 2z \amp = \amp 1,
 		\end{sysofeqns}
-	</me>
+	</md>
 	is inconsistent. What values of <m>x,y,z</m> are closest to being a solution?
 	</p><p>
 	We have coefficient matrix and vector of constants
@@ -338,9 +338,9 @@ respective owners.
 		\uvec{b} \amp = \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
 	</mrow></md>.
 	The inconsistent system
-	<me> A \uvec{x} = \uvec{b} </me>
+	<md> A \uvec{x} = \uvec{b} </md>
 	has associated normal system
-	<me> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </me>,
+	<md> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b} </md>,
 	where
 	<md><mrow>
 		\utrans{A} A \amp =
@@ -354,7 +354,7 @@ respective owners.
 		\utrans{A} \uvec{b} \amp = \begin{bmatrix} 3 \\ 2 \\ 5 \end{bmatrix}
 	</mrow></md>.
 	Row reduce:
-	<me>
+	<md>
 		\begin{abmatrix}{ccc|c}
 			3 \amp 0 \amp 3 \amp 3 \\
 			0 \amp 6 \amp 6 \amp 2 \\
@@ -366,13 +366,13 @@ respective owners.
 			0 \amp 1 \amp 1 \amp \frac{1}{3} \\
 			0 \amp 0 \amp 0 \amp      0
 		\end{abmatrix}
-	</me>.
+	</md>.
 	Setting free variable <m>z</m> to be a parameter,
 	we have general solution
-	<me> \uvec{x} = \begin{bmatrix} 1 - t \\ \frac{1}{3} - t \\ t \end{bmatrix} </me>.
+	<md> \uvec{x} = \begin{bmatrix} 1 - t \\ \frac{1}{3} - t \\ t \end{bmatrix} </md>.
 	So there is a whole line of approximate solutions,
 	and each <m>\uvec{x}</m> on this line satisfies
-	<me> A \uvec{x} = \begin{bmatrix} 1 \\ \frac{2}{3} \\ \frac{2}{3} \\ \frac{2}{3} \\ \frac{4}{3} \end{bmatrix} \approx \uvec{b} </me>.
+	<md> A \uvec{x} = \begin{bmatrix} 1 \\ \frac{2}{3} \\ \frac{2}{3} \\ \frac{2}{3} \\ \frac{4}{3} \end{bmatrix} \approx \uvec{b} </md>.
 	</p><p>
 	Let's compare by calculating <m>\proj_U \uvec{b}</m>,
 	where <m>U</m> is the column space of <m>A</m>.
@@ -393,12 +393,12 @@ respective owners.
 		</mrow>
 	</md>
 	we then have
-	<me>
+	<md>
 		\proj_U \uvec{b}
 		= \frac{\inprod{\uvec{b}}{\uvec{a}_1}}{\norm{\uvec{a}_1}^2} \, \uvec{a}_1 + \frac{\inprod{\uvec{b}}{\uvec{a}_2}}{\norm{\uvec{a}_2}^2} \, \uvec{a}_2
 		= \uvec{a}_1 + \frac{1}{3} \, \uvec{a}_2
 		= \begin{bmatrix} 1 \\ \frac{2}{3} \\ \frac{2}{3} \\ \frac{2}{3} \\ \frac{4}{3} \end{bmatrix}
-	</me>,
+	</md>,
 	as expected.
 	</p>
 </example>

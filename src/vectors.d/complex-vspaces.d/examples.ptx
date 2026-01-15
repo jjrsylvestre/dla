@@ -95,7 +95,7 @@ we carry out some common vector space calculations in the complex context.
 	vector addition in <m>\C^n</m> is performed component-wise.
 	Here is an example in <m>\C^4</m>,
 	with vectors realized as column vectors.
-	<me>
+	<md>
 		\begin{bmatrix}
 			1 + \ci \\
 			-\ci \\
@@ -116,12 +116,12 @@ we carry out some common vector space calculations in the complex context.
 			- \ci \\
 			12 + 6 \ci
 		\end{bmatrix}
-	</me>
+	</md>
 	</p><p>
 	And just as in <m>\R^n</m>,
 	scalar multiplication in <m>\C^n</m> is performed by multiplying each component by the scalar.
 	Here is an example in <m>\C^4</m>.
-	<me>
+	<md>
 		(3 + 2 \ci)
 		\begin{bmatrix}
 			1 \\
@@ -136,47 +136,47 @@ we carry out some common vector space calculations in the complex context.
 			13 \\
 			5 - \ci
 		\end{bmatrix}
-	</me>
+	</md>
 	</p>
 </example>
 
 <example xml:id="example-complex-vspaces-span"><title>Checking for inclusion in a span</title><p>
 	In the space <m>\matrixring_2(\C)</m>,
-	is <me> \begin{bmatrix} 3 + 2 \ci \amp -1 + 5 \ci \\ -7 - 5 \ci \amp 3 + 3 \ci \end{bmatrix} </me>
+	is <md> \begin{bmatrix} 3 + 2 \ci \amp -1 + 5 \ci \\ -7 - 5 \ci \amp 3 + 3 \ci \end{bmatrix} </md>
 	contained in the subspace
-	<me>
+	<md>
 		\Span\left\{
 			\begin{bmatrix} 1 + \ci \amp 3 \ci \\ 0 \amp -1 \end{bmatrix},
 			\begin{bmatrix} 2 + \ci \amp 0 \\ -2 \amp 2 + 3 \ci \end{bmatrix},
 			\begin{bmatrix} 0 \amp 1 - 2 \ci \\ 5 + 5 \ci \amp -2 \end{bmatrix}
 		\right\}
 		\quad  <!-- this is to put some space before the question mark -->
-	</me>?
+	</md>?
 	This question is equivalent to asking whether the matrix equation
-	<me>
+	<md>
 		k_1 \begin{bmatrix} 1 + \ci \amp 3 \ci \\ 0 \amp -1 \end{bmatrix}
 		+ k_2 \begin{bmatrix} 2 + \ci \amp 0 \\ -2 \amp 2 + 3 \ci \end{bmatrix}
 		+ k_3 \begin{bmatrix} 0 \amp 1 - 2 \ci \\ 5 + 5 \ci \amp -2 \end{bmatrix}
 		= \begin{bmatrix} 3 + 2 \ci \amp -1 + 5 \ci \\ -7 - 5 \ci \amp 3 + 3 \ci \end{bmatrix}
-	</me>
+	</md>
 	has a solution in the (complex) scalars <m>k_1</m>, <m>k_2</m>, <m>k_3</m>.
 	As usual,
 	we combine the linear combination on the left into a single matrix:
-	<me>
+	<md>
 		\begin{bmatrix} (1 + \ci) k_1 + (2 + \ci) k_2 + k_3 \amp 3 \ci k_1 + (1 - 2 \ci) k_3 \\ -2 k_2 + (5 + 5 \ci) k_3 \amp -k_1 + (2 + 3 \ci) k_2 - 2 k_3 \end{bmatrix}
 		= \begin{bmatrix} 3 + 2 \ci \amp -1 + 5 \ci \\ -7 - 5 \ci \amp 3 + 3 \ci \end{bmatrix}
-	</me>.
+	</md>.
 	Then we turn this matrix equation into a (complex) linear system:
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcrcr}
 			(1 + \ci) k_1 \amp + \amp (2 + \ci) k_2 \amp + \amp k_3 \amp = \amp 3 + 2 \ci \text{,} \\
 			3 \ci k_1 \amp + \amp \amp \amp (1 - 2 \ci) k_3 \amp =  \amp -1 + 5 \ci \text{,} \\
 			 \amp \amp -2 k_2 \amp + \amp (5 + 5 \ci) k_3 \amp = \amp -7 - 5 \ci \text{,} \\
 			 -k_1 \amp + \amp (2 + 3 \ci) k_2 \amp - \amp 2 k_3 \amp = \amp 3 + 3 \ci \text{.}
 		\end{sysofeqns}
-	</me>
+	</md>
 	Create an augmented matrix and row reduce:
-	<me>
+	<md>
 		\begin{abmatrix}{ccc|c}
 			1 + \ci \amp 2 + \ci \amp 1 \amp 3 + 2 \ci \\
 			3 \ci \amp 0 \amp 1 - 2 \ci \amp -1 + 5 \ci \\
@@ -190,44 +190,44 @@ we carry out some common vector space calculations in the complex context.
 			0 \amp 0 \amp 1 \amp -1 \\
 			0 \amp 0 \amp 0 \amp  0
 		\end{abmatrix}
-	</me>.
+	</md>.
 	The system has a solution,
 	so the answer is <alert>yes</alert>,
 	the given vector is in the span of the other three.
 	In particular,
 	from the reduced augmented matrix,
 	we see that
-	<me>
+	<md>
 		\begin{bmatrix} 3 + 2 \ci \amp -1 + 5 \ci \\ -7 - 5 \ci \amp 3 + 3 \ci \end{bmatrix}
 		= \begin{bmatrix} 1 + \ci \amp 3 \ci \\ 0 \amp -1 \end{bmatrix}
 		+ \begin{bmatrix} 2 + \ci \amp 0 \\ -2 \amp 2 + 3 \ci \end{bmatrix}
 		- \begin{bmatrix} 0 \amp 1 - 2 \ci \\ 5 + 5 \ci \amp -2 \end{bmatrix}
-	</me>.
+	</md>.
 </p></example>
 
 <example xml:id="example-complex-vspaces-dependence"><title>Testing for linear dependence/independence</title><p>
 	In the space <m>\C^4</m>,
 	are the vectors
-	<me>
+	<md>
 		\begin{bmatrix} 1 + \ci \\ 3 \ci \\ 0 \\ -1 \end{bmatrix},
 		\begin{bmatrix} 2 + \ci \\ 0 \\ -2 \\ 2 + 3 \ci \end{bmatrix},
 		\begin{bmatrix} 0 \\ 1 - 2 \ci \\ 5 + 5 \ci \\ -2 \end{bmatrix},
 		\begin{bmatrix} 3 + 2 \ci \\ -1 + 5 \ci \\ -7 - 5 \ci \\ 3 + 3 \ci \end{bmatrix}
-	</me>
+	</md>
 	linearly dependent or independent?
 	Applying the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
 	(<xref ref="procedure-linear-indep-concepts-test-for-dep-indep" />),
 	we set up the vector equation
-	<me>
+	<md>
 		k_1 \begin{bmatrix} 1 + \ci \\ 3 \ci \\ 0 \\ -1 \end{bmatrix}
 		+ k_2 \begin{bmatrix} 2 + \ci \\ 0 \\ -2 \\ 2 + 3 \ci \end{bmatrix}
 		+ k_3 \begin{bmatrix} 0 \\ 1 - 2 \ci \\ 5 + 5 \ci \\ -2 \end{bmatrix}
 		+ k_4 \begin{bmatrix} 3 + 2 \ci \\ -1 + 5 \ci \\ -7 - 5 \ci \\ 3 + 3 \ci \end{bmatrix}
 		= \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
-	</me>.
+	</md>.
 	As usual,
 	we combine the linear combination on the left into a single vector:
-	<me>
+	<md>
 		\begin{bmatrix}
 			(1 + \ci) k_1 + (2 + \ci) k_2 + k_3 + (3 + 2 \ci) k_4 \\
 			3 \ci k_1 + (1 - 2 \ci) k_3 + (-1 + 5 \ci) k_4 \\
@@ -235,19 +235,19 @@ we carry out some common vector space calculations in the complex context.
 			-k_1 + (2 + 3 \ci) k_2 - 2 k_3 + (3 + 3 \ci) k_4
 		\end{bmatrix}
 		= \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
-	</me>.
+	</md>.
 	Then we turn this vector equation into a homogeneous (complex) linear system:
-	<me>
+	<md>
 		\begin{sysofeqns}{rcrcrcrcr}
 			(1 + \ci) k_1 \amp + \amp (2 + \ci) k_2 \amp + \amp k_3 \amp + \amp (3 + 2 \ci) k_4 \amp = \amp 0 \text{,} \\
 			3 \ci k_1 \amp + \amp \amp \amp (1 - 2 \ci) k_3 \amp + \amp (-1 + 5 \ci) k_4 \amp = \amp 0 \text{,} \\
 			 \amp \amp -2 k_2 \amp + \amp (5 + 5 \ci) k_3 \amp + \amp (-7 - 5 \ci) k_4 \amp = \amp 0 \text{,} \\
 			-k_1 \amp + \amp (2 + 3 \ci) k_2 \amp - \amp 2 k_3 \amp + \amp (3 + 3 \ci) k_4 \amp = \amp 0 \text{.}
 		\end{sysofeqns}
-	</me>
+	</md>
 	Since the system is homogeneous,
 	we can solve by reducing the coefficient matrix:
-	<me>
+	<md>
 		\begin{bmatrix}
 			1 + \ci \amp 2 + \ci \amp 1 \amp 3 + 2 \ci \\
 			3 \ci \amp 0 \amp 1 - 2 \ci \amp -1 + 5 \ci \\
@@ -261,19 +261,19 @@ we carry out some common vector space calculations in the complex context.
 			0 \amp 0 \amp 1 \amp -1 \\
 			0 \amp 0 \amp 0 \amp  0
 		\end{abmatrix}
-	</me>.
+	</md>.
 	Since there is no leading one in the fourth column,
 	solving the system requires a parameter,
 	hence there are nontrivial solutions.
 	Therefore, the set of vectors is linearly dependent.
 	In particular,
 	the fourth column provides a dependence relation amongst the four vectors:
-	<me>
+	<md>
 		\begin{bmatrix} 3 + 2 \ci \amp -1 + 5 \ci \\ -7 - 5 \ci \amp 3 + 3 \ci \end{bmatrix}
 		= \begin{bmatrix} 1 + \ci \amp 3 \ci \\ 0 \amp -1 \end{bmatrix}
 		+ \begin{bmatrix} 2 + \ci \amp 0 \\ -2 \amp 2 + 3 \ci \end{bmatrix}
 		- \begin{bmatrix} 0 \amp 1 - 2 \ci \\ 5 + 5 \ci \amp -2 \end{bmatrix}
-	</me>.
+	</md>.
 </p></example>
 
 <remark><p>
@@ -306,23 +306,23 @@ we carry out some common vector space calculations in the complex context.
 
 <example><title>Determining a basis for a null space</title><p>
 	Suppose we would like to determine a basis for the null space of the complex matrix
-	<me>
+	<md>
 		A = \begin{bmatrix}
 			1 + \ci \amp -1 + 5 \ci \amp 1 - \ci \amp 2 + 4 \ci \\
 			-2 + \ci \amp -7 - 4 \ci \amp 2 + 2 \ci \amp -9 + 3 \ci \\
 			-2 - \ci \amp -1 - 8 \ci \amp -2 + \ci \amp -1 - 5 \ci \\
 			5 \ci \amp -15 + 10 \ci \amp 2 - 2 \ci \amp 5 + 13 \ci
 		\end{bmatrix}
-	</me>.
+	</md>.
 	As usual, row reduce to get
-	<me>
+	<md>
 		\begin{bmatrix}
 			1 \amp 2 + 3 \ci \amp 0 \amp 1 - \ci \\
 			0 \amp 0 \amp 1 \amp -2 + 2 \ci \\
 			0 \amp 0 \amp 0 \amp 0 \\
 			0 \amp 0 \amp 0 \amp 0
 		\end{bmatrix}
-	</me>.
+	</md>.
 	You may recognize this as the reduced matrix from
 	<xref ref="example-complex-matrices-solving" />
 	(except with an extra row of zeros),
@@ -338,7 +338,7 @@ we carry out some common vector space calculations in the complex context.
 	To describe this solution space in terms of a basis,
 	use the variables as coordinates in a vector,
 	and then separate the parametric expressions by parameter in order to express the general solution vector as a linear combination:
-	<me>
+	<md>
 		\uvec{x}
 		= \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix}
 		= \begin{bmatrix}
@@ -359,10 +359,10 @@ we carry out some common vector space calculations in the complex context.
 			2 - 2 \ci \\
 			1
 		\end{bmatrix}
-	</me>.
+	</md>.
 	Since every solution vector can be expressed as a linear combination of these two particular solution vectors,
 	the null space of matrix <m>A</m> is
-	<me>
+	<md>
 		\Span \left\{
 			\begin{bmatrix}
 				-2 - 3 \ci \\
@@ -377,10 +377,10 @@ we carry out some common vector space calculations in the complex context.
 				1
 			\end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 	The row reduction process guarantees that the spanning vectors we obtain from solving are linearly independent,
 	so a basis for the null space of <m>A</m> is
-	<me>
+	<md>
 		\basisfont{B}_{\mathrm{null}}
 		= \left\{
 			\begin{bmatrix}
@@ -396,7 +396,7 @@ we carry out some common vector space calculations in the complex context.
 				1
 			\end{bmatrix}
 		\right\}
-	</me>.
+	</md>.
 </p></example>
 
 </subsection>

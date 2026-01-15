@@ -95,12 +95,12 @@ In <xref ref="activity-orthog-guess-orthog-in-plane" />, we tried to find a patt
 Rather than struggle with the geometry, we unleash the power of algebra:
 given vector <m>\uvec{u} = (a,b)</m>, we are looking for a vector <m>\uvec{v}</m> so that <m>\udotprod{u}{v} = 0</m>.
 Expanding out the dot product, we are looking to fill in the blanks in the following equation with components for <m>\uvec{v}</m>:
-<me> a\cdot\boxed{\phantom{X}} + b\cdot\boxed{\phantom{X}} = 0 </me>.
+<md> a\cdot\boxed{\phantom{X}} + b\cdot\boxed{\phantom{X}} = 0 </md>.
 Two numbers add to zero only if one is the negative of the other.
 We can make both terms in the sum the same number by entering <m>b</m> in the first blank and <m>a</m> in the second,
 so we can make the sum cancel to zero by also flipping the sign of one of those entries.
 For example,
-<me> a\cdot\boxed{b} + b\cdot\boxed{(-a)} = 0 </me>.
+<md> a\cdot\boxed{b} + b\cdot\boxed{(-a)} = 0 </md>.
 </p>
 
 <p>
@@ -254,15 +254,15 @@ this is the perpendicular condition.
 However, the vector <m>\uvec{n}</m> is unknown as well, since we don't know its initial point.
 But we can also use the triangle formed by <m>\uvec{u}</m>, <m>\uvec{n}</m>,
 and <m>\uvec{p}</m> to replace <m>\uvec{n}</m>:
-<me>
+<md>
 	\uvec{p} + \uvec{n} = \uvec{u}
 	\qquad \implies \qquad
 	\uvec{n} = \uvec{u} - \uvec{p} = \uvec{u} - k\uvec{a}
-</me>.
+</md>.
 Replacing <m>\uvec{n}</m> by this expression in the condition <m>\udotprod{n}{a} = 0</m> gives us an equation of numbers that we can solve for the unknown scale factor <m>k</m>,
 as we did in
 <xref ref="activity-orthog-proj-solve">Discovery</xref>:
-<me> k = \frac{\udotprod{u}{a}}{\unorm{a}^2} </me>.
+<md> k = \frac{\udotprod{u}{a}}{\unorm{a}^2} </md>.
 This vector <m>\uvec{p} = k\uvec{a}</m> pointing from the origin to the desired closest point <m>P</m> is called the <term>projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> or sometimes the <term>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></term>,
 and we write <m>\uproj{u}{a}</m> to represent it.
 </p>
@@ -301,7 +301,7 @@ and we write <m>\uproj{u}{a}</m> to represent it.
 The normal vector <m>\uvec{n}</m> in <xref ref="figure-orthog-concepts-vectorized-distance-point-to-line" />
 is sometimes called the <term>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></term>.
 Together, the projection vector and corresponding normal vector are called <term>components</term> of <m>\uvec{u}</m> (relative to <m>\uvec{a}</m>) because they represent an <term>orthogonal decomposition of <m>\uvec{u}</m></term>:
-<me> \uvec{u} = \uvec{p} + \uvec{n} </me>,
+<md> \uvec{u} = \uvec{p} + \uvec{n} </md>,
 where <m>\uvec{p}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}</m> is orthogonal to <m>\uvec{a}</m>.
 While this decomposition is relative to <m>\uvec{a}</m>, it is really only the <em>direction</em> of <m>\uvec{a}</m> that matters <mdash />
 if <m>\uvec{a}'</m> is parallel to <m>\uvec{a}</m> (even possibly opposite to <m>\uvec{a}</m>), then both
@@ -359,7 +359,7 @@ The point <m>(3,-2)</m> is on this line, since
 </mrow></md>.
 The left-hand side of this calculation looks a lot like a dot product <mdash />
 we could reinterpret equation <xref ref="equation-orthog-concepts-point-normal-lines-1-point-calc" /> as
-<me> \dotprod{(2,3)}{(3,-2)} = 0 </me>.
+<md> \dotprod{(2,3)}{(3,-2)} = 0 </md>.
 So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checking that the corresponding vector <m>\uvec{p} = (3,-2)</m> (with its tail at the origin) is orthogonal to the vector <m>\uvec{n} = (2,3)</m> whose components are the <em>coefficients</em> from our line equation.
 </p>
 
@@ -468,7 +468,7 @@ In the homogeneous case, vectors from the origin determined by a point on the li
 Since things have shifted away from the origin in the nonhomogeneous case, to get a vector parallel to the line we need to consider <em>two</em> vectors from the origin to points on the line.
 Two convenient points for this the line are <m>Q(1,2)</m> and <m>R(4,0)</m>, with corresponding vectors <m>\uvec{x}_0 = (1,2)</m> and <m>\uvec{x}_1 = (4,0)</m>.
 Then the difference vector
-<me> \uvec{p} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </me>
+<md> \uvec{p} = \uvec{x}_1 - \uvec{x}_0 = (3,-2) </md>
 is parallel to the line, as in <xref ref="figure-orthog-concepts-nonhomog-line-normal-vector" />.
 In fact, this vector <m>\uvec{p}</m> is the same as previous vector <m>\uvec{p}</m> that appears parallel to the line through the origin in <xref ref="figure-orthog-concepts-homog-line-normal-vector" />,
 so we know it satisfies <m>\udotprod{n}{p} = 0</m>.
@@ -558,7 +558,7 @@ for the line, referring to the <q>base</q> <em>point</em> on the line at the ter
 	If <m>(x_0,y_0)</m> is a point on the line <m>\ell \colon a x + b y = d</m>
 	(that is, <m>a x_0 + b y_0 = d</m> is true),
 	then <m>\ell</m> can alternatively be described as all points <m>(x,y)</m> that satisfy
-	<me> \dotprod{(a,b)}{\bbrac{(x,y) - (x_0,y_0)}} = 0 </me>.
+	<md> \dotprod{(a,b)}{\bbrac{(x,y) - (x_0,y_0)}} = 0 </md>.
 	</p>
 </convention>
 
@@ -600,7 +600,7 @@ giving us a point-normal for a plane just as in equation <xref ref="equation-ort
 	If <m>(x_0,y_0,z_0)</m> is a point on the plane <m>\Pi \colon a x + b y + c z = d</m>
 	(that is, <m>a x_0 + b y_0 + c z_0 = d</m> is true),
 	then <m>\Pi</m> can alternatively be described as all points <m>(x,y,z)</m> that satisfy
-	<me> \dotprod{(a,b,c)}{\bbrac{(x,y,z) - (x_0,y_0,z_0)}} = 0 </me>.
+	<md> \dotprod{(a,b,c)}{\bbrac{(x,y,z) - (x_0,y_0,z_0)}} = 0 </md>.
 	</p>
 </convention>
 
@@ -654,14 +654,14 @@ If we know two vectors that are parallel to the plane in question, the problem r
 
 <p>
 Expanding out the dot products, we get (surprise!) a system of linear equations:
-<me>
+<md>
 	\left\{
 		\begin{array}{lclclcr}
 			u_1 x \amp + \amp u_2 y \amp + \amp u_3 z \amp = \amp 0 \text{,} \\
 			v_1 x \amp + \amp v_2 y \amp + \amp v_3 z \amp = \amp 0 \text{.}
 		\end{array}
 	\right.
-</me>
+</md>
 Specifically, we get a homogeneous system of two equations in the three unknown coordinates <m>x,y,z</m>.
 Now, since this system is homogeneous, it is consistent.
 But its general solution will also require at least one parameter, since its rank is at most <m>2</m>, while we have three variables.
@@ -672,7 +672,7 @@ and/or turn it around to be opposite of the way it is pictured
 (in this case, point down instead of up),
 and it will remain orthogonal to <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 Our end goal is a calculation formula and procedure that will compute one particular solution to this problem, so let's introduce a somewhat arbitrary additional equation to eliminate the need for a parameter in the solution.
-<me>
+<md>
 	\left\{
 		\begin{array}{rcrcrcr}
 			    x \amp + \amp     y \amp + \amp     z \amp = \amp 1, \\
@@ -680,7 +680,7 @@ Our end goal is a calculation formula and procedure that will compute one partic
 			v_1 x \amp + \amp v_2 y \amp + \amp v_3 z \amp = \amp 0.
 		\end{array}
 	\right.
-</me>
+</md>
 In matrix form, this system can be expressed as <m>A \uvec{x} = \uvec{b}</m>, with
 <md><mrow tag="ddagger" xml:id="equation-orthog-concepts-cross-product-system-matrices">
 	A \amp= \begin{bmatrix}
@@ -737,7 +737,7 @@ Assuming that <m>\det A \neq 0</m>, Cramer's rule tells us the solution to this 
 Now, each of <m>x,y,z</m> has a common factor of <m>1/\det A</m>, and all this common factor does is scale the length of our solution vector <m>\uvec{x}</m> without affecting orthogonality with <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 Even worse, <m>\det A</m> depends on that extra equation we threw in, and we would like our solution to depend only on <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 So let's remove it and use solution
-<me>
+<md>
 	\uvec{x} =
 	\left(
 		\begin{vmatrix}
@@ -756,7 +756,7 @@ So let's remove it and use solution
 			v_1 \amp v_2
 		\end{vmatrix}
 	\right).
-</me>
+</md>
 We call this the
 <term>cross product of <m>\uvec{u}</m> and <m>\uvec{v}</m></term><idx><h>cross product</h></idx><idx><h>vector</h><h>cross product</h></idx>,
 and write <m>\ucrossprod{u}{v}</m> instead of <m>\uvec{x}</m>.
@@ -773,7 +773,7 @@ That is, setting
 	\end{vmatrix}
 </mrow></md>
 and expanding the determinant along the first row yields
-<me>
+<md>
 	\ucrossprod{u}{v} \;=\;
 	\begin{vmatrix}
 		u_2 \amp u_3 \\
@@ -792,7 +792,7 @@ and expanding the determinant along the first row yields
 		v_1 \amp v_2
 	\end{vmatrix}
 	\kvec{},
-</me>
+</md>
 as desired.
 See
 <xref ref="example-orthog-cross-product" />
@@ -836,7 +836,7 @@ we can be even more specific.
 Computing <m>\ucrossprod{v}{u}</m> would swap the second and third rows of the special matrix in equation
 <xref ref="equation-orthog-concepts-cross-prod-det-formula" />,
 and we know that the resulting determinant would be the negative of that for the matrix for computing <m>\ucrossprod{u}{v}</m>, and so
-<me> \ucrossprod{v}{u} = -\ucrossprod{u}{v} </me>.
+<md> \ucrossprod{v}{u} = -\ucrossprod{u}{v} </md>.
 See
 <xref ref="proposition-orthog-cross-prod-algebra" />
 in

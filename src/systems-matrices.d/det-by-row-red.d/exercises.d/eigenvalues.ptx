@@ -52,14 +52,14 @@ respective owners.
 				<li><m> R_3 - (x + 3) R_2            </m>,</li>
 			</ol>
 			resulting in upper triangular matrix
-			<me>
+			<md>
 				\begin{bmatrix}
 					1 \amp  -x   \amp      3      \\
 					0 \amp x + 1 \amp   -(x + 2)  \\
 					0 \amp   0   \amp {(x + 1)}^2
 				\end{bmatrix}
-			</me>.
-			This matrix has determinant <me> {(x + 1)}^3 </me>.
+			</md>.
+			This matrix has determinant <md> {(x + 1)}^3 </md>.
 			Our sequence of operations used two row swaps and two multiplications of a row by <m>-1</m>,
 			all of which cancels out in terms of the effect on the determinant.
 			Therefore, the original matrix has the same determinant value.
@@ -94,17 +94,17 @@ respective owners.
 				<li><m> R_3 - (x + 22) R_2            </m>,</li>
 			</ol>
 			resulting in upper triangular matrix
-			<me>
+			<md>
 				\begin{abmatrix}{rcc}
 					-5 \amp x + 7 \amp       -20       \\
 					 0 \amp x - 3 \amp    -(x - 3)     \\
 					 0 \amp   0   \amp (x - 3) (x + 2)
 				\end{abmatrix}
-			</me>.
-			This matrix has determinant <me> -5 {(x - 3)}^2 (x + 2) </me>.
+			</md>.
+			This matrix has determinant <md> -5 {(x - 3)}^2 (x + 2) </md>.
 			From the sequence of operations,
 			if the original matrix has determinant <m>d</m> then the above upper triangular matrix has determinant <m>-5 d</m>,
-			from which we conclude that <me> d = {(x - 3)}^2 (x + 2) </me>.
+			from which we conclude that <md> d = {(x - 3)}^2 (x + 2) </md>.
 		</p></li>
 
 		<li><p> The determinant calculated above is equal to <m>0</m> when <m>x = 3</m> and when <m>x = -2</m>. </p></li>
@@ -136,13 +136,13 @@ respective owners.
 				<li><m> R_2 - R_3                      </m></li>
 			</ol>
 			The result of these operations is
-			<me>
+			<md>
 				\begin{abmatrix}{rcc}
 					-4 \amp  x + 3  \amp     4     \\
 					 0 \amp x^2 - 1 \amp     0     \\
 					 0 \amp 5 x - 1 \amp 4 (x - 2)
 				\end{abmatrix}
-			</me>,
+			</md>,
 			which is enough zero entries to be as good as upper triangular for the purpose of computing the determinant:
 			<md><mrow>
 				\amp
@@ -166,7 +166,7 @@ respective owners.
 			</mrow></md>.
 			From the sequence of operations,
 			if the original matrix has determinant <m>d</m> then our simplified matrix has determinant <m>-16 d</m>,
-			from which we conclude that <me> d = (x^2 - 1) (x - 2) </me>.
+			from which we conclude that <md> d = (x^2 - 1) (x - 2) </md>.
 		</p></li>
 
 		<li><p> The determinant calculated above is equal to <m>0</m> when <m>x = 1</m>, when <m>x = -1</m>, and when <m>x = 2</m>. </p></li>
@@ -201,14 +201,14 @@ respective owners.
 				<li><m> R_3 + {(x - 3)}^2 R_2; R_4 + (x - 4) R_2 </m></li>
 			</ol>
 			The result of these operations is
-			<me>
+			<md>
 				\begin{bmatrix}
 					2 \amp x - 3 \amp           -2            \amp         -1         \\
 					0 \amp   2   \amp          x - 3          \amp         -2         \\
 					0 \amp   0   \amp {(x - 3)}^3 + 4 (x - 4) \amp -2 (x - 3) (x - 4) \\
 					0 \amp   0   \amp     (x - 3) (x - 4)     \amp          0
 				\end{bmatrix}
-			</me>,
+			</md>,
 			which is enough zero entries to be as good as upper triangular for the purpose of computing the determinant:
 			<md><mrow>
 				\amp
@@ -243,7 +243,7 @@ respective owners.
 			</mrow></md>.
 			From the sequence of operations,
 			if the original matrix has determinant <m>d</m> then our simplified matrix has determinant <m>8 d</m>,
-			from which we conclude that <me> d = {(x - 3)}^2 {(x - 4)}^2 </me>.
+			from which we conclude that <md> d = {(x - 3)}^2 {(x - 4)}^2 </md>.
 		</p></li>
 
 		<li><p> The determinant calculated above is equal to <m>0</m> when <m>x = 3</m> and when <m>x = 4</m>. </p></li>
@@ -257,14 +257,14 @@ respective owners.
 			<p>
 			Using <xref ref="lemma-det-by-row-red-det-transpose" />,
 			we can instead compute the determinant of the transpose matrix
-			<me>
+			<md>
 				\begin{bmatrix}
 					x - 3 \amp   2   \amp   0   \amp   2   \\
 					  0   \amp x - 3 \amp   2   \amp   1   \\
 					 -1   \amp  -2   \amp x - 3 \amp  -2   \\
 					  0   \amp  -1   \amp  -2   \amp x - 5
 				\end{bmatrix}
-			</me>.
+			</md>.
 			(Note that performing row operations on a transposed matrix is equivalent to performing <em>column</em> operations on the original matrix.)
 			</p>
 
@@ -282,14 +282,14 @@ respective owners.
 				<li><m> R_3 + 2 R_4                            </m></li>
 			</ol>
 			The result of these operations is
-			<me>
+			<md>
 				\begin{bmatrix}
 					1 \amp 2 \amp   -x + 3   \amp     2     \\
 					0 \amp 1 \amp      2     \amp  -x + 5   \\
 					0 \amp 0 \amp  {(x - 3)}^2 \amp     0     \\
 					0 \amp 0 \amp -2 (x - 4) \amp {(x - 4)}^2
 				\end{bmatrix}
-			</me>,
+			</md>,
 			which is enough zero entries to be as good as upper triangular for the purpose of computing the determinant:
 			<md><mrow>
 				\amp

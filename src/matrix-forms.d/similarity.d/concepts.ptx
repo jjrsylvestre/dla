@@ -64,7 +64,7 @@ After superimposing a set of <m>wz</m>-axes onto the <m>xy</m>-axes using the <m
 we observed that <m>\uvec{v}</m> was transformed by <m>A</m> in exactly the same way relative to the new superimposed axes.
 This should not have been a surprise,
 since the formula
-<me> A \uvec{v} = P B \inv{P} \uvec{v} = \ucobmtrx{B}{S} B \ucobmtrx{S}{B} \uvec{v} </me>
+<md> A \uvec{v} = P B \inv{P} \uvec{v} = \ucobmtrx{B}{S} B \ucobmtrx{S}{B} \uvec{v} </md>
 (where <m> A = P B \inv{P}</m> by the reversal of the similarity relation <m> \inv{P} A P = B </m>)
 can be translated as:
 </p>
@@ -92,11 +92,11 @@ Using the pattern of
 in
 <xref ref="subsection-matrix-ops-concepts-matrix-mult" />,
 the columns of <m>AP</m> are
-<me> A \uvec{p}_1, A \uvec{p}_2, \dotsc, A \uvec{p}_n </me>,
+<md> A \uvec{p}_1, A \uvec{p}_2, \dotsc, A \uvec{p}_n </md>,
 where the <m>\uvec{p}_j</m> are the columns of <m>P</m>.
 On the other side,
 the same matrix multiplication pattern gives the columns of <m>PB</m> as
-<me> P \uvec{b}_1, P \uvec{b}_2, \dotsc, P \uvec{b}_n </me>,
+<md> P \uvec{b}_1, P \uvec{b}_2, \dotsc, P \uvec{b}_n </md>,
 where the <m>\uvec{b}_j</m> are the columns of <m>B</m>.
 To have both sides expressed in terms of the columns of <m>P</m>,
 we used the matrix-times-vector pattern of
@@ -108,7 +108,7 @@ to write each <m>P \uvec{b}_j</m> as a linear combination of the columns of <m>P
 </p><p>
 Putting both sides together,
 we must have
-<me> A \uvec{p}_j = P \uvec{b}_j = b_{1j} \uvec{p}_1 + b_{2j} \uvec{p}_2 + \dotsb + b_{nj} \uvec{p}_n </me>.
+<md> A \uvec{p}_j = P \uvec{b}_j = b_{1j} \uvec{p}_1 + b_{2j} \uvec{p}_2 + \dotsb + b_{nj} \uvec{p}_n </md>.
 Since <m>P</m> is assumed invertible,
 its columns form a basis of <m>\R^n</m>.
 And linear combinations of basis vectors are precisely how we determine coordinates relative to a basis,
@@ -124,7 +124,7 @@ which leads from the above equality of columns to the following pattern.
 	 -->
 	Square matrices <m>A</m> and <m>B</m> are similar via <m>\inv{P} A P = B</m> if and only if each column of <m>B</m> is the coordinate vector relative to <m>\basisfont{B}_P</m> of the result of transforming the corresponding column of <m>P</m> by <m>A</m>,
 	where <m>\basisfont{B}_P</m> is the basis of <m>\R^n</m> formed by the columns of <m>P</m>. In symbols, we can write this condition as
-	<me> \uvec{b}_j = \matrixOfplain{A\uvec{p}_j}{\basisfont{B}_P} </me>
+	<md> \uvec{b}_j = \matrixOfplain{A\uvec{p}_j}{\basisfont{B}_P} </md>
 	for each column <m>\uvec{b}_j</m> of <m>B</m> and each corresponding column <m>\uvec{p}_j</m> of <m>P</m>.
 	</p>
 </convention>

@@ -48,7 +48,7 @@ We leave the verification of these properties to you, the reader.
 		<li>
 			The image of a linear combination is a linear combination.
 			That is,
-			<me> T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_m \uvec{v}_m) = a_1 T(\uvec{v}_1) + a_2 T(\uvec{v}_2) + \dotsb + a_m T(\uvec{v}_m) </me>
+			<md> T(a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_m \uvec{v}_m) = a_1 T(\uvec{v}_1) + a_2 T(\uvec{v}_2) + \dotsb + a_m T(\uvec{v}_m) </md>
 			for all scalars <m>a_1,a_2,\dotsc,a_m</m> and all vectors <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m> in <m>V</m>.
 		</li>
 	</ol>
@@ -77,16 +77,16 @@ tells all.
 		<p>
 		Write <m>\uvec{w}_j</m> for the <m>\nth[j]</m> spanning set image vector <m>T(\uvec{v}_j)</m>.
 		Since each vector <m>\uvec{v}</m> in the domain space <m>V</m> can be expressed as a linear combination
-		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </me>,
+		<md> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </md>,
 		we can use the linearity of <m>T</m> to compute
-		<me> T(\uvec{v}) = a_1 \uvec{w}_1 + \dotsb + a_m \uvec{w}_m </me>.
+		<md> T(\uvec{v}) = a_1 \uvec{w}_1 + \dotsb + a_m \uvec{w}_m </md>.
 		This demonstrates that <m>T</m> is completely determined by the image vectors <m>\uvec{w}_1,\dotsc,\uvec{w}_m</m>.
 		</p><p>
 		Now assume <m>\funcdef{T'}{V}{W}</m> is another linear transformation with <m>T'(\uvec{v}_j) = \uvec{w}_j</m>.
 		But then for
-		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </me>,
+		<md> \uvec{v} = a_1 \uvec{v}_1 + \dotsb + a_m \uvec{v}_m </md>,
 		the linearity of <m>T'</m> will lead to
-		<me> T'(\uvec{v}) = a_1 \uvec{w}_1 + \dotsb + a_m \uvec{w}_m = T(\uvec{v}) </me>.
+		<md> T'(\uvec{v}) = a_1 \uvec{w}_1 + \dotsb + a_m \uvec{w}_m = T(\uvec{v}) </md>.
 		Since <m>T,T'</m> agree on all input domain vectors,
 		they must be the same linear transformation.
 		</p>
@@ -121,13 +121,13 @@ a domain space <em>basis</em> should be used instead of merely a spanning set.
 		<p>
 		We want <m>T</m> to both be linear and to satisfy <m>T(\uvec{v}_j) = \uvec{w}_j</m> for each index <m>j</m>.
 		Given that each vector <m>\uvec{v}</m> in the domain space <m>V</m> has a <em>unique</em> expansion
-		<me> \uvec{v} = a_1 \uvec{v}_1 + \dotsb a_n \uvec{v}_n </me>
+		<md> \uvec{v} = a_1 \uvec{v}_1 + \dotsb a_n \uvec{v}_n </md>
 		in terms of the basis vectors in <m>\basisfont{B}</m>
 		(<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
 		there is no ambiguity in <em>defining</em> <m>T</m> relative to such expansions:
-		<me> T(\uvec{v}) = T(a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n) = a_1 \uvec{w}_1 + \dotsb + a_n \uvec{w}_n </me>.
+		<md> T(\uvec{v}) = T(a_1 \uvec{v}_1 + \dotsb + a_n \uvec{v}_n) = a_1 \uvec{w}_1 + \dotsb + a_n \uvec{w}_n </md>.
 		Then <m>T</m> will be linear (check!),and since each basis vector is expanded as <m>\uvec{v}_j = 1 \uvec{v}_j</m>, with zero coefficients on each of the other basis vectors, we will have
-		<me> T(\uvec{v}_j) = 1 \uvec{w}_j = \uvec{w}_j </me>,
+		<md> T(\uvec{v}_j) = 1 \uvec{w}_j = \uvec{w}_j </md>,
 		as desired.
 		</p>
 
@@ -164,12 +164,12 @@ We can also use the theorem to justify our claim that every transformation <m>\R
 		The proof is identical for both the real and complex versions of the statement.
 		By <xref ref="theorem-lintrans-basic-unique-spanning-image" />,
 		the transformation <m>T</m> is uniquely determined by the output vectors
-		<me> T(\uvec{e}_1), \; T(\uvec{e}_2), \; \dotsc, \; T(\uvec{e}_n) </me>,
+		<md> T(\uvec{e}_1), \; T(\uvec{e}_2), \; \dotsc, \; T(\uvec{e}_n) </md>,
 		where <m>\basisfont{S} = \{\uvec{e}_1,\dotsc,\uvec{e}_n\}</m> is the standard basis for <m>\R^n</m> or <m>\C^n</m>,
 		as appropriate.
 		But if <m>A</m> is the matrix whose columns are these output vectors,
 		then since
-		<me> T_A(\uvec{e}_j) = A \uvec{e}_j </me>
+		<md> T_A(\uvec{e}_j) = A \uvec{e}_j </md>
 		is equal to the <m>\nth[j]</m> column of <m>A</m>,
 		the transformations <m>T</m> and <m>T_A</m> agree on each of the vectors in basis <m>\basisfont{S}</m>.
 		From this we can conclude that <m>T</m> and <m>T_A</m> are in fact the same transformation.
@@ -287,11 +287,11 @@ we will at least establish that a finite-dimensional vector space and its dual s
 		<p>
 		Suppose <m>V</m> is a finite-dimensional vector space.
 		For every basis
-		<me> \basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n\} </me>
+		<md> \basisfont{B} = \{\uvec{e}_1,\uvec{e}_2,\dotsc,\uvec{e}_n\} </md>
 		for <m>V</m>,
 		we can define a
 		<term>dual basis</term><idx><h>dual</h><h>basis</h></idx>
-		<me> \vecdual{\basisfont{B}} = \{ \vecdual{\uvec{e}}_1, \vecdual{\uvec{e}}_2, \dotsc, \vecdual{\uvec{e}}_n \} </me>
+		<md> \vecdual{\basisfont{B}} = \{ \vecdual{\uvec{e}}_1, \vecdual{\uvec{e}}_2, \dotsc, \vecdual{\uvec{e}}_n \} </md>
 		for <m>\vecdual{V}</m> as follows.
 		</p>
 
@@ -300,13 +300,13 @@ we will at least establish that a finite-dimensional vector space and its dual s
 		take <m>\funcdef{\vecdual{\uvec{e}}_i}{V}{\R}</m>
 		(or <m>\funcdef{\vecdual{\uvec{e}}_i}{V}{\C}</m>, as appropriate)
 		to be the unique linear transformation such that
-		<me>
+		<md>
 			\vecdual{\uvec{e}}_i(\uvec{e}_j)
 			= \begin{cases}
 				1, \amp i = j, \\
 				0, \amp i \ne j,
 			\end{cases}
-		</me>
+		</md>
 		for each index <m>j</m>.
 		</p>
 
@@ -327,7 +327,7 @@ we will at least establish that a finite-dimensional vector space and its dual s
 		and so can be evaluated as a function on vectors in <m>V</m>.
 		In particular,
 		consider a linear combination
-		<me> c_1 \vecdual{\uvec{e}}_1 + c_2 \vecdual{\uvec{e}}_2 + \dotsb + c_n \vecdual{\uvec{e}}_n </me>
+		<md> c_1 \vecdual{\uvec{e}}_1 + c_2 \vecdual{\uvec{e}}_2 + \dotsb + c_n \vecdual{\uvec{e}}_n </md>
 		evaluated at <m>\uvec{e}_1</m>.
 		Using the definition of the <m>\vecdual{\uvec{e}}_i</m> functionals in the statement of the theorem,
 		we calculate:
@@ -367,13 +367,13 @@ we will at least establish that a finite-dimensional vector space and its dual s
 			Since <m>\basisfont{B}</m> is a basis for <m>V</m>,
 			<xref ref="theorem-lintrans-basic-unique-spanning-image" />
 			says that <m>f</m> is uniquely determined by the values
-			<me> f(\uvec{e}_1), \, f(\uvec{e}_2), \, \dotsc, \, f(\uvec{e}_n) </me>.
+			<md> f(\uvec{e}_1), \, f(\uvec{e}_2), \, \dotsc, \, f(\uvec{e}_n) </md>.
 			Let <m>a_1,a_2,\dotsc,a_n</m> represent these values,
 			and let <m>g</m> be the linear functional
-			<me> a_1 \vecdual{\uvec{e}}_1 + a_2 \vecdual{\uvec{e}}_2 + \dotsb + a_n \vecdual{\uvec{e}}_n </me>.
+			<md> a_1 \vecdual{\uvec{e}}_1 + a_2 \vecdual{\uvec{e}}_2 + \dotsb + a_n \vecdual{\uvec{e}}_n </md>.
 			The pattern of <xref ref="equation-lintrans-basic-theory-lincomb-linfunc-eval" />
 			says that
-			<me> g(\uvec{e}_j) = a_j </me>.
+			<md> g(\uvec{e}_j) = a_j </md>.
 			But since <m>f</m> is uniquely determined by the <m>a_j</m> values,
 			we can conclude that <m>f = g</m>,
 			a linear combination of the <m>\vecdual{\uvec{e}}_i</m> functionals.

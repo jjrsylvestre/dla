@@ -99,7 +99,7 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 		for
 		<m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m>,
 		since
-		<me> A(\uvec{x}_1+\uvec{x}_2) = A\uvec{x}_1+A\uvec{x}_2 = \uvec{b}_1 + \uvec{b}_2. </me>
+		<md> A(\uvec{x}_1+\uvec{x}_2) = A\uvec{x}_1+A\uvec{x}_2 = \uvec{b}_1 + \uvec{b}_2. </md>
 		Therefore, the system
 		<m>A\uvec{x}=\uvec{b}</m>
 		is consistent for
@@ -125,7 +125,7 @@ the <xref ref="procedure-subspaces-concepts-test" text="title" />
 		for
 		<m>\uvec{b}=k\uvec{b}_0</m>,
 		since
-		<me> A(k\uvec{x}_0) = k(A\uvec{x}_0) = k\uvec{b}_0. </me>
+		<md> A(k\uvec{x}_0) = k(A\uvec{x}_0) = k\uvec{b}_0. </md>
 		Therefore, the system
 		<m>A\uvec{x}=\uvec{b}</m>
 		is consistent for
@@ -161,13 +161,13 @@ To better understand this so-called consistent space, we should relate it back t
 <xref ref="activity-col-row-null-space-colspan-motivation" />,
 because <m>A</m> is the only thing common to all the <m>\uvec{b}</m> vectors in this space.
 Let's again think of <m>A</m> as being made up of column vectors in <m>\R^m</m>:
-<me>
+<md>
 	A = \begin{bmatrix}
 		| \amp | \amp \amp | \\
 		\uvec{c}_1 \amp \uvec{c}_2 \amp \cdots \amp \uvec{c}_n \\
 		| \amp | \amp  \amp |
 	\end{bmatrix}.
-</me>
+</md>
 In <xref ref="activity-col-row-null-space-matrix-times-stdvec" />,
 we found that the result of computing <m>A\uvec{e}_j</m> is <m>\uvec{c}_j</m>,
 the <m>\nth[j]</m> column of <m>A</m>
@@ -185,12 +185,12 @@ of <m>A</m> is also in the consistent space of <m>A</m>.
 What other vectors could be in this space?
 If <m>A\uvec{x}=\uvec{b}</m> is consistent,
 then it has at least one solution
-<me>
+<md>
 	\uvec{x}
 	= \uvec{x}_0
 	= \left[\begin{smallmatrix}x_1\\x_2\\\vdots\\x_n\end{smallmatrix}\right]
 	= x_1\uvec{e}_1+x_2\uvec{e}_2+\dotsb+x_n\uvec{e}_n.
-</me>
+</md>
 But then
 <md>
 	<mrow> \uvec{b} \amp = A\uvec{x}_0 </mrow>
@@ -227,13 +227,13 @@ Row reducing is equivalent to multiplying on the left by elementary matrices,
 and when we defined matrix multiplication in
 <xref ref="subsection-matrix-ops-concepts-matrix-mult" />
 we did so column-by-column:
-<me>
+<md>
 	EA = \begin{bmatrix}
 		| \amp | \amp \amp | \\
 		E\uvec{c}_1 \amp E\uvec{c}_2 \amp \cdots \amp E\uvec{c}_n \\
 		| \amp | \amp  \amp |
 	\end{bmatrix}.
-</me>
+</md>
 Because matrix multiplication distributes over linear combinations,
 <alert>multiplying a collection of column vectors by a common matrix cannot create independence out of dependence</alert>.
 Even better, the process of row reducing can be reversed

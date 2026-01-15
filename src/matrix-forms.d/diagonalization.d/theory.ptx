@@ -112,7 +112,7 @@ First, we'll record just a few of the facts about general similar matrices from
 		along with
 		<m>I = \inv{P}IP</m>,
 		we can express the matrix involved in the characteristic polynomial for <m>B</m> as
-		<me> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </me>
+		<md> \lambda I - B = \lambda \inv{P}IP - \inv{P}AP = \inv{P}(\lambda I - A)P, </md>
 		where in the last step we have factored the common <m>\inv{P}</m> and <m>P</m> factors out of the difference
 		(making sure to factor each to the correct side,
 		because <em>order of matrix multiplication matters</em>).
@@ -122,7 +122,7 @@ First, we'll record just a few of the facts about general similar matrices from
 		<xref ref="proposition-diagonalization-similar-matrices-properties-same-det">Statement</xref>
 		they have the same determinant.
 		That is,
-		<me> c_B(\lambda) = \det(\lambda I - B) = \det(\lambda I - A) = c_A(\lambda), </me>
+		<md> c_B(\lambda) = \det(\lambda I - B) = \det(\lambda I - A) = c_A(\lambda), </md>
 		and thus the similar matrices <m>A</m> and <m>B</m> have the same characteristic polynomial.
 		</p>
 	</proof>
@@ -187,7 +187,7 @@ But first, here is a surprising result that demonstrates how central eigenvalues
 		and <m>m_1,m_2,\dotsc,m_\ell</m> are the corresponding algebraic multiplicities of these eigenvalues
 		(so that each <m>m_j</m> is equal to the number of times <m>\lambda_j</m> appears on the main diagonal of <m>D</m>),
 		then
-		<me> \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell}, </me>
+		<md> \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell}, </md>
 		because the determinant of a diagonal matrix is just the product of its diagonal entries
 		(<xref ref="proposition-det-special-forms-triangular">Statement</xref>
 		of
@@ -199,7 +199,7 @@ But first, here is a surprising result that demonstrates how central eigenvalues
 		we know that the similar matrices <m>A</m> and <m>D</m> have the same determinant,
 		and have all the same eigenvalues with the same corresponding algebraic multiplicities.
 		Thus, the expression
-		<me> \det A = \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </me>
+		<md> \det A = \det D = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </md>
 		can be viewed as an expression for <m>\det A</m> as a product of the eigenvalues of <m>A</m>,
 		including multiplicities.
 	</p></proof>
@@ -311,23 +311,23 @@ The next fact answers this question with a more general version of what we explo
 		<m>A\uvec{w}_j = \lambda_j \uvec{w}_j</m>.
 		Making these substitutions,
 		we obtain
-		<me>\begin{split}
+		<md>\begin{split}
 			k \lambda \uvec{v} +
 			\amp a_1 \lambda \uvec{v}_1 + a_2 \lambda \uvec{v}_2 + \dotsb + a_\ell \lambda \uvec{v}_\ell \\
 			\amp + b_1 \lambda_1 \uvec{w}_1 + b_2 \lambda_2 \uvec{w}_2 + \dotsb + b_m \lambda_m \uvec{w}_m
 			= \zerovec.
-		\end{split}</me>
+		\end{split}</md>
 		Compare this
 		<q><m>A</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
 		equation with the result of multiplying
 		<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />
 		through by the scalar <m>\lambda</m>:
-		<me>\begin{split}
+		<md>\begin{split}
 			k \lambda \uvec{v} +
 			\amp a_1 \lambda \uvec{v}_1 + a_2 \lambda \uvec{v}_2 + \dotsb + a_\ell \lambda \uvec{v}_\ell \\
 			\amp + b_1 \lambda \uvec{w}_1 + b_2 \lambda \uvec{w}_2 + \dotsb + b_m \lambda \uvec{w}_m
 			= \zerovec.
-		\end{split}</me>
+		\end{split}</md>
 		Notice that the <m>\uvec{v}</m> and <m>\uvec{v}_j</m> terms of both the
 		<q><m>A</m> times <xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" /></q>
 		equation and the
@@ -335,16 +335,16 @@ The next fact answers this question with a more general version of what we explo
 		equation are identical,
 		so if we subtract these equations and collect like <m>\uvec{w}_j</m>-terms,
 		we obtain
-		<me>
+		<md>
 			b_1 (\lambda_1-\lambda) \uvec{w}_1 + b_2 (\lambda_2-\lambda) \uvec{w}_2
 			+ \dotsb + b_m (\lambda_m-\lambda) \uvec{w}_m
 			= \zerovec.
-		</me>
+		</md>
 		Since the collection of <m>\uvec{w}_j</m> vectors are linearly independent,
 		the scalar coefficient expressions in this new linear combination must all be zero.
 		That is,
 		each scalar expression
-		<me> b_j (\lambda_j-\lambda) </me>
+		<md> b_j (\lambda_j-\lambda) </md>
 		must be zero.
 		However, none of the <m>\uvec{w}_j</m> is from the same eigenspace as <m>\uvec{v}</m>,
 		so each <m>\lambda_j-\lambda</m> is <em>non</em>zero,
@@ -353,7 +353,7 @@ The next fact answers this question with a more general version of what we explo
 		Substituting this new information into equation
 		<xref ref="equation-diagonalization-theory-lin-indep-eigenspaces-test-setup" />,
 		we have
-		<me> k \uvec{v} + a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_\ell \uvec{v}_\ell = \zerovec. </me>
+		<md> k \uvec{v} + a_1 \uvec{v}_1 + a_2 \uvec{v}_2 + \dotsb + a_\ell \uvec{v}_\ell = \zerovec. </md>
 		But the collection
 		<m>\{\uvec{v},\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_\ell\}</m>
 		is assumed independent,
@@ -505,7 +505,7 @@ We record the results of this line of reasoning as a corollary of <xref ref="the
 		and <m>n</m> is the sum of the <em>algebraic</em> multiplicities of the eigenvalues,
 		because if <m>A</m> has all real eigenvalues,
 		then <m>c_A(\lambda)</m> factors as
-		<me> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}. </me>
+		<md> c_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dotsm(\lambda-\lambda_\ell)^{m_\ell}. </md>
 		So if even <em>one</em> eigenvalue is deficient in the sense that its geometric multiplicity is strictly less than its algebraic multiplicity,
 		we won't obtain enough linearly independent eigenvectors from that eigenspace to contribute to the <m>n</m> linearly eigenvectors we need in total.
 		</p>

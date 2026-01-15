@@ -166,9 +166,9 @@ and so on.
 To trace this back to an appropriate complex inner product on <m>\C^n</m>
 (as we attempted to do in <xref ref="activity-inner-prod-complex-dot-product" />),
 the formula
-<me> \cmodulus{z}^2 = z\cconj{z} </me>
+<md> \cmodulus{z}^2 = z\cconj{z} </md>
 seems to suggest that the dot product
-<me> \udotprod{x}{y} = x_1 y_1 + x_2 y_2 + \dotsb + x_n y_n </me>
+<md> \udotprod{x}{y} = x_1 y_1 + x_2 y_2 + \dotsb + x_n y_n </md>
 from <m>\R^n</m> needs a complex conjugate in it in to adapt it for use in <m>\C^n</m>:
 <md><mrow xml:id="equation-inner-prod-concepts-complex-dot-product" tag="dstar">
 	\udotprod{w}{z} = w_1 \cconj{z}_1 + w_2 \cconj{z}_2 + \dotsb + w_n \cconj{z}_n
@@ -177,7 +177,7 @@ from <m>\R^n</m> needs a complex conjugate in it in to adapt it for use in <m>\C
 This definition of the <term>standard inner product</term> on <m>\C^n</m> satisfies
 <xref ref="list-inner-prod-concepts-complex-axioms-positive" text="local">Axiom CIP</xref>,
 and so the formula
-<me> \unorm{z} = \sqrt{\udotprod{z}{z}} </me>
+<md> \unorm{z} = \sqrt{\udotprod{z}{z}} </md>
 both makes sense mathematically and matches up with the pattern of norms in <m>\C^n</m> explored above.
 </p>
 
@@ -224,7 +224,7 @@ since in general a complex inner product will output complex results.
 Norm in <m>\C^n</m> was our guide to creating the complex dot product,
 and <xref ref="list-inner-prod-concepts-complex-axioms-positive" text="local">Axiom CIP</xref>
 allows us to use the same definition of norm in any complex inner product space:
-<me> \unorm{z} = \sqrt{\uvecinprod{z}{z}} </me>.
+<md> \unorm{z} = \sqrt{\uvecinprod{z}{z}} </md>.
 </p><p>
 It is possible to also use a complex inner product to define angle between vectors in a complex inner product space,
 but we will not have a need to, so we will leave that matter for your future studies.
@@ -242,21 +242,21 @@ In <xref ref="subsection-vector-geom-concepts-dot-prod-vs-matrix-mult" />,
 we discussed how dot product on <m>\R^n</m> is essentially just matrix multiplication.
 Viewing vectors in <m>\R^n</m> as <m>n \times 1</m> column vectors,
 we have
-<me> \udotprod{u}{v} = \utrans{\uvec{u}} \uvec{v} = \utrans{\uvec{v}} \uvec{u} </me>.
+<md> \udotprod{u}{v} = \utrans{\uvec{u}} \uvec{v} = \utrans{\uvec{v}} \uvec{u} </md>.
 As in <xref ref="list-inner-prod-concepts-real-axioms-symmetric" text="local">Axiom RIP</xref>,
 the order doesn't matter, so we can use either of the two expressions above.
 </p><p>
 For a complex inner product, the order does matter.
 We can still realize the complex dot product on <m>\C^n</m> as matrix multiplication,
 but it will look different in different orders of matrix multiplication:
-<me> \udotprod{w}{z} = \utrans{\uvec{w}} \cconj{\uvec{z}} = \utrans{\cconj{\uvec{z}}} \uvec{w} </me>.
+<md> \udotprod{w}{z} = \utrans{\uvec{w}} \cconj{\uvec{z}} = \utrans{\cconj{\uvec{z}}} \uvec{w} </md>.
 Since we have already combined conjugate-transpose into a single computation,
 the <term>complex adjoint</term>,
 we will prefer the <q>reversed order</q> expression:
-<me> \udotprod{w}{z} = \adjoint{\uvec{z}} \uvec{w} </me>.
+<md> \udotprod{w}{z} = \adjoint{\uvec{z}} \uvec{w} </md>.
 And to maintain consistency,
 we will also prefer the <q>reversed order</q> expression for the real dot product:
-<me> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </me>.
+<md> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </md>.
 </p>
 
 </subsection>
@@ -268,10 +268,10 @@ we will also prefer the <q>reversed order</q> expression for the real dot produc
 <p>
 In <xref ref="activity-inner-prod-Rn-others" />,
 we explored modifying the formula
-<me> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </me>
+<md> \udotprod{u}{v} = \utrans{\uvec{v}} \uvec{u} </md>
 to produce other inner products on <m>\R^n</m>.
 Recognizing that there is a secret identity matrix in the dot-product-as-matrix-multiplication formula,
-<me> \udotprod{u}{v} = \utrans{\uvec{v}} I \uvec{u} </me>,
+<md> \udotprod{u}{v} = \utrans{\uvec{v}} I \uvec{u} </md>,
 we explored the conditions on an <m>n \times n</m> matrix <m>A</m> so that
 <md><mrow xml:id="equation-inner-prod-concepts-modified-real-dot-product" tag="dagger">
 	\uvecinprod{u}{v} = \utrans{\uvec{v}} A \uvec{u}
@@ -312,12 +312,12 @@ for some positive definite matrix <m>A</m></alert>.
 where these two facts are stated formally.)
 </p><p>
 Notice what happens if we construct a pairing using <m>A = \utrans{P} P</m>:
-<me>
+<md>
 	\uvecinprod{u}{v}
 	= \utrans{\uvec{v}} \utrans{P} P \uvec{u}
 	= \utrans{(P \uvec{v})} (P \uvec{u})
 	= \dotprod{(P \uvec{u})}{(P \uvec{v})}
-</me>.
+</md>.
 Recall that every invertible matrix <m>P</m> is somehow a transition matrix
 (<xref ref="proposition-change-of-basis-invertible-is-transition" />).
 So the above calculation can be interpreted as saying that <em>the new inner product on <m>\R^n</m> afforded by positive definite matrix <m>A = \utrans{P} P</m> is equivalent to the dot product by first <em>transforming</em> <m>\R^n</m> by <m>P</m></em>.
@@ -351,12 +351,12 @@ for some positive definite matrix <m>A</m></alert>.
 where these two facts are stated formally.)
 </p><p>
 Just as in the real case, if we construct a pairing using <m>A = \adjoint{P} P</m>:
-<me>
+<md>
 	\uvecinprod{w}{z}
 	= \adjoint{\uvec{z}} \adjoint{P} P \uvec{w}
 	= \adjoint{(P \uvec{z})} (P \uvec{w})
 	= \dotprod{(P \uvec{w})}{(P \uvec{z})}
-</me>.
+</md>.
 So again we can say that <em>the new inner product on <m>\C^n</m> afforded by positive definite matrix <m>A = \adjoint{P} P</m> is equivalent to the complex dot product by first <em>transforming</em> <m>\C^n</m> by <m>P</m></em>.
 </p>
 </paragraphs>

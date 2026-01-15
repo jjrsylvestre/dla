@@ -42,7 +42,7 @@ a subspace <m>U</m> and its orthogonal complement <m>\orthogcmp{U}</m> form a co
 So every vector <m>\uvec{v}</m> in <m>V</m> can be decomposed uniquely as into a sum of two vectors,
 one in <m>U</m> and one in <m>\orthogcmp{U}</m>
 (<xref ref="proposition-block-diag-complete-indep-decomp" />):
-<me> \uvec{v} = \uvec{u} + \uvec{u}'</me>,
+<md> \uvec{v} = \uvec{u} + \uvec{u}'</md>,
 with <m>\uvec{u}</m> in <m>U</m> and <m>\uvec{u}'</m> in <m>\orthogcmp{U}</m>.
 </p>
 
@@ -101,12 +101,12 @@ with <m>\uvec{u}</m> in <m>U</m> and <m>\uvec{u}'</m> in <m>\orthogcmp{U}</m>.
 The vector <m>\uvec{u}</m> in the decomposition is called
 the <term>orthogonal projection of <m>\uvec{v}</m> onto <m>U</m></term>,
 and we'll write
-<me> \proj_U \uvec{v} </me>
+<md> \proj_U \uvec{v} </md>
 to mean this vector.
 Note that by the symmetry of orthogonal complements
 (<xref ref="corollary-inprod-orthog-inverse" />),
 we could also say that the complementary vector <m>\uvec{u}'</m> in <m>\orthogcmp{U}</m> is
-<me> \proj_{\orthogcmp{U}} \uvec{v} </me>,
+<md> \proj_{\orthogcmp{U}} \uvec{v} </md>,
 the orthogonal projection of <m>\uvec{v}</m> onto <m>\orthogcmp{U}</m>.
 </p>
 
@@ -122,17 +122,17 @@ The <xref ref="theorem-inprod-orthog-expansion" text="title" /> (<xref ref="theo
 combined with <xref ref="proposition-inprod-orthog-complement-split-basis" />,
 tells us how to compute orthogonal projections.
 An orthogonal basis
-<me> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </me>
+<md> \basisfont{B}_U = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell \} </md>
 for subspace <m>U</m> can be enlarged to an orthogonal basis
-<me> \basisfont{B}_V = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </me>
+<md> \basisfont{B}_V = \{ \uvec{e}_1, \dotsc, \uvec{e}_\ell, \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </md>
 for the whole inner product space <m>V</m>
 (<xref ref="corollary-inprod-orthog-enlarge-to-basis" />).
 But the extra vectors in the enlarged basis then form a basis for <m>\orthogcmp{U}</m>:
-<me> \basisfont{B}_{\orthogcmp{U}} = \{ \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </me>.
+<md> \basisfont{B}_{\orthogcmp{U}} = \{ \uvec{e}_{\ell + 1}, \dotsc, \uvec{e}_n \} </md>.
 So if we expand <m>\uvec{v}</m> relative to <m>\basisfont{B}_V</m>,
 we will simultaneously obtain expansions for the components parallel and orthogonal to <m>U</m> relative to
 <m>\basisfont{B}_U</m> and <m>\basisfont{B}_{\orthogcmp{U}}</m>, respectively:
-<me>
+<md>
 	\uvec{v} =
 	\underbrace{
 		\frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
@@ -145,7 +145,7 @@ we will simultaneously obtain expansions for the components parallel and orthogo
 		+ \dotsb
 		+ \frac{\inprod{\uvec{v}}{\uvec{e}_n}}{\norm{\uvec{e}_n}^2} \, \uvec{e}_n
 	}_{\proj_{\orthogcmp{U}} \uvec{v}}
-</me>.
+</md>.
 Note that we don't actually need to know the extra vectors in <m>\basisfont{B}_V</m> that form <m>\basisfont{B}_{\orthogcmp{U}}</m>
 in order to compute either <m>\proj_U \uvec{v}</m> or <m>\proj_{\orthogcmp{U}} \uvec{v}</m>.
 All we need is the orthogonal basis <m>\basisfont{B}_U</m>,
@@ -170,15 +170,15 @@ for an example.
 <paragraphs><title>Orthogonal projection onto a vector in <m>\R^n</m></title><p>
 In <xref ref="chapter-orthog" />,
 we defined the <term>orthogonal projection</term> of one vector <m>\uvec{v}</m> onto another <m>\uvec{a}</m> in <m>\R^n</m> as
-<me> \proj_{\uvec{a}} \uvec{v} = \frac{\udotprod{u}{a}}{\unorm{a}^2}\, \uvec{a} </me>.
+<md> \proj_{\uvec{a}} \uvec{v} = \frac{\udotprod{u}{a}}{\unorm{a}^2}\, \uvec{a} </md>.
 This is consistent with our current definition of orthogonal projection,
 in the case of a one-dimensional subspace <m>U</m> of <m>\R^n</m>,
 and the standard inner product on <m>\R^n</m>.
 In that case, every basis
-<me> \basisfont{B}_U = \{ \uvec{a} \} </me>
+<md> \basisfont{B}_U = \{ \uvec{a} \} </md>
 for <m>U</m> can be considered an orthogonal basis,
 and the formula
-<me> \proj_U \uvec{v} = \frac{\uvecinprod{v}{a}}{\unorm{a}^2} \, \uvec{a} </me>
+<md> \proj_U \uvec{v} = \frac{\uvecinprod{v}{a}}{\unorm{a}^2} \, \uvec{a} </md>
 agrees with our previous formula for <m>\proj_{\uvec{a}} \uvec{v}</m>.
 </p></paragraphs>
 
@@ -191,9 +191,9 @@ agrees with our previous formula for <m>\proj_{\uvec{a}} \uvec{v}</m>.
 <p>
 The steps in the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title" /> process (<xref ref="procedure-inprod-orthog-gram-schmidt" />)
 create a sequence of orthogonal bases
-<me> \basisfont{B}_{U_1}, \basisfont{B}_{U_2}, \dotsc, \basisfont{B}_{U_n} </me>
+<md> \basisfont{B}_{U_1}, \basisfont{B}_{U_2}, \dotsc, \basisfont{B}_{U_n} </md>
 for a nested sequence of subspaces
-<me> U_1 \subseteq U_2 \subseteq \dotsb \subseteq U_n = V </me>,
+<md> U_1 \subseteq U_2 \subseteq \dotsb \subseteq U_n = V </md>,
 where <m>\dim U_j = j</m> for each index <m>j</m>.
 The process begins with <m>\uvec{e}_1 = \uvec{v}_1</m>,
 where we set the first result vector to be simply the first vector in the starting (possibly non-orthogonal) basis for the space.
@@ -202,15 +202,15 @@ so that <m>U_1 = \Span \{\uvec{e}_1\}</m>.
 Continuing inductively,
 to enlarge basis <m>\basisfont{B}_{U_j}</m> to basis <m>\basisfont{B}_{U_{j+1}}</m>,
 the process appends the vector
-<me>
+<md>
 	\uvec{e}_{j+1} = \uvec{v}_{j+1} - \left[
 		\frac{\inprod{\uvec{v}_{j+1}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 		+ \dotsb
 		+ \frac{\inprod{\uvec{v}_{j+1}}{\uvec{e}_j}}{\norm{\uvec{e}_j}^2} \, \uvec{e}_j
 	\right]
-</me>,
+</md>,
 where
-<me> \basisfont{B}_{U_j} = \{ \uvec{e}_1,\dotsc,\uvec{e}_j \} </me>
+<md> \basisfont{B}_{U_j} = \{ \uvec{e}_1,\dotsc,\uvec{e}_j \} </md>
 is the collection of orthogonal vectors created to that point in the process,
 and <m>\uvec{v}_{j+1}</m> is the <m>\nth[(j+1)]</m> vector in the initial basis used as the starting point in the process.
 </p>
@@ -220,7 +220,7 @@ Comparing the expression in the brackets being subtracted from <m>\uvec{v}_{j+1}
 formulas <xref ref="equation-projection-concepts-formula" />
 and <xref ref="equation-projection-concepts-complement-formula" />,
 we see that
-<me> \uvec{e}_{j+1} = \uvec{v}_{j+1} - \proj_{U_j} \uvec{v}_{j+1} = \proj_{\orthogcmp{U}_j} \uvec{v}_{j+1} </me>.
+<md> \uvec{e}_{j+1} = \uvec{v}_{j+1} - \proj_{U_j} \uvec{v}_{j+1} = \proj_{\orthogcmp{U}_j} \uvec{v}_{j+1} </md>.
 </p>
 
 <figure>
@@ -296,7 +296,7 @@ we see that
 <p>
 As in <m>\R^n</m>,
 we can measure distance between vectors by measuring the norm of a difference vector:
-<me> \dist(\uvec{u},\uvec{v}) = \norm{\uvec{u} - \uvec{v}} </me>.
+<md> \dist(\uvec{u},\uvec{v}) = \norm{\uvec{u} - \uvec{v}} </md>.
 </p>
 
 <figure>
@@ -333,8 +333,8 @@ and it will do the same in an abstract inner product space.
 If <m>U</m> is a subspace of a finite-dimensional inner product space,
 and <m>\uvec{v}</m> is a vector <em>not</em> in <m>U</m>,
 then amongst all vectors <m>\uvec{u}</m> in <m>U</m> the distance
-<me> \dist (\uvec{v},\uvec{u}) = \norm{\uvec{v} - \uvec{u}} </me>
-will be minimized at <me> \uvec{u} = \proj_U \uvec{v} </me>.
+<md> \dist (\uvec{v},\uvec{u}) = \norm{\uvec{v} - \uvec{u}} </md>
+will be minimized at <md> \uvec{u} = \proj_U \uvec{v} </md>.
 (See <xref ref="theorem-projection-best-approx" />.)
 </p>
 
@@ -397,7 +397,7 @@ for an example.
 And since there is one unique smallest distance <m> \dist (\uvec{v},\uvec{u}) </m> amongst all <m>\uvec{u}</m> in <m>U</m>,
 achieved when <m>\uvec{u} = \proj_U \uvec{v}</m>,
 we can define this as the <term>distance between <m>\uvec{v}</m> and <m>U</m></term>:
-<me> \dist (\uvec{v},U) = \dist (\uvec{v},\proj_U \uvec{v}) = \norm{\uvec{v} - \proj_U \uvec{v}} = \norm{\proj_{\orthogcmp{U}} \uvec{v}} </me>.
+<md> \dist (\uvec{v},U) = \dist (\uvec{v},\proj_U \uvec{v}) = \norm{\uvec{v} - \proj_U \uvec{v}} = \norm{\proj_{\orthogcmp{U}} \uvec{v}} </md>.
 </p>
 
 <p>
@@ -410,7 +410,7 @@ We can then express the vector <m>\uvec{v}</m> and any vector <m>\uvec{u}</m> in
 </mrow></md>
 Applying <xref ref="proposition-inprod-orthog-vs-dot-norm">Statement</xref> of <xref ref="proposition-inprod-orthog-vs-dot" />,
 we have
-<me> \bbrac{\dist (\uvec{v},\uvec{u})}^2 = {\norm{\uvec{v} - \uvec{u}}}^2 = (v_1 - u_1)^2 + (v_2 - u_2)^2 + \dotsb + (v_n - u_n)^2 </me>.
+<md> \bbrac{\dist (\uvec{v},\uvec{u})}^2 = {\norm{\uvec{v} - \uvec{u}}}^2 = (v_1 - u_1)^2 + (v_2 - u_2)^2 + \dotsb + (v_n - u_n)^2 </md>.
 Since we are talking about nonnegative quantities,
 minimizing <m>\dist (\uvec{v},\uvec{u})</m> is the same as minimizing the square of that distance,
 and so we can say that setting <m>\uvec{u} = \proj_U \uvec{v}</m> minimizes the <em>sum-of-squares</em> expression on the right above.
@@ -449,7 +449,7 @@ instead of a question about vectors in <m>\R^n</m>, where each <m>\uvec{x}</m> l
 
 <p>
 We have seen before that a <em>matrix-times-column</em> product can be expanded as a linear combination of the columns of the matrix:
-<me> A \uvec{x} = x_1 \uvec{a}_1 + x_2 \uvec{a}_2 + \dotsb + x_n \uvec{a}_n </me>,
+<md> A \uvec{x} = x_1 \uvec{a}_1 + x_2 \uvec{a}_2 + \dotsb + x_n \uvec{a}_n </md>,
 where the <m>\uvec{a}_j</m> are the columns of <m>A</m>.
 (For example, see <xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" />.)
 It is this pattern that led us to the definition of <term>column space</term> of a matrix as the span of the columns of the matrix.
@@ -536,7 +536,7 @@ we can develop a more direct procedure.
 Take pairing <m>\inprod{\blank}{\blank}</m> to mean the standard inner product on <m>\R^m</m>
 (or, later, on <m>\R^n</m>).
 Now, the vector
-<me> \uvec{b}_0' = \proj_{\orthogcmp{U}} \uvec{b}_0 = \uvec{b}_0 - \proj_{U} \uvec{b}_0 </me>
+<md> \uvec{b}_0' = \proj_{\orthogcmp{U}} \uvec{b}_0 = \uvec{b}_0 - \proj_{U} \uvec{b}_0 </md>
 lies in <m>\orthogcmp{U}</m>,
 and so is orthogonal to every vector in <m>U</m>, the column space of <m>A</m>.
 So for every <m>\uvec{x}</m> in <m>\R^n</m>, we have
@@ -552,7 +552,7 @@ So for every <m>\uvec{x}</m> in <m>\R^n</m>, we have
 
 <aside><title>A look ahead</title><p>
 	We will explore the pattern
-	<me> \inprod{\uvec{y}}{A \uvec{x}} = \inprod{\utrans{A} \uvec{y}}{\uvec{x}} </me>
+	<md> \inprod{\uvec{y}}{A \uvec{x}} = \inprod{\utrans{A} \uvec{y}}{\uvec{x}} </md>
 	more generally in <xref ref="chapter-matrix-adjoints" />.
 </p></aside>
 
@@ -563,16 +563,16 @@ However, in an inner product space, only the zero vector is orthogonal to <em>ev
 (<xref ref="proposition-inprod-orthog-trivial-complements-full">Statement</xref>
 of <xref ref="proposition-inprod-orthog-trivial-complements" />).
 Hence
-<me>
+<md>
 	\zerovec = \utrans{A} \uvec{b}_0'
 	= \utrans{A} (\uvec{b}_0 - \proj_{U} \uvec{b}_0)
 	= \utrans{A} (\uvec{b}_0 - A \uvec{x}_0)
-</me>
+</md>
 (using <xref ref="equation-projection-least-sq-sol" />).
 Re-arranging, we have
-<me> \utrans{A} A \uvec{x}_0 = \utrans{A} \uvec{b}_0 </me>.
+<md> \utrans{A} A \uvec{x}_0 = \utrans{A} \uvec{b}_0 </md>.
 In other words, the special <m>\uvec{x}_0</m> that we are looking for is a solution to
-<me> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b}_0 </me>,
+<md> \utrans{A} A \uvec{x} = \utrans{A} \uvec{b}_0 </md>,
 called the <term>normal system associated to <m>A \uvec{x} = \uvec{b}_0</m></term>.
 Solutions to this system are referred to as <term>least-squares solutions</term>
 for the original inconsistent system <m>A \uvec{x} = \uvec{b}_0</m>.
@@ -596,11 +596,11 @@ so <m>\utrans{A} A</m> is <m>n \times n</m>.
 If this matrix is invertible,
 then again there is one unique solution as above.
 In this case,
-<me> \inv{(\utrans{A} A)} \utrans{A} </me>
+<md> \inv{(\utrans{A} A)} \utrans{A} </md>
 is called the <term>pseudo-inverse</term> of <m>A</m>,
 as an analogy between <xref ref="equation-projection-least-sq-pseudo-inverse-sol" />
 with the fact that a square, invertible coefficient matrix affords solution
-<me> A \uvec{x} = \uvec{b} \quad\implies\quad \uvec{x} = \inv{A} \uvec{b} </me>.
+<md> A \uvec{x} = \uvec{b} \quad\implies\quad \uvec{x} = \inv{A} \uvec{b} </md>.
 But recall that in this analysis, we have <em>not</em> assumed that <m>A</m> is square,
 hence the <em>pseudo</em> in <term>pseudo-inverse</term>.
 </p>
