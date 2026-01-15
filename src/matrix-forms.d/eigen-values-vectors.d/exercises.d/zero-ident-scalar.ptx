@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-eigen-values-vectors-zero-ident-scalar">
+<title>Zero, identity, and scalar matrices</title>
+
+<introduction><p>
+	For each matrix:
+	<ol>
+		<li> Determine the characteristic polynomial in factored form and the eigenvalues. </li>
+		<li> For each eigenvalue, determine a basis for the corresponding eigenspace. </li>
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p> The <m>n \times n</m> zero matrix, <m>\zerovec_n</m>. </p></statement>
+
+	<answer><p><ol>
+		<li><p>
+			Characteristic polynomial: <m>c_{\zerovec_n}(\lambda) = \lambda^n</m>.
+			Eigenvalue: <m>\lambda = 0</m>.
+		</p></li>
+		<li><p>
+			Since <m>\zerovec_n \uvec{x} = 0 \uvec{x}</m> is true for all <m>\uvec{x}</m> in <m>\R^n</m>,
+			the eigenspace <m>E_0(\zerovec_n)</m> is all of <m>\R^n</m>.
+			Therefore, the standard basis for <m>\R^n</m> is also a basis for <m>E_0(\zerovec_n)</m>.
+		</p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p> The <m>n \times n</m> identity matrix, <m>I_n</m>. </p></statement>
+
+	<answer><p><ol>
+		<li><p>
+			Characteristic polynomial: <m>c_{I_n}(\lambda) = {(\lambda - 1)}^n</m>.
+			Eigenvalue: <m>\lambda = 1</m>.
+		</p></li>
+		<li><p>
+			Since <m>I_n \uvec{x} = 1 \uvec{x}</m> is true for all <m>\uvec{x}</m> in <m>\R^n</m>,
+			the eigenspace <m>E_1(I_n)</m> is all of <m>\R^n</m>.
+			Therefore, the standard basis for <m>\R^n</m> is also a basis for <m>E_1(I_n)</m>.
+		</p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p> A scalar matrix <m>k I_n</m>, for a fixed scalar <m>k</m>. </p></statement>
+
+	<answer><p><ol>
+		<li><p>
+			Characteristic polynomial: <m>c_{(k I_n)}(\lambda) = {(\lambda - k)}^n</m>.
+			Eigenvalue: <m>\lambda = k</m>.
+		</p></li>
+		<li><p>
+			Since <m>(k I_n) \uvec{x} = k \uvec{x}</m> is true for all <m>\uvec{x}</m> in <m>\R^n</m>,
+			the eigenspace <m>E_k(k I_n)</m> is all of <m>\R^n</m>.
+			Therefore, the standard basis for <m>\R^n</m> is also a basis for <m>E_k(k I_n)</m>.
+		</p></li>
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-eigen-values-vectors" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/verify-by-mult.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/calculate-all.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/special-forms.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/zero-ident-scalar.ptx" />
+
+<exercise>
+	<title>Diagonal matrices</title>
+	<p>
+	Verify that for an <m>n \times n</m> diagonal matrix <m>D</m>,
+	each standard basis vector <m>\uvec{e}_1, \uvec{e}_2, \dotsc, \uvec{e}_n</m> of <m>\R^n</m> is an eigenvector.
+	</p>
+</exercise>
+
+<exercise xml:id="exercises-eigen-values-vectors-block-matrices">
+	<title>Block matrices</title>
+
+	<task>
+
+		<statement><p>
+			Compute the characteristic polynomial and eigenvalues of the <m>2 \times 2</m> matrix
+			<md>
+				\begin{abmatrix}{rr}
+					-1 \amp -4 \\
+					 1 \amp -5
+				\end{abmatrix}
+			</md>.
+		</p></statement>
+
+		<answer><p>
+			<m>c_A(\lambda) = {(\lambda + 3)}^2</m>,
+			<m>\lambda = -3</m>.
+		</p></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Compute the characteristic polynomial and eigenvalues of the <m>3 \times 3</m> matrix
+			<md>
+				\begin{abmatrix}{rrr}
+					 3 \amp - 9 \amp - 6 \\
+					-5 \amp  16 \amp  15 \\
+					 4 \amp -13 \amp -11
+				\end{abmatrix}
+			</md>.
+		</p></statement>
+
+		<answer><p>
+			<m>c_A(\lambda) = (\lambda - 6) {(\lambda - 1)}^2</m>,
+			<m>\lambda = 6,1</m>.
+		</p></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Compute the characteristic polynomial and eigenvalues of the <m>5 \times 5</m> matrix
+			<md>
+				\begin{abmatrix}{rrrrr}
+					-1 \amp -4 \amp 99 \amp  99 \amp  99 \\
+					 1 \amp -5 \amp 99 \amp  99 \amp  99 \\
+					 0 \amp  0 \amp  3 \amp - 9 \amp - 6 \\
+					 0 \amp  0 \amp -5 \amp  16 \amp  15 \\
+					 0 \amp  0 \amp  4 \amp -13 \amp -11
+				\end{abmatrix}
+			</md>.
+		</p></statement>
+
+		<answer><p>
+			<m>c_A(\lambda) = {(\lambda + 3)}^2 (\lambda - 6) {(\lambda - 1)}^2</m>,
+			<m>\lambda = -3,6,1</m>.
+		</p></answer>
+
+	</task>
+
+	<task><p>
+		Do you notice any relationship between the results of the first two tasks of this exercise and the results of the third task?
+		What do you think is the reason?
+	</p></task>
+
+	<task>
+
+		<p>
+		Suppose <m>A</m> is an <m>\ell \times \ell</m> matrix,
+		<m>B</m> is an <m>m \times m</m> matrix,
+		<m>X</m> is an <m>\ell \times m</m> matrix,
+		and <m>D</m> is the <m>n \times n</m> matrix
+		<md> D = \begin{bmatrix} A \amp X \\ \zerovec \amp B \end{bmatrix} </md>,
+		for <m>n = \ell + m</m> and where <m>\zerovec</m> represents the <m>m \times \ell</m> zero matrix.
+		</p>
+
+		<p>
+		Use the patterns from this exercise to make a conjecture about the relationship between the characteristic polynomial and eigenvalues of <m>D</m>
+		and the characteristic polynomial and eigenvalues of <m>A</m> and <m>B</m>.
+		</p>
+
+	</task>
+
+</exercise>
+
+<exercise xml:id="exercises-eigen-values-vectors-transpose">
+	<title>Characteristic polynomial and eigenvalues of a transpose</title>
+
+	<task><p>
+		Is there any relationship between the characteristic polynomial of a matrix and the characteristic polynomial of the transpose of that matrix?
+	</p></task>
+
+	<task><p>
+		Is there any between the eigenvalues of a matrix and the eigenvalues of the transpose of that matrix?
+	</p></task>
+
+</exercise>
+
+<exercise>
+	<title>Eigenspaces are subspaces</title>
+
+	<p>
+	In <xref ref="subsection-eigen-values-vectors-concepts-espaces" /> we argued that an eigenspace for eigenvalue <m>\lambda</m> of an <m>n \times n</m> matrix <m>A</m> is a subspace of <m>\R^n</m> because it is the same space as the null space of the matrix <m>\lambda I - A</m>.
+	</p>
+
+	<p>
+	Practise using the <xref ref="procedure-subspaces-concepts-test" text="title" /> by using it to verify that an eigenspace is a subspace.
+	But do not use the matrix <m>\lambda I - A</m> in your verifications;
+	instead, directly use the definitions of
+	<term><xref ref="definition-eigen-values-vectors-eigenvector" text="title" /></term>
+	and
+	<term><xref ref="definition-eigen-values-vectors-eigenvalue" text="title" /></term>.
+	That is,
+	assume <m>\lambda</m> is a fixed eigenvalue of <m>n \times n</m> matrix <m>A</m>.
+	Apply the <xref ref="procedure-subspaces-concepts-test" text="title" /> to the collection of all <m>\uvec{x}</m> in <m>\R^n</m> that satisfy <m>A \uvec{x} = \lambda \uvec{x}</m>.
+	</p>
+
+</exercise>
+
+<exercise xml:id="exercises-eigen-values-vectors-powers">
+	<title>Eigenvalues of powers</title>
+
+	<introduction><p>
+		Suppose that <m>\lambda</m> and <m>\uvec{x}</m> are an eigenvalue-eigenvector pair of a square matrix <m>A</m>.
+	</p></introduction>
+
+	<task xml:id="exercises-eigen-values-vectors-powers-square"><p>
+		Use the definitions of
+		<term><xref ref="definition-eigen-values-vectors-eigenvector" text="title" /></term>
+		and
+		<term><xref ref="definition-eigen-values-vectors-eigenvalue" text="title" /></term>
+		to verify that <m>\lambda^2</m> and <m>\uvec{x}</m> are an eigenvalue-eigenvector pair of <m>A^2</m>.
+	</p></task>
+
+	<task><p>
+		Does the pattern of <xref ref="exercises-eigen-values-vectors-powers-square" text="type-local" />
+		extend to higher powers of <m>A</m> and <m>\lambda</m>?
+	</p></task>
+
+</exercise>
+
+<exercise xml:id="exercises-eigen-values-vectors-inverse">
+	<title>Eigenvalues of an inverse</title>
+
+	<p> Suppose that <m>\lambda</m> and <m>\uvec{x}</m> are an eigenvalue-eigenvector pair of an <em>invertible</em> square matrix <m>A</m>. </p>
+
+	<p>
+	Use the definitions of
+	<term><xref ref="definition-eigen-values-vectors-eigenvector" text="title" /></term>
+	and
+	<term><xref ref="definition-eigen-values-vectors-eigenvalue" text="title" /></term>
+	to verify that <m>\frac{1}{\lambda}</m> and <m>\uvec{x}</m> are an eigenvalue-eigenvector pair of <m>\inv{A}</m>.
+	</p>
+
+</exercise>
+
+</exercises>

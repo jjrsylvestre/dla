@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="3" xml:id="exercisegroup-eigen-values-vectors-calculate-all">
+<title>Calculating eigenvalues and eigenspaces</title>
+
+<introduction><p>
+	For each matrix:
+	<ol>
+		<li>
+			Compute the characteristic polynomial in factored form.
+			(For larger matrices, you may wish to use
+			<xref ref="proposition-det-by-row-red-det-vs-row-ops" />
+			and/or
+			<xref ref="proposition-det-by-row-red-det-vs-col-ops" />
+			to simplify the calculation.)
+		</li>
+		<li> Determine the eigenvalues. </li>
+		<li> Based on the eigenvalues, state whether the matrix is invertible or singular. </li>
+		<li> For each eigenvalue, determine a basis for the corresponding eigenspace. </li>
+	</ol>
+</p></introduction>
+
+<exercise>
+	<!-- 2×2, λ = -3 (Jordan 2×2) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-1 \amp -4 \\
+			 1 \amp -5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = {(\lambda + 3)}^2 </m></li>
+		<li><m> \lambda = -3 </m></li>
+		<li> invertible </li>
+		<li><m>\displaystyle E_{-3}(A) = \Span \left\{ \begin{bmatrix} 2 \\ 1 \end{bmatrix} \right\} </m></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 2×2, λ = 7, -2 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rr}
+			-11 \amp 18 \\
+			-9 \amp 16
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = (\lambda - 7) (\lambda + 2) </m></li>
+		<li><m> \lambda = 7, -2 </m></li>
+		<li> invertible </li>
+		<li><p><md>
+			<mrow> \amp E_7   (A) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right\} </mrow>
+			<mrow> \amp E_{-2}(A) = \Span \left\{ \begin{bmatrix} 2 \\ 1 \end{bmatrix} \right\} </mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 3×3, λ = 6,1,4 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 8 \amp - 4 \amp 0 \\
+			 2 \amp   2 \amp 0 \\
+			10 \amp -10 \amp 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = (\lambda - 1) (\lambda - 4) (\lambda - 6) </m></li>
+		<li><m> \lambda = 1, 4, 6 </m></li>
+		<li> invertible </li>
+		<li><p><md>
+			<mrow> \amp E_1(A) = \Span \left\{ \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \right\} </mrow>
+			<mrow> \amp E_4(A) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} \right\} </mrow>
+			<mrow> \amp E_6(A) = \Span \left\{ \begin{bmatrix} 2 \\ 1 \\ 2 \end{bmatrix} \right\} </mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 3×3, λ = -7,-7,0 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-21 \amp  0 \amp   7 \\
+			 28 \amp -7 \amp -14 \\
+			-42 \amp  0 \amp  14
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = \lambda {(\lambda + 7)}^2 </m></li>
+		<li><m> \lambda = 0, -7 </m></li>
+		<li> singular </li>
+		<li><p><md>
+			<mrow> \amp E_0(A) = \Span \left\{ \begin{abmatrix}{r} 1 \\ -2 \\ 3 \end{abmatrix} \right\} </mrow>
+			<mrow>
+				\amp
+				E_{-7}(A) = \Span \left\{
+					\begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix},
+					\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+				\right\}
+			</mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 3×3, λ = -1 (Jordan 2×2), -3 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			 0 \amp -14 \amp -15 \\
+			-1 \amp   7 \amp   9 \\
+			 1 \amp -10 \amp -12
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = {(\lambda + 1)}^2 (\lambda + 3) </m></li>
+		<li><m> \lambda = -1, -3 </m></li>
+		<li> invertible </li>
+		<li><p><md>
+			<mrow> \amp E_{-1}(A) = \Span \left\{ \begin{abmatrix}{r} 1 \\ -1 \\ 1 \end{abmatrix} \right\} </mrow>
+			<mrow> \amp E_{-3}(A) = \Span \left\{ \begin{abmatrix}{r} 6 \\ -3 \\ 4 \end{abmatrix} \right\} </mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 3×3, λ = 3 (Jordan 2×2,1×1) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			  0 \amp  3 \amp - 6 \\
+			-13 \amp 16 \amp -26 \\
+			- 5 \amp  5 \amp - 7
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = {(\lambda - 3)}^3 </m></li>
+		<li><m> \lambda = 3 </m></li>
+		<li> invertible </li>
+		<li><m>\displaystyle
+				E_3(A) = \Span \left\{
+					\begin{abmatrix}{r} -2 \\ 0 \\ 1 \end{abmatrix},
+					\begin{bmatrix} 0 \\ 2 \\ 1 \end{bmatrix}
+				\right\}
+		</m></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 3×3, λ = 0 (Jordan 3×3) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrr}
+			-1 \amp 0 \amp 1 \\
+			-3 \amp 1 \amp 1 \\
+			-2 \amp 1 \amp 0
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = {\lambda}^3 </m></li>
+		<li><m> \lambda = 0 </m></li>
+		<li> singular </li>
+		<li><m>\displaystyle
+			E_0(A) = \Span \left\{ \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} \right\}
+		</m></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 4×4, λ = -4, -4, -4, -1 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-19 \amp  0 \amp -30 \amp  0 \\
+			  0 \amp -4 \amp   0 \amp  0 \\
+			  9 \amp  0 \amp  14 \amp  0 \\
+			- 3 \amp  0 \amp - 6 \amp -4
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = (\lambda + 1) {(\lambda + 4)}^3 </m></li>
+		<li><m> \lambda = -1, -4 </m></li>
+		<li> invertible </li>
+		<li><p><md>
+			<mrow> \amp E_{-1}(A) = \Span \left\{ \begin{abmatrix}{r} 5 \\ 0 \\ -3 \\ 1 \end{abmatrix} \right\} </mrow>
+			<mrow>
+				\amp
+				E_{-4}(A) = \Span \left\{
+					\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+					\begin{abmatrix}{r} -2 \\ 0 \\ 1 \\ 0 \end{abmatrix},
+					\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+				\right\}
+			</mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 4×4, λ = -3 (Jordan 2×2), λ = 4, λ = 0 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-19 \amp  5 \amp   1 \amp -18 \\
+			-46 \amp  1 \amp -31 \amp -49 \\
+			 18 \amp  1 \amp  17 \amp  19 \\
+			  1 \amp -6 \amp -18 \amp - 1
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = \lambda (\lambda - 4) {(\lambda + 3)}^2 </m></li>
+		<li><m> \lambda = 0, 4, -3 </m></li>
+		<li> singular </li>
+		<li><p><md>
+			<mrow> \amp E_0   (A) = \Span \left\{ \begin{abmatrix}{r} -8 \\ -17 \\ 5 \\ 4 \end{abmatrix} \right\} </mrow>
+			<mrow> \amp E_4   (A) = \Span \left\{ \begin{abmatrix}{r} -1 \\ - 1 \\ 0 \\ 1 \end{abmatrix} \right\} </mrow>
+			<mrow> \amp E_{-3}(A) = \Span \left\{ \begin{abmatrix}{r} -2 \\ - 3 \\ 1 \\ 1 \end{abmatrix} \right\} </mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 4×4, λ = -2 (Jordan 2×2), λ = -2, λ = 2 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-4 \amp 34 \amp 4 \amp  36 \\
+			 0 \amp 10 \amp 0 \amp  12 \\
+			-1 \amp 23 \amp 0 \amp  24 \\
+			 0 \amp -8 \amp 0 \amp -10
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = (\lambda - 2) {(\lambda + 2)}^3 </m></li>
+		<li><m> \lambda = 2, -2 </m></li>
+		<li> invertible </li>
+		<li><p><md>
+			<mrow> \amp E_2(A) = \Span \left\{ \begin{abmatrix}{r} -9 \\ -3 \\ -6 \\ 2 \end{abmatrix} \right\} </mrow>
+			<mrow>
+				\amp
+				E_{-2}(A) = \Span \left\{
+					\begin{bmatrix} 2 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+					\begin{abmatrix}{r} 1 \\ -1 \\ 0 \\ 1 \end{abmatrix}
+				\right\}
+			</mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 4×4, λ = 4 (Jordan 3×3), λ = -6 -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			-1 \amp   5 \amp -1 \amp -1 \\
+			 5 \amp - 1 \amp -1 \amp -1 \\
+			28 \amp -27 \amp  3 \amp  0 \\
+			25 \amp -25 \amp  1 \amp  5
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = (\lambda + 6) {(\lambda - 4)}^3 </m></li>
+		<li><m> \lambda = -6, 4 </m></li>
+		<li> invertible </li>
+		<li><p><md>
+			<mrow> \amp E_{-6}(A) = \Span \left\{ \begin{bmatrix} 0 \\ 1 \\ 3 \\ 2 \end{bmatrix} \right\} </mrow>
+			<mrow> \amp E_4   (A) = \Span \left\{ \begin{abmatrix}{r} -1 \\ -1 \\ -1 \\ 1 \end{abmatrix} \right\} </mrow>
+		</md></p></li>
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+	<!-- 4×4, λ = 0 (Jordan 4×4) (nilpotent) -->
+
+	<statement><p><m>\displaystyle
+		\begin{abmatrix}{rrrr}
+			 0 \amp  0 \amp  0 \amp  1 \\
+			-2 \amp  2 \amp -3 \amp -1 \\
+			 1 \amp -1 \amp  1 \amp  1 \\
+			-3 \amp  3 \amp -4 \amp -3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer><p><ol>
+		<li><m> c_A(\lambda) = \lambda^4 </m></li>
+		<li><m> \lambda = 0 </m></li>
+		<li> singular </li>
+		<li><m>\displaystyle
+			E_0(A) = \Span \left\{ \begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix} \right\}
+		</m></li>
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-eigen-values-vectors-verify">
+<title>Verifying eigenvectors and eigenvalues</title>
+
+<introduction><p>
+	In each case,
+	use matrix multiplication to verify that <m>\uvec{x}</m> is an eigenvector for matrix <m>A</m> corresponding to the eigenvalue <m>\lambda</m>.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rr}
+				-8 \amp 14 \\
+				-7 \amp 13
+			\end{abmatrix}
+			\text{,}
+			\quad
+			\uvec{x} = \begin{bmatrix} 2 \\ 2 \end{bmatrix}
+			\text{,}
+			\quad
+			\lambda = 6
+		</m>
+	</p></statement>
+
+	<solution><p>
+		Calculate:
+		<md>
+			<mrow>
+				A \uvec{x} \amp =
+				\begin{abmatrix}{rr}
+					-8 \amp 14 \\
+					-7 \amp 13
+				\end{abmatrix}
+				\begin{bmatrix} 2 \\ 2 \end{bmatrix}
+				\amp
+				6 \uvec{x} \amp =
+				6 \begin{bmatrix} 2 \\ 2 \end{bmatrix}
+			</mrow>
+			<mrow>
+				\amp = \begin{bmatrix} 12 \\ 12 \end{bmatrix} \text{,}
+				\amp
+				\amp = \begin{bmatrix} 12 \\ 12 \end{bmatrix} \text{.}
+			</mrow>
+		</md>
+		Since the two results match,
+		<m>A \uvec{x} = \lambda \uvec{x}</m> is true in this case for <m>\lambda = 6</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rr}
+				-5 \amp 5 \\
+				 0 \amp 0
+			\end{abmatrix}
+			\text{,}
+			\quad
+			\uvec{x} = \begin{abmatrix}{r} -3 \\ 0 \end{abmatrix}
+			\text{,}
+			\quad
+			\lambda = -5
+		</m>
+	</p></statement>
+
+	<solution><p>
+		Calculate:
+		<md>
+			<mrow>
+				A \uvec{x} \amp =
+				\begin{abmatrix}{rr}
+					-5 \amp 5 \\
+					 0 \amp 0
+				\end{abmatrix}
+				\begin{abmatrix}{r} -3 \\ 0 \end{abmatrix}
+				\amp
+				-5 \uvec{x} \amp =
+				-5 \begin{abmatrix}{r} -3 \\ 0 \end{abmatrix}
+			</mrow>
+			<mrow>
+				\amp = \begin{bmatrix} 15 \\ 0 \end{bmatrix} \text{,}
+				\amp
+				\amp = \begin{bmatrix} 15 \\ 0 \end{bmatrix} \text{.}
+			</mrow>
+		</md>
+		Since the two results match,
+		<m>A \uvec{x} = \lambda \uvec{x}</m> is true in this case for <m>\lambda = -5</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rrr}
+				-4 \amp 0 \amp -3 \\
+				 0 \amp 2 \amp  0 \\
+				 6 \amp 0 \amp  5
+			\end{abmatrix}
+			\text{,}
+			\quad
+			\uvec{x} = \begin{abmatrix}{r} -1 \\ 3 \\ 2 \end{abmatrix}
+			\text{,}
+			\quad
+			\lambda = 2
+		</m>
+	</p></statement>
+
+	<solution><p>
+		Calculate:
+		<md>
+			<mrow>
+				A \uvec{x} \amp =
+				\begin{abmatrix}{rrr}
+					-4 \amp 0 \amp -3 \\
+					 0 \amp 2 \amp  0 \\
+					 6 \amp 0 \amp  5
+				\end{abmatrix}
+				\begin{abmatrix}{r} -1 \\ 3 \\ 2 \end{abmatrix}
+				\amp
+				2 \uvec{x} \amp =
+				\begin{abmatrix}{r} -1 \\ 3 \\ 2 \end{abmatrix}
+			</mrow>
+			<mrow>
+				\amp = \begin{abmatrix}{r} -2 \\ 6 \\ 4 \end{abmatrix} \text{,}
+				\amp
+				\amp = \begin{abmatrix}{r} -2 \\ 6 \\ 4 \end{abmatrix} \text{.}
+			</mrow>
+		</md>
+		Since the two results match,
+		<m>A \uvec{x} = \lambda \uvec{x}</m> is true in this case for <m>\lambda = 2</m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m>\displaystyle
+			A = \begin{abmatrix}{rrrr}
+				 1 \amp  1 \amp -1 \amp -1 \\
+				-1 \amp  0 \amp -1 \amp  0 \\
+				 0 \amp -1 \amp  2 \amp  1 \\
+				-1 \amp  1 \amp -3 \amp -1
+			\end{abmatrix}
+			\text{,}
+			\quad
+			\uvec{x} = \begin{abmatrix}{r} -3 \\ 4 \\ 3 \\ -2 \end{abmatrix}
+			\text{,}
+			\quad
+			\lambda = 0
+		</m>
+	</p></statement>
+
+	<solution><p>
+		Calculate:
+		<md>
+			A \uvec{x} =
+			\begin{abmatrix}{rrrr}
+				 1 \amp  1 \amp -1 \amp -1 \\
+				-1 \amp  0 \amp -1 \amp  0 \\
+				 0 \amp -1 \amp  2 \amp  1 \\
+				-1 \amp  1 \amp -3 \amp -1
+			\end{abmatrix}
+			\begin{abmatrix}{r} -3 \\ 4 \\ 3 \\ -2 \end{abmatrix}
+			=
+			\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+		</md>
+		Clearly we also have <m>0 \uvec{x} = \zerovec</m>,
+		and so <m>A \uvec{x} = \lambda \uvec{x}</m> is true in this case for <m>\lambda = 0</m>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>
