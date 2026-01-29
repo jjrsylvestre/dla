@@ -46,51 +46,51 @@ we can safely leave those to the experts that program computers to solve linear 
 	so that we can use this knowledge to explore the theory of linear systems and matrices.
 </p></statement></heuristic>
 
-<algorithm xml:id="procedure-row-red-reduce-to-rref"> <!-- algorithm is hijacked to "Procedure" -->
+<algorithm xml:id="procedure-row-red-concepts-reduce-to-rref"> <!-- algorithm is hijacked to "Procedure" -->
 	<title>To reduce a matrix to RREF</title>
 	<statement>
 		<p><ol>
-			<li xml:id="procedure-row-red-reduce-to-rref-first-leading-one"><ol>
-				<li xml:id="procedure-row-red-reduce-to-rref-first-leading-one-obtain">
+			<li xml:id="procedure-row-red-concepts-reduce-to-rref-first-leading-one"><ol>
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-first-leading-one-obtain">
 					Choose the leftmost column that is not all zeros,
 					and perform row operation(s) to obtain a leading one in that column.
 				</li>
-				<li xml:id="procedure-row-red-reduce-to-rref-first-leading-one-move">
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-first-leading-one-move">
 					Move the row containing this leading one to the top row.
 				</li>
-				<li xml:id="procedure-row-red-reduce-to-rref-first-leading-one-elim">
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-first-leading-one-elim">
 					Use this leading one to eliminate (that is, reduce to zero) all other entries in its column.
 				</li>
 			</ol></li>
-			<li xml:id="procedure-row-red-reduce-to-rref-second-leading-one"><ol>
-				<li xml:id="procedure-row-red-reduce-to-rref-second-leading-one-obtain">
+			<li xml:id="procedure-row-red-concepts-reduce-to-rref-second-leading-one"><ol>
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-second-leading-one-obtain">
 					Ignoring the first row,
 					choose the leftmost column that is not all zeros,
 					and perform row operations(s) to obtain a leading one in that column.
 					(Do <em>not</em> perform row operations that involve the first row to do this.)
 				</li>
-				<li xml:id="procedure-row-red-reduce-to-rref-second-leading-one-move">
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-second-leading-one-move">
 					Move the row containing this new leading one to the second row.
 				</li>
-				<li xml:id="procedure-row-red-reduce-to-rref-second-leading-one-elim">
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-second-leading-one-elim">
 					Use this new leading one to eliminate all other entries in its column (including in the first row now).
 				</li>
 			</ol></li>
-			<li xml:id="procedure-row-red-reduce-to-rref-third-leading-one"><ol>
-				<li xml:id="procedure-row-red-reduce-to-rref-third-leading-one-obtain">
+			<li xml:id="procedure-row-red-concepts-reduce-to-rref-third-leading-one"><ol>
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-third-leading-one-obtain">
 					Ignoring both the first and second rows,
 					choose the leftmost column that is not all zeros,
 					and perform row operations(s) to obtain a leading one in that column.
 					(Do <em>not</em> perform row operations that involve the first or second row to do this.)
 				</li>
-				<li xml:id="procedure-row-red-reduce-to-rref-third-leading-one-move">
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-third-leading-one-move">
 					Move the row containing this new leading one to the third row.
 				</li>
-				<li xml:id="procedure-row-red-reduce-to-rref-third-leading-one-elim">
+				<li xml:id="procedure-row-red-concepts-reduce-to-rref-third-leading-one-elim">
 					Use this new leading one to eliminate all other entries in its column (including in the first and second rows now).
 				</li>
 			</ol></li>
-			<li xml:id="procedure-row-red-reduce-to-rref-continue">
+			<li xml:id="procedure-row-red-concepts-reduce-to-rref-continue">
 				Continue in this fashion until all rows either have a leading one or contain all zeros.
 			</li>
 		</ol></p>
@@ -122,7 +122,7 @@ and <em>every</em> choice of value for that variable leads to one or more soluti
 for the system similarly to <xref ref="activity-systems-planes-intersect-line" />.
 </p>
 
-<algorithm> <!-- algorithm is hijacked to "Procedure" -->
+<algorithm xml:id="procedure-row-red-concepts-describe-solutions"> <!-- algorithm is hijacked to "Procedure" -->
 	<title>To describe the solution set of a linear system</title>
 	<statement>
 		<p>

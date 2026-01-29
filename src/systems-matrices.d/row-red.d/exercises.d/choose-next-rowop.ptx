@@ -18,7 +18,7 @@ respective owners.
 
 <introduction><p>
 	For each matrix,
-	choose a single row operation that makes incremental progress according to <xref ref="procedure-row-red-reduce-to-rref" />.
+	choose a single row operation that makes incremental progress according to <xref ref="procedure-row-red-concepts-reduce-to-rref" />.
 </p></introduction>
 
 <exercise>
@@ -32,8 +32,8 @@ respective owners.
 	<answer><p>
 		The leftmost column that is not all zeros is the first column,
 		so the immediate goal here should be to obtain a leading one in the first column
-		(<xref ref="procedure-row-red-reduce-to-rref-first-leading-one-obtain">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />).
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one-obtain">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />).
 		Any <em>one</em> of the operations <m>\frac{1}{6} R_1</m>, <m>\frac{1}{3} R_2</m>, <m>\frac{1}{2} R_3</m>, or <m>R_2 - R_3</m> may be employed to do so.
 		However, it is usually preferable (though not necessary) to avoid introducing fractions in the matrix,
 		so <m>R_2 - R_3</m> may be the best choice:
@@ -66,8 +66,8 @@ respective owners.
 		The leftmost column that is not all zeros is the first column,
 		but we already have a leading one in the first column,
 		so the immediate goal should be to move it to the first row
-		(<xref ref="procedure-row-red-reduce-to-rref-first-leading-one-move">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />).
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one-move">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />).
 		Therefore, our choice of operation should be <m>R_1 \leftrightarrow R_3</m>:
 		<md>
 			\begin{abmatrix}{rrrr}
@@ -105,8 +105,8 @@ respective owners.
 		but we already have a leading one in the first column,
 		and that leading one is already in the first row.
 		So the immediate goal should be to use that leading one to eliminate the other nonzero entries in the first column
-		(<xref ref="procedure-row-red-reduce-to-rref-first-leading-one-elim">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />).
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one-elim">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />).
 		Focusing on the <m>5</m> in the first column,
 		combining it with <m>-5</m> times the leading one will cancel to zero.
 		So our choice of operation should be <m>R_3 - 5 R_1</m>:
@@ -128,9 +128,9 @@ respective owners.
 		</p>
 
 		<p><alert>Note.</alert>
-		It is acceptable (and advisable!) to combine multiple operations in one calculation step when carrying out an <q>elimination</q> step in <xref ref="procedure-row-red-reduce-to-rref" />
+		It is acceptable (and advisable!) to combine multiple operations in one calculation step when carrying out an <q>elimination</q> step in <xref ref="procedure-row-red-concepts-reduce-to-rref" />
 		(in this case,
-		<xref ref="procedure-row-red-reduce-to-rref-first-leading-one-elim">Step</xref>).
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one-elim">Step</xref>).
 		That is,
 		normally we would simultaneously perform our chosen operation <m>R_3 - 5 R_1</m> as well as the operation <m>R_4 + 3 R_1</m> in order to eliminate both of the other nonzero entries in the first column.
 		</p>
@@ -153,14 +153,14 @@ respective owners.
 
 		<p>
 		This matrix already exhibits all the goals of
-		<xref ref="procedure-row-red-reduce-to-rref-first-leading-one">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />,
-		so we move on to <xref ref="procedure-row-red-reduce-to-rref-second-leading-one">Step</xref>.
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />,
+		so we move on to <xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one">Step</xref>.
 		Ignoring the first row completely,
 		the leftmost column that is not all zeros is the second column,
 		and so the immediate goal should be to obtain a leading one in that column
-		(<xref ref="procedure-row-red-reduce-to-rref-second-leading-one-obtain">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />).
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one-obtain">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />).
 		We can do so using either operation <m>\frac{1}{3} R_2</m> or operation <m>-\frac{1}{6} R_3</m>.
 		Since <m>\frac{1}{3}</m> is a simpler fraction and creates the leading one in the second row instead of the third,
 		we'll choose that option:
@@ -204,12 +204,12 @@ respective owners.
 		The operation <m>R_2 + R_1</m> would reverse progress already made in reducing this matrix:
 		in particular,
 		it reverses the progress of
-		<xref ref="procedure-row-red-reduce-to-rref-first-leading-one-elim">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one-elim">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />
 		by <q>un-eliminating</q> an entry in the first column below that leftmost leading one.
 		It is precisely for this reason that
-		<xref ref="procedure-row-red-reduce-to-rref-second-leading-one-obtain">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one-obtain">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />
 		advises <em>not</em> to use the first row to attempt to obtain a second leading one.
 		</p>
 
@@ -229,14 +229,14 @@ respective owners.
 
 	<answer><p>
 		This matrix already exhibits all the goals of
-		<xref ref="procedure-row-red-reduce-to-rref-first-leading-one">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />,
-		so we move on to <xref ref="procedure-row-red-reduce-to-rref-second-leading-one">Step</xref>.
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />,
+		so we move on to <xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one">Step</xref>.
 		Ignoring the first row completely,
 		the leftmost column that is not all zeros is the <em>third</em> column,
 		and we may obtain a leading one in that column
-		(<xref ref="procedure-row-red-reduce-to-rref-second-leading-one-obtain">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />)
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one-obtain">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />)
 		with either operation <m>-\frac{1}{5} R_2</m> or <m>-\frac{1}{2} R_3</m>.
 		We choose the latter operation as <m>\frac{1}{2}</m> is the simpler fraction:
 		<md>
@@ -269,15 +269,15 @@ respective owners.
 
 	<answer><p>
 		This matrix already exhibits all the goals of
-		<xref ref="procedure-row-red-reduce-to-rref-first-leading-one">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />,
-		so we move on to <xref ref="procedure-row-red-reduce-to-rref-second-leading-one">Step</xref>.
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />,
+		so we move on to <xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one">Step</xref>.
 		Ignoring the first row completely,
 		the leftmost column that is not all zeros is the second column.
 		We already have a leading one in that column but it's in the third row,
 		so we move it up to the second row
-		(<xref ref="procedure-row-red-reduce-to-rref-second-leading-one-move">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />)
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one-move">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />)
 		with operation <m>R_2 \leftrightarrow R_3</m>:
 		<md>
 			\begin{abmatrix}{rrrr}
@@ -313,15 +313,15 @@ respective owners.
 
 		<p>
 		This matrix already exhibits all the goals of
-		<xref ref="procedure-row-red-reduce-to-rref-first-leading-one">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />,
-		so we move on to <xref ref="procedure-row-red-reduce-to-rref-second-leading-one">Step</xref>.
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />,
+		so we move on to <xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one">Step</xref>.
 		Ignoring the first row completely,
 		the leftmost column that is not all zeros is the third column.
 		We already have a leading one in that column and it is already in the second row,
 		so we move on to using that leading one to eliminate the other entries in its column
-		(<xref ref="procedure-row-red-reduce-to-rref-second-leading-one-elim">Step</xref> of
-		<xref ref="procedure-row-red-reduce-to-rref" />).
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one-elim">Step</xref> of
+		<xref ref="procedure-row-red-concepts-reduce-to-rref" />).
 		Working from top-to-bottom in that column,
 		we have a <m>-3</m> entry in the first row that can be eliminated by combining it with <m>+3</m> times the leading one in the second row:
 		<md>
@@ -343,9 +343,9 @@ respective owners.
 
 		<p>
 		<alert>Note.</alert>
-		It is acceptable (and advisable!) to combine multiple operations in one calculation step when carrying out an <q>elimination</q> step in <xref ref="procedure-row-red-reduce-to-rref" />
+		It is acceptable (and advisable!) to combine multiple operations in one calculation step when carrying out an <q>elimination</q> step in <xref ref="procedure-row-red-concepts-reduce-to-rref" />
 		(in this case,
-		<xref ref="procedure-row-red-reduce-to-rref-second-leading-one-elim">Step</xref>).
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one-elim">Step</xref>).
 		That is,
 		normally we would simultaneously perform our chosen operation <m>R_1 + 3 R_2</m> as well as the operation <m>R_4 - 2 R_2</m> in order to eliminate both of the other nonzero entries in the third column.
 		</p>
@@ -369,15 +369,15 @@ respective owners.
 
 		<p>
 		This matrix already exhibits all the goals of
-		both <xref ref="procedure-row-red-reduce-to-rref-first-leading-one">Step</xref>
-		and <xref ref="procedure-row-red-reduce-to-rref-second-leading-one">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />,
-		so we move on to <xref ref="procedure-row-red-reduce-to-rref-third-leading-one">Step</xref>.
+		both <xref ref="procedure-row-red-concepts-reduce-to-rref-first-leading-one">Step</xref>
+		and <xref ref="procedure-row-red-concepts-reduce-to-rref-second-leading-one">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />,
+		so we move on to <xref ref="procedure-row-red-concepts-reduce-to-rref-third-leading-one">Step</xref>.
 		Ignoring the first two rows completely,
 		the leftmost column that is not all zeros is the fourth column.
 		so our goal is to obtain a leading one in that column
-		(<xref ref="procedure-row-red-reduce-to-rref-third-leading-one-obtain">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />).
+		(<xref ref="procedure-row-red-concepts-reduce-to-rref-third-leading-one-obtain">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />).
 		We could do this by introducing fractions
 		(using either <m>-\frac{1}{7} R_3</m> or <m>\frac{1}{2} R_4</m>),
 		but another option avoiding fractions is <m>R_3 + 4 R_4</m>:
@@ -400,8 +400,8 @@ respective owners.
 
 		<p>
 		<alert>Warning.</alert>
-		<xref ref="procedure-row-red-reduce-to-rref-third-leading-one-obtain">Step</xref>
-		of <xref ref="procedure-row-red-reduce-to-rref" />
+		<xref ref="procedure-row-red-concepts-reduce-to-rref-third-leading-one-obtain">Step</xref>
+		of <xref ref="procedure-row-red-concepts-reduce-to-rref" />
 		advises us to avoid attempting to use the first two rows to obtain the next leading one,
 		for good reason.
 		In this matrix,
