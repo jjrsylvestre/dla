@@ -27,16 +27,16 @@ respective owners.
 			\amp
 			E \amp = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 2 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix},
 			\amp
-			A \amp = \begin{abmatrix}{rrrr}
-				1 \amp  0 \amp 2 \amp -1 \\
-				1 \amp  2 \amp 3 \amp  4 \\
-				0 \amp -1 \amp 0 \amp  3
-			\end{abmatrix}.
+			A \amp = \begin{bmatrix}
+				1 \amp 2 \amp 4 \amp 7 \\
+				1 \amp 1 \amp 1 \amp 1 \\
+				1 \amp 2 \amp 3 \amp 4
+			\end{bmatrix}.
 		</mrow></md>
 	</p></introduction>
 
 	<task xml:id="activity-elem-matrices-intro-identity"><p>
-		Remind yourself using the <em>row-times-column</em> pattern of matrix multiplication why <m>I A = A</m> is true.
+		Remind yourself using the <em>row-times-column</em> pattern of matrix multiplication why the pattern of ones and zeros in the entries of <m> I </m> cause the result of computing <m> I A </m> to be just <m> A </m>.
 	</p></task>
 
 	<task xml:id="activity-elem-matrices-intro-example">
@@ -44,34 +44,44 @@ respective owners.
 		<statement>
 
 			<p>
-			Notice how <m>E</m> is only one entry different from <m>I</m>.
-			How does this change the process of computing <m>E A</m> compared to computing <m>I A</m>?
+			Notice how <m> E </m> is only one entry different from <m> I </m>.
+			How does this change the process of computing <m> E A </m> compared to computing <m> I A </m>?
 			</p>
 
 			<p>
-			Think of multiplication by <m>E</m> as <q>transforming</q> <m>A</m> into the result matrix <m>E A</m>.
+			Think of multiplication by <m> E </m> as <q>transforming</q> <m> A </m> into the result matrix <m> E A </m>.
 			How could you describe the transformation in this particular example?
 			</p>
 
 		</statement>
 
 		<hint><p>
-			In the <q>transformation</q> <m>A \to E A</m>,
-			which rows of <m>A</m> stay the same, and which rows change?
+			In the <q>transformation</q> <m> A \to E A </m>,
+			which rows of <m> A </m> stay the same, and which rows change?
 			For the rows that change, how exactly do they change?
+			(Don't just stare at the numbers of the result matrix <m> E A </m>,
+			think about <em>how</em> the numbers in <m> A </m> <q>transform</q> into the numbers in <m> E A </m> because of the pattern of entries in <m> E </m>.)
 		</p></hint>
 
 	</task>
 
 	<task xml:id="activity-elem-matrices-intro-reflection"><p>
-		Do you think the same thing will happen when computing <m>E</m> times some other matrix?
+		Do you think the same thing will happen when computing <m> E </m> times some other matrix?
 	</p></task>
 
 	<task xml:id="activity-elem-matrices-intro-pattern"><p>
-		We know that <m>E I = E</m>.
-		But then consider <m>E I</m> in terms of the first two parts of this discovery activity.
-		So in terms of row operations,
-		what is the relationship between <m>E</m> and <m>I</m>?
+		Consider the following two perspectives of the product <m> E I </m>.
+		<ol marker="(i)">
+			<li> Because <m> I </m> is the identity matrix, the result of computing <m> E I </m> will just be <m> E </m>. </li>
+			<li>
+				Based on the pattern identified
+				in <xref ref="activity-elem-matrices-intro-example" text="type-local" />
+				and <xref ref="activity-elem-matrices-intro-reflection" text="type-local" />,
+				the result of <m> E I </m> could be viewed as a <q>transformation</q> of <m> I </m>.
+			</li>
+		</ol>
+		By reconciling these two different perspectives,
+		determine the relationship between <m> E </m> and <m> I </m> in terms of the <q>transformation</q> <m> I \to E I </m>.
 	</p></task>
 
 </activity>
@@ -80,7 +90,7 @@ respective owners.
 
 	<statement><p>
 		Create a <m>3 \times 3</m> matrix <m>E'</m> so that for every <m>3\times n</m> matrix <m>A</m>,
-		the result of <m>E' A</m> is the same as performing the row operation <q>multiply row <m>3</m> by <m>-4</m></q> on <m>A</m>.
+		the result of <m>E' A</m> is the same as performing row operation <q>multiply row <m>3</m> by <m>-4</m></q> on <m>A</m>.
 	</p></statement>
 
 	<hint><p>
@@ -95,7 +105,7 @@ respective owners.
 
 	<statement><p>
 		Create a <m>3\times 3</m> matrix <m>E''</m> so that for every <m>3 \times n</m> matrix <m>A</m>,
-		the result of <m>E'' A</m> is the same as performing the row operation <q>swap rows <m>1</m> and <m>2</m></q> on <m>A</m>.
+		the result of <m>E'' A</m> is the same as performing row operation <q>swap rows <m>1</m> and <m>2</m></q> on <m>A</m>.
 	</p></statement>
 
 	<hint><p>
