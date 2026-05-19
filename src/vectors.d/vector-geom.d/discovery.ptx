@@ -204,15 +204,16 @@ respective owners.
 
 <activity xml:id="activity-vector-geom-dot-product">
 
-	<statement>
+	<introduction>
 
-		<p>
-		In the diagram below, consider <m>\uvec{u}</m> and <m>\uvec{v}</m> to be two-dimensional vectors.
-		Label the third vector with the appropriate combination of <m>\uvec{u}</m> and <m>\uvec{v}</m>,
-		just as you did in <xref ref="activity-vector-geom-vec-distance" />.
-		</p>
+		<sidebyside widths="75% 18.5%" margins="0%" valign="middle">
 
-		<sidebyside widths="18.5% 75%" margins="0%" valign="middle">
+			<p>
+			Consider the vectors in the diagram to be two-dimensional.
+			There is a version of Pythagoras that applies here even though <m>\theta</m> may not be a right angle,
+			called the <term>law of cosines</term>:
+			<md><mrow xml:id="equation-vector-geom-discovery-law-cosines" tag="star"> a^2 + b^2 - c^2 = 2 a b \cos\theta </mrow></md>.
+			</p>
 
 			<image>  <!--  width="18.5%" -->
 				<latex-image label="image-vector-geom-discovery-law-of-cosines">
@@ -222,55 +223,75 @@ respective owners.
 				<description><p>
 					A diagram to assist in exploring the law of cosines via vector geometry.
 					Three directed line segments are arranged in a triangular configuration.
-					One directed line segment representing a vector labelled <m>\uvec{u}</m> extends steeply upwards and slightly rightwards from a point in the lower-left corner to a point at the top of the diagram.
-					A second directed line segment representing a vector labelled <m>\uvec{v}</m> extends rightwards and slightly upwards from the same initial point as <m>\uvec{u}</m> in the lower-left corner to a point at the right edge of the diagram.
+					One directed line segment representing a vector labelled <m> \uvec{u} </m> extends steeply upwards and slightly rightwards from a point in the lower-left corner to a point at the top of the diagram.
+					A second directed line segment representing a vector labelled <m> \uvec{v} </m> extends rightwards and slightly upwards from the same initial point as <m> \uvec{u} </m> in the lower-left corner to a point at the right edge of the diagram.
 					A third directed line segment representing an unnamed vector compeletes the triangle,
-					extending from the terminal point of <m>\uvec{v}</m> to the terminal point of <m>\uvec{u}</m>.
+					extending from the terminal point of <m> \uvec{v} </m> to the terminal point of <m> \uvec{u} </m>.
 					Finally,
-					the angle formed by <m>\uvec{u}</m> and <m>\uvec{v}</m> in the lower-left corner is labelled <m>\theta</m>.
+					the angle formed by <m> \uvec{u} </m> and <m> \uvec{v} </m> in the lower-left corner is labelled <m> \theta </m>.
 				</p></description>
 			</image>
-
-			<p>
-			There is a version of Pythagoras that applies here even though <m>\theta\neq\degree{90}</m>,
-			called <term>the law of cosines</term>:
-			<md> a^2 + b^2 - c^2 = 2ab\cos\theta </md>.
-			</p>
 
 		</sidebyside>
 
 		<p>
 		Applied to our diagram,
-		<m>a</m> represents the length of <m>\uvec{u}</m>,
-		<m>b</m> represents the length of <m>\uvec{v}</m>,
-		and <m>c</m> represents the length of the <q>hypotenuse</q> across from <m>\theta</m>.
-		(If <m>\theta</m> were <m>\degree{90}</m>,
-		the right-hand side of this equality would be zero and this law would <q>collapse</q> to the same equality as Pythagoras.)
+		<m> a </m> represents the length of <m> \uvec{u} </m>,
+		<m> b </m> represents the length of <m> \uvec{v} </m>,
+		and <m> c </m> represents the length of the <q>hypotenuse</q> <m> \uvec{w} </m>.
+		(If <m>\theta</m> <em>is</em> <m>\degree{90}</m>,
+		the right-hand side of this equality equals zero and this law <q>collapses</q> to the same equality as Pythagoras.)
 		</p>
 
 		<p>
-		Use the formulas from <xref ref="activity-vector-geom-norm-formula" />
-		to rewrite the left-hand side of the law of cosines in terms of the components of <m>\uvec{u} = (u_1,u_2)</m> and <m>\uvec{v} = (v_1,v_2)</m>,
-		then simplify.
-		You should eventually arrive at <m>\text{LHS} = 2 \times (\text{simple formula})</m>.
+		We will write the components of these two-dimensional vectors as
+		<md><mrow>
+			\uvec{u} \amp = (u_1,u_2) \text{,} \amp
+			\uvec{v} \amp = (v_1,v_2) \text{,} \amp
+			\uvec{w} \amp = (w_1,w_2) \text{.}
+		</mrow></md>
 		</p>
 
-	</statement>
+	</introduction>
+
+	<task><p>
+		Using the formulas from <xref ref="activity-vector-geom-norm-formula" />:
+		<md>
+			<mrow> a^2 \amp = {\unorm{u}}^2 = <fillin characters="8" /> \text{,} </mrow>
+			<mrow> b^2 \amp = {\unorm{v}}^2 = <fillin characters="8" /> \text{,} </mrow>
+			<mrow> c^2 \amp = {\unorm{w}}^2 = <fillin characters="8" /> \text{.} </mrow>
+		</md>
+		(These should be formulas in the components <m> u_1, u_2, v_1, v_2, w_1, w_2 </m>.)
+	</p></task>
+
+	<task><p>
+		Similar to <xref ref="activity-vector-geom-vec-distance" />,
+		the relationship between <m> \uvec{u} </m>, <m> \uvec{v} </m>, and <m> \uvec{w} </m> is
+		<md> \uvec{w} = <fillin characters="8" /> </md>.
+		Therefore:
+		<md><mrow>
+			w_1 \amp = <fillin characters="8" /> \text{,} \amp
+			w_2 \amp = <fillin characters="8" /> \text{,}
+		</mrow></md>
+		<md> c^2 = <fillin characters="12" /> </md>.
+		(These last three should be formulas in the components <m> u_1, u_2, v_1, v_2 </m> only.)
+	</p></task>
+
+	<task xml:id="activity-vector-geom-dot-product-final-lhs"><p>
+		Combine what we have so far to rewrite the left-hand side of the <term>law of cosines</term> in terms of the components <m> u_1, u_2, v_1, v_2 </m> only:
+		<md> a^2 + b^2 - c^2 = <fillin characters="24" /> </md>.
+		Then use high school algebra to simplify this formula until you have
+		<md> a^2 + b^2 - c^2 = 2 \times (<fillin characters="10" />) </md>.
+	</p></task>
 
 	<postlude>
 
 		<p>
-		Using the new expression <m>2\times(\text{simple formula})</m> from <xref ref="activity-vector-geom-dot-product" />
-		as the left-hand side in the law of cosines,
-		and dividing both sides by <m>2 a b</m>,
-		we get
-		<md> \cos\theta = \frac{(\text{simple formula})}{\unorm{u}\unorm{v}} </md>.
-		(Remember that <m>a</m> and <m>b</m> are the lengths of <m>\uvec{u}</m> and <m>\uvec{v}</m>, respectively.)
-		</p>
-
-		<p>
-		The <q>simple formula</q> part of this angle formula turns out to be an important one <mdash />
-		it is called the
+		The formula in the components of vectors <m> \uvec{u} </m> and <m> \uvec{v} </m> that fills in the last blank of
+		<xref ref="activity-vector-geom-dot-product-final-lhs" text="type-local" />
+		of <xref ref="activity-vector-geom-dot-product" />
+		is a simple but important one.
+		It is called the
 		<term>Euclidean inner product</term>
 		<idx><h>Euclidean</h><h>inner product</h></idx>
 		<idx><h>inner product</h><h>Euclidean</h></idx>
@@ -279,7 +300,15 @@ respective owners.
 		<idx><h>standard</h><h>inner product</h></idx>
 		<idx><h>inner product</h><h>Euclidean</h></idx>
 		(or just simply the <term>dot product</term><idx><h>dot product</h></idx>)
-		of <m>\uvec{u}</m> and <m>\uvec{v}</m>, and written <m>\udotprod{u}{v}</m>.
+		of <m>\uvec{u}</m> and <m>\uvec{v}</m>, and written <md> \udotprod{u}{v} </md>.
+		</p>
+
+		<p>
+		The importance of this formula is that it is a bridge between geometry and algebra.
+		Replacing the left-hand side of the <term>law of cosines</term> <xref ref="equation-vector-geom-discovery-law-cosines" /> with our final, simplified expression from the previous discovery activity and then dividing both sides by <m> 2 a b </m>,
+		we obtain
+		<md> \cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}} </md>.
+		(Remember that <m>a</m> and <m>b</m> are the lengths of <m>\uvec{u}</m> and <m>\uvec{v}</m>, respectively.)
 		</p>
 
 	</postlude>
@@ -292,41 +321,35 @@ respective owners.
 		Let's extend the computational pattern from
 		<xref ref="activity-vector-geom-dot-product"/>.
 		In the two-dimensional case in <xref ref="activity-vector-geom-dot-prod-formula-two-dim" text="type-local" /> below,
-		you should just enter the <q>simple formula</q> you discovered above.
+		you should just enter the formula for the dot product that you discovered in <xref ref="activity-vector-geom-dot-product-final-lhs" text="type-local" />
+		of <xref ref="activity-vector-geom-dot-product" />
+		(but without the <q><m> 2 </m> times</q>).
 		In the subsequent tasks in higher dimensions,
 		use the pattern from the two-dimensional case to create a similar higher-dimensional formula.
 	</p></introduction>
 
 	<task xml:id="activity-vector-geom-dot-prod-formula-two-dim">
 		<title>In two dimensions</title>
-		<p>
-		For <m>\uvec{u} = (u_1,u_2)</m>, <m>\uvec{v} = (v_1,v_2)</m>:
-		<m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>.
-		</p>
+		<p> For <m>\uvec{u} = (u_1,u_2)</m>, <m>\uvec{v} = (v_1,v_2)</m>: </p>
+		<p> <m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>. </p>
 	</task>
 
 	<task>
 		<title>In three dimensions</title>
-		<p>
-		For <m>\uvec{u} = (u_1,u_2,u_3)</m>, <m>\uvec{v} = (v_1,v_2,v_3)</m>:
-		<m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>.
-		</p>
+		<p> For <m>\uvec{u} = (u_1,u_2,u_3)</m>, <m>\uvec{v} = (v_1,v_2,v_3)</m>: </p>
+		<p> <m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>. </p>
 	</task>
 
 	<task>
 		<title>In four dimensions</title>
-		<p>
-		For <m>\uvec{u} = (u_1,u_2,u_3,u_4)</m>, <m>\uvec{v} = (v_1,v_2,v_3,v_4)</m>:
-		<m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>.
-		</p>
+		<p> For <m>\uvec{u} = (u_1,u_2,u_3,u_4)</m>, <m>\uvec{v} = (v_1,v_2,v_3,v_4)</m>: </p>
+		<p> <m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>. </p>
 	</task>
 
 	<task>
 		<title>Arbitrary dimension</title>
-		<p>
-		For <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m>, <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>:
-		<m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>.
-		</p>
+		<p> For <m>\uvec{u} = (u_1,u_2,\dotsc,u_n)</m>, <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m>: </p>
+		<p> <m> \quad \udotprod{u}{v} = <fillin characters="10" /> </m>. </p>
 	</task>
 
 </activity>
