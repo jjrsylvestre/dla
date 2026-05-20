@@ -11,20 +11,23 @@
 % their respective owners.
 %
 % *********************************************************************
-\begin{tikzpicture}[
-	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
-	vector/.style={-latex},
-]
+\begin{tikzpicture}[scale=1.25]
 	% artificially widen image because it's in a sidebyside with a <p>
 	% and want to give caption more room to expand
-	\draw[black!5!white,very thin] (-0.35,0) to (-0.4,0) to (-0.4,0.5);
-	\draw[black!5!white,very thin] (4.35,1.75) to (4.4,1.75) to (4.4,1.7);
+	\draw[black!5!white,very thin] (-1.17,-1.25) to (-1.22,-1.25) to (-1.22,-1.2);
+	\draw[black!5!white,very thin] (4.17,1.25) to (4.22,1.25) to (4.22,1.2);
 
-	\node[point] at (0,0) (p) {};
-	\node[point] at (2.5,1.75) (q) {};
-	\node[point] at (4,0.25) (r) {};
-	\draw[vector,thick] (p) to node[above left] {$\uvec{u}$} (q);
-	\draw[vector,thick] (p) to node[below right] {$\uvec{v}$} (r);
-	\draw[vector,thick] (r.west) to node[below,sloped] {$\uvec{u} - \uvec{v}$} (q.south);
-	\draw[vector,thick] (q.east) to node[above,sloped] {$\uvec{v} - \uvec{u}$} (r.north);
+	\draw[->] (-0.25,0) to (3.5,0) node[below right] {$\theta$};
+	\draw[->] (0,-1.25) to (0,1.25) node[above right] {$y$};
+
+	\draw[dashed] (3.14,0) to (3.14,-1);
+	\draw (0,1) cos (1.57,0) sin (3.14,-1);
+	\draw (3.14,-0.1) to (3.14,0.1) node[above] {$\scriptstyle \pi$};
+
+	\draw (1.57,0.1) to (1.57,-0.1) node[below] {$\scriptstyle \frac{\pi}{2}$};
+	\foreach \y in {-1,1} {
+		\draw (0.1,\y) to (-0.1,\y) node[left] {$\scriptstyle \y$};
+	}
+
+	\node at (2.5,1) {$y=\cos\theta$};
 \end{tikzpicture}

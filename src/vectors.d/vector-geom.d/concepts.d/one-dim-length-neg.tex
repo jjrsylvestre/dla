@@ -15,16 +15,11 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
-	% artificially widen image because it's in a sidebyside with a <p>
-	% and want to give caption more room to expand
-	\draw[black!5!white,very thin] (-0.35,0) to (-0.4,0) to (-0.4,0.5);
-	\draw[black!5!white,very thin] (4.35,1.75) to (4.4,1.75) to (4.4,1.7);
-
-	\node[point] at (0,0) (p) {};
-	\node[point] at (2.5,1.75) (q) {};
-	\node[point] at (4,0.25) (r) {};
-	\draw[vector,thick] (p) to node[above left] {$\uvec{u}$} (q);
-	\draw[vector,thick] (p) to node[below right] {$\uvec{v}$} (r);
-	\draw[vector,thick] (r.west) to node[below,sloped] {$\uvec{u} - \uvec{v}$} (q.south);
-	\draw[vector,thick] (q.east) to node[above,sloped] {$\uvec{v} - \uvec{u}$} (r.north);
+	\coordinate (o) at (0,0);
+	\coordinate (v) at (-2,0);
+	\draw[->] (-3,0) to (1.5,0) node[below] {$x$};
+	\draw[thin] ([shift={(0,0.1)}]o) to ([shift={(0,-0.1)}]o) node[below] {$0$};
+	\draw[thin] ([shift={(0,0.1)}]v) to ([shift={(0,-0.1)}]v) node[below] {$v_1$};
+	\draw[vector,very thick] (o) to node[above] {$\uvec{v}$} (v);
+	\draw[|-|] ([shift={(0,-0.65)}]o) to node[below] {$\abs{v_1}$} ([shift={(0,-0.65)}]v);
 \end{tikzpicture}

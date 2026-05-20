@@ -141,17 +141,83 @@ so that
 </p>
 
 <p>
-The word <em>length</em> ceases to have any physical meaning in <m>\R^4</m>,
-so in general we refer to <m>\unorm{v}</m> as the <term>norm</term> of <m>\uvec{v}</m> in any dimension.
-We imagine that if we were able to somehow measure length in <m>\R^n</m> for <m>n\ge 4</m>,
-then the pattern where we used length in <m>\R^2</m> to help us compute length in <m>\R^3</m> would be repeated,
-and we would be able to use length in <m>\R^3</m> to help us compute <q>length</q> in <m>\R^4</m>,
-and then we would be able to use <q>length</q> in <m>\R^4</m> to help us compute <q>length</q> in <m>\R^5</m>,
-and so on.
-So it seems reasonable to define the <term>norm</term> of a vector <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m> in <m>\R^n</m> to be
+Even for a one-dimensional vector <m> \uvec{v} = (v_1) </m>,
+the formula
+<md> \unorm{v} = \sqrt{v_1^2} = \abs{v_1} </md>
+measures the length of the vector.
+</p>
+
+<figure xml:id="figure-vector-geom-concepts-one-dim-length">
+	<caption> Length of a vector in one dimension. </caption>
+
+	<sidebyside widths="38.8% 38.8%" valign="middle"> <!-- TODO widths -->
+
+		<figure xml:id="figure-vector-geom-concepts-one-dim-length-pos">
+			<caption> For positive component <m> v_1 </m>. </caption>
+			<image>  <!-- width="38.8%" -->
+				<latex-image label="image-vector-geom-concepts-one-dim-length-pos">
+					<xi:include href="concepts.d/one-dim-length-pos.tex" parse="text" />
+				</latex-image>
+				<shortdescription> The length of a one-dimensional vector oriented in the positive direction along the real number line. </shortdescription>
+				<description><p>
+					A diagram illustrating how the absolute value of the single component of the one-dimensional vector <m> \uvec{v} = (v_1) </m> measures its length,
+					in the case that <m> v_1 </m> is positive.
+					The real number line is drawn as a horizontal axis,
+					with the position <m> x = 0 </m> marked.
+					To the right of this the positive position <m> x = v_1 </m> is also marked.
+					A directed line segment,
+					labelled as representing the vector <m> \uvec{v} </m>,
+					is drawn between these two positions with <m> x = 0 </m> as the initial point.
+				</p></description>
+			</image>
+		</figure>
+
+		<figure xml:id="figure-vector-geom-concepts-one-dim-length-neg">
+			<caption> For negative component <m> v_1 </m>. </caption>
+			<image>  <!-- width="38.8%" -->
+				<latex-image label="image-vector-geom-concepts-one-dim-length-neg">
+					<xi:include href="concepts.d/one-dim-length-neg.tex" parse="text" />
+				</latex-image>
+				<shortdescription> The length of a one-dimensional vector oriented in the negative direction along the real number line. </shortdescription>
+				<description><p>
+					A diagram illustrating how the absolute value of the single component of the one-dimensional vector <m> \uvec{v} = (v_1) </m> measures its length,
+					in the case that <m> v_1 </m> is negative.
+					The real number line is drawn as a horizontal axis,
+					with the position <m> x = 0 </m> marked.
+					To the left of this the negative position <m> x = v_1 </m> is also marked.
+					A directed line segment,
+					labelled as representing the vector <m> \uvec{v} </m>,
+					is drawn between these two positions with <m> x = 0 </m> as the initial point.
+				</p></description>
+			</image>
+		</figure>
+
+	</sidebyside>
+
+</figure>
+
+<p>
+In higher dimensions we cannot visualize the geometry of vectors,
+nor can we intuitively connect geometric length to conceptions of length in our physical world like we can in one, two, and three dimensions.
+But we can easily extend the formula for <term>vector norm</term> to higher dimensions:
+for vector <m>\uvec{v} = (v_1,v_2,\dotsc,v_n)</m> in <m>\R^n</m>,
+we define
 <md> \unorm{v} = \sqrt{v_1^2 + v_2^2 + \dotsb + v_n^2} </md>.
-Square roots are annoying to work with algebraically,
-so we often work with the square of a norm, for which we developed the formula
+Then,
+in analogy with the lower-dimensional cases,
+we <em>define</em> the geometric length of a vector to be the numeric result of the norm formula.
+The fact that knowing how to compute length of vectors in <m> \R^2 </m> helped us to compute the length of vectors in <m> \R^3 </m>,
+and that the result in <m> \R^3 </m> was a straightforward extension of the norm formula from two components to three components,
+gives us confidence that this inductive pattern would continue to extend from <m> \R^3 </m> to <m> \R^4 </m>,
+then from <m> \R^4 </m> to <m> \R^5 </m>,
+and so on.
+</p>
+
+<p>
+Finally,
+square roots are annoying to work with algebraically,
+so we often work with the <em>square</em> of a norm,
+for which we developed the formula
 <md> \unorm{v}^2 = v_1^2 + v_2^2 + \dotsb + v_n^2 </md>
 in <xref ref="activity-vector-geom-norm-formula" />.
 </p>
@@ -242,17 +308,40 @@ and so <m>\abs{k} = k</m> in this case.
 	so <m>k = \frac{1}{\unorm{v}}</m> is valid.
 </p></aside>
 
-<p>
-In fact, every nonzero vector <m>\uvec{v}</m> is parallel to exactly two corresponding unit vectors,
-because <m>k\uvec{v}</m> and <m>-k\uvec{v}</m> always have the same norm.
-So
-<md><mrow>
-	\uvec{u}_1 \amp= \frac{1}{\unorm{v}}\,\uvec{v}, \amp
-	\amp\text{and} \amp
-	\uvec{u}_2 \amp= -\frac{1}{\unorm{v}}\,\uvec{v}
-</mrow></md>
-are always unit vectors, as long as <m>\uvec{v} \neq \zerovec</m>.
-</p>
+<sidebyside widths="65% 29.7%" margins="0%">
+
+	<p>
+	In fact, every nonzero vector <m> \uvec{v} </m> is parallel to exactly two corresponding unit vectors
+	<md><mrow>
+		\uvec{u}_1 \amp = \frac{1}{\unorm{v}} \, \uvec{v} \amp
+		\amp \text{and} \amp
+		\uvec{u}_2 \amp = - \frac{1}{\unorm{v}} \, \uvec{v} \text{,}
+	</mrow></md>
+	because <m> k \uvec{v} </m> and <m> - k \uvec{v} </m> always have the same norm.
+	</p>
+
+	<figure>
+		<caption> Two parallel unit vectors. </caption>
+		<image> <!--  width="29.7%"  -->
+			<latex-image label="image-vector-geom-concepts-two-unit-vectors">
+				<xi:include href="concepts.d/two-unit-vectors.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram of a vector and the two unit vectors that are parallel to it. </shortdescription>
+			<description><p>
+				A diagram of unit vectors parallel to a given vector.
+				A directed line segment representing a vector labelled <m> \uvec{v} </m> extends from a point roughly in the centre of the diagram to a point above and to the right.
+				Another directed line segment,
+				labelled <m> \uvec{u} </m>,
+				runs parallel to <m> \uvec{v} </m> from the same initial point,
+				but only extends approximately two-thirds of the length of <m> \uvec{v} </m>.
+				Finally,
+				a third directed line segment of the same length as but oppositely directed to <m> \uvec{u} </m> emanates from the same initial point,
+				and is labelled <m> - \uvec{u} </m>.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 </subsection>
 
@@ -260,30 +349,34 @@ are always unit vectors, as long as <m>\uvec{v} \neq \zerovec</m>.
 <subsection xml:id="subsection-vector-geom-concepts-distance-between">
 <title>Distance between vectors</title>
 
-<p>
-As we saw in <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" />,
-if we position <m>\uvec{u}</m> and <m>\uvec{v}</m> to share the same initial points,
-then the difference vectors <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
-</p>
+<sidebyside widths="54% 41.1%" margins="0%">
 
-<figure>
-	<caption> Difference vectors. </caption>
-	<image width="35.5%">
-		<latex-image label="image-vector-geom-concepts-distance">
-			<xi:include href="concepts.d/distance.tex" parse="text" />
-		</latex-image>
-		<shortdescription> Diagram of difference vectors. </shortdescription>
-		<description><p>
-			A diagram of difference vectors.
-			A directed line segment representing a vector labelled <m>\uvec{u}</m> extends from a point at the bottom-left of the diagram to a point slightly left of centre at the top of the diagram.
-			A second directed line segment representing a vector labelled <m>\uvec{v}</m> runs from the same initial point at the bottom-left of the diagram to a point slightly above centre at the far right of the diagram.
-			Two more directed line segments run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>,
-			one in each direction,
-			with the one running from <m>\uvec{u}</m> to <m>\uvec{v}</m> representing the difference vector <m>\uvec{v} - \uvec{u}</m>,
-			and the one running from <m>\uvec{v}</m> to <m>\uvec{u}</m> representing the difference vector <m>\uvec{u} - \uvec{v}</m>.
-		</p></description>
-	</image>
-</figure>
+	<p>
+	As we saw in <xref ref="subsection-vectors-concepts-vec-neg-vec-subtract" />,
+	if we position <m>\uvec{u}</m> and <m>\uvec{v}</m> to share the same initial points,
+	then the difference vectors <m>\uvec{u}-\uvec{v}</m> and <m>\uvec{v}-\uvec{u}</m> run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>.
+	</p>
+
+	<figure>
+		<caption> Difference vectors. </caption>
+		<image>  <!--  width="35.5%"  -->
+			<latex-image label="image-vector-geom-concepts-distance">
+				<xi:include href="concepts.d/distance.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram of difference vectors. </shortdescription>
+			<description><p>
+				A diagram of difference vectors.
+				A directed line segment representing a vector labelled <m>\uvec{u}</m> extends from a point at the bottom-left of the diagram to a point slightly left of centre at the top of the diagram.
+				A second directed line segment representing a vector labelled <m>\uvec{v}</m> runs from the same initial point at the bottom-left of the diagram to a point slightly above centre at the far right of the diagram.
+				Two more directed line segments run between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+				one in each direction,
+				with the one running from <m>\uvec{u}</m> to <m>\uvec{v}</m> representing the difference vector <m>\uvec{v} - \uvec{u}</m>,
+				and the one running from <m>\uvec{v}</m> to <m>\uvec{u}</m> representing the difference vector <m>\uvec{u} - \uvec{v}</m>.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 <p>
 So we can measure the distance between the terminal points of <m>\uvec{u}</m> and <m>\uvec{v}</m> by computing <m>\norm{\uvec{u}-\uvec{v}}</m> or <m>\norm{\uvec{v}-\uvec{u}}</m>,
@@ -307,25 +400,29 @@ so that the components of <m>\uvec{u}</m> and <m>\uvec{v}</m> are the same as th
 <subsection xml:id="subsection-vector-geom-concepts-angle">
 <title>Angle between vectors in the plane and in space</title>
 
-<p> Two vectors in the plane, when given the same initial point, have two angles between them. </p>
+<sidebyside widths="40% 55.2%" margins="0%">
 
-<figure>
-	<caption> Two angles related to two vectors with their tails at the same initial point. </caption>
-	<image width="29.1%">
-		<latex-image label="image-vector-geom-concepts-angle">
-			<xi:include href="concepts.d/angle.tex" parse="text" />
-		</latex-image>
-		<shortdescription> Diagram of the angles formed by two vectors in the plane meeting at the same initial point. </shortdescription>
-		<description><p>
-			A diagram of two vectors forming two related angles.
-			Two directed line segments emanate from a common initial point,
-			representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m>,
-			respectively.
-			A small circle is centred at the common initial point so that the shafts of the directed line segments divide the circle into two arcs,
-			with the shorter, interior arc labelled <m>\theta_1</m> and the longer, exterior arc labelled <m>\theta_2</m>.
-		</p></description>
-	</image>
-</figure>
+	<p> Two vectors in the plane, when given the same initial point, have two angles between them. </p>
+
+	<figure>
+		<caption> Two angles related to two vectors with their tails at the same initial point. </caption>
+		<image>  <!--  width="55.2%"  -->
+			<latex-image label="image-vector-geom-concepts-angle">
+				<xi:include href="concepts.d/angle.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram of the angles formed by two vectors in the plane meeting at the same initial point. </shortdescription>
+			<description><p>
+				A diagram of two vectors forming two related angles.
+				Two directed line segments emanate from a common initial point,
+				representing vectors labelled <m>\uvec{u}</m> and <m>\uvec{v}</m>,
+				respectively.
+				A small circle is centred at the common initial point so that the shafts of the directed line segments divide the circle into two arcs,
+				with the shorter, interior arc labelled <m>\theta_1</m> and the longer, exterior arc labelled <m>\theta_2</m>.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 <p>
 We only need to know one of these two angles, since the other can be computed from the knowledge that the sum of the two angles is <m>2\pi</m> radians.
@@ -432,7 +529,7 @@ The angle between the two vectors can then be taken to be the smaller of the two
 <subsection xml:id="subsection-vector-geom-concepts-dot-product">
 <title>Dot product</title>
 
-<sidebyside widths="49% 45.2%" margins="0%" valign="middle">
+<sidebyside widths="50% 45.2%" margins="0%" valign="middle">
 
 	<p>
 	In <xref ref="activity-vector-geom-dot-product" />,
@@ -603,27 +700,31 @@ First, for a pair of nonzero vectors in <m>\R^n</m>, the formula
 can always be computed, and the result of the computation is always a single, definite number.
 </p>
 
-<p>
-Second, looking at the graph of <m>y = \cos\theta</m> provided in <xref ref="figure-vector-geom-concepts-cosine" />,
-there are no instances in the domain <m>0 \le \theta \le \pi</m> where <m>\cos \theta</m> computes to the <em>same</em> value for two <em>different</em> values of <m>\theta</m>.
-That is, on this domain the graph is <term>one-to-one</term>.
-</p>
+<sidebyside widths="37.5% 57.6%" margins="0%">
 
-<figure xml:id="figure-vector-geom-concepts-cosine">
-	<caption> The first half-period of the cosine graph. </caption>
-	<image width="36.7%">
-		<latex-image label="image-vector-geom-concepts-cosine">
-			<xi:include href="../../shared.d/cosine.tex" parse="text" />
-		</latex-image>
-		<shortdescription> The first half-period of the cosine graph. </shortdescription>
-		<description><p>
-			The first half-period of the graph <m>y = \cos \theta</m>,
-			over the domain <m>0 \le \theta \le \pi</m>,
-			is drawn on a set of <m>\theta y</m>-axes.
-			The graph descends from the <m>y</m>-intercept at the point <m>(0,1)</m> down through the <m>\theta</m>-intercept at point <m>(\pi/2, 0)</m> to the half-period endpoint at <m>(\pi, -1)</m>.
-		</p></description>
-	</image>
-</figure>
+	<p>
+	Second, looking at the portion of the cosine graph provided in <xref ref="figure-vector-geom-concepts-cosine" />,
+	there are no instances on this restricted domain where <m> \cos\theta </m> computes to the <em>same</em> value for two <em>different</em> values of <m> \theta </m>.
+	That is, on this domain the graph is <term>one-to-one</term>.
+	</p>
+
+	<figure xml:id="figure-vector-geom-concepts-cosine">
+		<caption> A half-period of the cosine graph. </caption>
+		<image>  <!--  width="57.6%"  -->
+			<latex-image label="image-vector-geom-concepts-cosine">
+				<xi:include href="concepts.d/cosine.tex" parse="text" />
+			</latex-image>
+			<shortdescription> The first half-period of the cosine graph. </shortdescription>
+			<description><p>
+				The first half-period of the graph <m> y = \cos \theta </m>,
+				over the domain <m> 0 \le \theta \le \pi </m>,
+				is drawn on a set of <m> \theta y </m>-axes.
+				The graph descends from the <m> y </m>-intercept at the point <m> (0,1) </m> down through the <m> \theta </m>-intercept at point <m> (\pi/2, 0) </m> to the half-period endpoint at <m> (\pi, -1) </m>.
+			</p></description>
+		</image>
+	</figure>
+
+</sidebyside>
 
 <p>
 So for a pair of vectors in <m>\R^n</m>,

@@ -15,6 +15,11 @@
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
 ]
+	% artificially widen image because it's in a sidebyside with a <p>
+	% and want to give caption more room to expand
+	\draw[black!5!white,very thin] (-2.45,-0.5) to (-2.5,-0.5) to (-2.5,-0.45);
+	\draw[black!5!white,very thin] (3.95,1.25) to (4,1.25) to (4,1.2);
+
 	\draw[vector,thick] (0,0) to node[above left,near end] {$\uvec{u}$} ++(45:1.75cm);
 	\draw[vector,thick] (0,0) to node[below right] {$\uvec{v}$} ++(5:2.5cm);
 	\draw[thick] (0,0) ++(12.5:0.5cm) arc (12.5:37.5:0.5cm) node[right,midway,yshift=0.15cm] {$\theta_1$};
