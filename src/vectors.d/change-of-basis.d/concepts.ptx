@@ -53,10 +53,10 @@ We will record these properties formally in
 but for now what is most important for our development of the concept of
 <term>transition matrix</term>
 is the extension of these properties to linear combinations:
-<md><mrow xml:id="equation-change-of-basis-concepts-linearity-coordvecs" tag="star">
+<md xml:id="equation-change-of-basis-concepts-linearity-coordvecs" tag="star">
 	\rmatrixOf{k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsc + k_m \uvec{v}_m}{B}
 	= k_1 \rmatrixOf{\uvec{v}_1}{B} + k_2 \rmatrixOf{\uvec{v}_2}{B} + \dotsc + k_m \rmatrixOf{\uvec{v}_m}{B}
-</mrow></md>.
+</md>.
 </p>
 
 <aside valign="middle"><title>Also</title><p>
@@ -104,12 +104,12 @@ So if we expand the column vector
 as a linear combination of standard basis vectors,
 <md> \uvec{x} = x_1 \uvec{e}_1 + x_2 \uvec{e}_2 + \dotsb + x_n \uvec{e}_n </md>,
 then we can compute <m>A\uvec{x}</m> by multiplying <m>A</m> through this linear combination:
-<md><mrow xml:id="equation-change-of-basis-concepts-matrix-times-vec-pattern" tag="dstar">
+<md xml:id="equation-change-of-basis-concepts-matrix-times-vec-pattern" tag="dstar">
 	\begin{array}{ccccccccc}
 		A \uvec{x} \amp = \amp x_1 A \uvec{e}_1 \amp + \amp x_2 A \uvec{e}_2 \amp + \amp \dotsb \amp + \amp x_n A \uvec{e}_n \\
 		 \amp = \amp x_1 \uvec{a}_1 \amp + \amp x_2 \uvec{a}_2 \amp + \amp \dotsb \amp + \amp x_n \uvec{a}_n
 	\end{array}
-</mrow></md>.
+</md>.
 From this, we see that
 <alert>a matrix times a vector can be expressed as a linear combination of the columns of the matrix with coefficients taken from the vector</alert>.
 </p>
@@ -126,9 +126,9 @@ we explored how we might convert from coordinate vectors relative to one basis t
 </p><p>
 Suppose we have a basis <m>\basisfont{B}</m> for some particular finite-dimensional vector space <m>V</m>.
 Every vector <m>\uvec{w}</m> in <m>V</m> can be expressed uniquely as a linear combination
-<md><mrow xml:id="equation-change-of-basis-concepts-lincomb" tag="tstar">
+<md xml:id="equation-change-of-basis-concepts-lincomb" tag="tstar">
 	\uvec{w} = k_1 \uvec{u}_1 + k_2 \uvec{u}_2 + \dotsc + k_n \uvec{u}_n,
-</mrow></md>
+</md>
 where the <m>\uvec{u}_j</m> are the basis vectors in <m>\basisfont{B}</m>
 (<xref ref="theorem-basis-coords-basis-lin-comb-is-unique" />),
 and the <m>n</m>-dimensional vector
@@ -148,23 +148,23 @@ applied to
 <xref ref="equation-change-of-basis-concepts-lincomb" />
 to obtain an expression for the new coordinate vector <m>\matrixOf{w}{B'}</m>
 as a linear combination in <m>\R^n</m> of coordinate vectors:
-<md><mrow xml:id="equation-change-of-basis-concepts-second-basis-coordvec-lincomb" tag="dagger">
+<md xml:id="equation-change-of-basis-concepts-second-basis-coordvec-lincomb" tag="dagger">
 	\matrixOf{\uvec{w}}{B'}
 	= k_1 \matrixOf{\uvec{u}_1}{B'}
 	+ k_2  \matrixOf{\uvec{u}_2}{B'}
 	+ \dotsc
 	+ k_n \matrixOf{\uvec{u}_n}{B'}.
-</mrow></md>
+</md>
 </p><p>
 Now, the pattern of
 <xref ref="activity-change-of-basis-matrix-times-col-pattern">Discovery</xref>
 tells us that for every matrix <m>P</m> of appropriate size to multiply against the column vector <m>\matrixOf{\uvec{w}}{B}</m>,
 the product <m> P \matrixOf{\uvec{w}}{B} </m> can be expressed as
-<md><mrow xml:id="equation-change-of-basis-concepts-matrix-times-col-pattern" tag="ddagger">
+<md xml:id="equation-change-of-basis-concepts-matrix-times-col-pattern" tag="ddagger">
 	P \matrixOf{\uvec{w}}{B}
 	= P \begin{bmatrix} k_1 \\ k_2 \\ \vdots \\ k_n \end{bmatrix}
 	= k_1 \uvec{p}_1 + k_2 \uvec{p}_2 + \dotsb + k_n \uvec{p}_n,
-</mrow></md>
+</md>
 where the <m>\uvec{p}_j</m> are the columns of <m>P</m>.
 Combining
 <xref ref="equation-change-of-basis-concepts-second-basis-coordvec-lincomb" />
@@ -173,13 +173,13 @@ with
 gives us a way to use matrix multiplication to convert coordinate vector
 <m>\matrixOf{\uvec{w}}{B}</m> into <m>\matrixOf{\uvec{w}}{B'}</m>:
 if we take <m>P</m> to be the matrix whose columns are the coordinate vectors relative to <m>\basisfont{B}'</m> of the basis vectors of <m>\basisfont{B}</m>,
-<md><mrow xml:id="equation-change-of-basis-concepts-transition-matrix-def" tag="tdagger">
+<md xml:id="equation-change-of-basis-concepts-transition-matrix-def" tag="tdagger">
 	P = \begin{bmatrix}
 		| \amp | \amp \amp | \\
 		\matrixOf{\uvec{u}_1}{B'} \amp \matrixOf{\uvec{u}_2}{B'} \amp \dots \amp \matrixOf{\uvec{u}_n}{B'} \\
 		| \amp | \amp \amp |
 	\end{bmatrix}
-</mrow></md>,
+</md>,
 then
 <md>
 	P \matrixOf{\uvec{w}}{B}
@@ -305,11 +305,11 @@ we can use the standard basis as an intermediate in a chain of basis changes to 
 Using what we learned in
 <xref ref="subsection-change-of-basis-concepts-properties" />,
 we can write
-<md><mrow xml:id="equation-change-of-basis-concepts-inv-prod-formula-Rn" tag="maltese">
+<md xml:id="equation-change-of-basis-concepts-inv-prod-formula-Rn" tag="maltese">
 	\ucobmtrx{B}{B'}
 	= \ucobmtrx{S}{B'} \ucobmtrx{B}{S}
 	= \uinvcobmtrx{B'}{S} \ucobmtrx{B}{S}
-</mrow></md>,
+</md>,
 and so we can compute <m>\ucobmtrx{B}{B'}</m> from the easy-to-produce transition matrices <m>\ucobmtrx{B}{S}</m> and <m>\ucobmtrx{B'}{S}</m>.
 </p>
 

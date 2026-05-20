@@ -153,15 +153,17 @@ computed using the <xref ref="procedure-inprod-orthog-gram-schmidt" text="title"
 (<xref ref="procedure-inprod-orthog-gram-schmidt" />),
 if necessary,
 and then
-<md><mrow xml:id="equation-projection-concepts-formula" tag="star">
+<md alignment="gather">
+	<mrow xml:id="equation-projection-concepts-formula" tag="star">
 		\proj_U \uvec{v} =
 		\frac{\inprod{\uvec{v}}{\uvec{e}_1}}{\norm{\uvec{e}_1}^2} \, \uvec{e}_1
 		+ \dotsb
 		+ \frac{\inprod{\uvec{v}}{\uvec{e}_\ell}}{\norm{\uvec{e}_\ell}^2} \, \uvec{e}_\ell \text{,}
-</mrow></md>
-<md><mrow xml:id="equation-projection-concepts-complement-formula" tag="dstar">
-		\proj_{\orthogcmp{U}} \uvec{v} = \uvec{v} - \proj_U \uvec{v}
-</mrow></md>.
+	</mrow>
+	<mrow xml:id="equation-projection-concepts-complement-formula" tag="dstar">
+		\proj_{\orthogcmp{U}} \uvec{v} = \uvec{v} - \proj_U \uvec{v} \text{.}
+	</mrow>
+</md>
 See <xref ref="example-projection-compute" />
 in <xref ref="subsection-projection-examples-orthog-proj" />
 for an example.
@@ -469,7 +471,7 @@ We can now re-frame <xref ref="question-projection-least-sq" /> in a way that wi
 what vector(s) <m>\uvec{x}</m> will produce an <q>output</q> vector <m>A \uvec{x}</m> in the column space of <m>A</m> that is closest to <m>\uvec{b}_0</m>?
 The answer is:
 any vector <m>\uvec{x}_0</m> so that
-<md><mrow xml:id="equation-projection-least-sq-sol" tag="dagger"> A \uvec{x}_0 = \proj_U \uvec{b}_0 </mrow></md>,
+<md xml:id="equation-projection-least-sq-sol" tag="dagger"> A \uvec{x}_0 = \proj_U \uvec{b}_0 </md>,
 where <m>U</m> is the column space of <m>A</m> in <m>\R^m</m>.
 </p>
 
@@ -585,9 +587,9 @@ hence there is always a solution to the normal system.
 If <m>A</m> is square and invertible,
 then so is <m>\utrans{A}A</m>,
 and in this case there is one unique solution
-<md><mrow xml:id="equation-projection-least-sq-pseudo-inverse-sol" tag="ddagger">
+<md xml:id="equation-projection-least-sq-pseudo-inverse-sol" tag="ddagger">
 	\uvec{x}_0 = \inv{(\utrans{A} A)} \utrans{A} \uvec{b}_0
-</mrow></md>
+</md>
 But even if <m>A</m> is not square,
 the coefficient matrix of the normal system,
 <m>\utrans{A} A</m>, is always square:

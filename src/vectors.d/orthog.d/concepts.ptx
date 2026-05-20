@@ -38,9 +38,9 @@ respective owners.
 
 <p>
 In <xref ref="activity-orthog-dot-prod-vs-cos-graph" />, we compared the graph of the cosine function on the domain <m>0\le\theta\le\pi</m> with the formula
-<md><mrow tag="star" xml:id="equation-orthog-concepts-cos-vs-dot-prod-eqn">
+<md tag="star" xml:id="equation-orthog-concepts-cos-vs-dot-prod-eqn">
 	\cos\theta = \frac{\udotprod{u}{v}}{\unorm{u}\unorm{v}}
-</mrow></md>,
+</md>,
 where <m>\theta</m> is the angle between nonzero vectors <m>\uvec{u}</m> and <m>\uvec{v}</m>.
 On the right of equation <xref ref="equation-orthog-concepts-cos-vs-dot-prod-eqn" />, the denominator is always positive,
 so whether the whole fraction is positve, negative, or zero depends entirely on the dot product in the numerator.
@@ -354,9 +354,9 @@ will be true.
 <p>
 Consider the line <m> 2 x + 3 y = 0 </m> that we investigated in <xref ref="activity-orthog-point-normal-lines-1" />.
 The point <m>(3,-2)</m> is on this line, since
-<md><mrow tag="dstar" xml:id="equation-orthog-concepts-point-normal-lines-1-point-calc">
+<md tag="dstar" xml:id="equation-orthog-concepts-point-normal-lines-1-point-calc">
 	2\cdot 3 + 3\cdot (-2) = 0
-</mrow></md>.
+</md>.
 The left-hand side of this calculation looks a lot like a dot product <mdash />
 we could reinterpret equation <xref ref="equation-orthog-concepts-point-normal-lines-1-point-calc" /> as
 <md> \dotprod{(2,3)}{(3,-2)} = 0 </md>.
@@ -365,9 +365,9 @@ So verifying that the point <m>(3,-2)</m> is on the line is equivalent to checki
 
 <p>
 Every other point <m>\uvec{x} = (x,y)</m> on the line satisfies the same relationship, as the equation for the line could be rewritten in a vector form as
-<md><mrow tag="tstar" xml:id="equation-orthog-concepts-point-normal-lines-1-normal-form">
+<md tag="tstar" xml:id="equation-orthog-concepts-point-normal-lines-1-normal-form">
 	\udotprod{n}{x} = 0
-</mrow></md>.
+</md>.
 The vector <m>\uvec{n}</m> is called a <em>normal</em> vector for the line.
 Note that normal vectors for a line are not unique <mdash />
 every nonzero scalar multiple of <m>\uvec{n}</m> will also be normal to the line,
@@ -543,9 +543,9 @@ the difference vector <m>\uvec{x}-\uvec{x}_0</m> is parallel to the line and hen
 But when the vector <m>\uvec{x}</m> has terminal point <em>not</em> on the line (again with initial point at the origin),
 the difference vector <m>\uvec{x}-\uvec{x}_0</m> is <em>neither</em> parallel to the line <em>nor</em> orthogonal to the normal vector <m>\uvec{n}</m>.
 So we can describe the line as all points where the corresponding vector <m>\uvec{x}</m> (from the origin) satisfies
-<md><mrow tag="dagger" xml:id="equation-orthog-concepts-point-normal-form">
+<md tag="dagger" xml:id="equation-orthog-concepts-point-normal-form">
 	\dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0
-</mrow></md>.
+</md>.
 This is called the
 <term>point-normal form</term>
 <idx><h>point-normal form</h><h>for a line</h></idx>
@@ -682,7 +682,7 @@ Our end goal is a calculation formula and procedure that will compute one partic
 	\right.
 </md>
 In matrix form, this system can be expressed as <m>A \uvec{x} = \uvec{b}</m>, with
-<md><mrow tag="ddagger" xml:id="equation-orthog-concepts-cross-product-system-matrices">
+<md tag="ddagger" xml:id="equation-orthog-concepts-cross-product-system-matrices">
 	A \amp= \begin{bmatrix}
 		 1  \amp  1  \amp  1  \\
 		u_1 \amp u_2 \amp u_3 \\
@@ -690,7 +690,7 @@ In matrix form, this system can be expressed as <m>A \uvec{x} = \uvec{b}</m>, wi
 	\end{bmatrix},
 	\amp
 	\uvec{b} \amp= \begin{bmatrix} 1\\ 0\\ 0\end{bmatrix}.
-</mrow></md>
+</md>
 Assuming that <m>\det A \neq 0</m>, Cramer's rule tells us the solution to this system.
 <md>
 	<mrow>
@@ -764,14 +764,14 @@ There is a trick to remembering how to compute the cross product:
 if we replace the top row of <m>A</m> by the standard basis vectors <m>\ivec{},\jvec{},\kvec{}</m> in <m>\R^3</m>,
 then the cross product will be equal to its determinant expanded by cofactors along the first row.
 That is, setting
-<md><mrow tag="tdagger" xml:id="equation-orthog-concepts-cross-prod-det-formula">
+<md tag="tdagger" xml:id="equation-orthog-concepts-cross-prod-det-formula">
 	\ucrossprod{u}{v} \;=\;
 	\begin{vmatrix}
 		\ivec{} \amp \jvec{} \amp \kvec{} \\
 		u_1 \amp u_2 \amp u_3 \\
 		v_1 \amp v_2 \amp v_3
 	\end{vmatrix}
-</mrow></md>
+</md>
 and expanding the determinant along the first row yields
 <md>
 	\ucrossprod{u}{v} \;=\;

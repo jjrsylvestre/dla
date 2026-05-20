@@ -150,22 +150,22 @@ in <xref ref="subsection-matrix-ops-theory-algebra" />.
 <p>
 Consider the system in
 <xref ref="activity-matrix-ops-system-to-matrix-mult-sys-to-eq-cols">Discovery</xref>:
-<md><mrow xml:id="equation-matrix-ops-concepts-system-convert-matrix-eqn" tag="star">
+<md xml:id="equation-matrix-ops-concepts-system-convert-matrix-eqn" tag="star">
 	\begin{sysofeqns}{rcrcrcr}
 		   x_1 \amp - \amp 3 x_2 \amp - \amp   x_3 \amp = \amp -4 \text{,} \\
 		-2 x_1 \amp + \amp 7 x_2 \amp + \amp 2 x_3 \amp = \amp  9 \text{.}
 	\end{sysofeqns}
-</mrow></md>
+</md>
 We would like to replace these two equations by a single matrix equation,
 which is easy enough to do:
-<md><mrow xml:id="equation-matrix-ops-concepts-system-as-equal-cols" tag="dstar">
+<md xml:id="equation-matrix-ops-concepts-system-as-equal-cols" tag="dstar">
 	\begin{abmatrix}{c}
 		x_1 - 3 x_2 - x_3 \\
 		-2 x_1 + 7 x_2 + 2 x_3
 	\end{abmatrix}
 	=
 	\begin{abmatrix}{r} -4 \\ 9 \end{abmatrix}
-</mrow></md>.
+</md>.
 Note that both of these column matrices are <m>2 \times 1</m> matrices <mdash />
 even though the entries of the left-hand matrix seem to contain a lot of numbers,
 <em>each row has only a single entry</em>
@@ -248,7 +248,7 @@ the single matrix equation <m>A \uvec{x} = \uvec{b}</m> now contains all the sam
 We can extend this <em>row-times-column</em> calculation procedure to define multiplication of two matrices
 (instead of just a matrix and a column vector)
 by thinking of the second matrix as a collection of columns,
-<md><mrow xml:id="equation-matrix-ops-concepts-matrix-mult-by-cols" tag="tstar">
+<md xml:id="equation-matrix-ops-concepts-matrix-mult-by-cols" tag="tstar">
 	B = \begin{bmatrix}
 		| \amp | \amp \amp |\\
 		\uvec{b}_1 \amp \uvec{b}_2 \amp \cdots \amp \uvec{b}_\ell\\
@@ -259,19 +259,19 @@ by thinking of the second matrix as a collection of columns,
 		| \amp | \amp \amp |\\
 		A\uvec{b}_1 \amp A\uvec{b}_2 \amp \cdots \amp A\uvec{b}_\ell\\
 		| \amp | \amp \amp |
-	\end{bmatrix}.
-</mrow></md>
+	\end{bmatrix}
+</md>.
 This <em>matrix-times-columns</em> way of defining matrix multiplication will be very useful later.
 But right now, let's drill down to individual entries of the result <m>AB</m>.
 </p><p>
 Let's first consider the case of a <m>1\times n</m> row vector <m>\uvec{a}</m> times an <m>n\times 1</m> column vector <m>\uvec{b}</m>.
 In this case,
-<md><mrow xml:id="equation-matrix-ops-concepts-row-times-column" tag="dagger">
+<md xml:id="equation-matrix-ops-concepts-row-times-column" tag="dagger">
 	\uvec{a}\uvec{b}
 	= \begin{bmatrix} a_1 \amp a_2 \amp \cdots \amp a_n \end{bmatrix}
 	  \begin{bmatrix} b_1  \\  b_2  \\  \vdots  \\  b_n \end{bmatrix}
-	= \begin{bmatrix} a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n \end{bmatrix}.
-</mrow></md>
+	= \begin{bmatrix} a_1 b_1 + a_2 b_2 + \dotsb + a_n b_n \end{bmatrix}
+</md>.
 Notice that the result is a <m>1\times 1</m> matrix containing just a single entry.
 </p>
 
@@ -287,8 +287,8 @@ Then,
 		\amp\vdots\\
 		\leftrightlinesubstitute \amp \uvec{a}_m \amp \leftrightlinesubstitute\\
 	\end{bmatrix}\uvec{b}
-	= \begin{bmatrix}\uvec{a}_1\uvec{b} \\ \uvec{a}_2\uvec{b} \\ \vdots \\ \uvec{a}_m\uvec{b}\end{bmatrix},
-</md>
+	= \begin{bmatrix}\uvec{a}_1\uvec{b} \\ \uvec{a}_2\uvec{b} \\ \vdots \\ \uvec{a}_m\uvec{b}\end{bmatrix}
+</md>,
 where each entry <m>\uvec{a}_i \uvec{b}</m> in the result on the right is calculated by the <em>row-times-column</em> pattern from
 <xref ref="equation-matrix-ops-concepts-row-times-column" />.
 However, we do not actually have a <m>1\times 1</m> matrix in each entry,
@@ -297,7 +297,7 @@ but instead place the <em>number</em> that would be the sole entry in <m>\uvec{a
 
 <p>
 Finally, we can extend this to the case of matrix <m>A</m> times matrix <m>B</m>, by
-<md><mrow xml:id="equation-matrix-ops-concepts-matrix-mult-full" tag="ddagger">
+<md xml:id="equation-matrix-ops-concepts-matrix-mult-full" tag="ddagger">
 	AB =
 	\begin{bmatrix}
 		\leftrightlinesubstitute \amp \uvec{a}_1 \amp \leftrightlinesubstitute \\
@@ -316,8 +316,8 @@ Finally, we can extend this to the case of matrix <m>A</m> times matrix <m>B</m>
 		\uvec{a}_2\uvec{b}_1 \amp \uvec{a}_2\uvec{b}_2 \amp \cdots \amp \uvec{a}_2\uvec{b}_\ell\\
 		\vdots \amp \vdots \amp \ddots \amp \vdots \\
 		\uvec{a}_m\uvec{b}_1 \amp \uvec{a}_m\uvec{b}_2 \amp \cdots \amp \uvec{a}_m\uvec{b}_\ell\\
-	\end{bmatrix}.
-</mrow></md>
+	\end{bmatrix}
+</md>.
 </p>
 
 <paragraphs><title>Pattern</title><p>
