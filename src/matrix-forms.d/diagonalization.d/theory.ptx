@@ -33,10 +33,13 @@ respective owners.
 <title>Similar matrices</title>
 
 <p>
-First, we'll record just a few of the facts about general similar matrices from
+First, we'll record just a few of the general facts about <term><xref ref="definition-diagonalization-similar" text="title" /></term> from
 <xref ref="section-diagonalization-motivation" />.
-<!-- TODO when a new expanded similarity chapter is added, add a reference to it here. -->
 </p>
+
+<aside component="two-semester"><title>A look ahead</title><p>
+	We'll study similarity more fully in <xref ref="chapter-similarity" />.
+</p></aside>
 
 <proposition xml:id="proposition-diagonalization-similar-matrices-properties">
 
@@ -231,9 +234,9 @@ But first, here is a surprising result that demonstrates how central eigenvalues
 	That is, every square matrix is similar to a special form of triangular matrix (either upper or lower),
 	though for many matrices both the transition matrix and the triangular form matrix might need to contain complex numbers in its entries.
 	In this more general theory,
-	it will again the case that the diagonal entries of the triangular form matrix will be precisely the eigenvalues of the original matrix,
-	with each eigenvalue repeated down the diagonal according to its algebraic multiplicity,
-	so the proof provided for <xref ref="proposition-diagonalization-diag-det-eigenvalues" /> can be adapted to work in this slightly more general setting.
+	it will again be the case that the diagonal entries of the triangular form matrix are precisely the eigenvalues of the original matrix,
+	with each eigenvalue repeated down the diagonal according to its algebraic multiplicity.
+	So the proof provided for <xref ref="proposition-diagonalization-diag-det-eigenvalues" /> can be adapted to work in this slightly more general setting.
 </p></remark>
 
 </subsection>
@@ -376,16 +379,23 @@ in that when we look to add a new eigenvector to our collection,
 we only need to worry about it being linearly independent from the eigenvectors we already have <em>from that eigenspace</em>.
 This leads to the following corollary.
 </p>
-<!-- TODO Make reference from this fact to the concept of independent subspaces? -->
 
 <corollary xml:id="corollary-diagonalization-evector-bases">
 
 	<title> Eigenspaces are independent </title>
 
-	<statement><p>
+	<statement>
+
+		<p>
 		Given a collection of bases for the different eigenspaces of a matrix,
 		the collection of all these eigenspace basis vectors together will still be linearly independent.
-	</p></statement>
+		</p>
+
+		<aside component="two-semester" valign="middle"><title>A look ahead</title><p>
+			We will investigate the idea of <term><xref ref="definition-block-diag-indep" text="title" /></term> further in <xref ref="chapter-block-diag" />.
+		</p></aside>
+
+	</statement>
 
 	<proof><p>
 		Let <m>A</m> be a square matrix,
@@ -427,7 +437,7 @@ This leads to the following corollary.
 
 <p>
 In the next subsection,
-we will use this corollary to refine our initial characterization of diagonalizability stated in
+we will use <xref ref="corollary-diagonalization-evector-bases" /> to refine our initial characterization of diagonalizability stated in
 <xref ref="theorem-diagonalization-diag" />.
 In the meantime,
 we will formally state the relationship between geometric and algebraic multiplicities that we discussed in
@@ -442,11 +452,15 @@ we will formally state the relationship between geometric and algebraic multipli
 		The geometric multiplicity of an eigenvalue is always less than or equal to its algebraic multiplicity.
 	</p></statement>
 
-	<proof><p>
+	<proof component="one-semester"><p>
 		We will not include the proof of this statement here <mdash />
 		you may encounter it in further study of matrix forms,
 		perhaps in a second course in linear algebra.
-		<!-- TODO rewrite this when matrix forms part is expanded -->
+	</p></proof>
+
+	<proof component="two-semester"><p>
+		We will prove this in <xref ref="chapter-scalar-triang" />.
+		(See <xref ref="theorem-scalar-triang-gen-espace-facts" /> and <xref ref="corollary-scalar-triang-geom-alg-multiplicity" /> in <xref ref="section-scalar-triang-theory" />.)
 	</p></proof>
 
 </theorem>
