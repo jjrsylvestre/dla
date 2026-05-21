@@ -382,28 +382,28 @@ we'll record the patterns we discovered in
 	<title>Determinant and trace versus characteristic polynomial and eigenvalues</title>
 
 	<statement><p>
-		Suppose <m>A</m> is an <m>n \times n</m> matrix.
+		Suppose <m> A </m> is an <m> n \times n </m> matrix.
 		<ol>
 
 			<li><p><ol>
 
 				<li>
-					The determinant of <m>A</m> is equal to the product of its eigenvalues, both real and complex,
+					The determinant of <m> A </m> is equal to the product of its eigenvalues, both real and complex,
 					and with each eigenvalue repeated in the product according to its algebraic multiplicity.
 				</li>
 
-				<li> The constant term in the characteristic polynomial of <m>A</m> is always <m>(-1)^n \det A</m>. </li>
+				<li> The constant term in the characteristic polynomial of <m> A </m> is always <m> (-1)^n \det A </m>. </li>
 
 			</ol></p></li>
 
 			<li><p><ol>
 
 				<li>
-					The trace of <m>A</m> is equal to the sum of its eigenvalues, both real and complex,
+					The trace of <m> A </m> is equal to the sum of its eigenvalues, both real and complex,
 					and with each eigenvalue repeated in the sum according to its algebraic multiplicity.
 				</li>
 
-				<li> The <m>\lambda^{n-1}</m> term in the characteristic polynomial of <m>A</m> always has coefficient <m>(- \trace A)</m>. </li>
+				<li> The <m> \lambda^{n-1} </m> term in the characteristic polynomial of <m> A </m> always has coefficient equal to the negative of the trace of <m> A </m>. </li>
 
 			</ol></p></li>
 
@@ -414,9 +414,9 @@ we'll record the patterns we discovered in
 
 		<p>
 		Since similar matrices have the same determinant, trace, characteristic polynomial, and eigenvalues,
-		and since every matrix is similar (over <m>\C</m>) to a matrix in triangular block form,
+		and since every matrix is similar (over <m> \C </m>) to a matrix in triangular block form,
 		it suffices to consider the case of triangular block form.
-		So suppose <m>A</m> is a triangular block matrix,
+		So suppose <m> A </m> is a triangular block matrix,
 		and its characteristic polynomial factors as a complex polynomial into
 		<md xml:id="equation-cayley-hamilton-fully-factored-char-poly2" tag="dstar">
 			c_A(\lambda) = (\lambda - \lambda_1)^{m_1} (\lambda - \lambda_2)^{m_2} \dotsm (\lambda - \lambda_\ell)^{m_\ell}
@@ -424,13 +424,13 @@ we'll record the patterns we discovered in
 		</p>
 
 		<p>
-		The <m>\nth[j]</m> block of <m>A</m> is scalar-triangular with determinant equal to <m>\lambda_j^{m_j}</m>,
+		The <m> \nth[j] </m> block of <m> A </m> is scalar-triangular with determinant equal to <m> \lambda_j^{m_j} </m>,
 		the product of its diagonal entries.
 		Applying <xref ref="proposition-block-diag-props-det">Statement</xref>
 		of <xref ref="proposition-block-diag-props" />,
 		we immediately get
 		<md> \det A = \lambda_1^{m_1} \lambda_2^{m_2} \dotsm \lambda_\ell^{m_\ell} </md>.
-		Determining the constant term of <m>c_A(\lambda)</m> is as easy as evaluating the polynomial at <m>\lambda = 0</m>,
+		Determining the constant term of <m>c_A(\lambda)</m> is as easy as evaluating the polynomial at <m> \lambda = 0 </m>,
 		which yields
 		<md>
 			<mrow> c_A(0) \amp = (- \lambda_1)^{m_1} (- \lambda_2)^{m_2} \dotsm (- \lambda_\ell)^{m_\ell} </mrow>
@@ -443,22 +443,22 @@ we'll record the patterns we discovered in
 		</p>
 
 		<p>
-		Similarly, the trace of the <m>\nth[j]</m> block of <m>A</m> is equal to <m>m_j \lambda_j</m>,
+		Similarly, the trace of the <m> \nth[j] </m> block of <m> A </m> is equal to <m> m_j \lambda_j </m>,
 		the sum of its diagonal entries.
-		The trace of <m>A</m> is then clearly equal to the sum of these sums of diagonal entries, so that
+		The trace of <m> A </m> is then clearly equal to the sum of these sums of diagonal entries, so that
 		<md> \trace A = m_1 \lambda_1 + m_2 \lambda_2 + \dotsb + m_\ell \lambda_\ell </md>.
-		To investigate the coefficient on <m>\lambda^{n-1}</m> in
+		To investigate the coefficient on <m> \lambda^{n-1} </m> in
 		<xref ref="equation-cayley-hamilton-fully-factored-char-poly2" />,
 		first consider this expression as
 		<md> c_A(\lambda) = \bigl[(\lambda - \lambda_1) \dotsm (\lambda - \lambda_1)\bigr] \dotsm \bigl[(\lambda - \lambda_\ell) \dotsm (\lambda - \lambda_\ell)\bigr] </md>,
 		where each factor is repeated according to the algebraic multiplicity of that eigenvalue.
 		Similar to how the Binomial Theorem is investigated,
-		in expanding the above expression we get a term involving <m>\lambda^{n-1}</m> by choosing <m>\lambda</m> from all but one of the linear factors and choosing <m>(-\lambda_j)</m> from the remaining factor,
+		in expanding the above expression we get a term involving <m> \lambda^{n-1} </m> by choosing <m> \lambda </m> from all but one of the linear factors and choosing <m> (-\lambda_j) </m> from the remaining factor,
 		and multiplying all these choices together.
-		Each such product will be equal to <m>-\lambda_j \lambda^{n-1}</m>,
-		and we get <m>m_j</m> such terms for each eigenvalue because there are <m>m_j</m> linear factors involving that eigenvalue to end up as the <q>remaining factor</q> in our choices.
+		Each such product will be equal to <m> -\lambda_j \lambda^{n-1} </m>,
+		and we get <m> m_j </m> such terms for each eigenvalue because there are <m> m_j </m> linear factors involving that eigenvalue to end up as the <q>remaining factor</q> in our choices.
 		Collecting these like terms,
-		the coefficient on the term involving <m>\lambda^{n-1}</m> is
+		the coefficient on the term involving <m> \lambda^{n-1} </m> is
 		<md>
 			- m_1 \lambda_1 - m_2 \lambda_2 - \dotsb - m_\ell \lambda_\ell
 			= - \trace A
