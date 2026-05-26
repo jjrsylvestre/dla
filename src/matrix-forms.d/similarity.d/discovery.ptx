@@ -17,6 +17,15 @@ respective owners.
 <worksheet xml:id="worksheet-similarity">
 <title>Discovery guide</title>
 
+<assemblage>
+	<title>Recall</title>
+	<p>
+	Square matrices <m> A, B </m> are called <term>similar</term> if there exists an invertible matrix <m> P </m> so that <md> \inv{P} A P = B </md>.
+	In this case,
+	<m> P </m> is called the <term>transition matrix</term> that realizes the similarity of <m> A </m> and <m> B </m>.
+	</p>
+</assemblage>
+
 <p>
 In <xref ref="chapter-diagonalization" />,
 we were interested in determining the conditions under which a square matrix is <term>similar</term> to a diagonal matrix.
@@ -26,23 +35,26 @@ we'll explore similarity more generally, both geometrically and algebraically.
 </p>
 
 <activity xml:id="activity-similarity-equiv-rel">
-	<introduction><p>
-		Recall that square matrices <m>A,B</m> are called <term>similar</term> if there exists an invertible matrix <m>P</m> so that
-		<md> \inv{P} A P = B </md>.
-	</p></introduction>
+
 	<task>
 		<title>Symmetry</title>
+
 		<p>
 		The equality defining <term>similar matrices</term> seems <em>one-directional</em>:
-		in the above, it would seem more appropriate to say that
-		<em>matrix <m>A</m> is <term>similar to</term> matrix <m>B</m></em> via the transition matrix <m>P</m>,
-		rather than saying that they are <em>similar together</em>.
-		</p><p>
-		Convince yourself that this distinction is not important by verifying that if <m>A</m> is similar to <m>B</m>,
-		then <m>B</m> is also similar to <m>A</m>:
+		it would seem more appropriate to say that
+		<em>matrix <m> A </m> is <term>similar to</term> matrix <m> B </m></em>,
+		rather than saying that they are <em>similar together</em>,
+		because <m> A </m> can be <q>transformed</q> into <m> B </m> via the transition matrix <m> P </m>.
+		</p>
+
+		<p>
+		Convince yourself that this distinction is not important by verifying that if <m> A </m> is similar to <m> B </m>,
+		then <m> B </m> is also similar to <m> A </m>:
 		<md> \inv{(<fillin characters="3" />)} B (<fillin characters="3" />) = A </md>.
 		</p>
+
 	</task>
+
 	<task>
 		<title>Reflexivity</title>
 		<p>
@@ -50,21 +62,23 @@ we'll explore similarity more generally, both geometrically and algebraically.
 		<md> \inv{(<fillin characters="3" />)} A (<fillin characters="3" />) = A </md>.
 		</p>
 	</task>
+
 	<task>
 		<title>Transitivity</title>
 
 		<p>
-		Suppose <m>A,B</m> are similar via <m>P</m> as above,
-		and that <m>B</m> is also similar to a third matrix <m>C</m> via transition matrix <m>Q</m>,
+		Suppose <m> A, B </m> are similar via transition matrix <m> P </m>,
+		and that <m> B </m> is also similar to a third matrix <m> C </m> via transition matrix <m> Q </m>,
 		so that <m>\inv{Q} B Q = C</m>.
 		</p>
 
 		<p>
-		Fill in the blanks to verify that <m>A</m> and <m>C</m> must also be similar:
+		Fill in the blanks to verify that <m> A </m> and <m> C </m> must also be similar:
 		<md> \inv{(<fillin characters="3" />)} A (<fillin characters="3" />) = C </md>.
 		</p>
 
 	</task>
+
 </activity>
 
 <aside valign="middle"><title>Terminology</title><p>
@@ -87,13 +101,13 @@ we'll explore similarity more generally, both geometrically and algebraically.
 			\inv{P} \amp = \frac{1}{2} \begin{abmatrix}{rr} 1 \amp 1 \\ -1 \amp 1 \end{abmatrix} \text{.}
 		</mrow></md>
 		You don't need to verify this,
-		but <m>A</m> and <m>B</m> are similar via transition matrix <m>P</m>,
-		so that <m>\inv{P} A P = B</m>.
+		but <m> A </m> and <m> B </m> are similar via transition matrix <m> P </m>,
+		so that <m> \inv{P} A P = B </m>.
 		</p>
 
 		<p>
-		As usual, write <m>\basisfont{S}</m> for the standard basis <m>\basisfont{S} = \{ \uvec{e}_1, \uvec{e}_2 \}</m> of <m>\R^2</m>.
-		Also write <m>\basisfont{B}</m> for the basis <m>\basisfont{B} = \{ \uvec{p}_1, \uvec{p}_2 \}</m> of <m>\R^2</m> formed by the columns of <m>P</m>
+		As usual, write <m> \basisfont{S} </m> for the standard basis <m> \basisfont{S} = \{ \uvec{e}_1, \uvec{e}_2 \} </m> of <m> \R^2 </m>.
+		Also write <m> \basisfont{B} </m> for the basis <m> \basisfont{B} = \{ \uvec{p}_1, \uvec{p}_2 \} </m> of <m> \R^2 </m> formed by the columns of <m> P </m>
 		(<xref ref="theorem-col-row-null-space-equiv-to-invertible-col-basis">Statement</xref>
 		of
 		<xref ref="theorem-col-row-null-space-equiv-to-invertible" />).
@@ -102,8 +116,8 @@ we'll explore similarity more generally, both geometrically and algebraically.
 	</introduction>
 
 	<task xml:id="activity-similarity-geometric-plot-standard-coords"><p>
-		On a set of <m>xy</m>-axes,
-		plot the vectors <m>\uvec{v}</m> and <m>A\uvec{v}</m>,
+		On a set of <m> xy </m>-axes,
+		plot the vectors <m> \uvec{v} </m> and <m> A \uvec{v} </m>,
 		where
 		<m> \uvec{v} = \left[\begin{smallmatrix} 3 \\ -2 \end{smallmatrix}\right] </m>.
 	</p></task>
@@ -111,11 +125,11 @@ we'll explore similarity more generally, both geometrically and algebraically.
 	<task xml:id="activity-similarity-geometric-convert-B-standard-coords">
 
 		<statement><p>
-			Use <m>\inv{P}</m> to compute the coordinate vector <m>\matrixOf{\uvec{v}}{B}</m>.
+			Use <m> \inv{P} </m> to compute the coordinate vector <m> \matrixOf{\uvec{v}}{B} </m>.
 		</p></statement>
 
 		<hint><p>
-			What are the columns of the transition matrix <m>\ucobmtrx{B}{S}</m>?
+			What are the columns of the transition matrix <m> \ucobmtrx{B}{S} </m>?
 			Do you know another matrix in this activity that has those same columns?
 			Then use
 			<xref ref="proposition-change-of-basis-cob-props-reverse-is-inverse">Statement</xref>
@@ -128,16 +142,16 @@ we'll explore similarity more generally, both geometrically and algebraically.
 	<task>
 
 		<p>
-		Our usual <m>xy</m>-coordinate system is really the <m>\basisfont{S}</m>-coordinate system,
-		as <m> \left[\begin{smallmatrix} x \\ y \end{smallmatrix}\right] = x \uvec{e}_1 + y \uvec{e}_2 </m>
+		Our usual <m> xy </m>-coordinate system is really the <m> \basisfont{S} </m>-coordinate system,
+		as <md> \begin{bmatrix} x \\ y \end{bmatrix} = x \uvec{e}_1 + y \uvec{e}_2 </md>
 		for every vector in the plane.
 		</p>
 
 		<p>
-		Let's call the <m>\basisfont{B}</m>-coordinate system the <m>wz</m>-coordinate system,
-		with <m>w</m> on the horizontal axis and <m>z</m> on the vertical axis.
-		On a new set of <m>wz</m>-axes (don't erase your <m>xy</m>-axes from before!),
-		plot the vectors <m>\matrixOf{\uvec{v}}{B}</m> and <m>B \matrixOf{\uvec{v}}{B}</m>
+		Let's call the <m> \basisfont{B} </m>-coordinate system the <m> wz </m>-coordinate system,
+		with <m> w </m> on the horizontal axis and <m> z </m> on the vertical axis.
+		On a new set of <m> wz </m>-axes (don't erase your <m> xy </m>-axes from before!),
+		plot the vectors <m> \matrixOf{\uvec{v}}{B} </m> and <m> B \matrixOf{\uvec{v}}{B} </m>.
 		</p>
 
 	</task>
@@ -146,17 +160,17 @@ we'll explore similarity more generally, both geometrically and algebraically.
 		<title> Analyze </title>
 
 		<p>
-		When computing <m>B \matrixOf{\uvec{v}}{B}</m>,
-		the <m>4</m> in the upper left of <m>B</m> multiplied the <m>w</m>-component of <m>\matrixOf{\uvec{v}}{B}</m>,
-		and the <m>-2</m> in the lower right of <m>B</m> multiplied the <m>z</m>-component of <m>\matrixOf{\uvec{v}}{B}</m>.
+		When computing <m> B \matrixOf{\uvec{v}}{B} </m>,
+		the <m> 4 </m> in the upper left entry of <m> B </m> multiplied the <m> w </m>-component of <m> \matrixOf{\uvec{v}}{B} </m>,
+		and the <m> -2 </m> in the lower right entry of <m> B </m> multiplied the <m> z </m>-component of <m> \matrixOf{\uvec{v}}{B} </m>.
 		</p>
 
 		<p>
 		Describe this pattern in <em>geometric</em> terms,
-		by considering how the diagonal entries of <m>B</m> determined how the vector
-		<m>\matrixOf{\uvec{v}}{B}</m>
+		by considering how the diagonal entries of <m> B </m> determined how the vector
+		<m> \matrixOf{\uvec{v}}{B} </m>
 		was <em>transformed</em> into the vector
-		<m>B \matrixOf{\uvec{v}}{B}</m>.
+		<m> B \matrixOf{\uvec{v}}{B} </m>.
 		</p>
 
 	</task>
@@ -164,16 +178,16 @@ we'll explore similarity more generally, both geometrically and algebraically.
 	<task>
 
 		<p>
-		Just as the standard basis vectors <m>\uvec{e}_1, \uvec{e}_2</m> correspond to the <m>x</m>- and <m>y</m>-axes,
+		Just as the standard basis vectors <m> \uvec{e}_1, \uvec{e}_2 </m> correspond to the <m> x </m>- and <m> y </m>-axes,
 		respectively,
-		the <m>\basisfont{B}</m>-basis vectors <m>\uvec{p}_1, \uvec{p}_2</m> correspond to the <m>w</m>- and <m>z</m>-axes,
+		the <m> \basisfont{B} </m>-basis vectors <m> \uvec{p}_1, \uvec{p}_2 </m> correspond to the <m> w </m>- and <m> z </m>-axes,
 		respectively.
 		</p>
 
 		<p>
-		Plot vectors <m>\uvec{p}_1, \uvec{p}_2</m> on your original set of <m>xy</m>-axes from
+		Plot vectors <m> \uvec{p}_1, \uvec{p}_2 </m> on your original set of <m> xy </m>-axes from
 		<xref ref="activity-similarity-geometric-plot-standard-coords" text="type-local" />,
-		and then extend each of them in both directions (maybe with dashed lines) to create a set of <m>wz</m>-axes superimposed on the <m>xy</m>-axes.
+		and then extend each of them in both directions (maybe with dashed lines) to create a set of <m> wz </m>-axes superimposed on the <m> xy </m>-axes.
 		</p>
 
 	</task>
@@ -184,8 +198,8 @@ we'll explore similarity more generally, both geometrically and algebraically.
 		<p>
 		Try to determine if your geometric description of the transformation <m> \matrixOf{\uvec{v}}{B} \mapsto B \matrixOf{\uvec{v}}{B} </m>
 		from <xref ref="activity-similarity-geometric-B-pattern" text="type-local" />
-		is consistent with the geometric transformation <m>\uvec{v} \mapsto A \uvec{v}</m> on your first diagram,
-		<em>but relative to the new superimposed <m>wz</m>-axes</em>.
+		is consistent with the geometric transformation <m> \uvec{v} \mapsto A \uvec{v} </m> on your first diagram,
+		<em>but relative to the new superimposed <m> wz </m>-axes</em>.
 		</p>
 
 	</task>
@@ -194,7 +208,7 @@ we'll explore similarity more generally, both geometrically and algebraically.
 		<title> Connect </title>
 
 		<p>
-		Use <m>P</m> to convert <m>B \matrixOf{\uvec{v}}{B}</m> from <m>\basisfont{B}</m>-coordinates back to <m>\basisfont{S}</m>-coordinates.
+		Use <m> P </m> to convert <m> B \matrixOf{\uvec{v}}{B} </m> from <m> \basisfont{B} </m>-coordinates back to <m> \basisfont{S} </m>-coordinates.
 		Surprised?
 		</p>
 
@@ -208,7 +222,7 @@ we'll explore similarity more generally, both geometrically and algebraically.
 	</task>
 
 	<task><title> Reflect </title><p>
-		We started with the assumption that <m>A</m> and <m>B</m> are similar matrices.
+		We started with the assumption that <m> A </m> and <m> B </m> are similar matrices.
 		Reflect on the reason you were asked to carry out this activity.
 	</p></task>
 
@@ -216,16 +230,21 @@ we'll explore similarity more generally, both geometrically and algebraically.
 
 <activity xml:id="activity-similarity-algebraic">
 	<title>The algebra of similarity</title>
+
 	<introduction>
 		<p>
-		By muliplying both sides on the left by <m>P</m>,
+		By muliplying both sides on the left by <m> P </m>,
 		a similarity relation <m> \inv{P} A P = B </m> becomes <m> A P = P B </m>.
-		</p><p>
+		</p>
+
+		<p>
 		For this activity, assume we are working with <m>3 \times 3</m> matrices.
 		</p>
+
 	</introduction>
+
 	<task xml:id="activity-similarity-algebraic-LHS"><p>
-		Think of <m>P</m> as made up of three columns:
+		Think of <m> P </m> as made up of three columns:
 		<md>
 			P = \begin{bmatrix}
 				| \amp | \amp | \\
@@ -237,10 +256,11 @@ we'll explore similarity more generally, both geometrically and algebraically.
 		<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
 		in
 		<xref ref="subsection-matrix-ops-concepts-matrix-mult" />,
-		write down an expression for the first column of the product matrix <m>A P</m>.
+		write down an expression for the first column of the product matrix <m> A P </m>.
 	</p></task>
+
 	<task xml:id="activity-similarity-algebraic-RHS1"><p>
-		Now think of <m>B</m> as made up of three columns:
+		Now think of <m> B </m> as made up of three columns:
 		<md>
 			B = \begin{bmatrix}
 				| \amp | \amp | \\
@@ -248,42 +268,49 @@ we'll explore similarity more generally, both geometrically and algebraically.
 				| \amp | \amp |
 			\end{bmatrix}
 		</md>
-		(but for now stop thinking of <m>P</m> as a collection of columns).
+		(but for now stop thinking of <m> P </m> as a collection of columns).
 		Again using the pattern of
 		<xref ref="equation-matrix-ops-concepts-matrix-mult-by-cols" />
 		in
 		<xref ref="subsection-matrix-ops-concepts-matrix-mult" />,
-		write down an expression for the first column of the product matrix <m>P B</m>.
+		write down an expression for the first column of the product matrix <m> P B </m>.
 	</p></task>
+
 	<task xml:id="activity-similarity-algebraic-RHS2"><p>
 		Let's explore your expression from
 		<xref ref="activity-similarity-algebraic-RHS1" text="type-local" />
 		a little further.
-		Suppose the first column of <m>B</m> is the vector
-		<m>\uvec{b}_1 = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right]</m>.
+		Suppose the first column of <m> B </m> is the vector
+		<m> \uvec{b}_1 = \left[\begin{smallmatrix} 5 \\ 3 \\ -1 \end{smallmatrix}\right] </m>.
 		Use the matrix-times-vector pattern from
 		<xref ref="equation-change-of-basis-concepts-matrix-times-vec-pattern" />
 		in
 		<xref ref="subsection-change-of-basis-concepts-matrix-mul-lincomb" />
-		to express the first column of <m>P B</m> as a linear combination.
+		to express the first column of <m> P B </m> as a linear combination.
 	</p></task>
+
 	<task xml:id="activity-similarity-algebraic-combine">
+
 		<statement>
+
 			<p>
-			For <m>A P = P B</m> to be true,
-			we must at least have the first columns of <m>A P</m> and <m>P B</m> equal.
+			For <m> A P = P B </m> to be true,
+			we must at least have the first columns of <m> A P </m> and <m> P B </m> equal.
 			Set your expressions from
 			<xref ref="activity-similarity-algebraic-LHS" text="type-local" />
 			and
 			<xref ref="activity-similarity-algebraic-RHS2" text="type-local" />
 			to be equal to help you fill in the following:
 			</p>
+
 			<blockquote><p>
 				the <em>coordinate vector</em> of <fillin characters="5" />
 				relative to the basis <fillin characters="30" />
 				must be equal to <fillin characters="30" />.
 			</p></blockquote>
+
 		</statement>
+
 		<hint><p>
 			Your expression from
 			<xref ref="activity-similarity-algebraic-RHS2" text="type-local" />
@@ -291,86 +318,116 @@ we'll explore similarity more generally, both geometrically and algebraically.
 			and linear combinations tell us coordinates.
 		</p></hint>
 	</task>
+
 	<task><p>
-		If we analyzed and compared the second columns of <m>A P</m> and <m>P B</m> in the same fashion,
+		If we analyzed and compared the second columns of <m> A P </m> and <m> P B </m> in the same fashion,
 		would we come to the same pattern as in
 		<xref ref="activity-similarity-algebraic-combine" text="type-local" />?
 		What words in the pattern would you change?
-		What if we analyzed and compared the third columns of <m>A P</m> and <m>P B</m> in the same fashion?
+		What if we analyzed and compared the third columns of <m> A P </m> and <m> P B </m> in the same fashion?
 	</p></task>
+
 </activity>
 
 <p>
 In each of the remaining discovery activities,
-assume that square matrices <m>A,B</m> are similar via transition matrix <m>P</m>,
-with <m>\inv{P} A P = B</m>.
+assume that square matrices <m> A,B </m> are similar via transition matrix <m> P </m>,
+with <m> \inv{P} A P = B </m>.
 </p>
 
 <activity>
-	<p> Verify that the squares <m>A^2</m> and <m>B^2</m> are also similar. </p>
-	<p> Do you think the same is true for every pair of powers <m>A^k</m> and <m>B^k</m> (with the same exponent on both matrices)? </p>
-	<p> What about <m>\inv{A}</m> and <m>\inv{B}</m>? </p>
+
+	<p> Verify that the squares <m> A^2 </m> and <m> B^2 </m> are also similar. </p>
+
+	<p> Do you think the same is true for every pair of powers <m> A^k </m> and <m> B^k </m> (with the same exponent on both matrices)? </p>
+
+	<p> What about <m> \inv{A} </m> and <m> \inv{B} </m>? </p>
+
 </activity>
 
 <activity>
-	<task>
-		<p> Demonstrate that the transition matrix <m>P</m> transforms null space vectors of <m>B</m> into null space vectors of <m>A</m>. </p>
-		<p> What matrix will transform null space vectors of <m>A</m> into null space vectors of <m>B</m>? </p>
-	</task>
-	<task>
-		<statement>
-			<p> Demonstrate that the transition matrix <m>P</m> transforms column space vectors of <m>B</m> into column space vectors of <m>A</m>. </p>
-			<p> What matrix will transform column space vectors of <m>A</m> into column space vectors of <m>B</m>? </p>
-		</statement>
-		<hint><p>
-			Recall that a vector <m>\uvec{b}</m> is in the column space of <m>B</m> if and only if the system <m>B \uvec{x} = \uvec{b}</m> has at least one solution.
-		</p></hint>
-	</task>
+
+	<p> Demonstrate that the transition matrix <m> P </m> transforms null space vectors of <m> B </m> into null space vectors of <m> A </m>. </p>
+
+	<p> What matrix will transform null space vectors of <m> A </m> into null space vectors of <m> B </m>? </p>
+
+</activity>
+
+<activity>
+
+	<statement>
+
+		<p> Demonstrate that the transition matrix <m> P </m> transforms column space vectors of <m> B </m> into column space vectors of <m> A </m>. </p>
+
+		<p> What matrix will transform column space vectors of <m> A </m> into column space vectors of <m> B </m>? </p>
+
+	</statement>
+
+	<hint><p>
+		Recall that a vector <m> \uvec{b} </m> is in the column space of <m> B </m> if and only if the system <m> B \uvec{x} = \uvec{b} </m> has at least one solution.
+	</p></hint>
+
 </activity>
 
 <!--
+
 <activity xml:id="activity-similarity-same-det">
+
 	<statement><p> Verify that similar matrices have the same determinant. </p></statement>
+
 	<hint><p>
 		<xref ref="proposition-more-det-product" />
 		and
 		<xref ref="proposition-more-det-inverse" />.
 	</p></hint>
+
 </activity>
 
 <activity>
+
 	<task>
+
 		<statement><p>
 			Verify that similar matrices have the same characteristic polynomial.
 			Conclude that similar matrices have the same eigenvalues.
 		</p></statement>
+
 		<hint><p>
 			Demonstrate that <m>\lambda I - A</m> and <m>\lambda I - B</m> are also similar.
 			Then apply <xref ref="activity-similarity-same-det" />.
 		</p></hint>
+
 	</task>
+
 	<task>
+
 		<statement>
+
 			<p> Demonstrate that the transition matrix <m>P</m> transforms eigenvectors of <m>B</m> into eigenvectors of <m>A</m>. </p>
+
 			<p> What matrix will transform eigenvectors of <m>A</m> into eigenvectors of <m>B</m>? </p>
+
 		</statement>
+
 	</task>
+
 </activity>
+
  -->
 
 <activity>
 
-	<introduction><p>
-		We have already seen that similar matrices have the same eigenvalues
-		(<xref ref="proposition-diagonalization-similar-matrices-properties-same-evalues">Statement</xref>
-		of <xref ref="proposition-diagonalization-similar-matrices-properties" />).
-	</p></introduction>
+	<p>
+	We have seen that similar matrices have the same eigenvalues
+	(<xref ref="proposition-diagonalization-similar-matrices-properties-same-evalues">Statement</xref>
+	of <xref ref="proposition-diagonalization-similar-matrices-properties" />).
+	</p>
 
-	<task><p>
-		Demonstrate that the transition matrix <m> P </m> transforms eigenvectors of <m> B </m> for a particular eigenvalue into eigenvectors of <m> A </m> for that same eigenvalue.
-	</p></task>
+	<p>
+	Demonstrate that the transition matrix <m> P </m> transforms eigenvectors of <m> B </m> for a particular eigenvalue into eigenvectors of <m> A </m> for that same (shared) eigenvalue.
+	</p>
 
-	<task><p> What matrix will transform eigenvectors of <m> A </m> into eigenvectors of <m> B </m>? </p></task>
+	<p> What matrix will transform eigenvectors of <m> A </m> into eigenvectors of <m> B </m>? </p>
 
 </activity>
 
