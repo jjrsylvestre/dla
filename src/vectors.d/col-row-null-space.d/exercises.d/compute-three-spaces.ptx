@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-col-row-null-space-compute-three-spaces">
+<title> Computing the three spaces </title>
+
+<introduction><p>
+	In each of the following:
+	<ol>
+		<li xml:id="instruction-exercisegroup-col-row-null-space-compute-three-spaces-colspace-subsp-dim">
+			State the value of <m> k </m> so that the column space of <m> A </m> is a subspace of <m> \R^k </m>.
+		</li>
+		<li xml:id="instruction-exercisegroup-col-row-null-space-compute-three-spaces-colspace-basis">
+			Form a basis for the column space of <m> A </m> from the columns of <m> A </m>.
+		</li>
+		<li>
+			Do the columns of <m> A </m> span <m> \R^k </m>,
+			where <m> k </m> is the value from <xref ref="instruction-exercisegroup-col-row-null-space-compute-three-spaces-colspace-subsp-dim">part</xref>?
+		</li>
+		<li>
+			Express each of the other columns of <m> A </m> as a linear combination of your basis vectors from
+			<xref ref="instruction-exercisegroup-col-row-null-space-compute-three-spaces-colspace-basis">part</xref>.
+		</li>
+		<li xml:id="instruction-exercisegroup-col-row-null-space-compute-three-spaces-rowspace-subsp-dim">
+			State the value of <m> k </m> so that the row space of <m> A </m> is a subspace of <m> \R^k </m>.
+		</li>
+		<li> Determine a basis for the row space of <m> A </m>. </li>
+		<li>
+			Do the rows of <m> A </m> span <m> \R^k </m>,
+			where <m> k </m> is the value from <xref ref="instruction-exercisegroup-col-row-null-space-compute-three-spaces-rowspace-subsp-dim">part</xref>?
+		</li>
+		<li> State the value of <m> k </m> so that the null space of <m> A </m> is a subspace of <m> \R^k </m>. </li>
+		<li> Determine a basis for the null space of <m> A </m>. </li>
+		<li>
+			State the rank and nullity of <m> A </m>,
+			and confirm the <xref ref="theorem-col-row-null-space-rank-nullity" text="title" /> in this case.
+		</li>
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m>
+		A = \begin{abmatrix}{rrr}
+			 1 \amp 0 \amp  2 \\
+			-2 \amp 1 \amp -4 \\
+			 1 \amp 3 \amp  3
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m> \RREF(A) = I </m></p>
+
+		<p><ol>
+
+			<li> <m> 3 </m> entries in each column <m> \implies </m> column space is a subspace of <m> \R^3 </m> </li>
+
+			<li> Use all three columns of <m> A </m>. </li>
+
+			<li> Yes. </li>
+
+			<li> In this case, there are no <q> other </q> columns. </li>
+
+			<li> <m> 3 </m> entries in each row <m> \implies </m> row space is a subspace of <m> \R^3 </m> </li>
+
+			<li>
+				Use all three rows of <m> \RREF(A) </m>
+				(the standard basis of <m> \R^3 </m>).
+			</li>
+
+			<li> Yes. </li>
+
+			<li>
+				System <m> A \uvec{x} = \zerovec </m> requires <m> 3 </m> variable entries in <m> \uvec{x} </m>
+				<m> \implies </m>
+				null space is a subspace of <m> \R^3 </m>.
+			</li>
+
+			<li>
+				Null space is the trivial space <m> \{ \zerovec \} </m>,
+				with basis the empty set <m> \{ \} </m>.
+			</li>
+
+			<li>
+				Rank is <m> 3 </m> and nullity is <m> 0 </m>.
+				Sum of these is <m> 3 </m>,
+				which agrees with the number of columns of <m> A </m>,
+				confirming the <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
+			</li>
+
+		</ol></p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>
+		A = \begin{abmatrix}{rrr}
+			 0 \amp  1 \amp  4 \\
+			-1 \amp  1 \amp  1 \\
+			-1 \amp -1 \amp -7
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>
+			\RREF(A) = \begin{bmatrix}
+				1 \amp 0 \amp 3 \\
+				0 \amp 1 \amp 4 \\
+				0 \amp 0 \amp 0
+			\end{bmatrix}
+		</m></p>
+
+		<p><ol>
+
+			<li> <m> 3 </m> entries in each column <m> \implies </m> column space is a subspace of <m> \R^3 </m>.
+			</li>
+
+			<li>
+				Use first two columns of <m> A </m>;
+				column space is
+				<md>
+					\Span \left\{
+						\begin{abmatrix}{r} 0 \\ -1 \\ -1 \end{abmatrix},
+						\begin{abmatrix}{r} 1 \\  1 \\ -1 \end{abmatrix}
+					\right\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li>
+				Third column:
+				<m>
+					\begin{abmatrix}{r} 4 \\ 1 \\ -7 \end{abmatrix}
+					= 3 \begin{abmatrix}{r} 0 \\ -1 \\ -1 \end{abmatrix}
+					+ 4 \begin{abmatrix}{r} 1 \\  1 \\ -1 \end{abmatrix}
+				</m>.
+			</li>
+
+			<li> <m> 3 </m> entries in each row <m> \implies </m> row space is a subspace of <m> \R^3 </m> </li>
+
+			<li>
+				Use nonzero rows of <m> \RREF(A) </m>;
+				row space is
+				<md>
+					\Span \left\{
+						\begin{bmatrix} 1 \amp 0 \amp 3 \end{bmatrix},
+						\begin{bmatrix} 0 \amp 1 \amp 4 \end{bmatrix}
+					\right\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li>
+				System <m> A \uvec{x} = \zerovec </m> requires <m> 3 </m> variable entries in <m> \uvec{x} </m>
+				<m> \implies </m>
+				null space is a subspace of <m> \R^3 </m>.
+			</li>
+
+			<li> Null space is <m> \Span \left\{ \begin{abmatrix}{r} -3 \\ -4 \\ 1 \end{abmatrix} \right\} </m>. </li>
+
+			<li>
+				Rank is <m> 2 </m> and nullity is <m> 1 </m>.
+				Sum of these is <m> 3 </m>,
+				which agrees with the number of columns of <m> A </m>,
+				confirming the <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
+			</li>
+
+		</ol></p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>
+		A = \begin{abmatrix}{rrr}
+				 1 \amp - 7 \amp -2 \\
+				-3 \amp  21 \amp  1 \\
+				 0 \amp   0 \amp  1 \\
+				 2 \amp -14 \amp  2
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>
+			\RREF(A) = \begin{abmatrix}{rrr}
+				1 \amp -7 \amp 0 \\
+				0 \amp  0 \amp 1 \\
+				0 \amp  0 \amp 0 \\
+				0 \amp  0 \amp 0
+			\end{abmatrix}
+		</m></p>
+
+		<p><ol>
+
+			<li> <m> 4 </m> entries in each column <m> \implies </m> column space is a subspace of <m> \R^4 </m>.
+			</li>
+
+			<li>
+				Use first and third columns;
+				column space is
+				<md>
+					\Span \left\{
+						\begin{abmatrix}{r}  1 \\ -3 \\ 0 \\ 2 \end{abmatrix},
+						\begin{abmatrix}{r} -2 \\  1 \\ 1 \\ 2 \end{abmatrix}
+					\right\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li>
+				Second column:
+				<m>
+				\begin{abmatrix}{r} -7 \\ 21 \\ 0 \\ -14 \end{abmatrix}
+				= 7 \begin{abmatrix}{r}  1 \\ -3 \\ 0 \\ 2 \end{abmatrix}
+				+ 0 \begin{abmatrix}{r} -2 \\  1 \\ 1 \\ 2 \end{abmatrix}
+				</m>.
+			</li>
+
+			<li> <m> 3 </m> entries in each row <m> \implies </m> row space is a subspace of <m> \R^3 </m>. </li>
+
+			<li>
+				Use nonzero rows of <m> \RREF(A) </m>;
+				row space is
+				<md>
+					\Span \left\{
+						\begin{bmatrix} 1 \amp -7 \amp 0 \end{bmatrix},
+						\begin{bmatrix} 0 \amp  0 \amp 1 \end{bmatrix}
+					\right\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li>
+				System <m> A \uvec{x} = \zerovec </m> requires <m> 3 </m> variable entries in <m> \uvec{x} </m>
+				<m> \implies </m>
+				null space is a subspace of <m> \R^3 </m>.
+			</li>
+
+			<li>
+				Null space is
+				<m> \Span \left\{ \begin{abmatrix}{r} 7 \\ 1 \\ 0 \end{abmatrix} \right\} </m>.
+			</li>
+
+			<li>
+				Rank is <m> 2 </m> and nullity is <m> 1 </m>.
+				Sum of these is <m> 3 </m>,
+				which agrees with the number of columns of <m> A </m>,
+				confirming the <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
+			</li>
+
+		</ol></p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m>
+		A = \begin{abmatrix}{rrrrr}
+			-2 \amp -2 \amp   8 \amp  1 \amp  11 \\
+			 1 \amp  1 \amp - 4 \amp -1 \amp - 5 \\
+			 3 \amp  2 \amp -13 \amp -1 \amp -10 \\
+			-1 \amp  1 \amp   6 \amp  0 \amp - 8
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>
+			\RREF(A) = \begin{abmatrix}{rrrrr}
+				1 \amp 0 \amp -5 \amp 0 \amp  1 \\
+				0 \amp 1 \amp  1 \amp 0 \amp -7 \\
+				0 \amp 0 \amp  0 \amp 1 \amp -1 \\
+				0 \amp 0 \amp  0 \amp 0 \amp  0
+			\end{abmatrix}
+		</m></p>
+
+		<p><ol>
+
+			<li> <m> 4 </m> entries in each column <m> \implies </m> column space is a subspace of <m> \R^4 </m>. </li>
+
+			<li>
+				Use first, second, and fourth columns;
+				column space is
+				<md>
+					\Span \left\{
+						\begin{abmatrix}{r} -2 \\  1 \\  3 \\ -1 \end{abmatrix},
+						\begin{abmatrix}{r} -2 \\  1 \\  2 \\  1 \end{abmatrix},
+						\begin{abmatrix}{r}  1 \\ -1 \\ -1 \\  0 \end{abmatrix}
+					\right\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li><p>
+				Third column:
+				<md>
+					\begin{abmatrix}{r} 8 \\ -4 \\ -13 \\ 6 \end{abmatrix}
+					= -5 \begin{abmatrix}{r} -2 \\  1 \\  3 \\ -1 \end{abmatrix}
+					+  1 \begin{abmatrix}{r} -2 \\  1 \\  2 \\  1 \end{abmatrix}
+					+  0 \begin{abmatrix}{r}  1 \\ -1 \\ -1 \\  0 \end{abmatrix}
+				</md>.
+				Fifth column:
+				<md>
+					\begin{abmatrix}{r} 11 \\ -5 \\ -10 \\ -8 \end{abmatrix}
+					=   1  \begin{abmatrix}{r} -2 \\  1 \\  3 \\ -1 \end{abmatrix}
+					+ (-7) \begin{abmatrix}{r} -2 \\  1 \\  2 \\  1 \end{abmatrix}
+					+ (-1) \begin{abmatrix}{r}  1 \\ -1 \\ -1 \\  0 \end{abmatrix}
+				</md>.
+			</p></li>
+
+			<li> <m> 5 </m> entries in each row <m> \implies </m> so the row space is a subspace of <m> \R^5 </m>. </li>
+
+			<li>
+				Use nonzero rows of <m> \RREF(A) </m>;
+				row space is
+				<md>
+					\Span \{
+						\begin{bmatrix} 1 \amp 0 \amp -5 \amp 0 \amp  1 \end{bmatrix},
+						\begin{bmatrix} 0 \amp 1 \amp  1 \amp 0 \amp -7 \end{bmatrix},
+						\begin{bmatrix} 0 \amp 0 \amp  0 \amp 1 \amp -1 \end{bmatrix}
+					\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li>
+				System <m> A \uvec{x} = \zerovec </m> requires <m> 5 </m> variable entries in <m> \uvec{x} </m>
+				<m> \implies </m>
+				null space is a subspace of <m> \R^5 </m>.
+			</li>
+
+			<li>
+				Null space is
+				<m>
+					\Span \left\{
+						\begin{abmatrix}{r}  5 \\ -1 \\ 1 \\ 0 \\ 0 \end{abmatrix},
+						\begin{abmatrix}{r} -1 \\  7 \\ 0 \\ 1 \\ 1 \end{abmatrix}
+					\right\}
+				</m>.
+			</li>
+
+			<li>
+				Rank is <m> 3 </m> and nullity is <m> 2 </m>.
+				Sum of these is <m> 5 </m>,
+				which agrees with the number of columns of <m> A </m>,
+				confirming the <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
+			</li>
+
+		</ol></p>
+
+	</answer>
+
+</exercise>
+
+
+<exercise>
+
+	<statement><p><m>
+		A = \begin{abmatrix}{rrrrrrr}
+			-1 \amp -2 \amp  14 \amp -20 \amp  0 \amp  4 \amp  18 \\
+			-1 \amp  2 \amp -14 \amp  16 \amp  1 \amp -9 \amp -12 \\
+			 2 \amp  1 \amp - 7 \amp  13 \amp -1 \amp  1 \amp -14 \\
+			 0 \amp -3 \amp  21 \amp -27 \amp -1 \amp  9 \amp  22 \\
+			 1 \amp  1 \amp - 7 \amp  11 \amp  0 \amp  0 \amp -10
+		\end{abmatrix}
+	</m></p></statement>
+
+	<answer>
+
+		<p><m>
+			\RREF(A) = \begin{abmatrix}{rrrrrrr}
+				1 \amp 0 \amp  0 \amp 2 \amp 0 \amp  4 \amp -2 \\
+				0 \amp 1 \amp -7 \amp 9 \amp 0 \amp -4 \amp -8 \\
+				0 \amp 0 \amp  0 \amp 0 \amp 1 \amp  3 \amp  2 \\
+				0 \amp 0 \amp  0 \amp 0 \amp 0 \amp  0 \amp  0 \\
+				0 \amp 0 \amp  0 \amp 0 \amp 0 \amp  0 \amp  0
+			\end{abmatrix}
+		</m></p>
+
+		<p><ol>
+
+			<li> <m> 5 </m> entries in each column <m> \implies </m> so the column space is a subspace of <m> \R^5 </m>.</li>
+
+			<li>
+				Use first, second, and fifth columns;
+				column space is
+				<md>
+					\Span \left\{
+						\begin{abmatrix}{r} -1 \\ -1 \\  2 \\  0 \\ 1 \end{abmatrix},
+						\begin{abmatrix}{r} -2 \\  2 \\  1 \\ -3 \\ 1 \end{abmatrix},
+						\begin{abmatrix}{r}  0 \\  1 \\ -1 \\ -1 \\ 0 \end{abmatrix}
+					\right\}
+				</md>.
+			</li>
+
+			<li> No. </li>
+
+			<li><p>
+				Third column:
+				<md>
+					\begin{abmatrix}{r} 14 \\ -14 \\ -7 \\ 21 \\ -7 \end{abmatrix}
+					=   0  \begin{abmatrix}{r} -1 \\ -1 \\  2 \\  0 \\ 1 \end{abmatrix}
+					+ (-7) \begin{abmatrix}{r} -2 \\  2 \\  1 \\ -3 \\ 1 \end{abmatrix}
+					+   0  \begin{abmatrix}{r}  0 \\  1 \\ -1 \\ -1 \\ 0 \end{abmatrix}
+				</md>.
+				Fourth column:
+				<md>
+					\begin{abmatrix}{r} -20 \\ 16 \\ 13 \\ -27 \\ 11 \end{abmatrix}
+					= 2 \begin{abmatrix}{r} -1 \\ -1 \\  2 \\  0 \\ 1 \end{abmatrix}
+					+ 9 \begin{abmatrix}{r} -2 \\  2 \\  1 \\ -3 \\ 1 \end{abmatrix}
+					+ 0  \begin{abmatrix}{r}  0 \\  1 \\ -1 \\ -1 \\ 0 \end{abmatrix}
+				</md>.
+				Sixth column:
+				<md>
+					\begin{abmatrix}{r} 4 \\ -9 \\ 1 \\ 9 \\ 0 \end{abmatrix}
+					=   4  \begin{abmatrix}{r} -1 \\ -1 \\  2 \\  0 \\ 1 \end{abmatrix}
+					+ (-4) \begin{abmatrix}{r} -2 \\  2 \\  1 \\ -3 \\ 1 \end{abmatrix}
+					+   3  \begin{abmatrix}{r}  0 \\  1 \\ -1 \\ -1 \\ 0 \end{abmatrix}
+				</md>.
+				Seventh column:
+				<md>
+					\begin{abmatrix}{r} 18 \\ -12 \\ -14 \\ 22 \\ -10 \end{abmatrix}
+					= (-2) \begin{abmatrix}{r} -1 \\ -1 \\  2 \\  0 \\ 1 \end{abmatrix}
+					+ (-8) \begin{abmatrix}{r} -2 \\  2 \\  1 \\ -3 \\ 1 \end{abmatrix}
+					+   2  \begin{abmatrix}{r}  0 \\  1 \\ -1 \\ -1 \\ 0 \end{abmatrix}
+				</md>.
+			</p></li>
+
+			<li> <m> 7 </m> entries in each row <m> \implies </m> so the row space is a subspace of <m> \R^7 </m>. </li>
+
+			<li>
+				Use nonzero rows of <m> \RREF(A) </m>;
+				row space is
+				<md>\begin{split}
+					\Span \{
+						\begin{bmatrix} 1 \amp 0 \amp  0 \amp 2 \amp 0 \amp  4 \amp -2 \end{bmatrix},
+						\begin{bmatrix} 0 \amp 1 \amp -7 \amp 9 \amp 0 \amp -4 \amp -8 \end{bmatrix}, \\
+						\begin{bmatrix} 0 \amp 0 \amp  0 \amp 0 \amp 1 \amp  3 \amp  2 \end{bmatrix}
+					\}
+					\text{.}
+				\end{split}</md>
+			</li>
+
+			<li> No. </li>
+
+			<li>
+				As the coefficient matrix of a homogeneous system,
+				there are <m> 7 </m> variable coefficients in each row,
+				so each equation in the homogeneous system would involve <m> 7 </m> variables.
+				Therefore, the null space is a subspace of <m> \R^7 </m>.
+			</li>
+
+			<li>
+				Null space is
+				<m>
+					\Span \left\{
+						\begin{abmatrix}{r}  0 \\  7 \\ 1 \\ 0 \\  0 \\ 0 \\ 0 \end{abmatrix},
+						\begin{abmatrix}{r} -2 \\ -9 \\ 0 \\ 1 \\  0 \\ 0 \\ 0 \end{abmatrix},
+						\begin{abmatrix}{r} -4 \\  4 \\ 0 \\ 0 \\ -3 \\ 1 \\ 0 \end{abmatrix},
+						\begin{abmatrix}{r}  2 \\  8 \\ 0 \\ 0 \\ -2 \\ 0 \\ 1 \end{abmatrix}
+					\right\}
+				</m>.
+			</li>
+
+			<li>
+				Rank is <m> 3 </m> and nullity is <m> 4 </m>.
+				Sum of these is <m> 7 </m>,
+				which agrees with the number of columns of <m> A </m>,
+				confirming the <xref ref="theorem-col-row-null-space-rank-nullity" text="title" />.
+			</li>
+
+		</ol></p>
+
+	</answer>
+
+</exercise>
+
+</exercisegroup>

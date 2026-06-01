@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-col-row-null-space-test-el-colspace">
+<title> Determining membership in column space </title>
+
+<introduction><p>
+	In each of the following,
+	determine whether vector <m> \uvec{v} </m> is in the column space of matrix <m> A </m>.
+	In those cases where it is,
+	express <m> \uvec{v} </m> as a linear combination of the columns of <m> A </m>.
+</p></introduction>
+
+<exercise>
+
+	<statement>
+
+		<p>
+			<m>
+				A =
+				\begin{abmatrix}{rrr}
+					-1 \amp  7 \amp  3 \\
+					-1 \amp  6 \amp  3 \\
+					 2 \amp -8 \amp -5
+				\end{abmatrix}
+			</m>;
+			<m> \uvec{v} = \begin{abmatrix}{r} 4 \\ 3 \\ -4 \end{abmatrix} </m>
+		</p>
+
+	</statement>
+
+	<solution><p>
+		Vector <m> \uvec{v} </m> is in the column space of <m> A </m> precisely when the system <m> A \uvec{x} = \uvec{v} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrr|r}
+				-1 \amp  7 \amp  3 \amp  4 \\
+				-1 \amp  6 \amp  3 \amp  3 \\
+				 2 \amp -8 \amp -5 \amp -4
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp 0 \amp -3 \\
+				0 \amp 1 \amp 0 \amp  1 \\
+				0 \amp 0 \amp 1 \amp -2
+			\end{abmatrix}
+		</md>
+		Since the system is consistent,
+		<m> \uvec{v} </m> is in the column space of <m> A </m>,
+		with
+		<md>
+			\uvec{v}
+			= (-3) \begin{abmatrix}{r} -1 \\ -1 \\  2 \end{abmatrix}
+			+   1  \begin{abmatrix}{r}  7 \\  6 \\ -8 \end{abmatrix}
+			+ (-2) \begin{abmatrix}{r}  3 \\  3 \\ -5 \end{abmatrix}
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p>
+			<m>
+				A =
+				\begin{abmatrix}{rrr}
+					 1 \amp -1 \amp  3 \\
+					 3 \amp -2 \amp  6 \\
+					 2 \amp -2 \amp  7 \\
+					-1 \amp  0 \amp -3
+				\end{abmatrix}
+			</m>;
+			<m> \uvec{v} = \begin{abmatrix}{r} 3 \\ 1 \\ 8 \\ 0 \end{abmatrix} </m>
+		</p>
+
+	</statement>
+
+	<solution><p>
+		Vector <m> \uvec{v} </m> is in the column space of <m> A </m> precisely when the system <m> A \uvec{x} = \uvec{v} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrr|r}
+				 1 \amp -1 \amp  3 \amp 3 \\
+				 3 \amp -2 \amp  6 \amp 1 \\
+				 2 \amp -2 \amp  7 \amp 8 \\
+				-1 \amp  0 \amp -3 \amp 0
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1 \\
+			\end{abmatrix}
+		</md>
+		Since the system is inconsistent,
+		<m> \uvec{v} </m> is <em> not </em> in the column space of <m> A </m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p>
+			<m>
+				A =
+				\begin{abmatrix}{rrr}
+					 1 \amp  1 \amp  6 \\
+					 0 \amp -1 \amp -1 \\
+					-1 \amp  1 \amp -4 \\
+					 1 \amp  3 \amp  8
+				\end{abmatrix}
+			</m>;
+			<m> \uvec{v} = \begin{abmatrix}{r} 1 \\ -4 \\ 7 \\ 9 \end{abmatrix} </m>
+		</p>
+
+	</statement>
+
+	<solution><p>
+		Vector <m> \uvec{v} </m> is in the column space of <m> A </m> precisely when the system <m> A \uvec{x} = \uvec{v} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrr|r}
+				 1 \amp  1 \amp  6 \amp  1 \\
+				 0 \amp -1 \amp -1 \amp -4 \\
+				-1 \amp  1 \amp -4 \amp  7 \\
+				 1 \amp  3 \amp  8 \amp  9
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp 5 \amp -3 \\
+				0 \amp 1 \amp 1 \amp  4 \\
+				0 \amp 0 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 0 \amp  0
+			\end{abmatrix}
+		</md>
+		Since the system is consistent,
+		<m> \uvec{v} </m> is in the column space of <m> A </m>,
+		with
+		<md>
+			\uvec{v}
+			= (-3) \begin{abmatrix}{r} 1 \\  0 \\ -1 \\ 1 \end{abmatrix}
+			+   4  \begin{abmatrix}{r} 1 \\ -1 \\  1 \\ 3 \end{abmatrix}
+			+   0  \begin{abmatrix}{r} 6 \\ -1 \\ -4 \\ 8 \end{abmatrix}
+		</md>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

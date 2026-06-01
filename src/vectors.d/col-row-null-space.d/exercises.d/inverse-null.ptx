@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-col-row-null-space-inverse-null">
+<title> Inverse null space problem </title>
+
+<introduction><p>
+	In <xref ref="remark-subspaces-examples-every-subsp-is-homogeneous" /> we made the claim that every subspace is somehow defined by a homogeneous condition or a set of homogeneous conditions.
+	In each of the following,
+	a spanning set for a subspace <m> W </m> of a vector space <m> V </m> is provided.
+	Determine a homogeneous system with solution space precisely <m> W </m>.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		<m> V </m> and <m> W </m> from <xref ref="exercise-col-row-null-space-simplify-basis-R5" text="type-local" />.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		In the solution to <xref ref="exercise-col-row-null-space-simplify-basis-R5" text="type-local" />,
+		we determined a simplified basis for <m> W </m>:
+		<md> W = \Span \{ (1,0,0,2,-1), (0,1,0,1,-2), (0,0,1,-3,5) \} </md>.
+		So every vector <m> \uvec{x} = (x_1,x_2,x_3,x_4,x_5) </m> in <m> W </m> is somehow a linear combination of these basis vectors:
+		<md>
+			\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
+			= r \begin{abmatrix}{r} 1 \\ 0 \\ 0 \\  2 \\ -1 \end{abmatrix}
+			+ s \begin{abmatrix}{r} 0 \\ 1 \\ 0 \\  1 \\ -2 \end{abmatrix}
+			+ t \begin{abmatrix}{r} 0 \\ 0 \\ 1 \\ -3 \\  5 \end{abmatrix}
+		</md>.
+		Working as if reversing the process of calculating a basis for a null space,
+		calculate the linear combination on the right and compare entries on either side of the equality to create parametric expressions for the components of <m> \uvec{x} </m>.
+		<md>
+			<mrow> x_1 \amp = r </mrow>
+			<mrow> x_2 \amp = s </mrow>
+			<mrow> x_3 \amp = t </mrow>
+			<mrow> x_4 \amp = 2 r +   s - 3 t </mrow>
+			<mrow> x_5 \amp = - r - 2 s + 5 t </mrow>
+		</md>
+		Continuing to reverse the null-space-basis procedure,
+		in the two expressions that are not merely parameter assignments,
+		replace the parameters with the corresponding components and rearrange to become a homogeneous system.
+		<md>
+			\begin{sysofeqns}{rcrcrcrcr}
+				2 x_1 \amp + \amp   x_2 \amp - \amp 3 x_3 \amp - \amp x_4 \amp = \amp 0 \\
+				  x_1 \amp + \amp 2 x_2 \amp - \amp 5 x_3 \amp + \amp x_5 \amp = \amp 0
+			\end{sysofeqns}
+		</md>
+		(Note that in the <m> x_4 </m> parametric expression we chose to subtract <m> x_4 </m> to the right-hand side,
+		whereas in the <m> x_5 </m> parametric expression we chose to subtract the entire parametric expression to the left-hand side.)
+		</p>
+
+		<p>
+		Thus <m> W </m> is precisely the solution space to the homogeneous system above.
+		You may verify that each of the original spanning vectors for <m> W </m> provided in <xref ref="exercise-col-row-null-space-simplify-basis-R5" text="type-local" /> lies in this solution space.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> V </m> and <m> W </m> from <xref ref="exercise-col-row-null-space-simplify-basis-M23" text="type-local" />.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Let <m> W' </m> be the corresponding subspace of <m> \R^6 </m>,
+		spanned by the coordinate vectors of the provided spanning vectors for <m> W </m>,
+		relative to the standard basis of <m> \matrixring_{2 \times 3}(\R) </m>.
+		In the solution to <xref ref="exercise-col-row-null-space-simplify-basis-M23" text="type-local" />,
+		we determined a simplified basis for <m> W' </m>:
+		<md>\begin{split}
+			W = \Span \left\{
+				\left( 1, 0, 0, 0, -\tfrac{15}{2}, -\tfrac{71}{2} \right),
+				\left( 0, 1, 0, 0, -\tfrac{ 9}{2}, -\tfrac{97}{6} \right),
+				\\
+				\left( 0, 0, 1, 0,  \tfrac{ 1}{2},  \tfrac{ 1}{2} \right),
+				\left( 0, 0, 0, 1,  \tfrac{ 3}{2},  \tfrac{35}{6} \right)
+			\right\}
+		\end{split}</md>.
+		So every vector <m> \uvec{x} = (x_1,x_2,x_3,x_4,x_5,x_6) </m> in <m> W' </m> is somehow a linear combination of these basis vectors:
+		<md>
+			\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \end{bmatrix}
+			= r \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ -\frac{15}{2} \\ -\frac{71}{2} \end{bmatrix}
+			+ s \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ -\frac{ 9}{2} \\ -\frac{97}{6} \end{bmatrix}
+			+ t \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\  \frac{ 1}{2} \\  \frac{ 1}{2} \end{bmatrix}
+			+ u \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \\  \frac{ 3}{2} \\  \frac{35}{6} \end{bmatrix}
+		</md>.
+		Working as if reversing the process of calculating a basis for a null space,
+		calculate the linear combination on the right and compare entries on either side of the equality to create parametric expressions for the components of <m> \uvec{x} </m>.
+		<md>
+			<mrow> x_1 \amp = r </mrow>
+			<mrow> x_2 \amp = s </mrow>
+			<mrow> x_3 \amp = t </mrow>
+			<mrow> x_4 \amp = u </mrow>
+			<mrow> x_5 \amp = -\tfrac{15}{2} \, r - \tfrac{ 9}{2} \, s + \tfrac{1}{2} \, t + \tfrac{ 3}{2} \, u </mrow>
+			<mrow> x_6 \amp = -\tfrac{71}{2} \, r - \tfrac{97}{6} \, s + \tfrac{1}{2} \, t + \tfrac{35}{6} \, u </mrow>
+		</md>
+		Continuing to reverse the null-space-basis procedure,
+		in the two expressions that are not merely parameter assignments,
+		replace the parameters with the corresponding components and rearrange to become a homogeneous system.
+		<md>
+			\begin{sysofeqns}{rcrcrcrcrcr}
+				 15 x_1 \amp + \amp  9 x_2 \amp - \amp   x_3 \amp - \amp  3 x_4 \amp + \amp 2 x_5 \amp = \amp 0
+				\\
+				213 x_1 \amp + \amp 97 x_2 \amp - \amp 3 x_3 \amp - \amp 35 x_4 \amp + \amp 6 x_6 \amp = \amp 0
+			\end{sysofeqns}
+		</md>
+		(Note that we have cleared fractions by multiplying each equation through by a common denominator.)
+		</p>
+
+		<p>
+		To translate this from <m> \R^6 </m> back to <m> \matrixring_{2 \times 3}(\R) </m>,
+		replace the component variables with matrix entry variables,
+		consistent with how matrix entries become coordinates relative to the standard basis of <m> \matrixring_{2 \times 3}(\R) </m>.
+		<md>
+			\begin{sysofeqns}{rcrcrcrcrcr}
+				 15 a_{11} \amp + \amp  9 a_{12} \amp - \amp   a_{13} \amp - \amp  3 a_{21} \amp + \amp 2 a_{22} \amp = \amp 0
+				\\
+				213 a_{11} \amp + \amp 97 a_{12} \amp - \amp 3 a_{13} \amp - \amp 35 a_{21} \amp + \amp 6 a_{23} \amp = \amp 0
+			\end{sysofeqns}
+		</md>
+		That is,
+		<m> W </m> consists precisely of those <m> 2 \times 3 </m> matrices <m> A = \begin{bmatrix} a_{ij} \end{bmatrix} </m> whose entries represent solutions to the homogeneous system above.
+		You may verify that each of the original spanning vectors for <m> W </m> provided in <xref ref="exercise-col-row-null-space-simplify-basis-M23" text="type-local" /> represent such solutions.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> V </m> and <m> W </m> from <xref ref="exercise-col-row-null-space-simplify-basis-P4" text="type-local" />.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Let <m> W' </m> be the corresponding subspace of <m> \R^5 </m>,
+		spanned by the coordinate vectors of the provided spanning vectors for <m> W </m>,
+		relative to the <q>reversed</q> standard basis <m> \{ x^4, x^3, x^2, x, 1 \} </m> of <m> \poly_4(\R) </m>.
+		In the solution to <xref ref="exercise-col-row-null-space-simplify-basis-P4" text="type-local" />,
+		we determined a simplified basis for <m> W' </m>:
+		<md>
+			W = \Span \left\{
+				\left( 1, 0, 0, 0, -\tfrac{1}{4} \right),
+				\left( 0, 1, 0, 0, -\tfrac{1}{2} \right),
+				\left( 0, 0, 1, 0,  \tfrac{7}{4} \right),
+				\left( 0, 0, 0, 1,  \tfrac{5}{4} \right)
+			\right\}
+		</md>.
+		So every vector <m> \uvec{x} = (x_1,x_2,x_3,x_4,x_5) </m> in <m> W' </m> is somehow a linear combination of these basis vectors:
+		<md>
+			\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix}
+			= r \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \\ -\frac{1}{4} \end{bmatrix}
+			+ s \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ -\frac{1}{2} \end{bmatrix}
+			+ t \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\  \frac{7}{4} \end{bmatrix}
+			+ u \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \\  \frac{5}{4} \end{bmatrix}
+		</md>.
+		Working as if reversing the process of calculating a basis for a null space,
+		calculate the linear combination on the right and compare entries on either side of the equality to create parametric expressions for the components of <m> \uvec{x} </m>.
+		<md>
+			<mrow> x_1 \amp = r </mrow>
+			<mrow> x_2 \amp = s </mrow>
+			<mrow> x_3 \amp = t </mrow>
+			<mrow> x_4 \amp = u </mrow>
+			<mrow> x_5 \amp = -\tfrac{1}{4} \, r - \tfrac{1}{2} \, s + \tfrac{7}{4} \, t + \tfrac{5}{4} \, u </mrow>
+		</md>
+		Continuing to reverse the null-space-basis procedure,
+		in the parametric expression for <m> x_5 </m>
+		(the only one that is not merely a parameter assignment),
+		replace the parameters with the corresponding components and rearrange to become a homogeneous system.
+		<md>
+			\begin{sysofeqns}{rcrcrcrcrcr}
+				x_1 \amp + \amp 2 x_2 \amp - \amp 7 x_3 \amp - \amp 5 x_4 \amp + \amp 4 x_5 \amp = \amp 0
+			\end{sysofeqns}
+		</md>
+		(Note that we have cleared fractions by multiplying through by common denominator <m> 4 </m>.)
+		</p>
+
+		<p>
+		To translate this from <m> \R^5 </m> back to <m> \poly_4(\R) </m>,
+		replace the component variables with polynomial coefficient variables,
+		consistent with how polynomial coefficients become coordinates relative to the (reverse) standard basis of <m> \poly_4(\R) </m>.
+		<md>
+			\begin{sysofeqns}{rcrcrcrcrcr}
+				a_4 \amp + \amp 2 a_3 \amp - \amp 7 a_2 \amp - \amp 5 a_1 \amp + \amp 4 a_0 \amp = \amp 0
+			\end{sysofeqns}
+		</md>
+		That is,
+		<m> W </m> consists precisely of those degree-<m> 4 </m> polynomials
+		<md> \uvec{p}(x) = a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 </md>
+		whose coefficients represent solutions to the homogeneous system above.
+		You may verify that each of the original spanning vectors for <m> W </m> provided in <xref ref="exercise-col-row-null-space-simplify-basis-P4" text="type-local" /> represent such solutions.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>

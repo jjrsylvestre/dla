@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-col-row-null-space-test-el-span">
+<title> Determining membership in a span </title>
+
+<introduction><p>
+	In each of the following,
+	use column space to determine whether vector <m> \uvec{v} </m> is in <m> \Span S </m>.
+	In those cases where it is,
+	express <m> \uvec{v} </m> as a linear combination of the spanning set vectors.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+
+		<m> S = \{ (1, 1, 0, 0), (5, -4, 3, -5), (6, -6, 7, -7) \} </m>;
+
+		<m> \uvec{v} = (1, -3, 8, -3) </m>
+
+	</p></statement>
+
+	<solution><p>
+		Create a matrix <m> A </m> whose columns are the vectors in <m> S </m>:
+		<md>
+			A =
+			\begin{abmatrix}{rrr}
+				1 \amp  5 \amp  6 \\
+				1 \amp -4 \amp -6 \\
+				0 \amp  3 \amp  7 \\
+				0 \amp -5 \amp -7
+			\end{abmatrix}
+		</md>.
+		Then our question becomes whether <m> \uvec{v} </m> is in the column space of <m> A </m>,
+		which happens precisely when the system <m> A \uvec{x} = \uvec{v} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrr|r}
+				1 \amp  5 \amp  6 \amp  1 \\
+				1 \amp -4 \amp -6 \amp -3 \\
+				0 \amp  3 \amp  7 \amp  8 \\
+				0 \amp -5 \amp -7 \amp -3
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1
+			\end{abmatrix}
+		</md>
+		Since the system is inconsistent,
+		<m> \uvec{v} </m> is not in <m> \Span S </m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+
+		<m> S = \{ (3, 2, 1, 0, 1), (4, 3, 1, 0, 3), (1, 1, -1, 0, 1) \} </m>;
+
+		<m> \uvec{v} = (3,2,5,0,5) </m>
+
+	</p></statement>
+
+	<solution><p>
+		Create a matrix <m> A </m> whose columns are the vectors in <m> S </m>:
+		<md>
+			A =
+			\begin{abmatrix}{rrr}
+				3 \amp 4 \amp  1 \\
+				2 \amp 3 \amp  1 \\
+				1 \amp 1 \amp -1 \\
+				0 \amp 0 \amp  0 \\
+				1 \amp 3 \amp  1
+			\end{abmatrix}
+		</md>.
+		Then our question becomes whether <m> \uvec{v} </m> is in the column space of <m> A </m>,
+		which happens precisely when the system <m> A \uvec{x} = \uvec{v} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrr|r}
+				3 \amp 4 \amp  1 \amp 3 \\
+				2 \amp 3 \amp  1 \amp 2 \\
+				1 \amp 1 \amp -1 \amp 5 \\
+				0 \amp 0 \amp  0 \amp 0 \\
+				1 \amp 3 \amp  1 \amp 5
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp 0 \amp -3 \\
+				0 \amp 1 \amp 0 \amp  4 \\
+				0 \amp 0 \amp 1 \amp -4 \\
+				0 \amp 0 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 0 \amp  0
+			\end{abmatrix}
+		</md>
+		Since the system is consistent,
+		<m> \uvec{v} </m> is in <m> \Span S </m>,
+		with
+		<md>
+			\uvec{v}
+			= (-3) \begin{bmatrix}     3 \\ 2 \\  1 \\ 0 \\ 1 \end{bmatrix}
+			+   4  \begin{abmatrix}{r} 4 \\ 3 \\  1 \\ 0 \\ 3 \end{abmatrix}
+			+ (-4) \begin{abmatrix}{r} 1 \\ 1 \\ -1 \\ 0 \\ 1 \end{abmatrix}
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+
+		<m>
+			S = \left\{
+				\begin{bmatrix}       1 \amp 0 \\ 2 \amp  0 \end{bmatrix} ,
+				\begin{abmatrix}{rr}  2 \amp 1 \\ 3 \amp -1 \end{abmatrix},
+				\begin{bmatrix}       2 \amp 1 \\ 4 \amp  1 \end{bmatrix}
+			\right\}
+		</m>;
+
+		<m> \uvec{v} = \begin{bmatrix} 3 \amp 2 \\ 8 \amp 6 \end{bmatrix} </m>
+
+	</p></statement>
+
+	<solution><p>
+		Create a matrix <m> A </m> whose columns are the coordinate vectors of the vectors in <m> S </m>,
+		relative to the standard basis for <m> \matrixring_{2 \times 2}(\R) </m>:
+		<md>
+			A =
+			\begin{abmatrix}{rrr}
+				1 \amp  2 \amp 2 \\
+				0 \amp  1 \amp 1 \\
+				2 \amp  3 \amp 4 \\
+				0 \amp -1 \amp 1
+			\end{abmatrix}
+		</md>.
+		Then our question becomes whether the coordinate vector for <m> \uvec{v} </m> is in the column space of <m> A </m>,
+		which happens precisely when the system <m> A \uvec{x} = \rmatrixOf{\uvec{v}}{S} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrr|r}
+				1 \amp  2 \amp 2 \amp 3 \\
+				0 \amp  1 \amp 1 \amp 2 \\
+				2 \amp  3 \amp 4 \amp 8 \\
+				0 \amp -1 \amp 1 \amp 6
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrr|r}
+				1 \amp 0 \amp 0 \amp -1 \\
+				0 \amp 1 \amp 0 \amp -2 \\
+				0 \amp 0 \amp 1 \amp  4 \\
+				0 \amp 0 \amp 0 \amp  0
+			\end{abmatrix}
+		</md>
+		Since the system is consistent,
+		<m> \uvec{v} </m> is in <m> \Span S </m>,
+		with
+		<md>
+			\uvec{v}
+			= (-1) \begin{bmatrix}      1 \amp 0 \\ 2 \amp  0 \end{bmatrix}
+			+ (-2) \begin{abmatrix}{rr} 2 \amp 1 \\ 3 \amp -1 \end{abmatrix}
+			+   4  \begin{bmatrix}      2 \amp 1 \\ 4 \amp  1 \end{bmatrix}
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m>
+			S = \left\{
+				\begin{abmatrix}{rr}  2 \amp 0 \\ -1 \amp  0 \\  1 \amp  1 \end{abmatrix},
+				\begin{abmatrix}{rr}  0 \amp 1 \\  0 \amp -1 \\  0 \amp -1 \end{abmatrix},
+				\begin{abmatrix}{rr} -1 \amp 1 \\  1 \amp -1 \\ -1 \amp  0 \end{abmatrix},
+				\begin{abmatrix}{rr}  2 \amp 4 \\  1 \amp -3 \\  0 \amp  1 \end{abmatrix}
+			\right\}
+		</m></p>
+
+		<p><m> \uvec{v} = \begin{abmatrix}{rr} 6 \amp 6 \\ 0 \amp -5 \\ 2 \amp 2 \end{abmatrix} </m></p>
+
+	</statement>
+
+	<solution><p>
+		Create a matrix <m> A </m> whose columns are the coordinate vectors of the vectors in <m> S </m>,
+		relative to the standard basis for <m> \matrixring_{3 \times 2}(\R) </m>:
+		<md>
+			A =
+			\begin{abmatrix}{rrrr}
+				 2 \amp  0 \amp -1 \amp  2 \\
+				 0 \amp  1 \amp  1 \amp  4 \\
+				-1 \amp  0 \amp  1 \amp  1 \\
+				 0 \amp -1 \amp -1 \amp -3 \\
+				 1 \amp  0 \amp -1 \amp  0 \\
+				 1 \amp -1 \amp  0 \amp  1
+			\end{abmatrix}
+		</md>.
+		Then our question becomes whether the coordinate vector for <m> \uvec{v} </m> is in the column space of <m> A </m>,
+		which happens precisely when the system <m> A \uvec{x} = \rmatrixOf{\uvec{v}}{S} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrrr|r}
+				 2 \amp  0 \amp -1 \amp  2 \amp  6 \\
+				 0 \amp  1 \amp  1 \amp  4 \amp  6 \\
+				-1 \amp  0 \amp  1 \amp  1 \amp  0 \\
+				 0 \amp -1 \amp -1 \amp -3 \amp -5 \\
+				 1 \amp  0 \amp -1 \amp  0 \amp  2 \\
+				 1 \amp -1 \amp  0 \amp  1 \amp  2
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrrr|r}
+				1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 0
+			\end{abmatrix}
+		</md>
+		Since the system is inconsistent,
+		<m> \uvec{v} </m> is not in <m> \Span S </m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+
+		<md>\begin{split}
+			S = \{
+				\amp x^6 + x^5,
+				x^6 + x^5 + x^2 - x + 1,
+				x^6 - x^5 - x^4 + 3 x^3 + 3, \\
+				\amp 2 x^6 + 2 x^5 - x^3 + x^2 + 1,
+				x^6 - 2 x^5 + 2 x^3 - 3 x^2 + x + 1
+			\}
+		\end{split}</md>
+
+		<m> \uvec{v} = 17 x^6 + 8 x^5 + 2 x^2 - 2 x + 14 </m>
+
+	</p></statement>
+
+	<solution><p>
+		The polynomials involved are all degree <m> 6 </m>,
+		so assume we are working in <m> \poly_6(\R) </m>.
+		Create a matrix <m> A </m> whose columns are the coordinate vectors of the vectors in <m> S </m>,
+		relative to the <q>reverse</q> standard basis for <m> \poly_6(\R) </m>:
+		<md>
+			A =
+			\begin{abmatrix}{rrrrr}
+				1 \amp  1 \amp  1 \amp  2 \amp  1 \\
+				1 \amp  1 \amp -1 \amp  2 \amp -2 \\
+				0 \amp  0 \amp -1 \amp  0 \amp  0 \\
+				0 \amp  0 \amp  3 \amp -1 \amp  2 \\
+				0 \amp  1 \amp  0 \amp  1 \amp -3 \\
+				0 \amp -1 \amp  0 \amp  0 \amp  1 \\
+				0 \amp  1 \amp  3 \amp  1 \amp  1
+			\end{abmatrix}
+		</md>.
+		Then our question becomes whether the coordinate vector for <m> \uvec{v} </m> is in the column space of <m> A </m>,
+		which happens precisely when the system <m> A \uvec{x} = \rmatrixOf{\uvec{v}}{S} </m> is consistent.
+		<md>
+			\begin{abmatrix}{rrrrr|r}
+				1 \amp  1 \amp  1 \amp  2 \amp  1 \amp 17 \\
+				1 \amp  1 \amp -1 \amp  2 \amp -2 \amp  8 \\
+				0 \amp  0 \amp -1 \amp  0 \amp  0 \amp  0 \\
+				0 \amp  0 \amp  3 \amp -1 \amp  2 \amp  0 \\
+				0 \amp  1 \amp  0 \amp  1 \amp -3 \amp  2 \\
+				0 \amp -1 \amp  0 \amp  0 \amp  1 \amp -2 \\
+				0 \amp  1 \amp  3 \amp  1 \amp  1 \amp 14
+			\end{abmatrix}
+			\;\; \rowredarrow \;\;
+			\begin{abmatrix}{rrrrr|r}
+				1 \amp 0 \amp 0 \amp 0 \amp 0 \amp -3 \\
+				0 \amp 1 \amp 0 \amp 0 \amp 0 \amp  5 \\
+				0 \amp 0 \amp 1 \amp 0 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 0 \amp 1 \amp 0 \amp  6 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 1 \amp  3 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 0 \amp 0 \amp 0 \amp  0
+			\end{abmatrix}
+		</md>
+		Since the system is consistent,
+		<m> \uvec{v} </m> is in <m> \Span S </m>,
+		with
+		<md>\begin{split}
+			\uvec{v}
+			= (-3) (x^6 + x^5)
+			+   5  (x^6 + x^5 + x^2 - x + 1)
+			+   0  (x^6 - x^5 - x^4 + 3 x^3 + 3) \\
+			+   6  (2 x^6 + 2 x^5 - x^3 + x^2 + 1)
+			+   3  (x^6 - 2 x^5 + 2 x^3 - 3 x^2 + x + 1)
+			\text{.}
+		\end{split}</md>
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

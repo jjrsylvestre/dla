@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-col-row-null-space-reduce-spanning">
+<title> Reducing a spanning set </title>
+
+<introduction><p>
+	In each of the following,
+	a spanning set for a subspace <m> W </m> of a vector space <m> V </m> is provided.
+	Use <xref ref="procedure-col-row-null-space-concepts-col-space-basis" /> to reduce the spanning set to a basis for <m> W </m>.
+</p></introduction>
+
+<exercise>
+
+	<statement>
+
+		<p><m> V = \R^4 </m> </p>
+
+		<p><m> W = \Span \{ (1,0,1,1), (-3,3,7,1), (-1,3,9,3), (-5,3,5,-1) \} </m></p>
+
+	</statement>
+
+	<solution><p>
+		Use the vectors as columns in a matrix and reduce.
+		<md>
+			\begin{abmatrix}{rrrr}
+				1 \amp -3 \amp -1 \amp -5 \\
+				0 \amp  3 \amp  3 \amp  3 \\
+				1 \amp  7 \amp  9 \amp  5 \\
+				1 \amp  1 \amp  3 \amp -1
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrrr}
+				1 \amp 0 \amp 2 \amp -2 \\
+				0 \amp 1 \amp 1 \amp  1 \\
+				0 \amp 0 \amp 0 \amp  0 \\
+				0 \amp 0 \amp 0 \amp  0
+			\end{abmatrix}
+		</md>
+		From the position of the leading ones in the reduced matrix we see that
+		<md> W = \Span \{ (1,0,1,1), (-3,3,7,1) \} </md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p>
+		<m> V = \R^5 </m>
+		<md>\begin{split} W = \Span \{ (3,-1,1,-1,-2), (4,-1,2,-2,-2), (17,-4,9,-9,-8), \\ (1,-1,1,1,-1) \} \end{split}</md>
+		</p>
+
+
+	</statement>
+
+	<solution><p>
+		Use the vectors as columns in a matrix and reduce.
+		<md>
+			\begin{abmatrix}{rrrr}
+				 3 \amp  4 \amp 17 \amp  1 \\
+				-1 \amp -1 \amp -4 \amp -1 \\
+				 1 \amp  2 \amp  9 \amp  1 \\
+				-1 \amp -2 \amp -9 \amp  1 \\
+				-2 \amp -2 \amp -8 \amp -1
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrrr}
+				1 \amp 0 \amp -1 \amp 0 \\
+				0 \amp 1 \amp  5 \amp 0 \\
+				0 \amp 0 \amp  0 \amp 1 \\
+				0 \amp 0 \amp  0 \amp 0 \\
+				0 \amp 0 \amp  0 \amp 0
+			\end{abmatrix}
+		</md>
+		From the position of the leading ones in the reduced matrix we see that
+		<md> W = \Span \{ (3,-1,1,-1,-2), (4,-1,2,-2,-2), (1,-1,1,1,-1) \} </md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p>
+
+		<m> V = \matrixring_{2 \times 2}(\R) </m>
+
+		<md>\begin{split}
+			W = \Span \left\{
+				\begin{abmatrix}{rr}  1 \amp -1 \\ 5 \amp  2 \end{abmatrix},
+				\begin{abmatrix}{rr} -2 \amp  3 \\ 1 \amp  0 \end{abmatrix},
+				\begin{abmatrix}{rr}  4 \amp -5 \\ 9 \amp  4 \end{abmatrix},
+				\begin{abmatrix}{rr}  0 \amp  4 \\ 2 \amp -3 \end{abmatrix},
+			\right.
+			\\
+			\left.
+				\begin{abmatrix}{rr} -7 \amp 18 \\ 2 \amp -8 \end{abmatrix}
+			\right\}
+		\end{split}</md>
+
+		</p>
+
+	</statement>
+
+	<solution><p>
+		Use the entries of the matrices
+		(that is, the coordinates relative to the standard basis of <m> V </m>)
+		as column vectors in a matrix and reduce.
+		<md>
+			\begin{abmatrix}{rrrrr}
+				 1 \amp -2 \amp  4 \amp  0 \amp -7 \\
+				-1 \amp  3 \amp -5 \amp  4 \amp 18 \\
+				 5 \amp  1 \amp  9 \amp  2 \amp  2 \\
+				 2 \amp  0 \amp  4 \amp -3 \amp -8
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrrrr}
+				1 \amp 0 \amp  2 \amp 0 \amp -1 \\
+				0 \amp 1 \amp -1 \amp 0 \amp  3 \\
+				0 \amp 0 \amp  0 \amp 1 \amp  2 \\
+				0 \amp 0 \amp  0 \amp 0 \amp  0
+			\end{abmatrix}
+		</md>
+		From the position of the leading ones in the reduced matrix we see that
+		<md>
+			W = \Span \left\{
+				\begin{abmatrix}{rr}  1 \amp -1 \\ 5 \amp  2 \end{abmatrix},
+				\begin{abmatrix}{rr} -2 \amp  3 \\ 1 \amp  0 \end{abmatrix},
+				\begin{abmatrix}{rr}  0 \amp  4 \\ 2 \amp -3 \end{abmatrix}
+			\right\}
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m> V = \poly_3(\R) </m> </p>
+
+		<p><m> W = \Span \{ 1 - 2 x + 3 x^3, 2 - 4 x + 6 x^3, -1 + x + 2 x^2, - x + 2 x^2 + 3 x^3 \} </m></p>
+
+	</statement>
+
+	<solution><p>
+		Use the coefficients of the polynomials
+		(that is, the coordinates relative to the standard basis of <m> V </m>)
+		as column vectors in a matrix and reduce.
+		<md>
+			\begin{abmatrix}{rrrr}
+				 1 \amp  2 \amp -1 \amp  0 \\
+				-2 \amp -4 \amp  1 \amp -1 \\
+				 0 \amp  0 \amp  2 \amp  2 \\
+				 3 \amp  6 \amp  0 \amp  3
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{bmatrix}
+				1 \amp 2 \amp 0 \amp 1 \\
+				0 \amp 0 \amp 1 \amp 1 \\
+				0 \amp 0 \amp 0 \amp 0 \\
+				0 \amp 0 \amp 0 \amp 0
+			\end{bmatrix}
+		</md>
+		From the position of the leading ones in the reduced matrix we see that
+		<md> W = \Span \{ 1 - 2 x + 3 x^3, -1 + x + 2 x^2 \} </md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p>
+		<m> V = \poly_6(\R) </m>
+		<md>\begin{split}
+			W = \Span \{
+				\amp 1 - x^2 - x^3 + 2 x^4 + x^5 - x^6,
+				x + x^2 - x^6, \\
+				\amp -2 + 9 x + 11 x^2 + 2 x^3 - 4 x^4 - 2 x^5 - 7 x^6, \\
+				\amp 4 - 4 x - 8 x^2 - 4 x^3 + 8 x^4 + 4 x^5,
+				x^2 + 2 x^3 - x^4 - x^6
+			\}
+		\end{split}</md>
+		</p>
+
+	</statement>
+
+	<solution><p>
+		Use the coefficients of the polynomials
+		(that is, the coordinates relative to the standard basis of <m> V </m>)
+		as column vectors in a matrix and reduce.
+		<md>
+			\begin{abmatrix}{rrrrr}
+				 1 \amp  0 \amp -2 \amp  4 \amp  0 \\
+				 0 \amp  1 \amp  9 \amp -4 \amp  0 \\
+				-1 \amp  1 \amp 11 \amp -8 \amp  1 \\
+				-1 \amp  0 \amp  2 \amp -4 \amp  2 \\
+				 2 \amp  0 \amp -4 \amp  8 \amp -1 \\
+				 1 \amp  0 \amp -2 \amp  4 \amp  0 \\
+				-1 \amp -1 \amp -7 \amp  0 \amp -1
+			\end{abmatrix}
+			\qquad \rowredarrow \qquad
+			\begin{abmatrix}{rrrrr}
+				1 \amp 0 \amp -2 \amp  4 \amp 0 \\
+				0 \amp 1 \amp  9 \amp -4 \amp 0 \\
+				0 \amp 0 \amp  0 \amp  0 \amp 1 \\
+				0 \amp 0 \amp  0 \amp  0 \amp 0 \\
+				0 \amp 0 \amp  0 \amp  0 \amp 0 \\
+				0 \amp 0 \amp  0 \amp  0 \amp 0 \\
+				0 \amp 0 \amp  0 \amp  0 \amp 0
+			\end{abmatrix}
+		</md>
+		From the position of the leading ones in the reduced matrix we see that
+		<md>
+			W = \Span \{
+				1 - x^2 - x^3 + 2 x^4 + x^5 - x^6,
+				x + x^2 - x^6,
+				x^2 + 2 x^3 - x^4 - x^6
+			\}
+		</md>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>
