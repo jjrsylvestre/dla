@@ -35,9 +35,9 @@ respective owners.
 	We have already seen in
 	<xref ref="example-subspaces-solution-space" />
 	that the solution set of a homogeneous system
-	<m>A\uvec{x} = \zerovec</m> with <m>m\times n</m> coefficient matrix <m>A</m> is a subspace of <m>\R^n</m>.
+	<m> A \uvec{x} = \zerovec </m> with <m> m \times n </m> coefficient matrix <m> A </m> is a subspace of <m> \R^n </m>.
 	We will return to this special subspace at the end of this section,
-	but first we will discuss a special subspace of <m>\R^m</m> related to <em>non</em>homogeneous systems with coefficient matrix <m>A</m>.
+	but first we will discuss a special subspace of <m> \R^m </m> related to <em>non</em>homogeneous systems with coefficient matrix <m> A </m>.
 	</p>
 
 </introduction>
@@ -50,105 +50,105 @@ respective owners.
 
 <p>
 The solution set of a nonhomogeneous system
-<m>A\uvec{x} = \uvec{b}</m>
-with <m>m\times n</m> coefficient matrix <m>A</m> cannot be a subspace of <m>\R^n</m> because it can never contain the zero vector.
+<m> A \uvec{x} = \uvec{b} </m>
+with <m> m \times n </m> coefficient matrix <m> A </m> cannot be a subspace of <m> \R^n </m> because it can never contain the zero vector.
 Even worse, if the system is inconsistent,
 then the solution set does not contain any vectors at all.
 </p>
 
 <question><statement><p>
-	Amongst <em>all</em> systems with coefficient matrix <m>A</m>, which are consistent?
+	Amongst <em>all</em> systems with coefficient matrix <m> A </m>, which are consistent?
 </p></statement></question>
 
 <p>
 We know that the homogeneous system
-<m>A\uvec{x} = \zerovec</m>
+<m> A \uvec{x} = \zerovec </m>
 is consistent because it has at least the trivial solution.
-But for what other vectors <m>\uvec{b}</m> besides <m>\uvec{b} = \zerovec</m> is the system
-<m>A\uvec{x}=\uvec{b}</m>
+But for what other vectors <m> \uvec{b} </m> besides <m> \uvec{b} = \zerovec </m> is the system
+<m> A \uvec{x} = \uvec{b} </m>
 consistent?
 <!--
-We can show that the collection of all such <m>\uvec{b}</m> vectors is a subspace of <m>\R^m</m> by applying
+We can show that the collection of all such <m> \uvec{b} </m> vectors is a subspace of <m> \R^m </m> by applying
 the <xref ref="procedure-subspaces-concepts-test" text="title" />
 (<xref ref="procedure-subspaces-concepts-test" />).
 <ol marker="(i)">
 	<li>
 		We know this collection is nonempty,
 		as we have already noted that
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		is consistent for
-		<m>\uvec{b}=\zerovec</m>.
+		<m> \uvec{b} = \zerovec </m>.
 	</li>
 	<li>
 		Suppose system
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		is consistent for both
-		<m>\uvec{b}=\uvec{b}_1</m>
+		<m> \uvec{b} = \uvec{b}_1 </m>
 		and
-		<m>\uvec{b}=\uvec{b}_2</m>.
+		<m> \uvec{b} = \uvec{b}_2 </m>.
 		Then there exists at least one solution to each system.
-		Let <m>\uvec{x}=\uvec{x}_1</m> be a solution to
-		<m>A\uvec{x}=\uvec{b}_1</m>
+		Let <m> \uvec{x} = \uvec{x}_1 </m> be a solution to
+		<m> A \uvec{x} = \uvec{b}_1 </m>
 		and
-		<m>\uvec{x}=\uvec{x}_2</m>
+		<m> \uvec{x} = \uvec{x}_2 </m>
 		be a solution to
-		<m>A\uvec{x}=\uvec{b}_2</m>.
-		Then <m>\uvec{x} = \uvec{x}_1+\uvec{x}_2</m>
+		<m> A \uvec{x} = \uvec{b}_2 </m>.
+		Then <m> \uvec{x} = \uvec{x}_1 + \uvec{x}_2 </m>
 		is a solution to system
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		for
-		<m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m>,
+		<m> \uvec{b} = \uvec{b}_1 + \uvec{b}_2 </m>,
 		since
-		<md> A(\uvec{x}_1+\uvec{x}_2) = A\uvec{x}_1+A\uvec{x}_2 = \uvec{b}_1 + \uvec{b}_2. </md>
+		<md> A ( \uvec{x}_1 + \uvec{x}_2 ) = A \uvec{x}_1 + A \uvec{x}_2 = \uvec{b}_1 + \uvec{b}_2 </md>.
 		Therefore, the system
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		is consistent for
-		<m>\uvec{b}=\uvec{b}_1+\uvec{b}_2</m>
+		<m> \uvec{b} = \uvec{b}_1 + \uvec{b}_2 </m>
 		because it has at least one solution as above.
 		This verifies that whenever vectors
-		<m>\uvec{b}_1</m> and <m>\uvec{b}_2</m>
+		<m> \uvec{b}_1 </m> and <m> \uvec{b}_2 </m>
 		are in the collection,
 		so is the sum vector
-		<m>\uvec{b}_1+\uvec{b}_2</m>.
+		<m> \uvec{b}_1 + \uvec{b}_2 </m>.
 	</li>
 	<li>
 		Suppose system
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		is consistent for
-		<m>\uvec{b}=\uvec{b}_0</m>,
+		<m> \uvec{b} = \uvec{b}_0 </m>,
 		so that there exists at least one solution
-		<m>\uvec{x}=\uvec{x}_0</m>.
-		Then given a scalar <m>k</m>,
-		vector <m>\uvec{x} = k\uvec{x}_0</m>
+		<m> \uvec{x} = \uvec{x}_0 </m>.
+		Then given a scalar <m> k </m>,
+		vector <m> \uvec{x} = k \uvec{x}_0 </m>
 		is a solution to system
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		for
-		<m>\uvec{b}=k\uvec{b}_0</m>,
+		<m> \uvec{b} = k \uvec{b}_0 </m>,
 		since
-		<md> A(k\uvec{x}_0) = k(A\uvec{x}_0) = k\uvec{b}_0. </md>
+		<md> A ( k \uvec{x}_0 ) = k ( A \uvec{x}_0 ) = k \uvec{b}_0 </md>.
 		Therefore, the system
-		<m>A\uvec{x}=\uvec{b}</m>
+		<m> A \uvec{x} = \uvec{b} </m>
 		is consistent for
-		<m>\uvec{b}=k\uvec{b}_0</m>
+		<m> \uvec{b} = k \uvec{b}_0 </m>
 		because it has at least one solution as above.
-		This verifies that whenever vector <m>\uvec{b}_0</m> is in the collection,
-		so is the scaled vector <m>k\uvec{b}_0</m>.
+		This verifies that whenever vector <m> \uvec{b}_0 </m> is in the collection,
+		so is the scaled vector <m> k \uvec{b}_0 </m>.
 	</li>
 </ol>
 -->
-It is possible to verify directly that the collection of all such <m>\uvec{b}</m> vectors is a subspace of <m>\R^m</m>.
+It is possible to verify directly that the collection of all such <m> \uvec{b} </m> vectors is a subspace of <m> \R^m </m>.
 </p>
 
 <aside><title>Check your understanding</title><p>
 	Apply the <xref ref="procedure-subspaces-concepts-test" text="title" />
 	(<xref ref="procedure-subspaces-concepts-test" />)
-	to verify that for a given <m>m\times n</m> matrix <m>A</m>,
-	the collection of all vectors <m>\uvec{b}</m> in <m>\R^m</m> for which the system <m>A\uvec{x}=\uvec{b}</m> is consistent forms a subspace of <m>\R^m</m>.
+	to verify that for a given <m> m \times n </m> matrix <m> A </m>,
+	the collection of all vectors <m> \uvec{b} </m> in <m> \R^m </m> for which the system <m> A \uvec{x} = \uvec{b} </m> is consistent forms a subspace of <m> \R^m </m>.
 </p></aside>
 
 <p>
 Until we know more about it,
-for now let's refer to this subspace of <m>\R^m</m> as the <term>consistent space</term> of <m>A</m>.
+for now let's refer to this subspace of <m> \R^m </m> as the <term>consistent space</term> of <m> A </m>.
 </p>
 
 </subsubsection>
@@ -157,58 +157,60 @@ for now let's refer to this subspace of <m>\R^m</m> as the <term>consistent spac
 <title>Consistent space versus column space</title>
 
 <p>
-To better understand this so-called consistent space, we should relate it back to the matrix <m>A</m> as we did in
+To better understand this so-called consistent space, we should relate it back to the matrix <m> A </m> as we did in
 <xref ref="activity-col-row-null-space-colspan-motivation" />,
-because <m>A</m> is the only thing common to all the <m>\uvec{b}</m> vectors in this space.
-Let's again think of <m>A</m> as being made up of column vectors in <m>\R^m</m>:
+because <m> A </m> is the only thing common to all the <m> \uvec{b} </m> vectors in this space.
+Let's again think of <m> A </m> as being made up of column vectors in <m> \R^m </m>:
 <md>
 	A = \begin{bmatrix}
 		| \amp | \amp \amp | \\
 		\uvec{c}_1 \amp \uvec{c}_2 \amp \cdots \amp \uvec{c}_n \\
 		| \amp | \amp  \amp |
-	\end{bmatrix}.
-</md>
+	\end{bmatrix}
+</md>.
 In <xref ref="activity-col-row-null-space-matrix-times-stdvec" />,
-we found that the result of computing <m>A\uvec{e}_j</m> is <m>\uvec{c}_j</m>,
-the <m>\nth[j]</m> column of <m>A</m>
-(where <m>\uvec{e}_j</m> is the <m>\nth[j]</m> standard basis vector in <m>\R^n</m>, as usual).
+we found that the result of computing <m> A \uvec{e}_j </m> is <m> \uvec{c}_j </m>,
+the <m> \nth[j] </m> column of <m> A </m>
+(where <m> \uvec{e}_j </m> is the <m> \nth[j] </m> standard basis vector in <m> \R^n </m>, as usual).
 But this says that each system
-<m>A\uvec{x}=\uvec{c}_j</m>
+<m> A \uvec{x} = \uvec{c}_j </m>
 is consistent,
-since there is at least one solution <m>\uvec{x}=\uvec{e}_j</m>.
-Therefore, each of the columns of <m>A</m> is in the consistent space of <m>A</m>.
+since there is at least one solution <m> \uvec{x} = \uvec{e}_j </m>.
+Therefore, each of the columns of <m> A </m> is in the consistent space of <m> A </m>.
 And because the span of these columns is the <em>smallest</em> subspace that contains each of them,
 we can conclude that every vector in the column space
-<m>\Span\{\uvec{c}_1,\uvec{c}_2,\dotsc,\uvec{c}_n\}</m>
-of <m>A</m> is also in the consistent space of <m>A</m>.
-</p><p>
+<m> \Span \{ \uvec{c}_1, \uvec{c}_2, \dotsc, \uvec{c}_n \} </m>
+of <m> A </m> is also in the consistent space of <m> A </m>.
+</p>
+
+<p>
 What other vectors could be in this space?
-If <m>A\uvec{x}=\uvec{b}</m> is consistent,
+If <m> A \uvec{x} = \uvec{b} </m> is consistent,
 then it has at least one solution
 <md>
 	\uvec{x}
 	= \uvec{x}_0
-	= \left[\begin{smallmatrix}x_1\\x_2\\\vdots\\x_n\end{smallmatrix}\right]
-	= x_1\uvec{e}_1+x_2\uvec{e}_2+\dotsb+x_n\uvec{e}_n.
-</md>
+	= \left[\begin{smallmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{smallmatrix}\right]
+	= x_1 \uvec{e}_1 + x_2 \uvec{e}_2 + \dotsb + x_n \uvec{e}_n
+</md>.
 But then
 <md>
 	<mrow> \uvec{b} \amp = A\uvec{x}_0 </mrow>
-	<mrow> \amp = A(x_1\uvec{e}_1+x_2\uvec{e}_2+\dotsb+x_n\uvec{e}_n) </mrow>
-	<mrow> \amp = x_1A\uvec{e}_1+x_2A\uvec{e}_2+\dotsb+x_nA\uvec{e}_n </mrow>
+	<mrow> \amp = A ( x_1 \uvec{e}_1 + x_2 \uvec{e}_2 + \dotsb + x_n \uvec{e}_n ) </mrow>
+	<mrow> \amp = x_1 A \uvec{e}_1 + x_2 A \uvec{e}_2 + \dotsb + x_n A \uvec{e}_n </mrow>
 	<mrow xml:id="equation-col-row-null-space-concepts-lincomb-columns" tag="star">
-		\amp = x_1\uvec{c}_1+x_2\uvec{c}_2+\dotsb+x_n\uvec{c}_n.
+		\amp = x_1 \uvec{c}_1 + x_2 \uvec{c}_2 + \dotsb + x_n \uvec{c}_n \text{.}
 	</mrow>
 </md>
-So whenever <m>A\uvec{x}=\uvec{b}</m> is consistent,
-we find that <m>\uvec{b}</m> is equal to some linear combination of the columns of <m>A</m>
+So whenever <m> A \uvec{x} = \uvec{b} </m> is consistent,
+we find that <m> \uvec{b} </m> is equal to some linear combination of the columns of <m> A </m>
 (with coefficients taken from the components of a solution vector).
-In other words, every vector in the consistent space of <m>A</m> is also in the column space of <m>A</m>.
+In other words, every vector in the consistent space of <m> A </m> is also in the column space of <m> A </m>.
 So the two spaces are equal:
 <alert>
-	the system <m>A\uvec{x}=\uvec{b}</m> is consistent when,
+	the system <m> A \uvec{x} = \uvec{b} </m> is consistent when,
 	and only when,
-	the vector of constants <m>\uvec{b}</m> is in the column space of <m>A</m>
+	the vector of constants <m> \uvec{b} </m> is in the column space of <m> A </m>
 </alert>.
 </p>
 
@@ -218,9 +220,9 @@ So the two spaces are equal:
 <title>Determining a basis for a column space</title>
 
 <p>
-Since the columns of <m>A</m> are,
+Since the columns of <m> A </m> are,
 by definition,
-a spanning set for the column space of <m>A</m>,
+a spanning set for the column space of <m> A </m>,
 we can reduce it to a basis.
 Once again, we can apply row reduction to this task.
 Row reducing is equivalent to multiplying on the left by elementary matrices,
@@ -228,9 +230,9 @@ and when we defined matrix multiplication in
 <xref ref="subsection-matrix-ops-concepts-matrix-mult" />
 we did so column-by-column:
 <md>
-	EA = \begin{bmatrix}
+	E A = \begin{bmatrix}
 		| \amp | \amp \amp | \\
-		E\uvec{c}_1 \amp E\uvec{c}_2 \amp \cdots \amp E\uvec{c}_n \\
+		E \uvec{c}_1 \amp E \uvec{c}_2 \amp \cdots \amp E \uvec{c}_n \\
 		| \amp | \amp  \amp |
 	\end{bmatrix}
 </md>.
@@ -249,23 +251,25 @@ in
 <p>
 As we partially reasoned in
 <xref ref="activity-col-row-null-space-colspace-basis-proc" />,
-this means that we can recognize independence/dependence relationships amongst the columns of <m>A</m> from the independence/dependence relationships amongst the columns of reduced forms of <m>A</m>,
+this means that we can recognize independence/dependence relationships amongst the columns of <m> A </m> from the independence/dependence relationships amongst the columns of reduced forms of <m> A </m>,
 leading to the following procedure.
 </p>
 
 <algorithm xml:id="procedure-col-row-null-space-concepts-col-space-basis">
-	<title>To determine a basis for the column space of matrix <m>A</m></title>
+	<title>To determine a basis for the column space of matrix <m> A </m></title>
+
 	<statement><p>
-	<ol>
-		<li> Reduce to at least REF. </li>
-		<li> Extract from <m>A</m> all those columns in positions corresponding to the positions of the leading ones in the reduced matrix. </li>
-	</ol>
-	These extracted columns will form a basis for the column space of <m>A</m>.
+		<ol>
+			<li> Reduce to at least REF. </li>
+			<li> Extract from <m> A </m> all those columns in positions corresponding to the positions of the leading ones in the reduced matrix. </li>
+		</ol>
+		These extracted columns will form a basis for the column space of <m> A </m>.
 	</p></statement>
+
 </algorithm>
 
 <remark><p>
-	It is important that you <alert>take the basis vectors from the columns of <m>A</m></alert>,
+	It is important that you <alert>take the basis vectors from the columns of <m> A </m></alert>,
 	not from the columns of the reduced matrix <mdash />
 	row operations do not change independence/dependence relationships amongst the columns,
 	but they <em>do</em> change the column space.
@@ -282,22 +286,24 @@ In
 we used this new procedure to create a reinterpretation of
 the <xref ref="procedure-linear-indep-concepts-test-for-dep-indep" text="title" />
 (<xref ref="procedure-linear-indep-concepts-test-for-dep-indep" />)
-for vectors in <m>\R^m</m>.
+for vectors in <m> \R^m </m>.
 </p>
 
 <algorithm xml:id="procedure-col-row-null-space-concepts-colspace-linear-indep-test">
-	<title>To use row reduction to test linear dependence/independence in <m>\R^m</m></title>
+	<title>To use row reduction to test linear dependence/independence in <m> \R^m </m></title>
+
 	<statement><p>
-		To determine whether a collection of <m>n</m> vectors in <m>\R^m</m> is linearly dependent or independent,
-		form an <m>m\times n</m> matrix by using the vectors as <em>columns</em>,
+		To determine whether a collection of <m> n </m> vectors in <m> \R^m </m> is linearly dependent or independent,
+		form an <m> m \times n </m> matrix by using the vectors as <em>columns</em>,
 		and then row reduce to determine the rank of the matrix.
-		If the rank is equal to <m>n</m>
+		If the rank is equal to <m> n </m>
 		(so that there is a leading one in every column of the reduced matrix),
 		then the vectors are linearly independent.
-		If the rank is less that <m>n</m>
+		If the rank is less that <m> n </m>
 		(so that at least one column of the reduced matrix does not contain a leading one),
 		then the vectors are linearly dependent.
 	</p></statement>
+
 </algorithm>
 
 <p>
@@ -347,14 +353,16 @@ But the pattern of leading ones guarantees that the nonzero rows in an REF are l
 </p>
 
 <algorithm>
-	<title>To determine a basis for the row space of matrix <m>A</m></title>
+	<title>To determine a basis for the row space of matrix <m> A </m></title>
+
 	<statement><p>
-	<ol>
-		<li> Reduce to at least REF. </li>
-		<li> Extract the nonzero rows from the REF you have computed. </li>
-	</ol>
-	These extracted rows will form a basis for the row space of <m>A</m>.
+		<ol>
+			<li> Reduce to at least REF. </li>
+			<li> Extract the nonzero rows from the REF you have computed. </li>
+		</ol>
+		These extracted rows will form a basis for the row space of <m> A </m>.
 	</p></statement>
+
 </algorithm>
 
 <remark><p>
@@ -366,18 +374,20 @@ But the pattern of leading ones guarantees that the nonzero rows in an REF are l
 <p> We can also use the row space procedure to test vectors for linear independence. </p>
 
 <algorithm xml:id="procedure-col-row-null-space-concepts-rowspace-linear-indep-test">
-	<title>A second way to use row reduction to test linear dependence/independence in <m>\R^m</m></title>
+	<title>A second way to use row reduction to test linear dependence/independence in <m> \R^m </m></title>
+
 	<statement><p>
-		To determine whether a collection of <m>m</m> vectors in <m>\R^n</m> is linearly dependent or independent,
-		form an <m>m\times n</m> matrix by using the vectors as <em>rows</em>,
+		To determine whether a collection of <m> m </m> vectors in <m> \R^n </m> is linearly dependent or independent,
+		form an <m> m \times n </m> matrix by using the vectors as <em>rows</em>,
 		and then row reduce to determine the rank of the matrix.
-		If the rank is equal to <m>m</m>
+		If the rank is equal to <m> m </m>
 		(so that no zero rows can be produced by reducing),
 		then the vectors are linearly independent.
-		If the rank is less that <m>n</m>
+		If the rank is less that <m> n </m>
 		(so that reducing produces at least one zero row),
 		then the vectors are linearly dependent.
 	</p></statement>
+
 </algorithm>
 
 </subsection>
@@ -391,7 +401,7 @@ But the pattern of leading ones guarantees that the nonzero rows in an REF are l
 </p></statement></question>
 
 <p>
-When testing vectors from <m>\R^n</m> for linear independence,
+When testing vectors from <m> \R^n </m> for linear independence,
 we clearly have a choice of whether to form a matrix using those vectors as columns or as rows.
 But we also have a choice when computing a basis for either type of space,
 because the column space of a matrix is the same as the row space of the transpose,
@@ -441,7 +451,7 @@ expressing other vectors in the space as linear combinations of these basis vect
 In <xref ref="example-dimension-homog-sol-space" />
 we applied <xref ref="procedure-dimension-concepts-basis-from-parameters-procedure" />
 to the case of a solution space of a homogeneous linear system <m> A \uvec{x} = \zerovec </m>,
-now called the <term><xref ref="definition-col-row-null-space-null" text="title" /></term> of <m>A</m>.
+now called the <term><xref ref="definition-col-row-null-space-null" text="title" /></term> of <m> A </m>.
 Here we will translate <xref ref="procedure-dimension-concepts-basis-from-parameters-procedure" /> specifically for that case.
 </p>
 
@@ -451,16 +461,16 @@ Here we will translate <xref ref="procedure-dimension-concepts-basis-from-parame
 	<title>Obtaining a basis of a null space</title>
 
 	<statement><p>
-		To obtain a basis for the null space of a matrix <m>A</m>:
+		To obtain a basis for the null space of a matrix <m> A </m>:
 		<ol>
 
 			<li><p>
-				Determine the general solution to the homogeneous system <m>A \uvec{x} = \zerovec</m> in parameteric form,
-				by reducing <m>A</m> to RREF and applying <xref ref="procedure-row-red-concepts-describe-solutions" />,
+				Determine the general solution to the homogeneous system <m> A \uvec{x} = \zerovec </m> in parameteric form,
+				by reducing <m> A </m> to RREF and applying <xref ref="procedure-row-red-concepts-describe-solutions" />,
 				as usual.
 				If the system has <em>only</em> the trivial solution
 				(that is, no parameters are required),
-				then the null space is the trivial space <m>\{\zerovec\}</m>,
+				then the null space is the trivial space <m> \{ \zerovec \} </m>,
 				and its basis is the empty set.
 				(See <xref ref="subsection-dimension-concepts-trivial" />.)
 			</p></li>
@@ -488,10 +498,10 @@ Here we will translate <xref ref="procedure-dimension-concepts-basis-from-parame
 				expand the expression from the previous step into a linear combination of the form
 				<md>
 					\uvec{x}
-					= (\text{parameter})\cdot(\text{vector})
-					+ (\text{parameter})\cdot(\text{vector})
+					= (\text{parameter}) \cdot (\text{vector})
+					+ (\text{parameter}) \cdot (\text{vector})
 					+ \dotsb
-					+ (\text{parameter})\cdot(\text{vector})
+					+ (\text{parameter}) \cdot (\text{vector})
 				</md>,
 				where there is one term in the linear combination for each independent parameter.
 			</p></li>
@@ -510,16 +520,16 @@ Here we will translate <xref ref="procedure-dimension-concepts-basis-from-parame
 </algorithm>
 
 <p>
-The null space of <m>A</m> doesn't just represent the set of solutions to the homogeneous system <mdash />
+The null space of <m> A </m> doesn't just represent the set of solutions to the homogeneous system <mdash />
 <xref ref="lemma-matrix-ops-particular-sol-plus-homog-sol" />
-tells us that it represents most of the data we need in order to know the solution set of every system that has <m>A</m> as a coefficient matrix.
+tells us that it represents most of the data we need in order to know the solution set of every system that has <m> A </m> as a coefficient matrix.
 If we know one specific solution
-<m>\uvec{x} = \uvec{x}_1</m>
+<m> \uvec{x} = \uvec{x}_1 </m>
 to nonhomogeneous system
-<m> A \uvec{x} = \uvec{b}</m>,
-then every other solution can be obtained by adding to <m>\uvec{x}_1</m> a vector from the null space.
+<m> A \uvec{x} = \uvec{b} </m>,
+then every other solution can be obtained by adding to <m> \uvec{x}_1 </m> a vector from the null space.
 Geometrically, this represents a translation of the null space away from the origin,
-like a plane that is translated away from the origin by an <q>initial</q> point <m>\uvec{x}_1</m>.
+like a plane that is translated away from the origin by an <q>initial</q> point <m> \uvec{x}_1 </m>.
 </p>
 
 <p>
@@ -529,14 +539,14 @@ are connected through the RREF of the matrix.
 For column space, we get a basis vector for each leading one in the RREF.
 For row space, we get a basis vector for each nonzero row in the RREF,
 and a row in the RREF is nonzero precisely when it contains a leading one.
-So even though column space is a subspace of <m>\R^m</m> and row space is a subspace of <m>\R^n</m>
-(where <m>A</m> is an <m>m\times n</m> matrix),
-<alert>the column space and the row space of <m>A</m> have the same dimension</alert>,
-and this dimension is equal to the rank of <m>A</m>.
+So even though column space is a subspace of <m> \R^m </m> and row space is a subspace of <m> \R^n </m>
+(where <m> A </m> is an <m> m \times n </m> matrix),
+<alert>the column space and the row space of <m> A </m> have the same dimension</alert>,
+and this dimension is equal to the rank of <m> A </m>.
 On the other hand, for the null space we get one basis vector for each parameter required to solve the homogeneous system.
 Parameters are assigned to free variables,
 and free variables are those whose columns <em>do not</em> contain a leading one.
-So the dimension of the null space is equal to the difference between the number of columns of <m>A</m> and the rank of <m>A</m>,
+So the dimension of the null space is equal to the difference between the number of columns of <m> A </m> and the rank of <m> A </m>,
 which is just a more sophisticated way to state
 <xref ref="proposition-row-red-num-parameters-vs-rank" />.
 </p>
