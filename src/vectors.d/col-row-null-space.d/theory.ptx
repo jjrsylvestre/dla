@@ -453,27 +453,27 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 
 <corollary xml:id="corollary-col-row-null-space-rref-row-space">
 
-	<title> Row space basis and dimension </title>
+	<title> Row space versus row reduction </title>
 
 	<statement><p>
-	Let <m> A </m> represent a matrix.
-	<ol>
-		<li xml:id="corollary-col-row-null-space-rref-row-space-invertible-times">
-			If <m> E </m> is an invertible square matrix of compatible size,
-			then <m> A </m> and <m> E A </m> have the same row space.
-		</li>
-		<li xml:id="corollary-col-row-null-space-rref-row-space-same-row-space">
-			The row space of each REF for <m> A </m>
-			(including the RREF of <m> A </m>)
-			is always the same as that of <m> A </m>.
-		</li>
-		<li xml:id="corollary-col-row-null-space-rref-row-space-basis">
-			The nonzero rows of each REF for <m> A </m> form a basis for the row space of <m> A </m>.
-		</li>
-		<li xml:id="corollary-col-row-null-space-rref-row-space-dim">
-			The dimension of the row space of <m> A </m> is equal to the rank of <m> A </m>.
-		</li>
-	</ol>
+		Let <m> A </m> represent a matrix.
+		<ol>
+
+			<li xml:id="corollary-col-row-null-space-rref-row-space-invertible-times">
+				If <m> E </m> is an invertible square matrix of compatible size,
+				then <m> A </m> and <m> E A </m> have the same row space.
+			</li>
+
+			<li xml:id="corollary-col-row-null-space-rref-row-space-same-row-space">
+				If <m> B </m> is row equivalent to <m> A </m>,
+				then the row space of <m> B </m> is the same as that of <m> A </m>.
+				In particular,
+				the row space of each REF for <m> A </m>
+				(including the RREF of <m> A </m>)
+				is always the same as that of <m> A </m>.
+			</li>
+
+		</ol>
 	</p></statement>
 
 	<proof>
@@ -491,20 +491,42 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 	<proof>
 		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-same-row-space">Statement</xref></title>
 		<p>
-		Let <m> F </m> be an REF for <m> A </m>,
-		and let
-		<m> E_1, E_2, \dotsc, E_\ell </m>
-		be elementary matrices corresponding to some sequence of row operations that reduces <m> A </m> to <m> F </m>.
+		Suppose that <m> B </m> is row equivalent to <m> A </m>.
+		By definition,
+		this means that we can obtain <m> B </m> through a sequence of elementary row operations applied to <m> A </m>.
+		Let <m> E_1, E_2, \dotsc, E_\ell </m>
+		be elementary matrices corresponding to some sequence of row operations that transforms <m> A </m> into <m> B </m>.
 		Set <m> E = E_\ell \dotsm E_2 E_1 </m>.
-		Then <m> E </m> is an invertible matrix and <m> F = E A </m>.
-		Therefore, <m> F </m> has the same row space as <m> A </m> by
+		Then <m> E </m> is an invertible matrix and <m> B = E A </m>.
+		Therefore, <m> B </m> has the same row space as <m> A </m> by
 		<xref ref="corollary-col-row-null-space-rref-row-space-invertible-times">Statement</xref>
 		of this corollary.
 		</p>
 	</proof>
 
+</corollary>
+
+<corollary xml:id="corollary-col-row-null-space-row-space-basis-dimension">
+
+	<title> Row space basis and dimension </title>
+
+	<statement><p>
+		Let <m> A </m> represent a matrix.
+		<ol>
+
+			<li xml:id="corollary-col-row-null-space-row-space-basis-dimension-basis">
+				The nonzero rows of each REF for <m> A </m> form a basis for the row space of <m> A </m>.
+			</li>
+
+			<li xml:id="corollary-col-row-null-space-row-space-basis-dimension-dim">
+				The dimension of the row space of <m> A </m> is equal to the rank of <m> A </m>.
+			</li>
+
+		</ol>
+	</p></statement>
+
 	<proof>
-		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-basis">Statement</xref></title>
+		<title>Proof of <xref ref="corollary-col-row-null-space-row-space-basis-dimension-basis">Statement</xref></title>
 		<p>
 		Let <m> F </m> be an REF for <m> A </m>.
 		By
@@ -565,15 +587,135 @@ leading to our conclusion about how to obtain a basis for the row space of a mat
 	</proof>
 
 	<proof>
-		<title>Proof of <xref ref="corollary-col-row-null-space-rref-row-space-dim">Statement</xref></title>
+		<title>Proof of <xref ref="corollary-col-row-null-space-row-space-basis-dimension-dim">Statement</xref></title>
 		<p>
 		Applying
-		<xref ref="corollary-col-row-null-space-rref-row-space-basis">Statement</xref>
+		<xref ref="corollary-col-row-null-space-row-space-basis-dimension-basis">Statement</xref>
 		of this corollary to the RREF for <m> A </m>,
 		the nonzero rows of <m> \RREF(A) </m> form a basis for the row space of <m> A </m>.
 		But the nonzero rows of <m> \RREF(A) </m> must all contain leading ones,
 		so the number of vectors in a basis for the row space of <m> A </m> is equal to the number of leading ones in <m> \RREF(A) </m>,
 		as desired.
+		</p>
+	</proof>
+
+</corollary>
+
+<corollary xml:id="corollary-col-row-null-space-row-space-iff-same-row-space">
+
+	<title> Row space versus row equivalence </title>
+
+	<statement><p><ol>
+
+		<li xml:id="corollary-col-row-null-space-row-space-iff-same-row-space-same-rref">
+			Two matrices of the same size have the same row space if and only if they have the same RREF.
+		</li>
+
+		<li xml:id="corollary-col-row-null-space-row-space-iff-same-row-space-row-equiv">
+			Two matrices of the same size have the same row space if and only if they are row equivalent.
+		</li>
+
+	</ol></p></statement>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-row-space-iff-same-row-space-same-rref">Statement</xref></title>
+
+		<p>
+		Matrices that have the same RREF are row equivalent,
+		and we have already verified that row equivalent matrices have the same row space
+		(<xref ref="corollary-col-row-null-space-rref-row-space-same-row-space">Statement</xref> of
+		<xref ref="corollary-col-row-null-space-rref-row-space" />).
+		It only remains to verify that having the same row space implies having the same RREF.
+		</p>
+
+		<p>
+		Suppose <m> A </m> and <m> B </m> are matrices of the same size that have the same row space.
+		If one the two matrices is the zero matrix,
+		then the row space of that matrix is the trivial space <m> \{ \zerovec \} </m>.
+		But then the other cannot be nonzero,
+		since a nonzero matrix would have a nontrivial row space.
+		And if both matrices are the zero matrix,
+		then they are both already in RREF,
+		and so have the same RREF.
+		</p>
+
+		<p>
+		So assume both matrices are nonzero.
+		Then their RREFs are both nonzero has well.
+		Let <m> \uvec{a}_1, \uvec{a}_2, \dotsc, \uvec{a}_m </m> represent the non-zero rows of <m> \RREF(A) </m>
+		and let <m> \uvec{b}_1, \uvec{b}_2, \dotsc, \uvec{b}_m </m> represent the non-zero rows of <m> \RREF(B) </m>.
+		By <xref ref="corollary-col-row-null-space-row-space-basis-dimension-basis">Statement</xref>
+		of <xref ref="corollary-col-row-null-space-row-space-basis-dimension">Statement</xref>,
+		each of these collections is a basis for the same space:
+		the shared row space of <m> A </m> and <m> B </m>.
+		Because of this,
+		each <m> \uvec{a}_i </m> is somehow a linear combination of the <m> \uvec{b}_j </m> vectors,
+		and vice versa.
+		</p>
+
+		<p>
+		Now,
+		each of <m> \uvec{a}_1 </m> and <m> \uvec{b}_1 </m> has a leading one as the first nonzero component.
+		It is not possible for the leading one in <m> \uvec{a}_1 </m> to be <q>earlier</q> than the leading one in <m> \uvec{b}_1 </m>,
+		since if it were then it would also be <q>earlier</q> than <em> all </em> of the leading ones in <m> \RREF(B) </m>,
+		and then it would be impossible for <m> \uvec{a}_1 </m> to be a linear combination of the <m> \uvec{b}_j </m> vectors.
+		By the same argument,
+		the leading one in <m> \uvec{b}_1 </m> cannot be <q>earlier</q> than the leading one in <m> \uvec{a}_1 </m>,
+		and so both <m> \uvec{a}_1 </m> and <m> \uvec{b}_1 </m> have their leading ones in the same position.
+		</p>
+
+		<p>
+		From this we can conclude that expressing <m> \uvec{a}_2 </m> as a linear combination of the <m> \uvec{b}_j </m> vectors cannot involve <m> \uvec{b}_1 </m>,
+		since that would create a nonzero entry in <m> \uvec{a}_2 </m> at the same position as the leading one in <m> \uvec{a}_1 </m>,
+		which cannot happen in RREF.
+		And similarly expressing <m> \uvec{b}_2 </m> as a linear combination of the <m> \uvec{a}_j </m> vectors cannot involve <m> \uvec{a}_1 </m>.
+		But then essentially the same argument as above for <m> \uvec{a}_1 </m> and <m> \uvec{b}_1 </m> can be applied to conclude that the leading ones in <m> \uvec{a}_2 </m> and <m> \uvec{b}_2 </m> must occur at the same position.
+		And so on,
+		so that each pair <m> \uvec{a}_i, \uvec{b}_i </m> must have their leading ones in the same component.
+		This also means that wherever a particular <m> \uvec{a}_i </m> vector has a leading one,
+		all of the <m> \uvec{b}_j </m> vectors have a zero in that same position,
+		except <m> \uvec{b}_i </m>.
+		(And vice versa for each <m> \uvec{b}_i </m> compared to the <m> \uvec{a}_j </m> vectors.)
+		</p>
+
+		<p>
+		For each expresion
+		<md> \uvec{a}_i = k_1 \uvec{b}_1 + k_2 \uvec{b}_2 + \dotsb + k_m \uvec{b}_m </md>
+		we can now make the following determinations:
+		<ol>
+
+			<li>
+				Each of <m> k_1, k_2, \dotsc, k_{i - 1} </m> must be zero,
+				since otherwise the coefficient <m> k_j </m> times the leading one in the corresponding <m> \uvec{b}_j </m> vector would create a nonzero entry in <m> \uvec{a}_i </m> that is <q>earlier</q> than the leading one in <m> \uvec{a}_i </m>,
+				which cannot happen.
+			</li>
+
+			<li>
+				The coefficient <m> k_i </m> must be <m> 1 </m>,
+				so that when multiplied against the leading one in the corresponding <m> \uvec{b}_i </m> vector it creates the leading one in <m> \uvec{a}_i </m>.
+			</li>
+
+			<li>
+				Each of <m> k_{i + 1}, k_{i + 2}, \dotsc, k_m </m> must be zero,
+				since otherwise the coefficient <m> k_j </m> times the leading one in the corresponding <m> \uvec{b}_j </m> vector would create a nonzero entry in <m> \uvec{a}_i </m> at the same position as a leading one in <m> \uvec{a}_j </m>,
+				which cannot happen.
+			</li>
+
+		</ol>
+		Simplifying using these determinations,
+		we conclude that <m> \uvec{a}_i = \uvec{b}_i </m> in each case,
+		and therefore <m> \RREF(A) = \RREF(B) </m>.
+		</p>
+
+	</proof>
+
+	<proof>
+		<title>Proof of <xref ref="corollary-col-row-null-space-row-space-iff-same-row-space-row-equiv">Statement</xref></title>
+		<p>
+		This now follows immediately from
+		<xref ref="corollary-col-row-null-space-row-space-iff-same-row-space-same-rref">Statement</xref>
+		of this corollary,
+		as matrices of the same size are row equivalent precisely when they have the same RREF.
 		</p>
 	</proof>
 
