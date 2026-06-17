@@ -106,18 +106,18 @@
 			</li>
 			<li><p> Determine if  <m>\uvec{w}=(2,0,1)</m> is in  <m>\Span S</m>.</p>
             </li>
-	<li>
+	<li xml:id="exercise-subspaces-analyzespangeneral">
 		<p> Give a condition on the values of <m>a,b,c</m> so that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m>. Justify your answer.
 			
 		</p>
 	</li>
 		</ol>
 	</p></statement>
-
-	<solution><p>
-		
-	</p></solution>
-
+<hint>
+	<p>
+		Set up <xref ref="exercise-subspaces-analyzespangeneral" text="Part c" /> as you did in the previous parts, using <m>a,b,c</m>. 
+	</p>
+</hint>
 </exercise>
 
 <exercise xml:id="exercise-subspaces-spanningsetsubspaceofR4">
@@ -126,7 +126,7 @@
 	<statement><p>
 		Let <m>V=\mathbb{R}^4</m>, and consider <m>U=</m> all vectors <m>(x_1,x_2,x_3,x_4)</m> where <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>.
 		<ol>
-			<li><p> Show that <m>U</m> is a supspace of <m>\mathbb{R}^4</m>.</p>
+			<li><p> Show that <m>U</m> is a subspace of <m>\mathbb{R}^4</m>.</p>
 			</li>
 			<li><p> Find a spanning set for <m>U</m>. </p>
             </li>
@@ -134,8 +134,77 @@
 	</p></statement>
 
 	<solution><p>
-		
-	</p></solution>
+		We apply the <xref ref="procedure-subspaces-concepts-test" text="title" />  to verify that
+	<m>
+	    W
+	</m>
+	is a subspace of
+	<m>
+	   \mathbb{R}^4
+	</m>
+	.
+	<ol marker="(i)">
+
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+
+			<p>
+			The zero vector <m>\zerovec=(0,0,0,0)</m> is in <m>U</m>, as we can demonstrate:<m>x_1+x_2=0+0=0=x_4</m>, and <m>2x_3-x_2=2(0)-0=0.</m> </p>
+
+		</li>
+
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+			<p>Suppose 
+		<m>\uvec{u}_1=(x_1,x_2,x_3,x_4)</m> and <m>\uvec{u}_2=(y_1,y_2,y_3,y_4)</m> are both in <m>U</m>. Then we have the following equalities: <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>, <m>y_1+y_2=y_4</m>, and <m>2y_3-y_2=0</m>. We wish to show that <m>\uvec{v}=\uvec{u}_1+\uvec{u}_2=(z_1,z_2,z_3,z_4)</m> also satisfies the conditions of <m>U</m>.  Note that <m>\uvec{v}=(x_1+y_1,x_2+y_2,x_3+y_3,x_4+y_4)</m>. Using what we know about <m>\uvec{u}_1</m> and <m>\uvec{u}_2</m>, we have
+
+		<md>
+		<mrow>z_1+z_2 \amp=(x_1+y_1)+(x_2+y_2) </mrow>	
+			<mrow>\amp=(x_1+x_2)+(y_1+y_2)</mrow>	
+			<mrow>\amp=x_4+y_4=z_4</mrow>	
+		</md>
+	Also, 
+		<md>
+		<mrow>2z_3-z_2 \amp=2(x_3+y_3)-(x_2+y_2) </mrow>	
+		<mrow>\amp=2x_3+2y_3-x_2-y_2</mrow>	
+		<mrow>\amp=(2x_3-x_2)+(2y_3-y_2)</mrow>	
+		<mrow> \amp=0+0=0 .</mrow>	
+		</md>
+This shows that <m>z_1+z_2=z_4</m>, <m>2z_3-z_2=0</m>, so <m>\uvec{v}=\uvec{u}_1+\uvec{u}_2</m> is in <m>U</m>.
+
+
+			</p>
+		</li>
+
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
+			<p>
+		Suppose <m>\uvec{u}=(x_1,x_2,x_3,x_4)</m> is a vector in <m>U</m>, and <m>k</m> is any scalar. Then we must have <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>. Now we consider <m>\uvec{v}=k\uvec{u}=(kx_1,kx_2,kx_3,kx_4)=(z_1,z_2,z_3,z_4)</m>. We need to show that  <m>\uvec{v}</m> also satisfies the two conditions of <m>U</m>. We have that
+<md>
+		<mrow>z_1+z_2 \amp=kx_1+kx_2 </mrow>	
+			<mrow>\amp=k(x_1+x_2)</mrow>	
+			<mrow>\amp=kx_4=z_4.</mrow>	
+		</md>
+And we have
+<md>
+		<mrow>2z_3-z_2 \amp=2(kx_3)-(kx_2) </mrow>	
+		<mrow>\amp=k(2x_3-x_2)</mrow>	
+		<mrow>\amp=k(0)=0</mrow>	
+		</md>
+This shows that <m>\uvec{v}=k\uvec{u}</m> is also in <m>U</m>
+			</p>
+		</li>
+
+	</ol>
+	All parts of the Subspace Test pass, so <m>U</m> is a subspace of <m>\mathbb{R}^4</m>.
+	</p><p>
+
+	Now we seek a spanning set for <m>U</m>. Note that if <m>\uvec{u}=(x_1,x_2,x_3,x_4)</m> is a vector in <m>U</m>, then <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>.  We can then say that <m>x_3=\frac{1}{2}x_2</m>, and we can express <m>\uvec{u}</m> using only <m>x_1, x_2</m>:
+	<me>\uvec{u}=(x_1,x_2,\frac{1}{2}x_2,x_1+x_2)=x_1(1,0,0,1)+x_2(0,1,\frac{1}{2},1)</me>
+
+	This gives us a spanning set for <m>U</m>: <m>\{(1,0,0,1), (0,1,\frac{1}{2},1)\}</m>
+	</p>
+</solution>
 
 </exercise>
 
