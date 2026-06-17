@@ -28,9 +28,41 @@ respective owners.
 
 	<exercise>
 		<statement><p> <m>V=\mathbb{R}^2</m>, <m>W=</m>  the subcollection of vectors that are orthogonal to <m>
-			    \begin{bmatrix}1\\4\end{bmatrix}
+			   \mathbf{v}=( 1,4)
 			</m>.</p></statement>
-		<answer><p>  </p>
+		<answer><p> We can describe <m>W</m> as the subcollection of vectors <m>\mathbf{u}</m> where <m>\mathbf{u}\cdot \mathbf{v}=0</m>. Now we proceed with the subspace test:
+<ol marker="(i)">
+	<li>
+		<p>
+			We can demonstrate that <m>W</m> is nonempty using the zero vector <m> \zerovec=(0,0)</m>: <m>(0,0)\cdot(1,4)=0\cdot 1+0\cdot 4=0</m>.
+		</p>
+	</li>
+		<li>
+		<p>
+			If <m>\uvec{u}_1</m> and <m>\uvec{u}_1</m> are both in <m>W</m>, then <m>\mathbf{u}_1\cdot \mathbf{v}=0</m> and <m>\mathbf{u}_2\cdot \mathbf{v}=0</m>. We can use <xref ref="proposition-vector-geom-dot-prod-algebra-distrib-right-over-left" text="distribution over the dot product" /> to show that <m>\mathbf{u}_1+\mathbf{u}_2</m> is also in <m>W</m>:
+<me>
+	(\mathbf{u}_1+\mathbf{u}_2)\cdot \uvec{v}=\uvec{u}_1\cdot\uvec{v}+\uvec{u}_2+\uvec{v}=0+0=0.
+</me>
+<m>\mathbf{u}_1+\mathbf{u}_2</m> is also orthogonal to <m>\mathbf{v}=( 1,4)</m>, so <m>\mathbf{u}_1+\mathbf{u}_2</m> is also in <m>W</m>.
+
+		</p>
+	</li>
+	<li>
+		<p>
+			Consider a vector  <m>\uvec{u}</m> in <m>W</m>, and an arbitrary scalar <m>k</m>. We can use further <xref ref="proposition-vector-geom-dot-prod-algebra-scalar-left" text="properties of the dot product" /> to show that <m>k\uvec{u}</m> is also in <m>W</m>:
+<me>
+	(k\uvec{u})\cdot \uvec{v}=k(\uvec{u}\cdot\uvec{v})=k(0)=0.
+</me>
+<m>k\uvec{u}</m> is also orthogonal to <m>\mathbf{v}=( 1,4)</m>, so <m>k\uvec{u}</m> is also in <m>W</m>.
+
+		</p>
+	</li>
+</ol>
+All parts of the Subspace Test pass, so <m>W</m> is a subspace of <m>\mathbb{R}^2</m>.
+		
+		
+		
+		</p>
 		</answer>
 	</exercise>
 

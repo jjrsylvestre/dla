@@ -100,7 +100,7 @@
 	<title>Analyzing a Span of vectors </title>
 
 	<statement><p>
-		Consider <m>\Span S</m> for <m>S = \bigl\{(1,2,4),(-1,2,4)\bigr\}</m>.
+		Consider <m>\Span S</m> for <m>S = \{(1,2,4),(-1,2,4)\}</m>.
 		<ol>
 			<li><p> Determine if  <m>\uvec{v}=(5,-2,4)</m> is in <m>\Span S</m>.</p>
 			</li>
@@ -154,7 +154,7 @@ Consider the set <m>W</m> of symmetric matrices in the vector space <m>
 			</m>,  <m>W</m> is a subspace of <m>
     M_{n}(\mathbb{R})</m>. </li>
 			<li> Determine if the set <md>
-			    S=\bigl\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\bigr\}
+			    S=\left\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\right\}
 			</md> is a spanning set for <m>
 			    W= 2\times2
 			</m> symmetric matrices.
@@ -185,26 +185,64 @@ Consider the set <m>W</m> of symmetric matrices in the vector space <m>
  </ol></p>
 				</li>
 			<li><p> If <m>A</m> is a symmetric matrix in <m> M_{2}(\mathbb{R})</m>, then <m>A</m> must be of the form <m>A=\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}</m> for some <m>a,b,d</m>. We can then decompose <m>A</m> as 
-				<md>\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}=a\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}+b\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix}+d\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</md>, so <m>T=\bigl\{\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}\bigr\}</m> is a spanning set for <m>W</m>.</p>
+				<md>\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}=a\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}+b\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix}+d\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</md>, so <m>T=\left\{\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}\right\}</m> is a spanning set for <m>W</m>.</p>
 
 				<p>However, this is  not the proposed spanning set <m>
-			    S=\bigl\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\bigr\}
+			    S=\left\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\right\}
 			</m>. We can use <xref ref="proposition-subspaces-eq-span-test" text="title" /> to determine if this is spanning set for <m>W</m>.</p>
 		
-		<p>	 Since the vectors in <m>S</m> are symmetric, every vector in <m>S</m> is a linear combination of the vectors in <m>T</m>, so now we need to check that every vector in <m>T</m> is a linear combination of the vectors in <m>S</m>. Starting with <m>\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}</m>, we set up
+		<p>	 Since the vectors in <m>S</m> are symmetric, every vector in <m>S</m> is a linear combination of the vectors in <m>T</m>, so now we need to check that every vector in <m>T</m> is a linear combination of the vectors in <m>S</m>. Starting with <m>\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}</m>, we note that 
+<me>
+\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}=0\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}-1\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+0\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}.
+</me> </p>
+
+<p>
+Now we tackle the less obvious linear combinations. We take <m>\begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}</m> and build an arbitrary linear combination using <m> S</m>:
+
+
+
 			
-			<md> \begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}=k_1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+k_2\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+k_3\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 &amp; 2k_1+k_3\\2k_1+k_3 &amp;k_1+k_3\end{bmatrix}</md>
+			<me> \begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}=k_1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+k_2\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+k_3\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 &amp; 2k_1+k_3\\2k_1+k_3 &amp;k_1+k_3\end{bmatrix}</me>
 
 			Comparing entries on each side of the equation leads to the system of equations
 			<md>
 		\begin{sysofeqns}{rcrcrcr}
-			    k_1  \amp  - \amp   k_2 \amp  + \amp 4k_3 \amp = \amp 1 \text{,} \\
-			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0 \text{,} \\
-			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0 \text{,} \\
+			    k_1  \amp  - \amp   k_2 \amp  + \amp 4k_3 \amp = \amp 0 \text{,} \\
+			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 1 \text{,} \\
+			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 1\text{,} \\
 			k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0
 		\end{sysofeqns}
 	</md>
-		</p>  
+		</p> <p>
+		Which we put into an augmented matrix and reduce:
+		<md>
+		\begin{abmatrix}{rrr|r}
+			 1 \amp  -1 \amp  4   \amp 0\\
+			2 \amp  0\amp  1    \amp 1 \\
+			 2 \amp  0 \amp 1  \amp 1 \\
+			 1 \amp 0\amp  1  \amp 0
+		\end{abmatrix}
+		\qquad\rowredarrow\qquad
+		\begin{abmatrix}{rrr|r}
+			1 \amp 0 \amp 0 \amp 1\\
+			0 \amp 1 \amp 0 \amp   -3 \\
+			0 \amp 0 \amp 1 \amp  -1\\
+			0 \amp 0 \amp 0 \amp 0
+		\end{abmatrix}
+	</md></p>
+<p>
+	The reduced matrix tells us that <m>k_1=1, k_2=-3, k_3=-1</m>. We can verify this:
+<me> 1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}-3\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}-1\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}1+3-4 &amp; 2-1\\2-1 &amp;1-1\end{bmatrix}=\begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}</me>
+
+</p>
+
+<p>You can verify through a similar calculation that 
+
+	<me> -1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+7\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+2\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}1+3-4 &amp; 2-1\\2-1 &amp;1-1\end{bmatrix}=\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</me>
+
+	Since every vector in <m>T</m> is a also linear combination of the vectors in <m>S</m>, this means they span the same space, so <m>S</m> is a spanning set for the <m>2\times 2</m> symmetric matrices.
+</p>
+
             </li>
 	
 		</ol>		
