@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+
+
+
+<!--********************************************************************
+© 2026 Kaitlyn Phillipson
+*********************************************************************-->
+
+<exercises xml:id="exercises-subspaces" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/subspacetest.ptx" />
+
+
+
+<exercise xml:id="exercise-subspaces-spanningsetforsubspaceofP2">
+	<title>Finding a spanning set for a subspace of <m> P_2 </m> </title>
+
+	<statement><p>  Show that
+	</p>
+	<p>
+	    <m>W =</m> those polynomials with linear term equal to <m>0</m> </p><p>
+
+	is a subspace of
+	<m>
+	    V=P_{2}
+	</m>
+	, then find a spanning set for
+	<m>
+	    W
+	</m>
+	.
+	</p></statement>
+
+	<solution>
+<p>
+	We apply the <xref ref="procedure-subspaces-concepts-test" text="title" />  to verify that
+	<m>
+	    W
+	</m>
+	is a subspace of
+	<m>
+	    P_{2}
+	</m>
+	.
+	<ol marker="(i)">
+
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+
+			<p>
+			This collection is clearly not empty; in particular, the zero polynomial <m>0=0x^{2}+0x+0 </m>
+			is in <m>W</m>.</p>
+
+		</li>
+
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
+			<p>
+		If <m>p_{1}</m> and <m>p_{2}</m> are both in <m>W</m>, then we can write <m>p_{1}(x)=a_{1}x^{2}+c_{1}</m> and <m>p_{2}(x)=a_{2}x^{2}+{c}_{2}</m>.</p> 
+		<p>Then,</p> 
+		<p> <md><mrow>
+			p_{1}(x)+p_{2}(x)\amp =(a_{1}x^{2}+c_{1})+(a_{2}x^{2}+{c}_{2})</mrow><mrow>
+			\amp =(a_{1}+a_{2})x^{2}+(c_{1}+c_{2}).</mrow></md></p>
+
+		<p>
+	Since
+		<m>
+		    p_{1}(x)+p_{2}(x)
+		</m>
+		also has a linear term equal to zero, we see that
+		<m>
+		    p_{1}(x)+p_{2}(x)
+		</m>is also in<m>
+		    W</m>.
+			</p>
+		</li>
+
+		<li>
+			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
+			<p>
+		If <m>p(x)</m> is in <m> W</m>, then <m>p(x)=ax^{2}+c</m>. For every arbitrary scalar <m>k</m>, we have <m>kp(x)=k(ax^{2}+c)=(ka)x^{2}+(kc)</m>, which also has a zero linear term, so <m>kp(x)</m> is also in <m>W</m>.
+			</p>
+		</li>
+
+	</ol>
+
+	Since <m>W</m> is a subspace of <m>P_2</m>, it must have a spanning set. Any vector in <m>W</m> is of the form <m>p(x)=ax^2+c=a(x^2)+c(1)</m>, so the set <m>\{x^2,1\}</m> is a spanning set for <m>W</m>.
+	</p>
+	</solution>
+
+</exercise>
+
+
+<exercise xml:id="exercise-subspaces-analyzespan">
+	<title>Analyzing a Span of vectors </title>
+
+	<statement><p>
+		Consider <m>\Span S</m> for <m>S = \bigl\{(1,2,4),(-1,2,4)\bigr\}</m>.
+		<ol>
+			<li><p> Determine if  <m>\uvec{v}=(5,-2,4)</m> is in <m>\Span S</m>.</p>
+			</li>
+			<li><p> Determine if  <m>\uvec{w}=(2,0,1)</m> is in  <m>\Span S</m>.</p>
+            </li>
+	<li>
+		<p> Give a condition on the values of <m>a,b,c</m> so that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m>. Justify your answer.
+			
+		</p>
+	</li>
+		</ol>
+	</p></statement>
+
+	<solution><p>
+		
+	</p></solution>
+
+</exercise>
+
+<exercise xml:id="exercise-subspaces-spanningsetsubspaceofR4">
+	<title>Finding a spanning set for a subspace of <m>\mathbb{R}^4</m> </title>
+
+	<statement><p>
+		Let <m>V=\mathbb{R}^4</m>, and consider <m>U=</m> all vectors <m>(x_1,x_2,x_3,x_4)</m> where <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>.
+		<ol>
+			<li><p> Show that <m>U</m> is a supspace of <m>\mathbb{R}^4</m>.</p>
+			</li>
+			<li><p> Find a spanning set for <m>U</m>. </p>
+            </li>
+		</ol>
+	</p></statement>
+
+	<solution><p>
+		
+	</p></solution>
+
+</exercise>
+
+
+
+<exercise xml:id="exercise-subspaces-symmetricmatrices">
+	<title>The subspace of symmetric matrices </title>
+
+	<statement><p>
+Consider the set <m>W</m> of symmetric matrices in the vector space <m>
+    M_{n}(\mathbb{R})=M_{n\times n}(\mathbb{R})
+</m>.
+		<ol>
+			<li> Show that for each <m>
+			    n
+			</m>,  <m>W</m> is a subspace of <m>
+    M_{n}(\mathbb{R})</m>. </li>
+			<li> Determine if the set <md>
+			    S=\bigl\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\bigr\}
+			</md> is a spanning set for <m>
+			    W= 2\times2
+			</m> symmetric matrices.
+            </li>
+	
+		</ol>
+	</p></statement>
+
+	<solution>
+		<p> 
+		<ol>
+			<li> 
+				<p>
+				We employ the Subspace Test: 
+				<ol marker="(i)"> 
+			<li><p> Since the <m>n\times n</m> zero matrix <m> \zerovec</m> satisfies <m>\utrans{\zerovec}=\zerovec</m>, the zero matrix is symmetric, so <m>W</m> is nonempty.
+			</p> 
+		</li>
+			<li> <p> Let <m>A_{1}</m> and <m>A_{2}</m> be in <m>W</m>. Then <m>A_{1}</m> and <m>A_{2}</m> are both symmetric <m>n\times n</m> matrices, so <m>\utrans{A_1}=A_1</m> and <m>\utrans{A_2}=A_2</m>. We employ <xref ref="proposition-matrix-ops-algebra-rules-transpose-add" text="Transpose Addition Rule" />  to demonstrate that <m>A_{1}+A_{2}</m> is also symmetric:
+<md>\utrans{(A_1+A_2)}=\utrans{A_1}+\utrans{A_2}=A_1+A_2</md>
+</p></li>
+<li>
+	<p>
+	Let <m>A</m> be in <m>W</m>, and let <m>k</m> be a scalar. Again, we know that <m>\utrans{A}=A</m>, so we use the <xref ref="proposition-matrix-ops-algebra-rules-transpose-smul" text="Transpose Scalar Multiplication Rule" /> to show that <m>kA</m> is also symmetric:
+	<md>\utrans{(kA)}=k\utrans{A}=kA</md>
+	</p>
+</li>
+ </ol></p>
+				</li>
+			<li><p> If <m>A</m> is a symmetric matrix in <m> M_{2}(\mathbb{R})</m>, then <m>A</m> must be of the form <m>A=\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}</m> for some <m>a,b,d</m>. We can then decompose <m>A</m> as 
+				<md>\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}=a\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}+b\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix}+d\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</md>, so <m>T=\bigl\{\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}\bigr\}</m> is a spanning set for <m>W</m>.</p>
+
+				<p>However, this is  not the proposed spanning set <m>
+			    S=\bigl\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\bigr\}
+			</m>. We can use <xref ref="proposition-subspaces-eq-span-test" text="title" /> to determine if this is spanning set for <m>W</m>.</p>
+		
+		<p>	 Since the vectors in <m>S</m> are symmetric, every vector in <m>S</m> is a linear combination of the vectors in <m>T</m>, so now we need to check that every vector in <m>T</m> is a linear combination of the vectors in <m>S</m>. Starting with <m>\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}</m>, we set up
+			
+			<md> \begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}=k_1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+k_2\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+k_3\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 &amp; 2k_1+k_3\\2k_1+k_3 &amp;k_1+k_3\end{bmatrix}</md>
+
+			Comparing entries on each side of the equation leads to the system of equations
+			<md>
+		\begin{sysofeqns}{rcrcrcr}
+			    k_1  \amp  - \amp   k_2 \amp  + \amp 4k_3 \amp = \amp 1 \text{,} \\
+			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0 \text{,} \\
+			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0 \text{,} \\
+			k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0
+		\end{sysofeqns}
+	</md>
+		</p>  
+            </li>
+	
+		</ol>		
+	</p></solution>
+
+</exercise>
+
+
+
+
+
+</exercises>
