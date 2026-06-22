@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-vector-geom" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/norm-in-R2.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/norm-in-Rn.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/norm-vs-smul.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normalize.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/unit-parallel-to-line.ptx" />
+
+<exercise>
+	<title>The collection of all unit vectors</title>
+
+	<task>
+
+		<statement><p>
+			Suppose every possible unit vector in <m> \R^2 </m> was placed with initial point at the origin.
+			What shape would the collection of all terminal points of these vectors trace out?
+		</p></statement>
+
+		<answer><p> The unit circle, centred at the origin. </p></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Suppose every possible vector of the form <m> \uvec{x} = 5 \uvec{u} </m> in <m> \R^2 </m>,
+			where <m> \uvec{u} </m> is a unit vector,
+			was placed with initial point at the origin.
+			What shape would the collection of all terminal points of these vectors trace out?
+		</p></statement>
+
+		<answer><p> A circle of radius <m> 5 </m>, centred at the origin. </p></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Suppose every possible unit vector in <m> \R^3 </m> was placed with initial point at the origin.
+			What shape would the collection of all terminal points of these vectors trace out?
+		</p></statement>
+
+		<answer><p> The unit sphere, centred at the origin. </p></answer>
+
+	</task>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/distance.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dot-prod.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dot-prod-vs-vec-add.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dot-prod-vs-smul.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/compute-angle.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/guess-orthog.ptx" />
+
+<exercise>
+	<title>Angle for zero dot product</title>
+
+	<statement><p>
+		In <xref ref="exercisegroup-vector-geom-guess-orthog" text="type-local">Exercises</xref>,
+		you determined pairs of nonzero vectors <m> \uvec{u}, \uvec{v} </m> so that <m> \udotprod{u}{v} = 0 </m>.
+		In all such cases,
+		is the angle between those vectors?
+	</p></statement>
+
+	<solution><p>
+		We know that the angle <m> \theta </m> between nonzero vectors <m> \uvec{u}, \uvec{v} </m> satisfies
+		<md> \cos\theta = \frac{\udotprod{u}{v}}{ \unorm{u} \unorm{v} } </md>.
+		If the dot product is <m> 0 </m>,
+		then the whole right-hand side of the above equation is <m> 0 </m>.
+		The only angle in the domain <m> 0 \le \theta \le \pi </m> for which <m> \cos\theta = 0 </m> is <m> \theta = \pi / 2 </m>,
+		meaning that in each case in <xref ref="exercisegroup-vector-geom-guess-orthog" text="type-local">Exercises</xref>,
+		the vectors form a right angle.
+	</p></solution>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/angle-to-axis.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/angle-lines.ptx" />
+
+<exercise>
+	<title>Comparing angles</title>
+
+	<statement><p>
+		Demonstrate that the angle between
+		<m> \uvec{u} = (1,2,-3) </m> and <m> \uvec{w} = (19,3,-15) </m>
+		is the same as the angle between
+		<m> \uvec{v} = (59,-22,-9) </m> and <m> \uvec{w} </m>,
+		without computing the angles themselves.
+	</p></statement>
+
+	<solution><p>
+		Instead of computing the angles,
+		we compute the cosines of the angles.
+		<md>
+			<mrow>
+				\cos\theta_{\uvec{u},\uvec{w}} \amp = \frac{\udotprod{u}{w}}{\unorm{u} \unorm{w}}
+				\amp
+				\cos\theta_{\uvec{v},\uvec{w}} \amp = \frac{\udotprod{v}{w}}{\unorm{v} \unorm{w}}
+			</mrow><mrow>
+				\amp = \frac{70}{\sqrt{14} \sqrt{595}}
+				\amp
+				\amp = \frac{1190}{\sqrt{4046} \sqrt{595}}
+			</mrow><mrow>
+				\amp \amp
+				\amp = \frac{1190}{17 \sqrt{14} \sqrt{595}}
+			</mrow><mrow>
+				\amp \amp
+				\amp = \frac{70}{\sqrt{14} \sqrt{595}}
+			</mrow>
+		</md>
+		Since <m> \cos\theta_{\uvec{u},\uvec{w}} = \cos\theta_{\uvec{v},\uvec{w}} </m> and the cosine function is <term>one-to-one</term> on the domain <m> 0 \le \theta \le \pi </m>,
+		we conclude <m> \theta_{\uvec{u},\uvec{w}} = \theta_{\uvec{v},\uvec{w}} </m>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+	<title>Norm of a difference</title>
+
+	<task><p>
+		Use a diagram to geometrically illustrate that
+		<xref ref="proposition-vector-geom-norm-algebra-diff">Rule</xref>
+		of <xref ref="proposition-vector-geom-norm-algebra" />
+		is true.
+	</p></task>
+
+	<task><p>
+		Use the formulas for vector subtraction
+		(<xref ref="subsubsection-vectors-concepts-vec-subtract" />)
+		and <xref ref="definition-vector-geom-norm" text="custom">vector norm</xref>
+		to verify
+		<xref ref="proposition-vector-geom-norm-algebra-diff">Rule</xref>
+		of <xref ref="proposition-vector-geom-norm-algebra" />.
+		Be sure to use proper left-hand-side versus right-hand-side procedure!
+	</p></task>
+
+</exercise>
+
+<exercise>
+	<title>Algebra of the dot product</title>
+
+	<statement><p>
+	Using the matrix-multiplication formulation of the dot product
+	(<xref ref="subsection-vector-geom-concepts-dot-prod-vs-matrix-mult" />),
+	for each of the rules in <xref ref="proposition-vector-geom-dot-prod-algebra" />
+	(excluding <xref ref="proposition-vector-geom-dot-prod-algebra-vs-norm">Rule</xref>)
+	find a rule or combination of rules in <xref ref="proposition-matrix-ops-algebra-rules" /> to justify it.
+	</p></statement>
+
+	<hint><p>
+		For <xref ref="proposition-vector-geom-dot-prod-algebra-commute" />
+		of <xref ref="proposition-vector-geom-dot-prod-algebra" />,
+		consider that every <m> 1 \times 1 </m> matrix is <xref ref="definition-special-forms-symmetric" text="title" />,
+		and that under the matrix-multiplication formulation of the dot product,
+		the result of a dot product is technically a <m> 1 \times 1 </m> matrix.
+	</p></hint>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dot-prod-vs-smul-algebra.ptx" />
+
+<exercise>
+	<title>Norm of a sum</title>
+
+	<task><p>
+		Provide an example of two-dimensional vectors <m> \uvec{u}, \uvec{v} </m> where all of the components of the two vectors are positive numbers,
+		and where <m> \norm{ \uvec{u} + \uvec{v} } </m> is <em> strictly less than </em> <m> \unorm{u} + \unorm{v} </m>.
+		Draw a diagram of your vectors in the <m> xy </m>-plane that geometrically illustrates <em> why </em> this relationship of norms is true in your example.
+	</p></task>
+
+	<task><p>
+		Provide an example of two-dimensional vectors <m> \uvec{u}, \uvec{v} </m> where <m> \norm{ \uvec{u} + \uvec{v} } </m> is <em> exactly equal to </em> <m> \unorm{u} + \unorm{v} </m>.
+		What geometric relationship must there be between <m> \uvec{u} </m> and <m> \uvec{v} </m> for this to work out?
+	</p></task>
+
+</exercise>
+
+</exercises>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-vector-geom-dot-prod-vs-vec-add">
+<title>Dot product versus addition</title>
+
+<introduction><p>
+	In each case:
+	<ol>
+
+		<li xml:id="instruction-exercisegroup-vector-geom-dot-prod-vs-vec-add-first-add">
+			Compute <m> \uvec{u} + \uvec{v} </m>,
+			then use that result to compute <m> \dotprod{(\uvec{u} + \uvec{v})}{\uvec{w}} </m>.
+		</li>
+
+		<li xml:id="instruction-exercisegroup-vector-geom-dot-prod-vs-vec-add-first-dot-prod">
+			Separately compute <m> \udotprod{u}{w} </m> and <m> \udotprod{v}{w} </m>,
+			then use those results to compute <m> \udotprod{u}{w} + \udotprod{v}{w} </m>.
+		</li>
+
+		<li>
+			Compare your results
+			in <xref ref="instruction-exercisegroup-vector-geom-dot-prod-vs-vec-add-first-add">part</xref>
+			and <xref ref="instruction-exercisegroup-vector-geom-dot-prod-vs-vec-add-first-dot-prod">part</xref>.
+		</li>
+
+		<li>
+			Reflect on the meaning of the <m> + </m> symbol in each
+			of <xref ref="instruction-exercisegroup-vector-geom-dot-prod-vs-vec-add-first-add">part</xref>
+			and <xref ref="instruction-exercisegroup-vector-geom-dot-prod-vs-vec-add-first-dot-prod">part</xref>.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{u} = ( 5, -5) </m>,
+		<m> \uvec{v} = (-4,  3) </m>,
+		<m> \uvec{w} = ( 2,  2) </m>
+	</p></statement>
+
+	<answer><p><ol>
+
+		<li>
+			<p><m> \uvec{u} + \uvec{v} = (1,-2) </m></p>
+			<p><m>
+				\dotprod{(\uvec{u} + \uvec{v})}{\uvec{w}}
+				= 1 \cdot 2 + (-2) \cdot 2
+				= -2
+			</m></p>
+		</li>
+
+		<li>
+			<p><m> \udotprod{u}{w} = 5 \cdot 2 + (-5) \cdot 2 = 0 </m></p>
+			<p><m> \udotprod{v}{w} = -4 \cdot 2 + 3 \cdot 2 = -2 </m></p>
+			<p><m> \udotprod{u}{w} + \udotprod{v}{w} = -2 </m></p>
+		</li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{u} = ( 0,5,3) </m>,
+		<m> \uvec{v} = ( 3,4,2) </m>,
+		<m> \uvec{w} = (-5,4,1) </m>
+	</p></statement>
+
+	<answer><p><ol>
+
+		<li>
+			<p><m> \uvec{u} + \uvec{v} = (3,9,5) </m></p>
+			<p><m>
+				\dotprod{(\uvec{u} + \uvec{v})}{\uvec{w}}
+				= 3 \cdot (-5) + 9 \cdot 4 + 5 \cdot 1
+				= 26
+			</m></p>
+		</li>
+
+		<li>
+			<p><m>
+				\udotprod{u}{w}
+				= 0 \cdot (-5) + 5 \cdot 4 + 3 \cdot 1
+				= 23
+			</m></p>
+			<p><m>
+				\udotprod{v}{w}
+				= 3 \cdot (-5) + 4 \cdot 4 + 2 \cdot 1
+				= 3
+			</m></p>
+			<p><m> \udotprod{u}{w} + \udotprod{v}{w} = 26 </m></p>
+		</li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{u} = (-2, 0, 2,-4) </m>,
+		<m> \uvec{v} = ( 1,-2, 6,-3) </m>,
+		<m> \uvec{w} = (-4,-2, 4,-6) </m>
+	</p></statement>
+
+	<answer><p><ol>
+
+		<li>
+			<p><m> \uvec{u} + \uvec{v} = (-1,-2,8,-7) </m></p>
+			<p><m>
+				\dotprod{(\uvec{u} + \uvec{v})}{\uvec{w}}
+				= (-1) \cdot (-4) + (-2) \cdot (-2) + 8 \cdot 4 + (-7) \cdot (-6)
+				= 82
+			</m></p>
+		</li>
+
+		<li>
+			<p><m>
+				\udotprod{u}{w}
+				= (-2) \cdot (-4) + 0 \cdot (-2) + 2 \cdot 4 + (-4) \cdot (-6)
+				= 40
+			</m></p>
+			<p><m>
+				\udotprod{v}{w}
+				= 1 \cdot (-4) + (-2) \cdot (-2) + 6 \cdot 4 + (-3) \cdot (-6)
+				= 42
+			</m></p>
+			<p><m> \udotprod{u}{w} + \udotprod{v}{w} = 82 </m></p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

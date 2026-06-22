@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-vector-geom-angle-lines">
+<title>Computing angle between intersecting lines in <m> \R^2 </m></title>
+
+<introduction>
+
+	<p>
+	Use vector geometry to compute the acute angle between the two intersecting lines.
+	Express your answer in radians to two decimal places.
+	</p>
+
+	<p>
+	<alert>Note.</alert>
+	It is not necessary to determine the point of intersection.
+	</p>
+
+</introduction>
+
+<exercise>
+
+	<statement>
+		<p><m> \ell_1 \colon 9 x - 5 y = -1 </m></p>
+		<p><m> \ell_2 \colon 3 x - 2 y =  1 </m></p>
+	</statement>
+
+	<solution>
+
+		<p>
+		First,
+		for each line we create a parallel vector by choosing two points and forming the vector associated to the directed line segment between them.
+		For <m> \ell_1 </m>,
+		by guess-and-check we find points <m> P(1,2) </m> and <m> Q(11,20) </m>.
+		The associated directed line segment is <m> \abray{PQ} = (10,18) </m>,
+		but we'll scale this down to <m> \uvec{v} = (5,9) </m>.
+		For <m> \ell_2 </m>,
+		by guess-and-check we find points <m> R(1,1) </m> and <m> S(3,4) </m>.
+		Then a parallel vector is <m> \uvec{w} = \abray{RS} = (2,3) </m>.
+		</p>
+
+		<p>
+		Now we can determine one of the angles between the lines by calculating the angle between our two vectors.
+		<md>
+			<mrow> \cos\theta \amp = \frac{\udotprod{v}{w}}{\unorm{v} \unorm{w}} </mrow>
+			<mrow> \amp = \frac{37}{\sqrt{106} \sqrt{13}} </mrow>
+		</md>
+		<md> \theta = \inv{\cos}\left( \frac{37}{\sqrt{106} \sqrt{13}} \right) \approx 0.08 </md>
+		As this angle is less than <m> \pi / 2 \approx 1.57 </m>,
+		it is acute.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+		<p><m> \ell_1 \colon 6 x + 3 y = -4 </m></p>
+		<p><m> \ell_2 \colon 5 x - 4 y =  4 </m></p>
+	</statement>
+
+	<solution>
+
+		<p>
+		First,
+		for each line we create a parallel vector by choosing two points and forming the vector associated to the directed line segment between them.
+		For <m> \ell_1 </m>,
+		we'll use intercepts <m> P(-2/3,0) </m> and <m> Q(0,-4/3) </m>.
+		The directed line segment between them is <m> \abray{PQ} = (2/3,-4/3) </m>,
+		but let's clear fractions and use <m> \uvec{v} = (2,-4) </m>.
+		For <m> \ell_2 </m>,
+		the <m> y </m>-intercept is obviously <m> R(0,-1) </m>,
+		and by guess-and-check we find a second point <m> S(4,4) </m>.
+		Then a parallel vector is <m> \uvec{w} = \abray{RS} = (4,5) </m>.
+		</p>
+
+		<p>
+		Now we can determine one of the angles between the lines by calculating the angle between our two vectors.
+		<md>
+			<mrow> \cos\theta \amp = \frac{\udotprod{v}{w}}{\unorm{v} \unorm{w}} </mrow>
+			<mrow> \amp = \frac{-12}{\sqrt{20} \sqrt{41}} </mrow>
+			<mrow> \amp = - \frac{6}{\sqrt{5} \sqrt{41}} </mrow>
+		</md>
+		<md> \theta = \inv{\cos}\left( - \frac{6}{\sqrt{5} \sqrt{41}} \right) \approx 2.00 </md>
+		This is an obtuse angle since it is greater than <m> \pi / 2 \approx 1.57 </m>.
+		We could compute the complementary acute angle <m> \theta' </m> by <m> \theta' = \pi - \theta </m>,
+		but if we aren't careful we may introduce round-off error.
+		We can just as easily repeat our calculation with <m> \uvec{v} </m> replaced by <m> - \uvec{v} </m>.
+		Since <m> \dotprod{(- \uvec{v})}{\uvec{w}} = -(\udotprod{v}{w}) </m>
+		and <m> \norm{-\uvec{v}} = \unorm{v} </m>,
+		we have
+		<md> \theta' = \inv{\cos}\left( \frac{6}{\sqrt{5} \sqrt{41}} \right) \approx 1.14 </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>

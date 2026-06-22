@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-vector-geom-norm-in-R2" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Norm in <m> \R^2 </m></title>
+
+<introduction><p>
+	In each of the following:
+	<ol>
+
+		<li> Draw <m> \uvec{v} </m> in the <m> xy </m>-plane with its initial point at the origin. </li>
+
+		<li>
+			On the same diagram,
+			draw in a geometric representation of the decomposition of <m> \uvec{v} </m> as a linear combination of the standard basis vectors
+			(<xref ref="subsection-vectors-concepts-standard-basis" />).
+		</li>
+
+		<li>
+			Compute the norm of <m> \uvec{v} </m>,
+			and relate the computation to the geometry of your diagram,
+			via Pythagoras.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m> \uvec{v} = (2,5) </m></p></statement>
+
+	<answer>
+
+		<p><m> \uvec{v} = 2 \uvec{e}_1 + 5 \uvec{e}_2 </m></p>
+
+		<image width="26.7%">
+			<latex-image label="image-vector-geom-exercises-norm-in-R2-quadrant-1">
+				<xi:include href="norm-in-R2.d/quadrant-1.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating vector norm in two dimensions via Pythagoras. </shortdescription>
+			<description><p>
+				A diagram consisting of a right triangle in the first quadrant of the <m>xy</m>-plane,
+				with a directed line segment for each side.
+				One leg is a vector labelled <m> 2 \uvec{e}_1 </m>,
+				extending rightward from the origin along the <m> x </m>-axis to the point <m> (2,0) </m>.
+				The second leg is a vector labelled <m> 5 \uvec{e}_2 </m>,
+				extending upward from the point <m> (2,0) </m> on the <m> x </m>-axis to the point <m> (2,5) </m>.
+				The hypotenuse is a vector labelled <m> \uvec{v} </m>,
+				extending from the origin to the point <m> (2,5) </m>.
+			</p></description>
+		</image>
+
+		<p><m> \unorm{v} = \sqrt{2^2 + 5^2} </m></p>
+
+		<p>
+		This is the Pythagorean formula for the length of the hypotenuse of the right triangle in the diagram above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> \uvec{v} = (-3,2) </m></p></statement>
+
+	<answer>
+
+		<p><m> \uvec{v} = (-3) \uvec{e}_1 + 2 \uvec{e}_2 </m></p>
+
+		<image width="36.1%">
+			<latex-image label="image-vector-geom-exercises-norm-in-R2-quadrant-2">
+				<xi:include href="norm-in-R2.d/quadrant-2.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating vector norm in two dimensions via Pythagoras. </shortdescription>
+			<description><p>
+				A diagram consisting of a right triangle in the second quadrant of the <m>xy</m>-plane,
+				with a directed line segment for each side.
+				One leg is a vector labelled <m> (-3) \uvec{e}_1 </m>,
+				extending leftward from the origin along the <m> x </m>-axis to the point <m> (-3,0) </m>.
+				The second leg is a vector labelled <m> 2 \uvec{e}_2 </m>,
+				extending upward from the point <m> (-3,0) </m> on the <m> x </m>-axis to the point <m> (-3,2) </m>.
+				The hypotenuse is a vector labelled <m> \uvec{v} </m>,
+				extending from the origin to the point <m> (-3,2) </m>.
+			</p></description>
+		</image>
+
+		<p><md>
+			<mrow> \unorm{v} \amp = \sqrt{{(-3)}^2 + 2^2} </mrow>
+			<mrow> \amp = \sqrt{3^2 + 2^2} </mrow>
+		</md></p>
+
+		<p>
+		After simplifying away the negative on the <m> x </m>-component,
+		this is the Pythagorean formula for the length of the hypotenuse of the right triangle in the diagram above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> \uvec{v} = (1,-4) </m></p></statement>
+
+	<answer>
+
+		<p><m> \uvec{v} = 1 \uvec{e}_1 + (-4) \uvec{e}_2 </m></p>
+
+		<image width="22.9%">
+			<latex-image label="image-vector-geom-exercises-norm-in-R2-quadrant-4">
+				<xi:include href="norm-in-R2.d/quadrant-4.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating vector norm in two dimensions via Pythagoras. </shortdescription>
+			<description><p>
+				A diagram consisting of a right triangle in the fourth quadrant of the <m>xy</m>-plane,
+				with a directed line segment for each side.
+				One leg is a vector labelled <m> 1 \uvec{e}_1 </m>,
+				extending rightward from the origin along the <m> x </m>-axis to the point <m> (1,0) </m>.
+				The second leg is a vector labelled <m> (-4) \uvec{e}_2 </m>,
+				extending downward from the point <m> (1,0) </m> on the <m> x </m>-axis to the point <m> (1,-4) </m>.
+				The hypotenuse is a vector labelled <m> \uvec{v} </m>,
+				extending from the origin to the point <m> (1,-4) </m>.
+			</p></description>
+		</image>
+
+		<p><md>
+			<mrow> \unorm{v} \amp = \sqrt{1^2 + {(-4)}^2} </mrow>
+			<mrow> \amp = \sqrt{1^2 + 4^2} </mrow>
+		</md></p>
+
+		<p>
+		After simplifying away the negative on the <m> y </m>-component,
+		this is the Pythagorean formula for the length of the hypotenuse of the right triangle in the diagram above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> \uvec{v} = (-\pi,-3) </m></p></statement>
+
+	<answer>
+
+		<p><m> \uvec{v} = (-\pi) \uvec{e}_1 + (-3) \uvec{e}_2 </m></p>
+
+		<image width="45.8%">
+			<latex-image label="image-vector-geom-exercises-norm-in-R2-quadrant-3">
+				<xi:include href="norm-in-R2.d/quadrant-3.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating vector norm in two dimensions via Pythagoras. </shortdescription>
+			<description><p>
+				A diagram consisting of a right triangle in the third quadrant of the <m>xy</m>-plane,
+				with a directed line segment for each side.
+				One leg is a vector labelled <m> (-pi) \uvec{e}_1 </m>,
+				extending leftward from the origin along the <m> x </m>-axis to the point <m> (-\pi,0) </m>.
+				The second leg is a vector labelled <m> (-3) \uvec{e}_2 </m>,
+				extending downward from the point <m> (-\pi,0) </m> on the <m> x </m>-axis to the point <m> (-\pi,-3) </m>.
+				The hypotenuse is a vector labelled <m> \uvec{v} </m>,
+				extending from the origin to the point <m> (-\pi,-3) </m>.
+			</p></description>
+		</image>
+
+		<p><md>
+			<mrow> \unorm{v} \amp = \sqrt{(-\pi)^2 + {(-3)}^2} </mrow>
+			<mrow> \amp = \sqrt{\pi^2 + 3^2} </mrow>
+		</md></p>
+
+		<p>
+		After simplifying away the negatives on the components,
+		this is the Pythagorean formula for the length of the hypotenuse of the right triangle in the diagram above.
+		</p>
+
+	</answer>
+
+</exercise>
+
+</exercisegroup>
