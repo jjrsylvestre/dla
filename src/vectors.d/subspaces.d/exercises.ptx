@@ -200,7 +200,7 @@ This shows that <m>\uvec{v}=k\uvec{u}</m> is also in <m>U</m>
 	</p><p>
 
 	Now we seek a spanning set for <m>U</m>. Note that if <m>\uvec{u}=(x_1,x_2,x_3,x_4)</m> is a vector in <m>U</m>, then <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>.  We can then say that <m>x_3=\frac{1}{2}x_2</m>, and we can express <m>\uvec{u}</m> using only <m>x_1, x_2</m>:
-	<me>\uvec{u}=(x_1,x_2,\frac{1}{2}x_2,x_1+x_2)=x_1(1,0,0,1)+x_2(0,1,\frac{1}{2},1)</me>
+	<md>\uvec{u}=(x_1,x_2,\frac{1}{2}x_2,x_1+x_2)=x_1(1,0,0,1)+x_2(0,1,\frac{1}{2},1)</md>
 
 	This gives us a spanning set for <m>U</m>: <m>\{(1,0,0,1), (0,1,\frac{1}{2},1)\}</m>
 	</p>
@@ -215,13 +215,13 @@ This shows that <m>\uvec{v}=k\uvec{u}</m> is also in <m>U</m>
 
 	<statement><p>
 Consider the set <m>W</m> of symmetric matrices in the vector space <m>
-    M_{n}(\R)=M_{n\times n}(\R)
+   \matrixring_{n}(\R)=\matrixring_{n\times n}(\R)
 </m>.
 		<ol>
 			<li> Show that for each <m>
 			    n
 			</m>,  <m>W</m> is a subspace of <m>
-    M_{n}(\R)</m>. </li>
+    \matrixring_{n}(\R)</m>. </li>
 			<li> Determine if the set <md>
 			    S=\left\{\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}, \begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}, \begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}\right\}
 			</md> is a spanning set for <m>
@@ -253,7 +253,7 @@ Consider the set <m>W</m> of symmetric matrices in the vector space <m>
 </li>
  </ol></p>
 				</li>
-			<li><p> If <m>A</m> is a symmetric matrix in <m> M_{2}(\R)</m>, then <m>A</m> must be of the form <m>A=\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}</m> for some <m>a,b,d</m>. We can then decompose <m>A</m> as 
+			<li><p> If <m>A</m> is a symmetric matrix in <m> \matrixring_{2}(\R)</m>, then <m>A</m> must be of the form <m>A=\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}</m> for some <m>a,b,d</m>. We can then decompose <m>A</m> as 
 				<md>\begin{bmatrix}a &amp; b\\b &amp;d\end{bmatrix}=a\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}+b\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix}+d\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</md>, so <m>T=\left\{\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp;1\\1 &amp;0\end{bmatrix},\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}\right\}</m> is a spanning set for <m>W</m>.</p>
 
 				<p>However, this is  not the proposed spanning set <m>
@@ -261,9 +261,9 @@ Consider the set <m>W</m> of symmetric matrices in the vector space <m>
 			</m>. We can use <xref ref="proposition-subspaces-eq-span-test" text="title" /> to determine if this is spanning set for <m>W</m>.</p>
 		
 		<p>	 Since the vectors in <m>S</m> are symmetric, every vector in <m>S</m> is a linear combination of the vectors in <m>T</m>, so now we need to check that every vector in <m>T</m> is a linear combination of the vectors in <m>S</m>. Starting with <m>\begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}</m>, we note that 
-<me>
+<md>
 \begin{bmatrix}1 &amp; 0\\0 &amp;0\end{bmatrix}=0\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}-1\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+0\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}.
-</me> </p>
+</md> </p>
 
 <p>
 Now we tackle the less obvious linear combinations. We take <m>\begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}</m> and build an arbitrary linear combination using <m> S</m>:
@@ -271,7 +271,7 @@ Now we tackle the less obvious linear combinations. We take <m>\begin{bmatrix}0 
 
 
 			
-			<me> \begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}=k_1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+k_2\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+k_3\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 &amp; 2k_1+k_3\\2k_1+k_3 &amp;k_1+k_3\end{bmatrix}</me>
+			<md> \begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}=k_1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+k_2\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+k_3\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 &amp; 2k_1+k_3\\2k_1+k_3 &amp;k_1+k_3\end{bmatrix}</md>
 
 			Comparing entries on each side of the equation leads to the system of equations
 			<md>
@@ -301,13 +301,13 @@ Now we tackle the less obvious linear combinations. We take <m>\begin{bmatrix}0 
 	</md></p>
 <p>
 	The reduced matrix tells us that <m>k_1=1, k_2=-3, k_3=-1</m>. We can verify this:
-<me> 1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}-3\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}-1\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}1+3-4 &amp; 2-1\\2-1 &amp;1-1\end{bmatrix}=\begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}</me>
+<md> 1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}-3\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}-1\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}1+3-4 &amp; 2-1\\2-1 &amp;1-1\end{bmatrix}=\begin{bmatrix}0 &amp; 1\\1 &amp;0\end{bmatrix}</md>
 
 </p>
 
 <p>You can verify through a similar calculation that 
 
-	<me> -1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+7\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+2\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}1+3-4 &amp; 2-1\\2-1 &amp;1-1\end{bmatrix}=\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</me>
+	<md> -1\begin{bmatrix}1 &amp; 2\\2 &amp;1\end{bmatrix}+7\begin{bmatrix}-1 &amp; 0\\0 &amp;0\end{bmatrix}+2\begin{bmatrix}4 &amp; 1\\1 &amp;1\end{bmatrix}=\begin{bmatrix}1+3-4 &amp; 2-1\\2-1 &amp;1-1\end{bmatrix}=\begin{bmatrix}0 &amp; 0\\0 &amp;1\end{bmatrix}</md>
 
 	Since every vector in <m>T</m> is a also linear combination of the vectors in <m>S</m>, this means they span the same space, so <m>S</m> is a spanning set for the <m>2\times 2</m> symmetric matrices.
 </p>
