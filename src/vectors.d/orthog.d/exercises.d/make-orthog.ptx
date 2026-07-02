@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-make-orthog">
+<title>Solving for orthogonality</title>
+
+<introduction><p>
+	In each case,
+	determine all values of <m> k </m> for which <m> \uvec{v} </m> is
+	<term><xref ref="definition-orthog-orthogonal" text="custom">orthogonal</xref></term>
+	to <m> \uvec{w} </m>.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{v} = (3,k,4) </m>,
+		<m> \uvec{W} = (-1,-3,6) </m>
+	</p></statement>
+
+	<solution><p>
+		Calculate <md> \udotprod{v}{w} = 3 \cdot (-1) + k \cdot (-3) + 4 \cdot 6 = 21 - 3 k </md>.
+		Two vectors are orthogonal precisely when their dot product is <m> 0 </m>,
+		so set the above expression equal to <m> 0 </m> and solve for <m> k </m>:
+		<md> 21 - 3 k = 0 \qquad \implies \qquad k = 7 </md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{v} = (k^2, 3, -6 k, 4) </m>,
+		<m> \uvec{W} = (1,-3,-2,5) </m>
+	</p></statement>
+
+	<solution><p>
+		Calculate <md> \udotprod{v}{w} = k^2 \cdot 1 + 3 \cdot (-3) + (-6 k) \cdot (-2) + 4 \cdot 5 = k^2 + 12 k + 11 </md>.
+		Two vectors are orthogonal precisely when their dot product is <m> 0 </m>,
+		so we would like to know when the above expression is equal to <m> 0 </m>.
+		Factoring,
+		we have <md> k^2 + 12 k + 11 = (k + 1) (k + 11) </md>,
+		so the two vectors are orthogonal precisely when either <m> k = -1 </m> or <m> k = -11 </m>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

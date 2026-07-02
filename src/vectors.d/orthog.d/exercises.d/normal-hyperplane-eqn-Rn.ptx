@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-normal-hyperplane-eqn-Rn">
+<title>Normal vector to a hyperplane in <m> \R^n </m> from its equation</title>
+
+<introduction>
+
+	<p>
+	Just as a <term>line</term> in <m> \R^2 </m> is defined by a linear equation in the two variables <m> x,y</m> and a <term>plane</term> in <m> \R^3 </m> is defined by a linear equation in the three variables <m> x,y,z </m>,
+	a <term>hyperplane</term> in <m> \R^n </m> is defined by a linear equation in all <m> n </m> variables <m> x_1, x_2, \dotsc, x_n </m>.
+	</p>
+
+	<p>
+	In each of the following,
+	a linear equation corresponding to a hyperplane in <m> \R^n </m> and two points <m> P </m> and <m> Q </m> are provided.
+	<ol>
+
+		<li xml:id="instruction-exercisegroup-orthog-normal-hyperplane-eqn-Rn-normal-vec">
+		By inspection,
+		determine a <term><xref ref="definition-orthog-normal-vector" text="custom">normal vector</xref></term> for the hyperplane from its equation.
+		</li>
+
+		<li> Verify that points <m> P </m> and <m> Q </m> lie on the hyperplane. </li>
+
+		<li>
+		Compute the vector <m> \uvec{v} </m> associated to directed line segment <m> \abray{PQ} </m>,
+		and then verify that <m> \uvec{v} </m> is orthogonal to your normal vector from <xref ref="instruction-exercisegroup-orthog-normal-hyperplane-eqn-Rn-normal-vec" text="type-local">part</xref>.
+		</li>
+
+	</ol>
+	</p>
+
+</introduction>
+
+<exercise>
+
+	<statement>
+
+		<p><m> n = 4 </m></p>
+
+		<p><m> H \colon \:\: 2 x_1 - x_2 - 2 x_3 + 6 x_4 = 2 </m></p>
+
+		<p><m> P(1,-4,-1,-1), Q(-1,0,1,1) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The hyperplane equation coefficients form a normal vector: <md> \uvec{n} = (2,-1,-2,6) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 2 \cdot 1 - (-4) - 2 \cdot (-1) + 6 \cdot (-1) = 2 </mrow>
+
+			<mrow> Q \amp \colon \:\: 2 \cdot (-1) - 0 - 2 \cdot 1 + 6 \cdot 1 = 2 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (-2,4,2,2) </m>
+			<md> \udotprod{n}{v} = 2 \cdot (-2) + (-1) \cdot 4 + (-2) \cdot 2 + 6 \cdot 2 = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m> n = 5 </m></p>
+
+		<p><m> H \colon \:\: 4 x_1 + 5 x_2 - 4 x_4 - 3 x_5 = 3 </m></p>
+
+		<p><m> P(1,0,5,1,-1), Q(4,-2,-3,0,1) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The hyperplane equation coefficients form a normal vector: <md> \uvec{n} = (4,5,0,-4,-3) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 4 \cdot 1 + 5 \cdot 0 - 4 \cdot 1 - 3 \cdot (-1) = 3 </mrow>
+
+			<mrow> Q \amp \colon \:\: 4 \cdot 4 + 5 \cdot (-2) - 4 \cdot 0 - 3 \cdot 1 = 3 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (3,-2,-8,-1,2) </m>
+			<md> \udotprod{n}{v} = 4 \cdot 3 + 5 \cdot (-2) + 0 \cdot (-8) + (-4) \cdot (-1) + (-3) \cdot 2 = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m> n = 6 </m></p>
+
+		<p><m> H \colon \:\: 2 x_1 + x_2 + 3 x_3 + 5 x_4 + 2 x_5 - 4 x_6 = 3 </m></p>
+
+		<p><m> P(1,0,1,0,1,1), Q(3,6,-2,-3,2,-2) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The hyperplane equation coefficients form a normal vector: <md> \uvec{n} = (2,1,3,5,2,-4) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 2 \cdot 1 + 0 + 3 \cdot 1 + 5 \cdot 0 + 2 \cdot 1 - 4 \cdot 1 = 3 </mrow>
+
+			<mrow> Q \amp \colon \:\: 2 \cdot 3 + 6 + 3 \cdot (-2) + 5 \cdot (-3) + 2 \cdot 1 - 4 \cdot (-2) = 3 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (2,6,-3,-3,1,-3) </m>
+			<md> \udotprod{n}{v} = 2 \cdot 2 + 1 \cdot 6 + 3 \cdot (-3) + 5 \cdot (-3) + 2 \cdot 1 + (-4) \cdot (-3) = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

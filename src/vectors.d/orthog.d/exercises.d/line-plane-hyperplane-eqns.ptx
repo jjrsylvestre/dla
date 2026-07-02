@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-orthog-line-plane-hyperplane-eqns">
+<title>Determining equations of lines/planes/hyperplanes</title>
+
+<introduction><p>
+	In each of the following,
+	determine the equation of the line/plane/hyperplane that passes through point <m> P </m> and satisfies the stated geometric condition.
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		<m> P(2,3) </m>;
+		line normal to the vector <m> \uvec{v} = (1,-3) </m>.
+	</p></statement>
+
+	<solution><p>
+		Using <term><xref ref="definition-orthog-point-normal-form" text="custom">point-normal form</xref></term>,
+		the line is
+		<md>
+			\dotprod{(1,-3)}{\bbrac{(x,y) - (2,3)}} = 0
+			\quad \implies \quad
+			x - 3 y = -7
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> P(3,0) </m>;
+		line parallel to the line <m> 5 x + 6 y = 3 </m>.
+	</p></statement>
+
+	<solution><p>
+		In <m> \R^2 </m>,
+		parallel lines have parallel normal vectors,
+		so we may use <m> \uvec{n} = (5,6) </m> as a normal vector for the desired line.
+		Using <term><xref ref="definition-orthog-point-normal-form" text="custom">point-normal form</xref></term>,
+		the line is
+		<md>
+			\dotprod{(5,6)}{\bbrac{(x,y) - (3,0)}} = 0
+			\quad \implies \quad
+			5 x + 6 y = 15
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> P(-4,-3,6) </m>;
+		plane normal to the vector <m> \uvec{v} = (1,-1,6) </m>.
+	</p></statement>
+
+	<solution><p>
+		Using <term><xref ref="definition-orthog-point-normal-form" text="custom">point-normal form</xref></term>,
+		the plane is
+		<md>
+			\dotprod{(1,-1,6)}{\bbrac{(x,y,z) - (-4,-3,6)}} = 0
+			\quad \implies \quad
+			x - y + 6 z = 35
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> P(3,-6,1) </m>;
+		plane parallel to the plane <m> 2 x - 5 y + 5 z = 4 </m>.
+	</p></statement>
+
+	<solution><p>
+		In <m> \R^3 </m>,
+		parallel planes have parallel normal vectors,
+		so we may use <m> \uvec{n} = (2,-5,5) </m> as a normal vector for the desired plane.
+		Using <term><xref ref="definition-orthog-point-normal-form" text="custom">point-normal form</xref></term>,
+		the plane is
+		<md>
+			\dotprod{(2,-5,5)}{\bbrac{(x,y) - (3,-6,1)}} = 0
+			\quad \implies \quad
+			2 x - 5 y + 5z = 41
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> P(3,-5,6,5) </m>;
+		hyperplane normal to the vector <m> \uvec{v} = (4,3,-3,-3) </m>.
+	</p></statement>
+
+	<solution><p>
+		Using <term>point-normal form</term>,
+		the hyperplane is
+		<md alignment="gather">
+			<mrow> \dotprod{(4,3,-3,-3)}{\bbrac{(x_1,x_2,x_3,x_4) - (3,-5,6,5)}} = 0 </mrow>
+			<mrow> \implies \quad 4 x_1 + 3 x_2 - 3 x_3 - 3 x_4 = -36 </mrow>
+		</md>.
+	</p></solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m> P(5,5,-4,-3); </m></p>
+
+		<p> hyperplane parallel to the hyperplane <m> 3 x_1 - 2 x_2 - 4 x_3 - 2 x_4 = -2 </m>. </p>
+
+	</statement>
+
+	<solution><p>
+		In <m> \R^4 </m>,
+		parallel hyperplanes have parallel normal vectors,
+		so we may use <m> \uvec{n} = (3,-2,-4,-2) </m> as a normal vector for the desired hyperplane.
+		Using <term>point-normal form</term>,
+		the hyperplane is
+		<md alignment="gather">
+			<mrow> \dotprod{(3,-2,-4,-2)}{\bbrac{(x,y) - (5,5,-4,-3)}} = 0 </mrow>
+			<mrow> \implies \quad 3 x_1 - 2 x_2 - 4 x_3 - 2 x_4 = 27 </mrow>
+		</md>.
+	</p></solution>
+
+</exercise>
+
+</exercisegroup>

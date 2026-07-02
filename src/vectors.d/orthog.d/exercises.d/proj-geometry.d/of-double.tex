@@ -14,28 +14,34 @@
 \begin{tikzpicture}[
 	point/.style={circle,draw,very thin,fill,inner sep=0pt,minimum size=4pt},
 	vector/.style={-latex},
+	scale=0.85
 ]
 	\coordinate (o) at (0,0);
 	% line slope 1/8, perp slope = -8
 	\coordinate (l1) at (-1,-0.125);
-	\coordinate (l2) at (5,0.625);
+	\coordinate (l2) at (9,1.125);
 	\coordinate (a) at (2.5,0.3125); % parallel to (2,0.25)
-	\coordinate (u) at (3.5,2); % u-vector slope 4/7
-	\coordinate (p) at (3.692,0.462);
+	\coordinate (u) at (3.5,2);
+	\coordinate (twou) at (7,4);
+	\coordinate (pu) at (3.692,0.462);
+	\coordinate (ptwou) at (7.385,0.923);
 
 	\draw[dashed] (l1) to (l2);
 	\node[point] at (o) [label=below:{$\zerovec$}] {};
-	\draw[vector,thick] (o) to node[above,near end] {$\uvec{u}$} (u);
+	\draw[vector,thick] ([xshift=0.005cm,yshift=-0.04cm]o) to node[below,near end] {$\uvec{u}$} ([xshift=0.005cm,yshift=-0.04cm]u);
+	\draw[vector,thick] ([xshift=-0.005cm,yshift=0.04cm]o) to node[above left,near end] {$2 \uvec{u}$} ([xshift=-0.005cm,yshift=0.04cm]twou);
 	\draw[vector,thick] (o) to node[below right] {$\uvec{a}$} (a);
-	\draw[vector] (o) to node[below,at end] {$\uproj{u}{a}$} (p);
-	\draw[vector] (p) to node[right,near end] {$\uvec{u} - \uproj{u}{a}$} (u);
+	\draw[vector] ([xshift=0.0075cm,yshift=-0.06cm]o) to node[below,at end] {$\uproj{u}{a}$} ([xshift=0.0075cm,yshift=-0.06cm]pu);
+	\draw[vector] ([xshift=-0.005cm,yshift=0.04cm]o) to node[above, near end] {$\proj_{\uvec{a}} (2 \uvec{u})$} ([xshift=-0.005cm,yshift=0.04cm]ptwou);
+	\draw[vector] (pu) to (u);
+	\draw[vector] (ptwou) to (twou);
 
-	% perp square
+	% perp squares
 	\begin{scope}[xshift=3.692cm,yshift=0.462cm]
 		\draw[rotate=7.125] (-0.2,0) to (-0.2,0.2) to (0,0.2);
 	\end{scope}
-
-	% "projection" arrow
-	\draw[densely dotted,->] (3.1,1.714) to (3.25,0.5);
+	\begin{scope}[xshift=7.385cm,yshift=0.923cm]
+		\draw[rotate=7.125] (-0.2,0) to (-0.2,0.2) to (0,0.2);
+	\end{scope}
 
 \end{tikzpicture}

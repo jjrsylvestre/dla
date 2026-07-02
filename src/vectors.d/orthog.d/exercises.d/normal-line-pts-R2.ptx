@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-normal-line-pts-R2" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Point-normal form for a line in <m> \R^2 </m></title>
+
+<introduction><p>
+	In each case:
+	<ol>
+
+		<li>
+			Determine a <term><xref ref="definition-orthog-normal-vector" text="custom">normal vector</xref></term>
+			for the line that passes through the points <m> P </m> and <m> Q </m>.
+		</li>
+
+		<li>
+			Sketch the line in the <m> xy </m>-plane,
+			and draw your normal vector with its initial point at one of either <m> P </m> or <m> Q </m>.
+		</li>
+
+		<li>
+			Write the equation of the line in <term><xref ref="definition-orthog-point-normal-form" text="custom">point-normal form</xref></term>,
+			then expand and re-write in typical algebraic form.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m> P(2,1), Q(3,3) </m></p></statement>
+
+	<answer><p><ol>
+
+		<li><p>
+			The directed line segment <m> \abray{PQ} </m> is parallel to the line through <m> P </m> and <m> Q </m>.
+			Calculate the associated vector <m> \uvec{v} </m> as
+			<md> \uvec{v} = (3 - 2, 3 - 1) = (1, 2) </md>.
+			Using the pattern from <xref ref="activity-orthog-guess-orthog-in-plane" />
+			(see also <xref ref="subsubsection-orthog-concepts-orthog-in-R2" />),
+			we can create normal vector <m> \uvec{n} = (2, -1) </m>.
+		</p></li>
+
+		<li>
+			<image width="43.2%">
+				<latex-image label="image-orthog-exercises-orthog-normal-line-pts-R2-quad1">
+					<xi:include href="normal-line-pts-R2.d/quad1.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram illustrating a normal vector to a line in the plane. </shortdescription>
+				<description><p>
+					A diagram consisting of a vector between two points,
+					the line through those two points,
+					and a vector normal to the line.
+					The points <m> P(2,1) </m> and <m> Q(3,3) </m> are plotted in the <m> xy </m>-plane,
+					and the directed line segment <m> \abray{PQ} </m> is drawn between them and labelled as vector <m> \uvec{v} </m>.
+					The line that passes through <m> P </m> and <m> Q </m> is also drawn and labelled as <m> \ell </m>.
+					Finally,
+					the vector <m> \uvec{n} = (2,-1) </m> is drawn with initial point at <m> P </m> and terminal point <m> (4,0) </m>,
+					meeting <m> \ell </m> at a right angle at <m> P </m>.
+				</p></description>
+			</image>
+		</li>
+
+		<li><p>
+			Point-normal form (using point <m>P</m>):
+			<md> \dotprod{ (2,-1) }{\bbrac{ (x,y) - (2,1) }} = 0 </md>.
+			Expanded algebraic form:
+			<md> 2 x - y = 3 </md>.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(-2,2), Q(2,-1) </m></p></statement>
+
+	<answer><p><ol>
+
+		<li><p>
+			The directed line segment <m> \abray{PQ} </m> is parallel to the line through <m> P </m> and <m> Q </m>.
+			Calculate the associated vector <m> \uvec{v} </m> as
+			<md> \uvec{v} = \bbrac{2 - (-2), -1 - 2} = (4, -3) </md>.
+			Using the pattern from <xref ref="activity-orthog-guess-orthog-in-plane" />
+			(see also <xref ref="subsubsection-orthog-concepts-orthog-in-R2" />),
+			we can create normal vector <m> (-3, -4) </m>,
+			though maybe we would prefer to take the negative:
+			<m> \uvec{n} = (3,4) </m>.
+		</p></li>
+
+		<li>
+			<image width="76.4%">
+				<latex-image label="image-orthog-exercises-orthog-normal-line-pts-R2-quad2-to-quad4">
+					<xi:include href="normal-line-pts-R2.d/quad2-to-quad4.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram illustrating a normal vector to a line in the plane. </shortdescription>
+				<description><p>
+					A diagram consisting of a vector between two points,
+					the line through those two points,
+					and a vector normal to the line.
+					The points <m> P(-2,2) </m> and <m> Q(2,-1) </m> are plotted in the <m> xy </m>-plane,
+					and the directed line segment <m> \abray{PQ} </m> is drawn between them and labelled as vector <m> \uvec{v} </m>.
+					The line that passes through <m> P </m> and <m> Q </m> is also drawn and labelled as <m> \ell </m>.
+					Finally,
+					the vector <m> \uvec{n} = (3,4) </m> is drawn with initial point at <m> Q </m> and terminal point <m> (5,3) </m>,
+					meeting <m> \ell </m> at a right angle at <m> Q </m>.
+				</p></description>
+			</image>
+		</li>
+
+		<li><p>
+			Point-normal form (using point <m>P</m>):
+			<md> \dotprod{ (3,4) }{\bbrac{ (x,y) - (-2,2) }} = 0 </md>.
+			Expanded algebraic form:
+			<md> 3 x + 4 y = 2 </md>.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

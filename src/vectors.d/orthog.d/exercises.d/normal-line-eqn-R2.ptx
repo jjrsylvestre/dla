@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-normal-line-eqn-R2" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Normal vector to a line in <m> \R^2 </m> from its equation</title>
+
+<introduction><p>
+	In each of the following,
+	a linear equation corresponding to a line in <m> \R^2 </m> and two points <m> P </m> and <m> Q </m> are provided.
+	<ol>
+
+		<li xml:id="instruction-exercisegroup-orthog-normal-line-eqn-R2-normal-vec">
+		By inspection,
+		determine a <term><xref ref="definition-orthog-normal-vector" text="custom">normal vector</xref></term> for the line from its equation.
+		</li>
+
+		<li> Verify that points <m> P </m> and <m> Q </m> lie the line. </li>
+
+		<li>
+		Compute the vector <m> \uvec{v} </m> associated to directed line segment <m> \abray{PQ} </m>,
+		and then verify that <m> \uvec{v} </m> is orthogonal to your normal vector from <xref ref="instruction-exercisegroup-orthog-normal-line-eqn-R2-normal-vec" text="type-local">part</xref>.
+		</li>
+
+		<li>
+		Sketch the line in the <m> xy </m>-plane,
+		along with points <m> P, Q </m> and vector <m> \uvec{v} </m>.
+		Then draw your normal vector with its initial point at one of either <m> P </m> or <m> Q </m>.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement>
+
+		<p><m> \ell \colon \:\: 3 x - 5 y = -2 </m></p>
+
+		<p><m> P(-4,-2), Q(1,1) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The line equation coefficients form a normal vector: <md> \uvec{n} = (3,-5) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 3 \cdot (-4) - 5 \cdot (-2) = -2 </mrow>
+
+			<mrow> Q \amp \colon \:\: 3 \cdot 1 - 5 \cdot 1 = -2 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (5,3) </m>
+			<md> \udotprod{n}{v} = 3 \cdot 5 + (-5) \cdot 3 = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+		<li><image width="76.4%">
+			<latex-image label="image-orthog-exercises-orthog-normal-line-eqn-R2-3-neg5-neg2">
+				<xi:include href="normal-line-eqn-R2.d/3-neg5-neg2.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating a normal vector to a line in the plane. </shortdescription>
+			<description><p>
+				A diagram consisting of a line with positive slope,
+				a vector parallel to it,
+				and a vector normal to it.
+				The graph of the line <m> 3 x - 5 y = -2 </m> is sketched and labelled as <m> \ell </m>.
+				passing through plotted points <m> P(-4,-2) </m> and <m> Q(1,1) </m>.
+				The directed line segment <m> \abray{PQ} </m> is drawn and labelled as vector <m> \uvec{v} </m>.
+				A directed line segment labelled as vector <m> \uvec{n} </m> extends from <m> Q </m> downwards and rightwards,
+				forming a right angle with line <m> \ell </m> at <m> Q </m>.
+			</p></description>
+		</image></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m> \ell \colon \:\: 2 x + 4 y = -5 </m>,</p>
+
+		<p><m> P(0, -5/4), Q(-5, 5/4) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The line equation coefficients form a normal vector: <md> \uvec{n} = (2,4) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 2 \cdot 0 + 4 \cdot (- 5 / 4) = -5 </mrow>
+
+			<mrow> Q \amp \colon \:\: 2 \cdot (-5) + 4 \cdot (5 / 4) = -5 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (-5, 5/2) </m>
+			<md> \udotprod{n}{v} = 2 \cdot (-5) + 4 \cdot (5 / 2) = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+		<li><image width="72.3%">
+			<latex-image label="image-orthog-exercises-orthog-normal-line-eqn-R2-2-4-neg5">
+				<xi:include href="normal-line-eqn-R2.d/2-4-neg5.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating a normal vector to a line in the plane. </shortdescription>
+			<description><p>
+				A diagram consisting of a line with negative slope,
+				a vector parallel to it,
+				and a vector normal to it.
+				The graph of the line <m> 2 x + 4 y = -5 </m> is sketched and labelled as <m> \ell </m>.
+				passing through plotted points <m> P(0,-5/4) </m> and <m> Q(-5,5/4) </m>.
+				The directed line segment <m> \abray{PQ} </m> is drawn and labelled as vector <m> \uvec{v} </m>.
+				A directed line segment labelled as vector <m> \uvec{n} </m> extends from <m> P </m> upwards and rightwards,
+				forming a right angle with line <m> \ell </m> at <m> P </m>.
+			</p></description>
+		</image></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

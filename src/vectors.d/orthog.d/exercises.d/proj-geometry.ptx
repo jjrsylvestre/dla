@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-orthog-proj-geometry" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Properties of orthogonal projection, geometrically</title>
+
+<introduction><p>
+	For each of the following,
+	begin by making a <em>fresh</em> copy of the orthogonal projection diagram in <xref ref="figure-orthog-terminology-proj" />,
+	and then draw in additional vectors as instructed.
+</p></introduction>
+
+<exercise xml:id="exercise-orthog-proj-geometry-of-neg">
+	<title>Projection of a negative vector</title>
+
+	<task>
+
+		<statement><p> Draw in vectors <m> - \uvec{u} </m> and <m> \proj_{\uvec{a}} (- \uvec{u}) </m>. </p></statement>
+
+		<answer><image width="71.4%">
+			<latex-image label="image-orthog-exercises-proj-geometry-of-neg">
+				<xi:include href="proj-geometry.d/of-neg.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Diagram illustrating the relationship between the orthogonal projection of a first vector onto a second vector
+				and the orthogonal projection of the negative of the first vector onto the second.
+			</shortdescription>
+			<description>
+
+				<p>
+				A diagram consisting of two right triangles sharing a vertex at a point labelled <m> \zerovec </m>.
+				A vector labelled <m> \uvec{a} </m> emanates rightwards from <m> \zerovec </m> at a slight positive slope.
+				A second vector labelled <m> \uvec{u} </m> also emanates rightwards from <m> \zerovec </m>,
+				at a greater positive slope and longer than <m> \uvec{a} </m>.
+				A third vector labelled <m> \uproj{u}{a} </m> emanates rightwards from <m> \zerovec </m>,
+				parallel to but longer than <m> \uvec{a} </m>,
+				and a fourth unlabelled vector runs between the terminal points of <m> \uproj{u}{a} </m> and <m> \uvec{u} </m> so that a right-angled triangle is formed,
+				with <m> \uvec{u} </m> as the hypotenuse.
+				</p>
+
+				<p>
+				On the other side of <m> \zerovec </m>,
+				the negative vector <m> - \uvec{u} </m> is drawn with initial point at <m> zerovec </m>.
+				A vector labelled <m> \proj_{\uvec{a}} (-\uvec{u}) </m> emanates leftwards from <m> \zerovec </m>,
+				parallel to but oppositely directed from <m> \uvec{a} </m>,
+				and another unlabelled vector runs between the terminal points of <m> \proj_{\uvec{a}} (- \uvec{u}) </m> and <m> - \uvec{u} </m> so that a second right-angled triangle is formed,
+				with <m> - \uvec{u} </m> as the hypotenuse.
+				</p>
+
+			</description>
+		</image></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Based on your diagram and Euclidean geometry,
+			give a geometric argument why <m> \proj_{\uvec{a}} (- \uvec{u}) </m> is equal to the negative of <m> \uproj{u}{a} </m>.
+		</p></statement>
+
+		<answer>
+
+			<p>
+			First,
+			<m> \uproj{u}{a} </m> and <m> \proj_{\uvec{a}} (- \uvec{u}) </m> share the same initial point and their terminal points must both lie on the line through <m> \zerovec </m> that is parallel to <m> \uvec{a} </m>.
+			So the two angles at <m> \zerovec </m> are opposite and therefore congruent,
+			which makes the two right-angled triangles similar by Angle-Angle.
+			But <m> \norm{- \uvec{u}} = \unorm{u} </m>,
+			hence the two triangles must in fact be congruent.
+			Therefore,
+			<m> \proj_{\uvec{a}} (- \uvec{u}) </m> has the same length as <m> \uproj{u}{a} </m>.
+			</p>
+
+			<p>
+			Furthermore, since the terminal points of <m> \uproj{u}{a} </m> and <m> \proj_{\uvec{a}} (- \uvec{u}) </m> are collinear,
+			these two vectors are parallel but oppositely directed.
+			Since they have the same length,
+			we may conclude that they are negatives of each other.
+			</p>
+
+		</answer>
+
+	</task>
+
+	<task><p>
+		Using our <xref ref="definition-orthog-projection" text="custom">formula for orthogonal projection</xref>,
+		algebraically verify the identity <md> \proj_{\uvec{a}} (- \uvec{u}) = - \uproj{u}{a} </md>.
+	</p></task>
+
+</exercise>
+
+<exercise xml:id="exercise-orthog-proj-geometry-onto-neg">
+	<title>Projection onto a negative vector</title>
+
+	<task>
+
+		<statement><p> Draw in vectors <m> - \uvec{a} </m> and <m> \proj_{(- \uvec{a})} \uvec{u} </m>. </p></statement>
+
+		<answer><image width="72%">
+			<latex-image label="image-orthog-exercises-proj-geometry-onto-neg">
+				<xi:include href="proj-geometry.d/onto-neg.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Diagram illustrating the relationship between the orthogonal projection of a first vector onto a second vector
+				and the orthogonal projection of the first vector onto the negative of the second.
+			</shortdescription>
+			<description>
+
+				<p>
+				A diagram consisting of a right triangle with one leg sitting on a line.
+				A point representing the origin is plotted and labelled <m> \zerovec </m>.
+				A vector labelled <m> \uvec{a} </m> emanates rightwards from <m> \zerovec </m> at a slight positive slope,
+				and the line through <m> \zerovec </m> and parallel to <m> \uvec{a} </m> is sketched as a dashed line.
+				A second vector labelled <m> \uvec{u} </m> also emanates rightwards from <m> \zerovec </m>,
+				at a greater positive slope and longer than <m> \uvec{a} </m>.
+				A third vector labelled <m> \uproj{u}{a} </m> emanates rightwards from <m> \zerovec </m>,
+				parallel to but longer than <m> \uvec{a} </m>,
+				and a fourth unlabelled vector runs between the terminal points of <m> \uproj{u}{a} </m> and <m> \uvec{u} </m> so that a right-angled triangle is formed,
+				with <m> \uvec{u} </m> as the hypotenuse.
+				</p>
+
+				<p>
+				The negative vector <m> - \uvec{a} </m> is also drawn with its initial point at the origin,
+				so that it is oppositely directed to <m> \uvec{a} </m> along the dashed line,
+				and finally a vector labelled <m> \proj_{(- \uvec{a})} \uvec{u} </m> is drawn spanning the same segment as <m> \uproj{u}{a} </m>.
+				</p>
+
+			</description>
+		</image></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Based on your diagram and our conception of <term>orthogonal projection</term> as providing the answer to
+			<xref ref="question-orthog-concepts-proj-motivation" />
+			(see <xref ref="subsection-orthog-concepts-proj" />),
+			give a geometric argument why <m> \proj_{(- \uvec{a})} \uvec{u} </m> is the same as <m> \uproj{u}{a} </m>.
+		</p></statement>
+
+		<answer><p>
+			When <m> \uvec{a} </m> and <m> \uvec{u} </m> are positioned with initial points at the origin,
+			as in the diagram,
+			<m> \uproj{u}{a} </m> is defined to be the vector
+			(also with initial point at the origin)
+			whose terminal point lies at the point closest to <m> \uvec{u} </m> on the line through the origin and parallel to <m> \uvec{a} </m>.
+			As <m> - \uvec{a} </m> is parallel to <m> \uvec{a} </m>,
+			the point closest to <m> \uvec{u} </m> on the line through the origin and parallel to <m> - \uvec{a} </m> is the same point again,
+			since the two lines are the same line.
+			Therefore,
+			<m> \proj_{(- \uvec{a})} \uvec{u} </m> has the same initial and terminal points as <m> \uproj{u}{a} </m>,
+			and so the two vectors are the same.
+		</p></answer>
+
+	</task>
+
+	<task><p>
+		Using our <xref ref="definition-orthog-projection" text="custom">formula for orthogonal projection</xref>,
+		algebraically verify the identity <md> \proj_{(- \uvec{a})} \uvec{u} = \uproj{u}{a} </md>.
+	</p></task>
+
+</exercise>
+
+<exercise xml:id="exercise-orthog-proj-geometry-of-scaled">
+	<title>Projection of a scaled vector</title>
+
+	<task>
+
+		<statement><p> Draw in vectors <m> 2 \uvec{u} </m> and <m> \proj_{\uvec{a}} (2 \uvec{u}) </m>. </p></statement>
+
+		<answer><image width="71.4%">
+			<latex-image label="image-orthog-exercises-proj-geometry-of-double">
+				<xi:include href="proj-geometry.d/of-double.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Diagram illustrating the relationship between the orthogonal projection of a first vector onto a second vector
+				and the orthogonal projection of double the first vector onto the second.
+			</shortdescription>
+			<description>
+
+				<p>
+				A diagram consisting of two right triangles sharing a vertex at a point labelled <m> \zerovec </m>.
+				A vector labelled <m> \uvec{a} </m> emanates rightwards from <m> \zerovec </m> at a slight positive slope.
+				A second vector labelled <m> \uvec{u} </m> also emanates rightwards from <m> \zerovec </m>,
+				at a greater positive slope and longer than <m> \uvec{a} </m>.
+				A third vector labelled <m> \uproj{u}{a} </m> emanates rightwards from <m> \zerovec </m>,
+				parallel to but longer than <m> \uvec{a} </m>,
+				and a fourth unlabelled vector runs between the terminal points of <m> \uproj{u}{a} </m> and <m> \uvec{u} </m> so that a right-angled triangle is formed,
+				with <m> \uvec{u} </m> as the hypotenuse.
+				</p>
+
+				<p>
+				The scaled vector <m> 2 \uvec{u} </m> is also drawn with initial point at <m> \uvec{u} </m>.
+				A vector labelled <m> \proj_{\uvec{a}} {(2 \uvec{u})} </m> again emanates rightwards from <m> \zerovec </m>,
+				parallel to but longer than <m> \uvec{a} </m>,
+				and another unlabelled vector runs between the terminal points of <m> \proj_{\uvec{a}} {(2 \uvec{u})} </m> and <m> 2 \uvec{u} </m> so that a second right-angled triangle is formed,
+				with <m> 2 \uvec{u} </m> as the hypotenuse.
+				</p>
+
+			</description>
+		</image></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Based on your diagram and Euclidean geometry,
+			give a geometric argument why <m> \proj_{\uvec{a}} (2 \uvec{u}) </m> is equal to <m> 2 \uproj{u}{a} </m>.
+		</p></statement>
+
+		<answer>
+
+			<p>
+			The two right triangles in the diagram share an acute angle at <m> \zerovec </m>,
+			and so are similar by Angle-Angle.
+			In similar triangles,
+			lengths of corresponding sides are at a constant ratio.
+			Therefore,
+			since the ratio of lengths of the hypotenuses <m> 2 \uvec{u} </m>  and <m> \uvec{u} </m> is <m> 2 </m>,
+			the ratio of lengths of the bases <m> \proj_{\uvec{a}} (2 \uvec{u}) </m> and <m> \uproj{u}{a} </m> is also <m> 2 </m>.
+			Furthermore,
+			each of those base vectors is parallel to <m> \uvec{a} </m>,
+			hence they are parallel to and therefore scalar multiples of each other.
+			Combining all this,
+			we conclude that <m> \proj_{\uvec{a}} (2 \uvec{u}) </m> must be equal to <m> 2 \uproj{u}{a} </m>.
+			</p>
+
+		</answer>
+
+	</task>
+
+	<task><p>
+		Using our <xref ref="definition-orthog-projection" text="custom">formula for orthogonal projection</xref>,
+		algebraically verify that the following identity holds for all scalars <m> k </m>: <md> \proj_{\uvec{a}} (k \uvec{u}) = k \uproj{u}{a} </md>.
+	</p></task>
+
+</exercise>
+
+<exercise xml:id="exercise-orthog-proj-geometry-onto-scaled">
+	<title>Projection onto a scaled vector</title>
+
+	<task>
+
+		<statement><p> Draw in vectors <m> 2 \uvec{a} </m> and <m> \proj_{(2 \uvec{a})} \uvec{u} </m>. </p></statement>
+
+		<answer><image width="59.1%">
+			<latex-image label="image-orthog-exercises-proj-geometry-onto-double">
+				<xi:include href="proj-geometry.d/onto-double.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Diagram illustrating the relationship between the orthogonal projection of a first vector onto a second vector
+				and the orthogonal projection of the first vector onto the double of the second.
+			</shortdescription>
+			<description>
+
+				<p>
+				A diagram consisting of a right triangle with one leg sitting on a line.
+				A point representing the origin is plotted and labelled <m> \zerovec </m>.
+				A vector labelled <m> \uvec{a} </m> emanates rightwards from <m> \zerovec </m> at a slight positive slope,
+				and the line through <m> \zerovec </m> and parallel to <m> \uvec{a} </m> is sketched as a dashed line.
+				A second vector labelled <m> \uvec{u} </m> also emanates rightwards from <m> \zerovec </m>,
+				at a greater positive slope and longer than <m> \uvec{a} </m>.
+				A third vector labelled <m> \uproj{u}{a} </m> emanates rightwards from <m> \zerovec </m>,
+				parallel to but longer than <m> \uvec{a} </m>,
+				and a fourth unlabelled vector runs between the terminal points of <m> \uproj{u}{a} </m> and <m> \uvec{u} </m> so that a right-angled triangle is formed,
+				with <m> \uvec{u} </m> as the hypotenuse.
+				</p>
+
+				<p>
+				The scaled vector <m> 2 \uvec{a} </m> is also drawn with its initial point at the origin,
+				so that it extends past the terminal point of <m> \uvec{a} </m> along the dashed line,
+				and finally a vector labelled <m> \proj_{(2 \uvec{a})} \uvec{u} </m> is drawn spanning the same segment as <m> \uproj{u}{a} </m>.
+				</p>
+
+			</description>
+		</image></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Based on your diagram and our conception of <term>orthogonal projection</term> as providing the answer to
+			<xref ref="question-orthog-concepts-proj-motivation" />
+			(see <xref ref="subsection-orthog-concepts-proj" />),
+			give a geometric argument why <m> \proj_{(2 \uvec{a})} \uvec{u} </m> is the same as <m> \uproj{u}{a} </m>.
+		</p></statement>
+
+		<answer><p>
+			When <m> \uvec{a} </m> and <m> \uvec{u} </m> are positioned with initial points at the origin,
+			as in the diagram,
+			<m> \uproj{u}{a} </m> is defined to be the vector
+			(also with initial point at the origin)
+			whose terminal point lies at the point closest to <m> \uvec{u} </m> on the line through the origin and parallel to <m> \uvec{a} </m>.
+			As <m> 2 \uvec{a} </m> is parallel to <m> \uvec{a} </m>,
+			the point closest to <m> \uvec{u} </m> on the line through the origin and parallel to <m> 2 \uvec{a} </m> is the same point again,
+			since the two lines are the same line.
+			Therefore,
+			<m> \proj_{(2 \uvec{a})} \uvec{u} </m> has the same initial and terminal points as <m> \uproj{u}{a} </m>,
+			and so the two vectors are the same.
+		</p></answer>
+
+	</task>
+
+	<task><p>
+		Using our <xref ref="definition-orthog-projection" text="custom">formula for orthogonal projection</xref>,
+		algebraically verify the identity <md> \proj_{(k \uvec{a})} \uvec{u} = \uproj{u}{a} </md> for every scalar <m> k </m>.
+	</p></task>
+
+</exercise>
+
+<exercise xml:id="exercise-proj-geometry-orthog-component-eq-proj-R2">
+	<title>Orthogonal component versus orthogonal projection in <m> \R^2 </m></title>
+	<!-- TODO link to future exercises -->
+
+	<introduction><p> <alert>Note.</alert> For this exercise, assume <m> n = 2 </m>. </p></introduction>
+
+	<task>
+
+		<statement><p>
+			Draw in a vector <m> \uvec{b} </m> orthogonal to <m> \uvec{a} </m>,
+			with its initial point at <m> \zerovec </m>.
+			Then draw in <m> \uproj{u}{b} </m>.
+		</p></statement>
+
+		<answer><image width="57.6%">
+			<latex-image label="image-orthog-exercises-proj-geometry-orthog-component-eq-proj-R2">
+				<xi:include href="proj-geometry.d/orthog-component-eq-proj-R2.tex" parse="text" />
+			</latex-image>
+			<shortdescription>
+				Diagram illustrating congruence between the component of a first vector orthogonal to a second vector,
+				and the orthogonal projection of the first vector onto a third vector that is orthogonal to the second.
+			</shortdescription>
+			<description><p>
+				A diagram consisting of a rectangle in the <m> xy </m>-plane.
+				A point labelled <m> zerovec </m> appears in the lower left corner of the rectangle,
+				and a vector labelled <m> \uvec{u} </m> emanates from this point to the upper right corner of the rectangle,
+				forming a diagonal for the rectangle.
+				A vector labelled <m> \uvec{a} </m> emanates rightwards from the <m> \zerovec </m> point at a slightly positive slope along the bottom side of the rectangle,
+				but not all the way to the lower right corner.
+				Another vector parallel to <m> \uvec{a} </m> and labelled as <m> \uproj{u}{a} </m> emanates from the <m> \zerovec </m> point,
+				this time extending all the way to the lower right corner of the rectangle,
+				thus forming the bottom side of the rectangle.
+				A vector labelled <m> \uvec{u} - \uproj{u}{a} </m> extends from the lower right corner to the upper right corner of the rectangle,
+				forming the right side of the rectangle.
+				A vector labelled <m> \uvec{b} </m> emanates upwards from the <m> \zerovec </m> point at a right angle to <m> \uvec{a} </m>,
+				along the left side of the rectangle,
+				but not all the way to the upper left corner.
+				Another vector parallel to <m> \uvec{b} </m> and labelled as <m> \uproj{u}{b} </m> emanates from the <m> \zerovec </m> point,
+				this time extending all the way to the upper left corner of the rectangle,
+				thus forming the left side of the rectangle.
+				Finally, a dashed line between the terminal points of <m> \uproj{u}{b} </m> and <m> \uvec{u} </m> forms the upper side of the rectangle.
+			</p></description>
+		</image></answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			Based on your diagram and Euclidean geometry,
+			give a geometric argument for why <m> \uproj{u}{b} </m> is equal to the
+			<term><xref ref="definition-orthog-orthog-component" text="title" /></term>
+			in <m> \R^2 </m>.
+		</p></statement>
+
+		<answer>
+
+			<p>
+			In the diagram we have a quadrilateral with vertices at <m> \zerovec </m>
+			and the terminal points of <m> \uproj{u}{a} </m>, <m> \uvec{u} </m>, and <m> \uproj{u}{b} </m>.
+			Because <m> \uvec{b} </m> is assumed to be orthogonal to <m> \uvec{a} </m>,
+			we have a right angle at the vertex at <m> \zerovec </m>.
+			And the nature of <term>orthogonal projections</term> ensures that we have right angles at the vertices at the terminal points of <m> \uproj{u}{a} </m> and <m> \uproj{u}{b} </m>.
+			</p>
+
+			<p>
+			In Euclidean geometry,
+			a quadrilateral with three right angles must be a rectangle,
+			and opposite sides in a rectangle are always parallel and congruent.
+			Therefore,
+			<m> \uproj{u}{b} </m> is parallel to (but not oppositely directed to) and the same length as <m> \uvec{u} - \uproj{u}{a} </m>.
+			Therefore, <m> \uproj{u}{b} </m> is equal to the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>.
+			</p>
+
+		</answer>
+
+	</task>
+
+	<task>
+
+		<statement><p> Why does a similar argument not work in <m> \R^n </m> for <m> n \gt 2 </m>? </p></statement>
+
+		<answer>
+
+			<p>
+			This geometric argument only works in <m> \R^2 </m> because in <m> \R^2 </m> every vector that is orthogonal to <m> \uvec{a} </m> is parallel to every other vector orthogonal to <m> \uvec{a} </m>,
+			forcing the shape to be a rectangle.
+			In <m> \R^3 </m>,
+			for example,
+			there are <m> 360 </m> degrees of directions that are orthogonal to <m> \uvec{a} </m>,
+			and choosing an arbitrary <m> \uvec{b} </m> would most likely cause <m> \uproj{u}{b} </m> to not even be parallel to <m> \uvec{u} - \uproj{u}{a} </m>.
+			</p>
+
+			<p component="one-semester">
+			However,
+			in a further course in linear algebra you may learn about <term>orthogonal projections</term> in <term>inner product spaces</term> more generally,
+			in which case you will discover an analogous pattern involving projection onto an <term>orthogonal complement</term>.
+			</p>
+
+			<p component="two-semester">
+			However,
+			in <xref ref="chapter-projection" />
+			we will encounter an analogous pattern involving projection onto an <term>orthogonal complement</term>
+			(see <xref ref="proposition-projection-exist-unique" />).
+			</p>
+
+		</answer>
+
+	</task>
+
+</exercise>
+
+</exercisegroup>

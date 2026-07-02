@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-proj-R2" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Orthogonal projection in <m> \R^2 </m></title>
+
+<introduction><p>
+	In each case:
+	<ol>
+
+		<li> Compute <m> \uproj{u}{a} </m>. </li>
+
+		<li xml:id="instruction-exercisegroup-exercisegroup-orthog-proj-R2-decompose"><p>
+			Express <m> \uvec{u} </m> as a decomposition into a sum of its
+			<term><xref ref="definition-orthog-parallel-component" text="custom">vector component parallel to <m> \uvec{a} </m></xref></term>
+			and its
+			<term><xref ref="definition-orthog-orthog-component" text="custom">vector component orthogonal to <m> \uvec{a} </m></xref></term>.
+		</p></li>
+
+		<li><p>
+			Sketch a diagram of the decomposition from <xref ref="instruction-exercisegroup-exercisegroup-orthog-proj-R2-decompose">part</xref> in the <m> xy </m>-plane,
+			with the initial point of <m> \uvec{u} </m> at the origin.
+			On your diagram also draw:
+			<ul>
+				<li> Vector <m> \uvec{a} </m>, with its initial point at the origin. </li>
+				<li> The line through the origin parallel to <m> \uvec{a} </m>. </li>
+			</ul>
+		</p></li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{u} = (2,5) </m>,
+		<m> \uvec{a} = (2,1) </m>
+	</p></statement>
+
+	<answer><p><ol>
+
+		<li><m> \uproj{u}{a} = ( 18/5, 9/5) </m></li>
+
+		<li><p>
+			<m> \uvec{u} = \uvec{p} + \uvec{n} </m>,
+			where <m> \uvec{p} = \uproj{u}{a} </m> as already computed,
+			and <md> \uvec{n} = \uvec{u} - \uvec{p} = ( -8/5, 16/5) </md>.
+		</p></li>
+
+		<li>
+			<image width="45.2%">
+				<latex-image label="image-orthog-exercises-orthog-proj-R2-quad1">
+					<xi:include href="orthog-proj-R2.d/quad1.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram illustrating a decomposition of a vector into a sum of its components parallel to and orthogonal to a specific vector. </shortdescription>
+				<description><p>
+					A diagram consisting of a right triangle of vectors in the first quadrant of the <m> xy </m>-plane.
+					The legs of the right triangle are vector <m> \uvec{p} </m>,
+					drawn from the origin to the point <m> ( 18/5, 9/5) </m>,
+					and vector <m> \uvec{n} </m>,
+					drawn from the terminal point of <m> \uvec{p} </m> to the point <m> (2,5) </m>.
+					The hypotenuse of the triangle is vector <m> \uvec{u} </m>,
+					drawn from the origin to the point <m> (2,5) </m>.
+					A fourth vector <m> \uvec{a} </m>,
+					parallel to but shorter than <m> \uvec{p} </m>,
+					is drawn from the origin to the point <m> (2, 1) </m>.
+					Finally, the line through the origin parallel to <m> \uvec{a} </m> and <m> \uvec{p} </m> is drawn and labelled as <m> \ell </m>.
+				</p></description>
+			</image>
+		</li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p>
+		<m> \uvec{u} = (-2,3) </m>,
+		<m> \uvec{a} = (5,-1) </m>
+	</p></statement>
+
+	<answer><p><ol>
+
+		<li><m> \uproj{u}{a} = ( -5/2, 1/2) </m></li>
+
+		<li><p>
+			<m> \uvec{u} = \uvec{p} + \uvec{n} </m>,
+			where <m> \uvec{p} = \uproj{u}{a} </m> as already computed,
+			and <md> \uvec{n} = \uvec{u} - \uvec{p} = ( 1/2, 5/2) </md>.
+		</p></li>
+
+		<li>
+			<image width="60.8%">
+				<latex-image label="image-orthog-exercises-orthog-proj-R2-quad2">
+					<xi:include href="orthog-proj-R2.d/quad2.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram illustrating a decomposition of a vector into a sum of its components parallel to and orthogonal to a specific vector. </shortdescription>
+				<description><p>
+					A diagram consisting of a right triangle of vectors in the second quadrant of the <m> xy </m>-plane.
+					The legs of the right triangle are vector <m> \uvec{p} </m>,
+					drawn from the origin to the point <m> ( -5/2, 1/2) </m>,
+					and vector <m> \uvec{n} </m>,
+					drawn from the terminal point of <m> \uvec{p} </m> to the point <m> (-2,3) </m>.
+					The hypotenuse of the triangle is vector <m> \uvec{u} </m>,
+					drawn from the origin to the point <m> (-2,3) </m>.
+					A fourth vector <m> \uvec{a} </m>,
+					parallel but oppositely directed to <m> \uvec{p} </m>,
+					is drawn from the origin to the point <m> (5, -1) </m>.
+					Finally, the line through the origin parallel to <m> \uvec{a} </m> and <m> \uvec{p} </m> is drawn and labelled as <m> \ell </m>.
+				</p></description>
+			</image>
+		</li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

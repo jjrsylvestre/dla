@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercises xml:id="exercises-orthog" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exercises</title>
+
+<!-- TODO give image of a bunch of vectors in R^2, guess dot-product pos/neg/0 based on image -->
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dot-prod-sign-from-angle-R2.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/angle-size-R2.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/angle-size-Rn.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/orthog-by-inspection.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/make-orthog.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normal-line-eqn-R2.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normal-line-pts-R2.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normal-plane-eqn-R3.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normal-hyperplane-eqn-Rn.ptx" />
+
+<exercise>
+
+	<p>
+	Suppose <m> P(a_1,a_2,\dotsc,a_n), Q(b_1,b_2,\dotsc,b_n) </m> are points on a hyperplane <md> c_1 x_1 + c_2 x_2 + \dotsb + c_n x_n = d </md> in <m> \R^n </m>.
+	</p>
+
+	<p>
+	Verify that the vector <m> \uvec{v} </m> associated to the directed line segment <m> \abray{PQ} </m>
+	(<q>parallel</q> to the hyperplane)
+	is <term><xref ref="definition-orthog-orthogonal" text="custom">orthogonal</xref></term> to the vector of coefficients <m> \uvec{n} = (c_1,c_2,\dotsc,c_n) </m>.
+	</p>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/cross-product.ptx" />
+
+<exercise>
+	<title>The right-hand rule</title>
+
+	<p>
+		Recall that the standard basis vectors in <m> \R^3 </m> are
+		<md>
+			<mrow>
+				\uvec{i} \amp = \uvec{e}_1 = (1,0,0) \text{,} \amp
+				\uvec{j} \amp = \uvec{e}_2 = (0,1,0) \text{,} \amp
+				\uvec{k} \amp = \uvec{e}_3 = (0,0,1) \text{.} \amp
+			</mrow>
+		</md>
+		(See <xref ref="figure-vectors-concepts-standard-basis-R3" />.)
+	</p>
+
+	<p>
+	Compute the cross products of the standard basis vectors in the various combinations
+	<md>
+		\ucrossprod{i}{j} \text{,} \quad
+		\ucrossprod{i}{k} \text{,} \quad
+		\ucrossprod{j}{i} \text{,} \quad
+		\ucrossprod{j}{k} \text{,} \quad
+		\ucrossprod{k}{i} \text{,} \quad
+		\ucrossprod{k}{j} \text{.}
+	</md>
+	and verify that the right-hand rule holds in these cases.
+	</p>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normal-plane-pts-R3.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/normal-hyperplane-pts-Rn.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/line-plane-hyperplane-eqns.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/orthog-proj-R2.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/orthog-proj-Rn.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dist-pt-line.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dist-pt-plane-by-eqn.ptx" />
+
+<exercise>
+	<title>Distance from a point to a plane defined by points</title>
+
+	<statement><p>
+		Determine the distance from point <m> S(3,5,-4) </m> to the plane that passes through points
+		<m> P(-5,-6,-1), Q(-1,-1,4), R(-4,3,0) </m>.
+	</p></statement>
+
+	<solution>
+
+		<p>
+		Create a vector from the plane to <m> S </m> by using any one of <m> P,Q,R </m> as the initial point;
+		we'll use <m> P </m>:
+		<md> \uvec{u} = \abray{PS} = (8, 11, -3) </md>.
+		Create two vectors parallel to the plane from the provided points:
+		<md>
+			<mrow> \uvec{v} \amp = \abray{PQ} = (4, 5, 5) \text{,} </mrow>
+			<mrow> \uvec{w} \amp = \abray{PR} = (1, 9, 1) \text{,} </mrow>
+		</md>
+		Now use the cross product to create a normal vector to the plane:
+		<md> \uvec{n} = \ucrossprod{v}{w} = (-40, 1, 31) </md>.
+		The distance from <m> S </m> to the plane will be the norm of the orthogonal projection of <m> \uvec{u} </m> onto <m> \uvec{n} </m>.
+		</p>
+
+		<p>
+		So first compute that projection:
+		<md> \uvec{p} = \uproj{u}{n} = \left( \frac{2680}{427}, - \frac{67}{427}, - \frac{2077}{427} \right) </md>.
+		Finally, compute the distance from <m> S </m> to the plane as the norm of <m> \uvec{p} </m>:
+		<md> d = \unorm{p} = 67 \, \sqrt{\frac{6}{427}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dist-pt-line-by-eqn.ptx" />
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/dist-pt-hyperplane.ptx" />
+
+<exercise xml:id="exercise-orthog-decomp-R2-std-basis">
+	<title>Orthogonal projection onto an axis in <m> \R^2 </m></title>
+
+	<introduction>
+
+		<p>
+		Recall that the <term><xref ref="definition-vectors-std-basis" text="title" /></term> in <m> \R^2 </m> are
+		<m> \uvec{e}_1 = (1,0) </m> and <m> \uvec{e}_2 = (0,1) </m>.
+		</p>
+
+		<p>
+		In the following,
+		consider general <m> \R^2 </m> vector <m> \uvec{u} = (x,y) </m>.
+		</p>
+
+	</introduction>
+
+	<task xml:id="exercise-orthog-decomp-R2-std-basis-e1">
+
+		<statement><p>
+			Express <m> \uvec{u} </m> as a decomposition into a sum of its
+			<term><xref ref="definition-orthog-parallel-component" text="custom">vector component parallel to <m> \uvec{e}_1 </m></xref></term>
+			and its
+			<term><xref ref="definition-orthog-orthog-component" text="custom">vector component orthogonal to <m> \uvec{e}_1 </m></xref></term>.
+			Then sketch a representative diagram in the first quadrant of the <m> xy </m>-plane that illustrates this decomposition using a vector addition triangle.
+		</p></statement>
+
+		<answer>
+
+			<p> Parallel component: <m> \uvec{p} = \proj_{\uvec{e}_1} (x,y) = (x,0) </m>. </p>
+
+			<p> Orthogonal component: <m> \uvec{n} = (x,y) - \proj_{\uvec{e}_1} (x,y) = (0,y) </m>. </p>
+
+			<p> Decomposition: <m> (x,y) = (x,0) + (0,y) </m>. </p>
+
+			<image width="32%">
+				<latex-image label="image-orthog-exercises-orthog-decomp-R2-e1">
+					<xi:include href="exercises.d/orthog-decomp-R2-e1.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram illustrating a decomposition of a vector in two-dimensional space into a sum of its components parallel to and orthogonal to the first standard basis vector. </shortdescription>
+				<description><p>
+					A diagram consisting of a right triangle of vectors in the first quadrant of the <m> xy </m>-plane.
+					The legs of the right triangle are vector <m> \uvec{p} </m>,
+					drawn from the origin horizontally rightward along the <m> x </m>-axis to the point <m> (x,0) </m>,
+					and vector <m> \uvec{n} </m>,
+					drawn from the terminal point of <m> \uvec{p} </m> vertically upward to the point <m> P(x,y) </m>.
+					The hypotenuse of the triangle is vector <m> \uvec{u} </m>,
+					drawn from the origin to the point <m> P(x,y) </m>.
+				</p></description>
+			</image>
+
+		</answer>
+
+	</task>
+
+	<task xml:id="exercise-orthog-decomp-R2-std-basis-e2">
+
+		<statement><p>
+			Express <m> \uvec{u} </m> as a decomposition into a sum of its
+			<term><xref ref="definition-orthog-parallel-component" text="custom">vector component parallel to <m> \uvec{e}_2 </m></xref></term>
+			and its
+			<term><xref ref="definition-orthog-orthog-component" text="custom">vector component orthogonal to <m> \uvec{e}_2 </m></xref></term>.
+		</p></statement>
+
+		<answer>
+
+			<p> Parallel component: <m> \uvec{p} = \proj_{\uvec{e}_2} (x,y) = (0,y) </m>. </p>
+
+			<p> Orthogonal component: <m> \uvec{n} = (x,y) - \proj_{\uvec{e}_2} (x,y) = (x,0) </m>. </p>
+
+			<p> Decomposition: <m> (x,y) = (0,y) + (x,0) </m>. </p>
+
+			<image width="34.4%">
+				<latex-image label="image-orthog-exercises-orthog-decomp-R2-e2">
+					<xi:include href="exercises.d/orthog-decomp-R2-e2.tex" parse="text" />
+				</latex-image>
+				<shortdescription> Diagram illustrating a decomposition of a vector in two-dimensional space into a sum of its components parallel to and orthogonal to the first standard basis vector. </shortdescription>
+				<description><p>
+					A diagram consisting of a right triangle of vectors in the first quadrant of the <m> xy </m>-plane.
+					The legs of the right triangle are vector <m> \uvec{p} </m>,
+					drawn from the origin horizontally rightward along the <m> x </m>-axis to the point <m> (x,0) </m>,
+					and vector <m> \uvec{n} </m>,
+					drawn from the terminal point of <m> \uvec{p} </m> vertically upward to the point <m> P(x,y) </m>.
+					The hypotenuse of the triangle is vector <m> \uvec{u} </m>,
+					drawn from the origin to the point <m> P(x,y) </m>.
+				</p></description>
+			</image>
+
+		</answer>
+
+	</task>
+
+	<task>
+
+		<statement><p>
+			What is the connection between the results
+			of <xref ref="exercise-orthog-decomp-R2-std-basis-e1" text="type-local">part</xref>
+			and <xref ref="exercise-orthog-decomp-R2-std-basis-e2" text="type-local">part</xref>,
+			and the discussion of <term><xref ref="definition-vectors-std-basis" text="title" /></term> presented in
+			<xref ref="subsection-vectors-concepts-standard-basis" />?
+		</p></statement>
+
+		<answer><p>
+			In both <xref ref="exercise-orthog-decomp-R2-std-basis-e1" text="type-local">part</xref>
+			and <xref ref="exercise-orthog-decomp-R2-std-basis-e2" text="type-local">part</xref>,
+			the result was exactly the decomposition of <m> \uvec{u} </m> into a linear combination of the standard basis vectors as described in <xref ref="subsection-vectors-concepts-standard-basis" />:
+			<md> (x,y) = x \uvec{e}_1 + y \uvec{e}_2 </md>.
+		</p></answer>
+
+	</task>
+
+</exercise>
+
+<exercise xml:id="exercise-orthog-proj-Rn-axis">
+	<title>Orthogonal projection onto an axis in <m> \R^n </m></title>
+
+	<statement><p>
+		Compute <m> \proj_{\uvec{e}_j} \uvec{u}  </m> for general <m> n </m>-dimensional vector <m> \uvec{u} = (u_1,u_2,\dotsc,u_n) </m>,
+		where <m> \uvec{e}_j </m> is the <m> \nth[j] </m> <term><xref ref="definition-vectors-std-basis" text="custom">standard basis vector</xref></term> in <m> \R^n </m>.
+	</p></statement>
+
+	<answer><p><m> \proj_{\uvec{e}_j} \uvec{u} = u_j \uvec{e}_j </m></p></answer>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/proj-geometry.ptx" />
+
+<exercise>
+	<title>Orthogonality versus vector operations</title>
+
+	<introduction><p>
+		Assume all vectors are in <m> \R^n </m>.
+		In each case,
+		use <xref ref="proposition-vector-geom-dot-prod-algebra" text="title" />
+		(<xref ref="proposition-vector-geom-dot-prod-algebra" />)
+		to verify that the statement is always true.
+	</p></introduction>
+
+	<task>
+		<title>Orthogonality versus addition</title>
+		<p>
+		If <m> \uvec{w} </m> is <term><xref ref="definition-orthog-orthogonal" text="custom">orthogonal</xref></term>
+		to both <m> \uvec{u} </m> and <m> \uvec{v} </m>,
+		then <m> \uvec{w} </m> is also orthogonal to <m> \uvec{x} </m> for <m> \uvec{x} = \uvec{u} + \uvec{v} </m>.
+		</p>
+	</task>
+
+	<task>
+		<title>Orthogonality versus scalar multiplication</title>
+		<p>
+		If <m> \uvec{w} </m> is <term><xref ref="definition-orthog-orthogonal" text="custom">orthogonal</xref></term>
+		to <m> \uvec{v} </m>,
+		then <m> \uvec{w} </m> is also orthogonal to <m> \uvec{x} </m> for <m> \uvec{x} = k \uvec{v} </m> for all scalars <m> k </m>.
+		</p>
+	</task>
+
+	<task>
+		<title>Orthogonality versus linear combination</title>
+		<p>
+		If <m> \uvec{w} </m> is <term><xref ref="definition-orthog-orthogonal" text="custom">orthogonal</xref></term>
+		to each of <m> \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m </m>,
+		then <m> \uvec{w} </m> is also orthogonal to <m> \uvec{x} </m> for <md> \uvec{x} = k_1 \uvec{v}_1 + k_2 \uvec{v}_2 + \dotsb + k_m \uvec{v}_m </md> for all scalars <m> k_1, k_2, \dotsc, k_m </m>.
+		</p>
+	</task>
+
+</exercise>
+
+<exercise>
+	<title>Maximum orthogonality</title>
+
+	<introduction><p>
+		An <term>orthogonal set</term> of vectors is a collection <m> \{ \uvec{v}_1, \uvec{v}_2, \dotsc, \uvec{v}_m \} </m>
+		where each <m> \uvec{v}_i </m> is orthogonal to every <m> \uvec{v}_j </m>, <m> j \neq i </m>.
+	</p></introduction>
+
+	<task><p>
+		Reasoning geometrically,
+		what is the maximum number of vectors possible in an orthogonal set in <m> \R^2 </m>?
+	</p></task>
+
+	<task><p>
+		Reasoning geometrically,
+		what is the maximum number of vectors possible in an orthogonal set in <m> \R^3 </m>?
+	</p></task>
+
+	<task><p>
+		Based on your answers so far,
+		what do you think is the maximum number of vectors possible in an orthogonal set in <m> \R^4 </m>?
+	</p></task>
+
+	<task><p>
+		Generalizing,
+		what do you think is the maximum number of vectors possible in an orthogonal set in <m> \R^n </m>?
+	</p></task>
+
+</exercise>
+
+<!-- Exercise group -->
+<xi:include href="./exercises.d/cross-prod-props.ptx" />
+
+</exercises>

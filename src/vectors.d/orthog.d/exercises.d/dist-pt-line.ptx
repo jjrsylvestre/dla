@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-orthog-dist-pt-line" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Distance from a point to a line</title>
+
+<introduction><p> Determine the distance from point <m> R </m> to the line through points <m> P </m> and <m> Q </m>. </p></introduction>
+
+<exercise>
+
+	<statement><p><m> P(0,0), Q(4,1), R(3,-5) </m></p></statement>
+
+	<solution>
+
+		<p>
+		The line through <m> P </m> and <m> Q </m> is parallel to the vector <m> \uvec{a} = \abray{PQ} = (4,1) </m>.
+		The distance from <m> R </m> to this line is then the norm of the
+		<term><xref ref="definition-orthog-orthog-component" text="title" /></term>,
+		where <m> \uvec{u} = \abray{PR} = (3,-5) </m>.
+		</p>
+
+		<image width="47.9%">
+			<latex-image label="image-orthog-exercises-orthog-dist-pt-line-R2-through-origin">
+				<xi:include href="dist-pt-line.d/R2-through-origin.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating distance between a point and a line as represented by the vector component of a vector from the line to the point orthogonal to a vector parallel to the line. </shortdescription>
+			<description><p>
+				A diagram consisting of a right triangle of vectors in the <m> xy </m>-plane.
+				The legs of the right triangle are vector <m> \uvec{p} </m>,
+				drawn from the origin to the point <m> (28/17, 7/17) </m>,
+				and vector <m> \uvec{n} </m>,
+				drawn from the terminal point of <m> \uvec{p} </m> to the point <m> R(3,-5) </m>.
+				The hypotenuse of the triangle is vector <m> \uvec{u} </m>,
+				drawn from the origin to <m> R </m>.
+				A fourth vector <m> \uvec{a} </m>,
+				parallel to but longer than <m> \uvec{p} </m>,
+				is drawn from the origin to the point <m> Q(4,1) </m>.
+				Finally, the line through the origin and <m> Q </m> is drawn and labelled as <m> \ell </m>,
+				and the distance from <m> R </m> to <m> \ell </m> is labelled as <m> d = \unorm{n} </m>.
+			</p></description>
+		</image>
+
+		<p>
+		First compute the <term><xref ref="definition-orthog-parallel-component" text="title" /></term>:
+		<md> \uvec{p} = \uproj{u}{a} = \left( \frac{28}{17}, \frac{7}{17} \right) </md>.
+		Next compute the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>:
+		<md> \uvec{n} = \uvec{u} - \uvec{p} = \left( \frac{23}{17}, - \frac{92}{17} \right) </md>.
+		Finally, compute the distance from point <m> R </m> to the line as the norm of <m> \uvec{n} </m>:
+		<md> d = \unorm{n} = \frac{23}{\sqrt{17}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(-1,-5), Q(4,0), R(-2,1) </m></p></statement>
+
+	<solution>
+
+		<p>
+		The line through <m> P </m> and <m> Q </m> is parallel to the vector <m> \uvec{a} = \abray{PQ} = (5,5) </m>.
+		The distance from <m> R </m> to this line is then the norm of the
+		<term><xref ref="definition-orthog-orthog-component" text="title" /></term>,
+		where <m> \uvec{u} = \abray{PR} = (-1,6) </m>.
+		</p>
+
+		<image width="68.2%">
+			<latex-image label="image-orthog-exercises-orthog-dist-pt-line-R2-not-through-origin">
+				<xi:include href="dist-pt-line.d/R2-not-through-origin.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating distance between a point and a line as represented by the vector component of a vector from the line to the point orthogonal to a vector parallel to the line. </shortdescription>
+			<description><p>
+				A diagram consisting of a right triangle of vectors in the <m> xy </m>-plane.
+				The legs of the right triangle are vector <m> \uvec{p} </m>,
+				drawn from point <m> P(-1,-5) </m> to the point <m> (3/2, -5/2) </m>,
+				and vector <m> \uvec{n} </m>,
+				drawn from the terminal point of <m> \uvec{p} </m> to the point <m> R(-2,1) </m>.
+				The hypotenuse of the triangle is vector <m> \uvec{u} </m>,
+				drawn from <m> P </m> to <m> R </m>.
+				A fourth vector <m> \uvec{a} </m>,
+				parallel to but longer than <m> \uvec{p} </m>,
+				is drawn from <m> P </m> to the point <m> Q(4,0) </m>.
+				Finally, the line <m> P </m> and <m> Q </m> is drawn and labelled as <m> \ell </m>,
+				and the distance from <m> R </m> to <m> \ell </m> is labelled as <m> d = \unorm{n} </m>.
+			</p></description>
+		</image>
+
+		<p>
+		First compute the <term><xref ref="definition-orthog-parallel-component" text="title" /></term>:
+		<md> \uvec{p} = \uproj{u}{a} = \left( \frac{5}{2}, \frac{5}{2} \right) </md>.
+		Next compute the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>:
+		<md> \uvec{n} = \uvec{u} - \uvec{p} = \left( - \frac{7}{2}, \frac{7}{2} \right) </md>.
+		Finally, compute the distance from point <m> R </m> to the line as the norm of <m> \uvec{n} </m>:
+		<md> d = \unorm{n} = \frac{7}{\sqrt{2}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(0,0,0), Q(2,1,-6), R(1,0,-4) </m></p></statement>
+
+	<solution>
+
+		<p>
+		The line through <m> P </m> and <m> Q </m> is parallel to the vector <m> \uvec{a} = \abray{PQ} = (2, 1, -6) </m>.
+		The distance from <m> R </m> to this line is then the norm of the
+		<term><xref ref="definition-orthog-orthog-component" text="title" /></term>,
+		where <m> \uvec{u} = \abray{PR} = (1, 0, -4) </m>.
+		</p>
+
+		<p>
+		First compute the <term><xref ref="definition-orthog-parallel-component" text="title" /></term>:
+		<md> \uvec{p} = \uproj{u}{a} = \left( \frac{52}{41}, \frac{26}{41}, - \frac{156}{41} \right) </md>.
+		Next compute the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>:
+		<md> \uvec{n} = \uvec{u} - \uvec{p} = (-11/41, -26/41, -8/41) </md>.
+		Finally, compute the distance from point <m> R </m> to the line as the norm of <m> \uvec{n} </m>:
+		<md> d = \unorm{n} = \sqrt{\frac{21}{41}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(1,0,-1), Q(3,-2,3), R(-1,5,-5) </m></p></statement>
+
+	<solution>
+
+		<p>
+		The line through <m> P </m> and <m> Q </m> is parallel to the vector <m> \uvec{a} = \abray{PQ} = (2, -2, 4) </m>.
+		The distance from <m> R </m> to this line is then the norm of the
+		<term><xref ref="definition-orthog-orthog-component" text="title" /></term>,
+		where <m> \uvec{u} = \abray{PR} = (-2, 5, -4) </m>.
+		</p>
+
+		<p>
+		First compute the <term><xref ref="definition-orthog-parallel-component" text="title" /></term>:
+		<md> \uvec{p} = \uproj{u}{a} = \left( - \frac{5}{2}, \frac{5}{2}, -5 \right) </md>.
+		Next compute the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>:
+		<md> \uvec{n} = \uvec{u} - \uvec{p} = \left( \frac{1}{2}, \frac{5}{2}, 1 \right) </md>.
+		Finally, compute the distance from point <m> R </m> to the line as the norm of <m> \uvec{n} </m>:
+		<md> d = \unorm{n} = \sqrt{\frac{15}{2}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(0,0,0,0), Q(3,5,4,1), R(5,-2,1,3) </m></p></statement>
+
+	<solution>
+
+		<p>
+		The line through <m> P </m> and <m> Q </m> is parallel to the vector <m> \uvec{a} = \abray{PQ} = (3, 5, 4, 1) </m>.
+		The distance from <m> R </m> to this line is then the norm of the
+		<term><xref ref="definition-orthog-orthog-component" text="title" /></term>,
+		where <m> \uvec{u} = \abray{PR} = (5, -2, 1, 3) </m>.
+		</p>
+
+		<p>
+		First compute the <term><xref ref="definition-orthog-parallel-component" text="title" /></term>:
+		<md> \uvec{p} = \uproj{u}{a} = \left( \frac{12}{17}, \frac{20}{17}, \frac{16}{17}, \frac{4}{17} \right) </md>.
+		Next compute the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>:
+		<md> \uvec{n} = \uvec{u} - \uvec{p} = \left( \frac{73}{17}, - \frac{54}{17}, \frac{1}{17}, \frac{47}{17} \right) </md>.
+		Finally, compute the distance from point <m> R </m> to the line as the norm of <m> \uvec{n} </m>:
+		<md> d = \unorm{n} = \sqrt{\frac{615}{17}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(2,0,-2,-6), Q(-1,-1,-5,1), R(1,-4,-5,-5) </m></p></statement>
+
+	<solution>
+
+		<p>
+		The line through <m> P </m> and <m> Q </m> is parallel to the vector <m> \uvec{a} = \abray{PQ} = (-3, -1, -3, 7) </m>.
+		The distance from <m> R </m> to this line is then the norm of the
+		<term><xref ref="definition-orthog-orthog-component" text="title" /></term>,
+		where <m> \uvec{u} = \abray{PR} = (-1, -4, -3, 1) </m>.
+		</p>
+
+		<p>
+		First compute the <term><xref ref="definition-orthog-parallel-component" text="title" /></term>:
+		<md> \uvec{p} = \uproj{u}{a} = \left( - \frac{69}{68}, - \frac{23}{68}, - \frac{69}{68}, \frac{161}{68} \right) </md>.
+		Next compute the vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m>:
+		<md> \uvec{n} = \uvec{u} - \uvec{p} = \left( \frac{1}{68}, - \frac{249}{68}, - \frac{135}{68}, - \frac{93}{68} \right) </md>.
+		Finally, compute the distance from point <m> R </m> to the line as the norm of <m> \uvec{n} </m>:
+		<md> d = \unorm{n} = \frac{1}{2} \, \sqrt{\frac{1307}{17}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>

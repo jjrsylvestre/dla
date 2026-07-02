@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-dist-pt-line-by-eqn" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Distance from a point to a line in <m> \R^2 </m> using a normal vector</title>
+
+<introduction><p>
+	In each case,
+	use an analogous method to the one for <xref ref="exercisegroup-orthog-dist-pt-plane-by-eqn" text="type-local">Exercises</xref>
+	to determine the distance in <m> \R^2 </m> from the point <m> Q </m> to the line <m> \ell </m>.
+</p></introduction>
+
+<exercise>
+
+	<statement>
+		<p><m> Q(5,0) </m></p>
+		<p><m> \ell \colon \:\: 4 x + 5 y = 0 </m></p>
+	</statement>
+
+	<solution>
+
+		<p>
+		Since the equation for <m> \ell </m> is homogeneous,
+		it passes through the origin,
+		and we can create a vector from the line to <m> Q </m> by using the origin as the initial point:
+		<md> \uvec{u} = \abray{OQ} = (5,0) </md>.
+		Also, from the line equation we obtain a normal vector for <m> \ell </m>: <md> \uvec{n} = (4,5) </md>.
+		The distance from <m> Q </m> to the line will be the norm of the orthogonal projection of <m> \uvec{u} </m> onto <m> \uvec{n} </m>.
+		</p>
+
+		<image width="56.1%">
+			<latex-image label="image-orthog-exercises-orthog-dist-pt-line-by-eqn-through-origin">
+				<xi:include href="dist-pt-line-by-eqn.d/through-origin.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating using a projection onto a normal vector to a line in two-dimensional space to compute distance from a point to a line. </shortdescription>
+			<description><p>
+				A diagram consisting of a rectangle with one side along a negatively-sloped line,
+				where the two sides perpendicular to the line represent the distance from the point at one corner of the rectangle to the line.
+				The graph of the line <m> 4 x + 5 y = 0 </m> is sketched,
+				passing through the origin,
+				and is labelled as <m> \ell </m>.
+				The point <m> Q(5,0) </m> is plotted,
+				and a perpendicular is dropped from <m> Q </m> to <m> \ell </m>.
+				A vector labelled <m> \uvec{n} </m> is drawn extending from the origin to the point <m> (4,5) </m>,
+				and the angle at the origin between <m> \uvec{n} </m> and <m> \ell </m> is right.
+				Another perpendicular is dropped from <m> Q </m> to the shaft of <m> \uvec{n} </m>,
+				and another vector labelled <m> \uvec{p} </m> is drawn extending from the origin to the foot of this second perpendicular from <m> Q </m>.
+				A rectangle has now been formed,
+				with sides consisting of <m> \uvec{p} </m>,
+				the perpendicular from <m> Q </m> to <m> \uvec{n} </m>,
+				the perpendicular from <m> Q </m> to <m> \ell </m>,
+				and the segment along <m> \ell </m> from the origin to the foot of the perpendicular from <m> Q </m> to <m> \ell </m>.
+				Finally, the lengths of the two sides of the rectangle that are perpendicular to <m> \ell </m> are labelled as <m> d </m>,
+				representing the distance from <m> Q </m> to <m> \ell </m>.
+			</p></description>
+		</image>
+
+		<p>
+		So first compute that projection:
+		<md> \uvec{p} = \uproj{u}{n} = \left( \frac{80}{41}, \frac{100}{41} \right) </md>.
+		Finally, compute the distance from <m> Q </m> to the line as the norm of <m> \uvec{p} </m>:
+		<md> d = \unorm{p} = \frac{20}{\sqrt{41}} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+		<p><m> Q(5,3) </m></p>
+		<p><m> \ell \colon \:\: x - y = -2 </m></p>
+	</statement>
+
+	<solution>
+
+		<p>
+		By inspection, point <m> P(0,2) </m> is on <m> \ell </m> because its coordinates satisfy the line equation
+		(and is in fact the <m> y </m>-intercept of the line).
+		Then we can create a vector from the line to <m> Q </m> by using <m> P </m> as the initial point:
+		<md> \uvec{u} = \abray{PQ} = (5, 1) </md>.
+		Also, from the line equation we obtain a normal vector for <m> \Pi </m>: <md> \uvec{n} = (1,-1) </md>.
+		The distance from <m> Q </m> to the line will be the norm of the orthogonal projection of <m> \uvec{u} </m> onto <m> \uvec{n} </m>.
+		</p>
+
+		<image width="56.1%">
+			<latex-image label="image-orthog-exercises-orthog-dist-pt-line-by-eqn-not-through-origin">
+				<xi:include href="dist-pt-line-by-eqn.d/not-through-origin.tex" parse="text" />
+			</latex-image>
+			<shortdescription> Diagram illustrating using a projection onto a normal vector to a line in two-dimensional space to compute distance from a point to a line. </shortdescription>
+			<description><p>
+				A diagram consisting of a rectangle with one side along a positively-sloped line,
+				where the two sides perpendicular to the line represent the distance from the point at one corner of the rectangle to the line.
+				The graph of the line <m> x - y = -2 </m> is sketched and labelled as <m> \ell </m>.
+				Its <m> y </m>-intercept is labelled as point <m> P(0,2) </m>.
+				The point <m> Q(5,3) </m> is plotted,
+				and a perpendicular is drawn from <m> Q </m> to <m> \ell </m>.
+				A vector labelled <m> \uvec{n} </m> is drawn extending from <m> P </m> to the point <m> (1,1) </m>,
+				and the angle at <m> P </m> between <m> \uvec{n} </m> and <m> \ell </m> is right.
+				Another perpendicular is dropped from <m> Q </m> to the line through <m> P </m> and parallel to <m> \uvec{n} </m>,
+				landed beyond the terminal point of <m> \uvec{n} </m> along this line.
+				Another vector labelled <m> \uvec{p} </m> is drawn extending from <m> P </m> to the foot of this second perpendicular from <m> Q </m>.
+				A rectangle has now been formed,
+				with sides consisting of <m> \uvec{p} </m>,
+				the perpendicular from <m> Q </m> to the line <q> through </q> <m> \uvec{n} </m>,
+				the perpendicular from <m> Q </m> to <m> \ell </m>,
+				and the segment along <m> \ell </m> from <m> P </m> to the foot of the perpendicular from <m> Q </m> to <m> \ell </m>.
+				Finally, the lengths of the two sides of the rectangle that are perpendicular to <m> \ell </m> are labelled as <m> d </m>,
+				representing the distance from <m> Q </m> to <m> \ell </m>.
+			</p></description>
+		</image>
+
+		<p>
+		So first compute that projection:
+		<md> \uvec{p} = \uproj{u}{n} = ( 2, - 2) </md>.
+		Finally, compute the distance from <m> Q </m> to the line as the norm of <m> \uvec{p} </m>:
+		<md> d = \unorm{p} = 2 \sqrt{2} </md>.
+		</p>
+
+	</solution>
+
+</exercise>
+
+</exercisegroup>

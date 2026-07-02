@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup xml:id="exercisegroup-orthog-normal-plane-pts-R3">
+<title>Point-normal form for a plane in <m> \R^3 </m></title>
+
+<introduction><p>
+	In each case:
+	<ol>
+
+		<li>
+			Determine a <term><xref ref="definition-orthog-normal-vector" text="custom">normal vector</xref></term>
+			for the plane that passes through the points <m> P </m>, <m> Q </m>, and <m> R </m>.
+		</li>
+
+		<li>
+			Write the equation of the plane in <term><xref ref="definition-orthog-point-normal-form" text="custom">point-normal form</xref></term>,
+			then expand and re-write in typical algebraic form.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement><p><m> P(-3,1,3), Q(0,-2,-1), R(1,-1,-2) </m></p></statement>
+
+	<answer><p><ol>
+
+		<li><p>
+			The directed line segments <m> \abray{PQ} </m> and <m> \abray{PR} </m> are parallel to the plane through <m> P, Q, R </m>.
+			Calculate the associated vectors <m> \uvec{u} </m> and <m> \uvec{v} </m> as
+			<md><mrow>
+				\uvec{u} \amp = \bbrac{0 - (-3), -2 - 1, -1 - 3} = (3, -3, -4) \text{,} \amp
+				\uvec{v} \amp = \bbrac{1 - (-3), -1 - 1, -2 - 3} = (4, -2, -5) \text{.}
+			</mrow></md>
+			Compute a normal to the plane using the cross product:
+			<md> \uvec{n} = \ucrossprod{u}{v} = (7, -1, 6) </md>.
+		</p></li>
+
+		<li><p>
+			Point-normal form (using point <m>P</m>):
+			<md> \dotprod{ (7,-1,6) }{\bbrac{ (x,y,z) - (-3,1,3) }} = 0 </md>.
+			Expanded algebraic form:
+			<md> 7 x - y + 6 z = -4 </md>.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement><p><m> P(-3,3,1), Q(4,6,-2), R(-2,0,0) </m></p></statement>
+
+	<answer><p><ol>
+
+		<li><p>
+			The directed line segments <m> \abray{PQ} </m> and <m> \abray{PR} </m> are parallel to the plane through <m> P, Q, R </m>.
+			Calculate the associated vectors <m> \uvec{u} </m> and <m> \uvec{v} </m> as
+			<md><mrow>
+				\uvec{u} \amp = \bbrac{ 4 - (-3), 6 - 3, -2 - 1} = (7,  3, -3) \text{,} \amp
+				\uvec{v} \amp = \bbrac{-2 - (-3), 0 - 3,  0 - 1} = (1, -3, -1) \text{.}
+			</mrow></md>
+			The cross product
+			<md> \ucrossprod{u}{v} = (-12, 4, -24) </md>
+			is normal to the plane,
+			but we'll scale this by a factor of <m> -1/4 </m> to <m> \uvec{n} = (3, -1, 6) </m>.
+		</p></li>
+
+		<li><p>
+			Point-normal form (using point <m>P</m>):
+			<md> \dotprod{ (3,-1,6) }{\bbrac{ (x,y,z) - (-3,3,1) }} = 0 </md>.
+			Expanded algebraic form:
+			<md> 3 x - y + 6 z = -6 </md>.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>

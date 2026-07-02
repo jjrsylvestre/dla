@@ -20,24 +20,24 @@ respective owners.
 
 <p><dl width="wide">
 
-	<li>
+	<li xml:id="definition-orthog-orthogonal">
 	<title>orthogonal vectors</title>
-	<idx><h>orthogonal</h><h>vectors (in <m>\R^n</m>)</h></idx>
-	<idx><h>vector</h><h>orthogonal (in <m>\R^n</m>)</h></idx>
-	<p>a pair of vectors whose dot product evaluates to <m>0</m></p>
+	<idx><h>orthogonal</h><h>vectors (in <m> \R^n </m>)</h></idx>
+	<idx><h>vector</h><h>orthogonal (in <m> \R^n </m>)</h></idx>
+	<p>a pair of vectors whose dot product evaluates to <m> 0 </m></p>
 	</li>
 
-	<li>
+	<li xml:id="definition-orthog-normal-vector">
 	<title>normal vector (to a line or a plane)</title>
 	<idx><h>normal vector</h></idx>
 	<idx><h>vector</h><h>normal</h></idx>
 	<p> a vector that is orthogonal to the object of interest (the line or plane being considered) </p>
 	</li>
 
-	<li>
-	<title>orthogonal projection (of vector <m>\uvec{u}</m> onto vector <m>\uvec{a}</m>)</title>
-	<idx><h>orthogonal</h><h>projection (onto a vector in <m>\R^n</m>)</h></idx>
-	<idx><h>projection</h><h>onto a vector in <m>\R^n</m></h></idx>
+	<li xml:id="definition-orthog-projection">
+	<title>orthogonal projection (of vector <m> \uvec{u} </m> onto vector <m> \uvec{a} </m>)</title>
+	<idx><h>orthogonal</h><h>projection (onto a vector in <m> \R^n </m>)</h></idx>
+	<idx><h>projection</h><h>onto a vector in <m> \R^n </m></h></idx>
 	<p>
 	the special scalar multiple <m> \uproj{u}{a} = k \uvec{a} </m> of <m> \uvec{a} </m> where
 	<md> k = \frac{\udotprod{u}{a}}{\unorm{a}^2} = \frac{\udotprod{u}{a}}{\udotprod{a}{a}} </md>
@@ -47,7 +47,7 @@ respective owners.
 </dl></p>
 
 <p>
-When the initial point of <m>\uproj{u}{a}</m> is placed at the origin, the terminal point will be the point closest to <m>\uvec{u}</m> on the line passing through the origin and parallel to <m>\uvec{a}</m>.
+When the initial point of <m> \uproj{u}{a} </m> is placed at the origin, the terminal point will be the point closest to <m> \uvec{u} </m> on the line passing through the origin and parallel to <m> \uvec{a} </m>.
 </p>
 
 <figure xml:id="figure-orthog-terminology-proj">
@@ -65,26 +65,26 @@ When the initial point of <m>\uproj{u}{a}</m> is placed at the origin, the termi
 			<p>
 			A diagram consisting of several vectors in a triangular configuration to illustrate the creation of an orthogonal projection vector.
 			The zero vector is represented by a point,
-			and two directed line segments representing vectors labelled <m>\uvec{a}</m> and <m>\uvec{u}</m> emanate from it upwards and rightwards,
-			with the segment for <m>\uvec{u}</m> longer and at a steeper ascent compared to that for <m>\uvec{a}</m>,
-			so that the terminal point of <m>\uvec{u}</m> is higher and further to the right relative to the terminal point of <m>\uvec{a}</m>.
-			In the background, a dashed line runs parallel to <m>\uvec{a}</m> and through the point zero vector,
-			so that the directed line segment for vector <m>\uvec{a}</m> lies <em>along</em> the line.
+			and two directed line segments representing vectors labelled <m> \uvec{a} </m> and <m> \uvec{u} </m> emanate from it upwards and rightwards,
+			with the segment for <m> \uvec{u} </m> longer and at a steeper ascent compared to that for <m> \uvec{a} </m>,
+			so that the terminal point of <m> \uvec{u} </m> is higher and further to the right relative to the terminal point of <m> \uvec{a} </m>.
+			In the background, a dashed line runs parallel to <m> \uvec{a} </m> and through the point zero vector,
+			so that the directed line segment for vector <m> \uvec{a} </m> lies <em>along</em> the line.
 			</p>
 
 			<p>
-			A directed line segment representing a third vector runs from a point on the dashed line to the terminal point of <m>\uvec{u}</m> so that a right angle is formed at the initial point of this new vector,
+			A directed line segment representing a third vector runs from a point on the dashed line to the terminal point of <m> \uvec{u} </m> so that a right angle is formed at the initial point of this new vector,
 			at the dashed line.
-			Because the directed line segment for <m>\uvec{u}</m> is longer and steeper than that for <m>\uvec{a}</m>,
-			in this scenario the initial point of the new vector necessarily falls past the terminal point of <m>\uvec{a}</m> on the dashed line.
-			This new vector is labelled <m>\uvec{u} - \uproj{u}{a}</m>.
-			A final directed line segment representing a vector labelled <m>\uproj{u}{a}</m> extends along the dashed line from the point zero vector to the initial point of <m>\uvec{u} - \uproj{u}{a}</m>.
-			The three vectors <m>\uvec{u}, \uproj{u}{a}, \uvec{u} - \uproj{u}{a}</m> together create a right triangle.
+			Because the directed line segment for <m> \uvec{u} </m> is longer and steeper than that for <m> \uvec{a} </m>,
+			in this scenario the initial point of the new vector necessarily falls past the terminal point of <m> \uvec{a} </m> on the dashed line.
+			This new vector is labelled <m> \uvec{u} - \uproj{u}{a} </m>.
+			A final directed line segment representing a vector labelled <m> \uproj{u}{a} </m> extends along the dashed line from the point zero vector to the initial point of <m> \uvec{u} - \uproj{u}{a} </m>.
+			The three vectors <m> \uvec{u}, \uproj{u}{a}, \uvec{u} - \uproj{u}{a} </m> together create a right triangle.
 			</p>
 
 			<p>
-			Finally, a dotted arrow points placed inside the triangle runs from the shaft of <m>\uvec{u}</m> to the shaft of <m>\uproj{u}{a}</m>,
-			representing the process of projecting <m>\uvec{u}</m> perpendicularly onto the dashed line parallel to <m>\uvec{a}</m> to create <m>\uproj{u}{a}</m>.
+			Finally, a dotted arrow points placed inside the triangle runs from the shaft of <m> \uvec{u} </m> to the shaft of <m> \uproj{u}{a} </m>,
+			representing the process of projecting <m> \uvec{u} </m> perpendicularly onto the dashed line parallel to <m> \uvec{a} </m> to create <m> \uproj{u}{a} </m>.
 			</p>
 
 		</description>
@@ -93,57 +93,48 @@ When the initial point of <m>\uproj{u}{a}</m> is placed at the origin, the termi
 
 <p><dl width="wide">
 
-	<li>
-	<title>vector component of <m>\uvec{u}</m> parallel to <m>\uvec{a}</m></title>
-	<idx><h>component</h><h>parallel (to a vector in <m>\R^n</m>)</h></idx>
-	<idx><h>parallel</h><h>component (to a vector in <m>\R^n</m>)</h></idx>
-	<p> alternative terminology for the <term>orthogonal projection of <m>\uvec{u}</m> onto <m>\uvec{a}</m></term> </p>
+	<li xml:id="definition-orthog-parallel-component">
+	<title>vector component of <m> \uvec{u} </m> parallel to <m> \uvec{a} </m></title>
+	<idx><h>component</h><h>parallel (to a vector in <m> \R^n </m>)</h></idx>
+	<idx><h>parallel</h><h>component (to a vector in <m> \R^n </m>)</h></idx>
+	<p> alternative terminology for the <term>orthogonal projection of <m> \uvec{u} </m> onto <m> \uvec{a} </m></term> </p>
 	</li>
 
-	<li>
-	<title>vector component of <m>\uvec{u}</m> orthogonal to <m>\uvec{a}</m></title>
-	<idx><h>orthogonal</h><h>component (to a vector in <m>\R^n</m>)</h></idx>
-	<idx><h>component</h><h>orthogonal (to a vector in <m>\R^n</m>)</h></idx>
-	<p>the vector <m>\uvec{u} - \uproj{u}{a}</m></p>
+	<li xml:id="definition-orthog-orthog-component">
+	<title>vector component of <m> \uvec{u} </m> orthogonal to <m> \uvec{a} </m></title>
+	<idx><h>orthogonal</h><h>component (to a vector in <m> \R^n </m>)</h></idx>
+	<idx><h>component</h><h>orthogonal (to a vector in <m> \R^n </m>)</h></idx>
+	<p>the vector <m> \uvec{u} - \uproj{u}{a} </m></p>
 	</li>
 
 </dl></p>
 
 <p>
-When the initial point of the vector <m>\uvec{u} - \uproj{u}{a}</m> is placed at the terminal point of <m>\uproj{u}{a}</m>,
-it points towards the terminal point of <m>\uvec{u}</m>,
-at a right angle to the line that passes through the origin and is parallel to <m>\uvec{a}</m>.
+When the initial point of the vector <m> \uvec{u} - \uproj{u}{a} </m> is placed at the terminal point of <m> \uproj{u}{a} </m>,
+it points towards the terminal point of <m> \uvec{u} </m>,
+at a right angle to the line that passes through the origin and is parallel to <m> \uvec{a} </m>.
 (See <xref ref="figure-orthog-terminology-proj" />.)
 </p>
 
 <p><dl width="wide">
 
-	<li>
-	<title>point-normal form (of a line in <m>\R^2</m>)</title>
+	<li xml:id="definition-orthog-point-normal-form">
+	<title>point-normal form (of a line in <m> \R^2 </m> or a plane in <m> \R^3 </m>)</title>
 	<idx><h>point-normal form</h><h>for a line</h></idx>
 	<p>
-	the vector equation <m>\dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0</m>,
-	where <m>\uvec{x}_0</m> is a vector from the origin to a known point on the line,
-	<m>\uvec{n}</m> is a known normal vector for the line,
-	and <m>\uvec{x}</m> is a variable vector representing an arbitrary point on the line (again as a vector from the origin)
+	the vector equation <md> \dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0 </md>,
+	where <m> \uvec{x}_0 </m> is a vector from the origin to a known point on the line/plane,
+	<m> \uvec{n} </m> is a known normal vector for the line/plane,
+	and <m> \uvec{x} </m> is a variable vector representing an arbitrary point on the line/plane
+	(again as a vector from the origin)
 	</p>
 	</li>
 
 	<li>
-		<title>point-normal form (of a plane in <m>\R^3</m>)</title>
-		<idx><h>point-normal form</h><h>for a plane</h></idx>
-		<p>
-		the vector equation <m>\dotprod{\uvec{n}}{(\uvec{x} - \uvec{x}_0)} = 0</m>, where
-		<m>\uvec{x}_0</m> is a vector from the origin to a known point on the plane,
-		<m>\uvec{n}</m> is a known normal vector for the plane, and
-		<m>\uvec{x}</m> is a variable vector representing an arbitrary point on the plane (again as a vector from the origin)</p>
-	</li>
-
-	<li>
-	<title>cross product (of vectors <m>\uvec{u}, \uvec{v}</m> in <m>\R^3</m>)</title>
+	<title>cross product (of vectors <m> \uvec{u}, \uvec{v} </m> in <m> \R^3 </m>)</title>
 	<idx><h>cross product</h></idx>
 	<idx><h>vector</h><h>cross product</h></idx>
-	<p>a particular vector in <m>\R^3</m> that is orthogonal to both <m>\uvec{u}</m> and <m>\uvec{v}</m>; written <m>\ucrossprod{u}{v}</m></p>
+	<p>a particular vector in <m> \R^3 </m> that is orthogonal to both <m> \uvec{u} </m> and <m> \uvec{v} </m>; written <m> \ucrossprod{u}{v} </m></p>
 	</li>
 
 </dl></p>

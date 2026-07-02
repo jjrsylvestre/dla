@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+© 2026 Jeremy Sylvestre
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+copy of the license is included in the appendix entitled “GNU Free
+Documentation License” that appears in the output document of this
+PreTeXt source code. All trademarks™ are the registered® marks of their
+respective owners.
+*********************************************************************-->
+
+<exercisegroup cols="2" xml:id="exercisegroup-orthog-normal-plane-eqn-R3">
+<title>Normal vector to a plane in <m> \R^3 </m> from its equation</title>
+
+<introduction><p>
+	In each of the following,
+	a linear equation corresponding to a plane in <m> \R^3 </m> and two points <m> P </m> and <m> Q </m> are provided.
+	<ol>
+
+		<li xml:id="instruction-exercisegroup-orthog-normal-plane-eqn-R3-normal-vec">
+		By inspection,
+		determine a <term><xref ref="definition-orthog-normal-vector" text="custom">normal vector</xref></term> for the plane from its equation.
+		</li>
+
+		<li> Verify that points <m> P </m> and <m> Q </m> lie on the plane. </li>
+
+		<li>
+		Compute the vector <m> \uvec{v} </m> associated to directed line segment <m> \abray{PQ} </m>,
+		and then verify that <m> \uvec{v} </m> is orthogonal to your normal vector from <xref ref="instruction-exercisegroup-orthog-normal-plane-eqn-R3-normal-vec" text="type-local">part</xref>.
+		</li>
+
+	</ol>
+</p></introduction>
+
+<exercise>
+
+	<statement>
+
+		<p><m> \Pi \colon \:\: 5 x + 3 y - 5 z = 2 </m></p>
+
+		<p><m> P(1,-1,0), Q(-1,-1,-2) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The plane equation coefficients form a normal vector: <md> \uvec{n} = (5,3,-5) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 5 \cdot 1 + 3 \cdot (-1) - 5 \cdot 0 = 2 </mrow>
+
+			<mrow> Q \amp \colon \:\: 5 \cdot (-1) + 3 \cdot (-1) - 5 \cdot (-2) = 2 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (-2,0,-2) </m>
+			<md> \udotprod{n}{v} = 5 \cdot (-2) + 3 \cdot 0 + (-5) \cdot (-2) = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+<exercise>
+
+	<statement>
+
+		<p><m> \Pi \colon \:\: 4 x - 5 y + z = -2 </m></p>
+
+		<p><m> P(1,1,-1), Q(4,3,-3) </m></p>
+
+	</statement>
+
+	<answer><p><ol>
+
+		<li><p> The plane equation coefficients form a normal vector: <md> \uvec{n} = (4,-5,1) </md>. </p></li>
+
+		<li><p><md>
+
+			<mrow> P \amp \colon \:\: 4 \cdot 1 - 5 \cdot 1 + (-1) = -2 </mrow>
+
+			<mrow> Q \amp \colon \:\: 4 \cdot 4 - 5 \cdot 3 + (-3) = -2 </mrow>
+
+		</md></p></li>
+
+		<li><p>
+			<m> \uvec{v} = (3,2,-2) </m>
+			<md> \udotprod{n}{v} = 4 \cdot 3 + (-5) \cdot 2 + 1 \cdot (-2) = 0 </md>,
+			hence orthogonal.
+		</p></li>
+
+	</ol></p></answer>
+
+</exercise>
+
+</exercisegroup>
