@@ -98,23 +98,99 @@ respective owners.
 
 	<statement><p>
 		Consider <m>\Span S</m> for <m>S = \{(1,2,4),(-1,2,4)\}</m>.
-		<ol>
-			<li><p> Determine if  <m>\uvec{v}=(5,-2,4)</m> is in <m>\Span S</m>.</p>
-			</li>
-			<li><p> Determine if  <m>\uvec{w}=(2,0,1)</m> is in  <m>\Span S</m>.</p>
-            </li>
-	<li xml:id="exercise-subspaces-analyze-span-general">
-		<p> Give a condition on the values of <m>a,b,c</m> so that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m>. Justify your answer.
-			
-		</p>
-	</li>
-		</ol>
-	</p></statement>
-<hint>
-	<p>
-		Set up <xref ref="exercise-subspaces-analyze-span-general" text="custom"> Part (c) </xref> as you did in the previous parts, using <m>a,b,c</m>. 
-	</p>
-</hint>
+
+<task>
+		<statement><p>  Determine if  <m>\uvec{v}=(5,-2,4)</m> is in <m>\Span S</m>. </p></statement>
+		<answer><p> Let's try to express <m>\uvec{v}</m> as a linear combination of the vectors in <m> S</m>. Set 
+			<md>
+			(5,-2,4)=s(1,2,4)+t(-1,2,4)
+		</md>
+		for unknown scalars <m>s,t</m>. Combining the linear combination and comparing components, we arrive at the following linear system of equations:
+		<md>
+		\begin{sysofeqns}{rcrcr}
+			5 \amp = \amp s \amp - \amp t \text{,} \\
+			-2 \amp = \amp 2s \amp + \amp 2t \text{,} \\
+			4 \amp = \amp 4s \amp + \amp 4t \text{.}
+		\end{sysofeqns}
+	</md>
+	We seek to determine if this system is consistent. We can convert the system to an augmented matrix and reduce:	
+	<md>\begin{abmatrix}{rr|r}
+			 1 \amp  -1 \amp    5\\
+			2\amp  2\amp   -2 \\
+			 4 \amp  4 \amp  4 \\
+		\end{abmatrix}\qquad\rowredarrow\qquad
+	\begin{abmatrix}{rr|r}
+			 1 \amp  -1\amp    5\\
+			0\amp  4\amp  -12 \\
+			0 \amp  0 \amp  8 \\
+		\end{abmatrix}
+	</md>.
+		Since the last row implies that <m>0=8</m>, the system is not consistent, so <m>(5,-2,4)</m> is not in <m>\Span S</m>.
+		</p></answer>
+	</task>
+
+	<task>
+		<statement><p>  Determine if  <m>\uvec{w}=(2,0,0)</m> is in  <m>\Span S</m>. </p></statement>
+		<answer><p>Again, we set up a linear combination of the vectors in <m>S</m>, and set it equal to <m>\uvec{w}=(2,0,0)</m>:
+		<md>
+			(2,0,0)=s(1,2,4)+t(-1,2,4)
+		</md>
+		for unknown scalars <m>s,t</m>.  The linear system is now 
+		<md>
+		\begin{sysofeqns}{rcrcr}
+			2 \amp = \amp s \amp - \amp t \text{,} \\
+			0 \amp = \amp 2s \amp + \amp 2t \text{,} \\
+			0 \amp = \amp 4s \amp + \amp 4t \text{.}
+		\end{sysofeqns}
+	</md>.
+
+	 We can convert the system to an augmented matrix and reduce:	
+	<md>\begin{abmatrix}{rr|r}
+			 1 \amp  -1 \amp    2\\
+			2\amp  2\amp  0\\
+			 4 \amp  4 \amp  0 \\
+		\end{abmatrix}\qquad\rowredarrow\qquad
+	\begin{abmatrix}{rr|r}
+			 1 \amp  0\amp    1\\
+			0\amp  1\amp  -1\\
+			0 \amp  0 \amp  0 \\
+		\end{abmatrix}
+
+	</md>.
+	The system is consistent, and the reduced matrix gives us that  <m>s=1,t=-1</m>. The vector <m>\uvec{w}=(2,0,0)</m> is in  <m>\Span S</m>.
+		</p></answer>
+	</task>
+
+	<task xml:id="exercise-subspaces-analyze-span-general">
+		<statement><p> Give a condition on the values of <m>a,b,c</m> so that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m>. </p></statement>
+		<answer><p>We set this up the same way as in the previous parts: We try to express <m>(a,b,c)</m> as as linear combination of the vectors in <m>S</m>: 
+		<md>
+			(a,b,c)=s(1,2,4)+t(-1,2,4)
+		</md>
+	Now the system is
+	<md>
+		\begin{sysofeqns}{rcrcr}
+			a \amp = \amp s \amp - \amp t \text{,} \\
+			b \amp = \amp 2s \amp + \amp 2t \text{,} \\
+			c \amp = \amp 4s \amp + \amp 4t \text{.}
+		\end{sysofeqns}
+	</md>, and when we build the augmented matrix, we have unknown variables in the right hand column:
+<md>\begin{abmatrix}{rr|r}
+			 1 \amp  -1 \amp    a\\
+			2\amp  2\amp  b\\
+			 4 \amp  4 \amp  c\\
+		\end{abmatrix}</md>
+
+		As we perform row operations, this will manipulate the unknown  <m>a,b,c</m>. You can verify that the augmented matrix will reduce to the following row echelon form:
+		<md>\begin{abmatrix}{rr|c}
+			 1 \amp  -1 \amp    a\\
+			0\amp  4\amp  (b-2a)\\
+			 0 \amp 0 \amp  (c-2b)\\
+		\end{abmatrix}</md>
+Because the matrix is in row echelon form, the system will be consistent as long as the last row is all zeros. This will occur when <m>c-2b=0</m>. This means that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m> exactly when <m>c-2b=0</m>.
+	</p></answer>
+	</task></p>
+</statement>
 </exercise>
 
 <exercise xml:id="exercise-subspaces-spanning-set-subspace-of-R4">
