@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-
-
-
-
 <!--********************************************************************
 © 2026 Kaitlyn Phillipson 
 
@@ -16,105 +12,139 @@ Documentation License” that appears in the output document of this
 PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
-
-
 <exercises xml:id="exercises-subspaces" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Exercises</title>
+    <title>Exercises</title>
 
+    <!-- Exercise group -->
+    <xi:include href="./exercises.d/subspace-test.ptx"/>
+    <exercise xml:id="exercise-subspaces-spanning-set-for-subspace-of-P2">
+        <title>Finding a spanning set for a subspace of <m> \poly_2 </m></title>
 
-<!-- Exercise group -->
-<xi:include href="./exercises.d/subspace-test.ptx" />
+        <statement>
+            <p>
+                Show that the subcollection <m> W </m> of those degree- <m>2</m>
+                polynomials with linear term equal to <m>0</m> is a subspace of
+                <m>V=P_{2}</m>, then find a spanning set for <m>W</m>
+            </p>
+        </statement>
 
-
-
-<exercise xml:id="exercise-subspaces-spanning-set-for-subspace-of-P2">
-	<title>Finding a spanning set for a subspace of <m> \poly_2 </m> </title>
-
-	<statement><p>   Show that the subcollection <m> W </m> of those degree-<m>2</m> polynomials with linear term equal to <m>0</m> is a subspace of <m>V=P_{2}</m>, then find a spanning set for <m>W</m>
-	</p></statement>
-
-	<solution>
-<p>
-	We apply the <xref ref="procedure-subspaces-concepts-test" text="title" />  to verify that
-	<m>
+        <solution>
+            <p>
+                We apply the
+                <xref ref="procedure-subspaces-concepts-test" text="title"/> to
+                verify that <m>
 	    W
-	</m>
-	is a subspace of
-	<m>
+	</m> is a subspace of
+                <m>
 	    P_{2}
-	</m>
-	.
-	<ol marker="(i)">
+	</m>.
+                <ol marker="(i)">
+                    <li>
+                        <title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title"/></title>
 
-		<li>
-			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
+                        <p>
+                            This collection is clearly not empty; in particular,
+                            the zero polynomial <m>\zerovec(x)=0x^{2}+0x+0 </m>
+                            is in <m>W</m>.
+                        </p>
+                    </li>
 
-			<p>
-			This collection is clearly not empty; in particular, the zero polynomial <m>\zerovec(x)=0x^{2}+0x+0 </m>
-			is in <m>W</m>.</p>
+                    <li>
+                        <title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title"/></title>
 
-		</li>
+                        <p>
+                            If <m>p_{1}</m> and <m>p_{2}</m> are both in
+                            <m>W</m>, then we can write
+                            <m>p_{1}(x)=a_{1}x^{2}+c_{1}</m> and
+                            <m>p_{2}(x)=a_{2}x^{2}+{c}_{2}</m>.
+                        </p>
 
-		<li>
-			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
-			<p>
-		If <m>p_{1}</m> and <m>p_{2}</m> are both in <m>W</m>, then we can write <m>p_{1}(x)=a_{1}x^{2}+c_{1}</m> and <m>p_{2}(x)=a_{2}x^{2}+{c}_{2}</m>.</p> 
-		<p>Then,</p> 
-		<p> <md><mrow>
-			p_{1}(x)+p_{2}(x)\amp =(a_{1}x^{2}+c_{1})+(a_{2}x^{2}+{c}_{2})</mrow><mrow>
-			\amp =(a_{1}+a_{2})x^{2}+(c_{1}+c_{2}).</mrow></md></p>
+                        <p>
+                            Then,
+                        </p>
 
-		<p>
-	Since
-		<m>
+                        <p>
+                            <md>
+                                <mrow>
+			p_{1}(x)+p_{2}(x)\amp =(a_{1}x^{2}+c_{1})+(a_{2}x^{2}+{c}_{2})</mrow>
+                                <mrow>
+			\amp =(a_{1}+a_{2})x^{2}+(c_{1}+c_{2}).</mrow>
+                            </md>
+                        </p>
+
+                        <p>
+                            Since <m>
 		    p_{1}(x)+p_{2}(x)
-		</m>
-		also has a linear term equal to zero, we see that
-		<m>
+		</m> also has a
+                            linear term equal to zero, we see that
+                            <m>
 		    p_{1}(x)+p_{2}(x)
-		</m>is also in<m>
+		</m> is also in
+                            <m>
 		    W</m>.
-			</p>
-		</li>
+                        </p>
+                    </li>
 
-		<li>
-			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
-			<p>
-		If <m>p(x)</m> is in <m> W</m>, then <m>p(x)=ax^{2}+c</m>. For every arbitrary scalar <m>k</m>, we have <m>kp(x)=k(ax^{2}+c)=(ka)x^{2}+(kc)</m>, which also has a zero linear term, so <m>kp(x)</m> is also in <m>W</m>.
-			</p>
-		</li>
+                    <li>
+                        <title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title"/></title>
 
-	</ol>
+                        <p>
+                            If <m>p(x)</m> is in <m> W</m>, then
+                            <m>p(x)=ax^{2}+c</m>.
+                            For every arbitrary scalar <m>k</m>, we have
+                            <m>kp(x)=k(ax^{2}+c)=(ka)x^{2}+(kc)</m>, which also
+                            has a zero linear term, so <m>kp(x)</m> is also in
+                            <m>W</m>.
+                        </p>
+                    </li>
+                </ol>
+                Since <m>W</m> is a subspace of <m>\poly_2</m>, it must have a
+                spanning set.
+                Any vector in <m>W</m> is of the form
+                <m>p(x)=ax^2+c=a(x^2)+c(1)</m>, so the set <m>\{x^2,1\}</m> is a
+                spanning set for <m>W</m>.
+            </p>
+        </solution>
+    </exercise>
 
-	Since <m>W</m> is a subspace of <m>\poly_2</m>, it must have a spanning set. Any vector in <m>W</m> is of the form <m>p(x)=ax^2+c=a(x^2)+c(1)</m>, so the set <m>\{x^2,1\}</m> is a spanning set for <m>W</m>.
-	</p>
-	</solution>
+    <exercise xml:id="exercise-subspaces-analyze-span">
+        <title>Analyzing a Span of vectors</title>
 
-</exercise>
+        <statement>
+            <p>
+                Consider <m>\Span S</m> for <m>S = \{(1,2,4),(-1,2,4)\}</m>.
+                <task>
+                    <statement>
+                        <p>
+                            Determine if <m>\uvec{v}=(5,-2,4)</m> is in
+                            <m>\Span S</m>.
+                        </p>
+                    </statement>
 
-
-<exercise xml:id="exercise-subspaces-analyze-span">
-	<title>Analyzing a Span of vectors </title>
-
-	<statement><p>
-		Consider <m>\Span S</m> for <m>S = \{(1,2,4),(-1,2,4)\}</m>.
-
-<task>
-		<statement><p>  Determine if  <m>\uvec{v}=(5,-2,4)</m> is in <m>\Span S</m>. </p></statement>
-		<answer><p> Let's try to express <m>\uvec{v}</m> as a linear combination of the vectors in <m> S</m>. Set 
-			<md>
-			(5,-2,4)=s(1,2,4)+t(-1,2,4)
-		</md>
-		for unknown scalars <m>s,t</m>. Combining the linear combination and comparing components, we arrive at the following linear system of equations:
-		<md>
-		\begin{sysofeqns}{rcrcr}
+                    <answer>
+                        <p>
+                            Let's try to express <m>\uvec{v}</m> as a linear
+                            combination of the vectors in <m> S</m>.
+                            Set
+                            <md>
+                                (5,-2,4)=s(1,2,4)+t(-1,2,4)
+                            </md>
+                            for unknown scalars <m>s,t</m>.
+                            Combining the linear combination and comparing
+                            components, we arrive at the following linear system
+                            of equations:
+                            <md>
+                                \begin{sysofeqns}{rcrcr}
 			5 \amp = \amp s \amp - \amp t \text{,} \\
 			-2 \amp = \amp 2s \amp + \amp 2t \text{,} \\
 			4 \amp = \amp 4s \amp + \amp 4t \text{.}
 		\end{sysofeqns}
-	</md>
-	We seek to determine if this system is consistent. We can convert the system to an augmented matrix and reduce:	
-	<md>\begin{abmatrix}{rr|r}
+                            </md>
+                            We seek to determine if this system is consistent.
+                            We can convert the system to an augmented matrix and
+                            reduce:
+                            <md>
+                                \begin{abmatrix}{rr|r}
 			 1 \amp  -1 \amp    5\\
 			2\amp  2\amp   -2 \\
 			 4 \amp  4 \amp  4 \\
@@ -124,28 +154,43 @@ respective owners.
 			0\amp  4\amp  -12 \\
 			0 \amp  0 \amp  8 \\
 		\end{abmatrix}
-	</md>.
-		Since the last row implies that <m>0=8</m>, the system is not consistent, so <m>(5,-2,4)</m> is not in <m>\Span S</m>.
-		</p></answer>
-	</task>
+                            </md>.
+                            Since the last row implies that <m>0=8</m>, the
+                            system is not consistent, so <m>(5,-2,4)</m> is not
+                            in <m>\Span S</m>.
+                        </p>
+                    </answer>
+                </task>
 
-	<task>
-		<statement><p>  Determine if  <m>\uvec{w}=(2,0,0)</m> is in  <m>\Span S</m>. </p></statement>
-		<answer><p>Again, we set up a linear combination of the vectors in <m>S</m>, and set it equal to <m>\uvec{w}=(2,0,0)</m>:
-		<md>
-			(2,0,0)=s(1,2,4)+t(-1,2,4)
-		</md>
-		for unknown scalars <m>s,t</m>.  The linear system is now 
-		<md>
-		\begin{sysofeqns}{rcrcr}
+                <task>
+                    <statement>
+                        <p>
+                            Determine if <m>\uvec{w}=(2,0,0)</m> is in
+                            <m>\Span S</m>.
+                        </p>
+                    </statement>
+
+                    <answer>
+                        <p>
+                            Again, we set up a linear combination of the vectors
+                            in <m>S</m>, and set it equal to
+                            <m>\uvec{w}=(2,0,0)</m>:
+                            <md>
+                                (2,0,0)=s(1,2,4)+t(-1,2,4)
+                            </md>
+                            for unknown scalars <m>s,t</m>.
+                            The linear system is now
+                            <md>
+                                \begin{sysofeqns}{rcrcr}
 			2 \amp = \amp s \amp - \amp t \text{,} \\
 			0 \amp = \amp 2s \amp + \amp 2t \text{,} \\
 			0 \amp = \amp 4s \amp + \amp 4t \text{.}
 		\end{sysofeqns}
-	</md>.
-
-	 We can convert the system to an augmented matrix and reduce:	
-	<md>\begin{abmatrix}{rr|r}
+                            </md>.
+                            We can convert the system to an augmented matrix and
+                            reduce:
+                            <md>
+                                \begin{abmatrix}{rr|r}
 			 1 \amp  -1 \amp    2\\
 			2\amp  2\amp  0\\
 			 4 \amp  4 \amp  0 \\
@@ -155,210 +200,219 @@ respective owners.
 			0\amp  1\amp  -1\\
 			0 \amp  0 \amp  0 \\
 		\end{abmatrix}
+                            </md>.
+                            The system is consistent, and the reduced matrix
+                            gives us that <m>s=1,t=-1</m>.
+                            The vector <m>\uvec{w}=(2,0,0)</m> is in
+                            <m>\Span S</m>.
+                        </p>
+                    </answer>
+                </task>
 
-	</md>.
-	The system is consistent, and the reduced matrix gives us that  <m>s=1,t=-1</m>. The vector <m>\uvec{w}=(2,0,0)</m> is in  <m>\Span S</m>.
-		</p></answer>
-	</task>
+                <task xml:id="exercise-subspaces-analyze-span-general">
+                    <statement>
+                        <p>
+                            Give a condition on the values of <m>a,b,c</m> so
+                            that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m>.
+                        </p>
+                    </statement>
 
-	<task xml:id="exercise-subspaces-analyze-span-general">
-		<statement><p> Give a condition on the values of <m>a,b,c</m> so that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m>. </p></statement>
-		<answer><p>We set this up the same way as in the previous parts: We try to express <m>(a,b,c)</m> as as linear combination of the vectors in <m>S</m>: 
-		<md>
-			(a,b,c)=s(1,2,4)+t(-1,2,4)
-		</md>
-	Now the system is
-	<md>
-		\begin{sysofeqns}{rcrcr}
+                    <answer>
+                        <p>
+                            We set this up the same way as in the previous
+                            parts: We try to express <m>(a,b,c)</m> as as linear
+                            combination of the vectors in <m>S</m>:
+                            <md>
+                                (a,b,c)=s(1,2,4)+t(-1,2,4)
+                            </md>
+                            Now the system is
+                            <md>
+                                \begin{sysofeqns}{rcrcr}
 			a \amp = \amp s \amp - \amp t \text{,} \\
 			b \amp = \amp 2s \amp + \amp 2t \text{,} \\
 			c \amp = \amp 4s \amp + \amp 4t \text{.}
 		\end{sysofeqns}
-	</md>, and when we build the augmented matrix, we have unknown variables in the right hand column:
-<md>\begin{abmatrix}{rr|r}
+                            </md>,
+                            and when we build the augmented matrix, we have
+                            unknown variables in the right hand column:
+                            <md>
+                                \begin{abmatrix}{rr|r}
 			 1 \amp  -1 \amp    a\\
 			2\amp  2\amp  b\\
 			 4 \amp  4 \amp  c\\
-		\end{abmatrix}</md>
-
-		As we perform row operations, this will manipulate the unknown  <m>a,b,c</m>. You can verify that the augmented matrix will reduce to the following row echelon form:
-		<md>\begin{abmatrix}{rr|c}
+		\end{abmatrix}
+                            </md>
+                            As we perform row operations, this will manipulate
+                            the unknown <m>a,b,c</m>.
+                            You can verify that the augmented matrix will reduce
+                            to the following row echelon form:
+                            <md>
+                                \begin{abmatrix}{rr|c}
 			 1 \amp  -1 \amp    a\\
 			0\amp  4\amp  (b-2a)\\
 			 0 \amp 0 \amp  (c-2b)\\
-		\end{abmatrix}</md>
-Because the matrix is in row echelon form, the system will be consistent as long as the last row is all zeros. This will occur when <m>c-2b=0</m>. This means that <m>\uvec{u}=(a,b,c)</m> is in <m>\Span S</m> exactly when <m>c-2b=0</m>.
-	</p></answer>
-	</task></p>
-</statement>
-</exercise>
-
-<exercise xml:id="exercise-subspaces-spanning-set-subspace-of-R4">
-	<title>Finding a spanning set for a subspace of <m>\R^4</m> </title>
-
-	<statement><p>
-		Let <m>V=\R^4</m>, and consider <m>U=</m> all vectors <m>(x_1,x_2,x_3,x_4)</m> where <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>.
-		<ol>
-			<li><p> Show that <m>U</m> is a subspace of <m>\R^4</m>.</p>
-			</li>
-			<li><p> Find a spanning set for <m>U</m>. </p>
-            </li>
-		</ol>
-	</p></statement>
-
-	<solution><p>
-		We apply the <xref ref="procedure-subspaces-concepts-test" text="title" />  to verify that
-	<m>
-	    W
-	</m>
-	is a subspace of
-	<m>
-	   \R^4
-	</m>
-	.
-	<ol marker="(i)">
-
-		<li>
-			<title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title" /></title>
-
-			<p>
-			The zero vector <m>\zerovec=(0,0,0,0)</m> is in <m>U</m>, as we can demonstrate:<m>x_1+x_2=0+0=0=x_4</m>, and <m>2x_3-x_2=2(0)-0=0</m>. </p>
-
-		</li>
-
-		<li>
-			<title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title" /></title>
-			<p>Suppose 
-		<m>\uvec{u}_1=(x_1,x_2,x_3,x_4)</m> and <m>\uvec{u}_2=(y_1,y_2,y_3,y_4)</m> are both in <m>U</m>. Then we have the following equalities: <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>, <m>y_1+y_2=y_4</m>, and <m>2y_3-y_2=0</m>. We wish to show that <m>\uvec{v}=\uvec{u}_1+\uvec{u}_2=(z_1,z_2,z_3,z_4)</m> also satisfies the conditions of <m>U</m>.  Note that <m>\uvec{v}=(x_1+y_1,x_2+y_2,x_3+y_3,x_4+y_4)</m>. Using what we know about <m>\uvec{u}_1</m> and <m>\uvec{u}_2</m>, we have
-
-		<md>
-		<mrow>z_1+z_2 \amp=(x_1+y_1)+(x_2+y_2) </mrow>	
-			<mrow>\amp=(x_1+x_2)+(y_1+y_2)</mrow>	
-			<mrow>\amp=x_4+y_4=z_4</mrow>	
-		</md>
-	Also, 
-		<md>
-		<mrow>2z_3-z_2 \amp=2(x_3+y_3)-(x_2+y_2) </mrow>	
-		<mrow>\amp=2x_3+2y_3-x_2-y_2</mrow>	
-		<mrow>\amp=(2x_3-x_2)+(2y_3-y_2)</mrow>	
-		<mrow> \amp=0+0=0 .</mrow>	
-		</md>
-This shows that <m>z_1+z_2=z_4</m>, <m>2z_3-z_2=0</m>, so <m>\uvec{v}=\uvec{u}_1+\uvec{u}_2</m> is in <m>U</m>.
+		\end{abmatrix}
+                            </md>
+                            Because the matrix is in row echelon form, the
+                            system will be consistent as long as the last row is
+                            all zeros.
+                            This will occur when <m>c-2b=0</m>.
+                            This means that <m>\uvec{u}=(a,b,c)</m> is in
+                            <m>\Span S</m> exactly when <m>c-2b=0</m>.
+                        </p>
+                    </answer>
+                </task>
+            </p>
+        </statement>
+    </exercise>
 
 
-			</p>
-		</li>
+    <exercise xml:id="exercise-subspaces-symmetric-matrices">
+        <title>The subspace of symmetric matrices</title>
 
-		<li>
-			<title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title" /></title>
-			<p>
-		Suppose <m>\uvec{u}=(x_1,x_2,x_3,x_4)</m> is a vector in <m>U</m>, and <m>k</m> is any scalar. Then we must have <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>. Now we consider <m>\uvec{v}=k\uvec{u}=(kx_1,kx_2,kx_3,kx_4)=(z_1,z_2,z_3,z_4)</m>. We need to show that  <m>\uvec{v}</m> also satisfies the two conditions of <m>U</m>. We have that
-<md>
-		<mrow>z_1+z_2 \amp=kx_1+kx_2 </mrow>	
-			<mrow>\amp=k(x_1+x_2)</mrow>	
-			<mrow>\amp=kx_4=z_4.</mrow>	
-		</md>
-And we have
-<md>
-		<mrow>2z_3-z_2 \amp=2(kx_3)-(kx_2) </mrow>	
-		<mrow>\amp=k(2x_3-x_2)</mrow>	
-		<mrow>\amp=k(0)=0</mrow>	
-		</md>
-This shows that <m>\uvec{v}=k\uvec{u}</m> is also in <m>U</m>
-			</p>
-		</li>
-
-	</ol>
-	All parts of the Subspace Test pass, so <m>U</m> is a subspace of <m>\R^4</m>.
-	</p><p>
-
-	Now we seek a spanning set for <m>U</m>. Note that if <m>\uvec{u}=(x_1,x_2,x_3,x_4)</m> is a vector in <m>U</m>, then <m>x_1+x_2=x_4</m>, <m>2x_3-x_2=0</m>.  We can then say that <m>x_3=\frac{1}{2}x_2</m>, and we can express <m>\uvec{u}</m> using only <m>x_1, x_2</m>:
-	<md>\uvec{u}=(x_1,x_2,\frac{1}{2}x_2,x_1+x_2)=x_1(1,0,0,1)+x_2(0,1,\frac{1}{2},1)</md>
-
-	This gives us a spanning set for <m>U</m>: <m>\{(1,0,0,1), (0,1,\frac{1}{2},1)\}</m>
-	</p>
-</solution>
-
-</exercise>
-
-
-
-<exercise xml:id="exercise-subspaces-symmetric-matrices">
-	<title>The subspace of symmetric matrices </title>
-
-	<statement><p>
-Consider the set <m>W</m> of symmetric matrices in the vector space <m>
+        <statement>
+            <p>
+                Consider the set <m>W</m> of symmetric matrices in the vector
+                space
+                <m>
    \matrixring_{n}(\R)=\matrixring_{n\times n}(\R)
-</m>.
-		<ol>
-			<li> Show that for each <m>
+</m>.             
+                        Show that for each <m>
 			    n
-			</m>,  <m>W</m> is a subspace of <m>
-    \matrixring_{n}(\R)</m>. </li>
-			<li> Determine if the set <md>
-			    S=\left\{\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}, \begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}, \begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}\right\}
-			</md> is a spanning set for <m>
+			</m>, <m>W</m> is a
+                        subspace of <m>
+    \matrixring_{n}(\R)</m>.
+
+                    <!-->
+                        Determine if the set
+                        <md>
+                            S=\left\{\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}, \begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}, \begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}\right\}
+                        </md>
+                        is a spanning set for <m>
 			    W= 2\times2
-			</m> symmetric matrices.
-            </li>
-	
-		</ol>
-	</p></statement>
+			</m>
+                        symmetric matrices.
+                    <-->
+            </p>
+        </statement>
 
-	<solution>
-		<p> 
-		<ol>
-			<li> 
-				<p>
-				We employ the Subspace Test: 
-				<ol marker="(i)"> 
-			<li><p> Since the <m>n\times n</m> zero matrix <m> \zerovec</m> satisfies <m>\utrans{\zerovec}=\zerovec</m>, the zero matrix is symmetric, so <m>W</m> is nonempty.
-			</p> 
-		</li>
-			<li> <p> Let <m>A_{1}</m> and <m>A_{2}</m> be in <m>W</m>. Then <m>A_{1}</m> and <m>A_{2}</m> are both symmetric <m>n\times n</m> matrices, so <m>\utrans{A_1}=A_1</m> and <m>\utrans{A_2}=A_2</m>. We employ <xref ref="proposition-matrix-ops-algebra-rules-transpose-add" text="custom"> Transpose Addition Rule </xref>  to demonstrate that <m>A_{1}+A_{2}</m> is also symmetric:
-<md>\utrans{(A_1+A_2)}=\utrans{A_1}+\utrans{A_2}=A_1+A_2</md>
-</p></li>
-<li>
-	<p>
-	Let <m>A</m> be in <m>W</m>, and let <m>k</m> be a scalar. Again, we know that <m>\utrans{A}=A</m>, so we use the <xref ref="proposition-matrix-ops-algebra-rules-transpose-smul" text="custom"> Transpose Scalar Multiplication Rule </xref> to show that <m>kA</m> is also symmetric:
-	<md>\utrans{(kA)}=k\utrans{A}=kA</md>
-	</p>
-</li>
- </ol></p>
-				</li>
-			<li><p> If <m>A</m> is a symmetric matrix in <m> \matrixring_{2}(\R)</m>, then <m>A</m> must be of the form <m>A=\begin{bmatrix}a \amp  b\\b \amp d\end{bmatrix}</m> for some <m>a,b,d</m>. We can then decompose <m>A</m> as 
-				<md>\begin{bmatrix}a \amp b\\b \amp d\end{bmatrix}=a\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix}+b\begin{bmatrix}0 \amp1\\1 \amp 0\end{bmatrix}+d\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}</md>, so <m>T=\left\{\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix},\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix},\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}\right\}</m> is a spanning set for <m>W</m>.</p>
+        <solution>
+            <p>
+               
+                        <p>
+                            We employ the Subspace Test:
+                            <ol marker="(i)">
+                                <li>
+                                    <p>
+                                        Since the <m>n\times n</m> zero matrix
+                                        <m> \zerovec</m> satisfies
+                                        <m>\utrans{\zerovec}=\zerovec</m>, the
+                                        zero matrix is symmetric, so <m>W</m> is
+                                        nonempty.
+                                    </p>
+                                </li>
 
-				<p>However, this is  not the proposed spanning set <m>
+                                <li>
+                                    <p>
+                                        Let <m>A_{1}</m> and <m>A_{2}</m> be in
+                                        <m>W</m>.
+                                        Then <m>A_{1}</m> and <m>A_{2}</m> are
+                                        both symmetric <m>n\times n</m>
+                                        matrices, so <m>\utrans{A_1}=A_1</m> and
+                                        <m>\utrans{A_2}=A_2</m>.
+                                        We employ
+                                        <xref ref="proposition-matrix-ops-algebra-rules-transpose-add" text="custom"> Transpose Addition Rule </xref>
+                                        to demonstrate that <m>A_{1}+A_{2}</m>
+                                        is also symmetric:
+                                        <md>
+                                            \utrans{(A_1+A_2)}=\utrans{A_1}+\utrans{A_2}=A_1+A_2
+                                        </md>
+                                    </p>
+                                </li>
+
+                                <li>
+                                    <p>
+                                        Let <m>A</m> be in <m>W</m>, and let
+                                        <m>k</m> be a scalar.
+                                        Again, we know that <m>\utrans{A}=A</m>,
+                                        so we use the
+                                        <xref ref="proposition-matrix-ops-algebra-rules-transpose-smul" text="custom"> Transpose Scalar Multiplication Rule </xref>
+                                        to show that <m>kA</m> is also
+                                        symmetric:
+                                        <md>
+                                            \utrans{(kA)}=k\utrans{A}=kA
+                                        </md>
+                                    </p>
+                                </li>
+                            </ol>
+                        </p>
+                
+
+               <!--
+                        <p>
+                            If <m>A</m> is a symmetric matrix in
+                            <m> \matrixring_{2}(\R)</m>, then <m>A</m> must be
+                            of the form
+                            <m>A=\begin{bmatrix}a \amp  b\\b \amp d\end{bmatrix}</m>
+                            for some <m>a,b,d</m>.
+                            We can then decompose <m>A</m> as
+                            <md>
+                                \begin{bmatrix}a \amp b\\b \amp d\end{bmatrix}=a\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix}+b\begin{bmatrix}0 \amp1\\1 \amp 0\end{bmatrix}+d\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}
+                            </md>,
+                            so
+                            <m>T=\left\{\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix},\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix},\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}\right\}</m>
+                            is a spanning set for <m>W</m>.
+                        </p>
+
+                        <p>
+                            However, this is not the proposed spanning set
+                            <m>
 			    S=\left\{\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}, \begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}, \begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}\right\}
-			</m>. We can use <xref ref="proposition-subspaces-eq-span-test" text="title" /> to determine if this is spanning set for <m>W</m>.</p>
-		
-		<p>	 Since the vectors in <m>S</m> are symmetric, every vector in <m>S</m> is a linear combination of the vectors in <m>T</m>, so now we need to check that every vector in <m>T</m> is a linear combination of the vectors in <m>S</m>. Starting with <m>\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix}</m>, we note that 
-<md>
-\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix}=0\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}-1\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}+0\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}.
-</md> </p>
+			</m>.
+                            We can use
+                            <xref ref="proposition-subspaces-eq-span-test" text="title"/>
+                            to determine if this is spanning set for <m>W</m>.
+                        </p>
 
-<p>
-Now we tackle the less obvious linear combinations. We take <m>\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix}</m> and build an arbitrary linear combination using <m> S</m>:
+                        <p>
+                            Since the vectors in <m>S</m> are symmetric, every
+                            vector in <m>S</m> is a linear combination of the
+                            vectors in <m>T</m>, so now we need to check that
+                            every vector in <m>T</m> is a linear combination of
+                            the vectors in <m>S</m>.
+                            Starting with
+                            <m>\begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix}</m>,
+                            we note that
+                            <md>
+                                \begin{bmatrix}1 \amp 0\\0 \amp 0\end{bmatrix}=0\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}-1\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}+0\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}.
+                            </md>
+                        </p>
 
-
-
-			
-			<md> \begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix}=k_1\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}+k_2\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}+k_3\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 \amp 2k_1+k_3\\2k_1+k_3 \amp k_1+k_3\end{bmatrix}</md>
-
-			Comparing entries on each side of the equation leads to the system of equations
-			<md>
-		\begin{sysofeqns}{rcrcrcr}
+                        <p>
+                            Now we tackle the less obvious linear combinations.
+                            We take
+                            <m>\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix}</m>
+                            and build an arbitrary linear combination using
+                            <m> S</m>:
+                            <md>
+                                \begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix}=k_1\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}+k_2\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}+k_3\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}=\begin{bmatrix}k_1-k_2+4k_3 \amp 2k_1+k_3\\2k_1+k_3 \amp k_1+k_3\end{bmatrix}
+                            </md>
+                            Comparing entries on each side of the equation leads
+                            to the system of equations
+                            <md>
+                                \begin{sysofeqns}{rcrcrcr}
 			    k_1  \amp  - \amp   k_2 \amp  + \amp 4k_3 \amp = \amp 0 \text{,} \\
 			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 1 \text{,} \\
 			2k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 1\text{,} \\
 			k_1 \amp \amp \amp + \amp   k_3       \amp = \amp 0
 		\end{sysofeqns}
-	</md>
-		</p> <p>
-		Which we put into an augmented matrix and reduce:
-		<md>
-		\begin{abmatrix}{rrr|r}
+                            </md>
+                        </p>
+
+                        <p>
+                            Which we put into an augmented matrix and reduce:
+                            <md>
+                                \begin{abmatrix}{rrr|r}
 			 1 \amp  -1 \amp  4   \amp 0\\
 			2 \amp  0\amp  1    \amp 1 \\
 			 2 \amp  0 \amp 1  \amp 1 \\
@@ -371,29 +425,30 @@ Now we tackle the less obvious linear combinations. We take <m>\begin{bmatrix}0 
 			0 \amp 0 \amp 1 \amp  -1\\
 			0 \amp 0 \amp 0 \amp 0
 		\end{abmatrix}
-	</md></p>
-<p>
-	The reduced matrix tells us that <m>k_1=1, k_2=-3, k_3=-1</m>. We can verify this:
-<md> 1\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}-3\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}-1\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}=\begin{bmatrix}1+3-4 \amp 2-1\\2-1 \amp 1-1\end{bmatrix}=\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix}</md>.
+                            </md>
+                        </p>
 
-</p>
+                        <p>
+                            The reduced matrix tells us that
+                            <m>k_1=1, k_2=-3, k_3=-1</m>.
+                            We can verify this:
+                            <md>
+                                1\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}-3\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}-1\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}=\begin{bmatrix}1+3-4 \amp 2-1\\2-1 \amp 1-1\end{bmatrix}=\begin{bmatrix}0 \amp 1\\1 \amp 0\end{bmatrix}
+                            </md>.
+                        </p>
 
-<p>You can verify through a similar calculation that 
-
-	<md> -1\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}+7\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}+2\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}=\begin{bmatrix}1+3-4 \amp 2-1\\2-1 \amp 1-1\end{bmatrix}=\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}</md>.
-
-	Since every vector in <m>T</m> is a also linear combination of the vectors in <m>S</m>, this means they span the same space, so <m>S</m> is a spanning set for the <m>2\times 2</m> symmetric matrices.
-</p>
-
-            </li>
-	
-		</ol>		
-	</p></solution>
-
-</exercise>
-
-
-
-
-
+                        <p>
+                            You can verify through a similar calculation that
+                            <md>
+                                -1\begin{bmatrix}1 \amp 2\\2 \amp 1\end{bmatrix}+7\begin{bmatrix}-1 \amp 0\\0 \amp 0\end{bmatrix}+2\begin{bmatrix}4 \amp 1\\1 \amp 1\end{bmatrix}=\begin{bmatrix}1+3-4 \amp 2-1\\2-1 \amp 1-1\end{bmatrix}=\begin{bmatrix}0 \amp 0\\0 \amp 1\end{bmatrix}
+                            </md>.
+                            Since every vector in <m>T</m> is a also linear
+                            combination of the vectors in <m>S</m>, this means
+                            they span the same space, so <m>S</m> is a spanning
+                            set for the <m>2\times 2</m> symmetric matrices.
+                        </p>-->
+                
+            </p>
+        </solution>
+    </exercise>
 </exercises>
