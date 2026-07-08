@@ -42,9 +42,7 @@ respective owners.
         <statement>
             <p>
                 <m>V=\R^2</m>, <m>W=</m> the subcollection of vectors that are
-                orthogonal to <m>
-			   \uvec{v}=( 1,4)
-			</m>.
+                orthogonal to <m>\uvec{v}=( 1,4)</m>.
             </p>
         </statement>
 
@@ -107,11 +105,7 @@ respective owners.
         <statement>
             <p>
                 <m>V=\R^2</m>, <m>W=</m> the subcollection of vectors
-                <m>
-			    (x,y)
-			</m> where <m>
-			    x^2-y^2=0
-			</m>.
+                <m>(x,y)</m> where <m>x^2-y^2=0</m>.
             </p>
         </statement>
 
@@ -186,12 +180,7 @@ respective owners.
         <statement>
             <p>
                 <m>V=\R^2</m>, <m>W=</m> the subcollection of vectors
-                <m>
-			     (x_1,x_2)
-			</m> where
-                <m>
-			    x_{1}+2x_{2}\geq 0.
-			</m>
+                <m> (x_1,x_2)</m> where <m>x_{1}+2x_{2}\geq 0.</m>
             </p>
         </statement>
 
@@ -231,12 +220,7 @@ respective owners.
             <p>
                 We apply the
                 <xref ref="procedure-subspaces-concepts-test" text="title"/> to
-                show that <m>
-	    W
-	</m> is a subspace of
-                <m>
-	   \R^4
-	</m>.
+                show that <m>W</m> is a subspace of <m>\R^4</m>.
                 <ol marker="(i)">
                     <li>
                         <title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title"/></title>
@@ -497,6 +481,83 @@ respective owners.
                 consequently a subspace of <m>\matrixring_{2 \times 2}(\R)</m>.
             </p>
         </answer>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>
+                <m>V=\poly_2</m>, <m>W=</m> the subcollection <m> W </m> of
+                those degree- <m>2</m> polynomials with linear term equal to
+                <m>0</m>.
+            </p>
+        </statement>
+
+        <solution>
+            <p>
+                We apply the
+                <xref ref="procedure-subspaces-concepts-test" text="title"/> to
+                show that <m>W</m> is a subspace of <m>\poly_2</m>.
+                <ol marker="(i)">
+                    <li>
+                        <title><xref ref="procedure-subspaces-concepts-test-nonempty" text="title"/></title>
+
+                        <p>
+                            This collection is clearly not empty; in particular,
+                            the zero polynomial <m>\zerovec(x)=0x^{2}+0x+0 </m>
+                            is in <m>W</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <title><xref ref="procedure-subspaces-concepts-test-add-closed" text="title"/></title>
+
+                        <p>
+                            If <m>p_{1}</m> and <m>p_{2}</m> are both in
+                            <m>W</m>, then we can write
+                            <m>p_{1}(x)=a_{1}x^{2}+c_{1}</m> and
+                            <m>p_{2}(x)=a_{2}x^{2}+{c}_{2}</m>.
+                        </p>
+
+                        <p>
+                            Then,
+                        </p>
+
+                        <p>
+                            <md>
+                                <mrow>
+			p_{1}(x)+p_{2}(x)\amp =(a_{1}x^{2}+c_{1})+(a_{2}x^{2}+{c}_{2})</mrow>
+                                <mrow>
+			\amp =(a_{1}+a_{2})x^{2}+(c_{1}+c_{2}).</mrow>
+                            </md>
+                        </p>
+
+                        <p>
+                            Since <m>p_{1}(x)+p_{2}(x)</m> also has a linear
+                            term equal to zero, we see that
+                            <m>p_{1}(x)+p_{2}(x)</m> is also in <m>W</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <title><xref ref="procedure-subspaces-concepts-test-smul-closed" text="title"/></title>
+
+                        <p>
+                            If <m>p(x)</m> is in <m> W</m>, then
+                            <m>p(x)=ax^{2}+c</m>.
+                            For every arbitrary scalar <m>k</m>, we have
+                            <m>kp(x)=k(ax^{2}+c)=(ka)x^{2}+(kc)</m>, which also
+                            has a zero linear term, so <m>kp(x)</m> is also in
+                            <m>W</m>.
+                        </p>
+                    </li>
+                </ol>
+                Since <m>W</m> is a subspace of <m>\poly_2</m>, it must have a
+                spanning set.
+                Any vector in <m>W</m> is of the form
+                <m>p(x)=ax^2+c=a(x^2)+c(1)</m>, so the set <m>\{x^2,1\}</m> is a
+                spanning set for <m>W</m>.
+            </p>
+        </solution>
     </exercise>
 
     <exercise>
