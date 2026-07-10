@@ -14,6 +14,7 @@ BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 PRETEXTDIR=./pretext
 ROOT_XMLID=discover-linear-algebra-book
 REMOTE_LOCATION=
+STIXFONTS_VERSION := $(shell cat stixfonts_version.txt)
 
 HTML_TARGETS = two-semester-html one-semester-html
 HTML_CLEAN_TARGETS = two-semester-html-clean one-semester-html-clean
@@ -54,6 +55,7 @@ help:
 	@echo "                                  chapters."
 	@echo "> one-semester-html-image-pdfs  : Create PDF image files to accompany the html output for chapters"
 	@echo "                                  for a one-semester course."
+	@echo "> html-fonts                    : Copy STIX2Text fonts into the HTML build directory."
 	@echo "> html-serve                    : Fire up a simple Python web server to locally host the HTML"
 	@echo "                                  output."
 	@echo "> two-semester-html-deploy      : rsync HTML files for the two-semester version to a remote server."
@@ -104,7 +106,7 @@ ptx-clean:
 	@-rm -f ${BUILDDIR}/ptx/*.ptx
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-$(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinel
+$(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinel html-fonts
 $(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinel
 $(IMAGE_PDF_TARGETS): %-html-image-pdfs: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html-image-pdfs/%/.sentinel
 $(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
@@ -160,9 +162,6 @@ ${BUILDDIR}/html/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 #	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...copying css style customizations"
 	@cp css/dla.css ${BUILDDIR}/html/${*}/
-	@echo "...copying fonts"
-	@mkdir -p ${BUILDDIR}/html/${*}/fonts
-	@cp stixfonts/fonts/static_otf_woff2/*.woff2 ${BUILDDIR}/html/${*}/fonts/
 	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/${*}/*.html
 	@touch ${BUILDDIR}/html/${*}/.sentinel
 	@echo "...DONE"
@@ -221,6 +220,17 @@ ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@./make.d/latex/fixups.sh ${BUILDDIR} ${ROOTDOCNAME} ${*}
 	@echo "...DONE"
 
+html-fonts: ${BUILDDIR}/html/fonts/.sentinel
+
+${BUILDDIR}/html/fonts/.sentinel:
+	@echo "Copying STIX2 fonts..."
+	@mkdir -p ${BUILDDIR}/html/fonts
+	@./scripts/unpack-fonts.sh ${BUILDDIR}/html/fonts ${STIXFONTS_VERSION}
+	@mkdir -p ${BUILDDIR}/html/one-semester
+	@ln -sf ${BUILDDIR}/html/fonts ${BUILDDIR}/html/one-semester/fonts
+	@mkdir -p ${BUILDDIR}/html/two-semester
+	@ln -sf ${BUILDDIR}/html/fonts ${BUILDDIR}/html/two-semester/fonts
+	@touch ${BUILDDIR}/html/fonts/.sentinel
 
 html-serve:
 	@./scripts/serve.py ${BUILDDIR}/html $(SERVEPORT) 2>/dev/null
