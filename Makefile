@@ -93,7 +93,7 @@ help:
 two-semester-html-all: two-semester-html two-semester-html-images
 one-semester-html-all: one-semester-html one-semester-html-images
 
-$(DEPLOY_TARGETS): %-html-deploy: | %-html-all
+$(DEPLOY_TARGETS): %-html-deploy: | %-html
 	@[ "$(REMOTE_LOCATION)" ] || $(call log_error, "REMOTE_LOCATION not set!")
 	@echo "Transferring ${BUILDDIR}/html/${*} to ${REMOTE_LOCATION} ..."
 	@./scripts/deploy.sh ${BUILDDIR}/html/${*} ${*}-html-deploy.exclude ${REMOTE_LOCATION}
@@ -104,13 +104,13 @@ ptx-clean:
 	@-rm -f ${BUILDDIR}/ptx/*.ptx
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-$(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinal
-$(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinal
-$(IMAGE_PDF_TARGETS): %-html-image-pdfs: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html-image-pdfs/%/.sentinal
+$(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinel
+$(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinel
+$(IMAGE_PDF_TARGETS): %-html-image-pdfs: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html-image-pdfs/%/.sentinel
 $(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
 
 $(HTML_CLEAN_TARGETS): %-html-clean:
-	@-rm -f ${BUILDDIR}/html/${*}/.sentinal*
+	@-rm -f ${BUILDDIR}/html/${*}/.sentinel*
 	@-rm -f ${BUILDDIR}/html/${*}/*.html
 	@-rm -f ${BUILDDIR}/html/${*}/knowl/*.html
 	@-rm -f ${BUILDDIR}/html/${*}/knowl/index/*.html
@@ -118,7 +118,7 @@ $(HTML_CLEAN_TARGETS): %-html-clean:
 	@-rm -f ${BUILDDIR}/html/${*}/lunr-pretext-search-index.js
 	@-rm -f ${BUILDDIR}/html/${*}/dla.css
 $(IMAGE_CLEAN_TARGETS): %-html-images-clean:
-	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinal*
+	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinel*
 	@-rm -f ${BUILDDIR}/html/${*}/images/*.svg
 	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/*.pdf
 
@@ -140,9 +140,9 @@ ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx: $(SOURCES) one-file.xsl | validate-xml
 	  ./one-file.xsl src/${ROOTDOCNAME}.ptx
 	@echo "...DONE"
 
-${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Converting PTX to HTML for version: ${*}..."
-	@-rm -f ${BUILDDIR}/html/${*}/.sentinal
+	@-rm -f ${BUILDDIR}/html/${*}/.sentinel
 	@mkdir -p ${BUILDDIR}/html/${*}/knowl
 #	@echo "...html fixups"
 #	@./make.d/html/fixups.sh ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
@@ -164,15 +164,15 @@ ${BUILDDIR}/html/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@mkdir -p ${BUILDDIR}/html/${*}/fonts
 	@cp stixfonts/fonts/static_otf_woff2/*.woff2 ${BUILDDIR}/html/${*}/fonts/
 	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/${*}/*.html
-	@touch ${BUILDDIR}/html/${*}/.sentinal
+	@touch ${BUILDDIR}/html/${*}/.sentinel
 	@echo "...DONE"
 	@echo "Now call:"
 	@echo "   make ${*}-html-images  (to build SVG images)"
 	@echo "   make html-serve               (to serve the output locally for previewing)"
 
-${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html/%/images/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output for version: ${*}..."
-	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinal
+	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinel
 	@mkdir -p ${BUILDDIR}/html/${*}/images
 	@echo "...calling pretext to generate images"
 	@echo "...(restricted to ${ROOT_XMLID})"
@@ -186,12 +186,12 @@ ${BUILDDIR}/html/%/images/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
 	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/${*}/images
-	@touch ${BUILDDIR}/html/${*}/images/.sentinal
+	@touch ${BUILDDIR}/html/${*}/images/.sentinel
 	@echo "...DONE"
 
-${BUILDDIR}/html-image-pdfs/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html-image-pdfs/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating PDF files for HTML output for version: ${*}..."
-	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/.sentinal
+	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/.sentinel
 	@mkdir -p ${BUILDDIR}/html-image-pdfs/${*}
 	@echo "...calling pretext to generate images"
 	@echo "...(restricted to ${ROOT_XMLID})"
@@ -203,7 +203,7 @@ ${BUILDDIR}/html-image-pdfs/%/.sentinal: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
 	  --directory ${BUILDDIR}/html-image-pdfs/${*} \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
-	@touch ${BUILDDIR}/html-image-pdfs/${*}/.sentinal
+	@touch ${BUILDDIR}/html-image-pdfs/${*}/.sentinel
 	@echo "...DONE"
 
 ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx

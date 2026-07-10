@@ -36,11 +36,20 @@ then
 	echo
 	ask_continue
 	options+=("--exclude-from=${excludes}")
+	echo
 else
 	echo ">>>> WARNING   Did not find exclude file ${excludes}"
 	echo
 	ask_continue
 fi
+
+echo -n "Transfer images [Y/n] ? "
+read ans
+if [ "${ans}" != "Y" ]
+then
+	options+=("--exclude=images")
+fi
+echo
 
 for run in "${runs[@]}"
 do
