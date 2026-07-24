@@ -99,31 +99,32 @@ respective owners.
 			<p>
 			Create the elementary matrix for each of the steps in our row reduction process,
 			in order:
-			<md><mrow>
-				E_1 \amp = \begin{bmatrix}       0 \amp  1 \\  1 \amp 0 \end{bmatrix}  \text{,} \amp
-				E_2 \amp = \begin{abmatrix}{rr} -1 \amp  0 \\  0 \amp 1 \end{abmatrix} \text{,} \amp
-				E_3 \amp = \begin{abmatrix}{rr}  1 \amp  0 \\ -2 \amp 1 \end{abmatrix} \text{,} \amp
-				E_4 \amp = \begin{abmatrix}{rr}  1 \amp -2 \\  0 \amp 1 \end{abmatrix} \text{.}
-			</mrow></md>
+			<md alignment="gather">
+				<mrow>
+					E_1 = \begin{bmatrix}       0 \amp  1 \\  1 \amp 0 \end{bmatrix}  \text{,}
+					\quad
+					E_2 = \begin{abmatrix}{rr} -1 \amp  0 \\  0 \amp 1 \end{abmatrix} \text{,}
+				</mrow><mrow>
+					E_3 = \begin{abmatrix}{rr}  1 \amp  0 \\ -2 \amp 1 \end{abmatrix} \text{,}
+					\quad
+					E_4 = \begin{abmatrix}{rr}  1 \amp -2 \\  0 \amp 1 \end{abmatrix} \text{.}
+				</mrow>
+			</md>
 			These elementary matrices,
 			in order from right to left,
 			generate the inverse matrix:
-			<md alignment="gather">
-				<mrow> \inv{A} = E_4 E_3 E_2 E_1 \text{,} </mrow>
-				<mrow /> <!-- TODO -->
-				<mrow>
-					\begin{abmatrix}{rr}
-						-2 \amp -5 \\
-						 1 \amp  2
-					\end{abmatrix}
-					=
-					\begin{bmatrix}       1 \amp -2 \\  0 \amp 1 \end{bmatrix}
-					\begin{abmatrix}{rr}  1 \amp  0 \\ -2 \amp 1 \end{abmatrix}
-					\begin{abmatrix}{rr} -1 \amp  0 \\  0 \amp 1 \end{abmatrix}
-					\begin{abmatrix}{rr}  0 \amp  1 \\  1 \amp 0 \end{abmatrix}
-					\text{.}
-				</mrow>
-			</md>
+			<md> \inv{A} = E_4 E_3 E_2 E_1 </md>,
+			<md>
+				\begin{abmatrix}{rr}
+					-2 \amp -5 \\
+					 1 \amp  2
+				\end{abmatrix}
+				=
+				\begin{bmatrix}       1 \amp -2 \\  0 \amp 1 \end{bmatrix}
+				\begin{abmatrix}{rr}  1 \amp  0 \\ -2 \amp 1 \end{abmatrix}
+				\begin{abmatrix}{rr} -1 \amp  0 \\  0 \amp 1 \end{abmatrix}
+				\begin{abmatrix}{rr}  0 \amp  1 \\  1 \amp 0 \end{abmatrix}
+			</md>.
 			</p>
 
 			<p>
@@ -139,29 +140,28 @@ respective owners.
 				<li><m> R_1 + 2 R_2             </m>.</li>
 			</ol>
 			Therefore we have
-			<md><mrow>
-				\inv{E}_1 \amp = \begin{bmatrix}       0 \amp 1 \\ 1 \amp 0 \end{bmatrix}  \text{,} \amp
-				\inv{E}_2 \amp = \begin{abmatrix}{rr} -1 \amp 0 \\ 0 \amp 1 \end{abmatrix} \text{,} \amp
-				\inv{E}_3 \amp = \begin{bmatrix}       1 \amp 0 \\ 2 \amp 1 \end{bmatrix}  \text{,} \amp
-				\inv{E}_4 \amp = \begin{bmatrix}       1 \amp 2 \\ 0 \amp 1 \end{bmatrix}  \text{,}
+			<md alignment="gather"><mrow>
+				\inv{E}_1 = \begin{bmatrix}       0 \amp 1 \\ 1 \amp 0 \end{bmatrix}  \text{,}
+				\quad
+				\inv{E}_2 = \begin{abmatrix}{rr} -1 \amp 0 \\ 0 \amp 1 \end{abmatrix} \text{,}
+			</mrow><mrow>
+				\inv{E}_3 = \begin{bmatrix}       1 \amp 0 \\ 2 \amp 1 \end{bmatrix}  \text{,}
+				\quad
+				\inv{E}_4 = \begin{bmatrix}       1 \amp 2 \\ 0 \amp 1 \end{bmatrix}  \text{,}
 			</mrow></md>
 			and can decompose:
-			<md alignment="gather">
-				<mrow> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 \text{,} </mrow>
-				<mrow /> <!-- TODO -->
-				<mrow>
-					\begin{abmatrix}{rr}
-						 2 \amp  5 \\
-						-1 \amp -2
-					\end{abmatrix}
-					=
-					\begin{bmatrix}       0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
-					\begin{abmatrix}{rr} -1 \amp 0 \\ 0 \amp 1 \end{abmatrix}
-					\begin{bmatrix}       1 \amp 0 \\ 2 \amp 1 \end{bmatrix}
-					\begin{bmatrix}       1 \amp 2 \\ 0 \amp 1 \end{bmatrix}
-					\text{.}
-				</mrow>
-			</md>
+			<md> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 </md>,
+			<md>
+				\begin{abmatrix}{rr}
+					 2 \amp  5 \\
+					-1 \amp -2
+				\end{abmatrix}
+				=
+				\begin{bmatrix}       0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
+				\begin{abmatrix}{rr} -1 \amp 0 \\ 0 \amp 1 \end{abmatrix}
+				\begin{bmatrix}       1 \amp 0 \\ 2 \amp 1 \end{bmatrix}
+				\begin{bmatrix}       1 \amp 2 \\ 0 \amp 1 \end{bmatrix}
+			</md>.
 			</p>
 
 			<p>
@@ -189,19 +189,22 @@ respective owners.
 
 		<li><p>
 			We augment the matrix with the identity matrix and attempt to reduce to the identity on the left:
-			<md>
+			<md>\begin{split}
+				\amp
 				\begin{abmatrix}{rrr|ccc}
 					0 \amp   1 \amp   1 \amp 1 \amp 0 \amp 0 \\
 					1 \amp - 2 \amp - 1 \amp 0 \amp 1 \amp 0 \\
 					7 \amp -18 \amp -12 \amp 0 \amp 0 \amp 1
 				\end{abmatrix}
-				\rowredarrow
+				\\
+				\amp \quad \rowredarrow \qquad
 				\begin{abmatrix}{ccc|rrr}
 					1 \amp 0 \amp 0 \amp  6 \amp -6 \amp  1 \\
 					0 \amp 1 \amp 0 \amp  5 \amp -7 \amp  1 \\
 					0 \amp 0 \amp 1 \amp -4 \amp  7 \amp -1
 				\end{abmatrix}
-			</md>.
+				\text{.}
+			\end{split}</md>
 			To achieve the reduction above,
 			you can use the following sequence of operations
 			(following <xref ref="procedure-row-red-concepts-reduce-to-rref" />).
@@ -234,52 +237,56 @@ respective owners.
 			<p>
 			Create the elementary matrix for each of the steps in our row reduction process,
 			in order:
-			<md><mrow>
-				E_1 \amp =
+			<md alignment="gather"><mrow>
+				E_1 =
 				\begin{bmatrix}
 					0 \amp 1 \amp 0 \\
 					1 \amp 0 \amp 0 \\
 					0 \amp 0 \amp 1
 				\end{bmatrix}
-				\text{,} \amp
-				E_2 \amp =
+				\text{,}
+				\quad
+				E_2 =
 				\begin{abmatrix}{rrr}
 					 1 \amp 0 \amp 0 \\
 					 0 \amp 1 \amp 0 \\
 					-7 \amp 0 \amp 1
 				\end{abmatrix}
-				\text{,} \amp
-				E_3 \amp =
+				\text{,}
+			</mrow><mrow>
+				E_3 =
 				\begin{bmatrix}
 					1 \amp 2 \amp 0 \\
 					0 \amp 1 \amp 0 \\
 					0 \amp 0 \amp 1
 				\end{bmatrix}
-				\text{,} \amp
-				E_4 \amp =
+				\text{,}
+				\quad
+				E_4 =
 				\begin{bmatrix}
 					1 \amp 0 \amp 0 \\
 					0 \amp 1 \amp 0 \\
 					0 \amp 4 \amp 1
 				\end{bmatrix}
 				\text{,}
-			</mrow></md>
-			<md><mrow>
-				E_5 \amp =
+			</mrow><mrow>
+				E_5 =
 				\begin{abmatrix}{rrr}
 					1 \amp 0 \amp  0 \\
 					0 \amp 1 \amp  0 \\
 					0 \amp 0 \amp -1
 				\end{abmatrix}
-				\text{,} \amp
-				E_6 \amp =
+				\text{,}
+				\quad
+				E_6 =
 				\begin{abmatrix}{rrr}
 					1 \amp 0 \amp -1 \\
 					0 \amp 1 \amp  0 \\
 					0 \amp 0 \amp  1
 				\end{abmatrix}
-				\text{,} \amp
-				E_7 \amp =
+				\text{,}
+			</mrow><mrow>
+				E_7 =
 				\begin{abmatrix}{rrr}
 					1 \amp 0 \amp  0 \\
 					0 \amp 1 \amp -1 \\
@@ -291,58 +298,55 @@ respective owners.
 			in order from right to left,
 			generate the inverse matrix:
 			<md> \inv{A} = E_7 E_6 E_5 E_4 E_3 E_2 E_1 </md>,
-			<md>
-
-				<mrow>
-					\begin{abmatrix}{rrr}
-						 6 \amp -6 \amp  1 \\
-						 5 \amp -7 \amp  1 \\
-						-4 \amp  7 \amp -1
-					\end{abmatrix}
-					=
-					\begin{abmatrix}{rrr}
-						1 \amp 0 \amp  0 \\
-						0 \amp 1 \amp -1 \\
-						0 \amp 0 \amp  1
-					\end{abmatrix}
-					\amp
-					\begin{abmatrix}{rrr}
-						1 \amp 0 \amp -1 \\
-						0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp  1
-					\end{abmatrix}
-					\begin{abmatrix}{rrr}
-						1 \amp 0 \amp  0 \\
-						0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp -1
-					\end{abmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \\
-						0 \amp 4 \amp 1
-					\end{bmatrix}
-				</mrow>
-
-				<mrow>
-					\amp
-					\begin{bmatrix}
-						1 \amp 2 \amp 0 \\
-						0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 1
-					\end{bmatrix}
-					\begin{abmatrix}{rrr}
-						 1 \amp 0 \amp 0 \\
-						 0 \amp 1 \amp 0 \\
-						-7 \amp 0 \amp 1
-					\end{abmatrix}
-					\begin{bmatrix}
-						0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1
-					\end{bmatrix}
-				</mrow>
-
-			</md>.
+			<md>\begin{split}
+				\begin{abmatrix}{rrr}
+					 6 \amp -6 \amp  1 \\
+					 5 \amp -7 \amp  1 \\
+					-4 \amp  7 \amp -1
+				\end{abmatrix}
+				=
+				\amp
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp  0 \\
+					0 \amp 1 \amp -1 \\
+					0 \amp 0 \amp  1
+				\end{abmatrix}
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp -1 \\
+					0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp  1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp  0 \\
+					0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp -1
+				\end{abmatrix}
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \\
+					0 \amp 4 \amp 1
+				\end{bmatrix}
+				\begin{bmatrix}
+					1 \amp 2 \amp 0 \\
+					0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrr}
+					 1 \amp 0 \amp 0 \\
+					 0 \amp 1 \amp 0 \\
+					-7 \amp 0 \amp 1
+				\end{abmatrix}
+				\begin{bmatrix}
+					0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{.}
+			\end{split}</md>
 			</p>
 
 			<p>
@@ -359,52 +363,56 @@ respective owners.
 				<li><m> R_1 + R_3; R_2 + R_3     </m></li>
 			</ol>
 			Therefore we have
-			<md><mrow>
-				\inv{E}_1 \amp =
+			<md alignment="gather"><mrow>
+				\inv{E}_1 =
 				\begin{bmatrix}
 					0 \amp 1 \amp 0 \\
 					1 \amp 0 \amp 0 \\
 					0 \amp 0 \amp 1
 				\end{bmatrix}
-				\text{,} \amp
-				\inv{E}_2 \amp =
+				\text{,}
+				\quad
+				\inv{E}_2 =
 				\begin{bmatrix}
 					1 \amp 0 \amp 0 \\
 					0 \amp 1 \amp 0 \\
 					7 \amp 0 \amp 1
 				\end{bmatrix}
-				\text{,} \amp
-				\inv{E}_3 \amp =
+				\text{,}
+			</mrow><mrow>
+				\inv{E}_3 =
 				\begin{abmatrix}{rrr}
 					1 \amp -2 \amp 0 \\
 					0 \amp  1 \amp 0 \\
 					0 \amp  0 \amp 1
 				\end{abmatrix}
-				\text{,} \amp
-				\inv{E}_4 \amp =
+				\text{,}
+				\quad
+				\inv{E}_4 =
 				\begin{abmatrix}{rrr}
 					1 \amp  0 \amp 0 \\
 					0 \amp  1 \amp 0 \\
 					0 \amp -4 \amp 1
 				\end{abmatrix}
 				\text{,}
-			</mrow></md>
-			<md><mrow>
-				\inv{E}_5 \amp =
+			</mrow><mrow>
+				\inv{E}_5 =
 				\begin{abmatrix}{rrr}
 					1 \amp 0 \amp  0 \\
 					0 \amp 1 \amp  0 \\
 					0 \amp 0 \amp -1
 				\end{abmatrix}
-				\text{,} \amp
-				\inv{E}_6 \amp =
+				\text{,}
+				\quad
+				\inv{E}_6 =
 				\begin{bmatrix}
 					1 \amp 0 \amp 1 \\
 					0 \amp 1 \amp 0 \\
 					0 \amp 0 \amp 1
 				\end{bmatrix}
-				\text{,} \amp
-				\inv{E}_7 \amp =
+				\text{,}
+			</mrow><mrow>
+				\inv{E}_7 =
 				\begin{bmatrix}
 					1 \amp 0 \amp 0 \\
 					0 \amp 1 \amp 1 \\
@@ -414,57 +422,55 @@ respective owners.
 			</mrow></md>
 			and can decompose:
 			<md> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 \inv{E}_5 \inv{E}_6 \inv{E}_7 </md>,
-			<md>
-
-				<mrow>
-					\begin{abmatrix}{rrr}
-						0 \amp   1 \amp   1 \\
-						1 \amp - 2 \amp - 1 \\
-						7 \amp -18 \amp -12
-					\end{abmatrix}
-					=
-					\begin{bmatrix}
-						0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1
-					\end{bmatrix}
-					\amp
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \\
-						7 \amp 0 \amp 1
-					\end{bmatrix}
-					\begin{abmatrix}{rrr}
-						1 \amp -2 \amp 0 \\
-						0 \amp  1 \amp 0 \\
-						0 \amp  0 \amp 1
-					\end{abmatrix}
-					\begin{abmatrix}{rrr}
-						1 \amp  0 \amp 0 \\
-						0 \amp  1 \amp 0 \\
-						0 \amp -4 \amp 1
-					\end{abmatrix}
-				</mrow>
-
-				<mrow>
-					\amp
-					\begin{abmatrix}{rrr}
-						1 \amp 0 \amp  0 \\
-						0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp -1
-					\end{abmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 1 \\
-						0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 1
-					\end{bmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 1 \\
-						0 \amp 0 \amp 1
-					\end{bmatrix}
-				</mrow>
-			</md>.
+			<md>\begin{split}
+				\begin{abmatrix}{rrr}
+					0 \amp   1 \amp   1 \\
+					1 \amp - 2 \amp - 1 \\
+					7 \amp -18 \amp -12
+				\end{abmatrix}
+				=
+				\amp
+				\begin{bmatrix}
+					0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \\
+					7 \amp 0 \amp 1
+				\end{bmatrix}
+				\begin{abmatrix}{rrr}
+					1 \amp -2 \amp 0 \\
+					0 \amp  1 \amp 0 \\
+					0 \amp  0 \amp 1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrr}
+					1 \amp  0 \amp 0 \\
+					0 \amp  1 \amp 0 \\
+					0 \amp -4 \amp 1
+				\end{abmatrix}
+				\begin{abmatrix}{rrr}
+					1 \amp 0 \amp  0 \\
+					0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp -1
+				\end{abmatrix}
+				\begin{bmatrix}
+					1 \amp 0 \amp 1 \\
+					0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\\
+				\amp
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 1 \\
+					0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{.}
+			\end{split}</md>
 			</p>
 
 			<p>
@@ -544,29 +550,24 @@ respective owners.
 
 		<li><p>
 			We augment the matrix with the identity matrix and attempt to reduce to the identity on the left:
-			<md>
-
-				<mrow>
-					\amp
-					\begin{abmatrix}{rrrr|cccc}
-						 1 \amp  3 \amp  5 \amp -4 \amp 1 \amp 0 \amp 0 \amp 0 \\
-						 0 \amp  1 \amp  4 \amp -2 \amp 0 \amp 1 \amp 0 \amp 0 \\
-						 0 \amp  0 \amp -1 \amp  3 \amp 0 \amp 0 \amp 1 \amp 0 \\
-						-1 \amp -3 \amp -4 \amp  2 \amp 1 \amp 0 \amp 0 \amp 1
-					\end{abmatrix}
-				</mrow>
-
-				<mrow>
-					\amp \rowredarrow
-					\begin{abmatrix}{cccc|rrrr}
-						1 \amp 0 \amp 0 \amp 0 \amp  20 \amp -3 \amp 12 \amp  19 \\
-						0 \amp 1 \amp 0 \amp 0 \amp -10 \amp  1 \amp -6 \amp -10 \\
-						0 \amp 0 \amp 1 \amp 0 \amp   3 \amp  0 \amp  2 \amp   3 \\
-						0 \amp 0 \amp 0 \amp 1 \amp   1 \amp  0 \amp  1 \amp   1
-					\end{abmatrix}
-				</mrow>
-
-			</md>.
+			<md>\begin{split}
+				\amp
+				\begin{abmatrix}{rrrr|cccc}
+					 1 \amp  3 \amp  5 \amp -4 \amp 1 \amp 0 \amp 0 \amp 0 \\
+					 0 \amp  1 \amp  4 \amp -2 \amp 0 \amp 1 \amp 0 \amp 0 \\
+					 0 \amp  0 \amp -1 \amp  3 \amp 0 \amp 0 \amp 1 \amp 0 \\
+					-1 \amp -3 \amp -4 \amp  2 \amp 1 \amp 0 \amp 0 \amp 1
+				\end{abmatrix}
+				\\
+				\amp \quad \rowredarrow \qquad
+				\begin{abmatrix}{cccc|rrrr}
+					1 \amp 0 \amp 0 \amp 0 \amp  20 \amp -3 \amp 12 \amp  19 \\
+					0 \amp 1 \amp 0 \amp 0 \amp -10 \amp  1 \amp -6 \amp -10 \\
+					0 \amp 0 \amp 1 \amp 0 \amp   3 \amp  0 \amp  2 \amp   3 \\
+					0 \amp 0 \amp 0 \amp 1 \amp   1 \amp  0 \amp  1 \amp   1
+				\end{abmatrix}
+				\text{.}
+			\end{split}</md>
 			To achieve the reduction above,
 			you can use the following sequence of operations
 			(following <xref ref="procedure-row-red-concepts-reduce-to-rref" />).
@@ -600,170 +601,164 @@ respective owners.
 			<p>
 			Create the elementary matrix for each of the steps in our row reduction process,
 			in order:
-			<md>
-
-				<mrow>
-					E_1 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\text{,} \amp
-					E_2 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp -3 \amp 0 \amp 0 \\
-						0 \amp  1 \amp 0 \amp 0 \\
-						0 \amp  0 \amp 1 \amp 0 \\
-						1 \amp  0 \amp 0 \amp 1
-					\end{abmatrix}
-					\text{,} \amp
-					E_3 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1 \\
-						0 \amp 0 \amp 1 \amp 0
-					\end{bmatrix}
-					\text{,}
-				</mrow>
-
-				<mrow>
-					E_4 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 7 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\text{,} \amp
-					E_5 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp  0 \amp 0 \\
-						0 \amp 1 \amp -4 \amp 0 \\
-						0 \amp 0 \amp  1 \amp 0 \\
-						1 \amp 0 \amp  0 \amp 1
-					\end{abmatrix}
-					\text{,} \amp
-					E_6 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 1
-					\end{bmatrix}
-					\text{,}
-				</mrow>
-
-				<mrow>
-					E_7 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp 12 \\
-						0 \amp 1 \amp 0 \amp  0 \\
-						0 \amp 0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp 0 \amp  1
-					\end{abmatrix}
-					\text{,} \amp
-					E_8 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp  0 \\
-						0 \amp 1 \amp 0 \amp -6 \\
-						0 \amp 0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp 0 \amp  1
-					\end{abmatrix}
-					\text{,} \amp
-					E_9 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 2 \\
-						0 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\text{.}
-				</mrow>
-
-			</md>
+			<md alignment="gather"><mrow>
+				E_1 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,}
+				\quad
+				E_2 =
+				\begin{abmatrix}{rrrr}
+					1 \amp -3 \amp 0 \amp 0 \\
+					0 \amp  1 \amp 0 \amp 0 \\
+					0 \amp  0 \amp 1 \amp 0 \\
+					1 \amp  0 \amp 0 \amp 1
+				\end{abmatrix}
+				\text{,}
+			</mrow><mrow>
+				E_3 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \\
+					0 \amp 0 \amp 1 \amp 0
+				\end{bmatrix}
+				\text{,}
+				\quad
+				E_4 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 7 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,}
+			</mrow><mrow>
+				E_5 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 1 \amp -4 \amp 0 \\
+					0 \amp 0 \amp  1 \amp 0 \\
+					1 \amp 0 \amp  0 \amp 1
+				\end{abmatrix}
+				\text{,}
+				\quad
+				E_6 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 1
+				\end{bmatrix}
+				\text{,}
+			</mrow><mrow>
+				E_7 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp 12 \\
+					0 \amp 1 \amp 0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp 0 \amp  1
+				\end{abmatrix}
+				\text{,}
+				\quad
+				E_8 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp -6 \\
+					0 \amp 0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp 0 \amp  1
+				\end{abmatrix}
+				\text{,}
+			</mrow><mrow>
+				E_9 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 2 \\
+					0 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{.}
+			</mrow></md>
 			These elementary matrices,
 			in order from right to left,
 			generate the inverse matrix:
 			<md> \inv{A} = E_9 E_8 E_7 E_6 E_5 E_4 E_3 E_2 E_1 </md>,
-			<md>
-
-				<mrow>
-					\begin{abmatrix}{rrrr}
-						 20 \amp -3 \amp 12 \amp  19 \\
-						-10 \amp  1 \amp -6 \amp -10 \\
-						  3 \amp  0 \amp  2 \amp   3 \\
-						  1 \amp  0 \amp  1 \amp   1
-					\end{abmatrix}
-					=
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 2 \\
-						0 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\amp
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp  0 \\
-						0 \amp 1 \amp 0 \amp -6 \\
-						0 \amp 0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp 0 \amp  1
-					\end{abmatrix}
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp 12 \\
-						0 \amp 1 \amp 0 \amp  0 \\
-						0 \amp 0 \amp 1 \amp  0 \\
-						0 \amp 0 \amp 0 \amp  1
-					\end{abmatrix}
-				</mrow>
-
-				<mrow>
-					\amp
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 1
-					\end{abmatrix}
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp  0 \amp 0 \\
-						0 \amp 1 \amp -4 \amp 0 \\
-						0 \amp 0 \amp  1 \amp 0 \\
-						1 \amp 0 \amp  0 \amp 1
-					\end{abmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 7 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-				</mrow>
-
-				<mrow>
-					\amp
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1 \\
-						0 \amp 0 \amp 1 \amp 0
-					\end{bmatrix}
-					\begin{abmatrix}{rrrr}
-						1 \amp -3 \amp 0 \amp 0 \\
-						0 \amp  1 \amp 0 \amp 0 \\
-						0 \amp  0 \amp 1 \amp 0 \\
-						1 \amp  0 \amp 0 \amp 1
-					\end{abmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-				</mrow>
-
-			</md>.
+			<md>\begin{split}
+				\begin{abmatrix}{rrrr}
+					 20 \amp -3 \amp 12 \amp  19 \\
+					-10 \amp  1 \amp -6 \amp -10 \\
+					  3 \amp  0 \amp  2 \amp   3 \\
+					  1 \amp  0 \amp  1 \amp   1
+				\end{abmatrix}
+				=
+				\amp
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 2 \\
+					0 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp -6 \\
+					0 \amp 0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp 0 \amp  1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp 12 \\
+					0 \amp 1 \amp 0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp  0 \\
+					0 \amp 0 \amp 0 \amp  1
+				\end{abmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 1 \amp -4 \amp 0 \\
+					0 \amp 0 \amp  1 \amp 0 \\
+					1 \amp 0 \amp  0 \amp 1
+				\end{abmatrix}
+				\begin{bmatrix}
+					1 \amp 0 \amp 7 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\\
+				\amp
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \\
+					0 \amp 0 \amp 1 \amp 0
+				\end{bmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp -3 \amp 0 \amp 0 \\
+					0 \amp  1 \amp 0 \amp 0 \\
+					0 \amp  0 \amp 1 \amp 0 \\
+					1 \amp  0 \amp 0 \amp 1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+			\end{split}</md>.
 			</p>
 
 			<p>
@@ -780,168 +775,162 @@ respective owners.
 				<li><m> R_1 - 12 R_4; R_2 + 6 R_4; R_3 - 2 R_4 </m></li>
 			</ol>
 			Therefore we have
-			<md>
-
-				<mrow>
-					\inv{E}_1 \amp =
-					\begin{abmatrix}{rrrr}
-						 1 \amp 0 \amp 0 \amp 0 \\
-						 0 \amp 1 \amp 0 \amp 0 \\
-						 0 \amp 0 \amp 1 \amp 0 \\
-						-1 \amp 0 \amp 0 \amp 1
-					\end{abmatrix}
-					\text{,} \amp
-					\inv{E}_2 \amp =
-					\begin{bmatrix}
-						1 \amp 3 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\text{,} \amp
-					\inv{E}_3 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1 \\
-						0 \amp 0 \amp 1 \amp 0
-					\end{bmatrix}
-					\text{,}
-				</mrow>
-
-				<mrow>
-					\inv{E}_4 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp -7 \amp 0 \\
-						0 \amp 1 \amp  0 \amp 0 \\
-						0 \amp 0 \amp  1 \amp 0 \\
-						0 \amp 0 \amp  0 \amp 1
-					\end{abmatrix}
-					\text{,} \amp
-					\inv{E}_5 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 4 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\text{,} \amp
-					\inv{E}_6 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp  0 \amp 0 \\
-						0 \amp 1 \amp  0 \amp 0 \\
-						0 \amp 0 \amp  1 \amp 0 \\
-						0 \amp 0 \amp -1 \amp 1
-					\end{abmatrix}
-					\text{,}
-				</mrow>
-
-				<mrow>
-					\inv{E}_7 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp -12 \\
-						0 \amp 1 \amp 0 \amp   0 \\
-						0 \amp 0 \amp 1 \amp   0 \\
-						0 \amp 0 \amp 0 \amp   1
-					\end{abmatrix}
-					\text{,} \amp
-					\inv{E}_8 \amp =
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 6 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\text{,} \amp
-					\inv{E}_9 \amp =
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp  0 \\
-						0 \amp 1 \amp 0 \amp  0 \\
-						0 \amp 0 \amp 1 \amp -2 \\
-						0 \amp 0 \amp 0 \amp  1
-					\end{abmatrix}
-					\text{.}
-				</mrow>
-
-			</md>
+			<md alignment="gather"><mrow>
+				\inv{E}_1 =
+				\begin{abmatrix}{rrrr}
+					 1 \amp 0 \amp 0 \amp 0 \\
+					 0 \amp 1 \amp 0 \amp 0 \\
+					 0 \amp 0 \amp 1 \amp 0 \\
+					-1 \amp 0 \amp 0 \amp 1
+				\end{abmatrix}
+				\text{,}
+				\quad
+				\inv{E}_2 =
+				\begin{bmatrix}
+					1 \amp 3 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,}
+			</mrow><mrow>
+				\inv{E}_3 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \\
+					0 \amp 0 \amp 1 \amp 0
+				\end{bmatrix}
+				\text{,}
+				\quad
+				\inv{E}_4 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp -7 \amp 0 \\
+					0 \amp 1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp  1 \amp 0 \\
+					0 \amp 0 \amp  0 \amp 1
+				\end{abmatrix}
+				\text{,}
+			</mrow><mrow>
+				\inv{E}_5 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 4 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,}
+				\quad
+				\inv{E}_6 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp  1 \amp 0 \\
+					0 \amp 0 \amp -1 \amp 1
+				\end{abmatrix}
+				\text{,}
+			</mrow><mrow>
+				\inv{E}_7 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp -12 \\
+					0 \amp 1 \amp 0 \amp   0 \\
+					0 \amp 0 \amp 1 \amp   0 \\
+					0 \amp 0 \amp 0 \amp   1
+				\end{abmatrix}
+				\text{,}
+				\quad
+				\inv{E}_8 =
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 6 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\text{,}
+			</mrow><mrow>
+				\inv{E}_9 =
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp -2 \\
+					0 \amp 0 \amp 0 \amp  1
+				\end{abmatrix}
+				\text{.}
+			</mrow></md>
 			and can decompose:
 			<md> A = \inv{E}_1 \inv{E}_3 \inv{E}_3 \inv{E}_4 \inv{E}_5 \inv{E}_6 \inv{E}_7 \inv{E}_8 \inv{E}_9 </md>,
-			<md>
-
-				<mrow>
-					\begin{abmatrix}{rrrr}
-						 1 \amp  3 \amp  5 \amp -4 \\
-						 0 \amp  1 \amp  4 \amp -2 \\
-						 0 \amp  0 \amp -1 \amp  3 \\
-						-1 \amp -3 \amp -4 \amp  2
-					\end{abmatrix}
-					=
-					\begin{abmatrix}{rrrr}
-						 1 \amp 0 \amp 0 \amp 0 \\
-						 0 \amp 1 \amp 0 \amp 0 \\
-						 0 \amp 0 \amp 1 \amp 0 \\
-						-1 \amp 0 \amp 0 \amp 1
-					\end{abmatrix}
-					\amp
-					\begin{bmatrix}
-						1 \amp 3 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1 \\
-						0 \amp 0 \amp 1 \amp 0
-					\end{bmatrix}
-				</mrow>
-
-				<mrow>
-					\amp
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp -7 \amp 0 \\
-						0 \amp 1 \amp  0 \amp 0 \\
-						0 \amp 0 \amp  1 \amp 0 \\
-						0 \amp 0 \amp  0 \amp 1
-					\end{abmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 4 \amp 0 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						1 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp  0 \amp 0 \\
-						0 \amp 1 \amp  0 \amp 0 \\
-						0 \amp 0 \amp  1 \amp 0 \\
-						0 \amp 0 \amp -1 \amp 1
-					\end{abmatrix}
-				</mrow>
-
-				<mrow>
-					\amp
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp -12 \\
-						0 \amp 1 \amp 0 \amp   0 \\
-						0 \amp 0 \amp 1 \amp   0 \\
-						0 \amp 0 \amp 0 \amp   1
-					\end{abmatrix}
-					\begin{bmatrix}
-						1 \amp 0 \amp 0 \amp 0 \\
-						0 \amp 1 \amp 0 \amp 6 \\
-						0 \amp 0 \amp 1 \amp 0 \\
-						0 \amp 0 \amp 0 \amp 1
-					\end{bmatrix}
-					\begin{abmatrix}{rrrr}
-						1 \amp 0 \amp 0 \amp  0 \\
-						0 \amp 1 \amp 0 \amp  0 \\
-						0 \amp 0 \amp 1 \amp -2 \\
-						0 \amp 0 \amp 0 \amp  1
-					\end{abmatrix}
-				</mrow>
-
-			</md>.
+			<md>\begin{split}
+				\begin{abmatrix}{rrrr}
+					 1 \amp  3 \amp  5 \amp -4 \\
+					 0 \amp  1 \amp  4 \amp -2 \\
+					 0 \amp  0 \amp -1 \amp  3 \\
+					-1 \amp -3 \amp -4 \amp  2
+				\end{abmatrix}
+				=
+				\amp
+				\begin{abmatrix}{rrrr}
+					 1 \amp 0 \amp 0 \amp 0 \\
+					 0 \amp 1 \amp 0 \amp 0 \\
+					 0 \amp 0 \amp 1 \amp 0 \\
+					-1 \amp 0 \amp 0 \amp 1
+				\end{abmatrix}
+				\begin{bmatrix}
+					1 \amp 3 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\\
+				\amp
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1 \\
+					0 \amp 0 \amp 1 \amp 0
+				\end{bmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp -7 \amp 0 \\
+					0 \amp 1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp  1 \amp 0 \\
+					0 \amp 0 \amp  0 \amp 1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 4 \amp 0 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					1 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp  0 \amp 0 \\
+					0 \amp 1 \amp  0 \amp 0 \\
+					0 \amp 0 \amp  1 \amp 0 \\
+					0 \amp 0 \amp -1 \amp 1
+				\end{abmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp -12 \\
+					0 \amp 1 \amp 0 \amp   0 \\
+					0 \amp 0 \amp 1 \amp   0 \\
+					0 \amp 0 \amp 0 \amp   1
+				\end{abmatrix}
+				\begin{bmatrix}
+					1 \amp 0 \amp 0 \amp 0 \\
+					0 \amp 1 \amp 0 \amp 6 \\
+					0 \amp 0 \amp 1 \amp 0 \\
+					0 \amp 0 \amp 0 \amp 1
+				\end{bmatrix}
+				\\
+				\amp
+				\begin{abmatrix}{rrrr}
+					1 \amp 0 \amp 0 \amp  0 \\
+					0 \amp 1 \amp 0 \amp  0 \\
+					0 \amp 0 \amp 1 \amp -2 \\
+					0 \amp 0 \amp 0 \amp  1
+				\end{abmatrix}
+			\end{split}</md>.
 			</p>
 
 			<p>
