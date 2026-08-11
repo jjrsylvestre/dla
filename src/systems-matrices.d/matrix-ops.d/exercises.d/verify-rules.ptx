@@ -13,7 +13,7 @@ PreTeXt source code. All trademarks™ are the registered® marks of their
 respective owners.
 *********************************************************************-->
 
-<exercisegroup cols="2" xml:id="exercisegroup-matrix-ops-verify-rules">
+<exercisegroup xml:id="exercisegroup-matrix-ops-verify-rules">
 <title>Verifying matrix algebra rules</title>
 
 <introduction>
@@ -27,34 +27,75 @@ respective owners.
 	from <xref ref="proposition-matrix-ops-algebra-rules" />
 	as templates/guides to carrying out your own verifications.
 	You may also find your answers to
-	<xref first="exercise-matrix-ops-entry-patterns-add" last="exercise-matrix-ops-entry-patterns-power">Exercises</xref> helpful.
+	<xref ref="exercisegroup-matrix-ops-entry-patterns" text="type-local">Exercises</xref> helpful.
 	</p>
 
-	<p> <alert>Recall.</alert> The symbol <m>\zerovec</m> represents a zero matrix of appropriate dimensions, not the scalar <m>0</m>. </p>
+	<p>
+	<alert>Recall.</alert>
+	The bold symbol <m>\zerovec</m> represents a zero matrix of appropriate dimensions, not the scalar <m>0</m>.
+	</p>
 
 </introduction>
 
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-zero-add"                   >Rule</xref>. </p></exercise>
-<exercise><p> Rule: <m> A + A = 2 A</m> for every matrix <m>A</m>.                                      </p></exercise>
-<exercise><p> Rule: <m> 1 A = A    </m> for every matrix <m>A</m>.                                      </p></exercise>
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-distrib-scalar-mul-over-add">Rule</xref>. </p></exercise>
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-zero-mult-left"             >Rule</xref>. </p></exercise>
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-basic-left-distrib"         >Rule</xref>. </p></exercise>
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-zero-add">Rule</xref></title>
+	<p><m> A + \zerovec = A </m>.</p>
+</exercise>
 
-<exercise xml:id="exercise-matrix-ops-verify-rules-zero-row-product"><p>
-	Rule:
-	if matrix <m>A</m> has a row that is all zeros,
+<exercise>
+	<title>Rule</title>
+	<p><m> A + A = 2 A </m>.</p>
+</exercise>
+
+<exercise>
+	<title>Rule</title>
+	<p><m> 1 A = A </m>.</p>
+</exercise>
+
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-distrib-scalar-mul-over-add">Rule</xref></title>
+	<p><m> k (A + B) = k A + k B </m>.</p>
+</exercise>
+
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-zero-mult-left">Rule</xref></title>
+	<p><m> \zerovec B = \zerovec </m>.</p>
+</exercise>
+
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-basic-left-distrib">Rule</xref></title>
+	<p><m> A (B + C) = A B + A C </m>.</p>
+</exercise>
+
+<exercise xml:id="exercise-matrix-ops-verify-rules-zero-row-product">
+	<title>Rule</title>
+	<p>
+	If matrix <m>A</m> has a row that is all zeros,
 	then so does the product <m> A B </m> for every matrix <m>B</m> for which the product is defined.
-</p></exercise>
+	</p>
+</exercise>
 
-<exercise xml:id="exercise-matrix-ops-verify-rules-zero-col-product"><p>
-	Rule:
-	if matrix <m>B</m> has a column that is all zeros,
+<exercise xml:id="exercise-matrix-ops-verify-rules-zero-col-product">
+	<title>Rule</title>
+	<p>
+	If matrix <m>B</m> has a column that is all zeros,
 	then so does the product <m> A B </m> for every matrix <m>A</m> for which the product is defined.
-</p></exercise>
+	</p>
+</exercise>
 
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-transpose-transpose"        >Rule</xref>. </p></exercise>
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-transpose-add"              >Rule</xref>. </p></exercise>
-<exercise><p> <xref ref="proposition-matrix-ops-algebra-rules-transpose-smul"             >Rule</xref>. </p></exercise>
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-transpose-transpose">Rule</xref></title>
+	<p><m> \utrans{(\utrans{A})} = A </m>.</p>
+</exercise>
+
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-transpose-add">Rule</xref></title>
+	<p><m> \utrans{(A + B)} = \utrans{A} + \utrans{B} </m>.</p>
+</exercise>
+
+<exercise>
+	<title><xref ref="proposition-matrix-ops-algebra-rules-transpose-smul">Rule</xref></title>
+	<p><m> \utrans{(k A)} = k \utrans{A} </m>.</p>
+</exercise>
 
 </exercisegroup>
