@@ -37,25 +37,29 @@ respective owners.
 	<title> Orthogonality versus vector operations </title>
 
 	<statement><p>
-		The following apply to vectors in <m>\R^n</m>.
+		The following apply to vectors in <m> \R^n </m>.
 		<ol>
+
 			<li xml:id="proposition-orthog-props-orthog-to-parallel">
-				If <m>\uvec{u}</m> is orthogonal to <m>\uvec{v}</m>, then it is orthogonal to every scalar multiple of <m>\uvec{v}</m>.
+				If <m> \uvec{u} </m> is orthogonal to <m> \uvec{v} </m>, then it is orthogonal to every scalar multiple of <m> \uvec{v} </m>.
 			</li>
+
 			<li>
-				If <m>\uvec{u}</m> is orthogonal to both <m>\uvec{v}</m> and <m>\uvec{w}</m>,
-				then it is also orthogonal to <m>\uvec{v}+\uvec{w}</m>.
+				If <m> \uvec{u} </m> is orthogonal to both <m> \uvec{v} </m> and <m> \uvec{w} </m>,
+				then it is also orthogonal to <m> \uvec{v}+\uvec{w} </m>.
 			</li>
+
 			<li>
-				If <m>\uvec{u}</m> is orthogonal to each of <m>\uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m</m>,
-				then <m>\uvec{u}</m> is also orthogonal to every linear combination of those vectors.
+				If <m> \uvec{u} </m> is orthogonal to each of <m> \uvec{v}_1,\uvec{v}_2,\dotsc,\uvec{v}_m </m>,
+				then <m> \uvec{u} </m> is also orthogonal to every linear combination of those vectors.
 			</li>
+
 		</ol>
 	</p></statement>
 
 	<proof><p>
 		These properties of orthogonal vectors follow directly from the definition of orthogonality
-		(dot product equals <m>0</m>)
+		(dot product equals <m> 0 </m>)
 		and from the algebraic properties of the dot product listed in <xref ref="proposition-vector-geom-dot-prod-algebra" />,
 		so we will omit detailed proofs.
 	</p></proof>
@@ -67,20 +71,20 @@ respective owners.
 	<title> Properties of orthogonal projection </title>
 
 	<statement><p>
-		Suppose <m>\uvec{u}</m>, <m>\uvec{v}</m>, and <m>\uvec{a}</m> are vectors in <m>\R^n</m>, with <m>\uvec{a}\neq\zerovec</m>, and <m>k</m> is a scalar.
+		Suppose <m> \uvec{u} </m>, <m> \uvec{v} </m>, and <m> \uvec{a} </m> are vectors in <m> \R^n </m>, with <m> \uvec{a}\neq\zerovec </m>, and <m> k </m> is a scalar.
 		The the following hold.
 		<ol cols="2">
-			<li> <m>\proj_{\uvec{a}} \zerovec = \zerovec</m>. </li>
-			<li> <m>\proj_{\uvec{a}} (k\uvec{u}) = k (\proj_{\uvec{a}} \uvec{u})</m>. </li>
-			<li> <m>\proj_{\uvec{a}} (\uvec{u} + \uvec{v}) = \proj_{\uvec{a}} \uvec{u} + \proj_{\uvec{a}} \uvec{v}</m>. </li>
+			<li> <m> \proj_{\uvec{a}} \zerovec = \zerovec </m>. </li>
+			<li> <m> \proj_{\uvec{a}} (k\uvec{u}) = k (\proj_{\uvec{a}} \uvec{u}) </m>. </li>
+			<li> <m> \proj_{\uvec{a}} (\uvec{u} + \uvec{v}) = \proj_{\uvec{a}} \uvec{u} + \proj_{\uvec{a}} \uvec{v} </m>. </li>
 			<li xml:id="proposition-orthog-proj-props-parallel-basis-vector">
-				For nonzero scalar <m>k</m>, <m>\proj_{(k\uvec{a})} \uvec{u} = \proj_{\uvec{a}} \uvec{u}</m>.
+				For nonzero scalar <m> k </m>, <m> \proj_{(k\uvec{a})} \uvec{u} = \proj_{\uvec{a}} \uvec{u} </m>.
 			</li>
 			<li xml:id="proposition-orthog-proj-props-parallel-proj-vector">
-				If <m>\uvec{u}</m> is parallel to <m>\uvec{a}</m>, then <m>\proj_{\uvec{a}} \uvec{u} = \uvec{u}</m>.
+				If <m> \uvec{u} </m> is parallel to <m> \uvec{a} </m>, then <m> \proj_{\uvec{a}} \uvec{u} = \uvec{u} </m>.
 			</li>
-			<li> If <m>\uvec{u}</m> is orthogonal to <m>\uvec{a}</m>, then <m>\proj_{\uvec{a}} \uvec{u} = \zerovec</m>. </li>
-			<li> <m>\displaystyle \norm{\proj_{\uvec{a}} \uvec{u}} = \frac{\abs{\udotprod{u}{a}}}{\unorm{a}}</m>. </li>
+			<li> If <m> \uvec{u} </m> is orthogonal to <m> \uvec{a} </m>, then <m> \proj_{\uvec{a}} \uvec{u} = \zerovec </m>. </li>
+			<li> <m> \displaystyle \norm{\proj_{\uvec{a}} \uvec{u}} = \frac{\abs{\udotprod{u}{a}}}{\unorm{a}} </m>. </li>
 		</ol>
 	</p></statement>
 
@@ -98,21 +102,17 @@ respective owners.
 			<mrow>
 				\proj_{(k\uvec{a})} \uvec{u}
 				\amp = \frac{\dotprod{\uvec{u}}{(k\uvec{a})}}{\norm{k\uvec{a}}^2} \; (k\uvec{a})
-			</mrow><mrow>
-				\amp = \frac{k(\udotprod{u}{a})}{\abs{k}^2\norm{\uvec{a}}^2} \; (k\uvec{a})
-			</mrow><mrow>
-				\amp = \frac{\cancel{k^2}(\udotprod{u}{a})}{\cancel{k^2}\norm{\uvec{a}}^2} \; \uvec{a}
-			</mrow><mrow>
-				\amp = \frac{\udotprod{u}{a}}{\norm{\uvec{a}}^2} \; \uvec{a}
-			</mrow><mrow>
-				\amp = \proj_{\uvec{a}} \uvec{u}
 			</mrow>
-		</md>.
+			<mrow> \amp = \frac{k(\udotprod{u}{a})}{\abs{k}^2\norm{\uvec{a}}^2} \; (k\uvec{a})            </mrow>
+			<mrow> \amp = \frac{\cancel{k^2}(\udotprod{u}{a})}{\cancel{k^2}\norm{\uvec{a}}^2} \; \uvec{a} </mrow>
+			<mrow> \amp = \frac{\udotprod{u}{a}}{\norm{\uvec{a}}^2} \; \uvec{a}                           </mrow>
+			<mrow> \amp = \proj_{\uvec{a}} \uvec{u} \text{.}                                              </mrow>
+		</md>
 	</p></proof>
 
 	<proof><title>Proof of <xref ref="proposition-orthog-proj-props-parallel-proj-vector">Rule</xref></title><p>
-		If <m>\uvec{u}</m> is parallel to <m>\uvec{a}</m>, then it is a scalar multiple of <m>\uvec{a}</m>:
-		<m>\uvec{u} = k\uvec{a}</m> for some scalar <m>k</m>.
+		If <m> \uvec{u} </m> is parallel to <m> \uvec{a} </m>, then it is a scalar multiple of <m> \uvec{a} </m>:
+		<m> \uvec{u} = k\uvec{a} </m> for some scalar <m> k </m>.
 		Then, using
 		<xref ref="proposition-vector-geom-dot-prod-algebra-scalar-left">Rule</xref>
 		and
@@ -124,18 +124,13 @@ respective owners.
 			<mrow>
 				\proj_{\uvec{a}} \uvec{u}
 				\amp = \frac{\dotprod{\uvec{u}}{\uvec{a}}}{\unorm{a}^2} \; \uvec{a}
-			</mrow><mrow>
-				\amp = \frac{\dotprod{(k\uvec{a})}{\uvec{a}}}{\unorm{a}^2} \; \uvec{a}
-			</mrow><mrow>
-				\amp = \frac{k(\dotprod{\uvec{a}}{\uvec{a}})}{\unorm{a}^2} \; \uvec{a}
-			</mrow><mrow>
-				\amp = k\frac{\unorm{a}^2}{\unorm{a}^2} \; \uvec{a}
-			</mrow><mrow>
-				\amp = k \uvec{a}
-			</mrow><mrow>
-				\amp = \uvec{u}
 			</mrow>
-		</md>.
+			<mrow> \amp = \frac{\dotprod{(k\uvec{a})}{\uvec{a}}}{\unorm{a}^2} \; \uvec{a} </mrow>
+			<mrow> \amp = \frac{k(\dotprod{\uvec{a}}{\uvec{a}})}{\unorm{a}^2} \; \uvec{a} </mrow>
+			<mrow> \amp = k\frac{\unorm{a}^2}{\unorm{a}^2} \; \uvec{a}                    </mrow>
+			<mrow> \amp = k \uvec{a}                                                      </mrow>
+			<mrow> \amp = \uvec{u} \text{.}                                               </mrow>
+		</md>
 	</p></proof>
 
 	<proof><title>Proofs of other rules</title><p>
@@ -161,11 +156,11 @@ respective owners.
 	<title> Uniqueness of orthogonal decomposition </title>
 
 	<statement><p>
-		Suppose <m>\uvec{a}</m> is a nonzero vector in <m>\R^n</m>.
-		Given another vector <m>\uvec{u}</m> in <m>\R^n</m>,
-		there is one unique way to decompose <m>\uvec{u}</m> into a sum
+		Suppose <m> \uvec{a} </m> is a nonzero vector in <m> \R^n </m>.
+		Given another vector <m> \uvec{u} </m> in <m> \R^n </m>,
+		there is one unique way to decompose <m> \uvec{u} </m> into a sum
 		<md> \uvec{u} = \uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}} </md>,
-		where <m>\uvec{p}_{\uvec{a}}</m> is parallel to <m>\uvec{a}</m> and <m>\uvec{n}_{\uvec{a}}</m> is normal (that is, orthogonal) to <m>\uvec{a}</m>.
+		where <m> \uvec{p}_{\uvec{a}} </m> is parallel to <m> \uvec{a} </m> and <m> \uvec{n}_{\uvec{a}} </m> is normal (that is, orthogonal) to <m> \uvec{a} </m>.
 	</p></statement>
 
 	<proof>
@@ -177,15 +172,15 @@ respective owners.
 			\uvec{u} \amp= \uvec{p}_{\uvec{a}} + \uvec{n}_{\uvec{a}}, \amp
 			\uvec{u} \amp= \uvec{p}_{\uvec{a}}' + \uvec{n}_{\uvec{a}}',
 		</mrow></md>
-		where both <m>\uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}'</m> are parallel to <m>\uvec{a}</m> and both <m>\uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}'</m> are orthogonal to <m>\uvec{a}</m>.
-		Then each of <m>\uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}'</m> are also orthogonal to each of <m>\uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}'</m>
+		where both <m> \uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}' </m> are parallel to <m> \uvec{a} </m> and both <m> \uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}' </m> are orthogonal to <m> \uvec{a} </m>.
+		Then each of <m> \uvec{n}_{\uvec{a}},\uvec{n}_{\uvec{a}}' </m> are also orthogonal to each of <m> \uvec{p}_{\uvec{a}},\uvec{p}_{\uvec{a}}' </m>
 		(<xref ref="proposition-orthog-props-orthog-to-parallel">Rule</xref>
 		of
 		<xref ref="proposition-orthog-props" />).
 		</p>
 
 		<p>
-		We can use the two decompositions to obtain two expressions for each of <m>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}</m> and <m>\dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}}</m>:
+		We can use the two decompositions to obtain two expressions for each of <m> \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}} </m> and <m> \dotprod{\uvec{p}_{\uvec{a}}'}{\uvec{u}} </m>:
 		<md>
 			<mrow>
 				\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
@@ -224,12 +219,12 @@ respective owners.
 		But these are also the beginning quantities of the top two calculations,
 		so those two calculations must have the same result,
 		<md> \norm{\uvec{p}_{\uvec{a}}}^2 = \norm{\uvec{p}_{\uvec{a}}'}^2 </md>.
-		Therefore, we can conclude that <m>\uvec{p}_{\uvec{a}}</m> and <m>\uvec{p}_{\uvec{a}}'</m> are the same length.
-		Since these two vectors are also parallel (because they are both parallel to <m>\uvec{a}</m>),
+		Therefore, we can conclude that <m> \uvec{p}_{\uvec{a}} </m> and <m> \uvec{p}_{\uvec{a}}' </m> are the same length.
+		Since these two vectors are also parallel (because they are both parallel to <m> \uvec{a} </m>),
 		we must have that either they are the same vector or are negatives of each other.
 		However, if they were negatives of each other
-		(so that <m>\uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}}</m>),
-		tracing through the two calculations of <m>\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}</m> above would tell us that
+		(so that <m> \uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}} </m>),
+		tracing through the two calculations of <m> \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}} </m> above would tell us that
 		<md>
 			\norm{\uvec{p}_{\uvec{a}}}^2
 			= \dotprod{\uvec{p}_{\uvec{a}}}{\uvec{u}}
@@ -238,10 +233,10 @@ respective owners.
 			= -(\dotprod{\uvec{p}_{\uvec{a}}}{\uvec{p}_{\uvec{a}}})
 			= -\norm{\uvec{p}_{\uvec{a}}}^2
 		</md>,
-		which is only possible if <m>\norm{\uvec{p}_{\uvec{a}}} = 0</m>,
-		in which case <m>\uvec{p}_{\uvec{a}} = \zerovec</m>,
-		and then also <m>\uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}} = \zerovec</m>.
-		Thus, in every case we have <m>\uvec{p}_{\uvec{a}}' = \uvec{p}_{\uvec{a}}</m>.
+		which is only possible if <m> \norm{\uvec{p}_{\uvec{a}}} = 0 </m>,
+		in which case <m> \uvec{p}_{\uvec{a}} = \zerovec </m>,
+		and then also <m> \uvec{p}_{\uvec{a}}' = -\uvec{p}_{\uvec{a}} = \zerovec </m>.
+		Thus, in every case we have <m> \uvec{p}_{\uvec{a}}' = \uvec{p}_{\uvec{a}} </m>.
 		But then
 		<md> \uvec{n}_{\uvec{a}}' = \uvec{u} - \uvec{p}_{\uvec{a}}' = \uvec{u} - \uvec{p}_{\uvec{a}} = \uvec{n}_{\uvec{a}} </md>.
 		So the two decompositions we started with are actually the same decomposition,
@@ -254,9 +249,9 @@ respective owners.
 
 <remark xml:id="remark-orthog-theory-decomp"><p>
 	Clearly, in this decomposition we have
-	<m>\uvec{p}_{\uvec{a}} = \proj_{\uvec{a}} \uvec{u}</m>
+	<m> \uvec{p}_{\uvec{a}} = \proj_{\uvec{a}} \uvec{u} </m>
 	and
-	<m>\uvec{n}_{\uvec{a}} = \uvec{u} - \proj_{\uvec{a}} \uvec{u}</m>.
+	<m> \uvec{n}_{\uvec{a}} = \uvec{u} - \proj_{\uvec{a}} \uvec{u} </m>.
 </p></remark>
 
 </subsection>
@@ -266,24 +261,36 @@ respective owners.
 
 <p> Finally, we record a few properties of the cross product. </p>
 
-<aside><title>Remember</title><p> The cross product is only defined for vectors in <m>\R^3</m>. </p></aside>
+<aside><title>Remember</title><p> The cross product is only defined for vectors in <m> \R^3 </m>. </p></aside>
 
 <proposition xml:id="proposition-orthog-cross-prod-algebra">
 
 	<statement><p>
-		Suppose <m>\uvec{u}</m>, <m>\uvec{v}</m>, and <m>\uvec{w}</m> are vectors in <m>\R^3</m>, and <m>k</m> is a scalar. Then the following hold.
+		Suppose <m> \uvec{u} </m>, <m> \uvec{v} </m>, and <m> \uvec{w} </m> are vectors in <m> \R^3 </m>, and <m> k </m> is a scalar. Then the following hold.
 		<ol cols="2">
-			<li> <m>\dotprod{\uvec{u}}{(\ucrossprod{u}{v})} = 0</m>. </li>
-			<li> <m>\dotprod{\uvec{v}}{(\ucrossprod{u}{v})} = 0</m>. </li>
-			<li> <m>\crossprod{\uvec{u}}{\zerovec} = \zerovec</m>. </li>
-			<li> <m>\crossprod{\zerovec}{\uvec{v}} = \zerovec</m>. </li>
-			<li> <m>\ucrossprod{v}{u} = -\ucrossprod{u}{v}</m>. </li>
-			<li> <m>\crossprod{(k\uvec{u})}{\uvec{v}} = k (\ucrossprod{u}{v})</m>. </li>
-			<li> <m>\crossprod{\uvec{u}}{(k\uvec{v})} = k (\ucrossprod{u}{v})</m>. </li>
-			<li> <m>\crossprod{(\uvec{u}+\uvec{v})}{\uvec{w}} = \ucrossprod{u}{w} + \ucrossprod{v}{w}</m>. </li>
-			<li> <m>\crossprod{\uvec{u}}{(\uvec{v}+\uvec{w})} = \ucrossprod{u}{v} + \ucrossprod{u}{w}</m>. </li>
-			<li> <m>\ucrossprod{u}{u} = \zerovec</m>. </li>
-			<li> If <m>\uvec{u}</m> and <m>\uvec{v}</m> are parallel, then <m>\ucrossprod{u}{v} = \zerovec</m>. </li>
+
+			<li><m> \dotprod{\uvec{u}}{(\ucrossprod{u}{v})} = 0 </m>.</li>
+
+			<li><m> \dotprod{\uvec{v}}{(\ucrossprod{u}{v})} = 0 </m>.</li>
+
+			<li><m> \crossprod{\uvec{u}}{\zerovec} = \zerovec </m>.</li>
+
+			<li><m> \crossprod{\zerovec}{\uvec{v}} = \zerovec </m>.</li>
+
+			<li><m> \ucrossprod{v}{u} = -\ucrossprod{u}{v} </m>.</li>
+
+			<li><m> \crossprod{(k\uvec{u})}{\uvec{v}} = k (\ucrossprod{u}{v}) </m>.</li>
+
+			<li><m> \crossprod{\uvec{u}}{(k\uvec{v})} = k (\ucrossprod{u}{v}) </m>.</li>
+
+			<li><m> \crossprod{(\uvec{u}+\uvec{v})}{\uvec{w}} = \ucrossprod{u}{w} + \ucrossprod{v}{w} </m>.</li>
+
+			<li><m> \crossprod{\uvec{u}}{(\uvec{v}+\uvec{w})} = \ucrossprod{u}{v} + \ucrossprod{u}{w} </m>.</li>
+
+			<li><m> \ucrossprod{u}{u} = \zerovec </m>.</li>
+
+			<li>If <m> \uvec{u} </m> and <m> \uvec{v} </m> are parallel, then <m> \ucrossprod{u}{v} = \zerovec </m>.</li>
+
 		</ol>
 	</p></statement>
 
