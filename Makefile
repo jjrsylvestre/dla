@@ -12,7 +12,7 @@ BUILDDIR=${XDG_RUNTIME_DIR}/pretext/DLA
 #PRETEXT=/opt/pretext/pretext/pretext
 #PRETEXT=./pretext/pretext/pretext
 PRETEXTDIR=./pretext
-ROOT_XMLID=discover-linear-algebra-book
+ROOT_XMLID=book-discover-linear-algebra
 REMOTE_LOCATION=
 STIXFONTS_VERSION := $(shell cat stixfonts_version.txt)
 
