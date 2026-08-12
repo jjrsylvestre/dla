@@ -184,7 +184,8 @@ ${BUILDDIR}/html/%/images/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --directory ${BUILDDIR}/html/${*}/images \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
-	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/${*}/images
+	@mkdir -p ${BUILDDIR}/html/${*}/external
+	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/${*}/external/
 	@touch ${BUILDDIR}/html/${*}/images/.sentinel
 	@echo "...DONE"
 
