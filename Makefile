@@ -15,6 +15,7 @@ PRETEXTDIR=./pretext
 ROOT_XMLID=book-discover-linear-algebra
 REMOTE_LOCATION=
 STIXFONTS_VERSION := $(shell cat stixfonts_version.txt)
+LATEX_IMAGE_PATH=generated/latex-image
 
 HTML_TARGETS = two-semester-html one-semester-html
 HTML_CLEAN_TARGETS = two-semester-html-clean one-semester-html-clean
@@ -107,7 +108,7 @@ ptx-clean:
 
 ptx: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 $(HTML_TARGETS): %-html: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/.sentinel html-fonts
-$(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/images/.sentinel
+$(IMAGE_TARGETS): %-html-images: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html/%/${LATEX_IMAGE_PATH}/.sentinel
 $(IMAGE_PDF_TARGETS): %-html-image-pdfs: ${BUILDDIR}/ptx/publication-%-html.xml ${BUILDDIR}/html-image-pdfs/%/.sentinel
 $(LATEX_TARGETS): %-latex: ${BUILDDIR}/ptx/publication-%-latex.xml ${BUILDDIR}/latex/${ROOTDOCNAME}-%.tex
 
@@ -120,8 +121,8 @@ $(HTML_CLEAN_TARGETS): %-html-clean:
 	@-rm -f ${BUILDDIR}/html/${*}/lunr-pretext-search-index.js
 	@-rm -f ${BUILDDIR}/html/${*}/dla.css
 $(IMAGE_CLEAN_TARGETS): %-html-images-clean:
-	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinel*
-	@-rm -f ${BUILDDIR}/html/${*}/images/*.svg
+	@-rm -f ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}/.sentinel*
+	@-rm -f ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}/*.svg
 	@-rm -f ${BUILDDIR}/html-image-pdfs/${*}/*.pdf
 
 ${BUILDDIR}/ptx/publication-%.xml: publication/%.xml $(wildcard publication/include.d/*.xml)
@@ -169,10 +170,10 @@ ${BUILDDIR}/html/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "   make ${*}-html-images  (to build SVG images)"
 	@echo "   make html-serve               (to serve the output locally for previewing)"
 
-${BUILDDIR}/html/%/images/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
+${BUILDDIR}/html/%/${LATEX_IMAGE_PATH}/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output for version: ${*}..."
-	@-rm -f ${BUILDDIR}/html/${*}/images/.sentinel
-	@mkdir -p ${BUILDDIR}/html/${*}/images
+	@-rm -f ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}/.sentinel
+	@mkdir -p ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}
 	@echo "...calling pretext to generate images"
 	@echo "...(restricted to ${ROOT_XMLID})"
 	@${PRETEXTDIR}/pretext/pretext \
@@ -181,12 +182,12 @@ ${BUILDDIR}/html/%/images/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	  --format svg \
 	  --restrict ${ROOT_XMLID} \
 	  --publisher ${BUILDDIR}/ptx/publication-${*}-html.xml \
-	  --directory ${BUILDDIR}/html/${*}/images \
+	  --directory ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH} \
 	  ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "...copying institution logo"
 	@mkdir -p ${BUILDDIR}/html/${*}/external
 	@-cp images/${BRANDLOGO} ${BUILDDIR}/html/${*}/external/
-	@touch ${BUILDDIR}/html/${*}/images/.sentinel
+	@touch ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}/.sentinel
 	@echo "...DONE"
 
 ${BUILDDIR}/html-image-pdfs/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx

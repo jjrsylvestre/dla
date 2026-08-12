@@ -47,7 +47,7 @@ echo -n "Transfer images [Y/n] ? "
 read ans
 if [ "${ans}" != "Y" ]
 then
-	options+=("--exclude=images")
+	options+=("--exclude=generated")
 fi
 echo
 
