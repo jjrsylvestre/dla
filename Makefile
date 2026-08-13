@@ -163,7 +163,7 @@ ${BUILDDIR}/html/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 #	  ${BUILDDIR}/ptx/${ROOTDOCNAME}-html.ptx
 	@echo "...copying css style customizations"
 	@cp css/dla.css ${BUILDDIR}/html/${*}/
-	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/${*}/*.html
+# 	@sed -i -e 's/scale: [0-9]*,/scale: 100,/' ${BUILDDIR}/html/${*}/*.html
 	@touch ${BUILDDIR}/html/${*}/.sentinel
 	@echo "...DONE"
 	@echo "Now call:"
@@ -172,8 +172,8 @@ ${BUILDDIR}/html/%/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 
 ${BUILDDIR}/html/%/${LATEX_IMAGE_PATH}/.sentinel: ${BUILDDIR}/ptx/${ROOTDOCNAME}.ptx
 	@echo "Generating SVG files for HTML output for version: ${*}..."
-	@-rm -f ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}/.sentinel
 	@mkdir -p ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}
+	@-rm -f ${BUILDDIR}/html/${*}/${LATEX_IMAGE_PATH}/.sentinel
 	@echo "...calling pretext to generate images"
 	@echo "...(restricted to ${ROOT_XMLID})"
 	@${PRETEXTDIR}/pretext/pretext \
