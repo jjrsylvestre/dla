@@ -369,31 +369,49 @@ respective owners.
 
 </activity>
 
-<activity>
+<activity xml:id="activity-vector-geom-dot-prod-props">
 
-	<introduction>
+	<task xml:id="activity-vector-geom-dot-prod-props-from-formula">
 
-		<p>
-		Using the formula for the dot product for two-dimensional vectors,
-		verify that it has the following properties.
-		</p>
+		<introduction>
 
-		<aside><title>Remember</title><p>
-			When verifying an equality,
-			be sure to use proper LHS versus RHS procedure!
-		</p></aside>
+			<p>
+			Using the formula for the dot product for two-dimensional vectors,
+			verify that it has the following properties.
+			</p>
 
-	</introduction>
+			<aside><title>Remember</title><p>
+				When verifying an equality,
+				be sure to use proper LHS versus RHS procedure!
+			</p></aside>
 
-	<task><p> <m> \udotprod{v}{u} = \udotprod{u}{v} </m>. </p></task>
+		</introduction>
 
-	<task><p> <m> \dotprod{\uvec{u}}{(\uvec{v} + \uvec{w})} </m>. </p></task>
+		<task><p> <m> \udotprod{v}{u} = \udotprod{u}{v} </m> </p></task>
 
-	<task><p> <m> k (\udotprod{u}{v}) = \dotprod{(k \uvec{u})}{\uvec{v}} = \dotprod{\uvec{u}}{(k \uvec{v})} </m>. </p></task>
+		<task><p> <m> \dotprod{\uvec{u}}{(\uvec{v} + \uvec{w})} = \udotprod{u}{v} + \udotprod{u}{w} </m> </p></task>
 
-	<task><p> <m> \dotprod{\zerovec}{\uvec{v}} = 0 </m>. </p></task>
+		<task><p> <m> \dotprod{(k \uvec{u})}{\uvec{v}} = k (\udotprod{u}{v}) </m> </p></task>
 
-	<conclusion><p> Do you think all these properties will still be true for higher-dimensional vectors? </p></conclusion>
+		<task><p> <m> \dotprod{\zerovec}{\uvec{v}} = 0 </m> </p></task>
+
+		<conclusion><p> Do you think all these properties will still be true for higher-dimensional vectors? </p></conclusion>
+
+	</task>
+
+	<task xml:id="activity-vector-geom-dot-prod-props-extend">
+
+		<introduction><p>
+			Verify these additional properties of the dot product,
+			not from the formula but by combining already-verified properties from
+			<xref ref="activity-vector-geom-dot-prod-props-from-formula" text="type-local" />.
+		</p></introduction>
+
+		<task><p> <m> \dotprod{\uvec{u}}{(k \uvec{v})} = k (\udotprod{u}{v}) </m> </p></task>
+
+		<task><p> <m> \dotprod{\uvec{v}}{\zerovec} = 0 </m> </p></task>
+
+	</task>
 
 </activity>
 
